@@ -1,0 +1,143 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{Foundations and Intuitions}
+
+This note covers basic concepts as well as intuitions through
+the introduction of Large Language Models.
+
+\section{Fundamental Terms and Concepts}
+
+This section is an introduction to basic terms and concepts that
+will be used throughout my notes. That being said, more advanced
+concepts will be introduced in latter notes. Please feel free
+to skip over this section if you already know the bold words.
+
+\begin{definition}{}{}
+\textbf{Machine learning} is a subset of artificial intelligence
+that learns from data. \textbf{Deep learning} is a subset of
+machine learning that utilizes neural networks.
+\end{definition}
+
+The primary purpose of ML is to make AI ``smarter''. For instance,
+calculators are ``dumb'' in a sense that it requires an input and
+can only do certain tasks such as outputting calculated input.
+However, we can make it ``smarter'' by teaching data. We can clearly
+see that WolframAlpha is smarter than a normal scientific calculator.
+(Please note that this is just an analogy not an example because
+WolframAlpha is a knowledge engine, not a machine learning model.
+But I mean you get the point.)
+
+On the high level, you can think of an AI model as a giant function
+with billions of array of numbers, called parameters.
+
+\begin{definition}{}{}
+\textbf{Parameters} are the internal values in a model composed
+with \textbf{weights} and \textbf{biases} that are learned by the
+model. After the parameters are finalized with the training phase,
+the models generate \textbf{predictions} through the process called
+\textbf{inference}.
+\end{definition}
+
+Indeed, models are prediction machines based on the trained
+parameters. One fun fact here is that it generally costs way less
+to run inference than to train the model. More in-depth explanation
+will be available in latter notes where we discuss neural nets.
+
+\subsection{ML Paradigms}
+
+In ML, there are three primary learning paradigms: supervised
+learning, unsupervised learning, and reinforcement learning.
+First, what does it mean to ``learn'' and ``train''?
+
+\begin{definition}{}{}
+Machine learning utilizes the process of \textbf{training} to
+learn from data with algorithms. A common example would be
+dog and cat recognition from picture with \textbf{labeled} data.
+\end{definition}
+
+There are multiple ways in which models are trained. One of the
+most used method out of the three paradigms is supervised learning.
+
+\begin{definition}{}{}
+When a model is trained with \textbf{supervised learning},
+the model utilizes labeled dataset, or examples of input-output
+pairs, to learn.
+\end{definition}
+
+With supervised learning, there are two primary predictions that
+models make.
+
+\begin{definition}{}{}
+\textbf{Classification} is a prediction where the label of an
+input data is being predicted. \textbf{Regression} is utilized
+to predict continuous values.
+\end{definition}
+
+Classic examples of classification would be categorizing dog/cat
+pictures and email spam filtering. An example of regression would
+be the house price over years.
+
+The second most common learning paradigm is unsupervised learning.
+
+\begin{definition}{}{}
+\textbf{Unsupervised learning} is a process of training a model
+with unlabeled data.
+\end{definition}
+
+How is it possible for a model to learn without labeled data?
+One primary example algorithm is $k$-means clustering,
+where the model categorizes the data with relevance and similarity.
+To cluster high dimensional data, we often perform
+\textbf{dimensionality reduction} to reduce the dimension for
+clustering with the trust in \textbf{manifold hypothesis}.
+I won't go to deep into unsupervised learning and $k$-means clustering
+in this note, but you can check out this
+\href{https://www.naftaliharris.com/blog/visualizing-k-means-clustering/}
+{awesome visualization} of $k$-means clustering.
+
+The third most used learning paradigm is reinforcement learning.
+
+\begin{definition}{}{}
+\textbf{Reinforcement learning} is a process of training models
+through interactions with environment and reward system.
+\end{definition}
+
+Personally, reinforcement learning is more complicated compared to
+the two paradigms introduced above. On the high level, an agent will
+take an action in an environment, where it returns \textbf{rewards}
+based on the action. The agent will then update its policies with
+the provided reward. The process is continued until the ``adequate''
+amount is reached.
+
+Training a model can be understood as writing a best fit
+mathematical function to training datasets that captures the
+holistic trend. There are few terms that describe the function.
+
+\begin{definition}{}{}
+A model is \textbf{overfit} if it learns too much from the data
+that it does not effectively capture that holistic pattern but
+small \textbf{noises}. On the other hand, an \textbf{underfitting}
+model is formed when it does not learn effectively from the data.
+\end{definition}
+
+On the high level, our goal is to generalize and capture the general
+pattern and prevent overfitting or underfitting. We normally would
+stop training a model when it does not appear to improve, or is
+degrading, but how do we assess it?
+
+\begin{definition}{}{}
+To prevent overfitting and to evaluate the model during training,
+\textbf{validation} is utilized with \textbf{unseen data}.
+Unlike validation, \textbf{test sets} are used at the end of the
+training to evaluate the finalized model.
+\end{definition}
+
+We have discussed the fundamental terms and concepts that would
+repeatedly appear in the following notes. Now let's build our
+high level intuitions on ML with the introduction to LLMs!
+
+\end{document}
+
+

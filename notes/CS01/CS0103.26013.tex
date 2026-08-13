@@ -1,0 +1,173 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Introduction to Large Language Models}
+
+You probably have heard of Large Language Models (LLMs)
+and even have your favorite ones. You may have also noticed
+that if you and your friend ask a same question to a LLM,
+you get different response, or at least outputs that are
+not identical from word to word. That is because LLMs
+are generative models. As always, let's get started by
+getting used to few vocabs.
+
+\begin{definition}{}{}
+\textbf{Generative models} are models that predicts and
+estimates the values on a probability distribution.
+\end{definition}
+
+A generative model is also capable of taking in sequential
+data for a more context-rich prediction. An example of
+generative models would be an autoregressive model.
+
+\begin{definition}{}{}
+An \textbf{autoregressive model} is a generative model
+that predicts the future values in a sequence given the
+past input sequence.
+\end{definition}
+
+For instance, when given the sequence of integers
+$0, 1, 1, 2, 3, 5, 8$, an autoregressive model is likely
+to generate $13$ by using previously learned pattern and
+the input. In other words, it is simply a model that
+predicts the term $P(x_n \mid x_1, \ldots x_{n-1})$.
+
+\begin{definition}{}{}
+A \textbf{language model} is a model that utilize human
+languages and predicts the next tokens given the previous
+inputs.
+\end{definition}
+
+An interesting fact about such models is that they sometimes
+exhibit \textbf{emergent behavior} where they actually
+``learn'' and exhibit capabilities that were not explicitly
+present in the training data.
+
+\subsection{Tokenization}
+
+We know that at the end, language models are huge machines
+that predict the next numerical values. Then how do such
+models generate outputs in human language? This is where
+\textbf{tokenization} kicks in.
+
+\begin{definition}{}{}
+\textbf{Tokenization} is a process of breaking down inputs
+into smaller units called \textbf{tokens} which are often
+represented as numeric values.
+\end{definition}
+
+To tokenize inputs, a tool called \textbf{tokenizer} is
+used with \textbf{Byte Pair Encoding (BPE) algorithm}.
+Intuitively, what we could do is assign numbers to each
+alphabets like $1$ for $a$, $2$ for $b$, and so on. However,
+this would be very inefficient considering the frequency of
+each letter and scalability. Instead, what we can do with
+the BPE algorithm is create a byte-efficient list of
+merged chunks (that are not necessarily a single letter)
+based on frequency. Here is an example from the
+\href{https://platform.openai.com/tokenizer}{OpenAI Tokenizer
+for GPT-5.x \& O1/3}.
+
+Consider the following sentence:
+\[
+\text{Hippopotomonstrosesquippedaliophobia means fear of long words.}
+\]
+When tokenized, this $62$ characters sentence turns into $17$
+tokens as following.
+\begin{align*}
+    &\text{[`H', `ipp', `opot', `omon', `st', `ros', `es', `qu',
+            `ipped', `ali', `ophobia',} \\
+    &\qquad\qquad\qquad\qquad\qquad
+    \text{` means', ` fear', ` of', ` long',
+          ` words', `.']}
+\end{align*}
+The token IDs of the tokens above are the following numbers.
+\begin{align*}
+    \text{[39, 3012, 101543, 43960, 302, 2199, 268, }
+    &\text{351, 8193, 3010, 141868,} \\
+    &\text{4748, 11747, 328, 1701, 6391, 13]}
+\end{align*}
+Now, to help the models ``understand'' the tokens and take
+the IDs as input, we generally turn them into vectors through
+the process of \textbf{One-Hot Encoding (OHE)}, though the process
+may differ in modern Deep Learning for efficiency.
+
+With OHE, the token ID $i$ can be translated to a vector with
+$1$ in index $i$ and $0$ in other slots. However, notice that
+OHE itself is not highly effective. To make the tokenizer
+more ``meaningful'' and ``effective'', we could use the process
+of embeddings. \textbf{Learned embedding vectors} uses somewhat
+low dimensional vectors (usually a few thousand dimensions) to
+make the vectors ``meaningful''. For example, in learned
+embedding vector, the difference between the vectors that
+represent king and queen will be similar to the difference
+between the vectors that represent man and woman. Modern models
+use \textbf{relative positional embeddings} to effectively
+distinguish the position of the words. (Let's save this topic
+for latter notes on transformers.)
+
+\subsection{Language Model Output}
+
+As you probably have guessed, language models do not simply
+output the texts that we see. An autoregressive transformer
+language model will output a sequence of multi-dimensional
+vectors with probability distribution for the next token based
+on the sequence of multi-dimension input vectors.
+
+\begin{definition}{}{}
+\textbf{Logits} are the \textbf{scores} of the next possible
+token represented by individual vectors in the output sequence.
+\end{definition}
+
+Note that logits are \textit{raw} scores. To convert them to
+probability distribution, we use something called
+\textbf{softmax}, in which we will discuss further in notes
+about neural networks.
+
+\begin{definition}{}{}
+\textbf{Decoding} is the process selecting the next token to
+convert raw and abstract model output into a human language
+with \textbf{detokenization}.
+\end{definition}
+
+There are different strategies in decoding, but the two main
+methods are \textbf{greedy decoding} and \textbf{sampling}.
+In greedy decoding, you select the token with the highest
+probability. Meaning, the temperature (we will cover this
+is neural nets notes) does not influence the selection.
+Unlike greedy decoding, temperature does influence the result
+from sampling. In sampling, you randomly select the next token
+with accounting the individual probability. To put it simply,
+imagine you have a biased die with thousands of sides. You
+roll the die with the bias in each side, and the next token
+is selected by the result.
+
+Model outputs are random and highly organized. Take a look
+at the following example. In the first case, say the model
+input is ``I love'' and the expected model output is ``I
+love potatoes''. In the second case, the model input is
+``Veni, vidi,'' and the expected output is ``Veni, vidi,
+vici''. When the model returns an output, which case do you
+think the model has the higher probability of returning the
+expected output? To answer this question, we must understand
+that models are composed of billions of parameters that are
+trained with countless data. The model likely learned lots
+of texts that includes ``I love dogs'', ``I love coffee'',
+and more. However, for a model dedicated for English,
+it is highly unlikely that it learned another phrase that
+starts with ``Veni, vidi,'' other than ``Veni, vidi, vici'',
+the famous line from Julius Caesar. The model probably
+assigned lots of logits and converted them to probability
+distribution with softmax. While the first case have somewhat
+flat distribution, the second case will likely assign ``vici''
+with high probability like $0.98$ or $0.99$. Therefore, the
+second model has the higher probability of returning the
+expected output. 
+
+Now that we have some intuitions on model outputs, let's
+discuss about post-training.
+
+\end{document}
+
+

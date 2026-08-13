@@ -1,0 +1,221 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Linear Algebra}
+
+Linear algebra is a foundational building block of ML as majority
+of the components are written in very high dimensional arrays
+and tensors. Without exaggeration, training and using a model
+can be considered as performing billions of linear algebra
+operations. Therefore, it is encouraged to get familiar with
+the notations as they will be used throughout the future notes.
+
+\subsection{Foundations}
+
+First, let's get started with definitions. What is a vector?
+You probability have learned vectors as a quantity with both
+magnitude and direction. The same definition applies in math
+and ML, but how we represent and perceive them differs.
+
+\begin{definition}{}{}
+A \textbf{vector} is quantity with magnitude and directions.
+The set of vectors that satisfies addition and multiplication
+properties is called \textbf{vector space}. In math and ML,
+vectors are often represented as coordinates in vector space.
+\textbf{Dimensions} are the number of components that composes
+a vector.
+\end{definition}
+
+Vectors with specific dimensions have dedicated names.
+
+\begin{definition}{}{}
+\textbf{Scalars} are 0-dimensional quantities. A 1-dimensional
+vector is simply called \textbf{vector}. A 2D vector is called
+\textbf{matrix}. For vectors with 3+ dimensions, the term
+\textbf{tensor} is used.
+\end{definition}
+
+Now scalars are not considered vectors because it is only
+defined with magnitude, without direction. Geometrically speaking,
+the dimensions here can be interpreted as the dimension that
+we usually say in science. For example, a matrix can be plotted
+in a 2D space with $x$ and $y$ components. Similarly, a 3D
+tensor can be drawn in 3-dimensional plane with $x$, $y$, and $z$
+coordinates. Consider the following example.
+
+\begin{figure}[H]
+\centering
+\tdplotsetmaincoords{70}{110}
+\begin{tikzpicture}[
+        tdplot_main_coords,
+        axis/.style={->,thick},
+        scale=0.5
+    ]
+    \foreach \x in {0,1,...,7}
+        \foreach \y in {0,1,...,7} {
+			\draw[gray,very thin]
+                (\x,0,0) -- (\x,7.5,0);
+			\draw[gray,very thin] (0,\y,0) -- (7.5,\y,0);
+		}
+    \foreach \y in {0,1,...,7}
+        \foreach \z in {0,1,...,7} {
+			\draw[gray,very thin]
+                (0,\y,0) -- (0,\y,7.5);
+			\draw[gray,very thin] (0,0,\z) -- (0,7.5,\z);
+		}
+    \foreach \z in {0,1,...,7}
+        \foreach \x in {0,1,...,7} {
+			\draw[gray,very thin]
+                (0,0,\z) -- (7.5,0,\z);
+			\draw[gray,very thin] (\x,0,0) -- (\x,0,7.5);
+		}
+
+	\draw[axis] (-2,0,0) -- (8,0,0) node[left] {$x$};
+	\draw[axis] (0,-1,0) -- (0,8,0) node[right] {$y$};
+	\draw[axis] (0,0,-1) -- (0,0,8) node[left] {$z$};
+
+    \draw[->,very thick,Red,dashed] (0,0,0) -- (4,0,0);
+    \draw[->,very thick,Blue,dashed] (4,0,0) -- (4,3,0);
+    \draw[->,very thick,Green,dashed] (4,3,0) -- (4,3,5);
+    \draw[->,very thick,black] (0,0,0) -- (4,3,5)
+        node[right] {\small $\vec{v} = \langle 4,3,5 \rangle$};
+\end{tikzpicture}
+\end{figure}
+
+Continuing, we can see different operations that vectors can perform.
+
+\begin{definition}{}{}
+\textbf{Vector addition} is a process of adding two vectors with
+same dimension elementwise. \textbf{Scalar multiplication} is a
+process of multiplying a scalar to individual elements.
+\end{definition}
+
+Let's take a look at quick examples. Consider the following equations.
+\begin{align*}
+    \langle 1, 2, 3 \rangle + \langle 4, 5, 6 \rangle
+    &= \langle 1 + 4, 2 + 5, 3 + 9 \rangle
+    = \langle 5, 7, 9 \rangle \\
+    2 \langle 1, 2, 3 \rangle
+    &= \langle 2 \cdot 1, 2 \cdot 2, 2 \cdot 3 \rangle
+    = \langle 2, 4, 6 \rangle
+\end{align*}
+As you can see above, the operations are defined elementwise.
+For vectors of different dimension, we say their sum is undefined.
+Unlike addition and subtraction, multiplication is not defined
+elementwise. When considering ``product'' we consider dot product
+and matrix multiplication.
+
+\begin{definition}{}{}
+A \textbf{dot product} of two vectors is the sum of products of the
+corresponding elements.
+\end{definition}
+
+Dot product will be quite important when we discuss attention and
+transformers because it can tell us how ``related'' two vectors are.
+Indeed, consider the vectors $A$ and $B$ with the angle between the
+two vectors as $\theta$. The following equation holds.
+\[
+A \cdot B = ||A|| ||B|| \cos\theta
+\]
+Here, $||V||$ for $V \in \mathbb{R}^n$ represents the magnitude of the
+vector, i.e. $\sqrt{\sum_{k=1}^n V_k^2}$. Let's take a look at a quick
+example.
+\begin{align*}
+    \langle 1, 0 \rangle \cdot \langle 1, \sqrt{3} \rangle
+    &= 1 \cdot 1 + 0 \cdot \sqrt{3} = 1 \\
+    &= 1 \cdot 2 \cdot \cos60^\circ = 1
+\end{align*}
+One thing to keep in mind is that we have a special term for the
+sign $||V||$.
+
+\begin{definition}{}{}
+The \textbf{vector norm} is the non-negative value that represents
+the magnitude of a vector.
+\end{definition}
+
+With that in mind, let's discuss about matrices. There are so many
+different and interesting applications of matrices such as solving
+linear systems, but let's focus on the topics that will be essential
+in machine learning.
+
+There are different ways of representing a matrix $A$, but a common
+way of writing is $[a_{ij}]$ where $a_{ij}$ are the entries in
+$i^\text{th}$ row and $j^\text{th}$ column. A matrix $A_{m \times n}$
+is said to have an \textbf{order} $m \times n$ if there are $m$ rows
+and $n$ columns. For example, below is a $3 \times 2$ matrix.
+\[
+A =
+\begin{bmatrix}
+    a_{11} & a_{12} & a_{13} \\
+    a_{21} & a_{22} & a_{23}
+\end{bmatrix}
+\]
+Similar to vector addition, matrix addition and scalar multiplications
+are defined elementwise. Moreover, the addition with matrices of
+different order is undefined. Consider the following equations.
+\begin{align*}
+    [a_{ij}]_{m \times n} + [b_{ij}]_{m \times n}
+    &= [a_{ij} + b_{ij}]_{m \times n} \\
+    \alpha [a_{ij}]
+    &= [\alpha a_{ij}]
+\end{align*}
+Now matrix multiplication is very different from the operations
+above.
+
+For matrices $[a_{ij}]_{m \times n}$ and $[b_{ij}]_{n \times p}$,
+the product matrix $[c_{ij}]_{m \times p}$ is defined as the
+following.
+\[
+c_{ij}
+= \sum_{k=1}^{n} a_{ik} b_{kj}
+\]
+Below is an example.
+\begin{align*}
+\begin{bmatrix}
+    1 & 2 & 3 \\
+    4 & 5 & 6
+\end{bmatrix}
+\begin{bmatrix}
+    1 & 2 \\
+    3 & 4 \\
+    5 & 6
+\end{bmatrix}
+&=
+\begin{bmatrix}
+    1 \cdot 1 + 2 \cdot 3 + 3 \cdot 5 &
+    1 \cdot 2 + 2 \cdot 4 + 3 \cdot 6 \\
+    4 \cdot 1 + 5 \cdot 3 + 6 \cdot 5 &
+    4 \cdot 2 + 5 \cdot 4 + 6 \cdot 6 \\
+\end{bmatrix} \\
+&=
+\begin{bmatrix}
+    1 + 6 + 15  & 2 + 8 + 18 \\
+    4 + 15 + 30 & 8 + 20 + 36
+\end{bmatrix}
+=
+\begin{bmatrix}
+    22 & 28 \\
+    49 & 64
+\end{bmatrix}
+\end{align*}
+Notice that the ``inner numbers'' of the orders must be the same
+for the multiplication to be defined. Moreover, if we multiply
+two matrices of orders $m \times n$ and $n \times p$ respectively,
+the multiplication is defined since $n = n$. The product matrix will
+now have the order $m \times p$. One more thing to note is that
+we don't use the symbol $\cdot$ because that is reserved for dot
+products. We can interpret matrix multiplication in many ways, but
+let's now move on to a more abstract and advanced topics in linear
+algebra for now.
+
+\subsection{CONTINUE}
+
+
+
+
+
+
+\end{document}
+
+

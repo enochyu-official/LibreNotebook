@@ -1,0 +1,224 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{Fundamental Math for Machine Learning}
+
+This note covers fundamental math necessary for machine learning.
+Please note that I won't nor have the capacity to include details
+on the concepts that are not strictly necessary to learn ML,
+which I believe are out of the scope of the notes. With that
+in mind, let's get started!
+
+\section{Calculus}
+
+Ah yes, that one friend who's everywhere, where ever you go.
+Broadly speaking, calculus is one of the foundational math
+for machine learning. For instance, backpropagation, which
+we will discuss further in latter notes, is fundamentally
+based on the chain rule. There are actually a lot to cover on
+calculus and there are some advanced topics. Good news is that
+you probably don't need calculus concepts outside multivariable
+calculus (a.k.a. Calculus III) unless you are doing theoretical
+works, and they are out of my capacity. That being said, I will
+include most calculus concepts that you will need for general
+purpose, but concepts that are out of scope of these notes will
+not be included.
+
+\subsection{Foundations}
+
+I am assuming most of you have some background in calculus, so I will
+be skipping basic concepts from Calculus AB/BC (a.k.a Calculus I and
+II) as this section is about calculus for machine learning.
+Please don't worry if you don't as you probably won't need all
+concepts from the courses to understand the topics here. Now, let's
+start by building from terminologies.
+
+\begin{definition}{}{}
+The \textbf{limit} of a function is the value that the function
+approaches as the input gets arbitrarily close to a value.
+\end{definition}
+
+Below are some examples.
+\[
+\lim_{x \to 3} x^2 = 3^2 = 9,
+\quad
+\lim_{x \to \infty} \frac{1}{x} = 0,
+\quad
+\lim_{x \to 1} \frac{1}{x - 1} \text{ DNE}
+\]
+
+\begin{definition}{}{}
+\textbf{Derivative} of a function respect to a variable is the
+measure of the rate of change of the output based on the change of
+the variable(s). \textbf{Gradient} is a vector of partial derivatives.
+\textbf{Differentiation} is the process of finding the derivative.
+\end{definition}
+
+With equations, derivative and partial derivatives can be written
+as the following for function $f(x)$ and $f(x_1, \ldots, x_n)$.
+\begin{align*}
+    f'(a)
+    &= \lim_{h \to 0} \frac{f(a + h) - f(a)}{h} \\
+    \frac{\partial}{\partial x_i} f(a)
+    &= \lim_{h \to 0}
+        \frac{f(a_1, \ldots, a_{i-1}, a_i + h, a_{i+1}, \ldots, a_n)
+                - f(a_1, \ldots, a_n)}{h}
+\end{align*}
+For gradient $\nabla f$, read as ``nabla f'', the mathematical
+expression follows.
+\[
+\nabla f(a) =
+\begin{bmatrix}
+    \frac{\partial f}{\partial x_1} (a) \\
+    \vdots \\
+    \frac{\partial f}{\partial x_n} (a)
+\end{bmatrix}
+\]
+For instance, the gradient of $f(x, y) = x^2 + 2y$ can be written as
+$\nabla f = \langle 2x, 2 \rangle$ and the gradient at $(1, 1)$ 
+can be written as $\nabla f(1, 1) = \langle 2, 2 \rangle$.
+
+Now that we discussed about derivatives, let's take a look at common
+rules that will appear for machine learning. Starting with the
+power rule, below is the list of common rules.
+
+\begin{theorem}
+{Common Rules for Derivatives}
+{Common Rules for Derivatives}
+\begin{enumerate}[noitemsep]
+\item $\frac{d}{dx} x^n = n x^{n-1}$
+\item $\frac{d}{dx} e^x = e^x$
+\item $\frac{d}{dx} \ln(x) = \frac{1}{x}$
+\item $\frac{d}{dx} a = 0$
+\item $\frac{d}{dx} cf(x) = cf'(x)$
+\item $\frac{d}{dx} \left( f(x) \pm g(x) \right)
+       = \frac{d}{dx} f(x) \pm \frac{d}{dx} g(x)$
+\item $\frac{d}{dx} \left( f(x) g(x) \right)
+       = f'(x)g(x) + f(x)g'(x)$
+\item $\frac{d}{dx} \left( \frac{f(x)}{g(x)} \right)
+       = \frac{f'(x)g(x) - f(x)g'(x)}{\left(g(x)\right)^2}$
+\item $\frac{\partial^2 f}{\partial x^2}
+       = \frac{\partial}{\partial x}
+            \left( \frac{\partial f}{\partial x} \right)$
+\item $\frac{\partial^2 f}{\partial y \partial x}
+       = \frac{\partial}{\partial y}
+            \left( \frac{\partial f}{\partial x} \right)$
+\end{enumerate}
+\end{theorem}
+
+Let's skip the proofs for this one! In addition to derivative rules,
+one of the most primary use case of calculus in machine learning is
+the chain rule. Indeed, the neural network is fundamentally based on
+the chain rule in calculus.
+
+\begin{theorem}
+{The Chain Rule of Calculus}
+{The Chain Rule of Calculus}
+The derivative of a composite function $h(x) = f \circ g (x)$ can be
+represented as $h'(x) = f'(g(x)) \cdot g'(x)$. Alternatively,
+for $y = f(u)$ and $u = g(x)$, the following equation holds.
+\[
+\frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx}
+\]
+\end{theorem}
+\begin{proof}
+Consider the following equation by the definition of derivatives.
+\[
+h'(x)
+= \lim_{n \to 0} \frac{h(x + n) - h(x)}{n}
+\]
+Substituting $h(x) = f(g(x))$, the following equations are obtained.
+\begin{align*}
+h'(x)
+&= \lim_{n \to 0} \frac{f(g(x + n)) - f(g(x))}{n} \\
+&= \lim_{n \to 0} \frac{f(g(x + n)) - f(g(x))}{g(x + n) - g(x)} \cdot
+    \lim_{n \to 0} \frac{g(x + n) - g(x)}{n}
+\end{align*}
+Let $n' = g(x + n) - g(x)$. Assuming that $g$ is continuous,
+as $n \to 0$, $n' \to 0$. Therefore, the following equation is
+obtained.
+\[
+h'(x)
+= \lim_{n' \to 0} \frac{f(u + n') - f(u)}{n'} \cdot
+    \lim_{n \to 0} \frac{g(x + n) - g(x)}{n}
+= \frac{dy}{du} \cdot \frac{du}{dx}
+\]
+Thus, the chain rule holds.
+\end{proof}
+
+For a brief example, let's take a look at an example with sigmoid
+function.
+
+\begin{problem}
+{The Derivative of Sigmoid Function}
+{The Derivative of Sigmoid Function}
+Sigmoid function is defined as $\sigma(x) = \frac{1}{1 + e^{-x}}$.
+Find the derivative of $\sigma(x)$.
+\end{problem}
+\begin{solution}
+Consider the following process with the product and chain rule.
+\begin{align*}
+    \sigma'(x)
+    &= \frac{d}{dx} \left( 1 + e^{-x} \right)^{-1}
+    = - \left( 1 + e^{-x} \right)^{-2} \cdot \left( -e^{-x} \right) \\
+    &= \left( 1 + e^{-x} \right)^{-2} \cdot e^{-x}
+    = \left( 1 + e^{-x} \right)^{-1} \cdot
+        \frac{e^{-x}}{1 + e^{-x}} \\
+    &= \sigma(x) \left( 1 - \sigma(x) \right)
+\end{align*}
+Therefore, the derivative $\sigma'(x) = \sigma(x) (1 - \sigma(x))$.
+\end{solution}
+
+In addition to the chain rule above, we could expand it for
+multivariable functions.
+
+\begin{theorem}
+{The Chain Rule for One Independent Variable}
+{The Chain Rule for One Independent Variable}
+For differentiable functions $x = a(t)$, $y = b(t)$, and
+$z = f(x, y)$, the following equation holds.
+\[
+\frac{dz}{dt}
+= \frac{\partial z}{\partial x} \cdot \frac{dx}{dt} +
+    \frac{\partial z}{\partial y} \cdot \frac{dy}{dt}
+\]
+\end{theorem}
+
+Similarly, we could expand it for cases where $x$ and $y$ are
+functions of two variables.
+
+\begin{theorem}
+{The Chain Rule for Two Independent Variable}
+{The Chain Rule for Two Independent Variable}
+For differentiable functions $x = a(u, v)$, $y = b(u, v)$,
+and $z = f(x, y)$, the following equations hold.
+\begin{align*}
+    \frac{\partial z}{\partial u}
+    &= \frac{\partial z}{\partial x} \frac{\partial x}{\partial u} +
+        \frac{\partial z}{\partial y} \frac{\partial y}{\partial u} \\
+    \frac{\partial z}{\partial v}
+    &= \frac{\partial z}{\partial x} \frac{\partial x}{\partial v} +
+        \frac{\partial z}{\partial y} \frac{\partial y}{\partial v}
+\end{align*}
+\end{theorem}
+
+For the purpose of these notes, let's skip the proof for the two
+theorems above.
+
+
+
+critical points
+Linaer approximation, taylor approx, tangent planes
+
+Vector calc
+
+Jacobian and Hessian Matrices
+Lagrange Multipliers
+Fourier Transformation
+
+
+
+\end{document}
+
+

@@ -1,0 +1,1460 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Building Vanilla Neural Network From Scratch}
+
+For our toy examples, we will create two things. The first one is
+technically not a neural network as it does not contain conventional
+neurons and structures. The second one is an actual neural net that
+is very simple. In this section, I will share the entire code first,
+then provide explanations.
+
+\subsection{Simple Stochastic Gradient Descent-Based Learning Engine}
+
+What we will make now is a simple stochastic gradient descent-based
+learning engine. This isn't technically a neural network, as you will
+see why in the code, but I decided to include it here as making
+similar examples really helped me understand backprop with code.
+
+Our task with this learning engine is simple. We are going to predict
+$e^x$ for limited range with concatenated Maclaurin Series.
+If you recall from your calculus courses, the following equation holds
+by Taylor series.
+\[
+e^x
+= \sum_{n = 0}^\infty \frac{1}{n!} x^n
+= 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots
+\]
+Here, for limited $x$, we will be approximating $e^x$ with the
+following polynomial where $b$ is the bias and $w_i$ are the
+weights.
+\[
+e^x
+\approx b + w_1x + w_2x^2 + w_3x^3 + w_4x^4 + w_5x^5 + w_6x^6
+    + w_7x^7 + w_8x^8
+\]
+We will get back to this on why our $x$ should be limited, but let's
+see our structure first.
+
+We will be ``training'' the engine with $200$ examples from $-1.00$ to
+$0.99$ inclusive. Then, we will be testing it with $50$ validations
+from $1.00$ to $1.49$ inclusive. This backprop machine is stochastic
+as it will adhere to the following structure.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    box/.style={rectangle, draw, thick,
+                minimum height=0.8cm},
+    arrow/.style={->, thick, >=stealth},
+    scale=0.8
+]
+
+    \node[box, fill=CadetBlue!20] at (0, 0) (input)
+        {\scriptsize Single Input};
+    \node[box, fill=Lavender!30] at (4, 0) (mse)
+        {\scriptsize MSE};
+    \node[box, fill=YellowGreen!40] at (8, 0) (backprop)
+        {\scriptsize Backpropagation};
+    \node[box, fill=YellowOrange!30] at (12, 0) (update)
+        {\scriptsize Update};
+
+    \draw[arrow] (input) -- (mse);
+    \draw[arrow] (mse) -- (backprop);
+    \draw[arrow] (backprop) -- (update);
+    \draw[arrow, bend left=20] (update) to (forward);
+\end{tikzpicture}
+\caption{Overview of the Simple Learning Engine}
+\end{figure}
+
+As you can see, we will be using MSE for our loss function, and we
+do not need activation functions like sigmoid and tanh because we
+don't need one in our simple example. Okay enough talking and here is
+the entire code.
+
+\subsubsection{Source Code}
+
+Below is the source code for the Simple Stochastic Gradient
+Descent-Based Learning Engine for predicting $e^x$.
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+import math
+import random
+import matplotlib.pyplot as plt
+%matplotlib inline
+\end{lstlisting}
+\begin{lstlisting}[style=jout]
+\end{lstlisting}
+\end{jupyter}
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+train_x = [i/100 for i in range(-100, 100)]
+train_y = [math.exp(i/100) for i in range(-100, 100)]
+test_x = [i/100 for i in range(100, 150)]
+test_y = [math.exp(i/100) for i in range(100, 150)]
+\end{lstlisting}
+\begin{lstlisting}[style=jout]
+\end{lstlisting}
+\end{jupyter}
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+class SGDBLE:
+    def __init__(self):
+        random.seed(3141592) # So that we get the same result
+        self.ws = [random.uniform(-1, 1) for _ in range(8)]
+        self.b = random.random()
+    
+    def forward(self, x):
+        self.ypred = sum(w * x**k for w, k in zip(self.ws,range(1, 9))) + self.b
+        return self.ypred
+
+    def loss(self, y, ypred):
+        self.loss_val = 0.5 * (y - ypred)**2
+        return self.loss_val
+
+    def grads(self, x, y, ypred):
+        base_der = ypred - y # i.e. dL / dypred
+        self.grads_w = [base_der * x**i for i in range(1, 9)]
+        self.grad_b = base_der
+        
+    def update(self, lr):
+        for i in range(8):
+            self.ws[i] -= lr * self.grads_w[i]
+        self.b -= lr * self.grad_b
+
+    def train(self, epochs, lr):
+        losses = []
+        for epoch in range(epochs):
+            loss_total = 0
+            for i in range(len(train_x)):
+                ypred = self.forward(train_x[i])
+                loss_total += self.loss(train_y[i], ypred)
+                self.grads(train_x[i], train_y[i], ypred)
+                self.update(lr)
+            loss_avg = loss_total / len(train_x)
+            losses.append(loss_avg)
+
+            if (epoch+1) % 100 == 0:
+                print(f"Epoch: {epoch+1}/{epochs}, Loss: {loss_avg}")
+            
+        return losses
+
+    def test(self):
+        loss_total = 0
+        for i in range(0, len(test_x), 2):
+            ypred1 = self.forward(test_x[i])
+            loss_total += self.loss(test_y[i], ypred1)
+
+            if i + 1 < len(test_x):
+                ypred2 = self.forward(test_x[i + 1])
+                loss_total += self.loss(test_y[i + 1], ypred2)
+    
+                print(f"Test {i+1}                      Test {i+2}")
+                print(f"y:     {test_y[i]}      y:     {test_y[i+1]}")
+                print(f"ypred: {ypred1}     ypred: {ypred2}")
+                print()
+            else:
+                print(f"Test {i+1}")
+                print(f"y:     {test_y[i]}")
+                print(f"ypred: {ypred1}")
+    
+        loss_total /= len(test_x)
+
+    def print_params(self):
+        coeff = [1 / math.factorial(i+1) for i in range(8)]
+        for i in range(8):
+            print(f"w{i+1}: {self.ws[i]}, Expected: {coeff[i]}")
+        print(f"b: {self.b}, Expected: 1")
+
+model = SGDBLE()
+\end{lstlisting}
+\begin{lstlisting}[style=jout]
+\end{lstlisting}
+\end{jupyter}
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+def graph_loss(losses):
+    plt.plot(losses)
+    plt.xlabel("Epoch")
+    plt.ylabel("Loss")
+    plt.show() 
+    
+def graph_pred():
+    xs = [i / 10 for i in range(-100, 200)]
+    true = [math.exp(x) for x in xs]
+    pred = [model.forward(x) for x in xs]
+
+    plt.plot(xs, true, label="e^x")
+    plt.plot(xs, pred, label="Prediction")
+    plt.yscale("log")
+    plt.legend()
+    plt.show()
+\end{lstlisting}
+\begin{lstlisting}[style=jout]
+\end{lstlisting}
+\end{jupyter}
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+losses = model.train(1000, 0.005)
+graph_loss(losses)
+model.print_params()
+graph_pred()
+\end{lstlisting}
+\begin{lstlisting}[style=jout]
+Epoch: 100/1000, Loss: 0.00013234985876534958
+Epoch: 200/1000, Loss: 3.427320321762344e-05
+Epoch: 300/1000, Loss: 2.4492707827970274e-05
+Epoch: 400/1000, Loss: 2.2669862503550263e-05
+Epoch: 500/1000, Loss: 2.172205317266906e-05
+Epoch: 600/1000, Loss: 2.0984248749352728e-05
+Epoch: 700/1000, Loss: 2.036538265870468e-05
+Epoch: 800/1000, Loss: 1.9834658817269138e-05
+Epoch: 900/1000, Loss: 1.937270927247297e-05
+Epoch: 1000/1000, Loss: 1.8965386261105253e-05
+\end{lstlisting}
+\vspace{-\baselineskip}
+\includegraphics[scale=0.65]{CS0104.26017-1}
+\begin{lstlisting}[style=jout]
+w1: 0.9444454598562942, Expected: 1.0
+w2: 0.49986306356857685, Expected: 0.5
+w3: 0.620431907367758, Expected: 0.16666666666666666
+w4: 0.21618569290559692, Expected: 0.041666666666666664
+w5: -0.9321256839917001, Expected: 0.008333333333333333
+w6: -0.48709437200615985, Expected: 0.001388888888888889
+w7: 0.5594822789317027, Expected: 0.0001984126984126984
+w8: 0.33002989302732855, Expected: 2.48015873015873e-05
+b: 0.9983077779493585, Expected: 1
+\end{lstlisting}
+\vspace{-\baselineskip}
+\includegraphics[scale=0.65]{CS0104.26017-2}
+\end{jupyter}
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+model.test()
+\end{lstlisting}
+\begin{lstlisting}[style=jout]
+Test 1                      Test 2
+y:     2.718281828459045      y:     2.7456010150169163
+ypred: 2.7495260176087557     ypred: 2.7867851769675642
+
+Test 3                      Test 4
+y:     2.7731947639642978      y:     2.801065834699079
+ypred: 2.8257757734623574     ypred: 2.8666322590606814
+
+Test 5                      Test 6
+y:     2.82921701435156      y:     2.857651118063164
+ypred: 2.909497162739583     ypred: 2.954521430346852
+
+Test 7                      Test 8
+y:     2.8863709892679585      y:     2.915379499976997
+ypred: 3.001864774074873     ypred: 3.0516960317129964
+
+Test 9                      Test 10
+y:     2.944679551065524      y:     2.9742740725630656
+ypred: 3.1041935358457007     ypred: 3.159545493165112
+
+Test 11                      Test 12
+y:     3.0041660239464334      y:     3.034358394435676
+ypred: 3.2179503740678106     ypred: 3.2796173127071624
+
+Test 13                      Test 14
+y:     3.0648542032930024      y:     3.095656500124711
+ypred: 3.3447665176737535     ypred: 3.4136296934778425
+
+Test 15                      Test 16
+y:     3.1267683651861553      y:     3.158192909689767
+ypred: 3.4864504730090555     ypred: 3.5634848611499024
+
+Test 17                      Test 18
+y:     3.1899332761161845      y:     3.2219926385284996
+ypred: 3.6450016897210107     ypred: 3.7312830839373126
+
+Test 19                      Test 20
+y:     3.2543742028896707      y:     3.287081207383118
+ypred: 3.8226249405557278     ypred: 3.9193374178962683
+
+Test 21                      Test 22
+y:     3.3201169227365472      y:     3.3534846525490236
+ypred: 4.02174543791974     ypred: 4.130189200546641
+
+Test 23                      Test 24
+y:     3.3871877336213347      y:     3.4212295362896734
+ypred: 4.245024710403111     ypred: 4.366624316181152
+
+Test 25                      Test 26
+y:     3.4556134647626755      y:     3.4903429574618414
+ypred: 4.495377262801668     ypred: 4.631690256570204
+
+Test 27                      Test 28
+y:     3.5254214873653824      y:     3.5608525623555205
+ypred: 4.775988043516579     ypred: 4.928714001110956
+
+Test 29                      Test 30
+y:     3.5966397255692817      y:     3.6327865557528094
+ypred: 5.090330743550226     ypred: 5.261320740809877
+
+Test 31                      Test 32
+y:     3.6692966676192444      y:     3.706173712210199
+ypred: 5.442186951657918     ypred: 5.633453470828671
+
+Test 33                      Test 34
+y:     3.7434213772608627      y:     3.781043387568781
+ypred: 5.8356661905556715     ypred: 6.049393476664138
+
+Test 35                      Test 36
+y:     3.819043505366336      y:     3.8574255306969745
+ypred: 6.275226859424931     ypred: 6.513781739373128
+
+Test 37                      Test 38
+y:     3.896193301795215      y:     3.9353506954704733
+ypred: 6.765698108295758     ypred: 7.0316412855945165
+
+Test 39                      Test 40
+y:     3.9749016274947477      y:     4.014850052994201
+ypred: 7.312302670230667     ypred: 7.6084005084606225
+
+Test 41                      Test 42
+y:     4.0551999668446745      y:     4.095955404071176
+ypred: 7.9206806775719905     ypred: 8.249917485831345
+
+Test 43                      Test 44
+y:     4.137120440251392      y:     4.178699191923246
+ypred: 8.596914488856152     ypred: 8.962505322624688
+
+Test 45                      Test 46
+y:     4.220695816996552      y:     4.263114515168817
+ypred: 9.347554553339133     ypred: 9.752958544358306
+
+Test 47                      Test 48
+y:     4.305959528345206      y:     4.349235141062741
+ypred: 10.179646340417854     ypred: 10.628580569357089
+
+Test 49                      Test 50
+y:     4.392945680918757      y:     4.437095519003664
+ypred: 11.100758361572902     ypred: 11.597212287422602
+\end{lstlisting}
+\end{jupyter}
+
+\subsubsection{Detailed Explanation}
+
+Now let's take a look at individual cells.
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+import math
+import random
+import matplotlib.pyplot as plt
+%matplotlib inline
+\end{lstlisting}
+\begin{lstlisting}[style=jout]
+\end{lstlisting}
+\end{jupyter}
+
+Here, I tried to keep it as minimal as possible. Instead of
+NumPy, I decided to use the math module for all math stuffs like
+\verb|math.exp()|. We need \verb|random| as it would make our lives
+easier than to manually set the eight weights and the bias.
+Matplotlib of course since we want to see how it learns for limited
+range of input.
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+train_x = [i/100 for i in range(-100, 100)]
+train_y = [math.exp(i/100) for i in range(-100, 100)]
+test_x = [i/100 for i in range(100, 150)]
+test_y = [math.exp(i/100) for i in range(100, 150)]
+\end{lstlisting}
+\begin{lstlisting}[style=jout]
+\end{lstlisting}
+\end{jupyter}
+
+Setting up the dataset for our engine is also quite simple.
+Instead of writing every single number, I just decided to loop
+through them and store them in an array, and that is \verb|train_x|.
+The values for \verb|train_y| is also quite straightforward as it
+is $e^x$ for corresponding $x$. The same goes for the test set.
+I tried to keep it $80\%$ and $20\%$ for training and validation,
+but that is not necessary and it varies by models. However, I
+decided to use that here because that's pretty much what most
+people do when they first train. Now let's get into the fun
+stuffs.
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+class SGDBLE:
+    def __init__(self):
+        random.seed(3141592) # So that we get the same result
+        self.ws = [random.uniform(-1, 1) for _ in range(8)]
+        self.b = random.random()
+\end{lstlisting}
+\begin{lstlisting}[style=jout]
+\end{lstlisting}
+\end{jupyter}
+
+Now I decided to store the core functions in the class SGDBLE
+as we will be using \verb|self| to store attributes and objects.
+Here we set the specific seed so that you will also get the same
+result when you run the code in somewhere. Next we set weights
+and biases and stored them in \verb|self| with our set random values.
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+def forward(self, x):
+    self.ypred = sum(w * x**k for w, k in zip(self.ws,range(1, 9))) + self.b
+    return self.ypred
+
+def loss(self, y, ypred):
+    self.loss_val = 0.5 * (y - ypred)**2
+    return self.loss_val
+\end{lstlisting}
+\begin{lstlisting}[style=jout]
+\end{lstlisting}
+\end{jupyter}
+
+This is where we set some core functions. Forward is forward pass
+and it is somewhat straight forward as that is how we defined it.
+For the loss function, we are using MSE, i.e. $\frac{1}{2} (y -
+\hat{y})^2$.
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+def grads(self, x, y, ypred):
+    base_der = ypred - y # i.e. dL / dypred
+    self.grads_w = [base_der * x**i for i in range(1, 9)]
+    self.grad_b = base_der
+
+def update(self, lr):
+    for i in range(8):
+        self.ws[i] -= lr * self.grads_w[i]
+    self.b -= lr * self.grad_b
+\end{lstlisting}
+\begin{lstlisting}[style=jout]
+\end{lstlisting}
+\end{jupyter}
+
+This is the core part of our engine. Let's briefly look at the math
+and write the loop out for some to see what's actually going on.
+Consider the following equation by the chain rule.
+\[
+\frac{dL}{dw_i} = \frac{dL}{dy} \cdot \frac{dy}{dw_i}
+\]
+Notice that $\frac{dL}{dy} = \frac{d}{dy} (\frac{1}{2} (y -
+\hat{y})^2) = y - \hat{y}$. This is \verb|base_der|. Continuing with
+the chain rule, we can write the weights and the bias as the
+following.
+\begin{align*}
+    \frac{dL}{dw_1}
+    &= \frac{dL}{dy} \cdot \frac{dy}{dw_1}
+    = \text{base\_der} \cdot x \\
+    \frac{dL}{dw_2}
+    &= \frac{dL}{dy} \cdot \frac{dy}{dw_2}
+    = \text{base\_der} \cdot x^2 \\
+    \frac{dL}{db}
+    &= \frac{dL}{dy} \cdot \frac{dy}{db}
+    = \text{base\_der} \cdot 1
+\end{align*}
+Now the update function. Recall $w_2 = w_1 - \eta \frac{dL}{dw_1}$
+and $b_2 = b_1 - \eta \frac{dL}{db_1}$. That is exactly what we did,
+but for weights we have to loop through each element.
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+def train(self, epochs, lr):
+    losses = []
+    for epoch in range(epochs):
+        loss_total = 0
+        for i in range(len(train_x)):
+            ypred = self.forward(train_x[i])
+            loss_total += self.loss(train_y[i], ypred)
+            self.grads(train_x[i], train_y[i], ypred)
+            self.update(lr)
+        loss_avg = loss_total / len(train_x)
+        losses.append(loss_avg)
+
+        if (epoch+1) % 100 == 0:
+            print(f"Epoch: {epoch+1}/{epochs}, Loss: {loss_avg}")
+        
+    return losses
+\end{lstlisting}
+\begin{lstlisting}[style=jout]
+\end{lstlisting}
+\end{jupyter}
+
+This is the training loop. Of course we don't want to stop at a
+single epoch especially in stochastic setting. You can ignore
+the \verb|losses| in the beginning as we only use them to graph.
+For each epoch, we want to set the total loss to $0$ as they will
+accumulate. Then, for all $x$ values in our training set, we will
+predict, calculate the loss, backprop, an update as shown. Note
+that we have to set \verb|epoch| and \verb|lr|, which is the
+learning rate. Now we will take the average of the total loss and
+print it every $100$ epoch to see how well our engine is learning.
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+def test(self):
+    loss_total = 0
+    for i in range(0, len(test_x), 2):
+        ypred1 = self.forward(test_x[i])
+        loss_total += self.loss(test_y[i], ypred1)
+
+        if i + 1 < len(test_x):
+            ypred2 = self.forward(test_x[i + 1])
+            loss_total += self.loss(test_y[i + 1], ypred2)
+
+            print(f"Test {i+1}                      Test {i+2}")
+            print(f"y:     {test_y[i]}      y:     {test_y[i+1]}")
+            print(f"ypred: {ypred1}     ypred: {ypred2}")
+            print()
+        else:
+            print(f"Test {i+1}")
+            print(f"y:     {test_y[i]}")
+            print(f"ypred: {ypred1}")
+
+    loss_total /= len(test_x)
+
+def print_params(self):
+    coeff = [1 / math.factorial(i+1) for i in range(8)]
+    for i in range(8):
+        print(f"w{i+1}: {self.ws[i]}, Expected: {coeff[i]}")
+    print(f"b: {self.b}, Expected: 1")
+
+model = SGDBLE()
+\end{lstlisting}
+\begin{lstlisting}[style=jout]
+\end{lstlisting}
+\end{jupyter}
+
+The test loop is also straight forward. It predicts, calculates the
+loss, and print them as shown. Also, because we know the coefficients
+for the Maclaurin Series, I decided to see if the parameters match
+with the actual coefficients. Finally, the last line is to be able
+use the model.
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+def graph_loss(losses):
+    plt.plot(losses)
+    plt.xlabel("Epoch")
+    plt.ylabel("Loss")
+    plt.show()
+    
+def graph_pred():
+    xs = [i / 10 for i in range(-100, 200)]
+    true = [math.exp(x) for x in xs]
+    pred = [model.forward(x) for x in xs]
+
+    plt.plot(xs, true, label="e^x")
+    plt.plot(xs, pred, label="Prediction")
+    plt.yscale("log")
+    plt.legend()
+    plt.show()
+\end{lstlisting}
+\begin{lstlisting}[style=jout]
+\end{lstlisting}
+\end{jupyter}
+
+This part is plotting with Matplotlib. Please refer to the second
+note if you are confused! One thing though \verb|yscale| is necessary
+as exponential function will get too large to show.
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+losses = model.train(1000, 0.005)
+graph_loss(losses)
+model.print_params()
+graph_pred()
+\end{lstlisting}
+\begin{lstlisting}[style=jout]
+\end{lstlisting}
+\end{jupyter}
+
+This part is the actual training part. We set the epoch to $1000$
+and learning rate to $0.005$. This learning rate might be too small
+for the start, but I realized that this gives slightly better results
+than $0.001$ in this setting. Then we graph and show loss, parameters,
+and predictions.
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+model.test()
+\end{lstlisting}
+\begin{lstlisting}[style=jout]
+\end{lstlisting}
+\end{jupyter}
+
+This part is for testing. Now that we have seen the entire code and
+explanation for it, let's now analyze our results.
+
+\subsubsection{Analyzing the Results}
+
+First, let's take a look at the first result.
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+losses = model.train(1000, 0.005)
+graph_loss(losses)
+model.print_params()
+graph_pred()
+\end{lstlisting}
+\begin{lstlisting}[style=jout]
+Epoch: 100/1000, Loss: 0.00013234985876534958
+Epoch: 200/1000, Loss: 3.427320321762344e-05
+Epoch: 300/1000, Loss: 2.4492707827970274e-05
+Epoch: 400/1000, Loss: 2.2669862503550263e-05
+Epoch: 500/1000, Loss: 2.172205317266906e-05
+Epoch: 600/1000, Loss: 2.0984248749352728e-05
+Epoch: 700/1000, Loss: 2.036538265870468e-05
+Epoch: 800/1000, Loss: 1.9834658817269138e-05
+Epoch: 900/1000, Loss: 1.937270927247297e-05
+Epoch: 1000/1000, Loss: 1.8965386261105253e-05
+\end{lstlisting}
+\vspace{-\baselineskip}
+\includegraphics[scale=0.65]{CS0104.26017-1}
+\begin{lstlisting}[style=jout]
+w1: 0.9444454598562942, Expected: 1.0
+w2: 0.49986306356857685, Expected: 0.5
+w3: 0.620431907367758, Expected: 0.16666666666666666
+w4: 0.21618569290559692, Expected: 0.041666666666666664
+w5: -0.9321256839917001, Expected: 0.008333333333333333
+w6: -0.48709437200615985, Expected: 0.001388888888888889
+w7: 0.5594822789317027, Expected: 0.0001984126984126984
+w8: 0.33002989302732855, Expected: 2.48015873015873e-05
+b: 0.9983077779493585, Expected: 1
+\end{lstlisting}
+\vspace{-\baselineskip}
+\includegraphics[scale=0.65]{CS0104.26017-2}
+\end{jupyter}
+
+This is what we got after the first training. The loss looks
+pretty good actually. As you can see for each $100^\text{th}$ epoch,
+the loss is decreasing well. From the graph, you can see the sudden
+drop in losses; however, we can't necessarily say that this is a
+grokking phenomena as it might just be model understanding the
+pattern from underfitting.
+
+Looking at the weights, some are good and some are bad. We will
+get back to this later, but this is also one of the reason why
+we cannot scale this engine. Similarly, we can see that our
+polynomial fits very well for the small range, but not well as
+the input increases.
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+model.test()
+\end{lstlisting}
+\begin{lstlisting}[style=jout]
+Test 1                      Test 2
+y:     2.718281828459045      y:     2.7456010150169163
+ypred: 2.7495260176087557     ypred: 2.7867851769675642
+
+Test 3                      Test 4
+y:     2.7731947639642978      y:     2.801065834699079
+ypred: 2.8257757734623574     ypred: 2.8666322590606814
+
+Test 5                      Test 6
+y:     2.82921701435156      y:     2.857651118063164
+ypred: 2.909497162739583     ypred: 2.954521430346852
+...
+Test 45                      Test 46
+y:     4.220695816996552      y:     4.263114515168817
+ypred: 9.347554553339133     ypred: 9.752958544358306
+
+Test 47                      Test 48
+y:     4.305959528345206      y:     4.349235141062741
+ypred: 10.179646340417854     ypred: 10.628580569357089
+
+Test 49                      Test 50
+y:     4.392945680918757      y:     4.437095519003664
+ypred: 11.100758361572902     ypred: 11.597212287422602
+\end{lstlisting}
+\end{jupyter}
+
+For the training set, I only listed some of them as you can
+refer to the previous pages. Notice that for first few tests,
+the predictions are not bad. However, for Test 5, the engine
+does not seem be effective and seems lost from Test 10.
+We could actually run our training loop multiple times to see
+what happens, and I will leave this to the readers. However,
+the engine does not seem to learn well.
+
+Here is the question. Is the engine overfitting right now? If you
+said no, well... that is correct! Technically, we can see it as
+overfitting, but what I think is more accurate is to say that this
+is the limitation of the scalability of this engine and our method.
+When predicting, we only used nine terms. From the parameters,
+some were very close to the expectation and others were very bad.
+This is because we are using a polynomial with finite term to
+predict, whereas the real Maclaurin series uses infinite sum.
+Therefore, it is techinically an overfitting to certain point in
+a way that our engine tries to fit our polynomial in limited range
+as shown in the graph, but this too could improve if we have the
+computational ability to use infinite sum. Therefore, it may be
+more accurate to say that it is the limitation of the engine and
+scalability that causes high loss in testing.
+
+We just completed our first model! Although it is very limited
+in terms of scalability and usability, I hope this example was
+very helpful in using backpropagation in code. For our next
+example, we will build an actual simple neural net to predict
+a nonlinear function.
+
+\subsection{Vanilla Neural Network}
+
+Now that we have created a simple backprop engine, let's increase
+the number of hidden layers to predict $x_1 x_2$ for inputs $x_1$
+and $x_2$. I thought it would be great to introduce nonlinearity
+to our problem, and it works! Without further ado, let's get started
+by taking a look at the source code.
+
+\subsubsection{Source Code}
+
+Below is the entire source code with the results.
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+import math
+import random
+import matplotlib.pyplot as plt
+%matplotlib inline
+\end{lstlisting}
+\begin{lstlisting}[style=jout]
+\end{lstlisting}
+\end{jupyter}
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+# Predicting x1 * x2
+def tanh(x):
+    return (math.exp(x) - math.exp(-x)) / (math.exp(x) + math.exp(-x))
+
+def tanh_der(x):
+    return 1 - tanh(x)**2
+
+def loss(y, ypred):
+    return 0.5 * (y - ypred)**2
+
+
+# Data
+data_x = [[i/10, j/10] for i in range(-10, 11) for j in range(-10, 11)]
+data_y = [(x1 * x2) for x1, x2 in data_x]
+
+data = list(zip(data_x, data_y))
+random.seed(3141592)
+random.shuffle(data)
+
+split = int(0.8 * len(data))
+train_data = data[:split]
+test_data = data[split:]
+
+train_x = [x for x, y in train_data]
+train_y = [y for x, y in train_data]
+test_x = [x for x, y in test_data]
+test_y = [y for x, y in test_data]
+\end{lstlisting}
+\begin{lstlisting}[style=jout]
+\end{lstlisting}
+\end{jupyter}
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+class MLP:
+    def __init__(self, layers):
+        self.ws = []
+        self.bs = []
+
+        random.seed(3141592)
+        for i in range(len(layers) - 1):
+            layer_in = layers[i]
+            layer_out = layers[i + 1]
+            layer_w = [[random.uniform(-1, 1) for _ in range(layer_in)]
+                       for _ in range(layer_out)]
+            layer_b = [random.uniform(-1, 1) for _ in range(layer_out)]
+
+            self.ws.append(layer_w)
+            self.bs.append(layer_b)
+            
+    def forward(self, x):
+        self.act = [x]
+        self.zs = []
+        
+        # Layers
+        for i in range(len(self.ws)):
+            prev = self.act[-1]
+            pre_layer = []
+            act_layer = []
+
+            # Neurons
+            for j in range(len(self.ws[i])):
+                pre = self.bs[i][j]
+                for k in range(len(self.ws[i][j])):
+                    pre += self.ws[i][j][k] * prev[k]
+                
+                pre_layer.append(pre)
+
+                if i != len(self.ws) - 1:
+                    act_layer.append(tanh(pre))
+                else:
+                    act_layer.append(pre)
+                    
+            self.zs.append(pre_layer)
+            self.act.append(act_layer)
+            
+        return self.act[-1][0]
+
+    def backprop(self, y):
+        self.grad_w = [[[0.0 for _ in range(len(self.ws[i][j]))]
+                        for j in range(len(self.ws[i]))]
+                       for i in range(len(self.ws))]
+        self.grad_b = [[0.0 for _ in range(len(self.bs[i]))]
+                       for i in range(len(self.bs))]
+        ypred = self.act[-1][0]
+        delta = [0] * len(self.ws)
+        delta[-1] = [ypred - y]
+
+        # range(start, stop, step)
+        for k in range(len(self.ws) - 2, -1, -1):
+            delta[k] = []
+            for i in range(len(self.ws[k])):
+                dlda = 0.0
+                for j in range(len(self.ws[k + 1])):
+                    dlda += self.ws[k + 1][j][i] * delta[k + 1][j]
+                delta[k].append(dlda * tanh_der(self.zs[k][i]))
+
+        for i in range(len(self.ws)):
+            prev = self.act[i]
+            for j in range(len(self.ws[i])):
+                self.grad_b[i][j] = delta[i][j]
+                for k in range(len(prev)):
+                    self.grad_w[i][j][k] = delta[i][j] * prev[k]
+
+    def update(self, lr):
+        for i in range(len(self.ws)):
+            for j in range(len(self.ws[i])):
+                for k in range(len(self.ws[i][j])):
+                    self.ws[i][j][k] -= lr * self.grad_w[i][j][k]
+                self.bs[i][j] -= lr * self.grad_b[i][j]
+
+    def train(self, train_x, train_y, epochs, lr):
+        losses = []
+        for epoch in range(epochs):
+            total_loss = 0
+
+            for x, y in zip(train_x, train_y):
+                ypred = self.forward(x)
+                total_loss += loss(y, ypred)
+                self.backprop(y)
+                self.update(lr)
+
+            average_loss = total_loss / len(train_x)
+            losses.append(average_loss)
+            
+            if (epoch + 1) % 100 == 0:
+                print(f"Epoch: {epoch+1}/{epochs}, Loss: {average_loss}")
+                
+        return losses
+
+
+    def show_params(self):
+        for i, (w, b) in enumerate(zip(self.ws, self.bs)):
+            layer = "OUTPUT" if i == len(self.ws) - 1 else f"LAYER {i+1}"
+            print(layer)
+            for j, neuron_w in enumerate(w):
+                weights_str = ", ".join(f"{x:.4f}" for x in neuron_w)
+                print(f"  Neuron {j+1}:")
+                print(f"    Weights: [{weights_str}]")
+                print(f"    Bias = {b[j]:.4f}")
+            print()
+
+mlp = MLP([2, 8, 8, 1])
+\end{lstlisting}
+\begin{lstlisting}[style=jout]
+\end{lstlisting}
+\end{jupyter}
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+losses = mlp.train(train_x, train_y, epochs=2000, lr=0.01)
+print()
+
+for x, y in zip(train_x[:10], train_y[:10]):
+    print(x, y)
+    print(f"     ypred: {mlp.forward(x)}")
+
+plt.plot(losses)
+plt.xlabel("epoch")
+plt.ylabel("loss")
+plt.show()
+
+#mlp.show_params()
+\end{lstlisting}
+\begin{lstlisting}[style=jout]
+Epoch: 100/2000, Loss: 0.0006795237745380497
+Epoch: 200/2000, Loss: 0.0002780199905385479
+Epoch: 300/2000, Loss: 0.00015780133554953304
+Epoch: 400/2000, Loss: 9.996884725589866e-05
+Epoch: 500/2000, Loss: 6.544552166502369e-05
+Epoch: 600/2000, Loss: 4.373246439583505e-05
+Epoch: 700/2000, Loss: 3.032175895325618e-05
+Epoch: 800/2000, Loss: 2.2295750007135315e-05
+Epoch: 900/2000, Loss: 1.7559747007674843e-05
+Epoch: 1000/2000, Loss: 1.4723606896641237e-05
+Epoch: 1100/2000, Loss: 1.2951440585334302e-05
+Epoch: 1200/2000, Loss: 1.1773900112740833e-05
+Epoch: 1300/2000, Loss: 1.0936643742787753e-05
+Epoch: 1400/2000, Loss: 1.0302935457567813e-05
+Epoch: 1500/2000, Loss: 9.79811628836463e-06
+Epoch: 1600/2000, Loss: 9.379957580934361e-06
+Epoch: 1700/2000, Loss: 9.023360655331247e-06
+Epoch: 1800/2000, Loss: 8.712547584218995e-06
+Epoch: 1900/2000, Loss: 8.437042172730164e-06
+Epoch: 2000/2000, Loss: 8.189547717119376e-06
+
+[1.0, -1.0] -1.0
+     ypred: -0.9914314084230468
+[0.8, -1.0] -0.8
+     ypred: -0.8026975789984329
+[0.8, -0.9] -0.7200000000000001
+     ypred: -0.7229659139930072
+[0.1, -0.8] -0.08000000000000002
+     ypred: -0.07901899113208088
+[0.3, -0.3] -0.09
+     ypred: -0.08931568886644314
+[-0.7, -0.1] 0.06999999999999999
+     ypred: 0.07003157242570901
+[-0.6, -0.5] 0.3
+     ypred: 0.29863205953269367
+[0.7, 0.8] 0.5599999999999999
+     ypred: 0.5613061391881997
+[-0.5, -0.4] 0.2
+     ypred: 0.19629911113434118
+[0.9, 0.8] 0.7200000000000001
+     ypred: 0.7218073084017129
+\end{lstlisting}
+\vspace{-\baselineskip}
+\includegraphics[scale=0.65]{CS0104.26017-3}
+\end{jupyter}
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+test_loss = 0
+for x, y in zip(test_x, test_y):
+    ypred = mlp.forward(x)
+    test_loss += loss(y, ypred)
+
+for x, y in zip(test_x[:10], test_y[:10]):
+    ypred = mlp.forward(x)
+    print(x, y)
+    print(f"    ypred: {ypred}")
+
+print("Test Loss:", test_loss / len(test_x))
+\end{lstlisting}
+\begin{lstlisting}[style=jout]
+[-0.9, -0.3] 0.27
+    ypred: 0.27224246623233583
+[0.9, 1.0] 0.9
+    ypred: 0.889162612694173
+[0.1, 0.5] 0.05
+    ypred: 0.050824340568330406
+[1.0, 1.0] 1.0
+    ypred: 0.9737260427905209
+[0.6, -0.8] -0.48
+    ypred: -0.4811987339447982
+[0.6, -0.3] -0.18
+    ypred: -0.17587974783858806
+[0.6, 0.4] 0.24
+    ypred: 0.23577905969192914
+[0.5, -0.8] -0.4
+    ypred: -0.4007379739663608
+[0.5, 0.2] 0.1
+    ypred: 0.0970149401772119
+[0.9, -0.2] -0.18000000000000002
+    ypred: -0.18071247280108016
+Test Loss: 1.1432408362631248e-05
+\end{lstlisting}
+\end{jupyter}
+
+\subsubsection{Detailed Explanation}
+
+Now let's take a look at each block of the code to see their role
+in our vanilla neural net.
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+import math
+import random
+import matplotlib.pyplot as plt
+%matplotlib inline
+\end{lstlisting}
+\begin{lstlisting}[style=jout]
+\end{lstlisting}
+\end{jupyter}
+
+Here, I imported essential modules and libraries to do math, get
+a randomized value, and plot the loss.
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+# Predicting x1 * x2
+def tanh(x):
+    return (math.exp(x) - math.exp(-x)) / (math.exp(x) + math.exp(-x))
+
+def tanh_der(x):
+    return 1 - tanh(x)**2
+
+def loss(y, ypred):
+    return 0.5 * (y - ypred)**2
+\end{lstlisting}
+\begin{lstlisting}[style=jout]
+\end{lstlisting}
+\end{jupyter}
+
+For this problem, I decided to use tanh for our activation function
+as sigmoid squishes the values to 0 and 1, which is not ideal for
+regression problem like ours and ReLU was not effective when I tried.
+Since $\tanh(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}}$ and $\tanh'(x) =
+1 - \tanh^2(x)$, we did the same. For our loss function, I decided to
+use MSE for simplicity again.
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+# Data
+data_x = [[i/10, j/10] for i in range(-10, 11) for j in range(-10, 11)]
+data_y = [(x1 * x2) for x1, x2 in data_x]
+
+data = list(zip(data_x, data_y))
+random.seed(3141592)
+random.shuffle(data)
+
+split = int(0.8 * len(data))
+train_data = data[:split]
+test_data = data[split:]
+
+train_x = [x for x, y in train_data]
+train_y = [y for x, y in train_data]
+test_x = [x for x, y in test_data]
+test_y = [y for x, y in test_data]
+\end{lstlisting}
+\begin{lstlisting}[style=jout]
+\end{lstlisting}
+\end{jupyter}
+
+This part is for making our datasets. I decided to divide $i$ and $j$
+by $10$ because if I don't, math overflow error will be resulted
+due to $\tanh$ function.
+
+This time, I decided to shuffle data in a way that we will get the
+same result when you try running this, and split the data into
+$80\%$ for training and $20\%$ for validating.
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+class MLP:
+    def __init__(self, layers):
+        self.ws = []
+        self.bs = []
+
+        random.seed(3141592)
+        for i in range(len(layers) - 1):
+            layer_in = layers[i]
+            layer_out = layers[i + 1]
+            layer_w = [[random.uniform(-1, 1) for _ in range(layer_in)]
+                       for _ in range(layer_out)]
+            layer_b = [random.uniform(-1, 1) for _ in range(layer_out)]
+
+            self.ws.append(layer_w)
+            self.bs.append(layer_b)
+\end{lstlisting}
+\begin{lstlisting}[style=jout]
+\end{lstlisting}
+\end{jupyter}
+
+Again for our example, I decided to store our core functions in
+a class since we want to reuse and store our attributes.
+When this class is first called, we will create an empty array
+and for \verb|ws| and \verb|bs| and store them in \verb|self|. Then,
+for the randomized value, we will loop through each layers to store
+a randomized value between $-1$ and $1$ for weights and biases.
+Notice that unlike the bias which only loop through the neurons
+in the output layer, we have to loop through the previous layer
+too for weights since we have different weights for each previous
+neuron for each output neuron. We will then append, or store, our
+layer to \verb|ws| and \verb|bs|.
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+def forward(self, x):
+    self.act = [x]
+    self.zs = []
+    
+    # Layers
+    for i in range(len(self.ws)):
+        prev = self.act[-1]
+        pre_layer = []
+        act_layer = []
+
+        # Neurons
+        for j in range(len(self.ws[i])):
+            pre = self.bs[i][j]
+            for k in range(len(self.ws[i][j])):
+                pre += self.ws[i][j][k] * prev[k]
+            
+            pre_layer.append(pre)
+
+            if i != len(self.ws) - 1:
+                act_layer.append(tanh(pre))
+            else:
+                act_layer.append(pre)
+                
+        self.zs.append(pre_layer)
+        self.act.append(act_layer)
+        
+    return self.act[-1][0]
+\end{lstlisting}
+\begin{lstlisting}[style=jout]
+\end{lstlisting}
+\end{jupyter}
+
+This is the forward function. Here, I decided to create both
+\verb|self.act| and \verb|self.zs| since we need both of them
+for backprop function. As the name suggests, \verb|self.act| is the
+value after $\tanh$ is applied to \verb|self.zs.| Moreover, I stored
+the input in \verb|self.act| in the beginning to start using them in
+the first hidden layer.
+
+Continuing, we create arrays for each layer for preactivation
+and activation. Then, we will continue by looping through the
+neurons within each layer. Our preactivation will start from
+the bias, and by following the definition, we will add the products
+of weights and the previous activation. For the if-else condition,
+I decided to do this because we don't want $\tanh$ for our final
+output layer. Then, we will store the layers in \verb|self.act| and
+\verb|self.zs| for latter use.
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+def backprop(self, y):
+    self.grad_w = [[[0.0 for _ in range(len(self.ws[i][j]))]
+                    for j in range(len(self.ws[i]))]
+                   for i in range(len(self.ws))]
+    self.grad_b = [[0.0 for _ in range(len(self.bs[i]))]
+                   for i in range(len(self.bs))]
+    ypred = self.act[-1][0]
+    delta = [0] * len(self.ws)
+    delta[-1] = [ypred - y]
+
+    # range(start, stop, step)
+    for k in range(len(self.ws) - 2, -1, -1):
+        delta[k] = []
+        for i in range(len(self.ws[k])):
+            dlda = 0.0
+            for j in range(len(self.ws[k + 1])):
+                dlda += self.ws[k + 1][j][i] * delta[k + 1][j]
+            delta[k].append(dlda * tanh_der(self.zs[k][i]))
+
+    for i in range(len(self.ws)):
+        prev = self.act[i]
+        for j in range(len(self.ws[i])):
+            self.grad_b[i][j] = delta[i][j]
+            for k in range(len(prev)):
+                self.grad_w[i][j][k] = delta[i][j] * prev[k]
+\end{lstlisting}
+\begin{lstlisting}[style=jout]
+\end{lstlisting}
+\end{jupyter}
+
+Ah the backprop. I think this is the hardest part from our code.
+Assuming that you have read the previous section, let's interpret
+the code with the corresponding math equations.
+
+Recall although we do not calcuate the loss per individual parameter,
+we do have to calculate the gradients. To start, I decided to put
+the initial values as $0$. To store them, we can do the same just
+as we randomized the initial weights and biases because ultimately,
+each gradient will have a matching parameter. Continuing, \verb|ypred|
+is the prediction, and that is the first element from the last
+activation layer. This will vary when we have numerous outputs,
+but since this is a simple regression problem and we only have one
+output, this is good. \verb|delta| here is the delta term for our
+hidden layers. Let's start by setting them as $0$ at first and
+\verb|ypred - y| for the last layer.
+
+Here comes the fun part. In Python, the \verb|range| function can be
+used as \verb|range(start, stop,| \verb|step)|. Here, we start from
+the last hidden layer and we subtract $2$ due to indices. Then,
+we will stop when we reach $-1$ by going backward by $1$. We will
+loop through them for our delta terms. Recall the formula that we
+derived below.
+\[
+\delta_i^{[l]}
+= \frac{\partial L}{\partial a_i^{[l]}}
+    \frac{\partial a_i^{[l]}}{\partial z_i^{[l]}}
+= g'\left(z_i^{[l]}\right) \sum_j w_{ji}^{[l]} \delta_j^{[l+1]}
+\]
+As the formula suggests, we will add the weights and the
+corresponding following delta term with the for loop for
+$\frac{\partial L}{\partial a_i^{[l]}}$. Then, we will mulitply
+it by the derivative of the actiavtion function, which is $\tanh$
+for our example. Finally, we can store our delta terms that are
+calculuated. Next, we can now use them to calculate the gradients.
+\begin{align*}
+\frac{\partial L}{\partial w_{ij}^{[l]}}
+&= \delta_i^{[l]} a_j^{[l-1]} \\
+\frac{\partial L}{\partial b_i^{[l]}}
+&= \delta_i^{[l]} \frac{\partial z_i^{[l]}}{\partial b_i^{[l]}}
+= \delta_i^{[l]}
+\end{align*}
+As the formula suggests, for each parameters, will calculate
+the gradients again with for the loop. This is it for the backprop!
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+def update(self, lr):
+    for i in range(len(self.ws)):
+        for j in range(len(self.ws[i])):
+            for k in range(len(self.ws[i][j])):
+                self.ws[i][j][k] -= lr * self.grad_w[i][j][k]
+            self.bs[i][j] -= lr * self.grad_b[i][j]
+
+def train(self, train_x, train_y, epochs, lr):
+    losses = []
+    for epoch in range(epochs):
+        total_loss = 0
+
+        for x, y in zip(train_x, train_y):
+            ypred = self.forward(x)
+            total_loss += loss(y, ypred)
+            self.backprop(y)
+            self.update(lr)
+
+        average_loss = total_loss / len(train_x)
+        losses.append(average_loss)
+        
+        if (epoch + 1) % 100 == 0:
+            print(f"Epoch: {epoch+1}/{epochs}, Loss: {average_loss}")
+            
+    return losses
+\end{lstlisting}
+\begin{lstlisting}[style=jout]
+\end{lstlisting}
+\end{jupyter}
+
+Now we need to update. This part is similar with our previous
+example, but for each parameter, we will update it by subracting the
+product of the corresponding gradient and the learning rate.
+The training part is again very similar to our previous example.
+We will begin our loss with $0$, the we will predict, accumulate the
+loss, backprop, update, and print every hundred epoch.
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+    def show_params(self):
+        for i, (w, b) in enumerate(zip(self.ws, self.bs)):
+            layer = "OUTPUT" if i == len(self.ws) - 1 else f"LAYER {i+1}"
+            print(layer)
+            for j, neuron_w in enumerate(w):
+                weights_str = ", ".join(f"{x:.4f}" for x in neuron_w)
+                print(f"  Neuron {j+1}:")
+                print(f"    Weights: [{weights_str}]")
+                print(f"    Bias = {b[j]:.4f}")
+            print()
+
+mlp = MLP([2, 8, 8, 1])
+\end{lstlisting}
+\begin{lstlisting}[style=jout]
+\end{lstlisting}
+\end{jupyter}
+
+This part is for printing the parameters, and as you can see, it is
+pretty straight forward. I ended up not using it because I don't think
+it is that effective at this point, but why not just have it.
+Now we create an instance for the MLP class with two hidden layers
+with eight neurons each.
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+losses = mlp.train(train_x, train_y, epochs=2000, lr=0.01)
+print()
+
+for x, y in zip(train_x[:10], train_y[:10]):
+    print(x, y)
+    print(f"     ypred: {mlp.forward(x)}")
+
+plt.plot(losses)
+plt.xlabel("epoch")
+plt.ylabel("loss")
+plt.show()
+
+#mlp.show_params()
+\end{lstlisting}
+\begin{lstlisting}[style=jout]
+\end{lstlisting}
+\end{jupyter}
+
+We will train with the learning rate of $0.01$ and $2000$ epochs.
+We then print the first ten p9redictions and plot the loss.
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+test_loss = 0
+for x, y in zip(test_x, test_y):
+    ypred = mlp.forward(x)
+    test_loss += loss(y, ypred)
+
+for x, y in zip(test_x[:10], test_y[:10]):
+    ypred = mlp.forward(x)
+    print(x, y)
+    print(f"    ypred: {ypred}")
+
+print("Test Loss:", test_loss / len(test_x))
+\end{lstlisting}
+\begin{lstlisting}[style=jout]
+\end{lstlisting}
+\end{jupyter}
+
+This part is for printing the loss and prediciton for testing.
+That was it for the explanation! Now let's take a look at the
+results.
+
+\subsubsection{Analyzing the Results}
+
+Now that we have looked at the source code, let's analyze the result
+to see how our vanilla neural net performs.
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+losses = mlp.train(train_x, train_y, epochs=2000, lr=0.01)
+print()
+
+for x, y in zip(train_x[:10], train_y[:10]):
+    print(x, y)
+    print(f"     ypred: {mlp.forward(x)}")
+
+plt.plot(losses)
+plt.xlabel("epoch")
+plt.ylabel("loss")
+plt.show()
+
+#mlp.show_params()
+\end{lstlisting}
+\begin{lstlisting}[style=jout]
+Epoch: 100/2000, Loss: 0.0006795237745380497
+Epoch: 200/2000, Loss: 0.0002780199905385479
+Epoch: 300/2000, Loss: 0.00015780133554953304
+Epoch: 400/2000, Loss: 9.996884725589866e-05
+Epoch: 500/2000, Loss: 6.544552166502369e-05
+Epoch: 600/2000, Loss: 4.373246439583505e-05
+Epoch: 700/2000, Loss: 3.032175895325618e-05
+Epoch: 800/2000, Loss: 2.2295750007135315e-05
+Epoch: 900/2000, Loss: 1.7559747007674843e-05
+Epoch: 1000/2000, Loss: 1.4723606896641237e-05
+Epoch: 1100/2000, Loss: 1.2951440585334302e-05
+Epoch: 1200/2000, Loss: 1.1773900112740833e-05
+Epoch: 1300/2000, Loss: 1.0936643742787753e-05
+Epoch: 1400/2000, Loss: 1.0302935457567813e-05
+Epoch: 1500/2000, Loss: 9.79811628836463e-06
+Epoch: 1600/2000, Loss: 9.379957580934361e-06
+Epoch: 1700/2000, Loss: 9.023360655331247e-06
+Epoch: 1800/2000, Loss: 8.712547584218995e-06
+Epoch: 1900/2000, Loss: 8.437042172730164e-06
+Epoch: 2000/2000, Loss: 8.189547717119376e-06
+
+[1.0, -1.0] -1.0
+     ypred: -0.9914314084230468
+[0.8, -1.0] -0.8
+     ypred: -0.8026975789984329
+[0.8, -0.9] -0.7200000000000001
+     ypred: -0.7229659139930072
+[0.1, -0.8] -0.08000000000000002
+     ypred: -0.07901899113208088
+[0.3, -0.3] -0.09
+     ypred: -0.08931568886644314
+[-0.7, -0.1] 0.06999999999999999
+     ypred: 0.07003157242570901
+[-0.6, -0.5] 0.3
+     ypred: 0.29863205953269367
+[0.7, 0.8] 0.5599999999999999
+     ypred: 0.5613061391881997
+[-0.5, -0.4] 0.2
+     ypred: 0.19629911113434118
+[0.9, 0.8] 0.7200000000000001
+     ypred: 0.7218073084017129
+\end{lstlisting}
+\vspace{-\baselineskip}
+\includegraphics[scale=0.65]{CS0104.26017-3}
+\end{jupyter}
+
+I would say this is pretty good! The loss is constantly decreasing
+and the prediction seems to be pretty good. Looking at the graph,
+the model seemed to have little idea at first, but instantly learned
+to see the holistic view as suggested by the sudden drop.
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+test_loss = 0
+for x, y in zip(test_x, test_y):
+    ypred = mlp.forward(x)
+    test_loss += loss(y, ypred)
+
+for x, y in zip(test_x[:10], test_y[:10]):
+    ypred = mlp.forward(x)
+    print(x, y)
+    print(f"    ypred: {ypred}")
+
+print("Test Loss:", test_loss / len(test_x))
+\end{lstlisting}
+\begin{lstlisting}[style=jout]
+[-0.9, -0.3] 0.27
+    ypred: 0.27224246623233583
+[0.9, 1.0] 0.9
+    ypred: 0.889162612694173
+[0.1, 0.5] 0.05
+    ypred: 0.050824340568330406
+[1.0, 1.0] 1.0
+    ypred: 0.9737260427905209
+[0.6, -0.8] -0.48
+    ypred: -0.4811987339447982
+[0.6, -0.3] -0.18
+    ypred: -0.17587974783858806
+[0.6, 0.4] 0.24
+    ypred: 0.23577905969192914
+[0.5, -0.8] -0.4
+    ypred: -0.4007379739663608
+[0.5, 0.2] 0.1
+    ypred: 0.0970149401772119
+[0.9, -0.2] -0.18000000000000002
+    ypred: -0.18071247280108016
+Test Loss: 1.1432408362631248e-05
+\end{lstlisting}
+\end{jupyter}
+
+Our test also seems pretty good. The loss seems small because our
+validation set uses small numbers, but we could see that the
+prediction somewhat matches the real values!
+
+Now looking back at our model, this is again good for the limited
+range as suggested by the result above. However, there is a reason
+for that. Recall that we shuffled the dataset and seletcted $80\%$
+for training and $20\%$ for testing there. Therefore, for the limited
+range that the model is trained in, the model did pretty good job.
+However, when I first tried making dataset by splitting the training
+and validation as first $80\%$ and latter $20\%$, our model did
+poorly. This is because the model learned the left side well, but
+it does poorly in predicting the right side since it has no idea
+what's going on there with absolutely no training example. However,
+the good news is that our neural net is scalable unlike the previous
+example! By increasing the range for datasets, and could see whether
+the model underfits or overfits.
+
+We now covered two models from scratch! Now that we know what
+happens in deep neural nets, let's build our own language models!
+\end{document}
+
+

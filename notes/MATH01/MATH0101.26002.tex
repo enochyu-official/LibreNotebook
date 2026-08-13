@@ -1,0 +1,405 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Classic Inequalities}
+
+One of the first concepts that most students, including myself,
+study when getting started with olympiad is I believe inequalities.
+Many problems are solved by tweaking known inequalities and doing
+some clever substitutions. In this note, we will discuss fundamental
+and classic inequalities as an introduction to olympiad inequalities.
+
+\subsection{AM-GM Inequality}
+
+Let's start with AM-GM Inequality. I assume most of you know or
+at least have heard of this inequality as we learn it in middle and
+high school. AM-GM inequality stands for Arithmetic Mean-Geometric
+Mean inequality and literally compares those two means.
+
+\begin{definition}
+{AM-GM Inequality}
+{AM-GM Inequality}
+For $a_k \geq 0$, the following inequality holds with equality if
+and only if $a_1 = a_2 = \dots = a_n$.
+\[
+\frac{ \sum_{i=1}^n a_i }{n} \geq
+\sqrt[n]{ \prod_{i=1}^n a_i }
+\]
+\end{definition}
+
+You might be more familiar with $a + b \geq 2 \sqrt{ab}$, but the
+inequality above is the generalized version.
+
+\begin{tip}
+AM-GM as a fundamental inequality has lots of application. However
+in olympiads, it is used the most for cancellation and investigating
+the minimum.
+\end{tip}
+
+Consider the following example.
+
+\begin{problem}{}{}
+Prove the following inequality for $a, b, c, d \geq 0$.
+\[
+(a + b)(b + c)(c + d)(d + a) \geq 16abcd
+\]
+\end{problem}
+\begin{solution}
+Because $a, b, c, d$ are non-negative, we could utilize AM-GM
+inequality. By AM-GM inequality, the following inequalities hold.
+\begin{align*}
+    a + b &\geq 2 \sqrt{ab} \\
+    b + c &\geq 2 \sqrt{bc} \\
+    c + d &\geq 2 \sqrt{cd} \\
+    d + a &\geq 2 \sqrt{da}
+\end{align*}
+Multiplying the inequalities,
+\[
+(a + b)(b + c)(c + d)(d + a) \geq 
+2 \sqrt{ab} \cdot 2 \sqrt{bc} \cdot 
+2 \sqrt{cd} \cdot 2 \sqrt{da} = 16abcd
+\]
+hold and $(a + b)(b + c)(c + d)(d + a) \geq 16abcd$.
+\end{solution}
+
+\begin{problem}{}{}
+SECOND PROBLEM FOR AM-GM INEQUALITY
+\end{problem}
+
+When we discuss arithmetic and geometric mean, we normally
+include weighted means. Thus, it is natural to consider AM-GM
+inequality with weighted means.
+
+\subsubsection{Weighted AM-GM Inequality}
+
+Let's first get started with definitions.
+
+\begin{definition}
+{Weighted AM-GM Inequality}
+{Weighted AM-GM Inequality}
+For weights $w_1, w_2, \dots, w_n \geq 0$ such that
+$\sum_{i=1}^n w_i = w$ the following inequality holds.
+\[
+\frac{\sum_{i=1}^n w_i a_i}{w}
+\geq \sqrt[w]{\prod_{i=1}^n a_i^{w_i}}
+\]
+The equality holds if and only if $a_1 = a_2 = \dots = a_n$.
+\end{definition}
+
+From the definition, we can notice that the original inequality is
+obtained with $w_1 = w_2 = \cdots = w_n = \frac{1}{n}$. Here is
+a problem on weighted AM-GM inequality.
+
+\begin{problem}
+{2020 IMO Problem 2}
+{2020 IMO Problem 2}
+Show that for $a, b, c, d \in \mathbb{R}$ such that
+$a \geq b \geq c \geq d > 0$ and $a + b + c + d = 1$,
+\[
+(a + 2b + 3c + 4d) a^a b^b c^c d^d < 1
+\]
+holds.
+\end{problem}
+
+(\href{https://youtu.be/Vz9BC5q7zdc}{Video Solution})
+
+\begin{solution}
+First, consider the following weighted AM-GM inequality for
+$a, b, c, d$ with weights $a, b, c, d$ respectively.
+\begin{align*}
+    \frac{a \cdot a + b \cdot b + c \cdot c + d \cdot d}
+        {a + b + c + d} 
+    &\geq \sqrt[a + b + c + d]{a^a b^b c^c d^d} \\
+    a^2 + b^2 + c^2 + d^2
+    &\geq a^a b^b c^c d^d
+\end{align*}
+Therefore, it suffices to show that the following inequality holds.
+\[
+(a + 2b + 3c + 4d)(a^2 + b^2 + c^2 + d^2) < 1
+\]
+Consider inequalities below.
+\begin{align*}
+    a^2 (a + 2b + 3c + 4d)
+    &< a^2 (a + 3b + 3c + 3d) \quad (\because b \geq d) \\
+    b^2 (a + 2b + 3c + 4d)
+    &< b^2 (3a + b + 3c + 3d) \quad (\because 2a \geq b + d) \\
+    c^2 (a + 2b + 3c + 4d)
+    &< c^2 (3a + 3b + c + 3d) \quad (\because 2a + b \geq 2c + d) \\
+    d^2 (a + 2b + 3c + 4d)
+    &< d^2 (3a + 3b + 3c + d) \quad (\because 2a + b \geq 3d)
+\end{align*}
+Integrating,
+\begin{align*}
+    (a + 2b + 3c + 4d)(a^2 + b^2 + c^2 + d^2)
+    &< a^2 (a + 3b + 3c + 3d) + b^2 (3a + b + 3c + 3d) \\
+    &\qquad + c^2 (3a + 3b + c + 3d) + d^2 (3a + 3b + 3c + d) \\
+    &\qquad < (a + b + c + d)^3 = 1
+\end{align*}
+and the inequality holds.
+\end{solution}
+
+With the ideas of weighted AM-GM inequality in mind, we can further
+generalize our results for different means.
+
+\subsection{Power Mean and Weighted Power Mean Inequality}
+
+Power Mean inequality, also known as QM-AM-GM-HM inequality,
+compares the four major means with generalization of $AM-GM$
+inequality. Without simple notations, we can represent the
+Power Mean inequality as $M_2 \geq M_1 \geq M_0 \geq M_{-1}$.
+
+\begin{definition}
+{Power Mean Inequality}
+{Power Mean Inequality}
+For positive real numbers $a_i$, the inequality
+\[
+\sqrt{ \frac{\sum_{i=1}^n a_i^2}{n} }
+\geq \frac{\sum_{i=1}^n a_i}{n}
+\geq \sqrt[n]{\prod_{i=1}^n a_i}
+\geq \frac{n}{ \sum_{i=1}^n \frac{1}{a_i} }
+\]
+holds with equality if and only if $a_1 = \cdots = a_n$.
+\end{definition}
+
+With the definition in mind, we can naturally apply the same for
+weighted power means.
+
+\begin{definition}
+{Weighted Power Mean Inequality}
+{Weighted Power Mean Inequality}
+For positive real numbers $a_i$, the inequality
+\[
+\sqrt{ \frac{\sum_{i=1}^n w_i a_i^2}{w} }
+\geq \frac{\sum_{i=1}^n w_i a_i}{w}
+\geq \sqrt[w]{\prod_{i=1}^n a_i^{w_i}}
+\geq \frac{w}{ \sum_{i=1}^n \frac{w_i}{a_i} }
+\]
+holds with equality if and only if $a_1 = \cdots = a_n$.
+\end{definition}
+
+Continuing from AM-GM inequality and its variations, the second most
+taught inequality in middle and high schools is probably
+Cauchy-Schwarz Inequality.
+
+\subsection{Cauchy-Schwarz Inequality}
+
+As always, let's get started with the definition.
+
+\begin{definition}
+{Cauchy-Schwarz Inequality}
+{Cauchy-Schwarz Inequality}
+For all real numbers $a_i$ and $b_i$,
+\[
+\left( \sum_{i=1}^n a_i^2 \right) \left( \sum_{i=1}^n b_i^2 \right)
+\geq
+\left( \sum_{i=1}^n a_i b_i \right)^2
+\]
+with equality if and only if $\frac{a_i}{b_i} = k$ for all integer
+$1 \leq i \leq n$, where $k > 0$ and $a_ib_i \neq 0$.
+\end{definition}
+
+When $n = 2$ we get the form $(a^2 + b^2)(x^2 + y^2) \geq (ax + by)^2$
+that we initially learn. Continuing, we can obtain an interesting
+direct consequence. The lemma below known as Titu's lemma, T2 Lemma,
+Sedrakyan's inequality, and Engel's form and was named after one of
+the greatest mathematician Titu Andreescu.
+
+\begin{corollary}
+{Titu's Lemma}
+{Titu's Lemma}
+For positive real numbers $a_i$ and $b_i$,
+\[
+\sum_{i=1}^n \frac{a_i^2}{b_i}
+\geq
+\frac{ \left( \sum_{i=1}^n a_i \right)^2 }{ \sum_{i=1}^n b_i }
+\]
+\end{corollary}
+\begin{proof}
+Substituting $x_i = \frac{a_i}{\sqrt{b_i}}$ and $y_i = \sqrt{b_i}$
+to the Cauchy-Schwarz inequality, the following inequalities are
+obtained.
+\begin{align*}
+    \left( \sum_{i=1}^n x_i^2 \right)
+    \left( \sum_{i=1}^n y_i^2 \right)
+    &\geq
+    \left( \sum_{i=1}^n x_i y_i \right)^2 \\[0.5em]
+    \left(
+        \sum_{i=1}^n \left( \frac{a_i}{\sqrt{b_i}} \right)^2
+    \right)
+    \left(
+        \sum_{i=1}^n \left( \sqrt{b_i} \right)^2
+    \right)
+    &\geq
+    \left(
+        \sum_{i=1}^n \frac{a_i}{\sqrt{b_i}} \cdot \sqrt{b_i}
+    \right)^2
+\end{align*}
+Recasting,
+\[
+\left( \sum_{i=1}^n \frac{a_i^2}{b_i} \right)
+\left( \sum_{i=1}^n b_i \right)
+\geq
+\left( \sum_{i=1}^n a_i \right)^2
+\]
+and
+\[
+\sum_{i=1}^n \frac{a_i^2}{b_i}
+\geq
+\frac{ \left( \sum_{i=1}^n a_i \right)^2 }{ \sum_{i=1}^n b_i }
+\]
+is obtained. Thus, the lemma holds.
+\end{proof}
+
+This lemma comes especially handy if an inequality involves
+fractions with square numbers. Now that we discussed a direct
+consequence of Cauchy-Schwarz inequality, we can consider its
+generalization.
+
+\subsection{Hölder's Inequality}
+
+Cauchy-Schwarz inequality is actually a special case of Hölder's
+inequality. Both inequalities can be used in multiple ways such as
+eliminating radicals and fractions. Below is the definition of
+Hölder's inequality.
+
+\begin{definition}
+{Hölder's Inequality}
+{Hölder's Inequality}
+Let $a_i, b_i, \ldots, z_i > 0$ and $\lambda_a, \lambda_b, \ldots,
+\lambda_z \geq 0$ such that $\lambda_a + \lambda_b + \dots +
+\lambda_z = 1$. Then,
+\begin{align*}
+\left( \sum_{i=1}^n a_i \right)^{\lambda_a}
+\left( \sum_{i=1}^n b_i \right)^{\lambda_b} \cdots
+\left( \sum_{i=1}^n z_i \right)^{\lambda_z}
+\geq
+    \sum_{i=1}^n a_i^{\lambda_a} b_i^{\lambda_b}
+        \cdots z_i^{\lambda_z}
+\end{align*}
+holds with equality if $a_1 : a_2 : \dots : a_n \equiv b_1 : b_2 :
+\dots : b_n \equiv \dots \equiv z_1 : z_2 : \dots : z_n$.
+\end{definition}
+
+Indeed, Cauchy-Schwarz inequality does resemble Hölder's Inequality!
+To derive Cauchy-Scharz inequality from Hölder's, it suffices to show
+that a specific case of Hölder's inequality will lead to
+Cauchy-Schwarz inequality.
+
+Let $\lambda_a = \lambda_b = \frac{1}{2}$. Substituting, the following
+inequalities hold.
+\begin{align*}
+    \left( \sum_{i=1}^n a_i \right)^\frac{1}{2}
+    \left( \sum_{i=1}^n b_i \right)^\frac{1}{2}
+    \left( \sum_{i=1}^n c_i \right)^0 \cdots
+    \left( \sum_{i=1}^n z_i \right)^0
+    &\geq
+    \sum_{i=1}^n
+        a_i^{\frac{1}{2}} b_i^{\frac{1}{2}} \cdot
+        c_i^0 \cdots z_i^0 \\
+    \left( \sum_{i=1}^n a_i \right)^\frac{1}{2}
+    \left( \sum_{i=1}^n b_i \right)^\frac{1}{2}
+    &\geq
+    \sum_{i=1}^n a_i^\frac{1}{2} b_i^\frac{1}{2}
+\end{align*}
+Let $\alpha_i = \sqrt{a_i}$ and $\beta_i = \sqrt{b_i}$. Substituting,
+\[
+\left( \sum_{i=1}^n \alpha_i^2 \right)^\frac{1}{2}
+\left( \sum_{i=1}^n \beta_i^2 \right)^\frac{1}{2}
+\geq
+\sum_{i=1}^n \alpha_i \beta_i
+\]
+and
+\[
+\left( \sum_{i=1}^n \alpha_i^2 \right)
+\left( \sum_{i=1}^n \beta_i^2 \right)
+\geq
+\left( \sum_{i=1}^n \alpha_i \beta_i \right)^2
+\]
+is obtained. This is Cauchy-Schwarz inequality! Below is a very
+classic problem on Hölder's Inequality
+
+\begin{problem}{}{}
+Show that the following inequality holds for all $a, b, c > 0$.
+\[
+(a^3 + 2)(b^3 + 2)(c^3 + 2) \geq (a + b + c)^3
+\]
+\end{problem}
+
+(\href{https://youtu.be/FUtgo54gq7I}{Video Solution})
+
+\begin{solution}
+The key to this problem is changing the left-hand side to apply
+Hölder's Inequality. Consider the following inequality by Hölder.
+\[
+(a^3 + 1 + 1)^\frac{1}{3} (1 + b^3 + 1)^\frac{1}{3}
+    (1 + 1 + c^3)^\frac{1}{3}
+\geq a + b + c
+\]
+Thus, cubing both sides leads to the desired result.
+\end{solution}
+
+Continuing from Cauchy-Schwarz inequality and its variation, another
+fundamental inequality of different type is rearrangement inequality.
+
+\subsection{Rearrangement Inequality}
+
+Let's start with definition.
+
+\begin{definition}
+{Rearrangement Inequality}
+{Rearrangement Inequality}
+Let $a_i$ and $b_i$ be real numbers such that $a_1 \geq a_2 \geq
+\cdots \geq a_n$ and $b_1 \geq b_2 \geq \cdots \geq b_n$. Moreover,
+let $b_{\sigma(i)}$ be the $i^\text{th}$ term of the permutations of
+$b_1, \cdots, b_n$. Then, the following inequalities hold.
+\[
+\sum_{i=1}^n a_i b_i
+\geq \sum_{i=1}^n a_i b_{\sigma(i)}
+\geq \sum_{i=1}^n a_i b_{n-i+1}
+\]
+The equality holds if at least one sequence is constant.
+\end{definition}
+
+With the definition, we can obtain a special consequence.
+
+\begin{corollary}
+{Chebyshev's Inequality}
+{Chebyshev's Inequality}
+For real numbers $a_1 \geq a_2 \geq \cdots \geq a_n$ and $b_1 \geq b_2
+\geq \cdots \geq b_n$,
+\[
+n \left( \sum_{i=1}^n a_i b_i \right)
+\geq \left( \sum_{i=1}^n a_i \right)
+\left( \sum_{i=1}^n b_i \right)
+\geq n \left( \sum_{i=1}^n a_i b_{n-i+1} \right)
+\]
+holds with the equality if at least one sequence is constant.
+\end{corollary}
+\begin{proof}
+Consider the following cases where $b_1 \geq b_2 \geq \cdots \geq b_n$
+are cycled through in the rearrangement inequality.
+\begin{align*}
+    \sum_{i=1}^n a_i b_i
+    &\geq a_1 b_1 + a_2 b_2 + \cdots + a_n b_n
+    \geq \sum_{i=1}^n a_i b_{n-i+1} \\
+    \sum_{i=1}^n a_i b_i
+    &\geq a_1 b_2 + a_2 b_3 + \cdots + a_n b_1
+    \geq \sum_{i=1}^n a_i b_{n-i+1} \\
+    &\qquad\qquad\qquad \vdots \\
+    \sum_{i=1}^n a_i b_i
+    &\geq a_1 b_n + a_2 b_1 + \cdots + a_n b_{n-1}
+    \geq \sum_{i=1}^n a_i b_{n-i+1} \\
+\end{align*}
+Adding the inequalities,
+\[
+n \left( \sum_{i=1}^n a_i b_i \right)
+\geq \left( \sum_{i=1}^n a_i \right)
+\left( \sum_{i=1}^n b_i \right)
+\geq n \left( \sum_{i=1}^n a_i b_{n-i+1} \right)
+\]
+and the corollary holds.
+\end{proof}
+
+\end{document}
+

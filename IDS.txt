@@ -1,0 +1,39 @@
+# Parts
+MATH01         | Olympiad Algebra
+CS01           | Machine Learning
+
+# Notes
+MATH0101       | Inequalities
+CS0101         | Fundamental Math for Machine Learning
+CS0102         | Python Basics for Machine Learning
+CS0103         | Foundations and Intuitions
+CS0104         | Deep Dive into Deep Neural Networks
+CS0105         | Building Language Models
+CS0106         | AI and The Future
+CS0107         | Further Resources
+
+# Sections
+MATH0100.26001 | INIT
+MATH0101.26002 | Classic Inequalities
+MATH0101.26003 | Advanced Inequalities
+MATH0101.26004 | Inequalities Techniques
+MATH0101.26005 | Practice Problems
+CS0100.26006   | INIT
+CS0101.26007   | Calculus
+CS0101.26008   | Linear Algebra
+CS0101.26009   | Probability Theory
+CS0102.26010   | Basic Syntax
+CS0102.26011   | Modules and Libraries
+CS0103.26012   | Fundamental Terms and Concepts
+CS0103.26013   | Introduction to Large Language Models
+CS0103.26014   | Improving Large Language Models
+CS0104.26015   | Definitions and High Level Overview
+CS0104.26016   | Conventions and Mathematical INterpretations
+CS0104.26017   | Building Vanilla Neural Network From Scratch
+CS0105.26018   | Bigram Language Model
+CS0105.26019   | Attention and Transformers
+CS0105.26020   | Building and LLM with PyTorch
+CS0106.26021   | AI Safety
+CS0106.26022   | Further Resources
+
+

@@ -1,0 +1,257 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{Python Basics for Machine Learning}
+
+To develop a model represented in abstract math, we need a
+programming language. If you ask any ML engineer on the
+language they use the most, I can guarantee you that it's
+Python (well most likely). The reason is simple: syntax and
+libraries. Although all heavy computations in ML is mostly done
+by C++, Python is way easier to write than C++. You don't have to
+deal with segmentation faults and spend more time adding the
+missing semicolon than actually debugging. Moreover, Python has
+popular libraries like NumPy, Matplotlib, and PyTorch that will
+make our lives easier. Therefore, we will discuss about basic
+syntax, NumPy, and Matplotlib for ML in this note. Don't worry,
+we will discuss about PyTorch in latter notes as it requires
+ML concepts.
+
+\section{Basic Syntax}
+
+As always, let's get started by being more familiar with the
+nature of Python. Unlike most other languages, indentation is a
+vital factor in Python. Two spaces, four spaces, doesn't really
+matter, let's use four spaces as it is more common and readable.
+Here is the Hello World example.
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+print("Hello World")
+\end{lstlisting}
+
+\begin{lstlisting}[style=jout]
+Hello World
+\end{lstlisting}
+\end{jupyter}
+
+Please note that this Jupyter Notebook can be found in
+\verb|jupyter/| directory in GitHub under the root directory for
+these notes. Please feel free to download and follow along!
+The next example is a list of simple operations that we can
+do with Python.
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+import math
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+print(1 + 2)       # Addition
+print(3 - 9)       # Subtraction
+print(4 * 3)       # Multiplication
+print(5 ** 2)      # Power
+print(math.log(5)) # log(a, base), default base is e
+print(math.exp(2)) # e^2
+print(math.e)      # Accessing constants
+\end{lstlisting}
+
+\begin{lstlisting}[style=jout]
+3
+-6
+12
+25
+1.6094379124341003
+7.38905609893065
+2.718281828459045
+\end{lstlisting}
+\end{jupyter}
+
+As you can see in Cell 2, we need module ``math'' to access
+constants and functions like $e$, $\pi$, and $\log_a b$.
+
+\begin{definition}{}{}
+We can achieve the same effect with \textbf{variables}, or
+a place with name that stores a value. A \textbf{function}
+is a reusable block of code dedicated for specific tasks.
+\end{definition}
+
+Let's take a look at an example of how function and variable
+in addition to the operations above can be used to find
+the approximation of the derivative of $f(x) = x^2 + 5$
+at $x = 3$.
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+def f(x):
+    return x**2 + 5
+
+a = 3
+h = 0.0001
+der = (f(a + h) - f(a))/h
+print(der)
+\end{lstlisting}
+
+\begin{lstlisting}[style=jout]
+6.000100000012054
+\end{lstlisting}
+\end{jupyter}
+
+Let's check if our answer is reasonable. Using the Power Rule,
+we know that $f'(x) = 2x$. Because $f(3) = 2 \cdot 3 = 6$
+and $6.000100000012054$ and $6$ are somewhat close, our result
+is reasonable.
+
+\begin{definition}{}{}
+\textbf{Lists} are dynamic and ordered collection of elements
+of potentially different data types. An \textbf{index} is the
+position of an element in the list. The index of the first item
+is $0$.
+\end{definition}
+
+Below are examples of what we can do with lists.
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+# A list can be empty
+a = []
+print(a)
+
+# We can append a value at the end
+a = [1, 'hi', 3]
+a.append('bye')
+print(a)
+
+# Remove an element
+a.remove('hi')
+print(a)
+
+# Access an element with index
+print(a[2])
+
+# Find the number of elements
+print(len(a))
+\end{lstlisting}
+
+\begin{lstlisting}[style=jout]
+[]
+[1, 'hi', 3, 'bye']
+[1, 3, 'bye']
+bye
+3
+\end{lstlisting}
+\end{jupyter}
+
+What do we do if we need to access multiple elements? This is
+where \textbf{slicing} shines. Consider the following example.
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+# a[i:j] to access from index 'i' to index 'j-1'
+a = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+print(a[1:5])
+
+# Omit 'i' or 'j' to define only the start or end values
+print(a[:6])
+print(a[3:])
+\end{lstlisting}
+
+\begin{lstlisting}[style=jout]
+[2, 3, 4, 5]
+[1, 2, 3, 4, 5, 6]
+[4, 5, 6, 7, 8, 9]
+\end{lstlisting}
+\end{jupyter}
+
+Now that we know basic operations, lists, and how we can use
+functions, let's discuss about conditions and loops.
+
+\begin{definition}{}{}
+\textbf{Conditional statements} are statements that performs
+certain tasks under specific conditions. \textbf{Loops} are
+structure that repeats a block of code until they are explicitly
+told to end. One more definition that will make our lives easier is
+\textbf{increment}, which is an assignment operator that augments
+certain values.
+\end{definition}
+
+Here is an example of conditional statements.
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+# If, Else, Elif (else if)
+banana_num = 10
+if banana_num < 10:
+    print("There are less than ten bananas")
+elif banana_num == 10:
+    print("There are ten bananas")
+else:
+    print("There are more than ten bananas")
+\end{lstlisting}
+
+\begin{lstlisting}[style=jout]
+There are ten bananas
+\end{lstlisting}
+\end{jupyter}
+
+Here, because ``$=$'' is reserved, we use ``$==$'' for ``equal to.''
+We could also do less than or equal to, greater than or equal to,
+and not equal to with $<=$, $>=$, and $!=$ respectively.
+
+Regarding loops, ``for loop'' and ``while loop'' are two primary
+methods. Below are examples of how both loops can be used.
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+# While loop
+love_banana = True
+banana_num = 0
+
+while love_banana and banana_num < 5:
+    banana_num += 1 # Increment
+    print(banana_num)
+
+print()
+
+# For loop
+my_banana = ['yellow', 'green', 'mushy', 'sweet']
+
+for i in range(len(my_banana)):
+    print(my_banana[i])
+\end{lstlisting}
+
+\begin{lstlisting}[style=jout]
+1
+2
+3
+4
+5
+
+yellow
+green
+mushy
+sweet
+\end{lstlisting}
+\end{jupyter}
+
+First, \verb|love_banana = True| is a Boolean value.
+In the while loop, what it does is while \verb|love_banana| is True,
+we will increase the value \verb|banana_num| by 1 and print them.
+Notice that the increment with \verb|banana_num += 1| is a shorter
+form of writing \verb|banana_num =| \\ \verb|banana_num + 1|.
+Moreover, we use \verb|and| to make the loop continue if
+\verb|love_banana| is true and \verb|banana_num| is less than five.
+
+In the second loop, we listed all elements in the list
+\verb|my_banana|. The loop \verb|for i in range()| tells Python to
+go through the code \\ \verb|print(my_banana[i])| from $i = 0$ to
+$\text{range(len(my\_banana))} - 1$.
+
+We discussed very basic Python syntax that we must know to
+understand the following notes. Let's discuss core libraries
+NumPy and Matplotlib now, and save PyTorch for later.
+
+\end{document}
+

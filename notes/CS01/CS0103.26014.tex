@@ -1,0 +1,175 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Improving Large Language Models}
+
+Up until now, we have discussed fundamental terms and very high-level
+overview of pre-training phase. This section discusses very high-level
+introduction to how a raw autocomplete model transitions to a model
+that we use in daily life.
+
+\subsection{Introduction to Post-Training}
+
+One of the most important phase of training that makes the
+chatbots chatbots are post-training. When a base model is
+developed through pre-training phase, it is simply an autocomplete
+model. Whereas, an aligned model is capable of generating
+conversation-like responses. For instance, if the input is
+``Why are dogs so cute?'', the base model will generate responses
+like ``What are cats doing?'', which does not feel like a
+conversation. Whereas, an aligned model will generate responses
+like ``People find dogs cute because humans developed a biological
+phenomena called baby schema.''
+
+The post-training process contains two primary phases: Supervised
+Fine-Tuning (SFT) and Reinforcement Learning from Human Feedback
+(RLHF) On the high-level, SFT is the process where human provides
+prompt and response samples. The model then learns from the samples
+to provide a chatbot-like experience. After the phase, the model
+can be reinforced through RLHF. There are multiple ways of doing
+this, but a common method is making another ``reward model'' to
+judge and provide feedback on a model's response. Instead of a
+human manually judging and rewarding every responses, reward
+model will predict how a human expert will reward (usually an
+integer from 0 to 5) a response to more effectively align the model.
+The specific process is quite out of scope for this note, and will
+be introduced in the following notes.
+
+Most of the ``learning'' happens in pre-training. However,
+alignment is necessary to improve HHH, or helpfulness, honesty,
+and harmlessness. And yes, SFT and RLHF are popular, but they
+are not the only methods. Few other examples contain
+\href{https://arxiv.org/abs/2305.11206}{LIMA},
+\href{https://arxiv.org/abs/2212.08073}{RLAIF},
+\href{https://arxiv.org/abs/2305.18290}{DPO},
+\href{https://arxiv.org/abs/1707.06347}{PPO}, and
+\href{https://arxiv.org/abs/2312.01552}{URIAL}.
+
+\subsection{Reasoning}
+
+As you probably have noticed, LLMs are predictions models.
+In other words, they do not ``reason'' like how us humans
+reason. Language models will predict the next likely token
+that will provide a plausible response to a reasoning task.
+One way to test if the models can actually reason is by
+using benchmarks. One of the foundational datasets, which
+is considered outdated now, is
+\href{https://huggingface.co/datasets/openai/gsm8k}{GSM8K}
+by OpenAI. This dataset is used to evaluate if a model can
+reason grade school level math. The modern, highly challenging,
+benchmark includes \href{https://epoch.ai/frontiermath}{FrontierMath}.
+As you have noticed, benchmarking and reasoning is a giant
+hurdle for many LLMs. Modern engineers classify reasoning
+as another section in post-training to improve a model's logic.
+
+\subsubsection{Prompting}
+
+One of the most effective way to improve LLM reasoning is
+to use prompting strategies.
+
+\begin{definition}{}{}
+One technique is \textbf{K-shot prompting} where you provide
+$k$ examples for the model to follow a template. Zero-shot
+prompting will be when $k = 0$, where you provide no examples,
+but instructions. The second prompting strategy is \textbf{
+\href{https://arxiv.org/abs/2201.11903}{Chain-of-Thought (CoT)
+prompting}}. This strategy explicitly tells a model to break
+a complex reasoning tasks into intermediate steps. 
+\end{definition}
+
+Let's take a look at an example on how K-shot prompting and
+CoT prompting work together.
+
+\begin{example}[Model Input]
+\textbf{Instruction:}
+
+Consider the following examples to provide a response to the
+final equation. Provide a step by step explanation for your
+answer as demonstrated in the samples.
+
+\textbf{Example 1:}
+
+Q: Henry the dog loves tomatoes. He originally had $5$ tomatoes.
+Henry ate $3$ of them, and sneaked into the owner's yard to
+secretly bring $4$ more. How many tomatoes does Henry have now?
+
+A: Henry started with $5$, but ate $3$. Therefore, he has
+$5 - 3 = 2$ tomatoes left. Because he brought 4 more from the
+owner's yard, he now has $2 + 4 = 6$ tomatoes. Henry has $6$
+tomatoes now.
+
+\textbf{Example 2:}
+
+Q: Bob the yak loves burgers. One day, his lizard friend Sofia
+told him that she can bring three boxes of burgers than contain
+2 burgers each. Bob instantly pleaded Sofia, and he received the
+boxes. Out of hunger, he ate three burgers. How many burgers
+does he have now?
+
+A: It is assumed that Bob does not have any burgers before the
+interaction with Sofia. With Sofia's virtue, Bob now has
+$2 \cdot 3 = 6$ burgers. Because he ate three burgers from
+six in total, Bob now has $6 - 3 = 3$ burgers left.
+
+\textbf{Question:}
+
+Charlotte the cat has five close friends. She wishes to split
+her $120 \text{ kg}$ tuna equally with her friends. After the
+allocation, Charlotte ate $4 \text{ kg}$ of tuna. How much
+tuna in kg does Charlotte have left?
+\end{example}
+
+\begin{example}[Model Output]
+Charlotte initially has $120 \text{ kg}$ of tuna. Because she
+split it with her friends, she has $\frac{120}{5 + 1} = 20
+\text{ kg}$ of tuna after the allocation. Since Charlotte ate
+$4 \text{ kg}$ of tuna from $20 \text{ kg}$, she now has
+$20 - 4 = 16 \text{ kg}$ of tuna.
+\end{example}
+
+As demonstrated, CoT has the potential to increase reasoning
+of LLMs. However, it is important to note that although performance
+may significantly ameliorate, numerous potential consequences
+follow. For instance, because the model includes the intermediate
+steps, the token generation considerably increases, which will
+increase the cost. Moreover, when model starts to hallucinate
+in the middle of the reasoning, the entire output from the
+hallucination will no longer be useful. Furthermore, models
+sometimes ``lie''. What I mean to lie is that some models tend
+to provide a ``plausible CoT'' without actually providing one.
+This is more related to AI safety, and let's save that for final
+notes.
+
+\subsubsection{Self-Consistency}
+
+Another technique that could improve reasoning and performance
+is \textbf{self-consistency}.
+
+\begin{definition}{}{}
+\textbf{Self-consistency} is a technique where a model generates
+numerous possible outputs to an input, and aggregate the outputs
+for the final output.
+\end{definition}
+
+The primary motivation of the technique is that just as mathematical
+problems have numerous paths to an answer, we could derive an
+``accurate'' output with different reasoning. However, like any
+other techniques, there are limitations. One somewhat self-evident
+caveat is that this requires much greater computation. Because the
+technique requires multiple reasoning and aggregation for the final,
+the amount of computation drastically increase. One other issue is
+that this self-consistency only works on closed-solution prompts.
+I mean different people and different outputs can have differing
+opinions. Although this technique is not fully outdated, modern ML
+engineers use more effective and efficient techniques.
+
+The field of reinforcement learning is one of the most rapidly
+developed field in ML. For instance, unlike RLHF, the emerging
+method Reinforcement Learning with Verifiable Rewards (RLVR)
+allows models to align themselves with minimum human contributions.
+In the next note, we will discuss about neural network from scratch!
+
+\end{document}
+
+

@@ -1,0 +1,36 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Attention and Transformers}
+
+Finally! Its time to discuss about transformers. If you have not
+already, please complete the playlist by 3Blue1Brown's highlighted
+in the last note and read \href{https://arxiv.org/abs/1706.03762}
+{Attention Is All You Need}. More great resources can be found in
+the last note. \textit{Attention Is All You Need} is considered one
+of the most important paper in computer science and behind its
+meme-like title, it makes current LLMs possible.
+
+Although the transformer architecture is used in many places, I want
+to introduce it LLMs as I think it is most intuitive and classic.
+The problem with prior language models is that they can't remember
+what they were talking about seconds ago. Because the next token
+is predicted with limited context window, it is not possible to
+``remember'' the entire context like us. To improve this, eight
+researchers from Google introduced transformers. Although the basic
+ideas existed before the paper, it made the transformers well known.
+
+The content itself, when you think about it, is quite simple and
+very intuitive. What should we do to enhance the use of information
+that we have? The answer is quite simple and circular. Literally use
+more prior contexts with efficient methods. Think of transformer
+blocks, or layers, as a function that takes in and spits out vectors
+of the same shape. The input vector goes in to a magical concept
+called multi-head attention, add and norm, and feed forward (which is
+basically a fancier word for MLPs that we discussed so far).
+
+
+\end{document}
+
+

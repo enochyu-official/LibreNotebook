@@ -1,0 +1,199 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Modules and Libraries}
+
+First, what are modules and libraries?
+
+\begin{definition}{}{}
+\textbf{Modules} in Python are files that consists of definitions
+and statements for organization and reusability. \textbf{Libraries}
+are collection of modules and pre-written packages that can later
+be imported and distributed.
+\end{definition}
+
+One of the reason why Python is so popular in ML and data science
+is because of the extensive libraries. Having the pre-written
+libraries specifically for ML and tensors like PyTorch simply
+makes our lives easier.
+
+\subsection{NumPy}
+
+NumPy is a Python package that helps handle multidimensional arrays.
+Let's get started by importing NumPy to our code. We could import
+it as whatever alias we want, but \verb|np| is the standard for ML,
+so let's stick with that.
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+import numpy as np
+\end{lstlisting}
+\begin{lstlisting}[style=jout]
+\end{lstlisting}
+\end{jupyter}
+
+Assuming that you have read the previous note or have strong
+foundations in linear algebra, we can implement the mathematical
+properties in Python with NumPy. Below is an example of how we can
+define vectors in different dimensions. Note that \verb|.ndim| can
+be used to find the dimension of a vector.
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+arr_1d = np.array([1, 2, 3])
+arr_2d = np.array([[1, 2, 3],
+                   [4, 5, 6]])
+arr_3d = np.array([[[1, 2], [3, 4]],
+                   [[5, 6], [7, 8]],
+                   [[9, 10], [11, 12]]])
+
+print(f"Dimension: {arr_1d.ndim}, Shape: {arr_1d.shape}")
+print(f"Dimension: {arr_2d.ndim}, Shape: {arr_2d.shape}")
+print(f"Dimension: {arr_3d.ndim}, Shape: {arr_3d.shape}")
+\end{lstlisting}
+
+\begin{lstlisting}[style=jout]
+Dimension: 1, Shape: (3,)
+Dimension: 2, Shape: (2, 3)
+Dimension: 3, Shape: (3, 2, 2)
+\end{lstlisting}
+\end{jupyter}
+
+A simple way to understand multidimensional array in NumPy is
+stacking previous layers. For instance, \verb|arr_2d| has the
+shape $(2, 3)$. We can think of it as stacking two 1D array
+with three elements. Similarly, \verb|arr_3d| has the shape
+$(3, 2, 2)$. We could think of it as stacking three layers of
+2D arrays that consists of two 1D arrays. It is quite hard
+to visualize higher dimensional arrays, so let's take a look
+at different things that NumPy can do.
+
+Below is an example where we utilize arange, reshape, dtype,
+and slicing techniques in NumPy. Let's create an array first.
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+# Making an array with numbers 0-17 and
+# rerranging it to shape (3, 3, 2)
+a = np.arange(18).reshape(3, 3, 2)
+a
+\end{lstlisting}
+
+\begin{lstlisting}[style=jout]
+array([[[ 0,  1],
+        [ 2,  3],
+        [ 4,  5]],
+
+       [[ 6,  7],
+        [ 8,  9],
+        [10, 11]],
+
+       [[12, 13],
+        [14, 15],
+        [16, 17]]])
+\end{lstlisting}
+\end{jupyter}
+
+We can also find the data type with the attribute \verb|.dtype|.
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+a.dtype.name
+\end{lstlisting}
+
+\begin{lstlisting}[style=jout]
+'int64'
+\end{lstlisting}
+\end{jupyter}
+
+This means that the individual elements in array \verb|a| are 8
+bytes integers. Just as we index and slice 1D array, we could
+do the same with NumPy. Consider the following example for a
+matrix.
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+a = np.arange(9).reshape(3, 3)
+print(f"{a}\n")
+
+# First row, second column element
+print(a[0, 1])
+# Entire second row
+print(a[1, :])
+# Entire third column
+print(a[:, 2])
+\end{lstlisting}
+
+\begin{lstlisting}[style=jout]
+[[0 1 2]
+ [3 4 5]
+ [6 7 8]]
+
+1
+[3 4 5]
+[2 5 8]
+\end{lstlisting}
+\end{jupyter}
+
+This was the basic introduction to NumPy. Please check out the
+\href{https://numpy.org/doc/stable/}{documentation} for further
+information.
+
+\subsection{Matplotlib}
+
+Do you want to visualize something with Python? Matplotlib is here
+for your need! Matplotlib is a Python library for visualization.
+Let's first import the library to take a look at an example.
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+import matplotlib.pyplot as plt
+%matplotlib inline
+\end{lstlisting}
+\begin{lstlisting}[style=jout]
+\end{lstlisting}
+\end{jupyter}
+
+If you are using Jupyter Notebook like the examples in these
+notes, it is highly recommended to keep \verb|%matplotlib inline|
+to make our lives easier by plotting directly in the notebook
+without an external window. Although Matplotlib is an essential
+library for visualizing model performance and analyzing, let's
+stick with basic plotting for now as I believe more information
+would be an overkill for this note.
+
+For this brief introduction, let's plot Sigmoid function, which
+we will discuss in later notes.
+
+\begin{jupyter}
+\begin{lstlisting}[style=jin]
+# Define domain and the function
+x = np.linspace(-10, 10, 100)
+y = 1 / (1 + np.exp(-x))
+
+plt.figure()
+plt.plot(x, y, label='Sigmoid')
+plt.grid(True)
+plt.xlabel('x')
+plt.ylabel('sigmoid(x)')
+plt.title('Sigmoid Function')
+plt.legend()
+plt.show()
+\end{lstlisting}
+\vspace{-0.6\baselineskip}
+\includegraphics[scale=0.43]{CS0102.26011-1}
+\end{jupyter}
+
+I know this intro was quite brief, but we will continue using
+amazing features in Matplotlib! For more information, please
+visit the official
+\href{https://matplotlib.org/stable/tutorials/index}{tutorial page}.
+
+In the next note, we will discuss foundational terms and concepts
+in ML. It will also include a high level introduction to large
+language model (LLM). Understanding the high level overview of how 
+LLMs operate under the hood really helped me grasp the intuition.
+Without further ado, let's get started!
+\end{document}
+

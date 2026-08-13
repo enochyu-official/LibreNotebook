@@ -1,0 +1,140 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Probability Theory}
+
+Ultimately, ML models are prediction engines. In other words,
+it is very crucial to understand fundamental probability theory.
+Therefore, let's get started with basic terminologies and concepts.
+
+\begin{definition}{}{}
+\textbf{Probability distribution} is a process of describing
+probability and possible cases.
+\end{definition}
+
+For example, using functions or tables to represents probability of
+getting a certain rolling sum after rolling a fair standard die two
+times is using probability distribution.
+
+Few symbols to keep in mind are $~$ is used to represent the
+following of the probability distribution, and $\propto$ is used to
+illustrate direct proportionality.
+
+\begin{definition}{}{}
+\textbf{Sample space}, denoted as $\Omega$, is a set of possible
+outcomes. \textbf{Probability measure} is a function that maps
+such outcome events to probability in $[0, 1]$. \textbf{Random
+Variables} are functions that map the outcomes to certain numbers.
+\end{definition}
+
+Notice that the sum of all measures in a sample space is $1$.
+Now sometimes, probabilities depend on the previous events.
+
+\begin{definition}{}{}
+If $A$ is the event that occurs after $B$, the probability of $A$
+occurring after $B$ is known as the \textbf{posterior probability},
+denoted as $P(A \mid B)$. Moreover, $P(A)$ is the \textbf{prior}
+probability.
+\end{definition}
+
+For instance, if $A$ is the event where you see a snail outside and
+$B$ is the event of raining, then the probability $P(A \mid B)$ is
+the probability of you seeing a snail outside given that it is
+raining. With this in mind, we can observe the following important
+theorem that will come very handy when we discuss language models.
+
+\begin{theorem}
+{The Chain Rule of Probability}
+{The Chain Rule of Probability}
+The chain rule of probability states the following equation.
+\[
+P(A, B) = P(A \mid B) P(B)
+\]
+\end{theorem}
+
+The equation above is read as the probability of $A$ and $B$
+is equal to the probability of $A$ given $B$ multiplied by
+the probability of $B$. The direct corollary of the chain rule
+is Bayes' Theorem.
+
+\begin{theorem}
+{Bayes' Theorem}
+{Bayes' Theorem}
+Conditional probabilities can be found with Bayes' Theorem
+defined with the equation below for $P(B) \neq 0$.
+\[
+P(A \mid B) = \frac{P(B \mid A) P(A)}{P(B)}
+\]
+\end{theorem}
+
+As you may have guessed, we can scale the chain rule above
+with generalization. Consider the following generalized version
+of the chain rule.
+
+\begin{theorem}
+{Generalized Chain Rule}
+{Generalized Chain Rule}
+The chain rule of probability states the following.
+\begin{align*}
+    P(x_1, x_2, \ldots, x_n)
+    &= P(x_1) P(x_2 \mid x_1) P(x_3 \mid x_1, x_2) \\
+        &\qquad\qquad\qquad\cdots
+            P(x_n \mid x_1, x_2, \ldots, x_{n-1}) \\
+    &= \prod_{i = 1}^{n} P \left(
+        x_i \; \middle|\; \bigcap_{k = 1}^{i - 1} x_{k}
+    \right)
+\end{align*}
+\end{theorem}
+\begin{proof}
+Deriving this generalization from the chain rule with two
+variables is rather simple. We can use the definition multiple
+times to multiply and telescope. Here is what I mean. (Note
+that mathematicians like to use the standard set notations while
+ML engineers likes to use a more ``colloquial notation''. For
+the purpose of these notes, let's use the notations that ML
+engineers use.)
+
+Consider the following equations by the definition of conditional
+probability.
+\begin{align*}
+    P(x_1) &= P(x_1) \\
+    P(x_2 \mid x_1) &= \frac{P(x_1, x_2)}{P(x_1)} \\
+    P(x_3 \mid x_1, x_2) &= \frac{P(x_1, x_2, x_3)}{P(x_1, x_2)} \\
+    &\ \vdots \\
+    P(x_n \mid x_1, \ldots, x_{n-1})
+        &= \frac{P(x_1, \ldots, x_n)}{P(x_1, \ldots, x_{n-1})}
+\end{align*}
+Multiplying the equations, the following equation is obtained.
+\begin{align*}
+    P(x_1) P(x_2 &\mid x_1) P(x_3 \mid x_1, x_2)
+        P(x_n \mid x_1, \ldots, x_{n-1}) \\
+    &= P(x_1) \cdot \frac{P(x_1, x_2)}{P(x_1)} \cdot
+        \frac{P(x_1, x_2, x_3)}{P(x_1, x_2)} \cdots
+        \frac{P(x_1, \ldots, x_n)}{P(x_1, \ldots, x_{n-1})}
+\end{align*}
+Telescoping the right hand side, we get our final equation.
+\[
+P(x_1, \ldots, x_n)
+= P(x_1) P(x_2 \mid x_1) P(x_3 \mid x_1, x_2)
+    P(x_n \mid x_1, \ldots, x_{n-1})
+\]
+Alternatively, we could try going backward from the final
+equation from the definition, but I found this proof a little
+more satisfying.
+\end{proof}
+
+
+
+
+
+Cross entropy
+
+
+
+
+
+
+\end{document}
+
+

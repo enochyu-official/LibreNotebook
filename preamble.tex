@@ -1,0 +1,312 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% GLOBAL PREAMBLE BY ENOCH YU
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%% PACKAGES %%%%%%%%%%%%%%%
+% Core
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{palatino}
+\usepackage{mathpazo}
+\usepackage[english]{babel}
+
+% Math
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+
+% Page Layout
+\usepackage[a4paper,margin=1in,headsep=7pt,headheight=14pt]{geometry}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\fancyhead[L]{\thepage}
+\fancyhead[R]{\rightmark}
+\fancyfoot[C]{}
+\pagestyle{fancy}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage[skip=10pt]{parskip}
+\usepackage{microtype}
+
+% Sections
+\usepackage{titlesec}
+\titleformat{\section}
+  {\normalfont\LARGE\bfseries\color{BrickRed}}
+  {\S\! \thesection}
+  {0.5em}
+  {}
+\titleformat{\subsection}
+  {\normalfont\Large\bfseries}
+  {\thesubsection}
+  {0.5em}
+  {}
+
+\usepackage[Lenny]{fncychap}
+\ChNameVar{\fontsize{14}{16}\usefont{OT1}{phv}{m}{n}\selectfont}
+\ChNumVar{\fontsize{60}{62}\usefont{OT1}{ptm}{m}{n}\selectfont}
+\ChTitleVar{\Huge\bfseries\rm}
+\ChRuleWidth{1pt}
+\addto\captionsenglish{\renewcommand{\chaptername}{Note}}
+
+
+% Tikz
+\usepackage{tikz,tikz-3dplot}
+\usetikzlibrary{calc, angles, tikzmark, shapes.geometric,
+                positioning, arrows.meta}
+\usepackage{tkz-euclide}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.9}
+\usepackage[font=small,labelfont=bf]{caption}
+
+% Miscellaneous
+\usepackage{enumitem}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[normalem]{ulem}
+\usepackage{url}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,      
+    urlcolor=blue,
+    %urlcolor=cyan,
+    pdfpagemode=FullScreen,
+}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+\usepackage{tabularx}
+\usepackage{nicematrix}
+\usepackage{arydshln}
+\usepackage{float}
+\usepackage{pdfpages}
+\usepackage{subfiles}
+\usepackage{csquotes}
+\usepackage[
+    backend=biber,
+    style=alphabetic,
+    sorting=ynt
+]{biblatex}
+%\addbibresource{references.bib}
+
+
+%%%%%%%%%%%%%%% CUSTOM %%%%%%%%%%%%%%%
+% Boxes
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems}
+\newcounter{boxcounter}[section]
+\renewcommand{\theboxcounter}{\thesection.\arabic{boxcounter}}
+\newtcbtheorem[
+    auto counter,
+    number within=section,
+    use counter=boxcounter
+]{theostyle}{Theorem}{%
+    colback=black!5,
+    colframe=black,
+    fonttitle=\bfseries,
+    sharp corners
+}{theo}
+\newtcbtheorem[
+    auto counter,
+    number within=section,
+    use counter=boxcounter
+]{lemstyle}{Lemma}{%
+    colback=Sepia!5,
+    colframe=Sepia,
+    fonttitle=\bfseries,
+    sharp corners
+}{lem}
+\newtcbtheorem[
+    auto counter,
+    number within=section,
+    use counter=boxcounter
+]{probstyle}{Exercise}{%
+    colback=BrickRed!3,
+    colframe=red!40!black,
+    fonttitle=\bfseries,
+    sharp corners
+}{probstyle}
+\newtcbtheorem[
+    auto counter,
+    number within=section,
+    use counter=boxcounter
+]{corstyle}{Corollary}{%
+    colback=blue!3,
+    colframe=blue!30!black,
+    fonttitle=\bfseries,
+    sharp corners
+}{cor}
+\newtcbtheorem[
+    auto counter,
+    number within=section,
+    use counter=boxcounter
+]{defstyle}{Definition}{%
+    colback=yellow!10,
+    colframe=Sepia,
+    fonttitle=\bfseries,
+    sharp corners
+}{def}
+\newenvironment{theorem}
+{\begin{theostyle}}{\end{theostyle}}
+\newenvironment{corollary}
+{\begin{corstyle}}{\end{corstyle}}
+\newenvironment{lemma}
+{\begin{lemstyle}}{\end{lemstyle}}
+\newenvironment{definition}
+{\begin{defstyle}}{\end{defstyle}}
+\newenvironment{problem}
+{\begin{probstyle}}{\end{probstyle}}
+
+\usepackage{mdframed}
+\renewmdenv[
+    topline=false, 
+    bottomline=false, 
+    rightline=false,
+    linecolor=black, 
+    linewidth=2pt,
+    skipabove=\medskipamount, 
+    skipbelow=\medskipamount,
+    frametitle=\it Proof.
+]{proof}
+\newmdenv[
+    topline=false, 
+    bottomline=false, 
+    rightline=false,
+    linecolor=BrickRed, 
+    linewidth=2pt,
+    skipabove=\medskipamount, 
+    skipbelow=\medskipamount,
+    frametitle=Solution.
+]{solution}
+\newmdenv[
+    topline=false, 
+    bottomline=false, 
+    rightline=false,
+    linecolor=RoyalPurple, 
+    linewidth=2pt,
+    skipabove=\medskipamount, 
+    skipbelow=\medskipamount,
+    frametitle=In my head...
+]{thoughts}
+\newmdenv[
+    topline=false, 
+    bottomline=false, 
+    rightline=false,
+    linecolor=BrickRed, 
+    linewidth=2pt,
+    skipabove=\medskipamount, 
+    skipbelow=\medskipamount,
+    fontcolor=BrickRed,
+    frametitle=Tip.
+]{tip}
+
+
+% Example
+\NewDocumentEnvironment{example}{o}
+{
+ \IfValueT{#1}{\vspace{11pt}}
+ \begin{mdframed}[
+    linecolor=CadetBlue,
+    linewidth=1pt,
+    skipabove=\medskipamount,
+    skipbelow=\medskipamount,
+    backgroundcolor=cyan!5,
+    innertopmargin=10pt,
+    innerbottommargin=10pt,
+    innerleftmargin=10pt,
+    innerrightmargin=10pt
+ ]
+ \IfValueT{#1}{%
+    \vspace{-11pt}%
+    \noindent
+    \begin{tikzpicture}[remember picture, overlay]
+        \node[
+            draw=CadetBlue,
+            line width=1pt,
+            fill=cyan!5,
+            text=Sepia,
+            font=\bfseries\small,
+            anchor=west,
+            xshift=2pt
+        ] {\,\strut #1\,};
+    \end{tikzpicture}\par
+    \vspace{5pt}%
+ }%
+}
+{\end{mdframed}}
+
+
+% Jupyter cell like block
+\usepackage{listings}
+\definecolor{nb@bg}{RGB}{231,234,234}
+\definecolor{nb@kw}{RGB}{0,64,153}
+\definecolor{nb@str}{RGB}{163,21,21}
+\definecolor{nb@cmt}{RGB}{100,100,100}
+
+\lstdefinestyle{jin}{
+    language=Python,
+    backgroundcolor=\color{nb@bg},
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{nb@kw}\bfseries,
+    stringstyle=\color{nb@str},
+    commentstyle=\color{nb@cmt}\itshape,
+    numberstyle=\tiny\color{gray},
+    numbers=left, numbersep=8pt,
+    breaklines=true,
+    frame=single,
+    rulecolor=\color{gray!50},
+    showstringspaces=false,
+    tabsize=4, captionpos=b,
+    xleftmargin=1.2em,
+    framexleftmargin=1.2em,
+    belowskip=0pt,
+    morekeywords={
+        Sequential,Dense,model,compile,fit,predict,
+        Adam,BinaryCrossentropy,SparseCategoricalCrossentropy,
+        MeanSquaredError,from_logits,activation,units,
+        optimizer,loss,epochs,learning_rate,
+        tf,keras,tensorflow,StandardScaler,
+        XGBClassifier,XGBRegressor,np,plt
+    }
+}
+\lstdefinestyle{jout}{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    showstringspaces=false,
+    tabsize=4, captionpos=b,
+    aboveskip=4pt,
+    xleftmargin=1.2em,
+}
+
+\newenvironment{jupyter}{
+\begin{mdframed}[
+    backgroundcolor=white,
+    linecolor=Sepia!80,
+    linewidth=1pt,
+    innerleftmargin=10pt,
+    innerrightmargin=10pt,
+    innertopmargin=20pt,
+    innerbottommargin=0pt,
+    skipabove=10pt,
+    skipbelow=10pt
+]}{\end{mdframed}}
+
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\Row}{row}
+\DeclareMathOperator{\Col}{col}
+\DeclareMathOperator{\Rank}{r}
+\DeclareMathOperator{\Null}{null}
+\DeclareMathOperator{\Tr}{tr}
+
+
+
+\title{LibreNotebook}
+\author{Enoch Yu}
+\date{Last Updated: \today}
+
+
+%%%%%%%%%%%%%%% END %%%%%%%%%%%%%%%
+
+
+
