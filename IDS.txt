@@ -1,9 +1,11 @@
 # Parts
-MATH01         | Olympiad Algebra
+MATH01         | Math Olympiad
 CS01           | Machine Learning
 
 # Notes
 MATH0101       | Inequalities
+MATH0102       | Projective Geometry
+MATH0103       | Combinatorics
 CS0101         | Fundamental Math for Machine Learning
 CS0102         | Python Basics for Machine Learning
 CS0103         | Foundations and Intuitions
@@ -35,5 +37,6 @@ CS0105.26019   | Attention and Transformers
 CS0105.26020   | Building and LLM with PyTorch
 CS0106.26021   | AI Safety
 CS0106.26022   | Further Resources
+MATH0102.26023 | Desargues' Theorem
 
 
