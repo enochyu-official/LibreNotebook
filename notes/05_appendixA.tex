@@ -275,9 +275,66 @@ By Theorem \ref{theo:Properties of Transpose of a Matrix}, $(AB +
 (AB)^\intercal$. Therefore, $AB + (AB)^\intercal$ is symmetric.
 
 \item
+An easy trap for this problem is that you might be tempted to
+do $\det(A^2 - B^2) = \det(A + B) \det(A - B)$. However, notice that
+this does not hold in general as $AB \neq BA$ in general.
+
+Consider the following matrix $P$ and its inverse $P^{-1}$.
+\[
+P =
+\begin{bmatrix}
+    I & I \\
+    I & -I
+\end{bmatrix}, \quad
+P^{-1} =
+\frac{1}{2}
+\begin{bmatrix}
+    I & I \\
+    I & -I
+\end{bmatrix}
+\]
+Continuing,
+\begin{align*}
+    P^{-1}
+    \begin{bmatrix}
+        A & B \\
+        B & A
+    \end{bmatrix}
+    P
+    &= \frac{1}{2}
+    \begin{bmatrix}
+        A + B & B + A \\
+        A - B & B - A
+    \end{bmatrix}
+    \begin{bmatrix}
+        I & I \\
+        I & -I
+    \end{bmatrix} \\
+    &=
+    \begin{bmatrix}
+        A + B & 0 \\
+        0     & A - B
+    \end{bmatrix}
+\end{align*}
+holds and
+$\begin{bmatrix}
+    A & B \\
+    B & A
+\end{bmatrix}
+\cong
+\begin{bmatrix}
+    A + B & 0 \\
+    0     & A - B
+\end{bmatrix}$.
+Therefore, the determinant of the original matrix is
+$\det(A + B) \det(A - B)$.
 
 \item
-
+By definition, $A$ is skew-symmetric if $A^\intercal = -A$.
+Notice that $(A^3)^\intercal = (A^\intercal)^3$ by Theorem
+\ref{theo:Properties of Transpose of a Matrix}. Therefore,
+$(A^3)^\intercal = (A^\intercal)^3 \linebreak = -A^3$. Thus, if $A$ is
+skew-symmetric, then $A^3$ is also skew-symmetric.
 \end{enumerate}
 
 \section{Solutions for Note 3}
