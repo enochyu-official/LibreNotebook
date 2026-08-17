@@ -1044,9 +1044,14 @@ above as the following matrix multiplication.
 Let's take a look at more interesting facts on matrix multiplication.
 
 \begin{keydef}
-We call a square matrix with $1$ in all entries of its main diagonal
-and $0$ is the other entries an \textbf{identity matrix}, denoted as
-$I_n$ for identity matrix with order $n \times n$.
+A square matrix with $1$ in all entries of its main diagonal and
+$0$ is the other entries an \textbf{identity matrix}, denoted as
+$I_n$ for identity matrix with order $n \times n$. Moreover,
+all identity matrix satisfy the following equation for square
+matrix $A$ that can be multiplied.
+\[
+AI = IA = A
+\]
 \end{keydef}
 
 This is called an identity matrix because when you multiply any
@@ -1070,6 +1075,25 @@ you get the square matrix itself. Consider the following examples.
     7 & 8 & 9
 \end{bmatrix}
 \]
+From this, we can obtain an important fact about the uniqueness
+of the identity matrix.
+
+\begin{theorem}{Uniqueness of Identity Matrices}
+{Uniqueness of Identity Matrices}
+\label{Uniqueness of Identity Matrices}
+The identity matrix $I$ for square matrices $A$ is unique.
+\end{theorem}
+\begin{proof}
+For the sake of contradiction, let matrix $A_{m \times m}$ have two
+unique identity matrices $I_{m \times m}$ and $J_{m \times m}$.
+By definition, $AI = IA = A$ and $AJ = JA = A$. Therefore,
+$AI = IA = AJ = JA$ and $AI = AJ$. Because $A$ is any square matrix
+with order $m \times m$, let $A = I$. Substituting, $II = IJ$, and
+$I = J$ is obtained by definition. By contradiction from the
+assumption that $I \neq J$, identity matrix for a square matrix
+$A$ is unique.
+\end{proof}
+
 Another interesting insight on matrix multiplication is dissecting
 the matrices being multiplied. Let's take a look at a simple example.
 \begin{align*}
@@ -1145,6 +1169,7 @@ that they have their own name!
 
 Let's begin with transpose of a matrix.
 
+\newpage
 \begin{keydef}
 The \textbf{transpose} of a matrix $A$ is defined by a matrix that
 has switched rows and columns of $A$, i.e. each element is defined
@@ -1294,16 +1319,12 @@ Let's continue our proof for $(\lambda A)^\intercal =
 \lambda A^\intercal$.
 
 \begin{proof}
-Let $A = [a_{ij}]_{m \times n}$. Consider the following
-transformations.
-\[
-(\lambda A)^\intercal
+Let $A = [a_{ij}]_{m \times n}$. Because
+$(\lambda A)^\intercal
 = [\lambda a_{ij}]_{m \times n}^\intercal
 = [\lambda a_{ji}]_{n \times m}
 = \lambda [a_{ji}]_{n \times m}
-= \lambda A^\intercal
-\]
-Therefore, $(\lambda A)^\intercal = \lambda A^\intercal$.
+= \lambda A^\intercal$, the property holds.
 \end{proof}
 
 We have two more left! Here is the proof for the fourth property.
@@ -1526,7 +1547,9 @@ AB
 \begin{bmatrix}
     b_{31} & b_{32} & b_{33} \\
     b_{41} & b_{42} & b_{43}
-\end{bmatrix} \\
+\end{bmatrix}
+\end{align*}
+\begin{align*}
 &=
 \begin{bmatrix}
     \scriptstyle a_{11}b_{11} + a_{12}b_{21} &
@@ -1595,7 +1618,6 @@ of matrices, we could derive special forms from the ideas.
 
 As always, let's build from definitions.
 
-\newpage
 \begin{keydef}
 \textbf{Symmetrically partitioned matrix} refers to a partitioned
 matrix such that its arrangements of the blocks are diagonally

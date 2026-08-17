@@ -838,7 +838,364 @@ $\lambda A$, proving the fourth property.
 \end{proof}
 
 Now that we took a look at different properties of inverse matrices,
-let's discuss how to actually find one.
+let's discuss how to actually find one with tools to consider.
+
+\begin{keydef}
+For a matrix $A$ that is not necessarily a square matrix, an
+\textbf{elementary matrix}, denoted as $E$, is a square matrix that
+performs elementary row operation by multiplying with $A$.
+\end{keydef}
+
+Let's take a look at an example. Consider matrix $A$ defined below,
+and we want to perform elementary row operations of changing the
+order of rows $1$ and $3$ and add two times the fourth row to the
+second respectively.
+\[
+A =
+\begin{bmatrix}
+    1 & 2 & 3 & 4 \\
+    1 & 0 & 2 & 0 \\
+    2 & 4 & 6 & 8 \\
+    1 & 1 & 1 & 1
+\end{bmatrix}
+\]
+The elementary row operations above can be complicated with words,
+but we can represent that with two elementary matrices respectively.
+Letting $E_1$ and $E_2$ be elementary matrices for each operation,
+we can represent the elementary row operations as the following.
+\[
+E_1 =
+\begin{bmatrix}
+    0 & 0 & 1 & 0 \\
+    0 & 1 & 0 & 0 \\
+    1 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 1
+\end{bmatrix},
+\quad
+E_2 =
+\begin{bmatrix}
+    1 & 0 & 0 & 0 \\
+    0 & 1 & 0 & 2 \\
+    0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 1
+\end{bmatrix}
+\]
+Let's multiply to see if we are right.
+\[
+E_1 A =
+\begin{bmatrix}
+    \textcolor{Red}{2} &
+    \textcolor{Red}{4} &
+    \textcolor{Red}{6} &
+    \textcolor{Red}{8} \\
+    1 & 0 & 2 & 0 \\
+    \textcolor{Red}{1} &
+    \textcolor{Red}{2} &
+    \textcolor{Red}{3} &
+    \textcolor{Red}{4} \\
+    1 & 1 & 1 & 1
+\end{bmatrix},
+\quad
+E_2 A =
+\begin{bmatrix}
+    1 & 2 & 3 & 4 \\
+    \textcolor{Red}{3} &
+    \textcolor{Red}{2} &
+    \textcolor{Red}{4} &
+    \textcolor{Red}{2} \\
+    2 & 4 & 6 & 8 \\
+    1 & 1 & 1 & 1
+\end{bmatrix}
+\]
+Now we can notice three observations and tips for constructing
+elementary matrices. For each elementary row operations, we could
+do the following.
+
+\begin{keydef}
+\textbf{Methods to construct the elementary matrix for each
+elementary row operation:}
+\begin{itemize}[noitemsep]
+\item
+To interchange row $a$ and $b$, write the corresponding identity
+matrix and interchange row $a$ and $b$ from the identity matrix.
+\item
+To multiply a nonzero scalar $k$ to $a^\text{th}$ row, start from the
+corresponding identity matrix and change the $1$ from $a^\text{th}$
+row of the identity matrix to $k$.
+\item
+To add row $a$ multiplied by the nonzero scalar $k$ to row $b$,
+start from the corresponding identity matrix and find the
+$b^\text{th}$ row in the matrix. Then, change the zero from the
+$a^\text{th}$ column of the row to $k$.
+\end{itemize}
+\end{keydef}
+
+From this, we can notice the following theorem.
+
+\begin{theorem}{Invertibility of Elementary Matrices}
+{Invertibility of Elementary Matrices}
+\label{Invertibility of Elementary Matrices}
+All elementary matrices are invertible.
+\end{theorem}
+\begin{proof}
+The proof is rather rather simple. Because all elementary row
+operations can be inverted with the inverse operation,
+all elementary matrices are invertible.
+\end{proof}
+
+Building onto the theorem, we could prove the uniqueness.
+
+\begin{theorem}{Uniqueness of Elementary Matrices}
+{Uniqueness of Elementary Matrices}
+\label{Uniqueness of Elementary Matrices}
+For each elementary row operations, the corresponding elementary
+matrix is unique.
+\end{theorem}
+\begin{proof}
+For the sake of contradiction, assume there exist elementary
+matrices $E$ and $F \neq E$. By definition, $EA = FA$ and
+$A = EE^{-1}A = E^{-1}FA$. By Theorem \ref{Uniqueness of Identity
+Matrices}, $E^{-1}F = I$ and $E = F$ is obtained by Theorem
+\ref{Uniqueness of Inverse Matrix}. By contradiction, it is
+shown that elementary matrices are unique.
+\end{proof}
+
+There are more interesting lemmas and theorems, but let's discuss
+them in latter notes. However, let's discuss few theorems for each
+elementary row operation before moving on to finding an inverse
+matrix.
+
+\begin{theorem}{Three Properties of Elementary Matrices}
+{Three Properties of Elementary Matrices}
+\label{Three Properties of Elementary Matrices}
+For each elementary matrix for corresponding elementary row
+operations, the following properties hold.
+\begin{enumerate}[noitemsep]
+\item
+For an elementary matrix that changes the order of two rows,
+the inverse of such matrices is itself.
+\item
+For an elementary matrix that scales a row with nonzero constant
+$k$, the inverse can be obtained by replacing $k$ in the elementary
+matrix with $\frac{1}{k}$.
+\item
+For a elementary matrix that adds the scaled row into the other,
+its inverse can be obtained by replacing the nonzero scalar $k$
+with $-k$.
+\end{enumerate}
+\end{theorem}
+
+As always, let's start by proving the first property.
+
+\begin{proof}
+The inverse of an elementary matrix can be considered as undoing
+the elementary row operation. To undo the interchanging of two rows,
+the two rows can be interchanged again. In other words, because
+the elementary row operation $EE = I$ by Theorem \ref{Uniqueness
+of Identity Matrices}, $E = E^{-1}$.
+\end{proof}
+
+Continuing, here is the proof for the second property.
+
+\begin{proof}
+Let elementary matrices $E$ and $F$ be matrices that scales a
+row by a nonzero scalar $k$ and $\frac{1}{k}$ respectively.
+By definition, $F(EI) = I$ and $FE = I$. Therefore, $F = E^{-1}$
+and the property is shown.
+\end{proof}
+
+Lastly, here is the proof for the final property.
+
+\begin{proof}
+Similar to the proof for the second property, let elementary matrices
+$E$ and $F$ represents the elementary row operations that adds a
+row scaled by nonzero constant $k$ to another and the operation
+that adds a row scaled by $-k$ to another respectively. By definition,
+$F(EI) = I$ and $F = E^{-1}$ as demonstrated above.
+\end{proof}
+
+Now before we actually find an inverse, we need to know which
+square matrices have the inverse matrix.
+
+\begin{keydef}
+A square matrix $A$ is invertible if and only if it can be represented
+as identity matrix after sequences of elementary row operations, i.e.
+there exists elementary matrices $E_i$ such that the following
+equation is true.
+\[
+E_k E_{k-1} \cdots E_1 A = I
+\]
+\end{keydef}
+
+This is a very important result that we will prove later in a note,
+so don't worry. Finally, here are the steps to find an inverse if
+there exists one.
+
+\begin{keydef}
+\textbf{Steps to Find the Inverse Matrix of
+$\mathbf{A_{m \times m}}$:}
+\begin{enumerate}[noitemsep]
+\item
+Write an augmented matrix $[A \mid I]$ for $I_{m}$.
+\item
+Utilize elementary row operations on the augmented matrix for
+the block $A$ to be in REF.
+\item
+If the main diagonal of the left partition contains zero,
+$A$ is singular. If not, the next step can be continued.
+\item
+Use elementary row operations again to transform the block $A$
+in REF to an identity matrix. The right partition block is
+the inverse of $A$.
+\end{enumerate}
+\end{keydef}
+
+Let's take a look at a few examples.
+
+\begin{problem}{Finding Inverse Matrix 1}{Finding Inverse Matrix 1}
+\label{Finding Inverse Matrix 1}
+Find the inverse of the following matrix $A$.
+\[
+A =
+\begin{bmatrix}
+    1 & 2 & 3 \\
+    4 & 5 & 6 \\
+    7 & 8 & 9
+\end{bmatrix}
+\]
+\end{problem}
+\begin{solution}
+First, the augmented matrix can be constructed.
+\[
+\begin{bNiceArray}{ccc|ccc}
+    1 & 2 & 3 & 1 & 0 & 0 \\
+    4 & 5 & 6 & 0 & 1 & 0 \\
+    7 & 8 & 9 & 0 & 0 & 1
+\end{bNiceArray}
+\]
+Consider the following elementary row operations.
+\begin{align*}
+\begin{bNiceArray}{ccc|ccc}
+    1 & 2 & 3 & 1 & 0 & 0 \\
+    4 & 5 & 6 & 0 & 1 & 0 \\
+    7 & 8 & 9 & 0 & 0 & 1
+\end{bNiceArray}
+&\rightarrow
+\begin{bNiceArray}{ccc|ccc}
+    1 & 2 & 3 & 1 & 0 & 0 \\
+    8 & 10 & 12 & 0 & 2 & 0 \\
+    7 & 8 & 9 & 0 & 0 & 1
+\end{bNiceArray} \\
+&\rightarrow
+\begin{bNiceArray}{ccc|ccc}
+    1 & 2 & 3 & 1 & 0 & 0 \\
+    1 & 2 & 3 & 0 & 2 & -1 \\
+    7 & 8 & 9 & 0 & 0 & 1
+\end{bNiceArray}
+\rightarrow
+\begin{bNiceArray}{ccc|ccc}
+    1 & 2 & 3 & 1 & 0 & 0 \\
+    0 & 0 & 0 & -1 & 2 & -1 \\
+    7 & 8 & 9 & 0 & 0 & 1
+\end{bNiceArray}
+\end{align*}
+It is evident that the main diagonal will contain zero after
+the transformation. Therefore, the matrix is not invertible.
+\end{solution}
+
+\begin{problem}{Finding Inverse Matrix 2}{Finding Inverse Matrix 2}
+\label{Finding Inverse Matrix 2}
+Find the inverse of the following matrix $A$.
+\[
+A =
+\begin{bmatrix}
+    1 & 0 & 0 \\
+    2 & 1 & 1 \\
+    0 & 1 & 2
+\end{bmatrix}
+\]
+\end{problem}
+\begin{solution}
+First and foremost, the augmented matrix can be constructed.
+\begin{align*}
+\begin{bNiceArray}{ccc|ccc}
+    1 & 0 & 0 & 1 & 0 & 0 \\
+    2 & 1 & 1 & 0 & 1 & 0 \\
+    0 & 1 & 2 & 0 & 0 & 1
+\end{bNiceArray}
+&\rightarrow
+\begin{bNiceArray}{ccc|ccc}
+    1 & 0 & 0 & 1 & 0 & 0 \\
+    0 & 1 & 2 & 0 & 0 & 1 \\
+    2 & 1 & 1 & 0 & 1 & 0
+\end{bNiceArray} \\
+&\rightarrow
+\begin{bNiceArray}{ccc|ccc}
+    1 & 0 & 0 & 1 & 0 & 0 \\
+    0 & 1 & 2 & 0 & 0 & 1 \\
+    0 & 0 & -1 & -2 & 1 & -1
+\end{bNiceArray}
+\rightarrow
+\begin{bNiceArray}{ccc|ccc}
+    1 & 0 & 0 & 1 & 0 & 0 \\
+    0 & 1 & 2 & 0 & 0 & 1 \\
+    0 & 0 & 1 & 2 & -1 & 1
+\end{bNiceArray}
+\end{align*}
+Continuing, the left partition can be transformed into an
+identity matrix with elementary row operations.
+\[
+\begin{bNiceArray}{ccc|ccc}
+    1 & 0 & 0 & 1 & 0 & 0 \\
+    0 & 1 & 2 & 0 & 0 & 1 \\
+    0 & 0 & 1 & 2 & -1 & 1
+\end{bNiceArray}
+\rightarrow
+\begin{bNiceArray}{ccc|ccc}
+    1 & 0 & 0 & 1 & 0 & 0 \\
+    0 & 1 & 0 & -4 & 2 & -1 \\
+    0 & 0 & 1 & 2 & -1 & 1
+\end{bNiceArray}
+\]
+Therefore, the inverse of $A$ is the following.
+\[
+A^{-1} =
+\begin{bmatrix}
+    1  & 0  & 0 \\
+    -4 & 2  & -1 \\
+    2  & -1 & 1
+\end{bmatrix}
+\]
+\end{solution}
+
+We could actually multiply to see if we get $I_3$.
+\[
+\begin{bmatrix}
+    1 & 0 & 0 \\
+    2 & 1 & 1 \\
+    0 & 1 & 2
+\end{bmatrix}
+\begin{bmatrix}
+    1  & 0  & 0 \\
+    -4 & 2  & -1 \\
+    2  & -1 & 1
+\end{bmatrix}
+=
+\begin{bmatrix}
+    1 & 0 & 0 \\
+    0 & 1 & 0 \\
+    0 & 0 & 1
+\end{bmatrix}
+\]
+Indeed it is the inverse! In the next section of the note,
+we will discuss LU decomposition before completing our note on
+linear systems.
+
+\section{LU Decomposition}
+
+
+
+
 
 
 
