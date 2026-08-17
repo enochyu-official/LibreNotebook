@@ -2,7 +2,7 @@
 
 \begin{document}
 
-\chapter{Introduction to Linear Algebra: Vectors and Vector Spaces}
+\chapter{Vectors and Vector Spaces}
 
 If you have backgrounds on physics or computer science, you are
 probably familiar with what vectors are. In physics classes,
@@ -38,13 +38,13 @@ denote whether an element is in the set or not.
 Examples of using such notations would be $\pi \in \mathbb{C}$
 and $i \notin \mathbb{R}$.
 
-Side note here is that for this note, we will be using the binary
-operation symbols $\oplus$ and $\odot$ to denote vector addition and
-scalar multiplication. However, from the second notes, we will be
-using more standard notations like $v + u$ and $\lambda v$ for vector
-addition and scalar multiplication. The reason I decided to use this
-is because this is the way I first learned and it helped me to
-emphasize axioms for vector spaces.
+Side note here is that for this section of the note, we will be using
+the binary operation symbols $\oplus$ and $\odot$ to denote vector
+addition and scalar multiplication. However, from the next section,
+we will be using more standard notations like $v + u$ and $\lambda v$
+for vector addition and scalar multiplication. The reason I decided to
+use this is because this is the way I first learned and it helped me
+to emphasize axioms for vector spaces.
 
 \begin{definition}
 A \textbf{vector space} is a set of vectors $\mathbb{V}$ and scalars
@@ -519,14 +519,9 @@ numbers is a nonzero number.
 \end{proof}
 
 We have covered the fundamental concepts and properties in vector
-spaces. Of course there are a lot more to discuss in vector spaces;
-however, to do so, we need some understanding in matrices. So let's
-pause our discussions on vector spaces for now, and move on to
-matrices and their application in linear system of equations before
-looking at their implications in vector spaces.
-
-One last thing! I wanted to discuss briefly on dot product as it will
-frequently appear when you deal with vectors.
+spaces. Before we move on with the next topic in vector spaces,
+I wanted to discuss briefly on dot product as it will frequently
+appear when you deal with vectors.
 
 \begin{definition}
 \textbf{Dot product} is an algebraic operation defined as the
@@ -569,8 +564,427 @@ of dot products.
 Note that this is very different from the matrix multiplication
 that we will discuss in the next note and we must write the
 notation $\cdot$ to ensure that we are not doing matrix
-multiplication. With that in mind, let's conclude this note with
-some practice problems that I made.
+multiplication. With that in mind, let's continue our discussion
+with subspaces.
+
+\section{Subspaces}
+
+In the previous section, we discussed that all ten axioms must be
+satisfied for a set to be a vector space. However, testing and
+proving that a set satisfies all ten axioms, to be honest, is quite
+tedious. Good news is that we only need to prove three conditions to
+show that a set is a vector space thanks to \textbf{subspaces}!
+
+\begin{definition}
+A \textbf{subspace} of a vector space $V$ is a subset of $V$ that uses
+the same definition of vector addition and scalar multiplication from
+$V$.
+\end{definition}
+
+Now for a set to be a subspace, it must satisfy the following
+conditions.
+
+\begin{theorem}{Conditions of a Subspace}{Conditions of a Subspace}
+\label{Conditions of a Subspace}
+A non-empty subset $S$ of a vector space $V$ is a subspace of $V$ if
+and only if the following conditions are satisfied.
+\begin{enumerate}[noitemsep]
+\item
+\textbf{Closure for Addition: }
+$\forall u, v \in S, u + v \in S$
+\item
+\textbf{Closure for Scalar Multiplication: }
+$\forall u \in S$ and scalars $\alpha$, $\alpha u \in S$
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+Notice that it suffices to show that $S$ is a vector space, or adhere
+to the then axioms for a vector space. Moreover, A1 and S1 are assumed
+to be true by the initial condition.
+
+By the second condition, $\mathbf{0} = 0 u \in S$ and $-u = (-1) u
+\in S$. Therefore, A4 and A5 are satisfied. For A2 and A3, $u, v, w
+\in V$ is true for $u, v, w \in S$ by definition. Moreover, because
+$V$ is a vector space, A2 and A3 holds. Similarly, because $V$ is a
+vector space that satisies S1, S2, S3, S4, and S5, its subset $S$ also
+satisfy the conditions. Therefore, if the two closure conditions are
+met and $S$ is a subset of $V$, then $S$ is a subspace of $V$.
+\end{proof}
+
+Now the good thing is that subspaces are vector spaces, it suffices
+to show that a set is a subspace of a known vector space with the two
+conditions shown above to show that it is a vector space. Let's take
+a look at an example.
+
+\begin{problem}
+Determine whether $S = \{ (x, y, z) \in \mathbb{R}^3 \mid y = 0 \}$
+is a vector space.
+\end{problem}
+\begin{solution}
+Notice that $S$ is an non-empty subset of $\mathbb{R}^3$, which is a
+known vector space. Therefore, it suffices to show that $u =
+(x_1, 0, z_1), v = (x_2, 0, z_2) \in S$ and scalars $\alpha$ satisfy
+the closure conditions for addition and scalar multiplication.
+
+Notice that $u + v = (x_1 + x_2, 0, z_1 + z_2) \in S$. Moreover,
+$\alpha u = (\alpha x_1, 0, \alpha z_1) \in S$. Therefore, $S$ is a
+vector space, more specifically a subset of $\mathbb{R}^3$.
+\end{solution}
+
+As you can see from the solution above, subspaces really made our
+lives easier. However, to make it even better, we can boil it down
+to a single condition.
+
+\begin{corollary}{The Condition for a Subspace}
+{The Condition for a Subspace}
+\label{The Condition for a Subspace}
+For scalars $\alpha$ and $\beta$ and $u, v \in S$ where $S$ is a
+non-empty subset of a vector space $V$ that has the same operations
+for vector addition and scalar multiplication, $S$ is a subspace if
+and only if the following equation is satisfied.
+\[
+\alpha u + \beta v \in S
+\]
+\end{corollary}
+\begin{proof}
+First and foremost, the first half of the statement can be proven.
+If $\alpha u + \beta v \in S$, then $u + v \in S$ where $\alpha =
+\beta = 1$ since $\alpha$ and $\beta$ are all scalars. Similarly,
+$\alpha u + \beta v \in S$ implies that $\alpha u \in S$ where
+$\beta = 0$. By Theorem \ref{Conditions of a Subspace}, $S$ is a
+subspace of $V$.
+
+Continuing with the second half of the statement, if $S$ is a subset
+of $V$, then $\alpha u, \beta v \in S$. Therefore, $\alpha u +
+\beta v \in S$, proving the corollary.
+\end{proof}
+
+More examples on this can be found in the practice problems below.
+Now let's get into the topics of \textbf{linear combination} and the
+\textbf{span} of a set.
+
+\subsection{Linear Combinations and Span}
+
+As always, let's start with definitions.
+
+\begin{definition}
+For scalars $\alpha_i$ and $v_i$ in a vector space $V$, the vector
+$u$ defined as the following is a \textbf{linear combination of the
+vectors} $v_i$.
+\[
+u = \sum_{k = 1}^n \alpha_k v_k
+\]
+\end{definition}
+
+For instance, $[1, 2, 3]$ is a linear combination of $[2, -2, 1]$,
+$[1, 0, 2]$, and $[1, -1, 1]$ as it can be represented as the
+following.
+\[
+\begin{bmatrix}
+    1 & 2 & 3
+\end{bmatrix}
+=
+\begin{bmatrix}
+    2 & -2 & 1
+\end{bmatrix}
++
+3\begin{bmatrix}
+    1 & 0 & 2
+\end{bmatrix}
+-
+4\begin{bmatrix}
+    1 & -1 & 1
+\end{bmatrix}
+\]
+Now we have a special term for the collection of such vectors.
+
+\begin{definition}
+The \textbf{span of the set of vectors} $\{ v_1, \ldots v_n \}$ is
+the set of all possible linear combinations of the vectors.
+\[
+\Span\{v_1, \ldots, v_n\}
+= \left\{
+    \sum_{k = 1}^n \alpha_k v_k \; \middle|\; \alpha_k \in \mathbb{R}
+\right\}
+\]
+\end{definition}
+
+With the definition, we could notice an important theorem.
+
+\begin{theorem}{Span and Subspace I}{Span and Subspace I}
+\label{Span and Subspace I}
+For a vector space $V$ and its subset $S = \{ v_1, \ldots, v_n \}$,
+$\Span(S)$ is a subspace of $V$.
+\end{theorem}
+\begin{proof}
+First and foremost, notice that $\mathbf{0} \in \Span(S)$ since all
+the scalars in linear combination can equal zero. Moreover, let $u =
+\sum_{k = 1}^n \alpha_k v_k$ and $v = \sum_{k = 1}^n \alpha_k v_k$ for
+any scalars $\alpha_k$ and $\beta_k$. By definition, $\alpha u +
+\beta v \in \Span(S)$ is true. Therefore, by Corollary \ref{The
+Condition for a Subspace}, $\Span(S)$ is a subspace of $V$.
+\end{proof}
+
+Side note here is that there are spans of infinite sets and they
+adhere to the theorem above. Continuing with the definition of the
+span of a set and its relation with subspace, we can show the two
+following theorems.
+
+\begin{theorem}{Span and Subspace II}{Span and Subspace II}
+\label{Span and Subspace II}
+Consider the following statements for a vector space $V$ and its
+subspace $W$ and non-empty subset $S$ such that $S \subset W$.
+\begin{enumerate}[noitemsep]
+\item $\Span(S) \subset W$
+\item The intersection of all subspaces containing $S$ is $\Span(S)$.
+\end{enumerate}
+\end{theorem}
+
+Let's start by proving the first statement.
+
+\begin{proof}
+Let $u = \sum_{k = 1}^n \alpha_k v_k \in \Span(S)$. By definition,
+$v_k \in W$ for integer $k \in [1, n]$. Moreover, $u \in W$ by
+Corollary \ref{The Condition for a Subspace} and $\Span(S) \subset W$.
+\end{proof}
+
+Below is the proof for the second one.
+
+\begin{proof}
+First and foremost, notice that by the previous statement, it was
+shown that $\Span(S)$ is included in all subspaces that contains $S$.
+Let $A$ be the intersection of all subspaces that contain $S$.
+Therefore, $\Span(S) \subset A$. Moreover, by Theorem
+\ref{Span and Subspace I} $\Span(S)$ is a subspace of $V$ that
+contains $S$. Thus, $A \subset \Span(S)$. Because $\Span(S) \subset A$
+and $A \subset \Span(S)$, $\Span(S) = A$.
+\end{proof}
+
+With the ideas of linear combinations and the span of a set of vectors
+in mind, let's discuss about linear independence.
+
+\subsection{Linear Independence}
+
+One of the most important reason why we use Linear Algebra is due to
+efficiency. As you could have guessed, most vector spaces have
+infinitely many vectors. Of course, there must be an efficient way
+of representing the vector space instead of manually listing.
+Determining such representative vectors involve numerous factors,
+and that's what we will discuss with linear independence, basis,
+and dimension.
+
+\begin{definition}
+Consider the linear combination of $V = \{ v_1, \ldots, v_n \}$
+in a vector space and scalars $c_1, \ldots, c_n$ that satisfy the
+following equation.
+\[
+\sum_{k = 1}^n c_k v_k = \mathbf{0}
+\]
+The set of vectors $V$ is \textbf{linearly dependent} if at least
+one of the scalars in the equation is nonzero. The set of vectors is
+\textbf{linearly independent} all scalars are zero in the equation.
+\end{definition}
+
+Let's take a look at a quick example.
+
+\begin{problem}
+Determine whether $V = \{ \langle 1, 1 \rangle, \langle 2, 3\rangle
+\in \mathbb{R}^2 \}$ is linearly independent.
+\end{problem}
+\begin{solution}
+By definition, for the set to be linearly independent, all scalars
+$c_1$ and $c_2$ must be zero for the following equation to hold.
+\[
+c_1 \langle 1, 1 \rangle + c_2 \langle 2, 3 \rangle
+= \langle 0, 0 \rangle
+\]
+Writing in system of linear equations, the equation above can
+be written as the following.
+\begin{align*}
+    c_1 + 2c_2 &= 0 \\
+    c_1 + 3c_2 &= 0
+\end{align*}
+Solving the equation, $c_1 = c_2 = 0$ and no other set of scalars
+can lead to the equation. Therefore, the set of vectors is linearly
+independent.
+\end{solution}
+
+One interesting observation that we can make is that for $n \in
+\mathbb{Z}$, if the set of vectors in $\mathbb{R}^n$ contains more
+than $n$ elements, then the set is linearly dependent. We will
+discuss more on this later when we discuss matrix and its application
+in linear systems, but for such cases, we have more variables than
+linear equations, which implies that there exists infinitely many
+solutions. Therefore, such set of vectors must be linearly dependent.
+Continuing, below is a theorem that we can deduce from the definition.
+
+\begin{theorem}{Finite Set of Vectors and Linear Dependence}
+{Finite Set of Vectors and Linear Dependence}
+\label{Finite Set of Vectors and Linear Dependence}
+A set with finite number of nonzero vectors is linearly dependent
+if and only if a vector in the ordering of the set can be represented
+as a linear combination of vectors preceding it.
+\end{theorem}
+\begin{proof}
+First and foremost, the first half of the theorem can be shown.
+Consider the set of vectors $\{ v_1, \ldots, v_{j-1}, v_j, \ldots,
+v_n \}$. Assume for scalars $c_k$, the following equation is true.
+\[
+v_j
+= \sum_{k = 1}^{j-1} c_k v_k
+\]
+Therefore, $\mathbf{0} = \sum_{k = 1}^{j-1} c_k v_k - v_j$.
+Letting $c_k = 0$ for integer $k \in (j, n]$, the following equation
+holds.
+\[
+\sum_{k = 1}^{j-1} c_k v_k - v_j + \sum_{k = j+1}^{n} c_k v_k
+= \mathbf{0}
+\]
+Because at least scalar is nonzero, the set of vectors $\{ v_1,
+\ldots, v_n \}$ is linearly dependent.
+
+Continuing, let the set of vectors $\{ v_1, \ldots, v_n \}$ be
+linearly dependent. For the corresponding scalars $c_k$, let
+$c_j$ be the last scalar that is nonzero. Thus, the following
+equation holds.
+\[
+\sum_{k = 1}^{j} c_k v_k + \sum_{k = j+1}^{n} 0 v_k
+= \mathbf{0}
+\]
+Rearranging the equation, $v_k = -\sum_{k = 1}^{j-1} \frac{c_k}{v_j}
+v_k$, which is a linear combination. Because the converse hold,
+the theorem is true.
+\end{proof}
+
+From this theorem, we can deduce a corollary.
+
+\begin{corollary}{}{}
+For a vector space $V = \Span(S)$ and linearly dependent set
+$S = \{ v_1, \ldots, v_n \} \subset V$, then there exists a set
+$T \subset S$ such that $|T| = n - 1$ and $V = \Span(T)$.
+\end{corollary}
+\begin{proof}
+By Theorem \ref{Finite Set of Vectors and Linear Dependence},
+there exits element $v_j \in S$ such that $v_j$ is the linear
+combination of the previous elements as listed in $S$.
+
+Let $T = \{ v_1, \ldots, v_{j-1}, v_{j+1}, \ldots, v_n \}$.
+Consider the following equations for scalars $d_k$ and $c_k$.
+\begin{align*}
+    V
+    &= \sum_{k = 1}^n d_k v_k
+    = \sum_{k = 1}^{j-1} d_k v_k + d_j v_j + \sum_{k = j+1}^n d_k v_k
+    = \sum_{k = 1}^{j-1} d_k v_k +
+        d_j \left( \sum_{k = 1}^{j-1} c_k v_k \right) +
+        \sum_{k = j+1}^n d_k v_k \\
+    &= \sum_{k = 1}^{j-1} (d_j c_k + d_k) v_k +
+        \sum_{k = j+1}^n d_k v_k
+    = \Span(T)
+\end{align*}
+Therefore, the corollary holds.
+\end{proof}
+
+Continuing from the corollary, the following theorems could be
+asserted.
+
+\begin{theorem}{Properties of Linear Independence and Dependence}
+{Properties of Linear Independence and Dependence}
+\label{Properties of Linear Independence and Dependence}
+Consider the following statements for set $S$.
+\begin{enumerate}[noitemsep]
+\item
+If $S$ contains a zero vector, then it is linearly dependent.
+\item
+If $|S| = 1$, then it is linearly dependent if and only if its
+element is the zero vector.
+\item
+If $|S| = 2$, then it is linearly dependent if and only if a vector
+is a scalar multiple of the other.
+\item
+If $S$ is linearly dependent, then every set that contains $S$ is
+linearly dependent.
+\item
+If $S$ is linearly independent, all its subset is linearly
+independent.
+\end{enumerate}
+\end{theorem}
+
+There's quite a bit to prove! Let's start with the first one.
+
+\begin{proof}
+Let $S = \{ \mathbf{0}, v_1, \ldots, v_n \}$. Notice that
+$\alpha(\mathbf{0}) + \sum_{k = 1}^n 0 v_k = \mathbf{0}$ for any
+scalar $\alpha$. Therefore, $S$ is linearly dependent.
+\end{proof}
+
+Below is the proof for the second one.
+
+\begin{proof}
+Let $S = \{ v \}$. Notice that if $v \neq \mathbf{0}$, it is not
+possible for a nonzero scalar $\alpha$ to make $\alpha v =
+\mathbf{0}$. Therefore, if $|S| = 1$, then $v = \mathbf{0}$.
+For the converse, if $v = \mathbf{0}$, then any scalar $\alpha$
+will let $\alpha v = \mathbf{0}$. Therefore the statement holds.
+\end{proof}
+
+Here is the proof for the third statement.
+
+\begin{proof}
+Let $S = \{ v_1, v_2 \}$. First, if $v_2 = \alpha v_1$ for any scalar
+$\alpha$, then $\mathbf{0} = \alpha v_1 - \alpha v_1 = \alpha v_1 -
+v_2$. Therefore, $S$ is linearly dependent. For the converse,
+$c_1 v_1 + c_2 v_2 = 0$ for scalars $c_1$ and $c_2$. Therefore,
+assuming that the scalars are nonzero without loss of generality,
+$v_2 = -\frac{c_1}{c_2} v_1$. Thus, the statement is true.
+\end{proof}
+
+Below is the proof for the fourth one.
+
+\begin{proof}
+Let $S = \{ v_1, \ldots, v_n \}$ and $T = \{ u_1, \ldots, u_n,
+v_1, \ldots, v_n \}$. By definition, there exists $c_k$ that are
+not all zero such that $\sum_{k = 1}^n c_k v_k = \mathbf{0}$.
+Because $\sum_{k = 1}^n 0 u_k + \sum_{k = 1}^n c_k v_k = \mathbf{0}$,
+$T$ is also linearly dependent.
+\end{proof}
+
+Finally, here is the proof for the last statement.
+
+\begin{proof}
+Let $T \subset S$ where $S$ is linearly independent. Assume for
+the sake of contradiction that there exists a subset $T$ that is
+linearly dependent. However, if $T$ is linearly dependent, then
+$S$ is linearly dependent by the previous property, which is
+a contradiction. Therefore, by contradiction, if $S$ is linearly
+independent then all its subsets $T$ is also linearly independent.
+\end{proof}
+
+With this, we have concluded our discussion on linear dependence
+and independence. Before concluding this note, let's discuss
+basis and dimension of a set of vectors.
+
+\subsection{Basis and Dimension}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+We discussed fundamental topics of vector spaces. Of course there
+are a lot more to discuss in vector spaces; however, to do so,
+we need some understanding in matrices. So let's pause our discussions
+on vector spaces for now, and move on to matrices and their
+applications in linear system of equations before looking at their
+implications in vector spaces.
 
 \section{Practice Problems}
 \begin{enumerate}
@@ -578,6 +992,23 @@ some practice problems that I made.
 Consider the set $\mathbb{S} = \{ (x, y, z) \in \mathbb{R}^3 \mid
 x = 0 \}$. Identify whether the set is a vector space under the
 standard vector addition and scalar multiplication.
+
+\item
+Determine whether $S = \{ f \in \mathbb{R} \mid f'(0) = 0 \}$
+is a vector space for differentiable functions $f$.
+
+\item
+For all $n \in \mathbb{Z}$ and $a_i \in \mathbb{R}$, determine whether
+$S = \{ (x_1, x_2, \ldots, x_n) \in \mathbb{R}^n \mid
+\sum_{k = 1}^n a_k x_k = 0 \}$ is a vector space.
+
+\item
+Show that the intersection of subspaces of a vector space $V$
+is also a subspace of $V$.
+
+\item
+Show that for distinct real numbers $a_1, \ldots, a_n$, then the set
+$\{ e^{a_1 x}, \ldots, e^{a_n x} \}$ is linearly independent.
 \end{enumerate}
 \end{document}
 
