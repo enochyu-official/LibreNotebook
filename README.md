@@ -3,7 +3,7 @@
 LibreNotebook is a giant and free notebook that anyone can read and
 modify. The purpose is to inspire and accelerate open education as a
 way of returning the blessings that we received from public
-educational resources. [PDF](https://github.com/enochyu-official/LibreNotebook/tree/main/LibreNotebook.pdf) of the most recent draft is available.
+educational resources. [PDF](https://archive.enochyu.com/mathematics/pdf/26100.pdf) of the most recent draft is available.
 
 ## Contributions
 
