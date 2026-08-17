@@ -239,6 +239,193 @@ over again until I fully knew the terms. Because the proofs above
 prioritize understanding of the basic concepts than creativity,
 I think procrastinating helped me fully understand the proofs.
 
+So far, we discussed about row spaces and row ranks. How about
+columns? As you may have guessed, we could do the same for columns!
+
+\begin{definition}
+The span of the columns of a matrix $A_{m \times n}$ is the
+\textbf{column space} of $A$, denoted as $\Col(A)$. The dimension
+of such space is \textbf{column rank} of $A$.
+\end{definition}
+
+We could notice that because rows and columns of a matrix are not
+necessarily the same, the row space and column space of a
+matrix are generally different. One special example in which they
+are the same would be identity matrices.
+
+Now when we discussed about row rank of a matrix $A$, we used the
+notation $\Row(A)$. That is because the row rank and column rank
+of a matrix are always equal.
+
+\begin{theorem}{Row and Column Ranks}{Row and Column Ranks}
+\label{Row and Column Ranks}
+The row rank and column rank of a matrix $A$ are always equal.
+\end{theorem}
+\begin{proof}
+First and foremost, notice that by definition, $\Row(A^\intercal) =
+\Col(A)$ and $\Row(A) = \Col(A^\intercal)$. Therefore, the following
+equations are true.
+\begin{align*}
+    \dim(\Row(A^\intercal)) &= \dim(\Col(A)) \\
+    \dim(\Row(A)) &= \dim(\Col(A^\intercal))
+\end{align*}
+Notice that if $\dim(\Col(A)) \leq \dim(\Row(A))$, then the following
+expression holds.
+\[
+\dim(\Row(A)) = \dim(\Col(A^\intercal))
+\leq
+\dim(\Row(A^\intercal)) = \dim(\Col(A))
+\]
+Therefore, if $\dim(\Col(A)) \leq \dim(\Row(A))$, then $\dim(\Row(A))
+\leq \dim(\Col(A))$ and $\dim(\Col(A)) = \dim(\Row(A))$. Thus, it
+suffices to show that $\dim(\Col(A)) \leq \dim(\Row(A))$.
+
+Consider a matrix $A = [a_{ij}]$ that has the order $m \times n$.
+Notice that each row can be represented as an $n$-tuple. Let $U =
+\{ u_1, \ldots, u_k \} \subset \mathbb{R}^n$ be a basis for $\Row(A)$.
+By definition, each row $A_i$ of $A$ can be written as the following
+for some constants $c_{ij}$.
+\[
+A_i
+= \sum_{j=1}^k c_{ij} u_j
+\]
+Moreover, notice that each element can be written as the following.
+\[
+a_{ij}
+= \sum_{n=1}^k c_{in} u_{nj}
+\]
+Continuing, let $V = \{ v_1, \ldots, v_k \}$ be the set of such
+coefficients where $v_i$ is defined as the following.
+\[
+v_i =
+\begin{bmatrix}
+    c_{1i} \\
+    c_{2i} \\
+    \vdots \\
+    c_{mi}
+\end{bmatrix}
+\]
+Therefore, each column of $A$ can be written as the following
+$m$-tuple.
+\[
+\begin{bmatrix}
+    a_{1j} \\
+    a_{2j} \\
+    \vdots \\
+    a_{mj}
+\end{bmatrix}
+=
+\sum_{n=1}^k
+\begin{bmatrix}
+    c_{1n} \\
+    c_{2n} \\
+    \vdots \\
+    c_{mn}
+\end{bmatrix}
+u_{nj}
+= \sum_{n=1}^k u_{nj} v_n
+\]
+Because each column is in the span of $V$, $\dim(\Col(A)) \leq k =
+\dim(\Row(A))$. Thus, the theorem holds.
+\end{proof}
+
+Now that we have column space in mind, let's return to linear systems.
+Let's first start with an example before looking at the theorem.
+\begin{align*}
+    x + 2y + 3z &= 4 \\
+    x - y + z &= -1 \\
+    4x + 3y + 2z &= 1
+\end{align*}
+Notice that we can write the system as the following.
+\[
+x
+\begin{bmatrix}
+    1 \\
+    1 \\
+    4
+\end{bmatrix}
++
+y \begin{bmatrix}
+    2 \\
+    -1 \\
+    3
+\end{bmatrix}
++ z
+\begin{bmatrix}
+    3 \\
+    1 \\
+    2
+\end{bmatrix}
+=
+\begin{bmatrix}
+    4 \\
+    -1 \\
+    1
+\end{bmatrix}
+\]
+This splits the coefficient matrix $A$ in $Ax = b$ to its columns.
+Now the left-hand side can be interpreted as the linear combination
+of the columns of $A$, or an element in $\Col(A)$. In other words,
+the solution exists if $b \in \Col(A)$ and the system is inconsistent
+if $b \not\in \Col(A)$. If $b \in \Col(A)$, then the rank of the
+augmented matrix $[A \mid b]$ will equal $\Rank(A)$ since $\Col(A) =
+\Col([A \mid b])$. However, if $b \not\in \Col(A)$, then
+$\Rank([A \mid b]) = \Rank(A) + 1$ since we need an extra vector for
+the basis for the column space. We can now write this idea as a
+theorem.
+
+\begin{theorem}{Linear System and Rank}{Linear System and Rank}
+\label{Linear System and Rank}
+A linear system $Ax = b$ has at least one solution if and only if
+$\Rank(A) = \Rank([A \mid b])$.
+\end{theorem}
+\begin{proof}
+For a linear system $Ax = b$, let $A_{m \times n} = [a_{ij}]$,
+$A_i$ be the $i^\text{th}$ column of $A$, $x = [x_i]$, and $b = [b_i]$
+where $x$ and $b$ are $m$-tuples. Notice that the system can be
+represented as the following.
+\[
+\sum_{k=1}^n x_k A_k = b
+\]
+The system will hold if and only if $b$ is in the span of the columns
+of $A$. Continuing, $\Rank(A) = \Rank([A \mid b])$ if and only if $b$
+is in the span of the existing columns of $A$. Thus, a solution to the
+linear system exists if and only if $\Rank(A) = \Rank([A \mid b])$.
+\end{proof}
+
+Though satisfying, the theorem may not be significantly useful since
+we anyways have to write the matrices in REF. However, we can notice
+other interesting result.
+
+\begin{theorem}{Rank and Number of Unknowns}
+{Rank and Number of Unknowns}
+\label{Rank and Number of Unknowns}
+For a consistent system with $n$ variables, if $\Rank(A) = k$, then
+the final solutions can be written with $n - k$ free variables.
+\end{theorem}
+\begin{proof}
+First and foremost, notice that because the system $Ax = b$ is
+consistent and $\Rank(A) = k$, $\Rank([A \mid b]) = k$. By Theorem
+\ref{REF and Row Space}, there exists $k$ nonzero rows, or $k$
+variables with set values for $\Rank([A \mid b])$ in REF. Therefore,
+there exists $n-k$ free variables.
+\end{proof}
+
+Continuing with this theorem, we can set a corollary for homogeneous
+systems.
+
+\begin{corollary}{Homogeneous Systems and Rank}
+{Homogeneous Systems and Rank}
+\label{Homogeneous Systems and Rank}
+For a homogeneous system $Ax = \mathbf{0}$ with $n$ variables,
+there exists nontrivial solutions if and only if $\Rank(A) \neq n$.
+\end{corollary}
+\begin{proof}
+By Theorem \ref{Rank and Number of Unknowns}, there exists free
+variables if $\Rank(A) < n$, which are not necessarily trivial
+solutions. However, if $\Rank(A) = n$, then there exists zero free
+variables and a unique solution, which is the trivial solution.
+\end{proof}
 
 
 
