@@ -590,8 +590,8 @@ Consider the following computation.
         overlay, remember picture,
         arrow/.style = {->, very thick, opacity=0.7}
     ]
-    \draw[arrow, Red] (a11.west)  -- (a13.east);
-    \draw[arrow, Blue] (a21.west)  -- (a23.east);
+    \draw[arrow, Red] (a11.west) -- (a13.east);
+    \draw[arrow, Blue] (a21.west) -- (a23.east);
     \draw[arrow, Red] (b11.north west) -- (b31.south west);
     \draw[arrow, Blue] (b11.north east) -- (b31.south east);
     \draw[arrow, Red] (b12.north west) -- (b32.south west);
@@ -833,37 +833,36 @@ the same for the right side.
 \]
 This is also supported! Alternatively, we could just compute
 $AB$ and $BA$ to see what our ``final transformation is''.
-\[
-BA =
-\begin{bmatrix}
-    -1 & 0 \\
-    0  & 1
-\end{bmatrix}
-\begin{bmatrix}
-    0 & -1 \\
-    1 & 0
-\end{bmatrix}
-=
-\begin{bmatrix}
-    0 & 1 \\
-    1 & 0
-\end{bmatrix},
-\qquad
-AB =
-\begin{bmatrix}
-    0 & -1 \\
-    1 & 0
-\end{bmatrix}
-\begin{bmatrix}
-    -1 & 0 \\
-    0  & 1
-\end{bmatrix}
-=
-\begin{bmatrix}
-    0  & -1 \\
-    -1 & 0
-\end{bmatrix}
-\]
+\begin{align*}
+    BA &=
+    \begin{bmatrix}
+        -1 & 0 \\
+        0  & 1
+    \end{bmatrix}
+    \begin{bmatrix}
+        0 & -1 \\
+        1 & 0
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        0 & 1 \\
+        1 & 0
+    \end{bmatrix} \\
+    AB &=
+    \begin{bmatrix}
+        0 & -1 \\
+        1 & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+        -1 & 0 \\
+        0  & 1
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        0  & -1 \\
+        -1 & 0
+    \end{bmatrix}
+\end{align*}
 Clearly, we could see that the mapping is different.
 
 Another interesting property for matrices $A$, $B$, and $C$ is that
@@ -1018,11 +1017,16 @@ above as the following matrix multiplication.
 \end{bmatrix}
 \]
 Let's take a look at more interesting facts on matrix multiplication.
+
+\begin{keydef}
 We call a square matrix with $1$ in all entries of its main diagonal
-and $0$ is the other entries an \textbf{identity matrix}. This is
-called an identity matrix because when you multiply any square matrix
-by the identity matrix with the corresponding order, you get the
-square matrix itself. Consider the following examples.
+and $0$ is the other entries an \textbf{identity matrix}, denoted as
+$I_n$ for identity matrix with order $n \times n$.
+\end{keydef}
+
+This is called an identity matrix because when you multiply any
+square matrix by the identity matrix with the corresponding order,
+you get the square matrix itself. Consider the following examples.
 \[
 \begin{bmatrix}
     1 & 0 & 0 \\
@@ -1106,6 +1110,554 @@ the element in the entry $(i, j)$, it is sufficient for us to
 see row $i$ from the left matrix and column $j$ from the right.
 In the next section of the note, we will discuss different
 topics about matrix.
+
+\section{Additional Topics}
+
+This section discusses frequently appeared concepts in matrix
+that they have their own name!
+
+\subsection{Transpose}
+
+Let's begin with transpose of a matrix.
+
+\begin{keydef}
+The \textbf{transpose} of a matrix $A$ is defined by a matrix that
+has switched rows and columns of $A$, i.e. each element is defined
+as following.
+\[
+(A^\intercal)_{ij} = A_{ji}
+\]
+\end{keydef}
+
+Let's take a look at an example. You could think of it as holding
+the left top and bottom right of a matrix and rotating to see its
+back. For matrix $A$ defined as the following,
+\[
+A =
+\begin{bmatrix}
+    1 & 2 & 3 & 4 \\
+    5 & 6 & 7 & 8
+\end{bmatrix}
+\]
+its transpose, or $A$ transpose is defined as the following.
+\[
+A^\intercal =
+\begin{bmatrix}
+    1 & 5 \\
+    2 & 6 \\
+    3 & 7 \\
+    4 & 8
+\end{bmatrix}
+\]
+As you can see, if $A$ has the order $m \times n$, its transpose
+will have the order $n \times m$. Another observation that we can
+make is that a transpose of a row matrix is a column matrix and
+vice versa. Here is a quick example. Assume matrix $A$ defined
+as the following.
+\[
+A =
+\begin{bmatrix}
+    1 & 2 & 3
+\end{bmatrix}
+\]
+The transpose of $A$ can be represented as the following.
+\[
+A^\intercal =
+\begin{bmatrix}
+    1 \\
+    2 \\
+    3
+\end{bmatrix}
+\]
+Notice that the transpose of transpose of $A$ is simply $A$.
+\[
+(A^\intercal)^\intercal =
+\begin{bmatrix}
+    1 & 2 & 3
+\end{bmatrix}
+= A
+\]
+Before formally stating our observations, here are few definitions
+to note.
+
+\begin{keydef}
+A positive integral powers of $A$, or multiplying the matrix $n$
+times can be represented as $A^n$. $A^0$ is defined to be the
+identity matrix $I_n$ with corresponding order $n$.
+\end{keydef}
+
+Another definitions from transpose is symmetry and skew-symmetry.
+
+\begin{keydef}
+For matrix $A$ and its transpose $A^\intercal$, matrix $A$ is
+\textbf{symmetric} if $A^\intercal = A$ and \textbf{skew-symmetric}
+if $A^\intercal = -A$.
+\end{keydef}
+
+An example of symmetric matrix is identity matrix. For more general
+example, matrix $A$ and $B$ below are symmetric and skew-symmetric
+respectively.
+\[
+A =
+\begin{bmatrix}
+    a & b & c \\
+    b & d & e \\
+    c & e & f
+\end{bmatrix},
+\quad
+B =
+\begin{bmatrix}
+    0  & a  & b \\
+    -a & 0  & c \\
+    -b & -c & 0
+\end{bmatrix}
+\]
+Notice that all symmetric and skew-symmetric matrices are square
+matrices. Moreover, the diagonal elements must be zero for a
+square matrix to be skew-symmetric.
+
+Now let's discuss the properties of transpose of a matrix.
+
+\begin{theobox}{Properties of Transpose of a Matrix}
+{Properties of Transpose of a Matrix}
+For matrix $A$, $B$, scalar $\lambda$ and positive integer $n$,
+the following equations are true assuming that the addition and
+multiplication conditions are satisfied.
+\begin{enumerate}
+\item $(A^\intercal)^\intercal = A$
+\item $(A + B)^\intercal = A^\intercal + B^\intercal$
+\item $(\lambda A)^\intercal = \lambda A^\intercal$
+\item $(AB)^\intercal = B^\intercal A^\intercal$
+\item $(A^n)^\intercal = (A^\intercal)^n$
+\end{enumerate}
+\end{theobox}
+
+There are lots of properties to prove, but let's do them one by one.
+Below is the proof for the first property.
+
+\begin{proof}
+Let $A = [a_{ij}]_{m \times n}$. By definition, its transpose
+$A^\intercal \coloneqq [a_{ji}]_{n \times m}$. Continuing,
+$\left( [a_{ji}]_{n \times m} \right)^\intercal =
+[a_{ij}]_{m \times n} = A$. Therefore, $(A^\intercal)^\intercal = A$.
+\end{proof}
+
+Below is the proof for the second property.
+
+\begin{proof}
+Let $A = [a_{ij}]_{m \times n}$ and $B = [b_{ij}]_{m \times n}$.
+Consider the following equation.
+\begin{align*}
+(A + B)^\intercal
+&= \left(
+    [a_{ij}]_{m \times n} + [b_{ij}]_{m \times n}
+\right)^\intercal
+= \left(
+    [a_{ij} + b_{ij}]_{m \times n}
+\right)^\intercal \\
+&= [a_{ji} + b_{ji}]_{n \times m}
+= [a_{ji}]_{n \times m} + [b_{ji}]_{n \times m} \\
+&= A^\intercal + B^\intercal
+\end{align*}
+Thus, the property holds.
+\end{proof}
+
+Let's continue our proof for $(\lambda A)^\intercal =
+\lambda A^\intercal$.
+
+\begin{proof}
+Let $A = [a_{ij}]_{m \times n}$. Consider the following
+transformations.
+\[
+(\lambda A)^\intercal
+= [\lambda a_{ij}]_{m \times n}^\intercal
+= [\lambda a_{ji}]_{n \times m}
+= \lambda [a_{ji}]_{n \times m}
+= \lambda A^\intercal
+\]
+Therefore, $(\lambda A)^\intercal = \lambda A^\intercal$.
+\end{proof}
+
+We have two more left! Here is the proof for the fourth property.
+
+\begin{proof}
+Let $A = [a_{ij}]_{m \times n}$ and $B = [b_{ij}]_{n \times p}$.
+The following equation is satisfied by definitions of matrix
+multiplication and transpose.
+\[
+(AB)^\intercal
+= \left( [a_{ij}]_{m \times n} [b_{ij}]_{n \times p} \right)^\intercal
+= \left(
+    \left[ \sum_{k = 1}^{n} a_{ik} b_{kj} \right]_{m \times p}
+\right)^\intercal
+= \left[ \sum_{k = 1}^{n} a_{jk} b_{ki} \right]_{p \times m}
+\]
+Continuing from the right hand side, the following equation is true.
+\[
+B^\intercal A^\intercal
+= \left[ b_{ij}^\intercal \right]_{p \times n}
+    \left[ a_{ij}^\intercal \right]_{n \times m}
+= \left[
+    \sum_{k = 1}^{n} b_{ik}^\intercal a_{kj}^\intercal
+\right]_{p \times m}
+= \left[ \sum_{k = 1}^{n} b_{ki} a_{jk} \right]_{p \times m}
+= \left[ \sum_{k = 1}^{n} a_{jk} b_{ki} \right]_{p \times m}
+\]
+Because both the left-hand side and the right-hand side of the
+equation leads to the same matrix, the property holds.
+\end{proof}
+
+Finally, below is the proof for the corollary of the fourth property.
+
+\begin{proof}
+First, notice that by the fourth property, the following equation
+holds.
+\[
+\left( A^2 \right)^\intercal
+= A^\intercal A^\intercal
+= \left( A^\intercal \right)^2
+\]
+Therefore, it suffices to show that $(A^n)^\intercal =
+(A^\intercal)^n$ holds for $n = k + 1$ if it is true for $n = k$.
+Assume $(A^k)^\intercal = (A^\intercal)^k$. By the fourth property,
+the following equation is obtained.
+\[
+\left( A^{k+1} \right)^\intercal
+(A^k A)^\intercal
+= (A^k)^\intercal A^\intercal
+= (A^\intercal)^k A^\intercal
+= (A^\intercal)^{k + 1}
+\]
+By induction, the property holds for $k \geq 2$. For $k = 1$,
+it is self evident that the property holds true. Therefore, the
+property holds for all positive integers $n$.
+\end{proof}
+
+For the next part of the section, we will discuss partitions.
+
+\subsection{Partitions}
+
+As always, let's start with key definitions.
+
+\begin{keydef}
+As the name suggests a \textbf{submatrix} is a matrix of $A$ that
+is obtained by omitting certain rows or columns.
+\end{keydef}
+
+Consider matrix $A$ defined as the following.
+\[
+A =
+\begin{bmatrix}
+    1 & 2 & 3 \\
+    4 & 5 & 6 \\
+    7 & 8 & 9
+\end{bmatrix}
+\]
+Below are few example of submatrix of $A$.
+\begin{align*}
+A =
+\begin{bmatrix}
+    \tikzmarknode{a11}{1} &
+    \tikzmarknode{a12}{2} &
+    \tikzmarknode{a13}{3} \\
+    \tikzmarknode{a21}{4} &
+    \tikzmarknode{a22}{5} &
+    \tikzmarknode{a23}{6} \\
+    \tikzmarknode{a31}{7} &
+    \tikzmarknode{a32}{8} &
+    \tikzmarknode{a33}{9}
+\end{bmatrix}
+\begin{tikzpicture}[
+        overlay, remember picture,
+        arrow/.style = {-, very thick, opacity=0.7}
+    ]
+    \draw[arrow, Red] (a21.west)  -- (a23.east);
+\end{tikzpicture}
+&\rightarrow
+\begin{bmatrix}
+    1 & 2 & 3 \\
+    7 & 8 & 9
+\end{bmatrix} \\
+A =
+\begin{bmatrix}
+    \tikzmarknode{a11}{1} &
+    \tikzmarknode{a12}{2} &
+    \tikzmarknode{a13}{3} \\
+    \tikzmarknode{a21}{4} &
+    \tikzmarknode{a22}{5} &
+    \tikzmarknode{a23}{6} \\
+    \tikzmarknode{a31}{7} &
+    \tikzmarknode{a32}{8} &
+    \tikzmarknode{a33}{9}
+\end{bmatrix}
+\begin{tikzpicture}[
+        overlay, remember picture,
+        arrow/.style = {-, very thick, opacity=0.7}
+    ]
+    \draw[arrow, Red] (a11.west) -- (a13.east);
+    \draw[arrow, Red] (a31.west) -- (a33.east);
+    \draw[arrow, Red] (a12.north) -- (a32.south);
+\end{tikzpicture}
+&\rightarrow
+\begin{bmatrix}
+    4 & 6
+\end{bmatrix}
+\end{align*}
+
+\begin{keydef}
+We say the matrix is \textbf{partitioned} if horizontal and vertical
+lines are used to divide the matrix into submatrices.
+\end{keydef}
+
+Here are few examples of different partitions of $A$.
+\[
+\begin{bNiceArray}{ccc}[margin]
+    1 & 2 & 3 \\
+    4 & 5 & 6 \\
+    \hline
+    7 & 8 & 9
+\end{bNiceArray},
+\quad
+\begin{bNiceArray}{c|cc}[margin]
+    1 & \textcolor{Red}{2} & \textcolor{Red}{3} \\
+    4 & \textcolor{Red}{5} & \textcolor{Red}{6} \\
+    \hline
+    7 & 8 & 9
+\end{bNiceArray},
+\quad
+\begin{bNiceArray}{c|c|c}[margin]
+    1 & 2 & 3 \\
+    \hline
+    4 & 5 & 6 \\
+    7 & 8 & 9
+\end{bNiceArray}
+\]
+From different partitions, we can obtain different \textbf{blocks}.
+
+\begin{keydef}
+A \textbf{block} of a partition of $A$ is a submatrix of $A$ divided
+by the horizontal and vertical partition lines.
+\end{keydef}
+
+The highlighted portion of the second partition above is an example
+of a block. Now, why should we even care about partition and blocks?
+Partitions of a matrix is important because it could be a very
+useful tool in computationally heavy matrix multiplication.
+Let's take a look at a generalized example $AB$.
+\[
+AB =
+\begin{bmatrix}
+    a_{11} & a_{12} & a_{13} & a_{14} \\
+    a_{21} & a_{22} & a_{23} & a_{24} \\
+    a_{31} & a_{32} & a_{33} & a_{34} \\
+    a_{41} & a_{42} & a_{43} & a_{44}
+\end{bmatrix}
+\begin{bmatrix}
+    b_{11} & b_{12} & b_{13} \\
+    b_{21} & b_{22} & b_{23} \\
+    b_{31} & b_{32} & b_{33} \\
+    b_{41} & b_{42} & b_{43}
+\end{bmatrix}
+\]
+At least for me, this multiplication looks very painful. Fortunately,
+using partitions, we can turn this monster into a baby monster.
+\begin{align*}
+AB
+&=
+\begin{bNiceArray}{cc|cc}[margin]
+    a_{11} & a_{12} & a_{13} & a_{14} \\
+    a_{21} & a_{22} & a_{23} & a_{24} \\
+    a_{31} & a_{32} & a_{33} & a_{34} \\
+    a_{41} & a_{42} & a_{43} & a_{44}
+\end{bNiceArray}
+\begin{bNiceArray}{ccc}[margin]
+    b_{11} & b_{12} & b_{13} \\
+    b_{21} & b_{22} & b_{23} \\
+    \hline
+    b_{31} & b_{32} & b_{33} \\
+    b_{41} & b_{42} & b_{43}
+\end{bNiceArray} \\
+&=
+\begin{bmatrix}
+    a_{11} & a_{12} \\
+    a_{21} & a_{22} \\
+    a_{31} & a_{32} \\
+    a_{41} & a_{42}
+\end{bmatrix}
+\begin{bmatrix}
+    b_{11} & b_{12} & b_{13} \\
+    b_{21} & b_{22} & b_{23}
+\end{bmatrix}
++
+\begin{bmatrix}
+    a_{13} & a_{14} \\
+    a_{23} & a_{24} \\
+    a_{33} & a_{34} \\
+    a_{43} & a_{44}
+\end{bmatrix}
+\begin{bmatrix}
+    b_{31} & b_{32} & b_{33} \\
+    b_{41} & b_{42} & b_{43}
+\end{bmatrix} \\
+&=
+\begin{bmatrix}
+    \scriptstyle
+    a_{11}b_{11} + a_{12}b_{21} &
+    \scriptstyle
+    a_{11}b_{12} + a_{12}b_{22} &
+    \scriptstyle
+    a_{11}b_{13} + a_{12}b_{23} \\
+    \scriptstyle
+    a_{21}b_{11} + a_{22}b_{21} &
+    \scriptstyle
+    a_{21}b_{12} + a_{22}b_{22} &
+    \scriptstyle
+    a_{21}b_{13} + a_{22}b_{23} \\
+    \scriptstyle
+    a_{31}b_{11} + a_{32}b_{21} &
+    \scriptstyle
+    a_{31}b_{12} + a_{32}b_{22} &
+    \scriptstyle
+    a_{31}b_{13} + a_{32}b_{23} \\
+    \scriptstyle
+    a_{41}b_{11} + a_{42}b_{21} &
+    \scriptstyle
+    a_{41}b_{12} + a_{42}b_{22} &
+    \scriptstyle
+    a_{41}b_{13} + a_{42}b_{23}
+\end{bmatrix}
++
+\begin{bmatrix}
+    \scriptstyle
+    a_{13}b_{31} + a_{14}b_{41} &
+    \scriptstyle
+    a_{13}b_{32} + a_{14}b_{42} &
+    \scriptstyle
+    a_{13}b_{33} + a_{14}b_{43} \\
+    \scriptstyle
+    a_{23}b_{31} + a_{24}b_{41} &
+    \scriptstyle
+    a_{23}b_{32} + a_{24}b_{42} &
+    \scriptstyle
+    a_{23}b_{33} + a_{24}b_{43} \\
+    \scriptstyle
+    a_{33}b_{31} + a_{34}b_{41} &
+    \scriptstyle
+    a_{33}b_{32} + a_{34}b_{42} &
+    \scriptstyle
+    a_{33}b_{33} + a_{34}b_{43} \\
+    \scriptstyle
+    a_{43}b_{31} + a_{44}b_{41} &
+    \scriptstyle
+    a_{43}b_{32} + a_{44}b_{42} &
+    \scriptstyle
+    a_{43}b_{33} + a_{44}b_{43}
+\end{bmatrix} \\
+&=
+\begin{bmatrix}
+    \scriptstyle
+    a_{11}b_{11} + a_{12}b_{21} + a_{13}b_{31} + a_{14}b_{41} &
+    \scriptstyle
+    a_{11}b_{12} + a_{12}b_{22} + a_{13}b_{32} + a_{14}b_{42} &
+    \scriptstyle
+    a_{11}b_{13} + a_{12}b_{23} + a_{13}b_{33} + a_{14}b_{43} \\
+    \scriptstyle
+    a_{21}b_{11} + a_{22}b_{21} + a_{23}b_{31} + a_{24}b_{41} &
+    \scriptstyle
+    a_{21}b_{12} + a_{22}b_{22} + a_{23}b_{32} + a_{24}b_{42} &
+    \scriptstyle
+    a_{21}b_{13} + a_{22}b_{23} + a_{23}b_{33} + a_{24}b_{43} \\
+    \scriptstyle
+    a_{31}b_{11} + a_{32}b_{21} + a_{33}b_{31} + a_{34}b_{41} &
+    \scriptstyle
+    a_{31}b_{12} + a_{32}b_{22} + a_{33}b_{32} + a_{34}b_{42} &
+    \scriptstyle
+    a_{31}b_{13} + a_{32}b_{23} + a_{33}b_{33} + a_{34}b_{43} \\
+    \scriptstyle
+    a_{41}b_{11} + a_{42}b_{21} + a_{43}b_{31} + a_{44}b_{41} &
+    \scriptstyle
+    a_{41}b_{12} + a_{42}b_{22} + a_{43}b_{32} + a_{44}b_{42} &
+    \scriptstyle
+    a_{41}b_{13} + a_{42}b_{23} + a_{43}b_{33} + a_{44}b_{43}
+\end{bmatrix}
+\end{align*}
+
+Well, this looks good to me! If the matrices being multiplied
+have higher dimension, partitioning such matrices could help in
+computation and reducing mistakes. Now that we have seen partitions
+of matrices, we could derive special forms from ideas.
+
+\subsection{Special Forms of Matrix}
+
+As always, let's build from definitions.
+
+\begin{keydef}
+\textbf{Symmetrically partitioned matrix} refers to a partitioned
+matrix such that its arrangements of the blocks are diagonally
+symmetric. The \textbf{diagonal blocks} are the blocks that passes
+through the diagonal symmetry.
+\end{keydef}
+
+We could also define matrices with diagonal blocks that are not
+necessarily symmetrically partitioned.
+
+\begin{keydef}
+A \textbf{block diagonal matrix} is a matrix with square diagonal
+blocks and zero on the other entries.
+\end{keydef}
+
+Below is the general form for square matrices $A_i$.
+\[
+A =
+\begin{bmatrix}
+    A_1    & 0      & \cdots & 0 \\
+    0      & A_2    & \cdots & 0 \\
+    \vdots & \vdots & \ddots & 0 \\
+    0      & 0      & 0      & 0 \\
+\end{bmatrix}
+\]
+Continuing, we could defined rows and columns based on its elements.
+
+\begin{keydef}
+\textbf{Zero rows} and \textbf{zero columns} are rows and columns
+composed of zeros respectively.
+\end{keydef}
+
+This definition is quite straightforward, and now that we have
+basic terms in mind, let's discuss two forms from the definitions
+above.
+
+\begin{keydef}
+\textbf{Reduced Row-Echelon Form (RREF)}, or \textbf{row-reduced form}
+are matrices the satisfy the following conditions.
+\begin{itemize}
+\item
+All nonzero leading entry in a nonzero row is $1$.
+\item
+If there are both nonzero and zero rows, all zero rows must appear
+after the nonzero rows above.
+\item
+The leading $1$ must be the only nonzero element present in each
+column if there exists such $1$.
+\item
+All leading $1$s in the succeeding rows appear in column after the
+columns with previous leading $1$s.
+\end{itemize}
+\end{keydef}
+
+Below is an example of a matrix in RREF.
+\[
+\begin{bmatrix}
+    1 & 0 & 2 & 0 \\
+    0 & 1 & 2 & 0 \\
+    0 & 0 & 0 & 1 \\
+    0 & 0 & 0 & 0
+\end{bmatrix}
+\]
+Matrices that follows this form will be very useful when solving
+linear systems of equations, but we will save that for the latter
+notes. Now let's discuss about triangular matrices.
+
 
 
 
