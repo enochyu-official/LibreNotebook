@@ -1633,8 +1633,25 @@ basic terms in mind, let's discuss two forms from the definitions
 above.
 
 \begin{keydef}
-\textbf{Reduced Row-Echelon Form (RREF)}, or \textbf{row-reduced form}
-are matrices the satisfy the following conditions.
+Matrix in \textbf{row echelon form (REF)} satisfy the conditions
+below.
+\vspace{-5pt}
+\begin{itemize}[noitemsep]
+\item
+All nonzero leading entry is $1$. (Side note here that some textbooks
+and lectures do not require the leading entry to be $1$, but I
+actually would like to keep it this way as this is how I initially
+learned it.)
+\item
+All nonzero leading entry in a nonzero row in a later row is to the
+right of nonzero leading entries in previous rows.
+\item
+If there are both nonzero and zero rows, all zero rows must appear
+after the nonzero rows above.
+\end{itemize}
+
+Similarly, matrices in \textbf{reduced row echelon form (RREF)}
+are matrices that satisfy the following conditions.
 \vspace{-5pt}
 \begin{itemize}[noitemsep]
 \item
@@ -1643,16 +1660,23 @@ All nonzero leading entry in a nonzero row is $1$.
 If there are both nonzero and zero rows, all zero rows must appear
 after the nonzero rows above.
 \item
-The leading $1$ must be the only nonzero element present in each
-column if there exists such $1$.
-\item
 All leading $1$s in the succeeding rows appear in column after the
 columns with previous leading $1$s.
+\item
+The leading $1$ must be the only nonzero element present in each
+column if there exists such $1$.
 \end{itemize}
 \end{keydef}
 
-Below is an example of a matrix in RREF.
+Below are examples of a matrices in REF and RREF respectively.
 \[
+\begin{bmatrix}
+    1 & 2 & 3 & 4 \\
+    0 & 0 & 1 & 2 \\
+    0 & 0 & 0 & 1 \\
+    0 & 0 & 0 & 0
+\end{bmatrix},
+\quad
 \begin{bmatrix}
     1 & 0 & 2 & 0 \\
     0 & 1 & 2 & 0 \\
@@ -1660,7 +1684,7 @@ Below is an example of a matrix in RREF.
     0 & 0 & 0 & 0
 \end{bmatrix}
 \]
-Matrices that follows this form will be very useful when solving
+Matrices that follows these forms will be very useful when solving
 linear systems of equations, but we will save that for the latter
 notes. Now let's discuss about triangular matrices.
 
