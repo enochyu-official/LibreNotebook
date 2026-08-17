@@ -1658,8 +1658,84 @@ Matrices that follows this form will be very useful when solving
 linear systems of equations, but we will save that for the latter
 notes. Now let's discuss about triangular matrices.
 
+Triangular matrices are special type of square matrices that is
+determined by elements below the main diagonal. If all your
+elements below the main diagonal are zeros, we call it
+\textbf{upper triangular} matrix. Similarly, if all elements above
+the main diagonal are zeros, we call them \textbf{lower triangular}
+matrices. For more formal statement, consider the following
+definition.
 
+\begin{keydef}
+A square matrix $A = [a_{ij}]$ is \textbf{upper triangular} if
+$a_{ij} = 0 \, \forall \, i > j$. Similarly, the matrix is
+\textbf{lower triangular} if $a_{ij} = 0 \, \forall \, i < j$.
+\end{keydef}
 
+Let's take a look at an example. The left and right matrices below
+are upper triangular and lower triangular matrices respectively.
+\[
+\begin{bmatrix}
+    1 & 2 & 3 & 4 \\
+    0 & 2 & 3 & 4 \\
+    0 & 0 & 3 & 4 \\
+    0 & 0 & 0 & 4
+\end{bmatrix},
+\quad
+\begin{bmatrix}
+    1 & 0 & 0 & 0 \\
+    2 & 1 & 0 & 0 \\
+    3 & 2 & 1 & 0 \\
+    0 & 3 & 2 & 0
+\end{bmatrix}
+\]
+Now that we have definitions of triangular matrices in mind,
+we can discuss a theorem from such matrices.
+
+\begin{theobox}{Property of Triangular Matrix Multiplication}
+{Property of Triangular Matrix Multiplication}
+The product of two lower triangular matrices is a lower triangular
+matrix, and the product of two upper triangular matrices is an upper
+triangular matrix.
+\end{theobox}
+\begin{proof}
+Let $A = [a_{ij}]_{n \times n}$ and $B = [b_{ij}]_{n \times n}$ be
+lower triangular matrices. Consider the following equation for their
+product matrix $C = [c_{ij}]_{n \times n}$.
+\[
+C
+= \left[ \sum_{k = 1}^{n} a_{ik} b_{kj} \right]
+= \left[
+    \sum_{k = 1}^{j-1} a_{ik} b_{kj}
+        + \sum_{k = j}^{n} a_{ik} b_{kj}
+\right]
+\]
+From the expression, it suffices to show that $\sum_{k = 1}^{j-1}
+a_{ik} b_{kj} + \sum_{k = j}^{n} a_{ik} b_{kj} = 0$ for $i < j$.
+Notice that by definition, $b_{kj} = 0$ for all $k = 1$ to $k = j-1$.
+Similarly, $a_{ik} = 0$ for all integer $k \in [j, n]$. Therefore,
+$c_{ij} = 0$ for all $i < j$, proving the first half of the theorem.
+
+Similarly, let $A' = [a'_{ij}]_{n \times n}$ and $B' =
+[b'_{ij}]_{n \times n}$ be upper triangular matrices. The product
+matrix $C'= [c'_{ij}]_{n \times n}$ can be represented as following.
+\[
+C'
+= \left[ \sum_{k = 1}^{n} a'_{ik} b'_{kj} \right]
+= \left[
+    \sum_{k = 1}^{j-1} a'_{ik} b'_{kj}
+        + \sum_{k = j}^{n} a'_{ik} b'_{kj}
+\right]
+\]
+Be definition, it is evident that $a'_{ik} = 0$ for integer $k
+\in [1, j-1]$ and $b'_{kj} = 0$ for integer $k \in [j, n]$.
+Therefore, for $i > j$, $c'_{ij} = 0$ and the theorem is true.
+\end{proof}
+
+We have covered fundamental topics from matrix, and before we move on
+to the next note, here are some fun questions that we could try.
+
+\section{Problems}
 
 
 
