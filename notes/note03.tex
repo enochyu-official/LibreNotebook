@@ -654,6 +654,194 @@ x =
     z
 \end{bmatrix}
 \]
+For the next section, let's discuss the inverse of a matrix and its
+application in linear systems.
+
+\section{The Multiplicative Inverse}
+
+As we discuss matrix multiplication, you may have wondered about
+matrix division. I mean it would be so nice if we could just
+divide coefficient matrix to find our variables. Although there
+is no ``division'' operation per se, but we could achieve similar
+operation with multiplicative inverse of a matrix, or simply
+inverse matrix. In other words, some solutions to linear systems
+can be written as $x = A^{-1}b$.
+
+\begin{keydef}
+The \textbf{inverse of a matrix} is a matrix that produces identity
+matrix when multiplied with the original matrix. The inverse of
+$A$ is denoted as $A^{-1}$.
+\end{keydef}
+
+We could see that matrices $A$ and $B$ are the inverse of each other
+if the following equation is satisfied.
+\[
+AB = BA = I
+\]
+Below is an example where $B = A^{-1}$.
+\[
+A =
+\begin{bmatrix}
+    1 & 2 \\
+    3 & 5
+\end{bmatrix},
+\quad
+B =
+\begin{bmatrix}
+    -5 & 2 \\
+    3  & -1
+\end{bmatrix}
+\]
+One thing to note from the definition is that $A$ and $B$ must be
+square matrices. Say we have $A_{4 \times 2}$ and $B_{2 \times 4}$.
+Even if both $AB$ and $BA$ returns an identity matrix, the order will
+be different. Therefore, for a matrix to have the inverse, it must
+be a square matrix.
+
+\begin{keydef}
+A matrix is \textbf{invertible}, or \textbf{nonsingular}, if it
+retains an inverse matrix. A matrix is \textbf{singular} if it
+does not have an inverse matrix.
+\end{keydef}
+
+Now from the definition above, we could establish a theorem.
+
+\begin{theorem}{Diagonal Elements and Invertibility}
+{Diagonal Elements and Invertibility}
+\label{Diagonal Elements and Invertibility}
+If all diagonal elements of a matrix are nonzero constants,
+then the matrix is invertible.
+\end{theorem}
+\begin{proof}
+Consider the matrix $A_{m \times m}$ defined below.
+\[
+A =
+\begin{bmatrix}
+    a_{11} & a_{12} & a_{13} & \cdots & a_{1m} \\
+    a_{21} & a_{22} & a_{23} & \cdots & a_{2m} \\
+    a_{31} & a_{32} & a_{33} & \cdots & a_{3m} \\
+    \vdots & \vdots & \vdots & \ddots & \vdots \\
+    a_{m1} & a_{m2} & a_{m3} & \cdots & a_{mm}
+\end{bmatrix}
+\]
+It suffices to show there there exists the inverse matrix
+for all values of the elements. Consider the inverse below.
+\[
+A^{-1} =
+\begin{bmatrix}
+    \frac{1}{a_{11}} & 0 & 0 & \cdots & 0 \\
+    0 & \frac{1}{a_{22}} & 0 & \cdots & 0 \\
+    0 & 0 & \frac{1}{a_{33}} & \cdots & 0 \\
+    \vdots & \vdots & \vdots & \ddots & \vdots \\
+    0 & 0 & 0 & \cdots & \frac{1}{a_{mm}}
+\end{bmatrix}
+\]
+Because $a_{ii}$ for integer $i \in [1, m]$ are nonzero numbers,
+the all elements in the matrix $A^{-1}$ are defined, and the
+inverse matrix exists.
+\end{proof}
+
+Now, it is important to note that not all square matrices have the
+inverse. For an example, consider a matrix with zero row. The same
+row in the product matrices will become a zero row. By definition,
+it is not possible to make an identity matrix with a zero row.
+
+Now that we discussed the existence, we could also investigate if
+the inverse matrix is unique just as a nonzero integer has a unique
+reciprocal.
+
+\begin{theorem}{Uniqueness of Inverse Matrix}
+{Uniqueness of Inverse Matrix}
+\label{Uniqueness of Inverse Matrix}
+If there exists an inverse matrix, the inverse is unique.
+\end{theorem}
+\begin{proof}
+For the sake of contradiction, let $B$ and $C$ be different
+inverse of $A$. Consider the following equation.
+\[
+B = BI = B(AC) = (BA)C = IC = C
+\]
+Because the fact that $B = C$ contradicts with the initial assumption
+that $B \neq C$, all inverse matrices are unique.
+\end{proof}
+
+Before we discuss how we actually find an inverse, let's discuss
+four important properties of inverse matrices.
+
+\begin{theorem}{Properties of the Inverse Matrix}
+{Properties of the Inverse Matrix}
+\label{Properties of the Inverse Matrix}
+For invertible square matrices $A$ and $B$ and a nonzero scalar
+$\lambda$, the following equations hold.
+\begin{enumerate}
+\item $(A^{-1})^{-1} = A$
+\item $(A^\intercal)^{-1} = (A^{-1})^\intercal$
+\item $(AB)^{-1} = B^{-1}A^{-1}$
+\item $(\lambda A)^{-1} = (\frac{1}{\lambda})A^{-1}$
+\end{enumerate}
+\end{theorem}
+
+There's lot to prove and let's do them one by one starting with
+the first one!
+
+\begin{proof}
+Let matrix $B = A^{-1}$. Substituting, it suffices to show that
+$B^{-1} = A$. By definition of inverse matrix, the equation
+$AB = BA = 1$ holds. In other words, $A$ is the inverse of $B$
+and the property holds.
+\end{proof}
+
+Below is the proof for the second property.
+
+\begin{proof}
+Notice that $(AB)^\intercal = B^\intercal A^\intercal$ from
+theorem \ref{Properties of Transpose of a Matrix}. Let matrix
+$B = A^{-1}$ and consider the following equation.
+\[
+I
+= (AB)^\intercal
+= B^\intercal A^\intercal
+= \left( A^{-1} \right)^\intercal A^\intercal
+\]
+In other words, $(A^{-1})^\intercal$ is the inverse of $A^\intercal$,
+or $(A^\intercal)^{-1}$, proving the property.
+\end{proof}
+
+Continuing, here is the proof for the third property.
+
+\begin{proof}
+Consider the following equation that uses the associative property
+of matrix multiplication.
+\[
+(B^{-1}A^{-1})(AB)
+= B^{-1}(A^{-1}A)B
+= B^{-1}(I)B
+= B^{-1}(IB)
+= B^{-1}B
+= I
+\]
+Because $B^{-1}A^{-1}$ is the inverse of $AB$, the property is true.
+\end{proof}
+
+Finally, here is the proof for the last property.
+
+\begin{proof}
+Let $B = \lambda A$. Consider the following equation.
+\[
+\frac{1}{\lambda} A^{-1} B
+= \frac{1}{\lambda} A^{-1} \lambda A
+= A^{-1} A
+= I
+\]
+In other words, $\frac{1}{\lambda} A^{-1}$ is the inverse of
+$\lambda A$, proving the fourth property.
+\end{proof}
+
+Now that we took a look at different properties of inverse matrices,
+let's discuss how to actually find one.
+
+
+
 
 
 
