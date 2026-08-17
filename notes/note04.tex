@@ -1852,8 +1852,292 @@ $S_\lambda = \{ v \in V | Tv = \lambda v \}$ defined as the
 \end{definition}
 
 Just as we redefined eigenvectors and eigenvalues with matrices,
-we could do the same for eigenspace.
+we could do the same for eigenspace. Now that we discussed what
+eigenvectors and eigenvalues are, let's discuss how to find one.
 
+\begin{theorem}{Eigenvalue and Determinants}
+{Eigenvalue and Determinants}
+For a square matrix $A_{n \times n}$, $\lambda$ is its eigenvalue
+if and only if $\det(A - \lambda I_n) = 0$.
+\end{theorem}
+\begin{proof}
+First notice that by definition, $\lambda$ is an eigenvalue of $A$
+if an only if $Ax = \lambda x$ hold for some nonzero vector $x$.
+Continuing, $Ax = \lambda x$ hold if and only if $Ax = \lambda I_n x$
+and $(A - \lambda I_n)x = 0$. In other words, the columns of the
+matrix $A - \lambda I_n$ is linearly dependent and invertible.
+Therefore by Theorem \ref{theo:Invertibility and the Determinant},
+the theorem holds.
+\end{proof}
+
+Being one of the most important theorems in linear algebra,
+we can establish another definition from the theorem.
+
+\begin{definition}
+The \textbf{characteristic equation} of a square matrix $A$ is defined
+as $\det(A - \lambda I_n) = 0$ for scalar variable $\lambda$.
+\end{definition}
+
+An important thing to note from this definition is that
+$\det(A - \lambda I_n)$ is a polynomial in $\lambda$ with degree $n$.
+Moreover, the real roots of the polynomial can be interpreted as
+eigenvalues of $A$. Let's take a look at an example of how
+the characteristic equation can be used to find all eigenvalues of
+a matrix.
+
+\begin{problem}
+Find all eigenvalues and the corresponding eigenspaces of matrix $A =
+\begin{bmatrix}
+    1 & 0 \\
+    0 & -1
+\end{bmatrix}$.
+\end{problem}
+\begin{solution}
+To find all eigenvalues of $A$, it suffices to find all solutions for
+the characteristic equation of $A$ by Theorem \ref{theo:Eigenvalue and
+Determinants}.
+\[
+A - \lambda I_2 =
+\begin{bmatrix}
+    1 - \lambda & 0 \\
+    0           & -1 - \lambda
+\end{bmatrix}
+\]
+Therefore, $\det(A - \lambda I_2) = (1 - \lambda)(-1 - \lambda)$
+and $\lambda = 1$ or $\lambda = -1$ are the solutions to the
+characteristic equation.
+
+Continuing, the corresponding eigenspaces could be found. For
+$\lambda = 1$, the eigenspace is defined as $S_1 = \{ x | Ax = x \}$.
+Solving for the equation $(A - I)x = 0$, the following equations hold.
+\begin{align*}
+    \begin{bmatrix}
+        0 & 0 \\
+        0 & -2
+    \end{bmatrix}
+    \begin{bmatrix}
+        x_1 \\
+        x_2
+    \end{bmatrix}
+    &= 0 \\
+    -2x_2 &= 0
+\end{align*}
+Therefore, the eigenspace for the eigenvalue $1$ can be represented
+as the following
+\[
+S_1 =
+\Span\{
+    \begin{bmatrix}
+        1 \\
+        0
+    \end{bmatrix}
+\}
+\]
+Similarly, $S_{-1} = \{ x | Ax = -x \}$ and $(A + I)x = 0$ could
+be solved.
+\begin{align*}
+    \begin{bmatrix}
+        2 & 0 \\
+        0 & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+        x_1 \\
+        x_2
+    \end{bmatrix}
+    &= 0 \\
+    2x_1 &= 0
+\end{align*}
+Therefore,
+\[
+S_{-1} =
+\Span\{
+    \begin{bmatrix}
+        0 \\
+        1
+    \end{bmatrix}
+\}
+\]
+and the corresponding eigenspaces for all eigenvalues of $A$ are
+found.
+\end{solution}
+
+We got a nice matrix here, but its worth nothing that $\lambda$ need
+not be real. As demonstrated from the simple example above,
+solving the characteristic equation will lead to all eigenvalues
+for a matrix. I will leave more complex and interesting examples
+in the practice problems below. In the next part of the section,
+we will discuss the properties of eigenvalues and eigenvectors.
+
+\subsection{Properties of Eigenvalues}
+
+Eigenvalues and eigenvectors have interesting properties and
+relationship with vector spaces. Consider the following theorem.
+
+\begin{theorem}{Similar Matrices and Eigenvalues}
+{Similar Matrices and Eigenvalues}
+For two square matrices $A$ and $B$ such that $A \cong B$,
+the characteristic equation and eigenvalues for each matrix equal.
+\end{theorem}
+\begin{proof}
+By definition of similar matrices, there exists some invertible
+matrix $P$ such that $B = P^{-1} A P$. Therefore, the following
+equations hold.
+\[
+P^{-1} (A - \lambda I) P
+= P^{-1} A P - P^{-1} \lambda I P
+= B - \lambda I
+\]
+Therefore, $\det(B - \lambda I) = \det(P^{-1} (A - \lambda I) P)
+= \det(A - \lambda I)$ and the characteristic equations are the
+same. In other words, the eigenvalues for $A$ and $B$ are equal
+and the theorem holds.
+\end{proof}
+
+Below is another theorem on the eigenvalues of triangular matrices.
+
+\begin{theorem}{Triangular Matrices and Eigenvalues}
+{Triangular Matrices and Eigenvalues}
+The eigenvalues of triangular (upper or lower) matrices are the
+diagonal elements.
+\end{theorem}
+\begin{proof}
+By definition, notice that for a triangular matrix $A$,
+$A - \lambda I$ is also triangular. Therefore by Theorem
+\ref{theo:The Determinants of Triangular Matrices},
+\[
+\det(A - \lambda I)
+= \prod_{k=1}^n (\lambda_k - \lambda)
+\]
+and $\det(A - \lambda I_n) = 0$ if and only if $\lambda = \lambda_k$.
+Because $\lambda_k$ are the diagonal elements of $A$, the theorem
+holds.
+\end{proof}
+
+Continuing, below is another theorem on the relationship between
+eigenvalues and invertibility.
+
+\begin{theorem}{Invertibility and Eigenvalues}
+{Invertibility and Eigenvalues}
+A square matrix $A$ contains a zero eigenvalue if and only if it is
+not invertible.
+\end{theorem}
+\begin{proof}
+A square matrix $A$ contains a zero eigenvalue if and only if
+$\det(A - 0 I) = 0$ and $\det(A) = 0$. Because $A$ is invertible
+if and only if $\det(A) \neq 0$ by Theorem \ref{theo:Invertibility
+and the Determinant}, the theorem holds.
+\end{proof}
+
+If you think this theorem is nice, below is another theorem on
+invertibility and eigenvalues.
+
+\begin{theorem}{Eigenvalues and Eigenvectors of an Invertible Matrix}
+{Eigenvalues and Eigenvectors of an Invertible Matrix}
+For an invertible matrix $A$ with eigenvector $x$ and its
+corresponding eigenvalue $\lambda$, $x$ is also an eigenvalue of
+$A^{-1}$ with corresponding eigenvalue $\frac{1}{\lambda}$.
+\end{theorem}
+\begin{proof}
+By definition, $Ax = \lambda x$ and $x = A^{-1} \lambda x$.
+Continuing, $A^{-1} x = \frac{1}{\lambda} \cdot x$. Therefore,
+$x$ is also an eigenvector of $A^{-1}$ with the corresponding
+eigenvalue $\frac{1}{\lambda}$.
+\end{proof}
+
+We could really go on forever with interesting theorems, but
+before we conclude this part of the note, I would like to discuss
+two more theorem.
+
+\begin{theorem}{Properties of Eigenvector and Eigenvalue}
+{Properties of Eigenvector and Eigenvalue}
+Consider the following statements for a matrix $A$ with an
+eigenvector $x$ with its corresponding eigenvalue $\lambda$.
+\begin{enumerate}[noitemsep]
+\item For an arbitrary scalar $k$, $x$ is also an eigenvector
+of $kA$ with corresponding eigenvalue $k \lambda$.
+\item For some $n \in \mathbb{N}$, $x$ is also an eigenvector
+of $A^n$ with corresponding eigenvalue $\lambda^n$.
+\end{enumerate}
+\end{theorem}
+
+Let's start by proving the first statement.
+
+\begin{proof}
+Consider the following equation.
+\[
+(kA)x = k(Ax) = k \lambda x = (k \lambda) x
+\]
+Therefore, $x$ is an eigenvector of $kA$ and its corresponding
+eigenvalue is $k \lambda$.
+\end{proof}
+
+Below is the proof for the second statement.
+
+\begin{proof}
+Assume that if the statement holds for $n - 1$, then the statement
+holds for $n > 1$. Consider the following equations.
+\begin{align*}
+    A^n x
+    &= A \left( A^{n-1} x \right)
+    = A \left( \lambda^{n-1} x \right)
+    = \lambda^{n-1} Ax \\
+    &= \lambda^{n-1} \lambda x
+    = \lambda^n x
+\end{align*}
+Because $Ax = \lambda x$, the statement holds by induction.
+\end{proof}
+
+Before we move on to the final content with the last theorem for this
+part, below is a definition for the theorem.
+
+\begin{definition}
+The \textbf{trace} of a matrix $A = [a_{ij}]$, denoted as $\Tr(A)$,
+is the sum of the diagonal elements of $A$.
+\end{definition}
+
+With the definition, we can continue with the theorem.
+
+\begin{theorem}{Properties of Eigenvalues}{Properties of Eigenvalues}
+For a square matrix $A_{n \times n}$ with eigenvalues $\lambda_1,
+\ldots, \lambda_n$, the following equations hold.
+\begin{enumerate}[noitemsep]
+\item $\Tr(A) = \sum_{k=1}^n \lambda_k$
+\item $\det(A) = \prod_{k=1}^n \lambda_k$
+\end{enumerate}
+\end{theorem}
+
+Let's start by proving the first equation.
+
+\begin{proof}
+By the Fundamental Theorem of Algebra, the following equation hold.
+\[
+\det(A - \lambda I)
+= \prod_{k=1}^n (\lambda_k - \lambda)
+= 0
+\]
+Therefore, all eigenvalues are the diagonal elements and by
+definition of trace of $A$, the sum of all eigenvalues are the
+trace of $A$.
+\end{proof}
+
+Continuing, below is the proof for the second equation.
+
+\begin{proof}
+Substituting $\lambda = 0$ to the equation
+\[
+\det(A - \lambda I)
+= \prod_{k=1}^n (\lambda_k - \lambda),
+\]
+$\det(A) = \prod_{k=1}^n \lambda_k$ and the equation holds.
+\end{proof}
+
+It is important to note that the second equation counts multiplicity.
+In other words, even if $\lambda_p = \lambda_q$, you still count
+both. Wow! I can't believe that we are already almost done with the
+notes! For the final concept of my notes on linear algebra, we will
+discuss diagonalization.
+
+\subsection{Diagonalization}
 
 
 
