@@ -516,7 +516,445 @@ Linear Algebra.
 
 \section{Linear Transformations}
 
+When we discussed about matrices, we saw that they kind of ``change''
+the vector space. When I first learned about matrices in an academy
+as a middle school student, all I had in mind was ``this is an
+interesting way of organizing items!'' I knew what vectors and
+matrices were, but I didn't really know them. That changed until
+I learned about linear transformations. Of course, I wouldn't expect
+my middle school self to learn all these and truly understand what
+matrices represent in a vector space, but this moment, or section
+really changed my understanding. Like all the other sections, this
+is an interesting one, and let's get started!
 
+\subsection{Brief Review of Functions}
+
+Before we get into linear transformations, let's review about
+functions. I think this would be a good refresher on the terms.
+
+\begin{definition}
+A \textbf{function} is a special \textbf{relation} where each input
+from its domain has exactly one corresponding output.
+\end{definition}
+
+For instance, a function $f: X \to Y$ is a special relation whose
+domain is $X$ and whose corresponding outputs lie in $Y$. As you
+probably know, there are special terms for $X$ and $Y$.
+
+\begin{definition}
+The set of all inputs of a function is called \textbf{domain} of the
+function. The set of all corresponding outputs is known as
+\textbf{image}, or range, of the function denoted as $\Im(f)$.
+\end{definition}
+
+You might be familiar with the term \textbf{range}, but \textbf{image}
+and \textbf{range} refers to the same thing, and \textbf{image} is
+more commonly used in linear algebra and other courses. Now let's
+review about bijection, injection, and surjection.
+
+\begin{definition}
+A function is \textbf{injective}, or one-to-one, if each element in
+the domain maps to a unique element in the image. An
+\textbf{surjective} function, or an onto function, if image and
+codomain are identical. A \textbf{bijective} functions are functions
+that are both injective and surjective.
+\end{definition}
+
+For more visual representation, below is a diagram that manifests
+the definition above.
+
+\begin{minipage}{0.33\textwidth}
+\begin{center}
+\textbf{Injective Function}
+\begin{align*}
+    &\text{If } f(x_1) = f(x_2), \\
+    &\text{then } x_1 = x_2
+\end{align*}
+\end{center}
+\end{minipage}
+\begin{minipage}{0.33\textwidth}
+\begin{center}
+\textbf{Surjective Function}
+\begin{align*}
+    &\forall\, y_i \in Y,\ \exists\, x_j \in X \\
+    &\quad s.t.\ f(x_j) = y_i
+\end{align*}
+\end{center}
+\end{minipage}
+\begin{minipage}{0.33\textwidth}
+\begin{center}
+\textbf{Bijective Function}
+\begin{align*}
+    &\forall\, y_i \in Y,\ \exists!\, x_j \in X \\
+    &\quad s.t.\ f(x_j) = y_i
+\end{align*}
+\end{center}
+\end{minipage}
+
+\begin{minipage}{0.33\textwidth}
+\begin{center}
+\begin{tikzpicture}[
+    >=latex, very thick,
+    inout/.style={
+        draw, fill=BrickRed!10, ellipse,
+        minimum width=1.3cm, minimum height=3cm
+    },
+    labelnode/.style={font=\large, black},
+    scale=0.60
+]
+
+    \node[inout] (L) at (0,0) {};
+    \node[labelnode, above=2mm of L.north] {X};
+
+    \foreach \i/\xs in {1/$x_1$,2/$x_2$,3/$x_3$}{
+        \node at ($(L) + (0cm,1.6cm - \i*0.8cm)$) {\xs};
+    }
+
+    \node[inout] (R) at (5,0) {};
+    \node[labelnode, above=2mm of R.north] {Y};
+
+    \foreach \i/\ys in {1/$y_1$,2/$y_2$,3/$y_3$,4/$y_4$}{
+        \node at ($(R) + (0cm,1.8cm - \i*0.8cm)$) {\ys};
+    }
+
+    \draw[->, Sepia]
+        ($(L)+(0.5cm,0.8cm)$) to ($(R)+(-0.5cm,1.0cm)$);
+    \draw[->, Sepia]
+        ($(L)+(0.5cm,0.0cm)$) to ($(R)+(-0.5cm,-1.4cm)$);
+    \draw[->, Sepia]
+        ($(L)+(0.5cm,-0.8cm)$) to ($(R)+(-0.5cm,-0.6cm)$);
+\end{tikzpicture}
+\end{center}
+\end{minipage}
+\begin{minipage}{0.33\textwidth}
+\begin{center}
+\begin{tikzpicture}[
+    >=latex, very thick,
+    inout/.style={
+        draw, fill=MidnightBlue!10, ellipse,
+        minimum width=1.3cm, minimum height=3cm
+    },
+    labelnode/.style={font=\large, black},
+    scale=0.6
+]
+
+    \node[inout] (L) at (0,0) {};
+    \node[labelnode, above=2mm of L.north] {X};
+
+    \foreach \i/\xs in {1/$x_1$,2/$x_2$,3/$x_3$,4/$x_4$}{
+        \node at ($(L) + (0cm,1.8cm - \i*0.8cm)$) {\xs};
+    }
+
+    \node[inout] (R) at (5,0) {};
+    \node[labelnode, above=2mm of R.north] {Y};
+
+    \foreach \i/\ys in {1/$y_1$,2/$y_2$,3/$y_3$}{
+        \node at ($(R) + (0cm,1.6cm - \i*0.8cm)$) {\ys};
+    }
+
+    \draw[->, Sepia] 
+        ($(L)+(0.5cm,1.0cm)$) to ($(R)+(-0.5cm,0.8cm)$);
+    \draw[->, Sepia] 
+        ($(L)+(0.5cm,0.2cm)$) to ($(R)+(-0.5cm,-0.8cm)$);
+    \draw[->, Sepia] 
+        ($(L)+(0.5cm,-0.6cm)$) to ($(R)+(-0.5cm,0.0cm)$);
+    \draw[->, Sepia]
+        ($(L)+(0.5cm,-1.4cm)$) to ($(R)+(-0.5cm,-0.8cm)$);
+\end{tikzpicture}
+\end{center}
+\end{minipage}
+\begin{minipage}{0.33\textwidth}
+\begin{center}
+\begin{tikzpicture}[
+    >=latex, very thick,
+    inout/.style={
+        draw, fill=RoyalPurple!10, ellipse,
+        minimum width=1.3cm, minimum height=3cm
+    },
+    labelnode/.style={font=\large, black},
+    scale=0.6
+]
+
+    \node[inout] (L) at (0,0) {};
+    \node[labelnode, above=2mm of L.north] {X};
+  
+    \foreach \i/\xs in {1/$x_1$,2/$x_2$,3/$x_3$,4/$x_4$}{
+        \node at ($(L) + (0cm,1.8cm - \i*0.8cm)$) {\xs};
+    }
+
+    \node[inout] (R) at (5,0) {};
+    \node[labelnode, above=2mm of R.north] {Y};
+
+    \foreach \i/\ys in {1/$y_1$,2/$y_2$,3/$y_3$,4/$y_4$}{
+        \node at ($(R) + (0cm,1.8cm - \i*0.8cm)$) {\ys};
+    }
+  
+    \draw[->, Sepia]
+        ($(L)+(0.5cm,1.0cm)$) to ($(R)+(-0.5cm,1.0cm)$);
+    \draw[->, Sepia]
+        ($(L)+(0.5cm,0.2cm)$) to ($(R)+(-0.5cm,-1.4cm)$);
+    \draw[->, Sepia]
+        ($(L)+(0.5cm,-0.6cm)$) to ($(R)+(-0.5cm,0.2cm)$);
+    \draw[->, Sepia]
+        ($(L)+(0.5cm,-1.4cm)$) to ($(R)+(-0.5cm,-0.6cm)$);
+\end{tikzpicture}
+\end{center}
+\end{minipage}
+
+Below is a fun problem on bijectivity.
+
+\begin{problem}
+Show that $f: \mathbb{R} \to \mathbb{R}$ is bijective if $f(f(x))=x$.
+\end{problem}
+\begin{solution}
+First, the injectivity can be proven. Let $f(a) = f(b)$ and consider
+the following equation.
+\[
+a = f(f(a)) = f(f(b)) = b
+\]
+Therefore, if $f(a) = f(b)$, then $a = b$ and the function is
+injective. Continuing, let $f(x) = y$. Substituting, $f(y) = x$ is
+true for all $x \in \mathbb{R}$. Because the image is $\mathbb{R}$,
+the function is bijective.
+\end{solution}
+
+Now that we reviewed about functions, let's discuss linear
+transformation.
+
+\subsection{Basic Terms and Notations}
+
+If we have functions over different domains, can we have a function
+whose domain and range are vector spaces? Then answer is yes, and we
+have special name for such functions.
+
+\begin{definition}
+A function whose domain and range are defined over vector spaces is
+known as a \textbf{transformation}, denoted as $T$.
+\end{definition}
+
+A transformation that maps a vector space $V$ to $W$ is denoted as
+$T: V \to W$. Just like how we have $f(x)$, we do the same like
+$T(v)$ for $v \in V$, but it is more common to write $Tv$.
+Continuing, the definitions for image, injection, surjection, and
+bijection all applies in similar fashion.
+
+There are many different transformation, but some transformation
+moves the vector space in ``parallel'' in a way that preserves
+the fundamental definition of vector addition and scalar
+multiplication.
+
+\begin{definition}
+A \textbf{linear transformation} is a transformation that preserves
+the definition of vector addition and scalar multiplication of the
+input vector space. In other words, for scalars $\alpha$ and $\beta$
+and input vectors $v_1$ and $v_2$, a transformation $T$ is linear
+if the following equation holds.
+\[
+T(\alpha v_1 + \beta v_2)
+= \alpha T(v_1) + \beta T(v_2)
+\]
+\end{definition}
+
+One way to think of the equation above is preservation of the
+\textbf{linear} combination. Let's take a look at an example.
+
+\begin{problem}
+Show that a transformation defined as $T(v) = 2v$ is linear.
+\end{problem}
+\begin{solution}
+Consider the following equation for some scalars $\alpha$ and $\beta$.
+\[
+T(\alpha v_1 + \beta v_2)
+= 2 (\alpha v_1 + \beta v_2)
+= 2 \alpha v_1 + 2 \beta v_2
+= \alpha T(v_1) + \beta T(v_2)
+\]
+Thus, the transformation is linear.
+\end{solution}
+
+As you can see above, if $T: \mathbb{R}^2 \to \mathbb{R}^2$, you can
+image the vectors dilating. Indeed, such linear transformations are
+called \textbf{dilation}
+
+\begin{definition}
+A \textbf{dilation} is a linear transformation that scales the vectors
+in the input vector space defined as $Tv = kv$ for some scalar $k$.
+\end{definition}
+
+Let's take a look at the visual representation of the simple version
+of the example above. Consider the transformation defined as
+$T(\langle a, b \rangle) = \langle 2a, 2b \rangle$. We know from the
+previous example that the transformations is linear. Now let's try
+and graph it.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+        vector/.style={->, thick},
+        scale=0.7
+    ]
+
+    \foreach \i in {-5, -4, ..., 5} {
+        \draw[gray, thin, opacity=0.6] (\i, -6) -- (\i, 6);
+        \draw[gray, thin, opacity=0.6] (-6, \i) -- (6, \i);
+    }
+    \draw[vector, black] (-6, 0) -- (6, 0) node[below] {$x$};
+    \draw[vector, black] (0, -6) -- (0, 6) node[left] {$y$};
+
+    \draw[vector] (0, 0) -- (1, 0) node[below]
+        {\footnotesize $\hat{i} = \langle 1, 0 \rangle$};
+    \draw[vector] (0, 0) -- (0, 1) node[left]
+        {\footnotesize $\hat{j} = \langle 0, 1 \rangle$};
+    \draw[vector, dotted, ForestGreen] (0, 0) -- (1, 2)
+        node[right, ForestGreen]
+            {\footnotesize $\vec{v} = \langle 1, 2 \rangle$};
+
+
+    \foreach \j in {-4, -2, ..., 4} {
+        \draw[BrickRed, opacity=0.8] (-6, \j) -- (6, \j);
+    }
+    \foreach \i in {-4, -2, ..., 4} {
+        \draw[RoyalPurple, opacity=0.8] (\i, -6) -- (\i, 6);
+    }
+
+    \draw[vector, BrickRed] (0, 0) -- (2, 0)
+        node[below right, BrickRed]
+            {\footnotesize $\hat{i}' = \langle 2, 0 \rangle$};
+    \draw[vector, RoyalPurple] (0, 0) -- (0, 2)
+        node[left, RoyalPurple]
+            {\footnotesize $\hat{j}' = \langle 0, 2 \rangle$};
+    \draw[vector, ForestGreen] (0, 0) -- (2, 4)
+        node[right, ForestGreen]
+            {\footnotesize $\vec{v}' = \langle 2, 4 \rangle$};
+\end{tikzpicture}
+\end{figure}
+
+There are other special linear transformations that outputs the same
+vector space or the zero vector space.
+
+\begin{definition}
+A \textbf{zero transformation} is a linear transformation defined as
+$Tv = \mathbf{0}$. An \textbf{identity transformation} is a linear
+transformation that returns the same input vector as the output.
+\end{definition}
+
+Let's take a look at few more examples on linear transformations.
+
+\begin{problem}
+Determine whether a transformation defined as $Tv = v^2$ is linear.
+\end{problem}
+\begin{solution}
+Consider the following equation for arbitrary scalars $\alpha$ and
+$\beta$.
+\[
+T(\alpha v_1 + \beta v_2)
+= (\alpha v_1 + \beta v_2)^2
+\]
+Notice that the following equation holds.
+\[
+= \alpha T(v_1) + \beta T(v_2)
+= \alpha v_1^2 + \beta v_2^2
+\]
+Because $(\alpha v_1 + \beta v_2)^2 \neq \alpha v_1^2 + \beta v_2^2$
+in general, the transformation is not linear.
+\end{solution}
+
+Below is another example.
+
+\begin{problem}
+Determine whether a transformation defined as $Ty = \frac{dy}{dx}$
+for some differentiable function $y = f(x)$ is linear.
+\end{problem}
+\begin{solution}
+Consider the following equation for some scalars $\alpha$ and $\beta$.
+\begin{align*}
+    T(\alpha y_1 + \beta y_2)
+    &= \frac{d}{dx} (\alpha y_1 + \beta y_2)
+    = \frac{d}{dx} (\alpha y_1) + \frac{d}{dx} (\beta y_2) \\
+    &= \alpha \frac{d}{dx} y_1 + \beta \frac{d}{dx} y_2
+    = \alpha T(y_1) + \beta T(y_2)
+\end{align*}
+Thus, the transformation is linear.
+\end{solution}
+
+One thing that we can notice from the problem above is that the
+transformation is not linear since changing the constants of an
+input will not change the output. The transformation is also not
+surjective as not all functions can be represented as the derivative
+of other functions. Continuing, we can consider the following
+transformation.
+
+\begin{problem}
+Determine whether a transformation defined as $T(\langle a, b \rangle)
+= \langle -a, -b \rangle$ is linear.
+\end{problem}
+\begin{solution}
+Consider the following equation for arbitrary scalars $\alpha$ and
+$\beta$.
+\begin{align*}
+    T(\alpha \langle a, b \rangle + \beta \langle a', b' \rangle)
+    &= T(\langle \alpha a, \alpha b \rangle +
+        \langle \beta a', \beta b' \rangle)
+    = T(\langle \alpha a + \beta a', \alpha b + \beta b' \rangle) \\
+    &= \langle -\alpha a - \beta a', -\alpha b - \beta b' \rangle
+    = \langle -\alpha a, -\alpha b \rangle +
+        \langle -\beta a', - \beta b' \rangle \\
+    &= \alpha \langle -a, -b \rangle + \beta \langle -a', -b' \rangle
+    = \alpha T(v_1) + \beta T(v_2)
+\end{align*}
+Thus, the transformation is linear.
+\end{solution}
+
+Let's try and graph this to visually see how the vector space is
+transformed.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+        vector/.style={->, thick},
+        scale=0.7
+    ]
+
+    \foreach \i in {-5, -4, ..., 5} {
+        \draw[gray, thin, opacity=0.6] (\i, -6) -- (\i, 6);
+        \draw[gray, thin, opacity=0.6] (-6, \i) -- (6, \i);
+    }
+    \draw[vector, black] (-6, 0) -- (6, 0) node[below] {$x$};
+    \draw[vector, black] (0, -6) -- (0, 6) node[left] {$y$};
+
+    \draw[vector] (0, 0) -- (1, 0) node[below]
+        {\footnotesize $\hat{i} = \langle 1, 0 \rangle$};
+    \draw[vector] (0, 0) -- (0, 1) node[left]
+        {\footnotesize $\hat{j} = \langle 0, 1 \rangle$};
+    \draw[vector, dotted, ForestGreen] (0, 0) -- (1, 2)
+        node[right, ForestGreen]
+            {\footnotesize $\vec{v} = \langle 1, 2 \rangle$};
+
+
+    \foreach \j in {-5, -4, ..., 5} {
+        \draw[BrickRed, opacity=0.8] (-6, \j) -- (6, \j);
+    }
+    \foreach \i in {-5, -4, ..., 5} {
+        \draw[RoyalPurple, opacity=0.8] (\i, -6) -- (\i, 6);
+    }
+
+    \draw[vector, BrickRed] (0, 0) -- (-1, 0)
+        node[below left, BrickRed]
+            {\footnotesize $\hat{i}' = \langle -1, 0 \rangle$};
+    \draw[vector, RoyalPurple] (0, 0) -- (0, -1)
+        node[below right, RoyalPurple]
+            {\footnotesize $\hat{j}' = \langle 0, -1 \rangle$};
+    \draw[vector, ForestGreen] (0, 0) -- (-1, -2)
+        node[below left, ForestGreen]
+            {\footnotesize $\vec{v}' = \langle -1, -2 \rangle$};
+\end{tikzpicture}
+\end{figure}
+
+This transformation reflects the vectors across the origin!
+Now that we discussed what linear transformation is, let's see how
+matrices relate to it.
+
+\subsection{Matrices and Linear Transformation}
 
 
 
@@ -534,6 +972,12 @@ Linear Algebra.
 \section{Practice Problem}
 \begin{enumerate}
 \item
+Show that a transformation $T: V \to W$ is linear if and only if
+$T(v_1 + v_2) = T(v_1) + T(v_2)$ and $T(\alpha v_1) = \alpha T(v_1)$.
+
+\item
+Determine whether a transformation defined as $T(\langle a, b \rangle)
+= a + b$ is linear. How about $T(\langle a, b \rangle) = ab$?
 \end{enumerate}
 \end{document}
 
