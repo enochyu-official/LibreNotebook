@@ -38,17 +38,13 @@ denote whether an element is in the set or not.
 Examples of using such notations would be $\pi \in \mathbb{C}$
 and $i \notin \mathbb{R}$.
 
-\begin{definition}
-For binary operations, the symbol $\oplus$ is used to denote
-vector addition and $\odot$ is used to represent the scalar
-multiplication.
-\end{definition}
-
-Let's use these notations for defining vector space below as that
-is how I learned in the course and textbooks. However, please note
-that some or many textbooks lean towards more ``standard'' notations
-like $v + u$ and $\lambda v$ for vector addition and scalar
-multiplication.
+Side note here is that for this note, we will be using the binary
+operation symbols $\oplus$ and $\odot$ to denote vector addition and
+scalar multiplication. However, from the second notes, we will be
+using more standard notations like $v + u$ and $\lambda v$ for vector
+addition and scalar multiplication. The reason I decided to use this
+is because this is the way I first learned and it helped me to
+emphasize axioms for vector spaces.
 
 \begin{definition}
 A \textbf{vector space} is a set of vectors $\mathbb{V}$ and scalars
@@ -252,18 +248,108 @@ let's discuss more information with some problems.
 Let's first start by solving some problems.
 
 \begin{problem}
+Identify if the set $\mathbb{S} = \{ (x, y) \in \mathbb{R}^2 \mid
+x + y = 5 \}$ is a vector space.
 \end{problem}
 \begin{solution}
+We could see if the set satisfies all axioms for a vector space.
+However, just by looking at the condition $x + y = 5$, we know that
+there cannot exist a zero vector since $0 + 0 \neq 5$. Because the
+set violates A4, the set is not a vector space.
 \end{solution}
 
 \begin{problem}
+Identify if the set $\mathbb{S} = \{ \langle x, y \rangle \in
+\mathbb{R}^2 \mid x + y = 0 \}$ is a vector space.
 \end{problem}
 \begin{solution}
+Unlike the previous problem, we know that there exists a zero
+vector. For this one, let's go through each axioms. Let $u =
+\langle x_1, -x_1 \rangle$ and $v = \langle x_2, -x_2 \rangle$.
+Notice that $u \oplus v = \langle x_1 + x_2, -x_1 - x_2 \rangle
+\in \mathbb{R}^2$ and satisfies the condition $x_1 + x_2 + (-x_1
+-x_2) = 0$. Therefore, A1 is satisfied. Moreover, consider the
+following equations for A2 and A3 where $w = \langle x_3, -x_3
+\rangle$.
+\begin{align*}
+    u \oplus v
+    &= \langle x_1, -x_1 \rangle + \langle x_2, -x_2 \rangle
+    = \langle x_1 + x_2, -x_1 - x_2 \rangle \\
+    &= \langle x_2 + x_1, -x_2 - x_1 \rangle
+    = \langle x_2, -x_2 \rangle + \langle x_1, -x_1 \rangle \\
+    &= v \oplus u \\
+    u \oplus (v \oplus w)
+    &= \langle x_1, -x_1 \rangle + \left(
+        \langle x_2, -x_2 \rangle + \langle x_3, -x_3 \rangle
+    \right)
+    = \langle x_1, -x_1 \rangle +
+        \langle x_2 + x_3, -x_2 - x_3 \rangle \\
+    &= \langle x_1 + x_2 + x_3, -x_1 - x_2 - x_3 \rangle
+    = \langle x_1 + x_2, -x_1 - x_2 \rangle +
+        \langle x_3, -x_3 \rangle \\
+    &= (u \oplus v) \oplus w
+\end{align*}
+Therefore, A2 and A3 are satisfied. Furthermore, notice that
+$\langle 0, 0 \rangle \in \mathbb{R}^2$ and $0 + 0 = 0$, satisfying
+A4. Lastly for vector addition A5 holds as $\langle -x, x \rangle$
+is the additive inverse of $\langle x, -x \rangle$ that satisfies
+the provided conditions. Thus, all axioms for vector addition are met.
+
+Continuing with scalar multiplication, notice that S1 and S3 satisfies
+as $\langle x, y \rangle \in \mathbb{R}^2$ and $1 \odot \langle x, y
+\rangle = \langle x, y \rangle$. Moreover, consider the following
+equations for $\alpha, \beta \in \mathbb{R}$.
+\begin{align*}
+    \alpha \odot (\beta \odot u)
+    &= \alpha \odot \langle \beta x_1, -\beta x_1 \rangle
+    = \langle \alpha\beta x_1, -\alpha\beta x_1 \rangle
+    = \alpha\beta \odot \langle x_1, -x_1 \rangle \\
+    &= (\alpha\beta) \odot u \\
+    (\alpha + \beta) \odot u
+    &= \langle (\alpha + \beta) x_1, -(\alpha + \beta) x_1 \rangle
+    = \langle \alpha x_1 + \beta x_1,
+        -\alpha x_1 - \beta x_1 \rangle \\
+    &= \langle \alpha x_1, -\alpha x_1 \rangle +
+        \langle \beta x_1, -\beta x_1 \rangle
+    = \alpha \langle x_1, -x_1 \rangle +
+        \beta \langle x_1, -x_1 \rangle \\
+    &= \alpha \odot u \oplus \beta \odot u \\
+    \alpha \odot (u \oplus v)
+    &= \alpha \langle x_1 + x_2, -x_1 - x_2 \rangle
+    = \langle \alpha x_1 + \alpha x_2,
+        -\alpha x_1 - \alpha x_2 \rangle \\
+    &= \langle \alpha x_1, -\alpha x_1 \rangle +
+        \langle \alpha x_2, -\alpha x_2 \rangle
+    = \alpha \langle x_1, -x_1 \rangle +
+        \alpha \langle x_2, -x_2 \rangle \\
+    &= \alpha \odot u \oplus \alpha \odot v
+\end{align*}
+Thus, S2, S4, and S5 are all satisfied. Because all ten axioms for
+a vector space are met, the set $\mathbb{S} = \{ \langle x, y \rangle
+\in \mathbb{R}^2 \mid x + y = 0 \}$ is a vector space.
 \end{solution}
 
 \begin{problem}
+Consider vectors in the form $\langle x, y, z \rangle$ where the
+vector addition is defined as $\langle x, y, z \rangle \oplus
+\langle x', y', z' \rangle = \langle x + x', y + y', z + z' \rangle$
+and scalar multiplication as $\alpha \langle x, y, z \rangle =
+\langle x^\alpha, y^\alpha, z^\alpha \rangle$. Identify if the vectors
+form a vector space.
 \end{problem}
 \begin{solution}
+First, notice that the vector addition adheres to the standard vector
+addition. Therefore, we only have to look at scalar multiplication
+if any axioms are violated. From glance, S1, S2, and S3 appears to
+be satisfied. Therefore, let's take a look at S4.
+\[
+(\alpha + \beta) \odot u
+= \left(
+    x^{\alpha + \beta}, y^{\alpha + \beta}, z^{\alpha + \beta}
+\right)
+\]
+Notice that in general, $x^{\alpha + \beta} \neq x^\alpha + x^\beta$.
+Therefore, the set of vectors do not form a vector space.
 \end{solution}
 
 Just as we have vector spaces $\mathbb{R}^n$, we could also define
@@ -489,8 +575,9 @@ some practice problems that I made.
 \section{Practice Problems}
 \begin{enumerate}
 \item
-Line 254
-
+Consider the set $\mathbb{S} = \{ (x, y, z) \in \mathbb{R}^3 \mid
+x = 0 \}$. Identify whether the set is a vector space under the
+standard vector addition and scalar multiplication.
 \end{enumerate}
 \end{document}
 

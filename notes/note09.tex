@@ -164,16 +164,33 @@ A =
 \]
 
 \item
-Show that all square matrices can be represented as the sum of
-symmetric and skew-symmetric matrices.
+For any square matrices $S$, define $A$ and $B$ as the following.
+\[
+A = \frac{S + S^\intercal}{2}, \quad
+B = \frac{S - S^\intercal}{2}
+\]
+Notice that $S = A + B$. Therefore, it suffices to show that $A$ is
+symmetric and $B$ is skew-symmetric. By Theorem \ref{Properties of
+Transpose of a Matrix}, the following equations hold.
+\[
+A^\intercal
+= \frac{S + S^\intercal}{2}, \quad
+B^\intercal
+= \frac{S^\intercal - S}{2}
+= -B
+\]
+Thus, all square matrices can be represented as the sum of a symmetric
+and skew-symmetric matrices.
 
 \item
-Show that if $AB = BA$ for matrices $A$ and $B$, then the product
-$AB$ is nilpotent.
+By definition, there exists $n, m \in \mathbb{Z}$ such that
+$A^n = 0$ and $B^m = 0$. Because $AB = BA$, $A^{nm} B^{nm} = 0$ can
+be written as $(AB)^{nm} = 0$ and $AB$ is nilpotent.
 
 \item
-Show that for square matrices $A$ and $B$, $AB + (AB)^\intercal$
-is symmetric.
+By Theorem \ref{Properties of Transpose of a Matrix}, $(AB +
+(AB)^\intercal)^\intercal = (AB)^\intercal + AB = AB +
+(AB)^\intercal$. Therefore, $AB + (AB)^\intercal$ is symmetric.
 \end{enumerate}
 
 \section{Solutions for Note 3}
