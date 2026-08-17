@@ -1,0 +1,185 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{Solutions for Practice Problems}
+
+Here are the solutions to the practice problems at the end of each
+notes.
+
+\section{Solutions for Note 1}
+\begin{enumerate}
+\item
+\end{enumerate}
+
+\section{Solutions for Note 2}
+\begin{enumerate}
+\item
+\begin{enumerate}
+\item
+Consider the following computation.
+\[
+A - 2B =
+\begin{bmatrix}
+    1 & 2 \\
+    2 & 0
+\end{bmatrix}
+-
+2\begin{bmatrix}
+    -1 & 2 \\
+    0  & 3
+\end{bmatrix}
+=
+\begin{bmatrix}
+    1 & 2 \\
+    2 & 0
+\end{bmatrix}
++
+\begin{bmatrix}
+    2 & -4 \\
+    0 & -6
+\end{bmatrix}
+=
+\begin{bmatrix}
+    3 & -2 \\
+    2 & -6
+\end{bmatrix}
+\]
+\item
+Consider the following equation.
+\[
+AB =
+\begin{bmatrix}
+    1 & 2 \\
+    2 & 0
+\end{bmatrix}
+\begin{bmatrix}
+    -1 & 2 \\
+    0  & 3
+\end{bmatrix}
+=
+\begin{bmatrix}
+    -1 & 8 \\
+    -2 & 7
+\end{bmatrix}
+\]
+\item
+Because $AB$ is found above, $BA$ could be found.
+\[
+BA =
+\begin{bmatrix}
+    -1 & 2 \\
+    0  & 3
+\end{bmatrix}
+\begin{bmatrix}
+    1 & 2 \\
+    2 & 0
+\end{bmatrix}
+=
+\begin{bmatrix}
+    3 & -2 \\
+    6 & 0
+\end{bmatrix}
+\]
+Therefore, the following equation is true.
+\[
+(AB - BA)^\intercal =
+\left(
+\begin{bmatrix}
+    -1 & 8 \\
+    -2 & 7
+\end{bmatrix}
+-
+\begin{bmatrix}
+    3 & -2 \\
+    6 & 0
+\end{bmatrix}
+\right)^\intercal
+=
+\left(
+\begin{bmatrix}
+    -4 & 10 \\
+    -8 & 7
+\end{bmatrix}
+\right)^\intercal
+=
+\begin{bmatrix}
+    -4 & -8 \\
+    10 & 7
+\end{bmatrix}
+\]
+\end{enumerate}
+
+\item
+By the definition of matrix multiplication, $a_2B = [4, 5, 6]$.
+
+\item
+Notice that $A$ is a $2 \times 2$ square matrix. Therefore, define
+$A$ as the following.
+\[
+A =
+\begin{bmatrix}
+    a_{11} & a_{12} \\
+    a_{21} & a_{22}
+\end{bmatrix}
+\]
+Therefore, the following equation is obtained.
+\[
+2A - 3A^\intercal =
+\begin{bmatrix}
+    2a_{11} & 2a_{12} \\
+    2a_{21} & 2a_{22}
+\end{bmatrix}
+-
+\begin{bmatrix}
+    3a_{11} & 3a_{21} \\
+    3a_{12} & 3a_{22}
+\end{bmatrix}
+=
+\begin{bmatrix}
+    2a_{11} - 3a_{11} & 2a_{12} - 3a_{21} \\
+    2a_{21} - 3a_{12} & 2a_{22} - 3a_{22}
+\end{bmatrix}
+=
+\begin{bmatrix}
+    -1 & -5 \\
+    0  & -4
+\end{bmatrix}
+\]
+Continuing, the elements of $A$ could be found.
+\begin{align*}
+    2a_{11} - 3a_{11} &= -1 \\
+    2a_{12} - 3a_{21} &= -5 \\
+    2a_{21} - 3a_{12} &= 0  \\
+    2a_{22} - 3a_{22} &= -4
+\end{align*}
+Therefore, $a_{11} = 1$, $a_{12} = 2$, $a_{21} = 3$, and $a_{22} = 4$.
+Thus, $A$ can be defined as the following.
+\[
+A =
+\begin{bmatrix}
+    1 & 2 \\
+    3 & 4
+\end{bmatrix}
+\]
+
+\item
+Show that all square matrices can be represented as the sum of
+symmetric and skew-symmetric matrices.
+
+\item
+Show that if $AB = BA$ for matrices $A$ and $B$, then the product
+$AB$ is nilpotent.
+
+\item
+Show that for square matrices $A$ and $B$, $AB + (AB)^\intercal$
+is symmetric.
+\end{enumerate}
+
+\section{Solutions for Note 3}
+\begin{enumerate}
+\item
+\end{enumerate}
+\end{document}
+
+
