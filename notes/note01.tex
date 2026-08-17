@@ -38,14 +38,6 @@ denote whether an element is in the set or not.
 Examples of using such notations would be $\pi \in \mathbb{C}$
 and $i \notin \mathbb{R}$.
 
-Side note here is that for this section of the note, we will be using
-the binary operation symbols $\oplus$ and $\odot$ to denote vector
-addition and scalar multiplication. However, from the next section,
-we will be using more standard notations like $v + u$ and $\lambda v$
-for vector addition and scalar multiplication. The reason I decided to
-use this is because this is the way I first learned and it helped me
-to emphasize axioms for vector spaces.
-
 \begin{definition}
 A \textbf{vector space} is a set of vectors $\mathbb{V}$ and scalars
 with vector addition and scalar multiplication that adheres to the
@@ -85,6 +77,14 @@ $\forall \, u, v \in \mathbb{V}$ and scalars $\alpha$,
 $\alpha \odot (u \oplus v) = \alpha \odot u \oplus \alpha \odot v$.
 \end{enumerate}
 \end{definition}
+
+Side note here is that for this section of the note, we will be using
+the binary operation symbols $\oplus$ and $\odot$ to denote vector
+addition and scalar multiplication. However, from the next section,
+we will be using more standard notations like $v + u$ and $\lambda v$
+for vector addition and scalar multiplication. The reason I decided to
+use this is because this is the way I first learned and it helped me
+to emphasize axioms for vector spaces.
 
 Based on the scalars that we have here, we could indicate vector
 spaces with the following terms.
@@ -129,7 +129,7 @@ as we do in introductory physics classes.
 \centering
 \begin{tikzpicture}[
         vector/.style={->, thick},
-        scale=0.75
+        scale=0.65
     ]
 
     \foreach \i in {-4, -3, ..., 4} {
@@ -284,8 +284,8 @@ following equations for A2 and A3 where $w = \langle x_3, -x_3
     \right) \\
     &= \langle x_1, -x_1 \rangle +
         \langle x_2 + x_3, -x_2 - x_3 \rangle \\
-    &= \langle x_1 + x_2 + x_3, -x_1 - x_2 - x_3 \rangle
-    = \langle x_1 + x_2, -x_1 - x_2 \rangle +
+    &= \langle x_1 + x_2 + x_3, -x_1 - x_2 - x_3 \rangle \\
+    &= \langle x_1 + x_2, -x_1 - x_2 \rangle +
         \langle x_3, -x_3 \rangle \\
     &= (u \oplus v) \oplus w
 \end{align*}
@@ -310,8 +310,8 @@ equations for $\alpha, \beta \in \mathbb{R}$.
     = \langle \alpha x_1 + \beta x_1,
         -\alpha x_1 - \beta x_1 \rangle \\
     &= \langle \alpha x_1, -\alpha x_1 \rangle +
-        \langle \beta x_1, -\beta x_1 \rangle
-    = \alpha \langle x_1, -x_1 \rangle +
+        \langle \beta x_1, -\beta x_1 \rangle \\
+    &= \alpha \langle x_1, -x_1 \rangle +
         \beta \langle x_1, -x_1 \rangle \\
     &= \alpha \odot u \oplus \beta \odot u \\
     \alpha \odot (u \oplus v)
@@ -319,8 +319,8 @@ equations for $\alpha, \beta \in \mathbb{R}$.
     = \langle \alpha x_1 + \alpha x_2,
         -\alpha x_1 - \alpha x_2 \rangle \\
     &= \langle \alpha x_1, -\alpha x_1 \rangle +
-        \langle \alpha x_2, -\alpha x_2 \rangle
-    = \alpha \langle x_1, -x_1 \rangle +
+        \langle \alpha x_2, -\alpha x_2 \rangle \\
+    &= \alpha \langle x_1, -x_1 \rangle +
         \alpha \langle x_2, -x_2 \rangle \\
     &= \alpha \odot u \oplus \alpha \odot v
 \end{align*}
@@ -479,16 +479,10 @@ By Theorem \ref{Property of Zero Vectors I}, $\alpha \odot \mathbf{0}
 Continuing, here's the proof for the third one.
 
 \begin{proof}
-By the properties of vector spaces, the following equation holds.
-\[
-\mathbf{0}
-= 0 \odot u
-= (1 - 1) \odot u
-= 1 \odot u \oplus (-1) \odot u
-= u \oplus (-1) \odot u
-\]
-Because $(-1) \odot u$ is the additive inverse of $u$,
-$(-1) \odot u = -u$
+By the properties of vector spaces, $\mathbf{0} = 0 \odot u =
+(1 - 1) \odot u = 1 \odot u \oplus (-1) \odot u = u \oplus (-1)
+\odot u $. Because $(-1) \odot u$ is the additive inverse of $u$,
+$(-1) \odot u = -u$.
 \end{proof}
 
 Below is the proof for the fourth one.
@@ -772,12 +766,16 @@ following statements.
 \item If $T \subset S$, then $\Span(T) \subset \Span(S)$.
 \item $\Span(\Span(S)) = \Span(S)$.
 \item If $T \subset \Span(S)$, then $\Span(T) \subset \Span(S)$.
-\item For nonzero vectors $v_1, \ldots, v_n \in V$, $\lambda \in
-\mathbb{R}$, and $1 \leq j, k \leq n$ such that $\lambda \neq 0$ and
-$j \neq k$, $\Span\{ v_1, \ldots, v_k, \ldots, v_n \} = \Span\{ v_1,
-\ldots, v_k + \lambda v_j, \ldots, v_n \}$. Moreover, $\Span\{ v_1,
-\ldots, v_k, \ldots, v_n \} = \Span\{ v_1, \ldots, \lambda v_k,
-\ldots, v_n \}$.
+\item For nonzero vectors $v_1, \ldots, v_n \in V$, scalar
+$\lambda \in \mathbb{R}$, and $1 \leq j, k \leq n$ such that $\lambda
+\neq 0$ and $j \neq k$, the following equations hold.
+\vspace{-0.5\baselineskip}
+\begin{align*}
+    \Span\{ v_1, \ldots, v_k, \ldots, v_n \}
+    &= \Span\{ v_1, \ldots, v_k + \lambda v_j, \ldots, v_n \} \\
+    \Span\{ v_1, \ldots, v_k, \ldots, v_n \}
+    &= \Span\{ v_1, \ldots, \lambda v_k, \ldots, v_n \}
+\end{align*}
 \end{enumerate}
 \end{theorem}
 
@@ -795,11 +793,11 @@ Below is the proof for the second statement, which is a corollary
 of the first statement.
 
 \begin{proof}
-Notice that $S \subset \Span(S)$. By the first statement,
-$\Span(S) \subset \Span(\Span(S))$ holds. Moreover, notice that
-because $\Span(S)$ contains all linear combinations of $S$,
-making more linear combinations of the linear combinations of $S$
-will not add more elements. Therefore, $\Span(\Span(S)) \subset
+First and foremost, notice that $S \subset \Span(S)$. By the first
+statement, $\Span(S) \subset \Span(\Span(S))$ holds. Moreover,
+notice that because $\Span(S)$ contains all linear combinations of
+$S$, making more linear combinations of the linear combinations of
+$S$ will not add more elements. Therefore, $\Span(\Span(S)) \subset
 \Span(S)$ and $\Span(\Span(S)) = \Span(S)$.
 \end{proof}
 
@@ -814,16 +812,16 @@ $\Span(T) \subset \Span(S)$.
 Finally, here is the proof for the last statement.
 
 \begin{proof}
-First and foremost, it is self-evident that $\Span\{ v_1, \ldots, v_k
-+ \lambda v_j, \ldots, v_n \} \subset \linebreak \Span\{ v_1, \ldots,
+First, it is self-evident that $\Span\{ v_1, \ldots, v_k
++ \lambda v_j, \ldots, v_n \} \subset \Span\{ v_1, \linebreak \ldots,
 v_k, \ldots, v_n \}$ since all linear combination of the set of
 vectors on the left can be represented as the linear combination of
 the set of vectors on the right. Moreover notice that $v_k$ can be
 represented as $v_k = (v_k + \lambda v_j) - \lambda v_j$ even if
 $k = j$. Therefore, $v_k \in \Span\{ v_1, \ldots, v_k + \lambda v_j,
 \ldots, v_n \}$ and $\Span\{ v_1, \ldots, v_k, \ldots, v_n \} \subset
-\Span\{ v_1, \ldots, v_k + \lambda v_j, \ldots, v_n \}$ by statement
-3. Therefore, the equations in the statement hold.
+\Span\{ v_1, \ldots, v_k + \lambda v_j, \linebreak \ldots, v_n \}$ by
+statement 3. Therefore, the equations in the statement hold.
 \end{proof}
 
 With the ideas of linear combinations and the span of a set of vectors
@@ -1305,8 +1303,12 @@ is a vector space for differentiable functions $f$.
 
 \item
 For all $n \in \mathbb{Z}$ and $a_i \in \mathbb{R}$, determine whether
-$S = \{ (x_1, x_2, \ldots, x_n) \in \mathbb{R}^n \mid
-\sum_{k = 1}^n a_k x_k = 0 \}$ is a vector space.
+\[
+S = \{ (x_1, x_2, \ldots, x_n) \in \mathbb{R}^n
+\mid
+\sum_{k = 1}^n a_k x_k = 0 \}
+\]
+is a vector space.
 
 \item
 Show that the intersection of subspaces of a vector space $V$
@@ -1314,7 +1316,7 @@ is also a subspace of $V$.
 
 \item
 Show that for distinct real numbers $a_1, \ldots, a_n$, then the set
-$\{ e^{a_1 x}, \ldots, e^{a_n x} \}$ is linearly independent.
+$\{ e^{a_1 x}, \ldots, \linebreak e^{a_n x} \}$ is linearly independent.
 
 \item More problems on basis and dimension
 \end{enumerate}

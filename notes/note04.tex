@@ -31,9 +31,9 @@ following matrix $A$.
 \end{bmatrix}
 \]
 The row space $\Row(A)$ is represented by $\Span\{ (1, 2), (3, 4),
-(5, 6) \}$ and its rank $\linebreak \Rank(A) = \dim(\Row(A)) =
-\dim(\mathbb{R}^2) = 2$. Connecting this with our knowledge in
-matrices, we can establish the following theorem.
+(5, 6) \}$ and its rank $\Rank(A) = \dim(\Row(A)) = \dim(\mathbb{R}^2)
+= 2$. Connecting this with our knowledge in matrices, we can establish
+the following theorem.
 
 \begin{theorem}{REF and Row Space}{REF and Row Space}
 \label{REF and Row Space}
@@ -65,14 +65,13 @@ elementary row operations to each other, then $\Row(A) = \Row(B)$.
 Let $A = \{ v_1, \ldots, v_n \}$ and $B$ be a matrix that is obtained
 by a single row operation from $A$. For some $j, k \in [1, n]$ such
 that $j \neq k$, it is evident that $\Span\{ v_1, \ldots, v_j, \ldots,
-\linebreak v_k, \ldots, v_n \} = \Span\{ v_1,\ldots, v_k, \ldots, v_j,
-\ldots, v_n \}$. Moreover, for some scalar $\lambda$, $\Span\{
-\linebreak v_1, \ldots, \lambda v_k, \ldots, v_n \} = \{ v_1, \ldots,
-v_n \}$ and $\Span\{ v_1, \ldots, v_k + \lambda v_j, \ldots, v_n \}$
-by statement four in Theorem \ref{Four Lemmas on Span of a Set of
-Vectors}. Continuing with induction, the same applies to $B$ that is
-obtained by a sequence of elementary operations from $A$. Thus, the
-theorem holds.
+v_k, \ldots, v_n \} = \Span\{ v_1,\ldots, v_k, \ldots, v_j, \linebreak
+\ldots, v_n \}$. Moreover, for some scalar $\lambda$, $\Span\{ v_1,
+\ldots, \lambda v_k, \ldots, v_n \} = \{ v_1, \ldots, v_n \}$ and
+$\Span\{ v_1, \ldots, v_k + \lambda v_j, \ldots, v_n \}$ by statement
+four in Theorem \ref{Four Lemmas on Span of a Set of Vectors}.
+Continuing with induction, the same applies to $B$ that is obtained by
+a sequence of elementary operations from $A$. Thus, the theorem holds.
 \end{proof}
 
 From the two theorems above, we can notice that for any matrix $A$,
@@ -93,36 +92,36 @@ Find the basis, row space, and rank of the following matrix.
 \begin{solution}
 First and foremost, the matrix can be transformed into REF with
 elementary row operations.
-\[
-\begin{bmatrix}
-    1 & 2 & 3 \\
-    4 & 5 & 6 \\
-    7 & 8 & 9
-\end{bmatrix}
-\rightarrow
-\begin{bmatrix}
-    1 & 2  & 3 \\
-    0 & -3 & -6 \\
-    7 & 8  & 9
-\end{bmatrix}
-\rightarrow
-\begin{bmatrix}
-    1 & 2 & 3 \\
-    0 & 1 & 2 \\
-    7 & 8 & 9
-\end{bmatrix}
-\rightarrow
-\begin{bmatrix}
-    1 & 2  & 3 \\
-    0 & 1  & 2 \\
-    0 & -6 & -12
-\end{bmatrix}
-\begin{bmatrix}
-    1 & 2 & 3 \\
-    0 & 1 & 2 \\
-    0 & 0 & 0
-\end{bmatrix}
-\]
+\begin{align*}
+    \begin{bmatrix}
+        1 & 2 & 3 \\
+        4 & 5 & 6 \\
+        7 & 8 & 9
+    \end{bmatrix}
+    &\rightarrow
+    \begin{bmatrix}
+        1 & 2  & 3 \\
+        0 & -3 & -6 \\
+        7 & 8  & 9
+    \end{bmatrix}
+    \rightarrow
+    \begin{bmatrix}
+        1 & 2 & 3 \\
+        0 & 1 & 2 \\
+        7 & 8 & 9
+    \end{bmatrix} \\
+    &\rightarrow
+    \begin{bmatrix}
+        1 & 2  & 3 \\
+        0 & 1  & 2 \\
+        0 & -6 & -12
+    \end{bmatrix}
+    \begin{bmatrix}
+        1 & 2 & 3 \\
+        0 & 1 & 2 \\
+        0 & 0 & 0
+    \end{bmatrix}
+\end{align*}
 Therefore, the basis for the row space, row space, and rank of the
 matrix are $\{ (1, 2, 3), (0, 1, 2) \}$, $\Span\{ (1, 2, 3), (0, 1, 2)
 \}$, and $2$ respectively.
@@ -133,11 +132,11 @@ We could also consider the following theorem.
 \begin{theorem}{Coordinate Representation and Basis I}
 {Coordinate Representation and Basis I}
 \label{Coordinate Representation and Basis I}
-For a basis $S = \{ v_1, \ldots, v_n \}$ of a vector space $V$ where
-$u, \{ u_1, \ldots, u_m \} \in V$, $u \in \Span\{ u_1, \ldots, u_m \}$
-if and only if a linear combination of a coordinate representation of
-$\{ u_1, \ldots, u_m \}$ with respect to $S$ is the coordinate
-representation of $u$ with respect to $S$.
+For a vector space $V$ and its basis $S = \{ v_1, \ldots, v_n \}$
+where $u, \{ u_1, \ldots, u_m \} \in V$, $u \in \Span\{ u_1, \ldots,
+u_m \}$ if and only if a linear combination of a coordinate
+representation of $\{ u_1, \ldots, u_m \}$ with respect to $S$ is the
+coordinate representation of $u$ with respect to $S$.
 \end{theorem}
 \begin{proof}
 First and foremost, notice that $u \in \Span\{ u_1, \ldots, u_m \}$
@@ -211,7 +210,7 @@ for $\Span(U)$.
 \end{proof}
 
 There are lots of theorems and results! But here is another one
-connects vectors and matrices
+connects vectors and matrices.
 
 \begin{theorem}{Linear Independence and Rank}
 {Linear Independence and Rank}
@@ -563,7 +562,7 @@ that are both injective and surjective.
 For more visual representation, below is a diagram that manifests
 the definition above.
 
-\begin{minipage}{0.33\textwidth}
+\begin{minipage}{0.32\textwidth}
 \begin{center}
 \textbf{Injective Function}
 \begin{align*}
@@ -572,7 +571,7 @@ the definition above.
 \end{align*}
 \end{center}
 \end{minipage}
-\begin{minipage}{0.33\textwidth}
+\begin{minipage}{0.32\textwidth}
 \begin{center}
 \textbf{Surjective Function}
 \begin{align*}
@@ -581,7 +580,7 @@ the definition above.
 \end{align*}
 \end{center}
 \end{minipage}
-\begin{minipage}{0.33\textwidth}
+\begin{minipage}{0.32\textwidth}
 \begin{center}
 \textbf{Bijective Function}
 \begin{align*}
@@ -591,7 +590,7 @@ the definition above.
 \end{center}
 \end{minipage}
 
-\begin{minipage}{0.33\textwidth}
+\begin{minipage}{0.32\textwidth}
 \begin{center}
 \begin{tikzpicture}[
     >=latex, very thick,
@@ -610,7 +609,7 @@ the definition above.
         \node at ($(L) + (0cm,1.6cm - \i*0.8cm)$) {\xs};
     }
 
-    \node[inout] (R) at (5,0) {};
+    \node[inout] (R) at (4,0) {};
     \node[labelnode, above=2mm of R.north] {Y};
 
     \foreach \i/\ys in {1/$y_1$,2/$y_2$,3/$y_3$,4/$y_4$}{
@@ -626,7 +625,7 @@ the definition above.
 \end{tikzpicture}
 \end{center}
 \end{minipage}
-\begin{minipage}{0.33\textwidth}
+\begin{minipage}{0.32\textwidth}
 \begin{center}
 \begin{tikzpicture}[
     >=latex, very thick,
@@ -645,7 +644,7 @@ the definition above.
         \node at ($(L) + (0cm,1.8cm - \i*0.8cm)$) {\xs};
     }
 
-    \node[inout] (R) at (5,0) {};
+    \node[inout] (R) at (4,0) {};
     \node[labelnode, above=2mm of R.north] {Y};
 
     \foreach \i/\ys in {1/$y_1$,2/$y_2$,3/$y_3$}{
@@ -663,7 +662,7 @@ the definition above.
 \end{tikzpicture}
 \end{center}
 \end{minipage}
-\begin{minipage}{0.33\textwidth}
+\begin{minipage}{0.32\textwidth}
 \begin{center}
 \begin{tikzpicture}[
     >=latex, very thick,
@@ -682,7 +681,7 @@ the definition above.
         \node at ($(L) + (0cm,1.8cm - \i*0.8cm)$) {\xs};
     }
 
-    \node[inout] (R) at (5,0) {};
+    \node[inout] (R) at (4,0) {};
     \node[labelnode, above=2mm of R.north] {Y};
 
     \foreach \i/\ys in {1/$y_1$,2/$y_2$,3/$y_3$,4/$y_4$}{
@@ -892,7 +891,8 @@ Determine whether a transformation defined as $T(\langle a, b \rangle)
 Consider the following equation for arbitrary scalars $\alpha$ and
 $\beta$.
 \begin{align*}
-    T(\alpha \langle a, b \rangle + \beta \langle a', b' \rangle)
+    &\quad\ T(\alpha \langle a, b \rangle +
+        \beta \langle a', b' \rangle) \\
     &= T(\langle \alpha a, \alpha b \rangle +
         \langle \beta a', \beta b' \rangle)
     = T(\langle \alpha a + \beta a', \alpha b + \beta b' \rangle) \\
@@ -1001,9 +1001,9 @@ vectors have the same coordinates as the original ones, but with
 different basis. With this in mind, we can establish two important
 theorems.
 
-\begin{theorem}{Coordinate Representation and Linear Transformation}
-{Coordinate Representation and Linear Transformation}
-\label{Coordinate Representation and Linear Transformation}
+\begin{theorem}{Coordinate Representation and Transformation}
+{Coordinate Representation and Transformation}
+\label{Coordinate Representation and Transformation}
 For a vector space $V$ and a basis $S = \{ v_1, \ldots, v_n \}$,
 the transformation $T: V \to \mathbb{R}^n$ defined as $Tv = (v)_S$
 is linear and bijective.
@@ -1016,28 +1016,28 @@ constants $c_k$ and $d_k$.
     T(\alpha u_1 + \beta u_2)
     &= T \left(
         \alpha \sum_{k=1}^n c_k v_k + \beta \sum_{k=1}^n d_k v_k
-    \right)
-    = T \left( \sum_{k=1}^n (\alpha c_k + \beta d_k) v_k \right) \\
+    \right) \\
+    &= T \left( \sum_{k=1}^n (\alpha c_k + \beta d_k) v_k \right) \\
     &=
     \begin{bmatrix}
-        \alpha c_1 + \beta d_1 \\
-        \alpha c_2 + \beta d_2 \\
-        \vdots \\
-        \alpha c_n + \beta d_n
+        \scriptstyle \alpha c_1 + \beta d_1 \\
+        \scriptstyle \alpha c_2 + \beta d_2 \\
+        \scriptstyle \vdots \\
+        \scriptstyle \alpha c_n + \beta d_n
     \end{bmatrix}
     =
     \begin{bmatrix}
-        \alpha c_1 \\
-        \alpha c_2 \\
-        \vdots \\
-        \alpha c_n
+        \scriptstyle \alpha c_1 \\
+        \scriptstyle \alpha c_2 \\
+        \scriptstyle \vdots \\
+        \scriptstyle \alpha c_n
     \end{bmatrix}
     +
     \begin{bmatrix}
-        \beta d_1 \\
-        \beta d_2 \\
-        \vdots \\
-        \beta d_n
+        \scriptstyle \beta d_1 \\
+        \scriptstyle \beta d_2 \\
+        \scriptstyle \vdots \\
+        \scriptstyle \beta d_n
     \end{bmatrix}
     =
     \alpha
@@ -1073,6 +1073,7 @@ For vector spaces $V$ and $W$ with basis $B = \{ v_1, \ldots, v_n \}$
 and $C = \{ w_1, \ldots, w_m \}$ respectively, there exists a matrix
 $A$ such that the following equation holds for a linear transformation
 $T: V \to W$ and arbitrary $v \in V$.
+\vspace{-0.8\baselineskip}
 \[
 (Tv)_C = A(v)_B
 \]
@@ -1118,8 +1119,129 @@ Thus, there always exist such matrix $A$.
 
 The matrix $A$ above has a special name. The matrix is known as
 the matrix representation of $T$ with respect to $B$ and $C$,
-denoted as $A_B^C$. Here, it is important to note that $A_B^C (v)_B =
-(Tv)_C$.
+denoted as $A_B^C$. In short, we also say $A$ from $B$ to $C$.
+
+Continuing from the theorem, we can also notice that for a vector
+space $V$ and its basis $A$ and $B$, there exists a matrix $P_A^B$
+such that $(v)_B = P_A^B (v)_A$ holds for all $v \in V$.
+To prove this, consider the identity transformation $T: V \to V$.
+By theorem \ref{Matrix Representation of $T$}, there exists a matrix
+$P$ such that $(v)_B = P_A^B (v)_A$. This matrix too have a special
+name.
+
+\begin{definition}
+A \textbf{transition matrix} is a matrix that converts the coordinate
+representation of a vector in a vector space $V$ from a basis in $V$
+to another basis in $V$.
+\end{definition}
+
+Now from the definitions, we could notice that linear transformations
+are highly related to the basis of a vector space. If we know how
+the basis is mapped, we can understand the linear transformation.
+Consider the following theorem.
+
+\begin{theorem}{Transition Matrix and Basis I}
+{Transition Matrix and Basis I}
+\label{Transition Matrix and Basis I}
+For a vector space and its bases $A$ and $B$, the coordinate
+representation of $j$ vector of $A$ with respect to $B$ is the
+$j^\text{th}$ column of the transition matrix $P_A^B$.
+\end{theorem}
+\begin{proof}
+Let $A = \{ a_1, \ldots, a_n \}$ and $B = \{ b_1, \ldots, b_n \}$.
+For some scalars $p_{ij}$, $a_i$ can be written as $a_j = \sum_{i=1}^n
+p_{ij} b_i$. Let a vector $v$ in the vector space be written as $v =
+\sum_{k=1}^n a'_k + a_k = \sum_{k=1}^n b'_k + b_k$. Continuing, the
+following equation holds.
+\[
+v
+= \sum_{j=1}^n a'_j a_j
+= \sum_{j=1}^n a'_j \left( \sum_{i=1}^n p_{ij} b_i \right)
+= \sum_{i=1}^n \left( \sum_{j=1}^n p_{ij} a'_j \right) b_i
+\]
+In other words, $b'_i = \sum_{j=1}^n p_{ij} a'_j$ and $(v)_B =
+[p_{ij}] (v)_A = P_A^B (v)_A$.
+\end{proof}
+
+Continuing with the theorem above, we can derive the following.
+
+\begin{theorem}{Inverse of Transition Matrix}
+{Inverse of Transition Matrix}
+\label{Inverse of Transition Matrix}
+A transition matrix $P_A^B$ is always invertible and $(P_A^B)^{-1}
+= P_B^A$.
+\end{theorem}
+\begin{proof}
+Consider the following equations for a vector $v$.
+\begin{align*}
+    (v)_B &= P_A^B (v)_A \\
+    (v)_A &= P_B^A (v)_B
+\end{align*}
+Therefore, $(v)_B = P_A^B (v)_A = P_A^B P_B^A (v)_B$ for all $(v)_B$.
+Thus, $P_A^B P_B^A = I$ and the theorem holds.
+\end{proof}
+
+Now how about matrix representations like $A_S^S$? We have an
+interesting theorem that links such matrices with transition matrices.
+
+\begin{theorem}{Transition Matrix and Basis II}
+{Transition Matrix and Basis II}
+\label{Transition Matrix and Basis II}
+Let $A_B^B$ and $A_C^C$ be the matrix representations of linear
+transformations for bases $B$ and $C$. If $P_B^C$ represent the
+transition matrix, then $A_B^B = P_C^B A_C^C P_B^C$.
+\end{theorem}
+\begin{proof}
+For a vector $v$ in the same vector space, notice that $(Tv)_B =
+A_B^B (v)_B$ and $(v)_C = P_B^C (v)_B$ hold by definition.
+Consider the following equation.
+\begin{align*}
+    (Tv)_B
+    &= P_C^B (Tv)_C = P_C^B A_C^C (v)_C
+        = P_C^B A_C^C P_B^C (v)_B \\
+    &= A_B^B (v)_B
+\end{align*}
+Thus, $P_C^B A_C^C P_B^C = A_B^B$.
+\end{proof}
+
+Let's use $A$ for $A_B^B$, $\tilde{A}$ for $A_C^C$, and $P$ for
+$P_B^C$ where $P^{-1} = P_C^B$. Notice that we can write $A = P^{-1}
+\tilde{A} P$ and $PA = \tilde{A} P$. Here, we say that $A$ and
+$\tilde{A}$ are \textbf{similar}.
+
+\begin{definition}
+Two matrices $A$ and $B$ are \textbf{similar} if the linear
+transformation that they represent with different bases are identical.
+In other words, for transition matrix $P = P_A^B$, $PA = BP$.
+\end{definition}
+
+Continuing with the definition, we can establish the following
+theorem.
+
+\begin{theorem}{Similar Matrices and Linear Transformation}
+{Similar Matrices and Linear Transformation}
+\label{Similar Matrices and Linear Transformation}
+For a vector space $V$ with basis $B$, let $A$ be the matrix
+representation of the linear transformation $T: V \to V$ from $B$ to
+$B$. If $A$ is similar to another matrix representation $\tilde{A}$,
+then there exists a basis $C$ such that $\tilde{A}$ represents the
+same linear transformation from $C$ to $C$.
+\end{theorem}
+\begin{proof}
+First and foremost, let a transition matrix from a basis $C$ to $B$
+be $P$ and let $v$ be a vector in the vector space. Consider the
+following equations.
+\begin{align*}
+    (Tv)_B
+    &= A (v)_B = AP (v)_C \\
+    &= P (Tv)_C
+\end{align*}
+Therefore, $AP (v)_C = P (Tv)_C$ and $(Tv)_C = A' (v)_C =
+P^{-1} A P (v)_C$. In other words, for each basis $C$, there exists
+transition matrix similar to $A$. Moreover, because the whole
+process is invertible, the theorem holds.
+\end{proof}
+
 
 
 

@@ -18,33 +18,34 @@ notes.
 \begin{enumerate}
 \item
 Consider the following computation.
-\[
-A - 2B =
-\begin{bmatrix}
-    1 & 2 \\
-    2 & 0
-\end{bmatrix}
--
-2\begin{bmatrix}
-    -1 & 2 \\
-    0  & 3
-\end{bmatrix}
-=
-\begin{bmatrix}
-    1 & 2 \\
-    2 & 0
-\end{bmatrix}
-+
-\begin{bmatrix}
-    2 & -4 \\
-    0 & -6
-\end{bmatrix}
-=
-\begin{bmatrix}
-    3 & -2 \\
-    2 & -6
-\end{bmatrix}
-\]
+\begin{align*}
+    A - 2B
+    &=
+    \begin{bmatrix}
+        1 & 2 \\
+        2 & 0
+    \end{bmatrix}
+    -
+    2\begin{bmatrix}
+        -1 & 2 \\
+        0  & 3
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        1 & 2 \\
+        2 & 0
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+        2 & -4 \\
+        0 & -6
+    \end{bmatrix} \\
+    &=
+    \begin{bmatrix}
+        3 & -2 \\
+        2 & -6
+    \end{bmatrix}
+\end{align*}
 \item
 Consider the following equation.
 \[
@@ -82,32 +83,33 @@ BA =
 \end{bmatrix}
 \]
 Therefore, the following equation is true.
-\[
-(AB - BA)^\intercal =
-\left(
-\begin{bmatrix}
-    -1 & 8 \\
-    -2 & 7
-\end{bmatrix}
--
-\begin{bmatrix}
-    3 & -2 \\
-    6 & 0
-\end{bmatrix}
-\right)^\intercal
-=
-\left(
-\begin{bmatrix}
-    -4 & 10 \\
-    -8 & 7
-\end{bmatrix}
-\right)^\intercal
-=
-\begin{bmatrix}
-    -4 & -8 \\
-    10 & 7
-\end{bmatrix}
-\]
+\begin{align*}
+    (AB - BA)^\intercal
+    &=
+    \left(
+    \begin{bmatrix}
+        -1 & 8 \\
+        -2 & 7
+    \end{bmatrix}
+    -
+    \begin{bmatrix}
+        3 & -2 \\
+        6 & 0
+    \end{bmatrix}
+    \right)^\intercal
+    =
+    \left(
+    \begin{bmatrix}
+        -4 & 10 \\
+        -8 & 7
+    \end{bmatrix}
+    \right)^\intercal \\
+    &=
+    \begin{bmatrix}
+        -4 & -8 \\
+        10 & 7
+    \end{bmatrix}
+\end{align*}
 \end{enumerate}
 
 \item
@@ -135,13 +137,13 @@ Therefore, the following equation is obtained.
 \begin{bmatrix}
     3a_{11} & 3a_{21} \\
     3a_{12} & 3a_{22}
-\end{bmatrix}
-=
+\end{bmatrix} \\
+&=
 \begin{bmatrix}
     2a_{11} - 3a_{11} & 2a_{12} - 3a_{21} \\
     2a_{21} - 3a_{12} & 2a_{22} - 3a_{22}
-\end{bmatrix} \\
-&=
+\end{bmatrix}
+=
 \begin{bmatrix}
     -1 & -5 \\
     0  & -4

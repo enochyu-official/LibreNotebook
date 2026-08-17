@@ -120,13 +120,13 @@ From Theorem \ref{Properties of Matrix Multiplication}, it was shown
 that $\lambda (AB) = A (\lambda B)$ for scalar $\lambda$ and matrices
 $A$ and $B$ that can be multiplied. Substituting $\alpha x_1 +
 \beta x_2$, the following system is obtained.
-\[
-A (\alpha x_1 + \beta x_2)
-= A(\alpha x_1) + A(\beta x_2)
-= \alpha (Ax_1) + \beta (Ax_2)
-= \alpha b + \beta b
-= b
-\]
+\begin{align*}
+    A (\alpha x_1 + \beta x_2)
+    &= A(\alpha x_1) + A(\beta x_2)
+    = \alpha (Ax_1) + \beta (Ax_2) \\
+    &= \alpha b + \beta b
+    = b
+\end{align*}
 Therefore, $(\alpha x_1 + \beta x_2)$ is another solution to the
 system.
 \end{proof}
@@ -173,7 +173,7 @@ not all three planes intersect at a single point.
 \begin{tikzpicture}[
         tdplot_main_coords,
         axis/.style={->,thick},
-        scale=0.5
+        scale=0.40
     ]
     \pgfmathsetmacro{\a}{1.13397459622}
     \pgfmathsetmacro{\b}{6.33012701892}
@@ -219,7 +219,7 @@ not all three planes intersect at a single point.
 \begin{tikzpicture}[
         tdplot_main_coords,
         axis/.style={->,thick},
-        scale=0.5
+        scale=0.40
     ]
     \foreach \x in {0,1,...,9}
         \foreach \y in {0,1,...,9} {
@@ -262,7 +262,7 @@ with infinite solutions.
 \begin{tikzpicture}[
         tdplot_main_coords,
         axis/.style={->,thick},
-        scale=0.5
+        scale=0.40
     ]
     \pgfmathsetmacro{\a}{6.24264068712}
 
@@ -306,7 +306,7 @@ with infinite solutions.
 \begin{tikzpicture}[
         tdplot_main_coords,
         axis/.style={->,thick},
-        scale=0.5
+        scale=0.40
     ]
     \pgfmathsetmacro{\a}{1.40192378865}
     \pgfmathsetmacro{\b}{6.59807621135}
@@ -481,13 +481,13 @@ the matrix below.
 \]
 Using the elementary row operations, the augmented matrix can be
 transformed as the following.
-\begin{align*}
+\[
 \begin{bNiceArray}{ccc|c}
     1 & 2  & 1  & 1 \\
     3 & -1 & 1  & 6 \\
     1 & 1  & -1 & -2
 \end{bNiceArray}
-&\rightarrow
+\rightarrow
 \begin{bNiceArray}{ccc|c}
     1 & 2  & 1  & 1 \\
     0 & -4 & 4  & 12 \\
@@ -498,8 +498,10 @@ transformed as the following.
     1 & 2  & 1  & 1 \\
     0 & -4 & 4  & 12 \\
     0 & -1 & -2 & -3
-\end{bNiceArray} \\
-&\rightarrow
+\end{bNiceArray}
+\]
+\[
+\rightarrow
 \begin{bNiceArray}{ccc|c}
     1 & 2  & 1  & 1 \\
     0 & -1 & 1  & 3 \\
@@ -510,14 +512,14 @@ transformed as the following.
     1 & 2  & 1  & 1 \\
     0 & -1 & 1  & 3 \\
     0 & 0  & 3  & 6
-\end{bNiceArray} \\
-&\rightarrow
+\end{bNiceArray}
+\rightarrow
 \begin{bNiceArray}{ccc|c}
     1 & 2  & 1  & 1 \\
     0 & 1  & -1 & -3 \\
     0 & 0  & 1  & 2
 \end{bNiceArray}
-\end{align*}
+\]
 Because the augmented matrix is now in REF, the transformed
 linear system can be rewritten.
 \begin{align*}
@@ -806,14 +808,14 @@ Continuing, here is the proof for the third property.
 \begin{proof}
 Consider the following equation that uses the associative property
 of matrix multiplication.
-\[
-(B^{-1}A^{-1})(AB)
-= B^{-1}(A^{-1}A)B
-= B^{-1}(I)B
-= B^{-1}(IB)
-= B^{-1}B
-= I
-\]
+\begin{align*}
+    (B^{-1}A^{-1})(AB)
+    &= B^{-1}(A^{-1}A)B
+    = B^{-1}(I)B
+    = B^{-1}(IB) \\
+    &= B^{-1}B
+    = I
+\end{align*}
 Because $B^{-1}A^{-1}$ is the inverse of $AB$, the property is true.
 \end{proof}
 
@@ -1084,8 +1086,8 @@ Consider the following elementary row operations.
     1 & 2 & 3 & 1 & 0 & 0 \\
     1 & 2 & 3 & 0 & 2 & -1 \\
     7 & 8 & 9 & 0 & 0 & 1
-\end{bNiceArray}
-\rightarrow
+\end{bNiceArray} \\
+&\rightarrow
 \begin{bNiceArray}{ccc|ccc}
     1 & 2 & 3 & 1 & 0 & 0 \\
     0 & 0 & 0 & -1 & 2 & -1 \\
@@ -1126,8 +1128,8 @@ First and foremost, the augmented matrix can be constructed.
     1 & 0 & 0 & 1 & 0 & 0 \\
     0 & 1 & 2 & 0 & 0 & 1 \\
     0 & 0 & -1 & -2 & 1 & -1
-\end{bNiceArray}
-\rightarrow
+\end{bNiceArray} \\
+&\rightarrow
 \begin{bNiceArray}{ccc|ccc}
     1 & 0 & 0 & 1 & 0 & 0 \\
     0 & 1 & 2 & 0 & 0 & 1 \\
@@ -1261,42 +1263,43 @@ A
 \end{bmatrix}
 \]
 Therefore, the following equation is obtained.
-\[
-A =
-\left(
-\begin{bmatrix}
-    1 & 0 & 0 \\
-    2 & 1 & 0 \\
-    0 & 0 & 1
-\end{bmatrix}
-\begin{bmatrix}
-    1 & 0 & 0 \\
-    0 & 1 & 0 \\
-    3 & 0 & 1
-\end{bmatrix}
-\begin{bmatrix}
-    1 & 0 & 0 \\
-    0 & 1 & 0 \\
-    0 & 2 & 1
-\end{bmatrix}
-\right)
-\begin{bmatrix}
-    1 & 2 & 3 \\
-    0 & 2 & 3 \\
-    0 & 0 & 3
-\end{bmatrix}
-=
-\begin{bmatrix}
-    1 & 0 & 0 \\
-    2 & 1 & 0 \\
-    3 & 2 & 1
-\end{bmatrix}
-\begin{bmatrix}
-    1 & 2 & 3 \\
-    0 & 2 & 3 \\
-    0 & 0 & 3
-\end{bmatrix}
-\]
+\begin{align*}
+    A
+    &=
+    \left(
+    \begin{bmatrix}
+        1 & 0 & 0 \\
+        2 & 1 & 0 \\
+        0 & 0 & 1
+    \end{bmatrix}
+    \begin{bmatrix}
+        1 & 0 & 0 \\
+        0 & 1 & 0 \\
+        3 & 0 & 1
+    \end{bmatrix}
+    \begin{bmatrix}
+        1 & 0 & 0 \\
+        0 & 1 & 0 \\
+        0 & 2 & 1
+    \end{bmatrix}
+    \right)
+    \begin{bmatrix}
+        1 & 2 & 3 \\
+        0 & 2 & 3 \\
+        0 & 0 & 3
+    \end{bmatrix} \\
+    &=
+    \begin{bmatrix}
+        1 & 0 & 0 \\
+        2 & 1 & 0 \\
+        3 & 2 & 1
+    \end{bmatrix}
+    \begin{bmatrix}
+        1 & 2 & 3 \\
+        0 & 2 & 3 \\
+        0 & 0 & 3
+    \end{bmatrix}
+\end{align*}
 $A$ is now represented as the product of lower and upper triangular
 matrices! Now that we know how LU decomposition work, let's take
 a look at an important lemma on triangular matrices to prove a
@@ -1458,31 +1461,31 @@ matrix multiplication below.
 \]
 Continuing, the coefficient matrix $A$ can be transformed as the
 following.
-\[
-\begin{bmatrix}
-    1 & -2 & 1 \\
-    2 & 1  & -1 \\
-    3 & -1 & 2
-\end{bmatrix}
-\rightarrow
-\begin{bmatrix}
-    1 & -2 & 1 \\
-    0 & 5  & -3 \\
-    3 & -1 & 2
-\end{bmatrix}
-\rightarrow
-\begin{bmatrix}
-    1 & -2 & 1 \\
-    0 & 5  & -3 \\
-    0 & 5  & -1
-\end{bmatrix}
-\rightarrow
-\begin{bmatrix}
-    1 & -2 & 1 \\
-    0 & 5  & -3 \\
-    0 & 0  & 2
-\end{bmatrix}
-\]
+\begin{align*}
+    \begin{bmatrix}
+        1 & -2 & 1 \\
+        2 & 1  & -1 \\
+        3 & -1 & 2
+    \end{bmatrix}
+    &\rightarrow
+    \begin{bmatrix}
+        1 & -2 & 1 \\
+        0 & 5  & -3 \\
+        3 & -1 & 2
+    \end{bmatrix}
+    \rightarrow
+    \begin{bmatrix}
+        1 & -2 & 1 \\
+        0 & 5  & -3 \\
+        0 & 5  & -1
+    \end{bmatrix} \\
+    &\rightarrow
+    \begin{bmatrix}
+        1 & -2 & 1 \\
+        0 & 5  & -3 \\
+        0 & 0  & 2
+    \end{bmatrix}
+\end{align*}
 Using elementary matrices, the transformation above can be
 written as the following.
 \[
