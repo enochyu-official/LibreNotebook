@@ -44,7 +44,7 @@
 \ChNumVar{\fontsize{60}{62}\usefont{OT1}{ptm}{m}{n}\selectfont}
 \ChTitleVar{\Huge\bfseries\rm}
 \ChRuleWidth{1pt}
-\renewcommand{\chaptername}{Note}
+\addto\captionsenglish{\renewcommand{\chaptername}{Note}}
 
 
 % Tikz
@@ -65,9 +65,9 @@
 \hypersetup{
     colorlinks=true,
     linkcolor=black,
+    citecolor=black,
     filecolor=magenta,      
     urlcolor=blue,
-    %urlcolor=cyan,
     pdfpagemode=FullScreen,
 }
 \usepackage{graphicx}

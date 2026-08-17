@@ -2,28 +2,50 @@
 % Enoch's Notebook: Linear Algebra
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[11pt,oneside]{book}
+\documentclass[11pt,twoside]{book}
 
 \input{preamble}
 
 \begin{document}
+% Half-Title Page
+\begin{titlepage}
+    \thispagestyle{empty}
+    \vspace*{0.1\textheight}
+    \centering
+    {\Huge Enoch's Notebook: \linebreak
+    An Introduction to \linebreak Linear Algebra\par}
+\end{titlepage}
+
+\thispagestyle{empty}
 % Title Page
 \begin{titlepage}
-\centering
-\vspace*{10em}
-\rule{0.80\textwidth}{1.3pt}\\[1.2em]
-{
-\fontsize{35}{42}
-\selectfont\bfseries Enoch's Notebook:\\[0.2em]
-Linear Algebra\\[0.5em]
-}
-\rule{0.80\textwidth}{1.3pt}\\[0.8em]
-\vspace{0.8cm}
-{\large A Beginner's Guide to Linear Algebra\par}
-\vfill
-{\Large\itshape Enoch Yu\par}
-\vspace{1.5cm}
+    \centering
+    \vspace*{8em}
+    {
+    \fontsize{35}{42}
+    \selectfont\bfseries Enoch's Notebook:\\[0.2em]
+    An Introduction to Linear Algebra\\[0.5em]
+    }
+    \vspace{0.4cm}
+    {\large A Beginner's Guide to Linear Algebra\par}
+    \vfill
+    {\LARGE\itshape Enoch Yu\par}
+    \vspace{1.5cm}
 \end{titlepage}
+
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+{\small
+Copyright \textcopyright\ 2026 Enoch Yu \\
+All rights reserved.
+
+\vspace{0.8em}
+
+ISBN: \\
+ISBN 13:
+}
+\end{center}
 
 \newpage
 \tableofcontents
