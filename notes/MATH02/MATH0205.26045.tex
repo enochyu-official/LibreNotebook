@@ -1,0 +1,252 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Solutions for Note 2}
+\begin{enumerate}
+\item
+\begin{enumerate}
+\item
+Consider the following computation.
+\[
+A - 2B
+=
+\begin{bmatrix}
+    1 & 2 \\
+    2 & 0
+\end{bmatrix}
+-
+2\begin{bmatrix}
+    -1 & 2 \\
+    0  & 3
+\end{bmatrix}
+=
+\begin{bmatrix}
+    1 & 2 \\
+    2 & 0
+\end{bmatrix}
++
+\begin{bmatrix}
+    2 & -4 \\
+    0 & -6
+\end{bmatrix}
+=
+\begin{bmatrix}
+    3 & -2 \\
+    2 & -6
+\end{bmatrix}
+\]
+\item
+Consider the following equation.
+\[
+AB =
+\begin{bmatrix}
+    1 & 2 \\
+    2 & 0
+\end{bmatrix}
+\begin{bmatrix}
+    -1 & 2 \\
+    0  & 3
+\end{bmatrix}
+=
+\begin{bmatrix}
+    -1 & 8 \\
+    -2 & 7
+\end{bmatrix}
+\]
+\item
+Because $AB$ is found above, $BA$ could be found.
+\[
+BA =
+\begin{bmatrix}
+    -1 & 2 \\
+    0  & 3
+\end{bmatrix}
+\begin{bmatrix}
+    1 & 2 \\
+    2 & 0
+\end{bmatrix}
+=
+\begin{bmatrix}
+    3 & -2 \\
+    6 & 0
+\end{bmatrix}
+\]
+Therefore, the following equation is true.
+\[
+(AB - BA)^\intercal
+=
+\left(
+\begin{bmatrix}
+    -1 & 8 \\
+    -2 & 7
+\end{bmatrix}
+-
+\begin{bmatrix}
+    3 & -2 \\
+    6 & 0
+\end{bmatrix}
+\right)^\intercal
+=
+\left(
+\begin{bmatrix}
+    -4 & 10 \\
+    -8 & 7
+\end{bmatrix}
+\right)^\intercal
+=
+\begin{bmatrix}
+    -4 & -8 \\
+    10 & 7
+\end{bmatrix}
+\]
+\end{enumerate}
+
+\item
+By the definition of matrix multiplication, $a_2B = [4, 5, 6]$.
+
+\item
+Notice that $A$ is a $2 \times 2$ square matrix. Therefore, define
+$A$ as the following.
+\[
+A =
+\begin{bmatrix}
+    a_{11} & a_{12} \\
+    a_{21} & a_{22}
+\end{bmatrix}
+\]
+Therefore, the following equation is obtained.
+\[
+2A - 3A^\intercal
+=
+\begin{bmatrix}
+    2a_{11} & 2a_{12} \\
+    2a_{21} & 2a_{22}
+\end{bmatrix}
+-
+\begin{bmatrix}
+    3a_{11} & 3a_{21} \\
+    3a_{12} & 3a_{22}
+\end{bmatrix}
+=
+\begin{bmatrix}
+    2a_{11} - 3a_{11} & 2a_{12} - 3a_{21} \\
+    2a_{21} - 3a_{12} & 2a_{22} - 3a_{22}
+\end{bmatrix}
+=
+\begin{bmatrix}
+    -1 & -5 \\
+    0  & -4
+\end{bmatrix}
+\]
+Continuing, the elements of $A$ could be found.
+\begin{align*}
+    2a_{11} - 3a_{11} &= -1 \\
+    2a_{12} - 3a_{21} &= -5 \\
+    2a_{21} - 3a_{12} &= 0  \\
+    2a_{22} - 3a_{22} &= -4
+\end{align*}
+Therefore, $a_{11} = 1$, $a_{12} = 2$, $a_{21} = 3$, and $a_{22} = 4$.
+Thus, $A$ can be defined as the following.
+\[
+A =
+\begin{bmatrix}
+    1 & 2 \\
+    3 & 4
+\end{bmatrix}
+\]
+
+\item
+For any square matrix $S$, define $A$ and $B$ as the following.
+\[
+A = \frac{S + S^\intercal}{2}, \quad
+B = \frac{S - S^\intercal}{2}
+\]
+Notice that $S = A + B$. Therefore, it suffices to show that $A$ is
+symmetric and $B$ is skew-symmetric. By Theorem \ref{theo:Properties
+of Transpose of a Matrix}, the following equations hold.
+\[
+A^\intercal
+= \frac{S + S^\intercal}{2}, \quad
+B^\intercal
+= \frac{S^\intercal - S}{2}
+= -B
+\]
+Thus, all square matrices can be represented as the sum of a symmetric
+and skew-symmetric matrices.
+
+\item
+By definition, there exist $n, m \in \mathbb{Z}$ such that
+$A^n = 0$ and $B^m = 0$. Because $AB = BA$, $A^{nm} B^{nm} = 0$ can
+be written as $(AB)^{nm} = 0$ and $AB$ is nilpotent.
+
+\item
+By Theorem \ref{theo:Properties of Transpose of a Matrix}, $(AB +
+(AB)^\intercal)^\intercal = (AB)^\intercal + AB = AB +
+(AB)^\intercal$. Therefore, $AB + (AB)^\intercal$ is symmetric.
+
+\item
+An easy trap for this problem is that you might be tempted to
+do $\det(A^2 - B^2) = \det(A + B) \det(A - B)$. However, notice that
+this does not hold in general as $AB \neq BA$ in general.
+
+Consider the following matrix $P$ and its inverse $P^{-1}$.
+\[
+P =
+\begin{bmatrix}
+    I & I \\
+    I & -I
+\end{bmatrix}, \quad
+P^{-1} =
+\frac{1}{2}
+\begin{bmatrix}
+    I & I \\
+    I & -I
+\end{bmatrix}
+\]
+Continuing,
+\[
+P^{-1}
+\begin{bmatrix}
+    A & B \\
+    B & A
+\end{bmatrix}
+P
+= \frac{1}{2}
+\begin{bmatrix}
+    A + B & B + A \\
+    A - B & B - A
+\end{bmatrix}
+\begin{bmatrix}
+    I & I \\
+    I & -I
+\end{bmatrix}
+=
+\begin{bmatrix}
+    A + B & 0 \\
+    0     & A - B
+\end{bmatrix}
+\]
+holds and
+$\begin{bmatrix}
+    A & B \\
+    B & A
+\end{bmatrix}
+\cong
+\begin{bmatrix}
+    A + B & 0 \\
+    0     & A - B
+\end{bmatrix}$.
+Therefore, the determinant of the original matrix is
+$\det(A + B) \det(A - B)$.
+
+\item
+By definition, $A$ is skew-symmetric if $A^\intercal = -A$.
+Notice that $(A^3)^\intercal = (A^\intercal)^3$ by Theorem
+\ref{theo:Properties of Transpose of a Matrix}. Therefore,
+$(A^3)^\intercal = (A^\intercal)^3 = -A^3$. Thus, if $A$ is
+skew-symmetric, then $A^3$ is also skew-symmetric.
+\end{enumerate}
+\end{document}
+
+

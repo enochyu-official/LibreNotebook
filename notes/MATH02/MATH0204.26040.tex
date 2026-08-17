@@ -1,0 +1,500 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{Matrices and Vector Spaces}
+
+Now that we discussed matrices and their application in linear systems,
+let's return to the vector spaces to see what matrices represent in
+vector spaces. This note will introduce more concepts on vector spaces
+and matrices like row spaces and rank of a matrix and linear
+transformation.
+
+\section{Row Space and Rank of a Matrix}
+
+As always, let's get started with the definition.
+
+\begin{definition}{}{}
+The span of rows of a matrix $A_{m \times n}$ in $\mathbb{R}^n$ is the
+\textbf{row space} of the matrix $A$. The dimension of the row space
+is known as the \textbf{row rank}.
+\end{definition}
+
+We can notice that by definition, the row space is a subspace of
+$\mathbb{R}^n$. Let's take a look at an example. Consider the
+following matrix $A$.
+\[
+\begin{bmatrix}
+    1 & 2 \\
+    3 & 4 \\
+    5 & 6
+\end{bmatrix}
+\]
+The row space $\Row(A)$ is represented by $\Span\{ (1, 2), (3, 4),
+(5, 6) \}$ and its rank $\Rank(A) = \linebreak \dim(\Row(A)) =
+\dim(\mathbb{R}^2) = 2$. Connecting this with our knowledge in
+matrices, we can establish the following theorem.
+
+\begin{theorem}{}{REF and Row Space}
+A basis for the row space of a matrix $A$ in REF is the set of nonzero
+rows, and the number of such rows is the row rank.
+\end{theorem}
+\begin{proof}
+By definition, the nonzero rows span the row space since the zero rows
+do not contribute the vector addition. Therefore, it suffices to show
+that the set of nonzero vectors is linearly independent.
+
+By definition of matrices in REF, there exist no two rows with the
+same initial nonzero entry, implying its uniqueness. Therefore, by
+induction, all coefficients in the linear combination of the set of
+nonzero vectors must be zero. Thus, the set of nonzero rows is a basis
+for the row space of $A$. Moreover, by definition, the rank of $A$
+is the number of nonzero rows in $A$.
+\end{proof}
+
+Continuing, we can also establish the following theorem.
+
+\begin{theorem}{}{Elementary Row Operations and Row Space}
+If $A$ and $B$ are matrices that can be obtained by applying
+elementary row operations to each other, then $\Row(A) = \Row(B)$.
+\end{theorem}
+\begin{proof}
+Let $A = \{ v_1, \ldots, v_n \}$ and $B$ be a matrix that is obtained
+by a single row operation from $A$. For some $j, k \in [1, n]$ such
+that $j \neq k$, it is evident that $\Span\{ v_1, \ldots, v_j, \ldots,
+v_k, \ldots, v_n \} = \Span\{ v_1,\ldots, v_k, \ldots, v_j, \ldots, v_n
+\}$. Moreover, for some scalar $\lambda$, $\Span\{ v_1, \ldots,
+\lambda v_k, \ldots, v_n \} = \{ v_1, \ldots, v_n \}$ and
+$\Span\{ v_1, \ldots, v_k + \lambda v_j, \ldots, v_n \}$ by statement
+four in Theorem \ref{theo:Four Lemmas on Span of a Set of Vectors}.
+Continuing with induction, the same applies to $B$ that is obtained by
+a sequence of elementary operations from $A$. Thus, the theorem holds.
+\end{proof}
+
+From the two theorems above, we can notice that for any matrix $A$,
+we can find its basis and rank by transforming it into REF with
+elementary row operations and observing the nonzero rows. Below is
+a quick example.
+
+\begin{problem}{}{}
+Find the basis, row space, and rank of the following matrix.
+\[
+\begin{bmatrix}
+    1 & 2 & 3 \\
+    4 & 5 & 6 \\
+    7 & 8 & 9
+\end{bmatrix}
+\]
+\end{problem}
+\begin{solution}
+First and foremost, the matrix can be transformed into REF with
+elementary row operations.
+\[
+\begin{bmatrix}
+    1 & 2 & 3 \\
+    4 & 5 & 6 \\
+    7 & 8 & 9
+\end{bmatrix}
+\rightarrow
+\begin{bmatrix}
+    1 & 2  & 3 \\
+    0 & -3 & -6 \\
+    7 & 8  & 9
+\end{bmatrix}
+\rightarrow
+\begin{bmatrix}
+    1 & 2 & 3 \\
+    0 & 1 & 2 \\
+    7 & 8 & 9
+\end{bmatrix}
+\rightarrow
+\begin{bmatrix}
+    1 & 2  & 3 \\
+    0 & 1  & 2 \\
+    0 & -6 & -12
+\end{bmatrix}
+\begin{bmatrix}
+    1 & 2 & 3 \\
+    0 & 1 & 2 \\
+    0 & 0 & 0
+\end{bmatrix}
+\]
+Therefore, a basis for the row space, row space, and rank of the
+matrix are $\{ (1, 2, 3), (0, 1, 2) \}$, $\Span\{ (1, 2, 3), (0, 1, 2)
+\}$, and $2$ respectively.
+\end{solution}
+
+We could also consider the following theorem.
+
+\begin{theorem}{}{Coordinate Representation and Basis I}
+For a vector space $V$ and its basis $S = \{ v_1, \ldots, v_n \}$
+where $u, \{ u_1, \ldots, u_m \} \in V$, $u \in \Span\{ u_1, \ldots,
+u_m \}$ if and only if a linear combination of a coordinate
+representation of $\{ u_1, \ldots, u_m \}$ with respect to $S$ is the
+coordinate representation of $u$ with respect to $S$.
+\end{theorem}
+\begin{proof}
+First and foremost, notice that $u \in \Span\{ u_1, \ldots, u_m \}$
+if and only if for some constants $c_k$, $u = \sum_{k=1}^m c_k u_k$.
+Let the coordinate representation of $u_i$ with respect to $S$ be
+$[a_{i1} \cdots a_{in}]$. Substituting, it could be inferred that
+$u \in \Span\{ u_1, \ldots, u_m \}$ holds if and only if $u$
+can be represented as the following.
+\[
+u
+= \sum_{i=1}^m \sum_{j=1}^n c_i (a_{ij} v_j)
+= \sum_{i=1}^n \sum_{j=1}^m (c_j a_{ji}) v_i
+\]
+In other words, $u \in \Span\{ u_1, \ldots, u_m \}$ if and only if
+the coordinate representation of $u$ with respect to $S$ is the
+following.
+\[
+[u]_S =
+\begin{bmatrix}
+    \sum_{j=1}^m (c_j a_{j1}) \\
+    \sum_{j=1}^m (c_j a_{j2}) \\
+    \vdots \\
+    \sum_{j=1}^m (c_j a_{jn})
+\end{bmatrix}
+=
+\sum_{k=1}^m
+c_k
+\begin{bmatrix}
+    a_{k1} \\
+    \vdots \\
+    a_{kn}
+\end{bmatrix}
+\]
+Therefore, the theorem holds.
+\end{proof}
+
+Continuing from this theorem, we can establish another theorem.
+
+\begin{theorem}{}{Coordinate Representation and Basis II}
+For an $n$-dimensional vector space $V$ and its basis $B$, consider a
+subset $U = \{ u_1, \linebreak \ldots, u_m \} \subset V$. Construct a
+matrix $A = [a_{ij}]$ such that the coordinate representation of $u_i$
+with respect to $B$ is the $i^{\text{th}}$ row of $A$. For some set of
+vectors $S \subset V$, if a basis for the row space of $A$ is the
+coordinate representation of vectors in $S$ with respect to $B$,
+then $S$ is a basis for $\Span(U)$.
+\end{theorem}
+\begin{proof}
+First and foremost, assume that the coordinate representation of
+vectors in $S$ with respect to $B$ is a basis for $\Row(A)$.
+By definition, the span of such representations is the row space
+of $A$. Notice that by Theorem \ref{theo:Coordinate Representation and
+Basis I}, an arbitrary vector $v \in \Span(S)$ if and only if a linear
+combination of a coordinate representation of $S$ with respect to $B$
+is the coordinate representation of $v$ with respect to $B$. In other
+words, $v \in \Span(S)$ if and only if the coordinate representation
+of $v$ is in $\Row(A)$. By Theorem \ref{theo:Coordinate Representation
+and Basis I} again, the statement implies that $v \in \Span(U)$.
+Thus, $v \in \Span(S)$ if and only if $v \in \Span(U)$ and $\Span(S)
+= \Span(U)$.
+
+To show that $S$ is a basis for $\Span(U)$, or $\Span(S)$, it suffices
+to show that $S$ is linearly independent. Notice that because the set
+of coordinate representations of $S$ is a basis for $\Row(A)$, the set
+of coordinate representations of $S$ is linearly independent.
+Moreover, by the proof for the Theorem \ref{theo:Coordinate
+Representation and Basis I}, $S$ is also linearly independent. Thus,
+$S$ is a basis for $\Span(U)$.
+\end{proof}
+
+There are lots of theorems and results! But here is another one that
+connects vectors and matrices.
+
+\begin{theorem}{}{Linear Independence and Rank}
+For $S \subset \mathbb{R}^n$ such that $|S| = k$, construct matrix
+$A_{k \times n}$ such that the rows are each vectors in $S$. $S$ is
+linearly independent if and only if $\Rank(A) = k$.
+\end{theorem}
+\begin{proof}
+First and foremost, notice that by definition, $S$ is linearly
+independent if and only if it is a basis for its span. Moreover,
+by construction, $\Span(S) = \Row(A)$ and $S$ is linearly
+independent if and only if it is a basis for the row space of $A$.
+Continuing, $S$ is a basis for the row space of $A$ if and only if
+$\Rank(A) = |S|$ by definition. Therefore, $S$ is linearly independent
+if and only if $\Rank(A) = |S|$.
+\end{proof}
+
+To be honest, I procrastinated a bit when I was learning to prove
+the theorems above. For some reason, the proofs were hard to
+understand and less intuitive than the proofs that I have done
+through olympiad style problems. I think what helped me to
+understand the proofs is to just continue looking at it over and
+over again until I fully knew the terms. Because the proofs above
+prioritize understanding of the basic concepts over creativity,
+I think procrastinating helped me fully understand the proofs.
+
+So far, we discussed about row spaces and row ranks. How about
+columns? As you may have guessed, we could do the same for columns!
+
+\begin{definition}{}{}
+The span of the columns of a matrix $A_{m \times n}$ is the
+\textbf{column space} of $A$, denoted as $\Col(A)$. The dimension
+of such space is \textbf{column rank} of $A$.
+\end{definition}
+
+We could notice that because rows and columns of a matrix are not
+necessarily the same, the row space and column space of a
+matrix are generally different. One special example in which they
+are the same would be identity matrices.
+
+Now when we discussed about row rank of a matrix $A$, we used the
+notation $\Row(A)$. That is because the row rank and column rank
+of a matrix are always equal.
+
+\begin{theorem}{}{Row and Column Ranks}
+The row rank and column rank of a matrix $A$ are always equal.
+\end{theorem}
+\begin{proof}
+First and foremost, notice that by definition, $\Row(A^\intercal) =
+\Col(A)$ and $\Row(A) = \Col(A^\intercal)$. Therefore, the following
+equations are true.
+\begin{align*}
+    \dim(\Row(A^\intercal)) &= \dim(\Col(A)) \\
+    \dim(\Row(A)) &= \dim(\Col(A^\intercal))
+\end{align*}
+Notice that if $\dim(\Col(A)) \leq \dim(\Row(A))$, then the following
+expression holds.
+\[
+\dim(\Row(A)) = \dim(\Col(A^\intercal))
+\leq
+\dim(\Row(A^\intercal)) = \dim(\Col(A))
+\]
+Therefore, if $\dim(\Col(A)) \leq \dim(\Row(A))$ holds, then
+$\dim(\Row(A)) \leq \dim(\Col(A))$ and $\dim(\Col(A)) =
+\dim(\Row(A))$. Thus, it suffices to show that $\dim(\Col(A)) \leq
+\dim(\Row(A))$.
+
+Consider a matrix $A = [a_{ij}]$ that has the order $m \times n$.
+Notice that each row can be represented as an $n$-tuple. Let $U =
+\{ u_1, \ldots, u_k \} \subset \mathbb{R}^n$ be a basis for $\Row(A)$.
+By definition, each row $A_i$ of $A$ can be written as the following
+for some constants $c_{ij}$.
+\[
+A_i
+= \sum_{j=1}^k c_{ij} u_j
+\]
+Moreover, notice that each element can be written as the following.
+\[
+a_{ij}
+= \sum_{n=1}^k c_{in} u_{nj}
+\]
+Continuing, let $V = \{ v_1, \ldots, v_k \}$ be the set of such
+coefficients where $v_i$ is defined as the following.
+\[
+v_i =
+\begin{bmatrix}
+    c_{1i} \\
+    c_{2i} \\
+    \vdots \\
+    c_{mi}
+\end{bmatrix}
+\]
+Therefore, each column of $A$ can be written as the following
+$m$-tuple.
+\[
+\begin{bmatrix}
+    a_{1j} \\
+    a_{2j} \\
+    \vdots \\
+    a_{mj}
+\end{bmatrix}
+=
+\sum_{n=1}^k
+\begin{bmatrix}
+    c_{1n} \\
+    c_{2n} \\
+    \vdots \\
+    c_{mn}
+\end{bmatrix}
+u_{nj}
+= \sum_{n=1}^k u_{nj} v_n
+\]
+Because each column is in the span of $V$, $\dim(\Col(A)) \leq k =
+\dim(\Row(A))$. Thus, the theorem holds.
+\end{proof}
+
+Now that we have column space in mind, let's return to linear systems.
+Let's first start with an example before looking at the theorem.
+\begin{align*}
+    x + 2y + 3z &= 4 \\
+    x - y + z &= -1 \\
+    4x + 3y + 2z &= 1
+\end{align*}
+Notice that we can write the system as the following.
+\[
+x
+\begin{bmatrix}
+    1 \\
+    1 \\
+    4
+\end{bmatrix}
++
+y \begin{bmatrix}
+    2 \\
+    -1 \\
+    3
+\end{bmatrix}
++ z
+\begin{bmatrix}
+    3 \\
+    1 \\
+    2
+\end{bmatrix}
+=
+\begin{bmatrix}
+    4 \\
+    -1 \\
+    1
+\end{bmatrix}
+\]
+This splits the coefficient matrix $A$ in $Ax = b$ to its columns.
+Now the left-hand side can be interpreted as the linear combination
+of the columns of $A$, or an element in $\Col(A)$. In other words,
+the solution exists if $b \in \Col(A)$ and the system is inconsistent
+if $b \not\in \Col(A)$. If $b \in \Col(A)$, then the rank of the
+augmented matrix $[A \mid b]$ will equal $\Rank(A)$ since $\Col(A) =
+\Col([A \mid b])$. However, if $b \not\in \Col(A)$, then
+$\Rank([A \mid b]) = \Rank(A) + 1$ since we need an extra vector for
+the basis for the column space. We can now write this idea as a
+theorem.
+
+\begin{theorem}{}{Linear System and Rank}
+A linear system $Ax = b$ has at least one solution if and only if
+$\Rank(A) = \Rank([A \mid b])$.
+\end{theorem}
+\begin{proof}
+For a linear system $Ax = b$, let $A_{m \times n} = [a_{ij}]$,
+$A_i$ be the $i^\text{th}$ column of $A$, $x = [x_i]$, and $b = [b_i]$
+where $x$ and $b$ are $m$-tuples. Notice that the system can be
+represented as the following.
+\[
+\sum_{k=1}^n x_k A_k = b
+\]
+The system will hold if and only if $b$ is in the span of the columns
+of $A$. Continuing, $\Rank(A) = \Rank([A \mid b])$ if and only if $b$
+is in the span of the existing columns of $A$. Thus, a solution to the
+linear system exists if and only if $\Rank(A) = \Rank([A \mid b])$.
+\end{proof}
+
+Though satisfying, the theorem may not be significantly useful since
+we anyways have to write the matrices in REF. However, we can notice
+another interesting result.
+
+\begin{theorem}{}{Rank and Number of Unknowns}
+For a consistent system with $n$ variables, if $\Rank(A) = k$, then
+the final solutions can be written with $n - k$ free variables.
+\end{theorem}
+\begin{proof}
+First and foremost, notice that because the system $Ax = b$ is
+consistent and $\Rank(A) = k$, $\Rank([A \mid b]) = k$. By Theorem
+\ref{theo:REF and Row Space}, there exist $k$ nonzero rows, or $k$
+variables with set values for $\Rank([A \mid b])$ in REF. Therefore,
+there exist $n-k$ free variables.
+\end{proof}
+
+Continuing with this theorem, we can set a corollary for homogeneous
+systems.
+
+\begin{corollary}{}{Homogeneous Systems and Rank}
+For a homogeneous system $Ax = \mathbf{0}$ with $n$ variables,
+there exist nontrivial solutions if and only if $\Rank(A) \neq n$.
+\end{corollary}
+\begin{proof}
+By Theorem \ref{theo:Rank and Number of Unknowns}, there exist free
+variables if $\Rank(A) < n$, which are not necessarily trivial
+solutions. However, if $\Rank(A) = n$, then there exist zero free
+variables and a unique solution, which is the trivial solution.
+\end{proof}
+
+Continuing from the system, we could also apply our knowledge to
+invertibility of a square matrix. Now before we prove an important
+theorem on the relationship between rank and invertibility, let's
+prove a property that we couldn't prove in our previous notes.
+In our previous notes, we proved the uniqueness of the inverse of
+a square matrix. Moreover, we also knew that if $AB = BA = I$, then
+$A$ and $B$ are inverse of each other. What if we truncate the
+equation to $AB = I$? The answer is that they imply the same thing!
+Indeed for two square matrices $A$ and $B$ with the same order,
+if $AB = I$, then $BA = I$. To prove this, let's first prove two
+lemmas.
+
+\begin{lemma}{}{Property of Inverse Lemma I}
+For two square matrices $A$ and $B$ with order $n \times n$ such that
+$AB = I$, $\Rank(A) = n$.
+\end{lemma}
+\begin{proof}
+First and foremost, notice that for all integers $i, j \in [1, n]$,
+the following equation is satisfied for $A_i$ the $i^\text{th}$ row of
+$A$ and $B_j$ the $j^\text{th}$ column of $B$.
+\[
+A_i B_j = I_{ij}
+\]
+Moreover, notice that if $\sum_{i=1}^n c_i A_i = \mathbf{0}$ for some
+constants $c_i$, then $\sum_{i=1}^n c_i A_i B_j = \mathbf{0}$ for
+any choice of $j$. By definition, $A_i B_j = 1$ if and only if
+$i = j$. In other words, if $\sum_{i=1}^n c_i A_i = \mathbf{0}$, then
+$c_i = 0$ for all integer $i \in [1, n]$. Therefore, the rows of $A$
+are linearly independent. By definition, the rows compose the basis of
+$\Row(A)$ and $\Rank(A) = n$.
+\end{proof}
+
+Continuing, let's prove the second lemma.
+
+\begin{lemma}{}{Property of Inverse Lemma II}
+For a square matrix $A_{n \times n}$, if $\Rank(A) = n$, then there
+exists a matrix $B$ where $BA = I$.
+\end{lemma}
+\begin{proof}
+Notice that because $\Rank(A) = n$, none of the elements in the main
+diagonal for $A$ in REF is zero after applying series of elementary
+row operations. From $A$ in REF, more elementary row operations can
+be applied to convert $A$ in REF to an identity matrix. Thus, the
+lemma holds.
+\end{proof}
+
+Now that we have the two lemmas in mind, let's prove the main result.
+
+\begin{theorem}{}{Property of Inverse}
+For square matrices $A$ and $B$ with the order $n \times n$, if
+$AB = I$, then $BA = I$.
+\end{theorem}
+\begin{proof}
+First and foremost, by Lemma \ref{lem:Property of Inverse Lemma I},
+$\Rank(A) = n$. Moreover by Lemma \ref{lem:Property of Inverse Lemma
+II}, there exists matrix $C$ such that $CA = I$. Continuing, $C = CI =
+CAB = IB = B$. Thus, if $AB = I$, then $BA = I$.
+\end{proof}
+
+This is the proof for the definition that we skipped in the earlier
+notes! Now with the two lemmas and the theorem in mind, we can
+derive the following result.
+
+\begin{theorem}{}{Rank and Invertibility}
+A square matrix $A_{n \times n}$ is invertible if and only if
+$\Rank(A) = n$.
+\end{theorem}
+\begin{proof}
+First and foremost, the first half of the theorem can be proven.
+By definition, if $A$ is invertible, then there exists a square matrix
+of the same order $B$ such that $AB = I$. By Lemma \ref{lem:Property
+of Inverse Lemma I}, $\Rank(A) = n$.
+
+Continuing, by Lemma \ref{lem:Property of Inverse Lemma I}, if
+$\Rank(A) = n$, then there exists a matrix $C$ such that $CA = I$.
+By Theorem \ref{theo:Property of Inverse} and definition of the
+inverse matrix, $A$ is invertible.
+\end{proof}
+
+This is it for row space and rank of a matrix! In the next section,
+we will discuss about linear transformations, an important topic in
+Linear Algebra.
+
+\end{document}
+
+

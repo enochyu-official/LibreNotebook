@@ -1,0 +1,376 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{System of Linear Equations}
+
+One of the most important applications of matrices would be in
+linear systems of equations. With the ideas on matrices, we can
+open our third eye when viewing systems of linear equations.
+This note is dedicated to matrices in linear equations,
+Gaussian Elimination, and LU decompositions.
+
+\section{Basics and Intuitions}
+
+As always, let's get started with fundamental definitions, concepts,
+and intuitions that will be used throughout.
+
+First, I am pretty sure most of you are aware of what a system of
+equations is. However, because it is always nice to formally state
+our understanding, here is the definition of a linear system of
+equations.
+
+\begin{definition}{}{}
+A \textbf{system of linear equations} is composed of linear equations,
+or equations whose highest degree is $1$. A system of $m$ equations
+and $n$ variables adhere to the following forms where $a_{ij}$ and
+$b_{i}$ are known quantities.
+\begin{align*}
+    a_{11}x_1 + a_{12}x_2 + a_{13}x_3 + \cdots + a_{1n}x_n &= b_1 \\
+    a_{21}x_1 + a_{22}x_2 + a_{23}x_3 + \cdots + a_{2n}x_n &= b_2 \\
+    a_{31}x_1 + a_{32}x_2 + a_{33}x_3 + \cdots + a_{3n}x_n &= b_3 \\
+    \vdots\qquad\qquad& \\
+    a_{m1}x_1 + a_{m2}x_2 + a_{m3}x_3 + \cdots + a_{mn}x_n &= b_m
+\end{align*}
+\end{definition}
+
+Below is an example of a system of linear equations.
+\begin{align*}
+    x + 2y + 3z &= 4 \\
+    -x + 3y + 2z &= 5
+\end{align*}
+Notice that all equations above are linear, meaning, their degrees
+are $1$. Now, what does it mean to find a solution to such systems?
+
+\begin{definition}{}{}
+A \textbf{solution to a system of linear equations} is a set of
+scalar values for unknown variables such that all linear equations
+are satisfied when substituted.
+\end{definition}
+
+For instance, $(2, 1)$ is the solution to the following system of
+linear equations.
+\begin{align*}
+    x - 2y &= 0 \\
+    x + y  &= 3
+\end{align*}
+To check it, you can simply substitute to see if the equations are
+satisfied.
+
+Now, if you recall from the previous note where we discussed matrix
+multiplication, system of linear equations can be written as a
+matrix multiplication.
+
+\begin{definition}{}{}
+A system of linear equations
+\begin{align*}
+    a_{11}x_1 + a_{12}x_2 + a_{13}x_3 + \cdots + a_{1n}x_n &= b_1 \\
+    a_{21}x_1 + a_{22}x_2 + a_{23}x_3 + \cdots + a_{2n}x_n &= b_2 \\
+    a_{31}x_1 + a_{32}x_2 + a_{33}x_3 + \cdots + a_{3n}x_n &= b_3 \\
+    \vdots\qquad\qquad& \\
+    a_{m1}x_1 + a_{m2}x_2 + a_{m3}x_3 + \cdots + a_{mn}x_n &= b_m
+\end{align*}
+can be written as $Ax = b$ where $A$, $x$, and $b$ are matrices
+defined as the following.
+\[
+A =
+\begin{bmatrix}
+    a_{11} & a_{12} & a_{13} & \cdots & a_{1n} \\
+    a_{21} & a_{22} & a_{23} & \cdots & a_{2n} \\
+    a_{31} & a_{32} & a_{33} & \cdots & a_{3n} \\
+    \vdots & \vdots & \vdots & \ddots & \vdots \\
+    a_{m1} & a_{m2} & a_{m3} & \cdots & a_{mn} \\
+\end{bmatrix},
+\quad
+x =
+\begin{bmatrix}
+    x_1 \\
+    x_2 \\
+    x_3 \\
+    \vdots \\
+    x_n
+\end{bmatrix},
+\quad
+b
+\begin{bmatrix}
+    b_1 \\
+    b_2 \\
+    b_3 \\
+    \vdots \\
+    b_m
+\end{bmatrix}
+\]
+\end{definition}
+
+When you actually perform matrix multiplication, you can see that
+$Ax = b$ is identical to the system of linear equations. Now that
+we have a basic understanding of the relationship between matrices
+and linear systems of equations, let's take a look at a theorem and
+an important corollary.
+
+\begin{theorem}{}{Different Solutions to a System}
+For two distinct solutions $x_1$ and $x_2$ of $Ax = b$,
+$\alpha x_1 + \beta x_2$ is also a solution to the linear system
+given that $\alpha, \beta \in \mathbb{R}$ and $\alpha + \beta = 1$.
+\end{theorem}
+\begin{proof}
+From Theorem \ref{theo:Properties of Matrix Multiplication}, it was
+shown that $\lambda (AB) = A (\lambda B)$ for scalar $\lambda$ and
+matrices $A$ and $B$ that can be multiplied. Substituting $\alpha x_1
++ \beta x_2$, the following system is obtained.
+\[
+A (\alpha x_1 + \beta x_2)
+= A(\alpha x_1) + A(\beta x_2)
+= \alpha (Ax_1) + \beta (Ax_2)
+= \alpha b + \beta b
+= b
+\]
+Therefore, $(\alpha x_1 + \beta x_2)$ is another solution to the
+system.
+\end{proof}
+
+From this theorem, we can establish an important corollary about the
+number of solutions to a system of linear equations.
+
+\begin{corollary}{}{Number of Solutions to a Linear System}
+A system of linear equations can retain $0$, $1$, or infinitely many
+solutions.
+\end{corollary}
+\begin{proof}
+First, it is self-evident that a system can retain $0$ or $1$
+solution. Therefore, the fact that there exist infinite solutions
+if there are more than $1$ solution must be proven.
+
+Let $f(\alpha) = \alpha x_1 + (1 - \alpha) x_2$ be a function that
+returns possible solutions where $x_1 \neq x_2$ are fixed values.
+It suffices to show that the function $f$ is injective as there exists
+infinitely many values of $\alpha$. Consider the following equations.
+\begin{align*}
+    f(\alpha)
+    &= \alpha x_1 + (1 - \alpha) x_2 
+     = \alpha (x_1 - x_2) + x_2 \\
+    f(\alpha')
+    &= \alpha' x_1 + (1 - \alpha') x_2 
+     = \alpha' (x_1 - x_2) + x_2
+\end{align*}
+If $f(\alpha) = f(\alpha')$, then $\alpha (x_1 - x_2) + x_2 =
+\alpha' (x_1 - x_2) + x_2$ and $\alpha = \alpha'$, proving the
+injectivity. Therefore, a system of linear equations can only have
+$0$, $1$, or infinitely many solutions.
+\end{proof}
+
+In middle school, you probably saw a visual understanding of the
+corollary above. Let's do the same, except in 3-dimensional space.
+Below are two examples of when there exists no solution. Note that
+not all three planes intersect at a single point.
+
+\begin{minipage}{0.48\textwidth}
+\tdplotsetmaincoords{80}{100}
+\begin{tikzpicture}[
+        tdplot_main_coords,
+        axis/.style={->,thick},
+        scale=0.55
+    ]
+    \pgfmathsetmacro{\a}{1.13397459622}
+    \pgfmathsetmacro{\b}{6.33012701892}
+
+    \foreach \x in {0,1,...,9}
+        \foreach \y in {0,1,...,9} {
+			\draw[gray,very thin]
+                (\x,0,0) -- (\x,9.5,0);
+			\draw[gray,very thin] (0,\y,0) -- (9.5,\y,0);
+		}
+    \foreach \y in {0,1,...,9}
+        \foreach \z in {0,1,...,9} {
+			\draw[gray,very thin]
+                (0,\y,0) -- (0,\y,9.5);
+			\draw[gray,very thin] (0,0,\z) -- (0,9.5,\z);
+		}
+    \foreach \z in {0,1,...,9}
+        \foreach \x in {0,1,...,9} {
+			\draw[gray,very thin]
+                (0,0,\z) -- (9.5,0,\z);
+			\draw[gray,very thin] (\x,0,0) -- (\x,0,9.5);
+		}
+
+	\draw[axis] (-2,0,0) -- (10,0,0) node[left] {$x$};
+	\draw[axis] (0,-1,0) -- (0,10,0) node[right] {$y$};
+	\draw[axis] (0,0,-1) -- (0,0,10) node[left] {$z$};
+
+	\draw[opacity=.5,very thick,fill=Red]
+        (2,2,2) -- (8,2,2) -- (8,8,2) -- (2,8,2) -- cycle;
+	\draw[opacity=.5,very thick,fill=Blue]
+        (2,2.5,\a) -- (8,2.5,\a) -- (8,5.5,\b) -- (2,5.5,\b) -- cycle;
+	\draw[opacity=.5,very thick,fill=yellow]
+        (2,7.5,\a) -- (8,7.5,\a) -- (8,4.5,\b) -- (2,4.5,\b) -- cycle;
+    \draw[very thick, dashed] (2,3,2) -- (8,3,2);
+    \draw[very thick, dashed] (2,7,2) -- (8,7,2);
+    \draw[very thick, dashed] (2,5,5.46410161514) --
+        (8,5,5.46410161514);
+\end{tikzpicture}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\tdplotsetmaincoords{80}{100}
+\begin{tikzpicture}[
+        tdplot_main_coords,
+        axis/.style={->,thick},
+        scale=0.55
+    ]
+    \foreach \x in {0,1,...,9}
+        \foreach \y in {0,1,...,9} {
+			\draw[gray,very thin]
+                (\x,0,0) -- (\x,9.5,0);
+			\draw[gray,very thin] (0,\y,0) -- (9.5,\y,0);
+		}
+    \foreach \y in {0,1,...,9}
+        \foreach \z in {0,1,...,9} {
+			\draw[gray,very thin]
+                (0,\y,0) -- (0,\y,9.5);
+			\draw[gray,very thin] (0,0,\z) -- (0,9.5,\z);
+		}
+    \foreach \z in {0,1,...,9}
+        \foreach \x in {0,1,...,9} {
+			\draw[gray,very thin]
+                (0,0,\z) -- (9.5,0,\z);
+			\draw[gray,very thin] (\x,0,0) -- (\x,0,9.5);
+		}
+
+	\draw[axis] (-2,0,0) -- (10,0,0) node[left] {$x$};
+	\draw[axis] (0,-1,0) -- (0,10,0) node[right] {$y$};
+	\draw[axis] (0,0,-1) -- (0,0,10) node[left] {$z$};
+
+	\draw[opacity=.5,very thick,fill=Red]
+        (2,2,2) -- (8,2,2) -- (8,8,2) -- (2,8,2) -- cycle;
+	\draw[opacity=.5,very thick,fill=Blue]
+        (2,2,4) -- (8,2,4) -- (8,8,4) -- (2,8,4) -- cycle;
+	\draw[opacity=.5,very thick,fill=Yellow]
+        (2,2,6) -- (8,2,6) -- (8,8,6) -- (2,8,6) -- cycle;
+\end{tikzpicture}
+\end{minipage}
+
+Continuing, the left diagram represents the case where there
+is a single solution while the right diagram shows the system
+with infinite solutions.
+
+\begin{minipage}{0.48\textwidth}
+\tdplotsetmaincoords{80}{100}
+\begin{tikzpicture}[
+        tdplot_main_coords,
+        axis/.style={->,thick},
+        scale=0.55
+    ]
+    \pgfmathsetmacro{\a}{6.24264068712}
+
+    \foreach \x in {0,1,...,9}
+        \foreach \y in {0,1,...,9} {
+			\draw[gray,very thin]
+                (\x,0,0) -- (\x,9.5,0);
+			\draw[gray,very thin] (0,\y,0) -- (9.5,\y,0);
+		}
+    \foreach \y in {0,1,...,9}
+        \foreach \z in {0,1,...,9} {
+			\draw[gray,very thin]
+                (0,\y,0) -- (0,\y,9.5);
+			\draw[gray,very thin] (0,0,\z) -- (0,9.5,\z);
+		}
+    \foreach \z in {0,1,...,9}
+        \foreach \x in {0,1,...,9} {
+			\draw[gray,very thin]
+                (0,0,\z) -- (9.5,0,\z);
+			\draw[gray,very thin] (\x,0,0) -- (\x,0,9.5);
+		}
+
+	\draw[axis] (-2,0,0) -- (10,0,0) node[left] {$x$};
+	\draw[axis] (0,-1,0) -- (0,10,0) node[right] {$y$};
+	\draw[axis] (0,0,-1) -- (0,0,10) node[left] {$z$};
+
+	\draw[opacity=.5,very thick,fill=Red]
+        (2,2,2) -- (2,2,8) -- (\a,\a,8) -- (\a,\a,2) -- cycle;
+	\draw[opacity=.5,very thick,fill=Blue]
+        (\a,2,2) -- (2,\a,2) -- (2,\a,8) -- (\a,2,8) -- cycle;
+	\draw[opacity=.5,very thick,fill=Yellow]
+        (2,2,5) -- (2,\a,5) -- (\a,\a,5) -- (\a,2,5) -- cycle;
+    \draw[very thick, dashed] (4.12132034356,4.12132034356,2) --
+        (4.12132034356,4.12132034356,8);
+    \draw[fill] (4.12132034356,4.12132034356,5) circle (3pt);
+\end{tikzpicture}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\tdplotsetmaincoords{80}{100}
+\begin{tikzpicture}[
+        tdplot_main_coords,
+        axis/.style={->,thick},
+        scale=0.55
+    ]
+    \pgfmathsetmacro{\a}{1.40192378865}
+    \pgfmathsetmacro{\b}{6.59807621135}
+
+    \foreach \x in {0,1,...,9}
+        \foreach \y in {0,1,...,9} {
+			\draw[gray,very thin]
+                (\x,0,0) -- (\x,9.5,0);
+			\draw[gray,very thin] (0,\y,0) -- (9.5,\y,0);
+		}
+    \foreach \y in {0,1,...,9}
+        \foreach \z in {0,1,...,9} {
+			\draw[gray,very thin]
+                (0,\y,0) -- (0,\y,9.5);
+			\draw[gray,very thin] (0,0,\z) -- (0,9.5,\z);
+		}
+    \foreach \z in {0,1,...,9}
+        \foreach \x in {0,1,...,9} {
+			\draw[gray,very thin]
+                (0,0,\z) -- (9.5,0,\z);
+			\draw[gray,very thin] (\x,0,0) -- (\x,0,9.5);
+		}
+
+	\draw[axis] (-2,0,0) -- (10,0,0) node[left] {$x$};
+	\draw[axis] (0,-1,0) -- (0,10,0) node[right] {$y$};
+	\draw[axis] (0,0,-1) -- (0,0,10) node[left] {$z$};
+
+	\draw[opacity=.5,very thick,fill=Red]
+        (2,2,4) -- (8,2,4) -- (8,8,4) -- (2,8,4) -- cycle;
+	\draw[opacity=.5,very thick,fill=Blue]
+        (2,3.5,\a) -- (8,3.5,\a) -- (8,6.5,\b) -- (2,6.5,\b) -- cycle;
+	\draw[opacity=.5,very thick,fill=Yellow]
+        (2,3.5,\b) -- (8,3.5,\b) -- (8,6.5,\a) -- (2,6.5,\a) -- cycle;
+    \draw[very thick] (2,5,4) -- (8,5,4);
+\end{tikzpicture}
+\end{minipage}
+
+Wow, not going to lie, it took some time to draw the diagrams above.
+Anyhow, with that in mind, let's discuss other fundamental terms
+and concepts before we move on to the next section of the note.
+
+\begin{definition}{}{}
+A linear system is \textbf{consistent} if it retains at least one
+solution, whereas a system is \textbf{inconsistent} if there is no
+solution.
+\end{definition}
+
+We could also define a system based on the column matrix $b$.
+
+\begin{definition}{}{}
+A linear system is \textbf{homogeneous} if the column matrix $b$
+in the linear system $Ax = b$ is a zero matrix. If the matrix is not
+a zero matrix, the system is \textbf{nonhomogeneous}, or
+\textbf{inhomogeneous}.
+\end{definition}
+
+Now from the definitions, we can see that all homogeneous systems
+are consistent. As you have guessed, we have a special name for
+a special solution in such cases.
+
+\begin{definition}{}{}
+\textbf{Trivial solution} is a solution where all the entries for
+$x$ in $Ax = b$ are zero.
+\end{definition}
+
+With the fundamental terms in mind, let's take a look at how matrices
+can be used to solve complex linear system with Gaussian Elimination.
+
+\end{document}
+
+

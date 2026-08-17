@@ -1,0 +1,275 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Solutions for Note 3}
+\begin{enumerate}
+\item
+If $A$ is invertible, then $A^{-1} A x = A^{-1} b$ and $x = A^{-1} b$.
+Therefore, the system $Ax = b$ is always consistent.
+
+\item
+Consider the following representation of the system.
+\begin{align*}
+    x + 2y &= 1 \\
+    2x + 4y &= k
+\end{align*}
+Notice that if $k = 2$, then there exist infinitely many solutions
+while $k \neq 2$ gives no solutions. Thus the system never has a
+unique solution.
+
+\item
+First and foremost, consider the following augmented matrix.
+\[
+\begin{bNiceArray}{ccc|c}
+    1  & 1  & 1  & 10 \\
+    3  & 4  & -1 & 2 \\
+    -1 & -3 & 1  & 4
+\end{bNiceArray}
+\]
+Using elementary row operations, the augmented matrix can be
+transformed as following.
+\begin{align*}
+    \begin{bNiceArray}{ccc|c}
+        1  & 1  & 1  & 10 \\
+        3  & 4  & -1 & 2 \\
+        -1 & -3 & 1  & 4
+    \end{bNiceArray}
+    &\rightarrow
+    \begin{bNiceArray}{ccc|c}
+        1  & 1  & 1  & 10 \\
+        0  & 1  & -4 & -28 \\
+        -1 & -3 & 1  & 4
+    \end{bNiceArray}
+    \rightarrow
+    \begin{bNiceArray}{ccc|c}
+        1 & 1  & 1  & 10 \\
+        0 & 1  & -4 & -28 \\
+        0 & -2 & 2  & 14
+    \end{bNiceArray} \\
+    &\rightarrow
+    \begin{bNiceArray}{ccc|c}
+        1 & 1 & 1  & 10 \\
+        0 & 1 & -4 & -28 \\
+        0 & 0 & -6  & -42
+    \end{bNiceArray}
+\end{align*}
+Therefore, $-6z = -42$ and $z = 7$. Moreover, $y - 4z = -28$ and
+$y = 0$. Finally, $x + y + z = 10$ and $x = 3$. Therefore, the
+solution to the system is $(3, 0, 7)$.
+
+\item
+First and foremost, let $A =
+\begin{bmatrix}
+    1  & 1  & 1 \\
+    3  & 4  & -1 \\
+    -1 & -3 & 1
+\end{bmatrix}$.
+Using elementary row operations, $A$ can be transformed as following.
+\[
+\begin{bmatrix}
+    1  & 1  & 1 \\
+    3  & 4  & -1 \\
+    -1 & -3 & 1
+\end{bmatrix}
+\rightarrow
+\begin{bmatrix}
+    1  & 1  & 1 \\
+    0  & 1  & -4 \\
+    -1 & -3 & 1
+\end{bmatrix}
+\rightarrow
+\begin{bmatrix}
+    1 & 1  & 1 \\
+    0 & 1  & -4 \\
+    0 & -2 & 2
+\end{bmatrix}
+\rightarrow
+\begin{bmatrix}
+    1 & 1 & 1 \\
+    0 & 1 & -4 \\
+    0 & 0 & -6
+\end{bmatrix}
+\]
+In other words, $A$ can be represented as the matrix multiplication
+below.
+\begin{align*}
+    \begin{bmatrix}
+        1  & 1  & 1 \\
+        3  & 4  & -1 \\
+        -1 & -3 & 1
+    \end{bmatrix}
+    &=
+    \begin{bmatrix}
+        1 & 0 & 0 \\
+        3 & 1 & 0 \\
+        0 & 0 & 1
+    \end{bmatrix}
+    \begin{bmatrix}
+        1  & 0 & 0 \\
+        0  & 1 & 0 \\
+        -1 & 0 & 1
+    \end{bmatrix}
+    \begin{bmatrix}
+        1 & 0  & 0 \\
+        0 & 1  & 0 \\
+        0 & -2 & 1
+    \end{bmatrix}
+    \begin{bmatrix}
+        1 & 1 & 1 \\
+        0 & 1 & -4 \\
+        0 & 0 & -6
+    \end{bmatrix} \\
+    &=
+    \begin{bmatrix}
+        1 & 0 & 0 \\
+        3 & 1 & 0 \\
+        0 & 0 & 1
+    \end{bmatrix}
+    \begin{bmatrix}
+        1  & 0  & 0 \\
+        0  & 1  & 0 \\
+        -1 & -2 & 1
+    \end{bmatrix}
+    \begin{bmatrix}
+        1 & 1 & 1 \\
+        0 & 1 & -4 \\
+        0 & 0 & -6
+    \end{bmatrix} \\
+    &=
+    \begin{bmatrix}
+        1  & 0  & 0 \\
+        3  & 1  & 0 \\
+        -1 & -2 & 1
+    \end{bmatrix}
+    \begin{bmatrix}
+        1 & 1 & 1 \\
+        0 & 1 & -4 \\
+        0 & 0 & -6
+    \end{bmatrix}
+\end{align*}
+Consider the following system for equation for $Ly = b$.
+\[
+\begin{bmatrix}
+    1  & 0  & 0 \\
+    3  & 1  & 0 \\
+    -1 & -2 & 1
+\end{bmatrix}
+\begin{bmatrix}
+    x' \\
+    y' \\
+    z'
+\end{bmatrix}
+=
+\begin{bmatrix}
+    10 \\
+    2 \\
+    4
+\end{bmatrix}
+\]
+It is evident that $x' = 10$, $y' = 2 - 3x' = -28$, and $z' =
+4 + x' + 2y' = -42$. Continuing, the system for $Ux = y$ can be
+solved.
+\[
+\begin{bmatrix}
+    1 & 1 & 1 \\
+    0 & 1 & -4 \\
+    0 & 0 & -6
+\end{bmatrix}
+\begin{bmatrix}
+    x \\
+    y \\
+    z
+\end{bmatrix}
+=
+\begin{bmatrix}
+    10 \\
+    -28 \\
+    -42
+\end{bmatrix}
+\]
+Therefore, $z = 7$, $y = 0$, and $x = 3$ holds and the solution
+for the system is $(3, 0, 7)$ as shown in the previous problem.
+
+\item
+To find the inverse of $A =
+\begin{bmatrix}
+    1  & 1  & 1 \\
+    3  & 4  & -1 \\
+    -1 & -3 & 1
+\end{bmatrix}$, consider the following augmentation and
+transformations.
+\begin{align*}
+    \begin{bNiceArray}{ccc|ccc}
+        1  & 1  & 1  & 1 & 0 & 0 \\
+        3  & 4  & -1 & 0 & 1 & 0 \\
+        -1 & -3 & 1  & 0 & 0 & 1
+    \end{bNiceArray}
+    &\rightarrow
+    \begin{bNiceArray}{ccc|ccc}
+        1  & 1  & 1  & 1  & 0 & 0 \\
+        0  & 1  & -4 & -3 & 1 & 0 \\
+        -1 & -3 & 1  & 0  & 0 & 1
+    \end{bNiceArray} \\
+    &\rightarrow
+    \begin{bNiceArray}{ccc|ccc}
+        1 & 1  & 1  & 1  & 0 & 0 \\
+        0 & 1  & -4 & -3 & 1 & 0 \\
+        0 & -2 & 2  & 1  & 0 & 1
+    \end{bNiceArray} \\
+    &\rightarrow
+    \begin{bNiceArray}{ccc|ccc}
+        1 & 1 & 1  & 1  & 0 & 0 \\
+        0 & 1 & -4 & -3 & 1 & 0 \\
+        0 & 0 & -6 & -5 & 2 & 1
+    \end{bNiceArray} \\
+    &\rightarrow
+    \begin{bNiceArray}{ccc|ccc}
+        1 & 1 & 1  & 1  & 0 & 0 \\
+        0 & 1 & -4 & -3 & 1 & 0 \\
+        0 & 0 & 1  & \frac{5}{6} & -\frac{1}{3} & -\frac{1}{6}
+    \end{bNiceArray} \\
+    &\rightarrow
+    \begin{bNiceArray}{ccc|ccc}
+        1 & 1 & 1 & 1  & 0 & 0 \\
+        0 & 1 & 0 & \frac{1}{3} & -\frac{1}{3} & -\frac{2}{3} \\
+        0 & 0 & 1 & \frac{5}{6} & -\frac{1}{3} & -\frac{1}{6}
+    \end{bNiceArray} \\
+    &\rightarrow
+    \begin{bNiceArray}{ccc|ccc}
+        1 & 0 & 0 & -\frac{1}{6} & \frac{2}{3}  & \frac{5}{6} \\
+        0 & 1 & 0 & \frac{1}{3}  & -\frac{1}{3} & -\frac{2}{3} \\
+        0 & 0 & 1 & \frac{5}{6}  & -\frac{1}{3} & -\frac{1}{6}
+    \end{bNiceArray} \\
+\end{align*}
+Therefore, $A^{-1} =
+\begin{bmatrix}
+    -\frac{1}{6} & \frac{2}{3}  & \frac{5}{6} \\
+    \frac{1}{3}  & -\frac{1}{3} & -\frac{2}{3} \\
+    \frac{5}{6}  & -\frac{1}{3} & -\frac{1}{6}
+\end{bmatrix}$ and the system could be solved by multiplying
+$A^{-1}$ and $b$.
+\[
+\begin{bmatrix}
+    -\frac{1}{6} & \frac{2}{3}  & \frac{5}{6} \\
+    \frac{1}{3}  & -\frac{1}{3} & -\frac{2}{3} \\
+    \frac{5}{6}  & -\frac{1}{3} & -\frac{1}{6}
+\end{bmatrix}
+\begin{bmatrix}
+    10 \\
+    2 \\
+    4
+\end{bmatrix}
+=
+\begin{bmatrix}
+    3 \\
+    0 \\
+    7
+\end{bmatrix}
+\]
+Thus, the solution is $(3, 0, 7)$, which is consistent with the
+previous problems.
+\end{enumerate}
+\end{document}
+
+

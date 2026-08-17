@@ -1,0 +1,230 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Solutions for Note 4}
+\begin{enumerate}
+\item
+For transformation $T( \langle a, b \rangle ) = a + b$, consider
+the following equations for some scalars $\alpha$ and $\beta$.
+\begin{align*}
+    T ( \alpha \langle a_1, b_1 \rangle +
+        \beta \langle a_2, b_2 \rangle )
+    &= T ( \langle \alpha a_1, \alpha b_1 \rangle +
+        \langle \beta a_2, \beta b_2 \rangle ) \\
+    &= \alpha a_1 + \alpha b_1 + \beta a_2 + \beta b_2 \\
+    &= \alpha (a_1 + b_1) + \beta (a_2 + b_2) \\
+    &= \alpha T ( \langle a_1, b_1 \rangle ) +
+        \beta T ( \langle a_2, b_2 \rangle )
+\end{align*}
+Therefore by the definition of linear transformation, $T$ is linear.
+
+For $T( \langle a, b \rangle ) = ab$, consider the following for
+arbitrary scalars $\alpha$ and $\beta$.
+\begin{align*}
+    T ( \alpha \langle a_1, b_1 \rangle +
+        \beta \langle a_2, b_2 \rangle )
+    &= T ( \langle \alpha a_1, \alpha b_1 \rangle +
+        \langle \beta a_2, \beta b_2 \rangle ) \\
+    &= T ( \langle \alpha a_1 + \beta b_2,
+        \alpha b_1 + \beta b_2 \rangle ) \\
+    &= (\alpha a_1 + \beta b_2)(\alpha b_1 + \beta b_2)
+\end{align*}
+Moreover,
+\[
+\alpha T ( \langle a_1, b_1 \rangle ) +
+    \beta T ( \langle a_2, b_2 \rangle )
+= \alpha a_1 b_1 + \beta a_2 b_2
+\]
+holds. Because $(\alpha a_1 + \beta b_2)(\alpha b_1 + \beta b_2) \neq
+\alpha a_1 b_1 + \beta a_2 b_2$ in general, the transformation is not
+linear.
+
+\item
+By definition, if $\lambda$ is an eigenvalue of $AB$, then there
+exists some nonzero vector $v$ such that $AB v = \lambda v$.
+First, let $\lambda \neq 0$. Notice that $u = Bv \neq \mathbf{0}$.
+Therefore, $BA u = BA (Bv) = B (ABv) = B (\lambda v) = \lambda (Bv)
+= \lambda u$ and $\lambda$ is also an eigenvalue of $BA$. Continuing
+if $\lambda = 0$, then $\det(AB) = \det(A) \det(B) = 0 =
+\det(B) \det(A) = \det(BA)$. In other words, if $AB$ is singular
+then $BA$ is also singular and contains the eigenvalue $\lambda$.
+Therefore, $\lambda$ is an eigenvalue of $AB$ if and only if it
+is an eigenvalue of $BA$.
+
+\item
+First, to find bases for the kernel of the matrix, the following
+equation must be solved.
+\[
+\begin{bmatrix}
+    1 & 1 & 1 \\
+    0 & 1 & 0
+\end{bmatrix}
+\begin{bmatrix}
+    x \\
+    y \\
+    z
+\end{bmatrix}
+=
+\begin{bmatrix}
+    0 \\
+    0
+\end{bmatrix}
+\]
+Solving the system, $y = 0$ and $x = -z$. Therefore the basis for
+the kernel is 
+$\left\{
+    \begin{bmatrix}
+        -1 \\
+        0 \\
+        1
+    \end{bmatrix}
+\right\}$. Continuing, the basis for the image can be found.
+Consider the following equation.
+\[
+\begin{bmatrix}
+    1 & 1 & 1 \\
+    0 & 1 & 0
+\end{bmatrix}
+\begin{bmatrix}
+    x \\
+    y \\
+    z
+\end{bmatrix}
+=
+\begin{bmatrix}
+    x + y + z \\
+    y
+\end{bmatrix}
+=
+x
+\begin{bmatrix}
+    1 \\
+    0
+\end{bmatrix}
++ y
+\begin{bmatrix}
+    1 \\
+    1
+\end{bmatrix}
++ z
+\begin{bmatrix}
+    1 \\
+    0
+\end{bmatrix}
+\]
+Therefore,
+\[
+\left\{
+\begin{bmatrix}
+    1 \\
+    0
+\end{bmatrix},
+\begin{bmatrix}
+    1 \\
+    1
+\end{bmatrix}
+\right\}
+\]
+is a basis of the image of the given matrix.
+
+\item
+By definition, $A \cong B$ if and only if there exists an invertible
+matrix $P$ such that $A = P^{-1}BP$. Continuing, $A = P^{-1}BP$
+if and only if $A^\intercal = (P^{-1}BP)^\intercal = P^\intercal
+B^\intercal (P^{-1})^\intercal = P^\intercal B^\intercal
+(P^\intercal)^{-1}$. In other words, $A \cong B$ if and only if
+$A^\intercal \cong B^\intercal$.
+
+\item
+To find the eigenvalues for the given matrix say $A$, it suffices to
+solve $\det(A - \lambda I) = 0$ where $\lambda$ is an eigenvalue.
+\[
+\det\left(
+    \begin{bmatrix}
+        1 - \lambda & 2           & 3 \\
+        0           & 1 - \lambda & 0 \\
+        0           & 1           & 2 - \lambda
+    \end{bmatrix}
+\right)
+= 0
+\]
+Continuing with the expansion along the first column,
+\begin{align*}
+    \det\left(
+        \begin{bmatrix}
+            1 - \lambda & 2           & 3 \\
+            0           & 1 - \lambda & 0 \\
+            0           & 1           & 2 - \lambda
+        \end{bmatrix}
+    \right)
+    &= (1 - \lambda)
+    \det\left(
+        \begin{bmatrix}
+            1 - \lambda & 0 \\
+            1           & 2 - \lambda
+        \end{bmatrix}
+    \right) \\
+    &= (1 - \lambda)(1 - \lambda)(2 - \lambda)
+\end{align*}
+Therefore, the eigenvalues are $1$ and $2$. For eigenvalue $1$,
+it suffices to solve the equation $Av = v$ or $(A - I)v = 0$.
+Consider the following system.
+\[
+\begin{bmatrix}
+    0 & 2 & 3 \\
+    0 & 0 & 0 \\
+    0 & 1 & 1
+\end{bmatrix}
+\begin{bmatrix}
+    x \\
+    y \\
+    z
+\end{bmatrix}
+=
+\begin{bmatrix}
+    0 \\
+    0 \\
+    0
+\end{bmatrix}
+\]
+Therefore, $2y + 3z = 0$ and $y + z = 0$. In other words, $y = z = 0$.
+Thus, $S_1 =
+\Span\left\{
+    \begin{bmatrix}
+        1 \\
+        0 \\
+        0
+    \end{bmatrix}
+\right\}$ holds for $\lambda = 1$. Continuing with $\lambda = 2$,
+it suffices to solve $Av = 2v$ or $(A - 2I) v = 0$.
+\[
+\begin{bmatrix}
+    -1 & 2  & 3 \\
+    0  & -1 & 0 \\
+    0  & 1  & 0
+\end{bmatrix}
+\begin{bmatrix}
+    x \\
+    y \\
+    z
+\end{bmatrix}
+=
+\begin{bmatrix}
+    0 \\
+    0 \\
+    0
+\end{bmatrix}
+\]
+Solving the system, $y = 0$ and $x = 3z$. Thus, $S_2 =
+\Span\left\{
+    \begin{bmatrix}
+        3 \\
+        0 \\
+        1
+    \end{bmatrix}
+\right\}$ holds for $\lambda = 2$.
+\end{enumerate}
+\end{document}
+
+

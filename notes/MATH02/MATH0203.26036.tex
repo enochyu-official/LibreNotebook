@@ -1,0 +1,284 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Gaussian Elimination}
+
+When you solve a linear system, you probably multiply constants
+and add or subtract equations to cancel variables. That is exactly
+what we will be doing in Gaussian Elimination, but with matrices.
+First, define how we solve a linear system in a more rigorous way.
+
+\begin{definition}{}{}
+For a system of linear equations, performing the following operations
+will result in a linear system with an identical solution.
+\begin{enumerate}[noitemsep]
+\item
+Change the order of linear equations in which they are listed
+\item
+Multiply a nonzero constant, or nonzero scalars, to an equation
+\item
+Add equations from the system to form a new equation
+\end{enumerate}
+\end{definition}
+
+Now before we connect this idea with matrices, let's define a matrix
+that we will use with the property of a linear system above.
+
+\begin{definition}{}{}
+An \textbf{augmented matrix} for a linear system $Ax = b$ is a
+partitioned matrix in the form $[A \mid b]$.
+\end{definition}
+
+Consider the following system for an example.
+\begin{align*}
+    x + 2y + 3z &= 4 \\
+    2x + 3y + 4z &= 5 \\
+    3x + 4y + 5z &= 6
+\end{align*}
+In the linear system above, the augmented matrix will be the following
+matrix.
+\[
+\begin{bNiceArray}{ccc|c}
+    1 & 2 & 3 & 4 \\
+    2 & 3 & 4 & 5 \\
+    3 & 4 & 5 & 6
+\end{bNiceArray}
+\]
+Now that we have an augmented matrix in mind, let's take a look at
+how the three properties that we discussed apply to matrices.
+
+\begin{definition}{}{}
+For an augmented matrix for a linear system, performing the following
+operations will result in a linear system with an identical solution
+as the initial system.
+\begin{enumerate}[noitemsep]
+\item[$R_1$.]
+Rearrangement of the rows in the augmented matrix
+\item[$R_2$.]
+Multiply a nonzero scalar to a row in the augmented matrix
+\item[$R_3$.]
+Add a row multiplied by a scalar with another to replace a row with
+new row
+\end{enumerate}
+Such operations are referred to as \textbf{elementary row operations}.
+\end{definition}
+
+If you compare the operations one by one, you can notice that the
+two sets of properties refer to the same property. Now with the
+set of properties of augmented matrices in mind, here are the steps
+for the Gaussian Elimination algorithm.
+
+\begin{theorem}{}{Gaussian Elimination}
+Execute the following steps in order for Gaussian Elimination.
+\begin{enumerate}[noitemsep]
+\item
+Construct the augmented matrix.
+\item
+Utilize the elementary row operations to transform the augmented
+matrix into REF.
+\item
+Convert the augmented matrix in REF into equations of a transformed
+linear system, referred to as the \textbf{derived set}.
+\item
+Back substitute to solve the system.
+\end{enumerate}
+\end{theorem}
+
+Let's take a look at a few examples.
+
+\begin{problem}{}{}
+Find solution(s) to the following system of linear equations if any.
+\begin{align*}
+    x + 2y + z &= 1 \\
+    3x - y + z &= 6 \\
+    x + y - z &= -2
+\end{align*}
+\end{problem}
+\begin{solution}
+First, the augmented matrix can be found from the system. Consider
+the matrix below.
+\[
+\begin{bNiceArray}{ccc|c}
+    1 & 2  & 1  & 1 \\
+    3 & -1 & 1  & 6 \\
+    1 & 1  & -1 & -2
+\end{bNiceArray}
+\]
+Using the elementary row operations, the augmented matrix can be
+transformed as the following.
+\[
+\begin{bNiceArray}{ccc|c}
+    1 & 2  & 1  & 1 \\
+    3 & -1 & 1  & 6 \\
+    1 & 1  & -1 & -2
+\end{bNiceArray}
+\rightarrow
+\begin{bNiceArray}{ccc|c}
+    1 & 2  & 1  & 1 \\
+    0 & -4 & 4  & 12 \\
+    1 & 1  & -1 & -2
+\end{bNiceArray}
+\rightarrow
+\begin{bNiceArray}{ccc|c}
+    1 & 2  & 1  & 1 \\
+    0 & -4 & 4  & 12 \\
+    0 & -1 & -2 & -3
+\end{bNiceArray}
+\]
+\[
+\rightarrow
+\begin{bNiceArray}{ccc|c}
+    1 & 2  & 1  & 1 \\
+    0 & -1 & 1  & 3 \\
+    0 & 1  & 2  & 3
+\end{bNiceArray}
+\rightarrow
+\begin{bNiceArray}{ccc|c}
+    1 & 2  & 1  & 1 \\
+    0 & -1 & 1  & 3 \\
+    0 & 0  & 3  & 6
+\end{bNiceArray}
+\rightarrow
+\begin{bNiceArray}{ccc|c}
+    1 & 2  & 1  & 1 \\
+    0 & 1  & -1 & -3 \\
+    0 & 0  & 1  & 2
+\end{bNiceArray}
+\]
+Because the augmented matrix is now in REF, the transformed
+linear system can be rewritten.
+\begin{align*}
+    x + 2y + z &= 1 \\
+    y - z &= -3 \\
+    z &= 2
+\end{align*}
+Back substituting, it is evident that $z = 2$ and $y = -1$.
+Moreover, $x = 1 + 2 - 2 = 1$. Therefore, the triple $(1, -1, 2)$
+is the solution to the linear system.
+\end{solution}
+
+Try substituting to the original system! You can notice that the
+solution is valid. Below is the second example of using
+Gaussian Elimination.
+
+\begin{problem}{}{}
+Find solution(s) to the following system of linear equations if any.
+\begin{align*}
+    x + 2y + 3z &= 4 \\
+    y + 3z &= 5 \\
+    x + y &= 1
+\end{align*}
+\end{problem}
+\begin{solution}
+First and foremost, the augmented matrix can be found.
+\[
+\begin{bNiceArray}{ccc|c}
+    1 & 2 & 3 & 4 \\
+    0 & 1 & 3 & 5 \\
+    1 & 1 & 0 & 1
+\end{bNiceArray}
+\rightarrow
+\begin{bNiceArray}{ccc|c}
+    1 & 2  & 3  & 4 \\
+    0 & 1  & 3  & 5 \\
+    0 & -1 & -3 & -3
+\end{bNiceArray}
+\rightarrow
+\begin{bNiceArray}{ccc|c}
+    1 & 2 & 3 & 4 \\
+    0 & 1 & 3 & 5 \\
+    0 & 0 & 0 & 2
+\end{bNiceArray}
+\]
+Writing the transformed augmented matrix into a system of linear
+equations, the following system is obtained.
+\begin{align*}
+    x + 2y + 3z &= 4 \\
+    y + 3z &= 5 \\
+    0 &= 2
+\end{align*}
+Notice that $0 = 2$ can never be true. Therefore, no solution exists.
+\end{solution}
+
+We could double check our answer without using matrices. Notice that
+$3z - x = 4$ and $x = 3z - 4$. Similarly, $y = 5 - 3z$. Substituting
+to the first equation, $3z - 4 + 10 - 6z + 3z = 4$, or $6 = 4$,
+which is not true. Therefore, our results align! Below is the third
+example of using the algorithm.
+
+\begin{problem}{}{}
+Find solution(s) to the following system of linear equations if any.
+\begin{align*}
+    x - y - 2z &= 3 \\
+    2x + y - 7z &= 3 \\
+    x + y - 4z &= 1
+\end{align*}
+\end{problem}
+\begin{solution}
+Consider the following augmented matrix.
+\[
+\begin{bNiceArray}{ccc|c}
+    1 & -1 & -2 & 3 \\
+    2 & 1  & -7 & 3 \\
+    1 & 1  & -4 & 1
+\end{bNiceArray}
+\]
+Utilizing Gaussian Elimination, the augmented matrix can be
+transformed as following.
+\begin{align*}
+\begin{bNiceArray}{ccc|c}
+    1 & -1 & -2 & 3 \\
+    2 & 1  & -7 & 3 \\
+    1 & 1  & -4 & 1
+\end{bNiceArray}
+&\rightarrow
+\begin{bNiceArray}{ccc|c}
+    1 & -1 & -2 & 3 \\
+    2 & 1  & -7 & 3 \\
+    0 & 2  & -2 & -2
+\end{bNiceArray}
+\rightarrow
+\begin{bNiceArray}{ccc|c}
+    1 & -1 & -2 & 3 \\
+    0 & 1  & -1 & -1 \\
+    2 & 1  & -7 & 3
+\end{bNiceArray} \\
+&\rightarrow
+\begin{bNiceArray}{ccc|c}
+    1 & -1 & -2 & 3 \\
+    0 & 1  & -1 & -1 \\
+    0 & 3  & -3 & -3
+\end{bNiceArray}
+\rightarrow
+\begin{bNiceArray}{ccc|c}
+    1 & -1 & -2 & 3 \\
+    0 & 1  & -1 & -1 \\
+    0 & 0  & 0  & 0
+\end{bNiceArray}
+\end{align*}
+Rewriting the system, the following equations are obtained.
+\begin{align*}
+    x - y - 2z &= 3 \\
+    y - z &= -1
+\end{align*}
+Notice that $y = z - 1$ and $x = y + 2z + 3 = z - 1 + 2z + 3 =
+3z + 2$. Because there exists infinitely many $z$, the system
+has infinitely many solutions.
+\end{solution}
+
+When writing such solutions, it could be written as the following.
+\[
+x =
+\begin{bmatrix}
+    3z + 2 \\
+    z - 1 \\
+    z
+\end{bmatrix}
+\]
+For the next section, let's discuss the inverse of a matrix and its
+application in linear systems.
+
+\end{document}
+
+

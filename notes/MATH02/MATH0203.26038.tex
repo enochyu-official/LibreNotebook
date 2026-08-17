@@ -1,0 +1,427 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\section{LU Decomposition}
+
+The last popular method to solve a linear system that we will
+discuss is LU decomposition. As always, let's start by discussing
+fundamental definitions.
+
+\begin{definition}{}{}
+\textbf{LU decomposition} is the process of factorizing an
+invertible matrix into the product of lower and upper triangular
+matrices where the diagonal elements of the lower triangular matrix
+are $1$.
+\end{definition}
+
+Before we look at an important theorem and how it can be used to
+solve a linear system, here is an example of LU decomposition
+for matrix $A$ defined as the following.
+\[
+A =
+\begin{bmatrix}
+    1 & 2  & 3 \\
+    2 & 6  & 9 \\
+    3 & 10 & 18
+\end{bmatrix}
+\]
+From here, notice that matrix $A$ can be transformed to upper
+triangular matrix with the following elementary row operations of
+$R_3$.
+\[
+\begin{bmatrix}
+    1 & 2  & 3 \\
+    2 & 6  & 9 \\
+    3 & 10 & 18
+\end{bmatrix}
+\rightarrow
+\begin{bmatrix}
+    1 & 2  & 3 \\
+    0 & 2  & 3 \\
+    3 & 10 & 18
+\end{bmatrix}
+\rightarrow
+\begin{bmatrix}
+    1 & 2 & 3 \\
+    0 & 2 & 3 \\
+    0 & 4 & 9
+\end{bmatrix}
+\rightarrow
+\begin{bmatrix}
+    1 & 2 & 3 \\
+    0 & 2 & 3 \\
+    0 & 0 & 3
+\end{bmatrix}
+\]
+Notice that the operations above can be represented as the
+matrix multiplication with $R_3$ that are lower triangular matrices.
+\[
+\begin{bmatrix}
+    1 & 0  & 0 \\
+    0 & 1  & 0 \\
+    0 & -2 & 1
+\end{bmatrix}
+\begin{bmatrix}
+    1  & 0 & 0 \\
+    0  & 1 & 0 \\
+    -3 & 0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+    1  & 0 & 0 \\
+    -2 & 1 & 0 \\
+    0  & 0 & 1
+\end{bmatrix}
+A
+=
+\begin{bmatrix}
+    1 & 2 & 3 \\
+    0 & 2 & 3 \\
+    0 & 0 & 3
+\end{bmatrix}
+\]
+Therefore, the following equation is obtained.
+\[
+A
+= \left(
+    \begin{bmatrix}
+        1 & 0 & 0 \\
+        2 & 1 & 0 \\
+        0 & 0 & 1
+    \end{bmatrix}
+    \begin{bmatrix}
+        1 & 0 & 0 \\
+        0 & 1 & 0 \\
+        3 & 0 & 1
+    \end{bmatrix}
+    \begin{bmatrix}
+        1 & 0 & 0 \\
+        0 & 1 & 0 \\
+        0 & 2 & 1
+    \end{bmatrix}
+\right)
+\begin{bmatrix}
+    1 & 2 & 3 \\
+    0 & 2 & 3 \\
+    0 & 0 & 3
+\end{bmatrix}
+=
+\begin{bmatrix}
+    1 & 0 & 0 \\
+    2 & 1 & 0 \\
+    3 & 2 & 1
+\end{bmatrix}
+\begin{bmatrix}
+    1 & 2 & 3 \\
+    0 & 2 & 3 \\
+    0 & 0 & 3
+\end{bmatrix}
+\]
+$A$ is now represented as the product of lower and upper triangular
+matrices! Now that we know how LU decomposition works, let's take
+a look at an important lemma on triangular matrices to prove a
+theorem on LU decomposition.
+
+\begin{lemma}{}{Inverse of Triangular Matrices}
+The inverse of upper and lower triangular matrices are upper and
+lower triangular matrices respectively.
+\end{lemma}
+\begin{proof}
+First and foremost, consider an invertible upper triangular matrix
+$A_{m \times m} = [a_{ij}]$ and its inverse $B = [b_{ij}]$.
+By definition, its product $C = [c_{ij}]$ can be represented as
+$C = [ \sum_{k = 1}^m a_{ij} b_{ji} ]$. Because $c_{ij} = 0$ for
+$i \neq j$ and $c_{ij} = 1$ for $i = j$, the values of $b_{ji}$
+can be found.
+
+By definition, $a_{ij} = 0$ for $i > j$. Therefore, $c_{ij} = 0$
+for $i > j$. Similarly, if $b_{ji} = 0$ for $j > i$, then $c_{ij} = 0$
+for $i \neq j$. Continuing, if $b_{ij} = \frac{1}{a_{ij}}$ for
+$i = j$, $B$ can be constructed, which is an upper triangular
+matrix. Because the inverse matrix is unique, the inverse of an
+upper triangular matrix is an upper triangular matrix if there exists
+one.
+
+Similarly, the fact that the inverse of an lower triangular matrix is
+a lower triangular matrix can be proven. Let $A'_{m \times m} =
+[a'_{ij}]$ be a lower triangular matrix and $B' = [b'_{ij}]$ be
+its inverse. By definition, their product $C' = [c'_{ij}] =
+[ \sum_{k = 1}^m a'_{ij} b'_{ji} ]$ is the identity matrix $I_m$.
+Thus, it suffices to show that $c'_{ij} = 0$ for $i \neq j$ and
+$c'_{ij} = 1$ for $i = j$.
+
+Note that by definition, $a'_{ij} = 0$ for $i < j$. Therefore,
+$c'_{ij} = 0$ for $i < j$. Similarly, if $b'_{ji} = 0$ for $i > j$,
+and $b'_{ij} = \frac{1}{a'_{ij}}$ for $i = j$, then the valid
+inverse matrix $B$ is constructed. Because $B$ is a lower triangular
+matrix and the inverse matrix is unique, the inverse of a lower
+triangular matrix is a lower triangular matrix.
+\end{proof}
+
+With the lemma in mind, let's prove the following theorem.
+
+\begin{theorem}{}{Condition for LU Decomposition}
+An invertible matrix has a LU decomposition if and only if
+multiplying a sequence of lower triangular elementary matrices for
+elementary row operations can transform the matrix into an upper
+triangular matrix.
+\end{theorem}
+\begin{proof}
+First, the statement that a nonsingular matrix has a LU decomposition
+if multiplying a sequence of lower triangular elementary matrices for
+elementary row operations can transform the matrix into an upper
+triangular matrix can be proven. Let $A$ be an invertible matrix
+that can be represented as the following.
+\[
+E_{n,n-1} \cdots E_{31} E_{21} A = U
+\]
+for lower matrices $E$ and an upper matrix $U$. Notice that $A$ can
+be written as the following.
+\[
+A = \left( E^{-1}_{21} E^{-1}_{31} \cdots E^{-1}_{n,n-1} \right) U
+\]
+From Lemma \ref{lem:Inverse of Triangular Matrices}, the inverses of
+the elementary matrices are lower triangular matrices. Moreover,
+by Theorem \ref{theo:Property of Triangular Matrix Multiplication},
+the product of the lower triangular matrices is also a lower
+triangular matrix. Therefore, for a lower triangular matrix $L$,
+$A$ can be written as the following.
+\[
+A = LU
+\]
+Therefore, the first half of the statement holds.
+
+For the second half of the statement, consider the following equation.
+\[
+I = AA^{-1} = LUA^{-1} = L \left( UA^{-1} \right)
+\]
+Therefore, $L$ is nonsingular. From the proof for Lemma
+\ref{lem:Inverse of Triangular Matrices}, it is evident that the diagonal
+elements of an invertible lower triangular matrix are nonzero as
+the diagonal elements in the inverse cannot be defined if a zero is
+present in the diagonal elements of the lower triangular matrix.
+
+Let $D$ be the diagonal matrix formed with the diagonal elements of
+$L$ and define $L'$ such that the equation $L'D = L$ is satisfied.
+Moreover, let $U' = DU$. Thus, the following equation is obtained.
+\[
+A = LU = L'DU = L'U'
+\]
+Recall that $L$ is invertible. Because $L^{-1}$ exists and
+$(L'D)^{-1} = D^{-1} L'^{-1}$ exists, $L'$ is also invertible.
+In other words, $L'^{-1} A = U'$. Therefore, it suffices to show
+that $L'^{-1}$ is a product of lower triangular elementary matrices.
+By definition of $D$, the diagonal elements of $L'$ are $1$. Thus,
+it can be interpreted as a sequence of elementary row operations.
+In other words, it can be represented as a product of lower triangular
+elementary matrices, proving the latter half of the theorem.
+\end{proof}
+
+Now that we discussed what LU decomposition is, let's see how
+we can use it to solve a linear system.
+
+\subsection{Application in Linear Systems}
+
+When we apply LU decomposition in solving linear systems, two
+relatively easy systems must be solved. Consider the system
+$Ax = b$ where $A = LU$. First, $y$ must be found from the
+following system with forward substitution.
+\[
+Ly = b
+\]
+Then, we can solve for $x$ with back substitution with the following
+system.
+\[
+Ux = y
+\]
+The good news is that both systems are relatively easy to solve.
+The reason is simple. Consider the following equation.
+\[
+Ax = LUx = b
+\]
+Let $y = Ux$, then $Ly = b$. If we find $Ly = b$, then we can find
+$Ux = y$ as we know $y$. This way, we can find $x$ while exploiting
+the triangular form. Let's take a look at an example.
+
+\begin{problem}{}{}
+Solve the following system of linear equations.
+\begin{align*}
+    x - 2y + z &= 2 \\
+    2x + y - z &= 1 \\
+    3x - y + 2z &= 15
+\end{align*}
+\end{problem}
+\begin{solution}
+First and foremost, the linear system can be represented as the
+matrix multiplication below.
+\[
+\begin{bmatrix}
+    1 & -2 & 1 \\
+    2 & 1  & -1 \\
+    3 & -1 & 2
+\end{bmatrix}
+\begin{bmatrix}
+    x \\
+    y \\
+    z
+\end{bmatrix}
+=
+\begin{bmatrix}
+    2 \\
+    1 \\
+    15
+\end{bmatrix}
+\]
+Continuing, the coefficient matrix $A$ can be transformed as the
+following.
+\[
+\begin{bmatrix}
+    1 & -2 & 1 \\
+    2 & 1  & -1 \\
+    3 & -1 & 2
+\end{bmatrix}
+\rightarrow
+\begin{bmatrix}
+    1 & -2 & 1 \\
+    0 & 5  & -3 \\
+    3 & -1 & 2
+\end{bmatrix}
+\rightarrow
+\begin{bmatrix}
+    1 & -2 & 1 \\
+    0 & 5  & -3 \\
+    0 & 5  & -1
+\end{bmatrix}
+\rightarrow
+\begin{bmatrix}
+    1 & -2 & 1 \\
+    0 & 5  & -3 \\
+    0 & 0  & 2
+\end{bmatrix}
+\]
+Using elementary matrices, the transformation above can be
+written as the following.
+\[
+\begin{bmatrix}
+    1 & 0  & 0 \\
+    0 & 1  & 0 \\
+    0 & -1 & 1
+\end{bmatrix}
+\begin{bmatrix}
+    1  & 0 & 0 \\
+    0  & 1 & 0 \\
+    -3 & 0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+    1  & 0 & 0 \\
+    -2 & 1 & 0 \\
+    0  & 0 & 1
+\end{bmatrix}
+A =
+\begin{bmatrix}
+    1 & -2 & 1 \\
+    0 & 5  & -3 \\
+    0 & 0  & 2
+\end{bmatrix}
+\]
+Completing the LU decomposition, $A$ can be represented as the
+product of the following lower and upper triangular matrices.
+\begin{align*}
+    A
+    &=
+    \left(
+    \begin{bmatrix}
+        1 & 0 & 0 \\
+        2 & 1 & 0 \\
+        0 & 0 & 1
+    \end{bmatrix}
+    \begin{bmatrix}
+        1 & 0 & 0 \\
+        0 & 1 & 0 \\
+        3 & 0 & 1
+    \end{bmatrix}
+    \begin{bmatrix}
+        1 & 0 & 0 \\
+        0 & 1 & 0 \\
+        0 & 1 & 1
+    \end{bmatrix}
+    \right)
+    \begin{bmatrix}
+        1 & -2 & 1 \\
+        0 & 5  & -3 \\
+        0 & 0  & 2
+    \end{bmatrix} \\
+    &=
+    \begin{bmatrix}
+        1 & 0 & 0 \\
+        2 & 1 & 0 \\
+        3 & 1 & 1
+    \end{bmatrix}
+    \begin{bmatrix}
+        1 & -2 & 1 \\
+        0 & 5  & -3 \\
+        0 & 0  & 2
+    \end{bmatrix}
+\end{align*}
+Continuing, the following system could be solved.
+\[
+\begin{bmatrix}
+    1 & 0 & 0 \\
+    2 & 1 & 0 \\
+    3 & 1 & 1
+\end{bmatrix}
+\begin{bmatrix}
+    x' \\
+    y' \\
+    z'
+\end{bmatrix}
+=
+\begin{bmatrix}
+    2 \\
+    1 \\
+    15
+\end{bmatrix}
+\]
+The matrix multiplication above can be written as the following
+system of linear equations.
+\begin{align*}
+    x' &= 2 \\
+    2x' + y' &= 1 \\
+    3x' + y' + z' &= 15
+\end{align*}
+Substituting, $y' = 1 - 4 = -3$ and $z' = 15 - 6 + 3 = 12$. Thus,
+the final system can be written as the following.
+\[
+\begin{bmatrix}
+    1 & -2 & 1 \\
+    0 & 5  & -3 \\
+    0 & 0  & 2
+\end{bmatrix}
+\begin{bmatrix}
+    x \\
+    y \\
+    z
+\end{bmatrix}
+=
+\begin{bmatrix}
+    2 \\
+    -3 \\
+    12
+\end{bmatrix}
+\]
+Writing in linear system, $x$, $y$, and $z$ can be found.
+\begin{align*}
+    x - 2y + z &= 2 \\
+    5y - 3z &= -3 \\
+    2z &= 12
+\end{align*}
+Therefore, $z = 6$, $y = 3$, and $x = 2$.
+\end{solution}
+
+With LU decomposition, we completed our discussion on solving
+systems of linear equations! Below are some practice problems
+for the topics that we covered.
+
+\end{document}
+
+

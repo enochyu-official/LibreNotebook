@@ -8,7 +8,20 @@
 
 \begin{document}
 
-\maketitle
+\begin{titlepage}
+    \centering
+    \vspace*{8em}
+    {
+        \fontsize{35}{42}
+        \selectfont\bfseries LibreNotebook \\
+    }
+    \vspace{0.4cm}
+    {\large Last Updated: \today\par}
+    \vfill
+    {\LARGE\itshape Enoch Yu\par}
+    \vspace{1.5cm}
+\end{titlepage}
+
 \tableofcontents
 
 \subfile{preface}
@@ -16,93 +29,81 @@
 %%%%% High School %%%%%
 %%% MATH %%%
 \part{Math Olympiad}
-% Inequalities
 \subfile{notes/MATH01/MATH0100.26001}
+% Inequalities
 \subfile{notes/MATH01/MATH0101.26002}
 \subfile{notes/MATH01/MATH0101.26003}
 \subfile{notes/MATH01/MATH0101.26004}
 \subfile{notes/MATH01/MATH0101.26005}
-
-% Geometry
+% Projective Geometry
 \subfile{notes/MATH01/MATH0102.26023}
-\section{References}
+% Combinatorics
+\chapter{References}
 \printbibliography[heading=none]
 
-% Combinatorics
+
+\part{Linear Algebra}
+\subfile{notes/MATH02/MATH0200.26024}
+% Vectors and Vector Spaces
+\subfile{notes/MATH02/MATH0201.26025}
+\subfile{notes/MATH02/MATH0201.26026}
+\subfile{notes/MATH02/MATH0201.26027}
+\subfile{notes/MATH02/MATH0201.26028}
+% Matrices
+\subfile{notes/MATH02/MATH0202.26029}
+\subfile{notes/MATH02/MATH0202.26030}
+\subfile{notes/MATH02/MATH0202.26031}
+\subfile{notes/MATH02/MATH0202.26032}
+\subfile{notes/MATH02/MATH0202.26033}
+\subfile{notes/MATH02/MATH0202.26034}
+% System of Linear Equations
+\subfile{notes/MATH02/MATH0203.26035}
+\subfile{notes/MATH02/MATH0203.26036}
+\subfile{notes/MATH02/MATH0203.26037}
+\subfile{notes/MATH02/MATH0203.26038}
+\subfile{notes/MATH02/MATH0203.26039}
+% Matrices and Vector Spaces
+\subfile{notes/MATH02/MATH0204.26040}
+\subfile{notes/MATH02/MATH0204.26041}
+\subfile{notes/MATH02/MATH0204.26042}
+\subfile{notes/MATH02/MATH0204.26043}
+% Solutions and Notice
+\subfile{notes/MATH02/MATH0205.26044}
+\subfile{notes/MATH02/MATH0205.26045}
+\subfile{notes/MATH02/MATH0205.26046}
+\subfile{notes/MATH02/MATH0205.26047}
+\subfile{notes/MATH02/MATH0205.26048}
+\chapter{References}
+\printbibliography[heading=none]
 
 
 %%% CS %%%
 \part{Machine Learning}
 \subfile{notes/CS01/CS0100.26006}
+% Fundamental Math for Machine Learning
 \subfile{notes/CS01/CS0101.26007}
 \subfile{notes/CS01/CS0101.26008}
 \subfile{notes/CS01/CS0101.26009}
+% Python Basics for Machine Learning
 \subfile{notes/CS01/CS0102.26010}
 \subfile{notes/CS01/CS0102.26011}
+% Foundations and Intuitions
 \subfile{notes/CS01/CS0103.26012}
 \subfile{notes/CS01/CS0103.26013}
 \subfile{notes/CS01/CS0103.26014}
+% Deep Dive into Deep Neural Networks
 \subfile{notes/CS01/CS0104.26015}
 \subfile{notes/CS01/CS0104.26016}
 \subfile{notes/CS01/CS0104.26017}
+% Building Language Models
 \subfile{notes/CS01/CS0105.26018}
 \subfile{notes/CS01/CS0105.26019}
 \subfile{notes/CS01/CS0105.26020}
+% AI and The Future
 \subfile{notes/CS01/CS0106.26021}
-\subfile{notes/CS01/CS0106.26022}
+% Further Resources
+\subfile{notes/CS01/CS0107.26022}
 
-% Half-Title Page
-\begin{titlepage}
-    \thispagestyle{empty}
-    \vspace*{0.1\textheight}
-    \centering
-    {\Huge Enoch's Notebook: \linebreak
-    An Introduction to \linebreak Linear Algebra\par}
-\end{titlepage}
-
-\thispagestyle{empty}
-% Title Page
-\begin{titlepage}
-    \centering
-    \vspace*{8em}
-    {
-    \fontsize{35}{42}
-    \selectfont\bfseries Enoch's Notebook:\\[0.2em]
-    An Introduction to Linear Algebra\\[0.5em]
-    }
-    \vspace{0.4cm}
-    {\large A Beginner's Guide to Linear Algebra\par}
-    \vfill
-    {\LARGE\itshape Enoch Yu\par}
-    \vspace{1.5cm}
-\end{titlepage}
-
-\thispagestyle{empty}
-\vspace*{\fill}
-\begin{center}
-{\small
-Copyright \textcopyright\ 2026 Enoch Yu \\
-All rights reserved.
-
-\vspace{0.8em}
-
-ISBN: 9798192810682
-}
-\end{center}
-
-\newpage
-\tableofcontents
-\newpage
-
-% Notes
-\subfile{notes/00_preface}
-\subfile{notes/01_note01}
-\subfile{notes/02_note02}
-\subfile{notes/03_note03}
-\subfile{notes/04_note04}
-\subfile{notes/05_appendixA}
-\subfile{notes/06_appendixB}
-\subfile{notes/07_bibliography}
 \end{document}
 
 

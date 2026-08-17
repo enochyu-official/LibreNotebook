@@ -1,0 +1,525 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\section{The Multiplicative Inverse}
+
+As we discuss matrix multiplication, you may have wondered about
+matrix division. I mean it would be so nice if we could just
+divide the coefficient matrix to find our variables. Although there
+is no ``division'' operation per se, we could achieve similar
+operation with the multiplicative inverse of a matrix, or simply
+the inverse matrix. In other words, some solutions to linear systems
+can be written as $x = A^{-1}b$.
+
+\begin{definition}{}{}
+The \textbf{inverse of a matrix} is a matrix that produces an identity
+matrix when multiplied with the original matrix. The inverse of
+$A$ is denoted as $A^{-1}$.
+\end{definition}
+
+We could see that matrices $A$ and $B$ are the inverse of each other
+if the following equation is satisfied.
+\[
+AB = BA = I
+\]
+Below is an example where $B = A^{-1}$.
+\[
+A =
+\begin{bmatrix}
+    1 & 2 \\
+    3 & 5
+\end{bmatrix},
+\quad
+B =
+\begin{bmatrix}
+    -5 & 2 \\
+    3  & -1
+\end{bmatrix}
+\]
+One thing to note from the definition is that $A$ and $B$ must be
+square matrices. Say we have $A_{4 \times 2}$ and $B_{2 \times 4}$.
+Even if both $AB$ and $BA$ return an identity matrix, the order will
+be different. Therefore, for a matrix to have the inverse, it must
+be a square matrix.
+
+\begin{definition}{}{}
+A matrix is \textbf{invertible}, or \textbf{nonsingular}, if it
+retains an inverse matrix. A matrix is \textbf{singular} if it
+does not have an inverse matrix.
+\end{definition}
+
+Now from the definition above, we could establish a theorem.
+
+\begin{theorem}{}{Diagonal Elements and Invertibility}
+If all diagonal elements of a matrix are nonzero constants,
+then the matrix is invertible.
+\end{theorem}
+\begin{proof}
+Consider the matrix $A_{m \times m}$ defined below.
+\[
+A =
+\begin{bmatrix}
+    a_{11} & a_{12} & a_{13} & \cdots & a_{1m} \\
+    a_{21} & a_{22} & a_{23} & \cdots & a_{2m} \\
+    a_{31} & a_{32} & a_{33} & \cdots & a_{3m} \\
+    \vdots & \vdots & \vdots & \ddots & \vdots \\
+    a_{m1} & a_{m2} & a_{m3} & \cdots & a_{mm}
+\end{bmatrix}
+\]
+It suffices to show that there exists the inverse matrix
+for all values of the elements. Consider the inverse below.
+\[
+A^{-1} =
+\begin{bmatrix}
+    \frac{1}{a_{11}} & 0 & 0 & \cdots & 0 \\
+    0 & \frac{1}{a_{22}} & 0 & \cdots & 0 \\
+    0 & 0 & \frac{1}{a_{33}} & \cdots & 0 \\
+    \vdots & \vdots & \vdots & \ddots & \vdots \\
+    0 & 0 & 0 & \cdots & \frac{1}{a_{mm}}
+\end{bmatrix}
+\]
+Because $a_{ii}$ for integer $i \in [1, m]$ are nonzero numbers,
+all elements in the matrix $A^{-1}$ are defined, and the inverse
+matrix exists.
+\end{proof}
+
+Now, it is important to note that not all square matrices have the
+inverse. For example, consider a matrix with zero row. The same
+row in the product matrices will become a zero row. By definition,
+it is not possible to make an identity matrix with a zero row.
+
+Now that we discussed the existence, we could also investigate if
+the inverse matrix is unique just as a nonzero integer has a unique
+reciprocal.
+
+\begin{theorem}{}{Uniqueness of Inverse Matrix}
+If there exists an inverse matrix, the inverse is unique.
+\end{theorem}
+\begin{proof}
+For the sake of contradiction, let $B$ and $C$ be different
+inverse of $A$. Consider the following equation.
+\[
+B = BI = B(AC) = (BA)C = IC = C
+\]
+Because the fact that $B = C$ contradicts the initial assumption
+that $B \neq C$, all inverse matrices are unique.
+\end{proof}
+
+Before we discuss how we actually find an inverse, let's discuss
+four important properties of inverse matrices.
+
+\begin{theorem}{}{Properties of the Inverse Matrix}
+For invertible square matrices $A$ and $B$ and a nonzero scalar
+$\lambda$, the following equations hold.
+\begin{enumerate}
+\item $(A^{-1})^{-1} = A$
+\item $(A^\intercal)^{-1} = (A^{-1})^\intercal$
+\item $(AB)^{-1} = B^{-1}A^{-1}$
+\item $(\lambda A)^{-1} = (\frac{1}{\lambda})A^{-1}$
+\end{enumerate}
+\end{theorem}
+
+There's a lot to prove and let's do them one by one starting with
+the first one!
+
+\begin{proof}
+Let matrix $B = A^{-1}$. Substituting, it suffices to show that
+$B^{-1} = A$. By definition of inverse matrix, the equation
+$AB = BA = 1$ holds. In other words, $A$ is the inverse of $B$
+and the property holds.
+\end{proof}
+
+Below is the proof for the second property.
+
+\begin{proof}
+Notice that $(AB)^\intercal = B^\intercal A^\intercal$ from
+Theorem \ref{theo:Properties of Transpose of a Matrix}. Let matrix
+$B = A^{-1}$ and consider the following equation.
+\[
+I
+= (AB)^\intercal
+= B^\intercal A^\intercal
+= \left( A^{-1} \right)^\intercal A^\intercal
+\]
+In other words, $(A^{-1})^\intercal$ is the inverse of $A^\intercal$,
+or $(A^\intercal)^{-1}$, proving the property.
+\end{proof}
+
+Continuing, here is the proof for the third property.
+
+\begin{proof}
+Consider the following equation that uses the associative property
+of matrix multiplication.
+\[
+(B^{-1}A^{-1})(AB)
+= B^{-1}(A^{-1}A)B
+= B^{-1}(I)B
+= B^{-1}(IB)
+= B^{-1}B
+= I
+\]
+Because $B^{-1}A^{-1}$ is the inverse of $AB$, the property is true.
+\end{proof}
+
+Finally, here is the proof for the last property.
+
+\begin{proof}
+Let $B = \lambda A$. Consider the following equation.
+\[
+\frac{1}{\lambda} A^{-1} B
+= \frac{1}{\lambda} A^{-1} \lambda A
+= A^{-1} A
+= I
+\]
+In other words, $\frac{1}{\lambda} A^{-1}$ is the inverse of
+$\lambda A$, proving the fourth property.
+\end{proof}
+
+Now that we took a look at different properties of inverse matrices,
+let's discuss how to actually find one with tools to consider.
+
+\begin{definition}{}{}
+For a matrix $A$ that is not necessarily a square matrix, an
+\textbf{elementary matrix}, denoted as $E$, is a square matrix that
+performs an elementary row operation by multiplying with $A$.
+\end{definition}
+
+Let's take a look at an example. Consider matrix $A$ defined below,
+and we want to perform elementary row operations of changing the
+order of rows $1$ and $3$ and add two times the fourth row to the
+second respectively.
+\[
+A =
+\begin{bmatrix}
+    1 & 2 & 3 & 4 \\
+    1 & 0 & 2 & 0 \\
+    2 & 4 & 6 & 8 \\
+    1 & 1 & 1 & 1
+\end{bmatrix}
+\]
+The elementary row operations above can be complicated with words,
+but we can represent that with two elementary matrices respectively.
+Letting $E_1$ and $E_2$ be elementary matrices for each operation,
+we can represent the elementary row operations as the following.
+\[
+E_1 =
+\begin{bmatrix}
+    0 & 0 & 1 & 0 \\
+    0 & 1 & 0 & 0 \\
+    1 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 1
+\end{bmatrix},
+\quad
+E_2 =
+\begin{bmatrix}
+    1 & 0 & 0 & 0 \\
+    0 & 1 & 0 & 2 \\
+    0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 1
+\end{bmatrix}
+\]
+Let's multiply to see if we are right.
+\[
+E_1 A =
+\begin{bmatrix}
+    \textcolor{Red}{2} &
+    \textcolor{Red}{4} &
+    \textcolor{Red}{6} &
+    \textcolor{Red}{8} \\
+    1 & 0 & 2 & 0 \\
+    \textcolor{Red}{1} &
+    \textcolor{Red}{2} &
+    \textcolor{Red}{3} &
+    \textcolor{Red}{4} \\
+    1 & 1 & 1 & 1
+\end{bmatrix},
+\quad
+E_2 A =
+\begin{bmatrix}
+    1 & 2 & 3 & 4 \\
+    \textcolor{Red}{3} &
+    \textcolor{Red}{2} &
+    \textcolor{Red}{4} &
+    \textcolor{Red}{2} \\
+    2 & 4 & 6 & 8 \\
+    1 & 1 & 1 & 1
+\end{bmatrix}
+\]
+Now we can notice three observations and tips for constructing
+elementary matrices. For each elementary row operation, we could
+do the following.
+
+\begin{definition}{}{}
+\textbf{Methods to construct the elementary matrix for each
+elementary row operation:}
+\begin{itemize}[noitemsep]
+\item
+To interchange row $a$ and $b$, write the corresponding identity
+matrix and interchange row $a$ and $b$ from the identity matrix.
+\item
+To multiply a nonzero scalar $k$ to $a^\text{th}$ row, start from the
+corresponding identity matrix and change the $1$ from $a^\text{th}$
+row of the identity matrix to $k$.
+\item
+To add row $a$ multiplied by the nonzero scalar $k$ to row $b$,
+start from the corresponding identity matrix and find the
+$b^\text{th}$ row in the matrix. Then, change the zero from the
+$a^\text{th}$ column of the row to $k$.
+\end{itemize}
+\end{definition}
+
+From this, we can notice the following theorem.
+
+\begin{theorem}{}{Invertibility of Elementary Matrices}
+All elementary matrices are invertible.
+\end{theorem}
+\begin{proof}
+The proof is rather simple. Because all elementary row operations
+can be inverted with the inverse operation, all elementary matrices
+are invertible.
+\end{proof}
+
+Building onto the theorem, we could prove the uniqueness.
+
+\begin{theorem}{}{Uniqueness of Elementary Matrices}
+For each elementary row operation, the corresponding elementary
+matrix is unique.
+\end{theorem}
+\begin{proof}
+For the sake of contradiction, assume there exist elementary
+matrices $E$ and $F \neq E$. By definition, $EA = FA$ and
+$A = EE^{-1}A = E^{-1}FA$. By Theorem \ref{theo:Uniqueness of Identity
+Matrices}, $E^{-1}F = I$ and $E = F$ is obtained by Theorem
+\ref{theo:Uniqueness of Inverse Matrix}. By contradiction, it is
+shown that elementary matrices are unique.
+\end{proof}
+
+There are more interesting lemmas and theorems, but let's discuss
+them in latter notes. However, let's discuss a few theorems for each
+elementary row operation before moving on to finding an inverse
+matrix.
+
+\begin{theorem}{}{Three Properties of Elementary Matrices}
+For each elementary matrix for corresponding elementary row
+operations, the following properties hold.
+\begin{enumerate}[noitemsep]
+\item
+For an elementary matrix that changes the order of two rows,
+the inverse of such a matrix is itself.
+\item
+For an elementary matrix that scales a row with nonzero constant
+$k$, the inverse can be obtained by replacing $k$ in the elementary
+matrix with $\frac{1}{k}$.
+\item
+For an elementary matrix that adds the scaled row into the other,
+its inverse can be obtained by replacing the nonzero scalar $k$
+with $-k$.
+\end{enumerate}
+\end{theorem}
+
+As always, let's start by proving the first property.
+
+\begin{proof}
+The inverse of an elementary matrix can be considered as undoing
+the elementary row operation. To undo the interchanging of two rows,
+the two rows can be interchanged again. In other words, because
+the elementary row operation $EE = I$ by Theorem \ref{theo:Uniqueness
+of Identity Matrices}, $E = E^{-1}$.
+\end{proof}
+
+Continuing, here is the proof for the second property.
+
+\begin{proof}
+Let elementary matrices $E$ and $F$ be matrices that scale a
+row by a nonzero scalar $k$ and $\frac{1}{k}$ respectively.
+By definition, $F(EI) = I$ and $FE = I$. Therefore, $F = E^{-1}$
+and the property is shown.
+\end{proof}
+
+Lastly, here is the proof for the final property.
+
+\begin{proof}
+Similar to the proof for the second property, let elementary matrices
+$E$ and $F$ represent the elementary row operations that add a row
+scaled by nonzero constant $k$ to another and the operation that adds
+a row scaled by $-k$ to another respectively. By definition,
+$F(EI) = I$ and $F = E^{-1}$ as demonstrated above.
+\end{proof}
+
+Now before we actually find an inverse, we need to know which
+square matrices have the inverse matrix.
+
+\begin{definition}{}{}
+A square matrix $A$ is invertible if and only if it can be represented
+as an identity matrix after sequences of elementary row operations,
+i.e. there exist elementary matrices $E_i$ such that the following
+equation is true.
+\[
+E_k E_{k-1} \cdots E_1 A = I
+\]
+\end{definition}
+
+This is a very important result that we will prove later in a note,
+so don't worry. Finally, here are the steps to find an inverse if
+there exists one.
+
+\begin{definition}{}{}
+\textbf{Steps to Find the Inverse Matrix of
+$\mathbf{A_{m \times m}}$:}
+\begin{enumerate}[noitemsep]
+\item
+Write an augmented matrix $[A \mid I]$ for $I_{m}$.
+\item
+Utilize elementary row operations on the augmented matrix for
+the block $A$ to be in REF.
+\item
+If the main diagonal of the left partition contains a zero,
+$A$ is singular. If not, the next step can be continued.
+\item
+Use elementary row operations again to transform the block $A$
+in REF to an identity matrix. The right partition block is
+the inverse of $A$.
+\end{enumerate}
+\end{definition}
+
+Let's take a look at a few examples.
+
+\begin{problem}{}{}
+Find the inverse of $A =
+\begin{bmatrix}
+    1 & 2 & 3 \\
+    4 & 5 & 6 \\
+    7 & 8 & 9
+\end{bmatrix}$.
+\end{problem}
+\begin{solution}
+First, the augmented matrix can be constructed.
+\[
+\begin{bNiceArray}{ccc|ccc}
+    1 & 2 & 3 & 1 & 0 & 0 \\
+    4 & 5 & 6 & 0 & 1 & 0 \\
+    7 & 8 & 9 & 0 & 0 & 1
+\end{bNiceArray}
+\]
+Consider the following elementary row operations.
+\begin{align*}
+\begin{bNiceArray}{ccc|ccc}
+    1 & 2 & 3 & 1 & 0 & 0 \\
+    4 & 5 & 6 & 0 & 1 & 0 \\
+    7 & 8 & 9 & 0 & 0 & 1
+\end{bNiceArray}
+&\rightarrow
+\begin{bNiceArray}{ccc|ccc}
+    1 & 2 & 3 & 1 & 0 & 0 \\
+    8 & 10 & 12 & 0 & 2 & 0 \\
+    7 & 8 & 9 & 0 & 0 & 1
+\end{bNiceArray}
+\displaybreak
+\rightarrow
+\begin{bNiceArray}{ccc|ccc}
+    1 & 2 & 3 & 1 & 0 & 0 \\
+    1 & 2 & 3 & 0 & 2 & -1 \\
+    7 & 8 & 9 & 0 & 0 & 1
+\end{bNiceArray} \\
+&\rightarrow
+\begin{bNiceArray}{ccc|ccc}
+    1 & 2 & 3 & 1 & 0 & 0 \\
+    0 & 0 & 0 & -1 & 2 & -1 \\
+    7 & 8 & 9 & 0 & 0 & 1
+\end{bNiceArray}
+\end{align*}
+It is evident that the main diagonal will contain a zero after
+the transformation. Therefore, the matrix is not invertible.
+\end{solution}
+
+\begin{problem}{}{}
+Find the inverse of the following matrix $A$.
+\[
+A =
+\begin{bmatrix}
+    1 & 0 & 0 \\
+    2 & 1 & 1 \\
+    0 & 1 & 2
+\end{bmatrix}
+\]
+\end{problem}
+\begin{solution}
+First and foremost, the augmented matrix can be constructed.
+\begin{align*}
+\begin{bNiceArray}{ccc|ccc}
+    1 & 0 & 0 & 1 & 0 & 0 \\
+    2 & 1 & 1 & 0 & 1 & 0 \\
+    0 & 1 & 2 & 0 & 0 & 1
+\end{bNiceArray}
+&\rightarrow
+\begin{bNiceArray}{ccc|ccc}
+    1 & 0 & 0 & 1 & 0 & 0 \\
+    0 & 1 & 2 & 0 & 0 & 1 \\
+    2 & 1 & 1 & 0 & 1 & 0
+\end{bNiceArray}
+\rightarrow
+\begin{bNiceArray}{ccc|ccc}
+    1 & 0 & 0 & 1 & 0 & 0 \\
+    0 & 1 & 2 & 0 & 0 & 1 \\
+    0 & 0 & -1 & -2 & 1 & -1
+\end{bNiceArray} \\
+&\rightarrow
+\begin{bNiceArray}{ccc|ccc}
+    1 & 0 & 0 & 1 & 0 & 0 \\
+    0 & 1 & 2 & 0 & 0 & 1 \\
+    0 & 0 & 1 & 2 & -1 & 1
+\end{bNiceArray}
+\end{align*}
+Continuing, the left partition can be transformed into an
+identity matrix with elementary row operations.
+\[
+\begin{bNiceArray}{ccc|ccc}
+    1 & 0 & 0 & 1 & 0 & 0 \\
+    0 & 1 & 2 & 0 & 0 & 1 \\
+    0 & 0 & 1 & 2 & -1 & 1
+\end{bNiceArray}
+\rightarrow
+\begin{bNiceArray}{ccc|ccc}
+    1 & 0 & 0 & 1 & 0 & 0 \\
+    0 & 1 & 0 & -4 & 2 & -1 \\
+    0 & 0 & 1 & 2 & -1 & 1
+\end{bNiceArray}
+\]
+Therefore, the inverse of $A$ is the following.
+\[
+A^{-1} =
+\begin{bmatrix}
+    1  & 0  & 0 \\
+    -4 & 2  & -1 \\
+    2  & -1 & 1
+\end{bmatrix}
+\]
+\end{solution}
+
+We could actually multiply to see if we get $I_3$.
+\[
+\begin{bmatrix}
+    1 & 0 & 0 \\
+    2 & 1 & 1 \\
+    0 & 1 & 2
+\end{bmatrix}
+\begin{bmatrix}
+    1  & 0  & 0 \\
+    -4 & 2  & -1 \\
+    2  & -1 & 1
+\end{bmatrix}
+=
+\begin{bmatrix}
+    1 & 0 & 0 \\
+    0 & 1 & 0 \\
+    0 & 0 & 1
+\end{bmatrix}
+\]
+Indeed it is the inverse! In the next section of the note,
+we will discuss LU decomposition before completing our note on
+linear systems.
+
+\end{document}
+
+

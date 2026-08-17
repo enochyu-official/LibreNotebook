@@ -1,11 +1,17 @@
 # Parts
 MATH01         | Math Olympiad
+MATH02         | Linear Algebra
 CS01           | Machine Learning
 
 # Notes
 MATH0101       | Inequalities
 MATH0102       | Projective Geometry
 MATH0103       | Combinatorics
+MATH0201       | Vectors and Vector Spaces
+MATH0202       | Matrices
+MATH0203       | System of Linear Equations
+MATH0204       | Matrices and Vector Spaces
+MATH0205       | Appendix
 CS0101         | Fundamental Math for Machine Learning
 CS0102         | Python Basics for Machine Learning
 CS0103         | Foundations and Intuitions
@@ -20,23 +26,49 @@ MATH0101.26002 | Classic Inequalities
 MATH0101.26003 | Advanced Inequalities
 MATH0101.26004 | Inequalities Techniques
 MATH0101.26005 | Practice Problems
-CS0100.26006   | INIT
-CS0101.26007   | Calculus
-CS0101.26008   | Linear Algebra
-CS0101.26009   | Probability Theory
-CS0102.26010   | Basic Syntax
-CS0102.26011   | Modules and Libraries
-CS0103.26012   | Fundamental Terms and Concepts
-CS0103.26013   | Introduction to Large Language Models
-CS0103.26014   | Improving Large Language Models
-CS0104.26015   | Definitions and High Level Overview
-CS0104.26016   | Conventions and Mathematical INterpretations
-CS0104.26017   | Building Vanilla Neural Network From Scratch
-CS0105.26018   | Bigram Language Model
-CS0105.26019   | Attention and Transformers
-CS0105.26020   | Building and LLM with PyTorch
-CS0106.26021   | AI Safety
-CS0106.26022   | Further Resources
+  CS0100.26006 | INIT
+  CS0101.26007 | Calculus
+  CS0101.26008 | Linear Algebra
+  CS0101.26009 | Probability Theory
+  CS0102.26010 | Basic Syntax
+  CS0102.26011 | Modules and Libraries
+  CS0103.26012 | Fundamental Terms and Concepts
+  CS0103.26013 | Introduction to Large Language Models
+  CS0103.26014 | Improving Large Language Models
+  CS0104.26015 | Definitions and High Level Overview
+  CS0104.26016 | Conventions and Mathematical INterpretations
+  CS0104.26017 | Building Vanilla Neural Network From Scratch
+  CS0105.26018 | Bigram Language Model
+  CS0105.26019 | Attention and Transformers
+  CS0105.26020 | Building and LLM with PyTorch
+  CS0106.26021 | AI Safety
+  CS0107.26022 | Further Resources
 MATH0102.26023 | Desargues' Theorem
+MATH0200.26024 | INIT
+MATH0201.26025 | Basic Terms and Notations
+MATH0201.26026 | Fundamental Properties
+MATH0201.26027 | Subspaces
+MATH0201.26028 | Practice Problems
+MATH0202.26029 | Basic Terms and Notations
+MATH0202.26030 | Fundamental Properties
+MATH0202.26031 | Matrix Multiplication
+MATH0202.26032 | Additional Fundamental Topics
+MATH0202.26033 | Determinants
+MATH0202.26034 | Practice Problems
+MATH0203.26035 | Basics and Intuitions
+MATH0203.26036 | Gaussian Elimination
+MATH0203.26037 | The Multiplicative Inverse
+MATH0203.26038 | LU Decomposition
+MATH0203.26039 | Practice Problems
+MATH0204.26040 | Row Space and Rank of a Matrix
+MATH0204.26041 | Linear Transformations
+MATH0204.26042 | Eigenvalues and Eigenvectors
+MATH0204.26043 | Practice Problems
+MATH0205.26044 | Solutions for Note 1
+MATH0205.26045 | Solutions for Note 2
+MATH0205.26046 | Solutions for Note 3
+MATH0205.26047 | Solutions for Note 4
+MATH0205.26048 | Final Thoughts
+
 
 

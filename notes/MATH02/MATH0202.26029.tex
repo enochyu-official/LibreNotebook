@@ -1,0 +1,131 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{Matrices}
+
+Matrices are one of the fundamental components that build linear
+algebra. This note discusses the fundamental concepts and properties
+of matrices.
+
+\section{Basic Terms and Notations}
+
+As always, let's get started with the definition.
+
+\begin{definition}{}{}
+A \textbf{matrix} is a 2-dimensional array composed of entries
+called \textbf{elements}. A matrix is said to have \textbf{order}
+``$m$ by $n$'' and written as $m \times n$ if there are $m$ rows
+and $n$ columns.
+\end{definition}
+
+Technically, the elements of a matrix can be anything including
+functions. However, the majority of the matrices discussed in
+linear algebra will have numeric elements. Let's take a look
+at some examples.
+\[
+A=
+\begin{bNiceMatrix}[last-row,last-col]
+    1  &  2 &  3 & 4  &
+        \Vbrace[horizontal-label]{3}{3 \text{ rows}} \\
+    -1 & -2 & -3 & -4 \\
+    0  & -1 & 0  & 1  \\
+    \Hbrace{4}{4 \text{ columns}} &
+\end{bNiceMatrix}
+\qquad\quad,\qquad
+B =
+\begin{bNiceMatrix}[last-row,last-col]
+\pi & \Vbrace[horizontal-label]{4}{4 \text{ rows}} \\
+e \\
+0 \\
+1 \\
+\Hbrace{1}{1 \text{ column}}
+\end{bNiceMatrix}
+\]
+Here, matrix $A$ has order $3 \times 4$ and matrix $B$ has
+order $4 \times 1$. The form of a matrix that has order
+$m \times n$ can be generalized as the following.
+\[
+A=
+\begin{bNiceMatrix}[last-row,last-col]
+    a_{1,1} & a_{1,2} & a_{1,3} & \cdots & a_{1,n}
+        & \Vbrace[horizontal-label]{5}{n \text{ rows}} \\
+    a_{2,1} & a_{2,2} & a_{2,3} & \cdots & a_{2,n} \\
+    a_{3,1} & a_{3,2} & a_{3,3} & \cdots & a_{3,n} \\
+    \vdots  & \vdots  & \vdots  & \ddots & \vdots  \\
+    a_{m,1} & a_{m,2} & a_{m,3} & \cdots & a_{m,n} \\
+    \Hbrace{5}{m \text{ columns}} &
+\end{bNiceMatrix}
+\]
+It is also worth noting that matrix $A$ is often represented
+as $[a_{ij}]$ and the elements as $a_{ij}$ like $a_{12}$ for
+$a_{1, 2}$.
+
+\begin{definition}{}{}
+An element $a_{ij}$ is said to have row index of $i$ and
+column index of $j$.
+\end{definition}
+
+As you probably have guessed, we assign special names to some
+matrices depending on $m$ and $n$.
+
+\begin{definition}{}{}
+\textbf{Square matrices} are matrices with an equal number of rows
+and columns. The elements with the same row and column index are
+called \textbf{diagonal elements} of the matrix. The collection
+of such elements is called \textbf{main diagonal}, or
+\textbf{principal diagonal}.
+\end{definition}
+
+What if either $m$ or $n$ is equal to $1$? Yes, we do have special
+terms for them.
+
+\begin{definition}{}{}
+\textbf{Row matrices} are matrices that are composed of only one
+row. A \textbf{column matrix} is an array composed of one column.
+\end{definition}
+
+If you have a machine learning background, you likely have heard
+of the term ``high dimensional arrays or vectors.'' Here, the
+term ``dimension'' works the same way.
+
+\begin{definition}{}{}
+The \textbf{dimension} of a row or column matrix is the number
+of \textbf{components}, or the elements. An
+\textbf{$\mathbf{n}$-tuple} is an $n$-dimensional row or column
+vector.
+\end{definition}
+
+Let's take a look at an example from the previous matrix $B$
+reproduced below.
+
+\begin{minipage}{0.2\textwidth}
+\[
+B =
+\begin{bNiceMatrix}[last-row,last-col]
+\pi & \Vbrace[horizontal-label]{4}{4 \text{ rows}} \\
+e \\
+0 \\
+1 \\
+\Hbrace{1}{1 \text{ column}}
+\end{bNiceMatrix}
+\]
+\end{minipage}
+\hfill
+\begin{minipage}{0.7\textwidth}
+Here, matrix $B$ is a 4-dimensional matrix with four components.
+This column matrix can also be called as $4$-tuple.
+\end{minipage}
+
+We could also define matrices by their elements.
+
+\begin{definition}{}{}
+A \textbf{zero matrix} is a matrix with all its elements as $0$.
+\end{definition}
+
+With the fundamental terms in mind, let's discuss the properties
+of matrices.
+
+\end{document}
+
+

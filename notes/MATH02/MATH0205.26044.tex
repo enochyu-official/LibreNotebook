@@ -1,0 +1,95 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{Appendix}
+
+Here are the solutions to the practice problems at the end of each
+note.
+
+\section{Solutions for Note 1}
+\begin{enumerate}
+\item
+It suffices to show that $\alpha (x, y, z) + \beta (x', y', z') \in S$
+for any scalars $\alpha$ and $\beta$. With standard vector addition
+and scalar multiplication, $\alpha (x, y, z) + \beta (x', y', z') =
+(0, \alpha y + \beta y', \alpha z + \beta z') \in S$. Thus, the set
+is a vector space.
+
+\item
+Let $f$ and $g$ be functions in $\mathbb{R}$ such that $f'(0) = 0$
+and $g'(0) = 0$. Notice that $(f + g)'(0) = f'(0) + g'(0) = 0$ and
+$f + g \in S$. Moreover, for any scalars $\alpha$, $(\alpha f)'(0)
+= \alpha f'(0) = 0$. Thus $\alpha f \in S$ and $S$ is a vector
+space.
+
+\item
+First, for any scalars $\alpha$, notice that $\alpha(x_1, \ldots, x_n)
+= (\alpha x_1, \ldots, \alpha x_n)$. If each coefficient is divided
+by $\alpha \neq 0$, the scalar multiplication holds. The case where
+$\alpha = 0$ naturally holds. Continuing, notice that $(x_1, \ldots,
+x_n) + (x_1', \ldots, x_n') = (x_1 + x_1', \ldots, x_n + x_n') \in S$
+due to the property of addition. Thus, $S$ is a vector space.
+
+\item
+Let $V = W_1 \cap \cdots \cap W_n$ where $W_i$ for integer $i \in
+[1, n]$ is a subspace of $V$. For $u, v \in V$, notice that since
+$u, v \in W_i$ for all $i$ and $\alpha u + \beta v \in W_i$ for any
+scalars $\alpha$ and $\beta$ by construction, $\alpha u + \beta v \in
+V$ and the intersection of subspaces of a vector space is also a
+subspace of the vector space.
+
+\item
+First and foremost, it is evident that $e^{a_1 x}$ is linearly
+independent since $e^{a_1 x} > 0$ for all $a_1$ and $x$. Therefore,
+it suffices to show that if the set is linearly independent for
+$n - 1$, then it is linearly independent for $n$. Consider the
+following equations for some $c_k$.
+\begin{align*}
+    \sum_{k=1}^n c_k e^{a_k x} &= 0 \\
+    \sum_{k=1}^n c_k a_k e^{a_k x} &= 0 \\
+    \sum_{k=1}^n c_k a_n e^{a_k x} &= 0
+\end{align*}
+Subtracting the third equation, which is obtained by multiplying
+$a_n$ in both sides, to the second equation obtained by
+differentiating both sides,
+\[
+\sum_{k=1}^n c_k (a_k - a_n) e^{a_k x}
+= \sum_{k=1}^{n-1} c_k (a_k - a_n) e^{a_k x}
+= 0
+\]
+is obtained. Because $a_k \neq a_n$ for integer $k \in [1, n-1]$ and
+$\{ e^{a_1 x}, \ldots, e^{a_{n-1} x} \}$ is linearly independent
+$c_1 = \cdots = c_{n-1} = 0$. In other words, $c_n e^{a_n x} = 0$ and
+$c_n = 0$. Therefore,  $\{ e^{a_1 x}, \ldots, e^{a_n x} \}$ is
+linearly independent by induction.
+
+\item
+By definition, note that $C = A + B$. Therefore, it suffices to show
+that $A \cap B = \{ 0 \}$. Notice that $A$ and $B$ can be written as
+$A = \Span\{ (1, 1, 1) \}$ and $B = \Span\{ (20, 15, 12) \}$.
+Because $\lambda (1, 1, 1) = (20, 15, 12)$ if and only if $\lambda =
+0$, $A \cap B = \{ 0 \}$ and $C = A \oplus B$.
+
+\item
+Consider the following equations for some scalars $k_1, k_2, k_3$.
+\begin{align*}
+    k_1 (a + b) + k_2 (b + c) + k_3 (c + a) &= 0 \\
+    a (k_3 + k_1) + b (k_1 + k_2) + c (k_2 + k_3) &= 0
+\end{align*}
+The linear combinations of $\{ a + b, b + c, c + a \}$ equal zero
+if and only if the linear combinations of $a$, $b$, and $c$ equal
+zero. Moreover, from the equation above, $k_1 = -k_2 = k_3 = -k_1$.
+In other words, $k_1 = k_2 = k_3 = 0$ and $\{ a + b, b + c, c + a \}$
+is linearly independent.
+
+\item
+Let $f$ and $g$ be polynomials such that $f(0) = g(0) = 0$. Therefore,
+$(f + g)(0) = 0$ and $f + g$ is in the set. Moreover, $(\alpha f)(0)
+= 0$ for any scalars $\alpha$. Therefore, the set of all polynomials
+in $\mathbb{P}^3$ that includes the origin is a subspace of
+$\mathbb{P}^3$.
+\end{enumerate}
+\end{document}
+
+

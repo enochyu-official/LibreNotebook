@@ -1,0 +1,684 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Eigenvalues and Eigenvectors}
+
+As always, let's start with definitions.
+
+\begin{definition}{}{}
+For a linear transformation $T: V \to V$ with a nonzero vector
+$v \in V$ and some scalar $\lambda$,if $Tv = \lambda v$, then
+$v$ is an \textbf{eigenvector} of $T$ and $\lambda$ is an
+\textbf{eigenvalue} of $T$.
+\end{definition}
+
+From here, it is important to note that while $v$ must be a
+nonzero vector, $\lambda$ could equal zero. Let's take a look
+at an example.
+
+\begin{problem}{}{}
+Let $T: \mathbb{R}^2 \to \mathbb{R}^2$ be a linear transformation
+defined as $T(a, b) = (a, - b)$. Find an eigenvector and eigenvalue
+of $T$.
+\end{problem}
+\begin{solution}
+Consider the following equation.
+\[
+T(0, 1) = (0, -1) = -1 \cdot (0, 1)
+\]
+Therefore, $(0, 1)$ is an eigenvector of $T$ and $-1$ is the
+corresponding eigenvalue of $T$.
+\end{solution}
+
+Below is another example for a linear transformation $T: \mathbb{R}^2
+\to \mathbb{R}^2$.
+
+\begin{problem}{}{}
+Find, if any, eigenvectors and eigenvalues of $T: \mathbb{R}^2 \to
+\mathbb{R}^2$ defined as $T(a, b) = (b, -a)$.
+\end{problem}
+\begin{solution}
+For some scalar $\lambda$, consider the following equation.
+\[
+T(a, b) = (b, -a) = \lambda (a, b) = (\lambda a, \lambda b)
+\]
+In other words $b = \lambda a$ and $-a = \lambda b$. Substituting,
+$-a = \lambda^2 a$ and $(\lambda^2 + 1) a = 0$. Because $\lambda \in
+\mathbb{R}$, $a = 0$ and $b = 0$. However, because eigenvectors
+are nonzero vectors by definition, $T$ has not real eigenvalues
+and eigenvectors.
+\end{solution}
+
+Now eigenvectors and eigenvalues are important because they make
+our lives easier for investigating matrix representation of a
+linear transformation. Consider the following theorem.
+
+\begin{theorem}{}{Eigenvectors and Basis}
+For a linear transformation $T: V \to V$ for a finite dimensional
+vector space $V$, there exists a basis whose matrix representation
+is a diagonal matrix if and only if there exists a basis composed
+of only eigenvectors of $T$.
+\end{theorem}
+\begin{proof}
+First, let $B = \{ v_1, \ldots, v_n \}$ be a basis for $V$ and let
+the matrix representation of $T$ be a diagonal matrix $A$ whose
+diagonal entries are $\lambda_1, \ldots, \lambda_n$. Thus
+\[
+(Tv_j)_B =
+\begin{bmatrix}
+    0 \\
+    \vdots \\
+    \lambda_j \\
+    \vdots \\
+    0
+\end{bmatrix}
+\]
+hold by construction and $Tv_j = \lambda_j v_j$. In other words,
+$v_j$ and $\lambda_j$ are an eigenvector and an eigenvalue of $T$ and
+there exists a basis composed of only eigenvectors of $T$.
+
+Continuing, let $B = \{ v_1, \ldots, v_n \}$ be a basis for $V$ whose
+elements are all eigenvectors of $T$. Therefore, $Tv_j = \lambda v_j$
+and the following equation holds.
+\[
+(Tv_j)_B =
+\begin{bmatrix}
+    0 \\
+    \vdots \\
+    \lambda_j \\
+    \vdots \\
+    0
+\end{bmatrix}
+\]
+Therefore, there exists a basis whose matrix representation is a
+diagonal matrix.
+\end{proof}
+
+With this theorem and connecting vector spaces with matrix again,
+we can redefine eigenvectors and eigenvalues with different
+interpretations.
+
+\begin{definition}{}{}
+For a square matrix $A_{n \times n}$ and a nonzero $n$-tuple $x \in
+\mathbb{R}^n$, if there exists a scalar $\lambda$ such that
+$Ax = \lambda x$, then $x$ is an \textbf{eigenvector} and $\lambda$
+is an \textbf{eigenvalue} of $A$.
+\end{definition}
+
+When you think about this definition, we can see that both definitions
+imply the same thing as the $A$ is the matrix representation of a
+linear transformation and $x$ is a vector in the corresponding vector
+space. Let's take a look at a quick example.
+
+\begin{problem}{}{}
+Find an eigenvector and eigenvalue of matrix $A$ defined as the
+following.
+\[
+A =
+\begin{bmatrix}
+    1 & 0 \\
+    0 & -1
+\end{bmatrix}
+\]
+\end{problem}
+\begin{solution}
+Consider the following equation.
+\[
+\begin{bmatrix}
+    1 & 0 \\
+    0 & -1
+\end{bmatrix}
+\begin{bmatrix}
+    0 \\
+    1
+\end{bmatrix}
+=
+\begin{bmatrix}
+    0 \\
+    -1
+\end{bmatrix}
+=
+-1 \cdot
+\begin{bmatrix}
+    0 \\
+    1
+\end{bmatrix}
+\]
+Thus, $-1$ is an eigenvalue and $[0 1]$ is an eigenvector.
+\end{solution}
+
+If this example looks familiar, this is actually the same question
+as the first example from this section. Continuing, below are
+two interesting theorems on eigenvectors and eigenvalues.
+
+\begin{theorem}{}{Matrix Representation and Eigenvectors}
+For a linear transformation $T: V \to V$, $v \in V$ is an
+eigenvector with the corresponding eigenvalue $\lambda$ if and only if
+$(v)_B$ is an eigenvector with the corresponding eigenvalue $\lambda$
+for $A_B^B$, the matrix representation of $T$ for any basis $B$.
+\end{theorem}
+\begin{proof}
+Notice that $Tv = \lambda v$ if and only if $A_B^B (v)_B = (Tv)_B =
+(\lambda v)_B = \lambda (v)_B$. Thus, the theorem holds.
+\end{proof}
+
+This theorem will come in handy as we can either find all eigenvectors
+and corresponding eigenvalues of the transformation or its matrix
+representation. Continuing, below is another theorem.
+
+\begin{theorem}{}{Eigenvalues and Subspace}
+For a linear transformation $T: V \to V$ and eigenvalue $\lambda$,
+$S_\lambda = \{ v \in V | Tv = \lambda v \}$ is a subspace of $V$.
+\end{theorem}
+\begin{proof}
+First, notice that because $S_\lambda \subset V$, it suffices to
+show that the set is closed under vector addition and scalar
+multiplication. Consider the following equations for $u, v \in
+S_\lambda$ and some scalars $\alpha$ and $\beta$.
+\begin{align*}
+    T(\alpha u + \beta v)
+    &= \alpha Tu + \beta Tv
+    = \alpha \lambda u + \beta \lambda v \\
+    &= \lambda(\alpha u + \beta v)
+\end{align*}
+In other words, $\alpha u + \beta v \in S_\lambda$ and the theorem
+holds.
+\end{proof}
+
+As you may have guessed, we can establish a new definition from
+the theorem above.
+
+\begin{definition}{}{}
+For a transformation $T: V \to V$ and its eigenvalue $\lambda$,
+$S_\lambda = \{ v \in V | Tv = \lambda v \}$ defined as the
+\textbf{eigenspace} of $T$ for the eigenvalue $\lambda$.
+\end{definition}
+
+Just as we redefined eigenvectors and eigenvalues with matrices,
+we could do the same for eigenspace. Now that we discussed what
+eigenvectors and eigenvalues are, let's discuss how to find one.
+
+\begin{theorem}{}{Eigenvalue and Determinants}
+For a square matrix $A_{n \times n}$, $\lambda$ is its eigenvalue
+if and only if $\det(A - \lambda I_n) = 0$.
+\end{theorem}
+\begin{proof}
+First notice that by definition, $\lambda$ is an eigenvalue of $A$
+if and only if $Ax = \lambda x$ holds for some nonzero vector $x$.
+Continuing, $Ax = \lambda x$ holds if and only if $Ax = \lambda I_n x$
+and $(A - \lambda I_n)x = 0$. In other words, the columns of the
+matrix $A - \lambda I_n$ are linearly dependent and invertible.
+Therefore by Theorem \ref{theo:Invertibility and the Determinant},
+the theorem holds.
+\end{proof}
+
+Being one of the most important theorems in linear algebra,
+we can establish another definition from the theorem.
+
+\begin{definition}{}{}
+The \textbf{characteristic equation} of a square matrix $A$ is defined
+as $\det(A - \lambda I_n) = 0$ for scalar variable $\lambda$.
+\end{definition}
+
+An important thing to note from this definition is that
+$\det(A - \lambda I_n)$ is a polynomial in $\lambda$ with degree $n$.
+Moreover, the real roots of the polynomial can be interpreted as
+eigenvalues of $A$. Let's take a look at an example of how
+the characteristic equation can be used to find all eigenvalues of
+a matrix.
+
+\begin{problem}{}{}
+Find all eigenvalues and the corresponding eigenspaces of matrix $A =
+\begin{bmatrix}
+    1 & 0 \\
+    0 & -1
+\end{bmatrix}$.
+\end{problem}
+\begin{solution}
+To find all eigenvalues of $A$, it suffices to find all solutions for
+the characteristic equation of $A$ by Theorem \ref{theo:Eigenvalue and
+Determinants}.
+\[
+A - \lambda I_2 =
+\begin{bmatrix}
+    1 - \lambda & 0 \\
+    0           & -1 - \lambda
+\end{bmatrix}
+\]
+Therefore, $\det(A - \lambda I_2) = (1 - \lambda)(-1 - \lambda)$
+and $\lambda = 1$ or $\lambda = -1$ are the solutions to the
+characteristic equation.
+
+Continuing, the corresponding eigenspaces could be found. For
+$\lambda = 1$, the eigenspace is defined as $S_1 = \{ x | Ax = x \}$.
+Solving for the equation $(A - I)x = 0$, the following equations hold.
+\begin{align*}
+    \begin{bmatrix}
+        0 & 0 \\
+        0 & -2
+    \end{bmatrix}
+    \begin{bmatrix}
+        x_1 \\
+        x_2
+    \end{bmatrix}
+    &= 0 \\
+    -2x_2 &= 0
+\end{align*}
+Therefore, the eigenspace for the eigenvalue $1$ can be represented
+as the following
+\[
+S_1 =
+\Span\left\{
+    \begin{bmatrix}
+        1 \\
+        0
+    \end{bmatrix}
+\right\}
+\]
+Similarly, $S_{-1} = \{ x | Ax = -x \}$ and $(A + I)x = 0$ could
+be solved.
+\begin{align*}
+    \begin{bmatrix}
+        2 & 0 \\
+        0 & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+        x_1 \\
+        x_2
+    \end{bmatrix}
+    &= 0 \\
+    2x_1 &= 0
+\end{align*}
+Therefore,
+\[
+S_{-1} =
+\Span\left\{
+    \begin{bmatrix}
+        0 \\
+        1
+    \end{bmatrix}
+\right\}
+\]
+and the corresponding eigenspaces for all eigenvalues of $A$ are
+found.
+\end{solution}
+
+We got a nice matrix here, but it's worth noting that $\lambda$ need
+not be real. As demonstrated from the simple example above,
+solving the characteristic equation will lead to all eigenvalues
+for a matrix. I will leave more complex and interesting examples
+in the practice problems below. In the next part of the section,
+we will discuss the properties of eigenvalues and eigenvectors.
+
+\subsection{Properties of Eigenvalues}
+
+Eigenvalues and eigenvectors have interesting properties and
+relationship with vector spaces. Consider the following theorem.
+
+\begin{theorem}{}{Similar Matrices and Eigenvalues}
+For two square matrices $A$ and $B$ such that $A \cong B$,
+the characteristic equation and eigenvalues for each matrix are equal.
+\end{theorem}
+\begin{proof}
+By definition of similar matrices, there exists some invertible
+matrix $P$ such that $B = P^{-1} A P$. Therefore, the following
+equations hold.
+\[
+P^{-1} (A - \lambda I) P
+= P^{-1} A P - P^{-1} \lambda I P
+= B - \lambda I
+\]
+Therefore, $\det(B - \lambda I) = \det(P^{-1} (A - \lambda I) P)
+= \det(A - \lambda I)$ and the characteristic equations are the
+same. In other words, the eigenvalues for $A$ and $B$ are equal
+and the theorem holds.
+\end{proof}
+
+Below is another theorem on the eigenvalues of triangular matrices.
+
+\begin{theorem}{}{Triangular Matrices and Eigenvalues}
+The eigenvalues of triangular (upper or lower) matrices are the
+diagonal elements.
+\end{theorem}
+\begin{proof}
+By definition, notice that for a triangular matrix $A$,
+$A - \lambda I$ is also triangular. Therefore by Theorem
+\ref{theo:The Determinants of Triangular Matrices},
+\[
+\det(A - \lambda I)
+= \prod_{k=1}^n (\lambda_k - \lambda)
+\]
+and $\det(A - \lambda I_n) = 0$ if and only if $\lambda = \lambda_k$.
+Because $\lambda_k$ are the diagonal elements of $A$, the theorem
+holds.
+\end{proof}
+
+Continuing, below is another theorem on the relationship between
+eigenvalues and invertibility.
+
+\begin{theorem}{}{Invertibility and Eigenvalues}
+A square matrix $A$ contains a zero eigenvalue if and only if it is
+not invertible.
+\end{theorem}
+\begin{proof}
+A square matrix $A$ contains a zero eigenvalue if and only if
+$\det(A - 0 I) = 0$ and $\det(A) = 0$. Because $A$ is invertible
+if and only if $\det(A) \neq 0$ by Theorem \ref{theo:Invertibility
+and the Determinant}, the theorem holds.
+\end{proof}
+
+If you think this theorem is nice, below is another theorem on
+invertibility and eigenvalues.
+
+\begin{theorem}{}{Eigenvalues and Eigenvectors of an Invertible Matrix}
+For an invertible matrix $A$ with eigenvector $x$ and its
+corresponding eigenvalue $\lambda$, $x$ is also an eigenvalue of
+$A^{-1}$ with corresponding eigenvalue $\frac{1}{\lambda}$.
+\end{theorem}
+\begin{proof}
+By definition, $Ax = \lambda x$ and $x = A^{-1} \lambda x$.
+Continuing, $A^{-1} x = \frac{1}{\lambda} \cdot x$. Therefore,
+$x$ is also an eigenvector of $A^{-1}$ with the corresponding
+eigenvalue $\frac{1}{\lambda}$.
+\end{proof}
+
+Continuing, below is a theorem on the relationship between
+eigenvalues and linear independence.
+
+\begin{theorem}{}{Eigenvalues and Linear Independence}
+If $x_1, \ldots, x_k$ are eigenvectors of a square matrix $A$
+and the corresponding eigenvalues $\lambda_1, \ldots, \lambda_k$
+are all distinct, then $\{ x_1, \ldots, x_k \}$ is linearly
+independent.
+\end{theorem}
+\begin{proof}
+First, notice that $\{ x_1 \}$ is linearly independent. Therefore,
+it suffices to show that if the theorem holds for $k - 1 > 0$, then
+the statement holds for $k$. Assume $\{ x_1, \ldots, x_{k-1} \}$
+is a linearly independent set of eigenvectors with distinct
+corresponding eigenvalues $\lambda_1, \ldots, \lambda_{k-1}$.
+Consider the following equations for some scalars $c_i$.
+\begin{align*}
+    \sum_{i=1}^k c_i x_i &= 0 \\
+    \sum_{i=1}^k c_i A x_i &= 0 \\
+    \sum_{i=1}^k c_i \lambda_i x_i &= 0 \\
+    \sum_{i=1}^{k-1} c_i \lambda_k x_i &= 0
+\end{align*}
+Subtracting the last two equations, $\sum_{i=1}^{k-1} c_i
+(\lambda_i - \lambda_k) x_i = 0$ is obtained. Because the set
+$\{ x_1, \ldots, x_{k-1} \}$ is linearly independent, $c_i
+(\lambda_i - \lambda_k) = 0$ for all integer $i \in [1, k)$.
+Continuing, because $\lambda_i - \lambda_k \neq 0$ by construction,
+$c_i = 0$ for all integer $i \in [1, k)$ and $c_k = 0$ since
+$x_k \neq 0$. Thus $\{ x_1, \ldots, x_k \}$ is linearly independent
+and the theorem holds by induction.
+\end{proof}
+
+Naturally, we can consider the dimension of an eigenspace.
+
+\begin{theorem}{}{The Dimension of an Eigenspace}
+For a matrix $A_{n \times n}$ with an eigenvalue $\lambda$,
+the following equation holds.
+\[
+\dim(S_\lambda) = n - \Rank(A - \lambda I)
+\]
+\end{theorem}
+\begin{proof}
+By definition, the eigenspace for $\lambda$ is the set of all
+vectors $v$ that satisfy $Av = \lambda v$. Because $(A - \lambda) v =
+0$, $S_\lambda$ can be interpreted as $\ker(A - \lambda I)$.
+Moreover by Theorem \ref{theo:Rank and Nullity of T}, the following
+equation holds.
+\[
+\Rank(A - \lambda I) + \Null(A - \lambda I) = n
+\]
+Because $\dim(\ker(A - \lambda I)) = \Null(A - \lambda I)$ holds by
+definition, $\dim(S_\lambda) = n - \Rank(A - \lambda I)$.
+\end{proof}
+
+We could really go on forever with interesting theorems, but
+before we conclude this part of the note, I would like to discuss
+two more theorems.
+
+\begin{theorem}{}{Properties of Eigenvector and Eigenvalue}
+Consider the following statements for a matrix $A$ with an
+eigenvector $x$ with its corresponding eigenvalue $\lambda$.
+\begin{enumerate}[noitemsep]
+\item For an arbitrary scalar $k$, $x$ is also an eigenvector
+of $kA$ with corresponding eigenvalue $k \lambda$.
+\item For some $n \in \mathbb{N}$, $x$ is also an eigenvector
+of $A^n$ with corresponding eigenvalue $\lambda^n$.
+\end{enumerate}
+\end{theorem}
+
+Let's start by proving the first statement.
+
+\begin{proof}
+Consider the following equation.
+\[
+(kA)x = k(Ax) = k \lambda x = (k \lambda) x
+\]
+Therefore, $x$ is an eigenvector of $kA$ and its corresponding
+eigenvalue is $k \lambda$.
+\end{proof}
+
+Below is the proof for the second statement.
+
+\begin{proof}
+Assume that if the statement holds for $n - 1$, then the statement
+holds for $n > 1$. Consider the following equations.
+\[
+A^n x
+= A \left( A^{n-1} x \right)
+= A \left( \lambda^{n-1} x \right)
+= \lambda^{n-1} Ax
+= \lambda^{n-1} \lambda x
+= \lambda^n x
+\]
+Because $Ax = \lambda x$, the statement holds by induction.
+\end{proof}
+
+Before we move on to the final content with the last theorem for this
+part, below is a definition for the theorem.
+
+\begin{definition}{}{}
+The \textbf{trace} of a matrix $A = [a_{ij}]$, denoted as $\Tr(A)$,
+is the sum of the diagonal elements of $A$.
+\end{definition}
+
+With the definition, we can continue with the theorem.
+
+\begin{theorem}{}{Properties of Eigenvalues}
+For a square matrix $A_{n \times n}$ with eigenvalues $\lambda_1,
+\ldots, \lambda_n$, the following equations hold.
+\begin{enumerate}[noitemsep]
+\item $\Tr(A) = \sum_{k=1}^n \lambda_k$
+\item $\det(A) = \prod_{k=1}^n \lambda_k$
+\end{enumerate}
+\end{theorem}
+
+Let's start by proving the first equation.
+
+\begin{proof}
+By the Fundamental Theorem of Algebra, the following equation holds.
+\[
+\det(A - \lambda I)
+= \prod_{k=1}^n (\lambda_k - \lambda)
+= 0
+\]
+Therefore, all eigenvalues are the diagonal elements and by the
+definition of trace of $A$, the sum of all eigenvalues are the
+trace of $A$.
+\end{proof}
+
+Continuing, below is the proof for the second equation.
+
+\begin{proof}
+Substituting $\lambda = 0$ into the equation
+\[
+\det(A - \lambda I)
+= \prod_{k=1}^n (\lambda_k - \lambda),
+\]
+$\det(A) = \prod_{k=1}^n \lambda_k$ and the equation holds.
+\end{proof}
+
+It is important to note that the second equation counts multiplicity.
+In other words, even if $\lambda_p = \lambda_q$, you still count
+both. Wow! I can't believe that we are already almost done with the
+notes! For the final concept of my notes on linear algebra, we will
+discuss diagonalization.
+
+\subsection{Diagonalization}
+
+Diagonalization in linear algebra is a technique that I think
+really makes our lives easier in calculations. To get into it,
+let's get started with definition and theorems.
+
+\begin{definition}{}{}
+A square matrix that is similar to a diagonal matrix is known to be
+\textbf{diagonalizable}.
+\end{definition}
+
+Now we cannot always use a brute force method to see if two matrices
+are similar. Fortunately, the following theorem will help in checking
+whether a square matrix is diagonalizable.
+
+\begin{theorem}{}{Diagonalizability and Eigenvectors}
+A square matrix $A_{n \times n}$ is diagonalizable if and only if
+it retains a set of $n$ eigenvectors that is linearly independent.
+\end{theorem}
+\begin{proof}
+First and foremost, notice that $A$ and a diagonal matrix $D$ of
+the same order with entries $\lambda_i$ are similar if and only if
+there exists an invertible matrix $P$ such that $P^{-1} A P = D$ or
+$AP = PD$. Let $x_j$ and $e_j$ be the $j^\text{th}$ column of $P$ and
+$I$ respectively. Then, the following equations hold.
+\[
+A x_j
+= A Pe_j
+= PDe_j
+= P \lambda_j e_j
+= \lambda_j P e_j
+= \lambda_j x_j
+\]
+Thus, $x_j$ and $\lambda_j$ are an eigenvector and the corresponding
+eigenvalue of $A$. By definition, because $M$ is invertible,
+$x_j$ are all linearly independent and $A$ has $n$ linearly
+independent eigenvectors. In other words, if $A$ is diagonalizable,
+then $A$ has $n$ linearly independent eigenvectors.
+
+Continuing, the converse can be proven. Let $A$ have $n$ linearly
+independent eigenvectors denoted as $x_j$ with corresponding
+eigenvalues $\lambda_j$. Construct matrices $P$ and $D$ such that
+the $j^\text{th}$ column of $P$ is $x_j$ and the diagonal element
+of $D$ is $\lambda_j$. If $e_j$ is the $j^\text{th}$ column of $I$,
+then the $j^\text{th}$ column of $AP$ can be written as the following.
+\[
+APe_j = A x_j = \lambda_j x_j
+\]
+Similarly, the $j^\text{th}$ column of $PD$ can be written as $PDe_j =
+M \lambda_j e_j = \lambda_j Me_j = \lambda_j x_j$ and $AP = PD$ holds.
+Moreover, because $P$ is invertible by construction, $P^{-1} A P = D$
+and $A$ is diagonalizable.
+\end{proof}
+
+Continuing from the theorem, we can establish the following corollary.
+
+\begin{corollary}{}{Corollary of Diagonalizability and Eigenvectors}
+A matrix $A_{n \times n}$ with $n$ distinct real eigenvalues is
+diagonalizable.
+\end{corollary}
+\begin{proof}
+First and foremost, notice that by Theorem \ref{theo:Eigenvalues and
+Linear Independence}, the set of corresponding eigenvectors
+$\{ x_1, \ldots, x_n \}$ of $A$ is linearly independent. Thus by
+Theorem \ref{theo:Diagonalizability and Eigenvectors}, the corollary
+holds.
+\end{proof}
+
+This theorem also naturally leads to the question if a square matrix
+can be similar to more than one diagonal matrix. The answer to
+that question can be found with the theorem below.
+
+\begin{theorem}{}{Multiple Diagonal Matrices}
+If a square matrix is similar to both diagonal matrices $D_1$ and
+$D_2$, then the diagonal entries of $D_1$ and $D_2$ are the same
+with possibly different orderings.
+\end{theorem}
+\begin{proof}
+First and foremost, notice that by Theorem \ref{theo:Similar Matrices
+and Eigenvalues}, because $A$ and $D_1$ are similar, they have the
+same characteristic equation. Similarly, because $A$ and $D_2$ are
+similar, they also have the same characteristic equation and the
+characteristic equations of $D_1$ and $D_2$ are equal.
+\[
+\det(D_1 - \lambda I) = \det(D_2 - \lambda I) = 0
+\]
+By construction, notice that $D_1 - \lambda I$ and $D_2 - \lambda I$
+are diagonal matrices. Thus by Corollary \ref{cor:Determinants of
+Diagonal Matrices}, the determinant is the product of all $(\lambda
+- \lambda_k$ for integer $k \in [1, n]$ where $\lambda_k$ are the
+diagonal entries for $D_1$. Because multiplication is commutative,
+the diagonal entries for $D_1$ and $D_2$ are the same.
+\end{proof}
+
+Naturally, we can see that if $A \cong D_1$ and $A \cong D_2$,
+then $D_1 \cong A$ and $D_1 \cong D_2$. In other words, if $A$ is
+similar to multiple diagonal matrices, then the diagonal matrices
+are similar to each other.
+
+Now that we discussed when a matrix is diagonalizable, let's discuss
+how to diagonalize and its applications.
+
+\begin{definition}{}{}
+\textbf{Diagonalization} is the process of writing a diagonalizable
+matrix $A$ in the form of $A = P D P^{-1}$.
+\end{definition}
+
+Diagonalization is particularly useful as it makes calculations
+easier. Before concluding our notes, below is the final theorem!
+
+\begin{theorem}{}{Diagonalizability and Eigenspace}
+Let $A_{n \times n}$ be a matrix with real and distinct eigenvalues
+$\lambda_1, \ldots, \lambda_k$. The matrix $A$ is diagonalizable if
+and only if the following equation holds.
+\[
+\sum_{i=1}^k \dim(S_{\lambda_i}) = n
+\]
+\end{theorem}
+\begin{proof}
+First, the statement if $\sum_{i=1}^k \dim(S_{\lambda_i}) = n$,
+then $A$ is diagonalizable can be proven. Let $B_i$ be a basis
+for eigenspace $S_{\lambda_i}$. By definition, vectors $v$ in
+eigenspace $S_{\lambda_i}$ satisfy $Av = \lambda_i v$. Because
+$\lambda_i$ are all distinct, no eigenspace shares the same
+eigenvector and thus no basis of two different eigenspaces
+shares a vector. In other words, $B$ contains $n$ distinct eigenvectors
+of $A$. Let $v_i \in S_{\lambda_i}$ be some linear combination of
+vectors in $B_i$. Notice that if $\sum_{i=1}^k v_i = 0$, then the
+coefficients must be zero since $\{ v_1, \ldots, v_k \}$ is linearly
+independent by Theorem \ref{theo:Eigenvalues and Linear Independence}.
+In other words, all coefficients for the linear combination of $B_i$
+that forms $v_i$ must be zero for $\sum_{i=1}^k v_i = 0$ to hold.
+Thus, $B$ is linearly independent and $A$ is diagonalizable by
+Theorem \ref{theo:Diagonalizability and Eigenvectors}.
+
+Continuing, the converse can be proven. Assume that $\sum_{i=1}^k
+\dim(S_{\lambda_i}) > n$. Continuing from the previous definition,
+$B \subset \mathbb{R}^n$ and the inequality $\sum_{i=1}^k
+\dim(S_{\lambda_i}) > n$ leads to contradiction. Moreover, if
+$\sum_{i=1}^k \dim(S_{\lambda_i}) < n$ then $A$ has no set that
+contains $n$ linearly independent eigenvectors. Thus, $A$ is not
+diagonalizable if $\sum_{i=1}^k \dim(S_{\lambda_i}) \neq n$.
+\end{proof}
+
+This is it for eigenvalues and eigenvectors! This note was a
+particularly long one, but I think it also means that the
+relationships between matrices and vector spaces are one of the
+most essential understandings for linear algebra. Below are a few
+practice problems on the topics that we discussed.
+
+\end{document}
+
+
