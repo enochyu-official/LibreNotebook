@@ -77,24 +77,11 @@
 
 
 %%%%%%%%%%%%%%% CUSTOM %%%%%%%%%%%%%%%
-% Theorems
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem*{lemma*}{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}
 
-% Environments
-\newenvironment{solution}
-    {\begin{trivlist}\item[]{\bf Solution:}}
-    {\qed \end{trivlist}}
-\newenvironment{conclusion}
-    {\begin{trivlist}\item[]{\bf Conclusion: }\color{BrickRed}}
-    {\end{trivlist}}
-\newenvironment{ThoughtProcess}
-    {\begin{trivlist}\item[]{\bf Thought Process: }\color{MidnightBlue}}
-    {\end{trivlist}}
-
-% Boxes
 \usepackage{tcolorbox}
 \tcbuselibrary{theorems}
 \newtcbtheorem[number within=section]{theobox}{Theorem}%
@@ -106,7 +93,7 @@
 }{theo}
 \newtcbtheorem[number within=section]{probbox}{Exercise}%
 {%
-    colback=white,
+    colback=BrickRed!3,
     colframe=red!40!black,
     fonttitle=\bfseries,
     sharp corners
@@ -120,7 +107,6 @@
 }{cor}
 
 \usepackage{mdframed}
-% Definition
 \newmdenv[
     linecolor=Sepia, 
     linewidth=1pt,
@@ -132,8 +118,26 @@
     innerleftmargin=10pt,
     innerrightmargin=10pt
 ]{keydef}
-
-% Thought Process
+\renewmdenv[
+    topline=false, 
+    bottomline=false, 
+    rightline=false,
+    linecolor=black, 
+    linewidth=2pt,
+    skipabove=\medskipamount, 
+    skipbelow=\medskipamount,
+    frametitle=\it Proof.
+]{proof}
+\newmdenv[
+    topline=false, 
+    bottomline=false, 
+    rightline=false,
+    linecolor=BrickRed, 
+    linewidth=2pt,
+    skipabove=\medskipamount, 
+    skipbelow=\medskipamount,
+    frametitle=Solution.
+]{solution}
 \newmdenv[
     topline=false, 
     bottomline=false, 
@@ -145,8 +149,6 @@
     fontcolor=RoyalPurple,
     font=\small\itshape
 ]{thoughts}
-
-% Tip/Side note
 \newmdenv[
     topline=false, 
     bottomline=false, 
@@ -158,7 +160,6 @@
     fontcolor=BrickRed,
     font=\small\itshape
 ]{tip}
-
 
 
 

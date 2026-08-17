@@ -97,6 +97,8 @@ is an $n$-dimensional row or column vector.
 
 Let's take a look at an example from the previous matrix $B$
 reproduced below.
+
+\begin{minipage}{0.2\textwidth}
 \[
 B =
 \begin{bNiceMatrix}[last-row,last-col]
@@ -107,13 +109,23 @@ e \\
 \Hbrace{1}{1 \text{ column}}
 \end{bNiceMatrix}
 \]
+\end{minipage}
+\hfill
+\begin{minipage}{0.7\textwidth}
 Here, matrix $B$ is a 4-dimensional matrix with four components.
 This column matrix can also be called as a $4$-tuple.
+\end{minipage}
+
+We could also define matrices by its elements.
+
+\begin{keydef}
+A \textbf{zero matrix} is a matrix with all its elements as $0$.
+\end{keydef}
 
 With the fundamental terms in mind, let's discuss the properties
 of matrices.
 
-\section{Basic Properties}
+\section{Fundamental Properties}
 
 First, when are two matrices ``equal'' to each other? Consider
 the following definition for a formal explanation.
@@ -138,6 +150,252 @@ a_{ij} = b_{ij} \,
 
 Although this is very trivial and intuitive, it is always nice
 to formally define concepts!
+
+\begin{theobox}{Matrix Addition}{Matrix Addition}
+For matrices $A$ and $B$ with same order, the element in the
+$(i, j)$-entry of their sum $A + B$ is equivalent to the sum of
+elements in the $(i, j)$-entry of $A$ and $B$.
+\end{theobox}
+
+Note that the orders of matrices being added must be identical.
+We do not consider additions with matrices of different orders.
+Below is an example of addition.
+\[
+\begin{bmatrix}
+    1 & 3   & 5 \\
+    2 & \pi & 4
+\end{bmatrix}
++
+\begin{bmatrix}
+    -2 & 1   & 3 \\
+    3  & \pi & -4
+\end{bmatrix}
+=
+\begin{bmatrix}
+    -1 & 4    & 8 \\
+    5  & 2\pi & 0
+\end{bmatrix}
+\]
+Similarly, we could see that subtractions are defined in similar
+way. Subtracting the matrices above, we get the following results.
+\[
+\begin{bmatrix}
+    1 & 3   & 5 \\
+    2 & \pi & 4
+\end{bmatrix}
+-
+\begin{bmatrix}
+    -2 & 1   & 3 \\
+    3  & \pi & -4
+\end{bmatrix}
+=
+\begin{bmatrix}
+    3  & 2 & 2 \\
+    -1 & 0 & 8
+\end{bmatrix}
+\]
+Now, as we look at the additions and subtractions of matrices,
+you probably wondered about application of additive properties.
+Intuitively, the fundamental properties of addition can be
+applied with matrices addition.
+
+\begin{theobox}{Commutative Property of Matrix Addition}
+{Commutative Property of Matrix Addition}
+For matrices $A$ and $B$ with order $m \times n$, $A + B = B + A$.
+\end{theobox}
+\begin{proof}
+Let $A = [a_{ij}]_{m \times n}$ and $B = [b_{ij}]_{m \times n}$.
+By definition, the sum $A + B = [a_{ij} + b_{ij}]$. Because
+addition is commutative, the following equation holds.
+\[
+A + B
+= [a_{ij} + b_{ij}]
+= [b_{ij} + a_{ij}]
+= B + A
+\]
+Thus, the commutative property of matrix addition holds.
+\end{proof}
+
+In addition to the commutative property, the associative property
+is also applicable.
+
+\begin{theobox}{Associative Property of Matrix Addition}
+{Associative Property of Matrix Addition}
+For matrices $A$, $B$, and $C$ with order $m \times n$,
+$A + (B + C) = (A + B) + C$.
+\end{theobox}
+\begin{proof}
+Let $A = [a_{ij}]_{m \times n}$, $B = [b_{ij}]_{m \times n}$,
+and $C = [c_{ij}]_{m \times n}$. Consider the following equation.
+\begin{align*}
+    A + (B + C)
+    &= [a_{ij}] + [b_{ij} + c_{ij}]
+     = [a_{ij} + (b_{ij} + c_{ij})]
+     = [a_{ij} + b_{ij} + c_{ij}] \\
+    &= [(a_{ij} + b_{ij}) + c_{ij}]
+     = [a_{ij} + b_{ij}] + [c_{ij}] \\
+    &= (A + B) + C
+\end{align*}
+Thus, the associative property of addition applies to the matrix
+addition.
+\end{proof}
+
+One obvious property in addition is that when you add $0$ to a number,
+you get the number itself. The same applies in matrix addition.
+
+\begin{theobox}{Additive Identity of Matrix Addition}
+{Additive Identity of Matrix Addition}
+The sum of matrices $A_{m \times n}$ and $0_{m \times n}$ yields
+the matrix $A$, i.e. zero matrix is the identity elements of
+matrix addition.
+\end{theobox}
+\begin{proof}
+Let $A = [a_{ij}]_{m \times n}$. By definition, the sum $A + 0
+= [a_{ij} + 0] = [a_{ij}] = A$. Therefore, zero matrix is the
+identity element of matrix additions.
+\end{proof}
+
+Now what if we want to add same matrix multiple times? Fortunately,
+we already resolved the issue. For instance, we write $x + x + x$
+as $3x$. We can multiply matrices with scalars.
+
+\begin{theobox}{Scalar Multiplication}{Scalar Multiplication}
+For a complex number $\lambda$ and $A = [a_{ij}]$, $\lambda A
+= [\lambda a_{ij}]$.
+\end{theobox}
+
+Let's take a look at an example.
+
+\begin{probbox}{}{}
+Compute $2A - 3B$ for $A$ and $B$ defined as the following.
+\[
+A =
+\begin{bmatrix}
+    2 & 3 & -1 \\
+    1 & 7 & 3
+\end{bmatrix},
+\quad
+B =
+\begin{bmatrix}
+    -2 & 1 & 0 \\
+    5  & 3 & 8
+\end{bmatrix}
+\]
+\end{probbox}
+\begin{solution}
+Before subtracting, we could perform scalar multiplication first.
+\[
+2A - 3B =
+2\begin{bmatrix}
+    2 & 3 & -1 \\
+    1 & 7 & 3
+\end{bmatrix}
+-
+3\begin{bmatrix}
+    -2 & 1 & 0 \\
+    5  & 3 & 8
+\end{bmatrix}
+=
+\begin{bmatrix}
+    4 & 6  & -2 \\
+    2 & 14 & 6
+\end{bmatrix}
+-
+\begin{bmatrix}
+    -6 & 3 & 0 \\
+    15 & 9 & 24
+\end{bmatrix}
+\]
+From here we could subtract two matrices. Therefore, $2A - 3B$
+can be represented as following.
+\[
+2A - 3B =
+\begin{bmatrix}
+    10  & 3  & -2 \\
+    -13 & 5 & -18
+\end{bmatrix}
+\]
+\end{solution}
+
+With the scalar multiplication in mind, we can expand the application
+of foundational concepts here with matrix.
+
+\begin{theobox}{Additional Properties}{Additional Properties}
+For $A = [a_{ij}]_{m \times n}$, $B = [b_{ij}]_{m \times n}$,
+and $\lambda_1, \lambda_2 \in \mathbb{C}$, the following
+properties hold.
+\begin{enumerate}
+\item $\lambda_1 (A \pm B) = \lambda_1 A \pm \lambda_1 B$
+\item $(\lambda_1 \pm \lambda_2) A = \lambda_1 A \pm \lambda_2 A$
+\item $\lambda_1 (\lambda_2 A) = (\lambda_1 \lambda_2) A$
+\end{enumerate}
+\end{theobox}
+
+Let's prove them! Below is the proof for the first property.
+
+\begin{proof}
+Consider the following equation.
+\[
+\lambda_1 (A \pm B)
+= \lambda_1 ([a_{ij}] \pm [b_{ij}])
+= \lambda_1 ([a_{ij} \pm b_{ij}])
+\]
+Note that individual elements are multiplied in scalar multiplication.
+Moreover, because $\lambda_1 (a_{ij} \pm b_{ij}) = \lambda_1 a_{ij}
+\pm \lambda_1 b_{ij}$, the following equation satisfy.
+\[
+\lambda_1 ([a_{ij} \pm b_{ij}])
+= [\lambda_1 a_{ij} \pm \lambda_1 b_{ij}]
+= [\lambda_1 a_{ij}] \pm [\lambda_1 b_{ij}]
+= \lambda_1 A \pm \lambda_1 B
+\]
+Therefore, $\lambda_1 (A \pm B) = \lambda_1 A \pm \lambda_1 B$.
+\end{proof}
+
+Now let's prove the second property.
+
+\begin{proof}
+By definition of scalar multiplication, $(\lambda_1 \pm \lambda_2)
+A$ can be represented as the following.
+\[
+(\lambda_1 \pm \lambda_2) A
+= (\lambda_1 \pm \lambda_2) [a_{ij}]
+= [(\lambda_1 \pm \lambda_2) a_{ij}]
+\]
+Using the distributive property, the following equation holds.
+\[
+[(\lambda_1 \pm \lambda_2) a_{ij}]
+= [\lambda_1 a_{ij} \pm \lambda_2 a_{ij}]
+= [\lambda_1 a_{ij}] \pm [\lambda_2 a_{ij}]
+= \lambda_1 A \pm \lambda_2 A
+\]
+Thus, the equation $(\lambda_1 \pm \lambda_2) A =
+\lambda_1 A \pm \lambda_2 A$ holds.
+\end{proof}
+
+Finally, here is the prove to the third property.
+
+\begin{proof}
+Consider the following equation.
+\[
+\lambda_1 (\lambda_2 [a_{ij}])
+= \lambda_1 [\lambda_2 a_{ij}]
+= [\lambda_1 \lambda_2 a_{ij}]
+= [(\lambda_1 \lambda_2) a_{ij}]
+= (\lambda_1 \lambda_2) [a_{ij}]
+= (\lambda_1 \lambda_2) A
+\]
+Therefore, the property holds.
+\end{proof}
+
+We have discussed fundamental properties so far. In the next
+section of the note, let's discuss what matrix multiplication
+with intuitions and computations.
+
+
+
+
+
 
 
 \end{document}
