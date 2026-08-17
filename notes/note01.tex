@@ -965,7 +965,102 @@ basis and dimension of a set of vectors.
 
 \subsection{Basis and Dimension}
 
+As always, let's start with definition.
 
+\begin{definition}
+For a vector space $V$ and its subset $S$, if $\Span(S) = V$, then
+$S$ is a spanning set for $V$.
+\end{definition}
+
+When we say aloud, we say that $S$ spans $V$. For instance, the set
+$\{ \langle 1, 0 \rangle, \langle 0, 1 \rangle \}$ spans
+$\mathbb{R}^2$ since all vectors $\langle a, b \rangle \in
+\mathbb{R}^2$ can be represented as the sum $a \langle 1, 0 \rangle
++ b\langle 0, 1 \rangle$.
+
+\begin{definition}
+A linearly independent subset that spans $V$ is a \textbf{basis} for
+$V$.
+\end{definition}
+
+Continuing from the previous example, we can see that $\{ \langle 1, 0
+\rangle, \langle 0, 1 \rangle \}$ not only spans $\mathbb{R}^2$,
+but is also a basis for $\mathbb{R}^2$ since it is linearly
+independent. As you can see, the same will apply if we generalize it
+to $\mathbb{R}^n$.
+
+\begin{definition}
+The \textbf{standard basis for $\mathbb{R}^n$} is the set $S =
+\{ e_1, \ldots e_n \}$ where $e_i$ is the $i\text{th}$ column of
+$I_n$.
+\end{definition}
+
+We could do the same for polynomials. First, notice that the set
+$\{ 1, x, x^2 \}$ spans $\mathbb{P}^2$. Moreover, the set is linearly
+independent. Therefore, $\{ 1, x, x^2 \}$ is a basis for
+$\mathbb{P}^2$.
+
+\begin{definition}
+The \textbf{standard basis for $\mathbb{P}^n$} is the set $S =
+\{ 1, x, x^2, \ldots, x^n \}$.
+\end{definition}
+
+From the two definitions above, we can notice that there are finite
+elements for the two standard basis for $\mathbb{R}^n$ and
+$\mathbb{P}^n$. We call such vector spaces
+\textbf{finite-dimensional}.
+
+\begin{definition}
+A vector spaces with a basis of finite elements is called
+\textbf{finite-dimensional}. Whereas, \textbf{infinite dimensional}
+vector spaces do not contain a basis with finite elements.
+\end{definition}
+
+An example of infinite dimensional vector space would be $\mathbb{P}$
+since the basis is required to be an infinite set. However, we will
+not be discussing infinite dimensional vector spaces. From the
+definitions above, we could establish a theorem.
+
+\begin{theorem}{Basis and Linear Dependence}
+{Basis and Linear Dependence}
+\label{Basis and Linear Dependence}
+For a basis $S$ of a vector space $V$ such that $|S| = n$, any set
+in $V$ with more than $n$ elements is linearly dependent.
+\end{theorem}
+\begin{proof}
+Let $S = \{ v_1, \ldots, v_n \}$ and $T = \{ u_1, \ldots, u_m \}$
+such that $S, T \in V$ and $m > n$. Notice that because $\Span(S) = V$
+and $T \in V$, there exists a set of constants $a_{ij}$ that satisfies
+the following equation (note that we will be using this indices in
+the next note when we discuss matrices.).
+\begin{align*}
+    u_1 &= \sum_{j=1}^n a_{1j} v_j \\
+    u_2 &= \sum_{j=1}^n a_{2j} v_j \\
+    &\quad\vdots \\
+    u_m &= \sum_{j=1}^n a_{mj} v_j
+\end{align*}
+Therefore, it suffices to show that there exists constants $c_1,
+\ldots, c_m$ such that not all are zero and that satisfies the
+following equation.
+\[
+\sum_{i=1}^m \sum_{j=1}^n c_i a_{ij} v_j
+= \mathbf{0}
+\]
+Continuing, it suffices to show that the variables $c_i$ and constants
+$a_{ij}$ satisfy the following equations where not all $c_i$ are zero.
+\begin{align*}
+    \sum_{i=1}^m c_i a_{i1} &= 0 \\
+    \sum_{i=1}^m c_i a_{i2} &= 0 \\
+    &\ \vdots \\
+    \sum_{i=1}^m c_i a_{in} &= 0
+\end{align*}
+Notice that there are $m$ variables and $n$ equations. It is known
+that for a linear system of equations, there exists infinite number
+of solutions if there are more variables than the equations (don't
+worry we will prove this in future notes.). Because $m > n$, there
+exists $c_1, \ldots c_m$ that are not all zero and that satisfy the
+equations for linear dependence, the theorem holds.
+\end{proof}
 
 
 
