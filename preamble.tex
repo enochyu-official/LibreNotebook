@@ -22,7 +22,8 @@
 \fancyhead[L]{Enoch's Notebook: Linear Algebra}
 \fancyhead[R]{Enoch Yu}
 \pagestyle{fancy}
-\usepackage{parskip}
+\linespread{1.15}
+\usepackage[skip=10pt]{parskip}
 \usepackage{microtype}
 \setlength{\headsep}{7pt}
 \setlength{\headheight}{14pt}
@@ -68,6 +69,7 @@
 \usepackage{graphicx}
 \graphicspath{ {./images/} }
 \usepackage{tabularx}
+\usepackage{nicematrix}
 \usepackage{arydshln}
 \usepackage{float}
 \usepackage{pdfpages}
@@ -117,59 +119,22 @@
     sharp corners
 }{cor}
 
-\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{mdframed}
 % Definition
-\newenvironment{keydef}
-{\begin{mdframed}[
+\newmdenv[
     linecolor=Sepia, 
     linewidth=1pt,
-    skipabove=\medskipamount,
+    skipabove=\bigskipamount,
     skipbelow=\medskipamount,
     backgroundcolor=yellow!10,
     innertopmargin=10pt,
     innerbottommargin=10pt,
     innerleftmargin=10pt,
     innerrightmargin=10pt
-]}
-{\end{mdframed}}
-
-% Example
-\NewDocumentEnvironment{example}{o}
-{
- \IfValueT{#1}{\vspace{11pt}}
- \begin{mdframed}[
-    linecolor=CadetBlue,
-    linewidth=1pt,
-    skipabove=\medskipamount,
-    skipbelow=\medskipamount,
-    backgroundcolor=cyan!5,
-    innertopmargin=10pt,
-    innerbottommargin=10pt,
-    innerleftmargin=10pt,
-    innerrightmargin=10pt
- ]
- \IfValueT{#1}{%
-    \vspace{-11pt}%
-    \noindent
-    \begin{tikzpicture}[remember picture, overlay]
-        \node[
-            draw=CadetBlue,
-            line width=1pt,
-            fill=cyan!5,
-            text=Sepia,
-            font=\bfseries\small,
-            anchor=west,
-            xshift=2pt
-        ] {\,\strut #1\,};
-    \end{tikzpicture}\par
-    \vspace{5pt}%
- }%
-}
-{\end{mdframed}}
+]{keydef}
 
 % Thought Process
-\newenvironment{thoughts}
-{\begin{mdframed}[
+\newmdenv[
     topline=false, 
     bottomline=false, 
     rightline=false,
@@ -179,12 +144,10 @@
     skipbelow=\medskipamount,
     fontcolor=RoyalPurple,
     font=\small\itshape
-]}
-{\end{mdframed}}
+]{thoughts}
 
 % Tip/Side note
-\newenvironment{tip}
-{\begin{mdframed}[
+\newmdenv[
     topline=false, 
     bottomline=false, 
     rightline=false,
@@ -194,84 +157,7 @@
     skipbelow=\medskipamount,
     fontcolor=BrickRed,
     font=\small\itshape
-]}
-{\end{mdframed}}
-
-
-% Jupyter cell like block
-\usepackage{listings}
-\definecolor{nb@bg}{RGB}{231,234,234}
-\definecolor{nb@kw}{RGB}{0,64,153}
-\definecolor{nb@str}{RGB}{163,21,21}
-\definecolor{nb@cmt}{RGB}{100,100,100}
-
-\lstdefinestyle{jin}{
-    language=Python,
-    backgroundcolor=\color{nb@bg},
-    basicstyle=\ttfamily\small,
-    keywordstyle=\color{nb@kw}\bfseries,
-    stringstyle=\color{nb@str},
-    commentstyle=\color{nb@cmt}\itshape,
-    numberstyle=\tiny\color{gray},
-    numbers=left, numbersep=8pt,
-    breaklines=true,
-    frame=single,
-    rulecolor=\color{gray!50},
-    showstringspaces=false,
-    tabsize=4, captionpos=b,
-    xleftmargin=1.2em,
-    framexleftmargin=1.2em,
-    belowskip=0pt,
-    morekeywords={
-        Sequential,Dense,model,compile,fit,predict,
-        Adam,BinaryCrossentropy,SparseCategoricalCrossentropy,
-        MeanSquaredError,from_logits,activation,units,
-        optimizer,loss,epochs,learning_rate,
-        tf,keras,tensorflow,StandardScaler,
-        XGBClassifier,XGBRegressor,np,plt
-    }
-}
-\lstdefinestyle{jout}{
-    basicstyle=\ttfamily\small,
-    breaklines=true,
-    showstringspaces=false,
-    tabsize=4, captionpos=b,
-    aboveskip=4pt,
-    xleftmargin=1.2em,
-}
-
-\newcounter{jupytercell}
-\newenvironment{jupyter}{
-    \stepcounter{jupytercell}
-    \begin{mdframed}[
-        backgroundcolor=white,
-        linecolor=Sepia!80,
-        linewidth=1pt,
-        innerleftmargin=10pt,
-        innerrightmargin=10pt,
-        innertopmargin=28pt,
-        innerbottommargin=0pt,
-        skipabove=15pt,
-        skipbelow=15pt
-    ]
-    \vspace{-28pt}%
-    \noindent\hspace{-11pt}%
-    \begin{tikzpicture}[remember picture, overlay]
-        \node[
-            draw=Sepia!80,
-            line width=1pt,
-            fill=white,
-            text=Sepia,
-            font=\bfseries\small,
-            anchor=west,
-            xshift=10pt,
-        ] {\,\strut Cell \thejupytercell\,};
-    \end{tikzpicture}\par
-    \vspace{8pt}%
-}{
-    \end{mdframed}
-}
-
+]{tip}
 
 
 
