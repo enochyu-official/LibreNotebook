@@ -13,14 +13,14 @@ of matrices.
 As always, let's get started with the definition.
 
 \begin{definition}
-A \textbf{matrix} is a 2-dimensional array composed with entries
+A \textbf{matrix} is a 2-dimensional array composed of entries
 called \textbf{elements}. A matrix is said to have \textbf{order}
 ``$m$ by $n$'' and written as $m \times n$ if there are $m$ rows
 and $n$ columns.
 \end{definition}
 
 Technically, the elements of a matrix can be anything including
-functions. However, majority of the matrices discussed in
+functions. However, the majority of the matrices discussed in
 linear algebra will have numeric elements. Let's take a look
 at some examples.
 \[
@@ -43,7 +43,7 @@ e \\
 \end{bNiceMatrix}
 \]
 Here, matrix $A$ has order $3 \times 4$ and matrix $B$ has
-order $4 \times 1$. The from of a matrix that has order
+order $4 \times 1$. The form of a matrix that has order
 $m \times n$ can be generalized as the following.
 \[
 A=
@@ -70,9 +70,9 @@ As you probably have guessed, we assign special names to some
 matrices depending on $m$ and $n$.
 
 \begin{definition}
-\textbf{Square matrices} are matrices with equal number of rows
-and columns. The elements with same row and column index are
-called \textbf{diagonal element} of the matrix. The collection
+\textbf{Square matrices} are matrices with an equal number of rows
+and columns. The elements with the same row and column index are
+called \textbf{diagonal elements} of the matrix. The collection
 of such elements is called \textbf{main diagonal}, or
 \textbf{principal diagonal}.
 \end{definition}
@@ -81,18 +81,19 @@ What if either $m$ or $n$ is equal to $1$? Yes, we do have special
 terms for them.
 
 \begin{definition}
-\textbf{Row matrices} are matrices that is composed of only one
-row. A \textbf{column matrix} is an array composed with one column.
+\textbf{Row matrices} are matrices that are composed of only one
+row. A \textbf{column matrix} is an array composed of one column.
 \end{definition}
 
-If you have machine learning background, you likely have heard
+If you have a machine learning background, you likely have heard
 of the term ``high dimensional arrays or vectors.'' Here, the
 term ``dimension'' works the same way.
 
 \begin{definition}
 The \textbf{dimension} of a row or column matrix is the number
-of \textbf{components}, or the elements. A \textbf{$\mathbf{n}$-tuple}
-is an $n$-dimensional row or column vector.
+of \textbf{components}, or the elements. An
+\textbf{$\mathbf{n}$-tuple} is an $n$-dimensional row or column
+vector.
 \end{definition}
 
 Let's take a look at an example from the previous matrix $B$
@@ -113,10 +114,10 @@ e \\
 \hfill
 \begin{minipage}{0.7\textwidth}
 Here, matrix $B$ is a 4-dimensional matrix with four components.
-This column matrix can also be called as a $4$-tuple.
+This column matrix can also be called as $4$-tuple.
 \end{minipage}
 
-We could also define matrices by its elements.
+We could also define matrices by their elements.
 
 \begin{definition}
 A \textbf{zero matrix} is a matrix with all its elements as $0$.
@@ -195,9 +196,9 @@ way. Subtracting the matrices above, we get the following results.
 \end{bmatrix}
 \]
 Now, as we look at the additions and subtractions of matrices,
-you probably wondered about application of additive properties.
+you probably wondered about the application of additive properties.
 Intuitively, the fundamental properties of addition can be
-applied with matrices addition.
+applied to matrices addition.
 
 \begin{theorem}{Commutative Property of Matrix Addition}
 For matrices $A$ and $B$ with order $m \times n$, $A + B = B + A$.
@@ -243,18 +244,18 @@ you get the number itself. The same applies in matrix addition.
 
 \begin{theorem}{Additive Identity of Matrix Addition}
 The sum of matrices $A_{m \times n}$ and $0_{m \times n}$ yields
-the matrix $A$, i.e. zero matrix is the identity elements of
+the matrix $A$, i.e. the zero matrix is the identity elements of
 matrix addition.
 \end{theorem}
 \begin{proof}
 Let $A = [a_{ij}]_{m \times n}$. By definition, the sum $A + 0
-= [a_{ij} + 0] = [a_{ij}] = A$. Therefore, zero matrix is the
-identity element of matrix additions.
+= [a_{ij} + 0] = [a_{ij}] = A$. Therefore, the zero matrix is the
+identity element of matrix addition.
 \end{proof}
 
-Now what if we want to add same matrix multiple times? Fortunately,
-we already resolved the issue. For instance, we write $x + x + x$
-as $3x$. We can multiply matrices with scalars.
+Now what if we want to add the same matrix multiple times?
+Fortunately, we already resolved the issue. For instance,
+we write $x + x + x$ as $3x$. We can multiply matrices with scalars.
 
 \begin{theorem}{Scalar Multiplication}
 For a complex number $\lambda$ and $A = [a_{ij}]$, $\lambda A
@@ -316,7 +317,7 @@ can be represented as following.
 \end{solution}
 
 With the scalar multiplication in mind, we can expand the application
-of foundational concepts here with matrix.
+of foundational concepts here with matrices.
 
 \begin{theorem}{Additional Properties}
 For $A = [a_{ij}]_{m \times n}$, $B = [b_{ij}]_{m \times n}$,
@@ -340,7 +341,7 @@ Consider the following equation.
 \]
 Note that individual elements are multiplied in scalar multiplication.
 Moreover, because $\lambda_1 (a_{ij} \pm b_{ij}) = \lambda_1 a_{ij}
-\pm \lambda_1 b_{ij}$, the following equation satisfy.
+\pm \lambda_1 b_{ij}$, the following equation holds.
 \[
 \lambda_1 ([a_{ij} \pm b_{ij}])
 = [\lambda_1 a_{ij} \pm \lambda_1 b_{ij}]
@@ -371,7 +372,7 @@ Thus, the equation $(\lambda_1 \pm \lambda_2) A =
 \lambda_1 A \pm \lambda_2 A$ holds.
 \end{proof}
 
-Finally, here is the prove to the third property.
+Finally, here is the proof to the third property.
 
 \begin{proof}
 Consider the following equation.
@@ -393,7 +394,7 @@ with intuitions and computations.
 \section{Matrix Multiplication}
 
 Before we get into formulas and computations, let's build our
-intuition on what matrix and its multiplication is supposed to
+intuition on what a matrix and its multiplication is supposed to
 represent. We will discuss \textbf{linear transformation} in
 depth in latter notes, but we can think of it as a function that
 transforms the vector space. Matrix instructs the function how to
@@ -408,7 +409,7 @@ where our $\hat{j}$ is mapped.
     1 & 3
 \end{bmatrix}
 \]
-Matrix $A$ is telling to map the standard basis $\hat{i} =
+Matrix $A$ is telling us to map the standard basis $\hat{i} =
 \langle 1, 0 \rangle$ to $\hat{i}'= \langle 2, 1 \rangle$ and from
 $\hat{j} = \langle 0, 1 \rangle$ to $\hat{j}' = \langle 1, 3 \rangle$.
 Consider the diagram below.
@@ -463,7 +464,7 @@ Consider the diagram below.
 \end{figure}
 
 After the transformation, you can imagine mapping everything
-in the standard vector space in respect to the new colored
+in the standard vector space with respect to the new colored
 space. That, is what matrix multiplication does. See how
 a vector $\vec{v} = \langle 1, 2 \rangle$ is now on
 $\langle 4, 7 \rangle$. Using matrix multiplication, we can
@@ -530,7 +531,7 @@ vector, we can represent our multiplication as the following.
 \end{bmatrix}
 \]
 Nice! We get the same result. Now that we have intuitions on what
-matrix and its multiplication represents, let's take a look at
+a matrix and its multiplication represents, let's take a look at
 algebraic properties and resulting formulas from the intuition.
 
 \subsection{The Method and Properties}
@@ -542,7 +543,7 @@ take a look at the following formula for individual elements.
 \begin{theorem}{Matrix Multiplication}
 For matrices $[a_{ij}]_{m \times n}$ and $[b_{ij}]_{n \times p}$,
 the elements $c_{ij}$ of the product matrix $[c_{ij}]_{m \times p}$
-is defined as the following expression.
+are defined as the following expression.
 \[
 c_{ij}
 = \sum_{k=1}^{n} a_{ik} b_{kj}
@@ -650,8 +651,8 @@ $B_{n \times p}$ where $m \neq p$, $AB$ is defined while $BA$ is not.
 
 A fun way of understanding commutativity is to think about
 transformation questions that we see in elementary or middle school
-competition math. You might be familiar of questions asking orders
-of transformation of an object. For instance, let $A$ by defined
+competition math. You might be familiar with questions asking orders
+of transformation of an object. For instance, let $A$ be defined
 as the $90^\circ$ rotation counterclockwise and let transformation
 $B$ be reflection across the $y$ axis. Is performing $AB$ equal to
 $BA$? Obviously, the answer is false when you visually think about it.
@@ -738,7 +739,7 @@ $AB$ and the right diagram visualizes $BA$ with $\vec{v} =
 \end{figure}
 \end{minipage}
 
-Let's take a look at what's happening here. $\vec{v}''$ is our
+Let's take a look at what's happening here. $\vec{v}''$ in our
 left diagram can be represented as the following.
 \[
 \vec{v}'' =
@@ -871,7 +872,7 @@ property still applies.
 
 \begin{theorem}{Properties of Matrix Multiplication}
 For matrices $A$, $B$, and $C$, the following equations are true
-given that the condition for the addition and multiplication are met.
+given that the conditions for the addition and multiplication are met.
 \begin{enumerate}
 \item $A(BC) = (AB)C$
 \item $A(B + C) = AB + AC$
@@ -948,7 +949,7 @@ Similarly, the second sum can be represented as the following.
     a_{i1}b_{1q}c_{qj} & & a_{in}b_{nq}c_{qj}
 \end{array}
 \]
-Now imagine you wrote the entire terms out, and rotate it
+Now imagine you write the entire terms out, and rotate it
 $90^\circ$. They are identical!
 \end{thoughts}
 
@@ -1006,8 +1007,8 @@ Thus, the fourth property holds.
 \end{proof}
 
 In addition to the visual implications of a matrix and its
-multiplication above, matrix multiplication can be extended with
-system of equations. For instance, consider the following system
+multiplication above, matrix multiplication can be extended to
+systems of equations. For instance, consider the following system
 of equations.
 \begin{align*}
     2x + 3y &= 5 \\
@@ -1034,9 +1035,9 @@ Let's take a look at more interesting facts on matrix multiplication.
 
 \begin{definition}
 A square matrix with $1$ in all entries of its main diagonal and
-$0$ is the other entries an \textbf{identity matrix}, denoted as
-$I_n$ for identity matrix with order $n \times n$. Moreover,
-all identity matrix satisfy the following equation for square
+$0$ in the other entries is an \textbf{identity matrix}, denoted as
+$I_n$ for an identity matrix with order $n \times n$. Moreover,
+all identity matrices satisfy the following equation for square
 matrix $A$ that can be multiplied.
 \[
 AI = IA = A
@@ -1077,7 +1078,7 @@ By definition, $AI = IA = A$ and $AJ = JA = A$. Therefore,
 $AI = IA = AJ = JA$ and $AI = AJ$. Because $A$ is any square matrix
 with order $m \times m$, let $A = I$. Substituting, $II = IJ$, and
 $I = J$ is obtained by definition. By contradiction from the
-assumption that $I \neq J$, identity matrix for a square matrix
+assumption that $I \neq J$, the identity matrix for a square matrix
 $A$ is unique.
 \end{proof}
 
@@ -1105,7 +1106,7 @@ the matrices being multiplied. Let's take a look at a simple example.
     \scriptstyle a_{11} b_{11} + a_{12} b_{21} + a_{13} b_{31} &
     \scriptstyle a_{11} b_{12} + a_{12} b_{22} + a_{13} b_{32} \\
     \scriptstyle a_{21} b_{11} + a_{22} b_{21} + a_{23} b_{31} &
-    \scriptstyle a_{21} b_{12} + a_{21} b_{22} + a_{23} b_{32}
+    \scriptstyle a_{21} b_{12} + a_{22} b_{22} + a_{23} b_{32}
 \end{bmatrix} \\
 &=
 \begin{bmatrix}
@@ -1175,8 +1176,8 @@ topics about matrix.
 
 \section{Additional Fundamental Topics}
 
-This section discusses frequently appeared concepts in matrix
-that they have their own name!
+This section discusses frequently appearing concepts in matrices
+that they have their own names!
 
 \subsection{Transpose}
 
@@ -1250,7 +1251,7 @@ matrix is \textbf{nilpotent} if there exists $n \in \mathbb{Z}$
 such that $A^n = 0$.
 \end{definition}
 
-Another definitions from transpose is symmetry and skew-symmetry.
+Other definitions from transpose is symmetry and skew-symmetry.
 
 \begin{definition}
 For matrix $A$ and its transpose $A^\intercal$, matrix $A$ is
@@ -1258,9 +1259,9 @@ For matrix $A$ and its transpose $A^\intercal$, matrix $A$ is
 if $A^\intercal = -A$.
 \end{definition}
 
-An example of symmetric matrix is identity matrix. For more general
-example, matrix $A$ and $B$ below are symmetric and skew-symmetric
-respectively.
+An example of a symmetric matrix is the identity matrix. For more
+general example, matrix $A$ and $B$ below are symmetric and
+skew-symmetric respectively.
 \[
 A =
 \begin{bmatrix}
@@ -1366,7 +1367,7 @@ obtained.
     = \left[ \sum_{k = 1}^{n} a_{jk} b_{ki} \right]_{p \times m}
 \end{align*}
 Because both the left-hand side and the right-hand side of the
-equation leads to the same matrix, the property holds.
+equation lead to the same matrix, the property holds.
 \end{proof}
 
 Finally, below is the proof for the corollary of the fourth property.
@@ -1415,7 +1416,7 @@ A =
     7 & 8 & 9
 \end{bmatrix}
 \]
-Below are few example of submatrix of $A$.
+Below are a few example of submatrices of $A$.
 \begin{align*}
 A =
 \begin{bmatrix}
@@ -1471,7 +1472,7 @@ We say the matrix is \textbf{partitioned} if horizontal and vertical
 lines are used to divide the matrix into submatrices.
 \end{definition}
 
-Here are few examples of different partitions of $A$.
+Here are a few examples of different partitions of $A$.
 \[
 \begin{bNiceArray}{ccc}[margin]
     1 & 2 & 3 \\
@@ -1502,8 +1503,8 @@ by the horizontal and vertical partition lines.
 \end{definition}
 
 The highlighted portion of the second partition above is an example
-of a block. Now, why should we even care about partition and blocks?
-Partitions of a matrix is important because it could be a very
+of a block. Now, why should we even care about partitions and blocks?
+Partitions of a matrix are important because it could be a very
 useful tool in computationally heavy matrix multiplication.
 Let's take a look at a generalized example $AB$.
 \[
@@ -1630,9 +1631,9 @@ of matrices, we could derive special forms from the ideas.
 As always, let's build from definitions.
 
 \begin{definition}
-\textbf{Symmetrically partitioned matrix} refers to a partitioned
+A \textbf{Symmetrically partitioned matrix} refers to a partitioned
 matrix such that its arrangements of the blocks are diagonally
-symmetric. The \textbf{diagonal blocks} are the blocks that passes
+symmetric. The \textbf{diagonal blocks} are the blocks that pass
 through the diagonal symmetry.
 \end{definition}
 
@@ -1654,7 +1655,7 @@ A =
     0      & 0      & 0      & 0 \\
 \end{bmatrix}
 \]
-Continuing, we could defined rows and columns based on its elements.
+Continuing, we could define rows and columns based on its elements.
 
 \begin{definition}
 \textbf{Zero rows} and \textbf{zero columns} are rows and columns
@@ -1666,17 +1667,17 @@ basic terms in mind, let's discuss two forms from the definitions
 above.
 
 \begin{definition}
-Matrix in \textbf{row echelon form (REF)} satisfy the conditions
+Matrix in \textbf{row echelon form (REF)} satisfies the conditions
 below.
 \begin{itemize}[noitemsep]
 \item
-All nonzero leading entry is $1$. (Side note here that some textbooks
-and lectures do not require the leading entry to be $1$, but I
-actually would like to keep it this way as this is how I initially
-learned it.)
+All nonzero leading entry is $1$. (Side note here is that some
+textbooks and lectures do not require the leading entry to be $1$,
+but I actually would like to keep it this way as this is how I
+initially learned it.)
 \item
-All nonzero leading entry in a nonzero row in a later row is to the
-right of nonzero leading entries in previous rows.
+All nonzero leading entries in a nonzero row in a later row are to
+the right of nonzero leading entries in previous rows.
 \item
 If there are both nonzero and zero rows, all zero rows must appear
 after the nonzero rows above.
@@ -1687,12 +1688,12 @@ Similarly, matrices in \textbf{reduced row echelon form (RREF)}
 are matrices that satisfy the following conditions.
 \begin{itemize}[noitemsep]
 \item
-All nonzero leading entry in a nonzero row is $1$.
+All nonzero leading entries in a nonzero row is $1$.
 \item
 If there are both nonzero and zero rows, all zero rows must appear
 after the nonzero rows above.
 \item
-All leading $1$s in the succeeding rows appear in column after the
+All leading $1$s in the succeeding rows appear in a column after the
 columns with previous leading $1$s.
 \item
 The leading $1$ must be the only nonzero element present in each
@@ -1716,13 +1717,13 @@ Below are examples of a matrices in REF and RREF respectively.
     0 & 0 & 0 & 0
 \end{bmatrix}
 \]
-Matrices that follows these forms will be very useful when solving
+Matrices that follow these forms will be very useful when solving
 linear systems of equations, but we will save that for the latter
 notes. Now let's discuss about triangular matrices.
 
-Triangular matrices are special type of square matrices that is
-determined by elements below the main diagonal. If all your
-elements below the main diagonal are zeros, we call it
+Triangular matrices are a special type of square matrices that is
+determined by elements below the main diagonal. If all its
+elements below the main diagonal are zeros, we call it an
 \textbf{upper triangular} matrix. Similarly, if all elements above
 the main diagonal are zeros, we call them \textbf{lower triangular}
 matrices. For more formal statement, consider the following
@@ -1789,7 +1790,7 @@ C'
         + \sum_{k = j}^{n} a'_{ik} b'_{kj}
 \right]
 \]
-Be definition, it is evident that $a'_{ik} = 0$ for integer $k
+By definition, it is evident that $a'_{ik} = 0$ for integer $k
 \in [1, j-1]$ and $b'_{kj} = 0$ for integer $k \in [j, n]$.
 Therefore, for $i > j$, $c'_{ij} = 0$ and the theorem is true.
 \end{proof}
@@ -1800,10 +1801,10 @@ discussion on determinants.
 
 \section{Determinants}
 
-Finally! We are discussing about determinants! One of the most
-foundational concepts in linear algebra is the determinant. Being one
-of the foundational concepts, I also think it is a hard concept if the
-intuition is excluded in the discussion due to formula heavy nature.
+Finally determinants! One of the most foundational concepts in linear
+algebra is the determinant. Being one of the foundational concepts,
+I also think it is a hard concept if the intuition is excluded in the
+discussion due to its formula heavy nature.
 
 As you could have noticed, a linear transformation does not only
 change the position of the vectors. Consider the following diagram.
@@ -1812,7 +1813,7 @@ change the position of the vectors. Consider the following diagram.
 \centering
 \begin{tikzpicture}[
         vector/.style={->, thick},
-        scale=0.65
+        scale=0.45
     ]
 
     \foreach \i in {-2, -1, ..., 6} {
@@ -1867,10 +1868,10 @@ the area which was originally $1$ is scaled to $5$, we can say that
 \end{vmatrix}
 = 5
 \]
-holds. Determinant is only defined for square matrices, and for
-each square matrices, the determinants tell how much the area have
+holds. The determinant is only defined for square matrices, and for
+each square matrix, the determinants tell how much the area has
 changed after the linear transformation. Determinants can surely
-be negative, and it represents the change in orientation.
+be negative, and they represent the change in orientation.
 With this intuition in mind, let's discuss more computational
 perspective of determinants.
 
@@ -1949,8 +1950,24 @@ We could also derive the formula for higher orders with many
 computations but I will leave them for you! I also think it is
 just better to use the recursive formula and the formula for
 $2 \times 2$ matrices instead of memorizing complex formulas,
-but I don't know. I think its up to you. With this in mind,
-we can establish a very important theorem in computing determinants.
+but I don't know. I think it's up to you. Below is another
+example.
+
+\begin{align*}
+    \det\left(
+        \begin{bmatrix}
+            1 & 0 & 0 \\
+            0 & 1 & 0 \\
+            0 & 0 & 1
+        \end{bmatrix}
+    \right)
+    &= \sum_{j=1}^3 (-1)^{1 + j} a_{1j} \det(M_{1j}) \\
+    &= a_{11} \det(M_{11})
+    = 1 \cdot 1 - 0 \cdot 0 = 1
+\end{align*}
+
+With these in mind, we can establish a very important theorem in
+computing determinants.
 
 \begin{theorem}{Cofactor Expansion}
 For any square matrix $A$, the cofactor expansion along the
@@ -2049,8 +2066,8 @@ determinants.
 
 \subsection{Determinant and Products}
 
-Before we conclude our discussion and determinant and this note,
-I wished to introduce one of the most important result of
+Before we conclude our discussion on determinant and this note,
+I wished to introduce one of the most important results of
 determinants. In this part of the section, we will try to prove
 that the product of the determinants is the same as the determinant
 of the product. To prove this result, we would need a lot of lemmas,
@@ -2211,8 +2228,8 @@ By Lemmas \ref{lem:Determinants and Elementary Matrices I},
 
 Now, I know it's lots of statements, but I promise we will get to
 the main result. Let's take a look at one last important result to
-get to our desired theorem! This theorem and its result includes
-the topic of invertibility, which was not introduced yet. Please
+get to our desired theorem! This theorem and its result include
+the topic of invertibility, which has not been introduced yet. Please
 feel free to read Section 3.3 and return or vice versa as it shouldn't
 be something too hard.
 
@@ -2283,7 +2300,7 @@ by Theorem \ref{theo:Product and Determinants} and Corollary
 
 This is it for determinants! I think it is an interesting way to
 connect the relationship between linear transformations, which
-we will discuss in future notes and matrix representation of its
+we will discuss in future notes and matrix representation of their
 effects. In the next notes, we will discuss different applications
 of matrices.
 

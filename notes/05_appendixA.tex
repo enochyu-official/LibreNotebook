@@ -5,7 +5,7 @@
 \chapter{Appendix A}
 
 Here are the solutions to the practice problems at the end of each
-notes.
+note.
 
 \section{Solutions for Note 1}
 \begin{enumerate}
@@ -25,7 +25,7 @@ space.
 
 \item
 First, for any scalars $\alpha$, notice that $\alpha(x_1, \ldots, x_n)
-= (\alpha x_1, \ldots, \lambda x_n)$. If each coefficient is divided
+= (\alpha x_1, \ldots, \alpha x_n)$. If each coefficient is divided
 by $\alpha \neq 0$, the scalar multiplication holds. The case where
 $\alpha = 0$ naturally holds. Continuing, notice that $(x_1, \ldots,
 x_n) + (x_1', \ldots, x_n') = (x_1 + x_1', \ldots, x_n + x_n') \in S$
@@ -77,8 +77,8 @@ Consider the following equations for some scalars $k_1, k_2, k_3$.
     k_1 (a + b) + k_2 (b + c) + k_3 (c + a) &= 0 \\
     a (k_3 + k_1) + b (k_1 + k_2) + c (k_2 + k_3) &= 0
 \end{align*}
-The linear combinations of $\{ a + b, b + c, c + a \}$ equals zero
-if and only if the linear combinations of $a$, $b$, and $c$ equals
+The linear combinations of $\{ a + b, b + c, c + a \}$ equal zero
+if and only if the linear combinations of $a$, $b$, and $c$ equal
 zero. Moreover, from the equation above, $k_1 = -k_2 = k_3 = -k_1$.
 In other words, $k_1 = k_2 = k_3 = 0$ and $\{ a + b, b + c, c + a \}$
 is linearly independent.
@@ -246,7 +246,7 @@ A =
 \]
 
 \item
-For any square matrices $S$, define $A$ and $B$ as the following.
+For any square matrix $S$, define $A$ and $B$ as the following.
 \[
 A = \frac{S + S^\intercal}{2}, \quad
 B = \frac{S - S^\intercal}{2}
@@ -265,7 +265,7 @@ Thus, all square matrices can be represented as the sum of a symmetric
 and skew-symmetric matrices.
 
 \item
-By definition, there exists $n, m \in \mathbb{Z}$ such that
+By definition, there exist $n, m \in \mathbb{Z}$ such that
 $A^n = 0$ and $B^m = 0$. Because $AB = BA$, $A^{nm} B^{nm} = 0$ can
 be written as $(AB)^{nm} = 0$ and $AB$ is nilpotent.
 
@@ -349,7 +349,7 @@ Consider the following representation of the system.
     x + 2y &= 1 \\
     2x + 4y &= k
 \end{align*}
-Notice that if $k = 2$, then there exists infinitely many solutions
+Notice that if $k = 2$, then there exist infinitely many solutions
 while $k \neq 2$ gives no solutions. Thus the system never has a
 unique solution.
 
@@ -660,7 +660,7 @@ Therefore, $\lambda$ is an eigenvalue of $AB$ if and only if it
 is an eigenvalue of $BA$.
 
 \item
-First to find bases for the kernel of the matrix, the following
+First, to find bases for the kernel of the matrix, the following
 equation must be solved.
 \[
 \begin{bmatrix}
@@ -733,7 +733,7 @@ Therefore,
 \end{bmatrix}
 \right\}
 \]
-is a basis of the image of the give matrix.
+is a basis of the image of the given matrix.
 
 \item
 By definition, $A \cong B$ if and only if there exists an invertible
@@ -768,7 +768,7 @@ Continuing with the expansion along the first column,
     &= (1 - \lambda)
     \det\left(
         \begin{bmatrix}
-            1 - \lambda & 0
+            1 - \lambda & 0 \\
             1           & 2 - \lambda
         \end{bmatrix}
     \right) \\

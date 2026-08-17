@@ -4,7 +4,7 @@
 
 \chapter{Matrices and Vector Spaces}
 
-Now that we discussed matrices and its application in linear systems,
+Now that we discussed matrices and their application in linear systems,
 let's return to the vector spaces to see what matrices represent in
 vector spaces. This note will introduce more concepts on vector spaces
 and matrices like row spaces and rank of a matrix and linear
@@ -20,7 +20,7 @@ The span of rows of a matrix $A_{m \times n}$ in $\mathbb{R}^n$ is the
 is known as the \textbf{row rank}.
 \end{definition}
 
-We can notice that by definition, the row spaces is a subspace of
+We can notice that by definition, the row space is a subspace of
 $\mathbb{R}^n$. Let's take a look at an example. Consider the
 following matrix $A$.
 \[
@@ -44,7 +44,7 @@ By definition, the nonzero rows span the row space since the zero rows
 do not contribute the vector addition. Therefore, it suffices to show
 that the set of nonzero vectors is linearly independent.
 
-By definition of matrices in REF, there exists no two rows with the
+By definition of matrices in REF, there exist no two rows with the
 same initial nonzero entry, implying its uniqueness. Therefore, by
 induction, all coefficients in the linear combination of the set of
 nonzero vectors must be zero. Thus, the set of nonzero rows is a basis
@@ -202,7 +202,7 @@ Representation and Basis I}, $S$ is also linearly independent. Thus,
 $S$ is a basis for $\Span(U)$.
 \end{proof}
 
-There are lots of theorems and results! But here is another one
+There are lots of theorems and results! But here is another one that
 connects vectors and matrices.
 
 \begin{theorem}{Linear Independence and Rank}
@@ -223,10 +223,10 @@ if and only if $\Rank(A) = |S|$.
 To be honest, I procrastinated a bit when I was learning to prove
 the theorems above. For some reason, the proofs were hard to
 understand and less intuitive than the proofs that I have done
-through olympiad style problems. I think what helped for me to
+through olympiad style problems. I think what helped me to
 understand the proofs is to just continue looking at it over and
 over again until I fully knew the terms. Because the proofs above
-prioritize understanding of the basic concepts than creativity,
+prioritize understanding of the basic concepts over creativity,
 I think procrastinating helped me fully understand the proofs.
 
 So far, we discussed about row spaces and row ranks. How about
@@ -383,7 +383,7 @@ linear system exists if and only if $\Rank(A) = \Rank([A \mid b])$.
 
 Though satisfying, the theorem may not be significantly useful since
 we anyways have to write the matrices in REF. However, we can notice
-other interesting result.
+another interesting result.
 
 \begin{theorem}{Rank and Number of Unknowns}
 For a consistent system with $n$ variables, if $\Rank(A) = k$, then
@@ -392,9 +392,9 @@ the final solutions can be written with $n - k$ free variables.
 \begin{proof}
 First and foremost, notice that because the system $Ax = b$ is
 consistent and $\Rank(A) = k$, $\Rank([A \mid b]) = k$. By Theorem
-\ref{theo:REF and Row Space}, there exists $k$ nonzero rows, or $k$
+\ref{theo:REF and Row Space}, there exist $k$ nonzero rows, or $k$
 variables with set values for $\Rank([A \mid b])$ in REF. Therefore,
-there exists $n-k$ free variables.
+there exist $n-k$ free variables.
 \end{proof}
 
 Continuing with this theorem, we can set a corollary for homogeneous
@@ -402,12 +402,12 @@ systems.
 
 \begin{corollary}{Homogeneous Systems and Rank}
 For a homogeneous system $Ax = \mathbf{0}$ with $n$ variables,
-there exists nontrivial solutions if and only if $\Rank(A) \neq n$.
+there exist nontrivial solutions if and only if $\Rank(A) \neq n$.
 \end{corollary}
 \begin{proof}
-By Theorem \ref{theo:Rank and Number of Unknowns}, there exists free
+By Theorem \ref{theo:Rank and Number of Unknowns}, there exist free
 variables if $\Rank(A) < n$, which are not necessarily trivial
-solutions. However, if $\Rank(A) = n$, then there exists zero free
+solutions. However, if $\Rank(A) = n$, then there exist zero free
 variables and a unique solution, which is the trivial solution.
 \end{proof}
 
@@ -528,16 +528,16 @@ function. The set of all corresponding outputs is known as
 \end{definition}
 
 You might be familiar with the term \textbf{range}, but \textbf{image}
-and \textbf{range} refers to the same thing, and \textbf{image} is
+and \textbf{range} refer to the same thing, and \textbf{image} is
 more commonly used in linear algebra and other courses. Now let's
 review about bijection, injection, and surjection.
 
 \begin{definition}
 A function is \textbf{injective}, or one-to-one, if each element in
-the domain maps to a unique element in the image. An
-\textbf{surjective} function, or an onto function, if image and
-codomain are identical. A \textbf{bijective} functions are functions
-that are both injective and surjective.
+the domain maps to a unique element in the image. A function is
+\textbf{surjective}, or onto, if the image and codomain are identical.
+A \textbf{bijective} functions are functions that are both injective
+and surjective.
 \end{definition}
 
 For more visual representation, below is a diagram that manifests
@@ -704,8 +704,8 @@ transformation.
 \subsection{Basic Terms and Notations}
 
 If we have functions over different domains, can we have a function
-whose domain and range are vector spaces? Then answer is yes, and we
-have special name for such functions.
+whose domain and range are vector spaces? The answer is yes, and we
+have a special name for such functions.
 
 \begin{definition}
 A function whose domain and range are defined over vector spaces is
@@ -716,9 +716,9 @@ A transformation that maps a vector space $V$ to $W$ is denoted as
 $T: V \to W$. Just like how we have $f(x)$, we do the same like
 $T(v)$ for $v \in V$, but it is more common to write $Tv$.
 Continuing, the definitions for image, injection, surjection, and
-bijection all applies in similar fashion.
+bijection all apply in similar fashion.
 
-There are many different transformation, but some transformation
+There are many different transformations, but some transformation
 moves the vector space in ``parallel'' in a way that preserves
 the fundamental definition of vector addition and scalar
 multiplication.
@@ -753,7 +753,7 @@ Thus, the transformation is linear.
 \end{solution}
 
 As you can see above, if $T: \mathbb{R}^2 \to \mathbb{R}^2$, you can
-image the vectors dilating. Indeed, such linear transformations are
+imagine the vectors dilating. Indeed, such linear transformations are
 called \textbf{dilation}
 
 \begin{definition}
@@ -764,7 +764,7 @@ in the input vector space defined as $Tv = kv$ for some scalar $k$.
 Let's take a look at the visual representation of the simple version
 of the example above. Consider the transformation defined as
 $T(\langle a, b \rangle) = \langle 2a, 2b \rangle$. We know from the
-previous example that the transformations is linear. Now let's try
+previous example that the transformation is linear. Now let's try
 and graph it.
 
 \begin{figure}[H]
@@ -809,7 +809,7 @@ and graph it.
 \end{tikzpicture}
 \end{figure}
 
-There are other special linear transformations that outputs the same
+There are other special linear transformations that output the same
 vector space or the zero vector space.
 
 \begin{definition}
@@ -818,7 +818,7 @@ $Tv = \mathbf{0}$. An \textbf{identity transformation} is a linear
 transformation that returns the same input vector as the output.
 \end{definition}
 
-Let's take a look at few more examples on linear transformations.
+Let's take a look at a few more examples on linear transformations.
 
 \begin{problem}
 Determine whether a transformation defined as $Tv = v^2$ is linear.
@@ -932,14 +932,14 @@ transformed.
 \end{figure}
 
 This transformation reflects the vectors across the origin!
-Now that we discussed what linear transformation is, let's see how
+Now that we discussed what a linear transformation is, let's see how
 matrices relate to it.
 
 \subsection{Matrices and Linear Transformation}
 
 Recall that every vector in a vector space can be represented as
 a linear combination of the basis. We will apply our understanding
-of linear transformation into vector representations in a vector space
+of a linear transformation to vector representations in a vector space
 to find the relation.
 
 Consider a basis $S = \{ v_1, \ldots, v_n \}$ for a vector space $V$.
@@ -958,7 +958,7 @@ Therefore, the following equation holds.
     c_n
 \end{bmatrix}
 \]
-Now returning to the definition of linear transformation, we can
+Now returning to the definition of a linear transformation, we can
 consider the following equation.
 \[
 Tv
@@ -966,7 +966,7 @@ Tv
 = \sum_{k=1}^n c_k Tv_k
 \]
 Notice that the coordinate is preserved. In other words, the
-following equation satisfy for the new basis $S' = \{ Tv_1, \ldots,
+following equation holds for the new basis $S' = \{ Tv_1, \ldots,
 Tv_n \}$
 \[
 (Tv)_{S'} =
@@ -976,7 +976,7 @@ Tv_n \}$
     c_n
 \end{bmatrix}
 \]
-This could let us geometrically understand that linear transformation
+This could let us geometrically understand that a linear transformation
 ``preserves'' the general shape of a vector space since the new
 vectors have the same coordinates as the original ones, but with
 different basis. With this in mind, we can establish two important
@@ -1075,7 +1075,7 @@ A(v_2)_B
 \begin{bmatrix}
     a_{12} \\
     a_{22} \\
-    \vdots
+    \vdots \\
     a_{m2}
 \end{bmatrix}
 \]
@@ -1091,7 +1091,7 @@ for constants $c_j$.
     = A \left( \sum_{j=1}^n c_j v_j \right)_B \\
     &= A(v)_B
 \end{align*}
-Thus, there always exist such matrix $A$.
+Thus, there always exists such a matrix $A$.
 \end{proof}
 
 The matrix $A$ above has a special name. The matrix is known as
@@ -1103,7 +1103,7 @@ space $V$ and its basis $A$ and $B$, there exists a matrix $P_A^B$
 such that $(v)_B = P_A^B (v)_A$ holds for all $v \in V$.
 To prove this, consider the identity transformation $T: V \to V$.
 By theorem \ref{theo:Matrix Representation of $T$}, there exists a
-matrix $P$ such that $(v)_B = P_A^B (v)_A$. This matrix too have a
+matrix $P$ such that $(v)_B = P_A^B (v)_A$. This matrix too has a
 special name.
 
 \begin{definition}
@@ -1119,7 +1119,7 @@ Consider the following theorem.
 
 \begin{theorem}{Transition Matrix and Basis I}
 For a vector space and its bases $A$ and $B$, the coordinate
-representation of $j$ vector of $A$ with respect to $B$ is the
+representation of the $j$ vector of $A$ with respect to $B$ is the
 $j^\text{th}$ column of the transition matrix $P_A^B$.
 \end{theorem}
 \begin{proof}
@@ -1159,7 +1159,7 @@ interesting theorem that links such matrices with transition matrices.
 
 \begin{theorem}{Transition Matrix and Basis II}
 Let $A_B^B$ and $A_C^C$ be the matrix representations of linear
-transformations for bases $B$ and $C$. If $P_B^C$ represent the
+transformations for bases $B$ and $C$. If $P_B^C$ represents the
 transition matrix, then $A_B^B = P_C^B A_C^C P_B^C$.
 \end{theorem}
 \begin{proof}
@@ -1182,7 +1182,7 @@ $\tilde{A}$ are \textbf{similar}.
 
 \begin{definition}
 Two matrices $A$ and $B$ are \textbf{similar} if the linear
-transformation that they represent with different bases are identical.
+transformation that they represent with different bases is identical.
 In other words, for transition matrix $P = P_A^B$, $PA = BP$.
 \end{definition}
 
@@ -1207,7 +1207,7 @@ following equations.
 \end{align*}
 Therefore, $AP (v)_C = P (Tv)_C$ and $(Tv)_C = A' (v)_C =
 P^{-1} A P (v)_C$. In other words, for each basis $C$, there exists
-transition matrix similar to $A$. Moreover, because the whole
+a transition matrix similar to $A$. Moreover, because the whole
 process is invertible, the theorem holds.
 \end{proof}
 
@@ -1217,10 +1217,10 @@ in linear algebra.
 
 \subsection{Kernels and Images}
 
-As you could have noticed, sometimes it is easier to discuss linear
-transformation with intuitions and sometimes matrices are much
+As you could have noticed, sometimes it is easier to discuss a linear
+transformation with intuitions and sometimes matrices are much more
 straightforward. Recall that linear transformations are functions
-for vectors spaces. Sometimes it is easier to look at the functions
+for vector spaces. Sometimes it is easier to look at the functions
 directly and sometimes it is more convenient to look at the matrix
 representation of such functions. That is what we are going to do
 with kernels and images. As always, let's get started with
@@ -1238,10 +1238,10 @@ $V$ that are mapped to zero vectors when transformed with $T$.
 \end{definition}
 
 Continuing with the definition, we can establish two fundamental
-properties of the kernel a transformation.
+properties of the kernel of a transformation.
 
 \begin{theorem}{Properties of the Kernel}
-Consider the following statements for all linear transformation
+Consider the following statements for all linear transformations
 $T: V \to W$.
 \begin{enumerate}[noitemsep]
 \item $\mathbf{0} \in \ker(T)$
@@ -1262,7 +1262,7 @@ T(\mathbf{0})
 \]
 Because $\mathbf{0}$ is mapped to $\mathbf{0}$ after any linear
 transformation $T$, $\mathbf{0} \in \ker(T)$ for all linear
-transformation $T$.
+transformations $T$.
 \end{proof}
 
 Continuing, below is the proof for the second statement.
@@ -1308,12 +1308,12 @@ Below defines $\Im(T)$ with $v \in V$.
 \]
 \end{definition}
 
-Although the kernel and the image of a transformation is very
-different, be can establish a very similar statements for the image
+Although the kernel and the image of a transformation are very
+different, we can establish very similar statements for the image
 just as how we derived them for the kernel.
 
 \begin{theorem}{Properties of the Image}
-Consider the following statements for all linear transformation
+Consider the following statements for all linear transformations
 $T: V \to W$.
 \begin{enumerate}[noitemsep]
 \item $\mathbf{0} \in \Im(T)$
@@ -1435,7 +1435,7 @@ $\Col(A)$.
 \end{proof}
 
 As you can see above by the theorem, although the kernel and the
-image of a linear transformation appears to be totally unrelated,
+image of a linear transformation appear to be totally unrelated,
 they are somehow related. Below is another theorem that connects
 the bases of the kernel and the image of a linear transformation.
 
@@ -1451,7 +1451,7 @@ it suffices to show that the set of vectors is linearly independent
 and spans $\Im(T)$. First, to show that the set is linearly
 independent, consider the following equations for some scalars $c_i$.
 \[
-\sum_{i=k+i}^n c_i Tv_i
+\sum_{i=k+1}^n c_i Tv_i
 = T \left( \sum_{i=k+1}^n c_i v_i \right)
 = \mathbf{0}
 \]
@@ -1601,15 +1601,16 @@ Thus, $T_2 \circ T_1$ is linear and the statement is true.
 
 As you can see above, the three statements in Theorem
 \ref{theo:Reflex, Symmetry, and Transition of Isomorphism} each
-relation is called reflexive, symmetric, and transitive. Continuing
-from this terms, we can assign a special name for a relation.
+shows a relation called reflexive, symmetric, and transitive.
+Continuing from this terms, we can assign a special name for a
+relation.
 
 \begin{definition}
 An \textbf{equivalence relation} is a relation that is reflexive,
 symmetric, and transitive.
 \end{definition}
 
-Below is an another interesting theorem on isomorphism.
+Below is another interesting theorem on isomorphism.
 
 \begin{theorem}{Dimension and Isomorphism}
 For finite dimensional vector spaces $V$ and $W$, $V \cong W$ if and
@@ -1633,11 +1634,11 @@ and Nullity of T}, $\dim(W) + 0 = \dim(V)$ and the theorem holds.
 From the theorem above, we can notice that if we consider a bijective
 linear transformation that maps to coordinate representation, then
 all $n$-dimensional vector spaces are isomorphic to $\mathbb{R}^n$.
-In other words, every $n$-dimensional vector spaces over a given
-field for some finite $n$ can be considered as the same vector spaces,
+In other words, every $n$-dimensional vector space over a given
+field for some finite $n$ can be considered as the same vector space,
 but just with different representations.
 
-This is it for linear transformation, and let's discuss about
+This is it for linear transformations, and let's discuss about
 eigenvalues and eigenvectors!
 
 \section{Eigenvalues and Eigenvectors}
@@ -1684,7 +1685,7 @@ T(a, b) = (b, -a) = \lambda (a, b) = (\lambda a, \lambda b)
 In other words $b = \lambda a$ and $-a = \lambda b$. Substituting,
 $-a = \lambda^2 a$ and $(\lambda^2 + 1) a = 0$. Because $\lambda \in
 \mathbb{R}$, $a = 0$ and $b = 0$. However, because eigenvectors
-as nonzero vectors by definition, $T$ has not real eigenvalues
+are nonzero vectors by definition, $T$ has not real eigenvalues
 and eigenvectors.
 \end{solution}
 
@@ -1712,8 +1713,8 @@ diagonal entries are $\lambda_1, \ldots, \lambda_n$. Thus
     0
 \end{bmatrix}
 \]
-hold by construction an $Tv_j = \lambda_j v_j$. In other words,
-$v_j$ and $\lambda_j$ are eigenvector and eigenvalue of $T$ and
+hold by construction and $Tv_j = \lambda_j v_j$. In other words,
+$v_j$ and $\lambda_j$ are an eigenvector and an eigenvalue of $T$ and
 there exists a basis composed of only eigenvectors of $T$.
 
 Continuing, let $B = \{ v_1, \ldots, v_n \}$ be a basis for $V$ whose
@@ -1745,9 +1746,9 @@ is an \textbf{eigenvalue} of $A$.
 \end{definition}
 
 When you think about this definition, we can see that both definitions
-imply thing as the $A$ is the matrix representation of a linear
-transformation and $x$ is a vector in the corresponding vector space.
-Let's take a look at a quick example.
+imply the same thing as the $A$ is the matrix representation of a
+linear transformation and $x$ is a vector in the corresponding vector
+space. Let's take a look at a quick example.
 
 \begin{problem}
 Find an eigenvector and eigenvalue of matrix $A$ defined as the
@@ -1801,7 +1802,7 @@ Notice that $Tv = \lambda v$ if and only if $A_B^B (v)_B = (Tv)_B =
 (\lambda v)_B = \lambda (v)_B$. Thus, the theorem holds.
 \end{proof}
 
-This theorem will come handy has we can either find all eigenvectors
+This theorem will come in handy as we can either find all eigenvectors
 and corresponding eigenvalues of the transformation or its matrix
 representation. Continuing, below is another theorem.
 
@@ -1843,10 +1844,10 @@ if and only if $\det(A - \lambda I_n) = 0$.
 \end{theorem}
 \begin{proof}
 First notice that by definition, $\lambda$ is an eigenvalue of $A$
-if an only if $Ax = \lambda x$ hold for some nonzero vector $x$.
-Continuing, $Ax = \lambda x$ hold if and only if $Ax = \lambda I_n x$
+if and only if $Ax = \lambda x$ holds for some nonzero vector $x$.
+Continuing, $Ax = \lambda x$ holds if and only if $Ax = \lambda I_n x$
 and $(A - \lambda I_n)x = 0$. In other words, the columns of the
-matrix $A - \lambda I_n$ is linearly dependent and invertible.
+matrix $A - \lambda I_n$ are linearly dependent and invertible.
 Therefore by Theorem \ref{theo:Invertibility and the Determinant},
 the theorem holds.
 \end{proof}
@@ -1942,7 +1943,7 @@ and the corresponding eigenspaces for all eigenvalues of $A$ are
 found.
 \end{solution}
 
-We got a nice matrix here, but its worth nothing that $\lambda$ need
+We got a nice matrix here, but it's worth noting that $\lambda$ need
 not be real. As demonstrated from the simple example above,
 solving the characteristic equation will lead to all eigenvalues
 for a matrix. I will leave more complex and interesting examples
@@ -1956,7 +1957,7 @@ relationship with vector spaces. Consider the following theorem.
 
 \begin{theorem}{Similar Matrices and Eigenvalues}
 For two square matrices $A$ and $B$ such that $A \cong B$,
-the characteristic equation and eigenvalues for each matrix equal.
+the characteristic equation and eigenvalues for each matrix are equal.
 \end{theorem}
 \begin{proof}
 By definition of similar matrices, there exists some invertible
@@ -2053,7 +2054,7 @@ $x_k \neq 0$. Thus $\{ x_1, \ldots, x_k \}$ is linearly independent
 and the theorem holds by induction.
 \end{proof}
 
-Naturally, it would be consider the dimension of an eigenspace.
+Naturally, we can consider the dimension of an eigenspace.
 
 \begin{theorem}{The Dimension of an Eigenspace}
 For a matrix $A_{n \times n}$ with an eigenvalue $\lambda$,
@@ -2077,7 +2078,7 @@ definition, $\dim(S_\lambda) = n - \Rank(A - \lambda I)$.
 
 We could really go on forever with interesting theorems, but
 before we conclude this part of the note, I would like to discuss
-two more theorem.
+two more theorems.
 
 \begin{theorem}{Properties of Eigenvector and Eigenvalue}
 Consider the following statements for a matrix $A$ with an
@@ -2139,13 +2140,13 @@ For a square matrix $A_{n \times n}$ with eigenvalues $\lambda_1,
 Let's start by proving the first equation.
 
 \begin{proof}
-By the Fundamental Theorem of Algebra, the following equation hold.
+By the Fundamental Theorem of Algebra, the following equation holds.
 \[
 \det(A - \lambda I)
 = \prod_{k=1}^n (\lambda_k - \lambda)
 = 0
 \]
-Therefore, all eigenvalues are the diagonal elements and by
+Therefore, all eigenvalues are the diagonal elements and by the
 definition of trace of $A$, the sum of all eigenvalues are the
 trace of $A$.
 \end{proof}
@@ -2153,7 +2154,7 @@ trace of $A$.
 Continuing, below is the proof for the second equation.
 
 \begin{proof}
-Substituting $\lambda = 0$ to the equation
+Substituting $\lambda = 0$ into the equation
 \[
 \det(A - \lambda I)
 = \prod_{k=1}^n (\lambda_k - \lambda),
@@ -2178,7 +2179,7 @@ A square matrix that is similar to a diagonal matrix is known to be
 \textbf{diagonalizable}.
 \end{definition}
 
-Now we cannot always use brute force method to see if two matrices
+Now we cannot always use a brute force method to see if two matrices
 are similar. Fortunately, the following theorem will help in checking
 whether a square matrix is diagonalizable.
 
@@ -2187,7 +2188,7 @@ A square matrix $A_{n \times n}$ is diagonalizable if and only if
 it retains a set of $n$ eigenvectors that is linearly independent.
 \end{theorem}
 \begin{proof}
-First and foremost, notice that a $A$ and a diagonal matrix $D$ of
+First and foremost, notice that $A$ and a diagonal matrix $D$ of
 the same order with entries $\lambda_i$ are similar if and only if
 there exists an invertible matrix $P$ such that $P^{-1} A P = D$ or
 $AP = PD$. Let $x_j$ and $e_j$ be the $j^\text{th}$ column of $P$ and
@@ -2200,7 +2201,7 @@ $I$ respectively. Then, the following equations hold.
     &= \lambda_j P e_j
     = \lambda_j x_j
 \end{align*}
-Thus, $x_j$ and $\lambda_j$ are eigenvector and the corresponding
+Thus, $x_j$ and $\lambda_j$ are an eigenvector and the corresponding
 eigenvalue of $A$. By definition, because $M$ is invertible,
 $x_j$ are all linearly independent and $A$ has $n$ linearly
 independent eigenvectors. In other words, if $A$ is diagonalizable,
@@ -2209,19 +2210,16 @@ then $A$ has $n$ linearly independent eigenvectors.
 Continuing, the converse can be proven. Let $A$ have $n$ linearly
 independent eigenvectors denoted as $x_j$ with corresponding
 eigenvalues $\lambda_j$. Construct matrices $P$ and $D$ such that
-the $j^\text{th}$ column of $P$ is $x_j$ and the diagonal elements
+the $j^\text{th}$ column of $P$ is $x_j$ and the diagonal element
 of $D$ is $\lambda_j$. If $e_j$ is the $j^\text{th}$ column of $I$,
 then the $j^\text{th}$ column of $AP$ can be written as the following.
 \[
 APe_j = A x_j = \lambda_j x_j
 \]
-Similarly, the $j^\text{th}$ column of $PD$ can be written as the
-following.
-\[
-PDe_j = M \lambda_j e_j = \lambda_j Me_j = \lambda_j x_j
-\]
-In other words, $AP = PD$ holds. Moreover, because $P$ is invertible
-by construction, $P^{-1} A P = D$ and $A$ is diagonalizable.
+Similarly, the $j^\text{th}$ column of $PD$ can be written as $PDe_j =
+M \lambda_j e_j = \lambda_j Me_j = \lambda_j x_j$ and $AP = PD$ holds.
+Moreover, because $P$ is invertible by construction, $P^{-1} A P = D$
+and $A$ is diagonalizable.
 \end{proof}
 
 Continuing from the theorem, we can establish the following corollary.
@@ -2239,7 +2237,7 @@ holds.
 \end{proof}
 
 This theorem also naturally leads to the question if a square matrix
-can be similar to more than one diagonal matrices. The answer to
+can be similar to more than one diagonal matrix. The answer to
 that question can be found with the theorem below.
 
 \begin{theorem}{Multiple Diagonal Matrices}
@@ -2248,11 +2246,11 @@ $D_2$, then the diagonal entries of $D_1$ and $D_2$ are the same
 with possibly different orderings.
 \end{theorem}
 \begin{proof}
-First and foremost, notice that Theorem \ref{theo:Similar Matrices and
-Eigenvalues}, because $A$ and $D_1$ are similar, they have the
+First and foremost, notice that by Theorem \ref{theo:Similar Matrices
+and Eigenvalues}, because $A$ and $D_1$ are similar, they have the
 same characteristic equation. Similarly, because $A$ and $D_2$ are
 similar, they also have the same characteristic equation and the
-characteristic equation of $D_1$ and $D_2$ are equal.
+characteristic equations of $D_1$ and $D_2$ are equal.
 \[
 \det(D_1 - \lambda I) = \det(D_2 - \lambda I) = 0
 \]
@@ -2293,9 +2291,9 @@ First, the statement if $\sum_{i=1}^k \dim(S_{\lambda_i}) = n$,
 then $A$ is diagonalizable can be proven. Let $B_i$ be a basis
 for eigenspace $S_{\lambda_i}$. By definition, vectors $v$ in
 eigenspace $S_{\lambda_i}$ satisfy $Av = \lambda_i v$. Because
-$\lambda_i$ are all distinct, no eigenspace share the same
+$\lambda_i$ are all distinct, no eigenspace shares the same
 eigenvector and thus no basis of two different eigenspaces
-share a vector. In other words, $B$ contains $n$ distinct eigenvectors
+shares a vector. In other words, $B$ contains $n$ distinct eigenvectors
 of $A$. Let $v_i \in S_{\lambda_i}$ be some linear combination of
 vectors in $B_i$. Notice that if $\sum_{i=1}^k v_i = 0$, then the
 coefficients must be zero since $\{ v_1, \ldots, v_k \}$ is linearly
@@ -2309,7 +2307,7 @@ Continuing, the converse can be proven. Assume that $\sum_{i=1}^k
 \dim(S_{\lambda_i}) \linebreak > n$. Continuing from the previous
 definition, $B \subset \mathbb{R}^n$ and the inequality $\sum_{i=1}^k
 \dim(S_{\lambda_i}) > n$ leads to contradiction. Moreover, if
-$\sum_{i=1}^k \dim(S_{\lambda_i}) < n$ then $A$ have no set that
+$\sum_{i=1}^k \dim(S_{\lambda_i}) < n$ then $A$ has no set that
 contains $n$ linearly independent eigenvectors. Thus, $A$ is not
 diagonalizable if $\sum_{i=1}^k \dim(S_{\lambda_i}) \linebreak
 \neq n$.
@@ -2318,7 +2316,7 @@ diagonalizable if $\sum_{i=1}^k \dim(S_{\lambda_i}) \linebreak
 This is it for eigenvalues and eigenvectors! This note was a
 particularly long one, but I think it also means that the
 relationships between matrices and vector spaces are one of the
-most essential understanding for linear algebra. Below are few
+most essential understandings for linear algebra. Below are a few
 practice problems on the topics that we discussed.
 
 \section{Practice Problems}
@@ -2330,7 +2328,7 @@ Determine whether a transformation defined as $T(\langle a, b \rangle)
 \item
 For square matrices $A$ and $B$ of order $n \times n$, show that if
 $\lambda$ is an eigenvalue of $AB$, then the eigenvalues of $BA$
-also includes $\lambda$ \cite{refbook1}.
+also include $\lambda$ \cite{refbook1}.
 
 \item
 Find bases for the kernel and the image of

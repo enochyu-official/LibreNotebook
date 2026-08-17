@@ -4,10 +4,10 @@
 
 \chapter{System of Linear Equations}
 
-One of the most important application of matrices would be in
+One of the most important applications of matrices would be in
 linear systems of equations. With the ideas on matrices, we can
-open our third eye when viewing system of linear equations.
-This note is dedicated for matrices in linear equations,
+open our third eye when viewing systems of linear equations.
+This note is dedicated to matrices in linear equations,
 Gaussian Elimination, and LU decompositions.
 
 \section{Basics and Intuitions}
@@ -15,10 +15,10 @@ Gaussian Elimination, and LU decompositions.
 As always, let's get started with fundamental definitions, concepts,
 and intuitions that will be used throughout.
 
-First, I am pretty sure most of you are aware of what system of
-equation is. However, because it is always nice to formally state
-our understanding, here is the definition of linear system of
-equation.
+First, I am pretty sure most of you are aware of what a system of
+equations is. However, because it is always nice to formally state
+our understanding, here is the definition of a linear system of
+equations.
 
 \begin{definition}
 A \textbf{system of linear equations} is composed of linear equations,
@@ -62,7 +62,7 @@ multiplication, system of linear equations can be written as a
 matrix multiplication.
 
 \begin{definition}
-A system of linear equation
+A system of linear equations
 \begin{align*}
     a_{11}x_1 + a_{12}x_2 + a_{13}x_3 + \cdots + a_{1n}x_n &= b_1 \\
     a_{21}x_1 + a_{22}x_2 + a_{23}x_3 + \cdots + a_{2n}x_n &= b_2 \\
@@ -104,8 +104,8 @@ b
 
 When you actually perform matrix multiplication, you can see that
 $Ax = b$ is identical to the system of linear equations. Now that
-we have basic understanding of the relationship between matrices
-and linear system of equations, let's take a look at a theorem and
+we have a basic understanding of the relationship between matrices
+and linear systems of equations, let's take a look at a theorem and
 an important corollary.
 
 \begin{theorem}{Different Solutions to a System}
@@ -138,7 +138,7 @@ solutions.
 \end{corollary}
 \begin{proof}
 First, it is self-evident that a system can retain $0$ or $1$
-solution. Therefore, the fact that there exists infinite solutions
+solution. Therefore, the fact that there exist infinite solutions
 if there are more than $1$ solution must be proven.
 
 Let $f(\alpha) = \alpha x_1 + (1 - \alpha) x_2$ be a function that
@@ -161,7 +161,7 @@ $0$, $1$, or infinitely many solutions.
 
 In middle school, you probably saw a visual understanding of the
 corollary above. Let's do the same, except in 3-dimensional space.
-Below are two examples of when there exist no solution. Note that
+Below are two examples of when there exists no solution. Note that
 not all three planes intersect at a single point.
 
 \begin{minipage}{0.48\textwidth}
@@ -373,14 +373,14 @@ can be used to solve complex linear system with Gaussian Elimination.
 
 \section{Gaussian Elimination}
 
-When you solve a linear system, you probably multiplied constants
+When you solve a linear system, you probably multiply constants
 and add or subtract equations to cancel variables. That is exactly
 what we will be doing in Gaussian Elimination, but with matrices.
 First, define how we solve a linear system in a more rigorous way.
 
 \begin{definition}
-For a system of linear equations, performing following operations
-will result in a linear system with identical solution.
+For a system of linear equations, performing the following operations
+will result in a linear system with an identical solution.
 \begin{enumerate}[noitemsep]
 \item
 Change the order of linear equations in which they are listed
@@ -414,13 +414,13 @@ matrix.
     3 & 4 & 5 & 6
 \end{bNiceArray}
 \]
-Now that we have augmented matrix in mind, let's take a look at
-how the three properties that we discussed applies with matrices.
+Now that we have an augmented matrix in mind, let's take a look at
+how the three properties that we discussed apply to matrices.
 
 \begin{definition}
 For an augmented matrix for a linear system, performing the following
-operations will result in a linear system with identical solution as
-the initial system.
+operations will result in a linear system with an identical solution
+as the initial system.
 \begin{enumerate}[noitemsep]
 \item[$R_1$.]
 Rearrangement of the rows in the augmented matrix
@@ -434,8 +434,8 @@ Such operations are referred to as \textbf{elementary row operations}.
 \end{definition}
 
 If you compare the operations one by one, you can notice that the
-two set of properties refer to the same property. Now with the
-set of property of augmented matrices in mind, here are the steps
+two sets of properties refer to the same property. Now with the
+set of properties of augmented matrices in mind, here are the steps
 for the Gaussian Elimination algorithm.
 
 \begin{theorem}{Gaussian Elimination}
@@ -454,7 +454,7 @@ Back substitute to solve the system.
 \end{enumerate}
 \end{theorem}
 
-Let's take a look at few examples.
+Let's take a look at a few examples.
 
 \begin{problem}
 Find solution(s) to the following system of linear equations if any.
@@ -560,7 +560,7 @@ First and foremost, the augmented matrix can be found.
     0 & 0 & 0 & 2
 \end{bNiceArray}
 \]
-Writing the transformed augmented matrix in to a system of linear
+Writing the transformed augmented matrix into a system of linear
 equations, the following system is obtained.
 \begin{align*}
     x + 2y + 3z &= 4 \\
@@ -570,7 +570,7 @@ equations, the following system is obtained.
 Notice that $0 = 2$ can never be true. Therefore, no solution exists.
 \end{solution}
 
-We could double check out answer without using matrices. Notice that
+We could double check our answer without using matrices. Notice that
 $3z - x = 4$ and $x = 3z - 4$. Similarly, $y = 5 - 3z$. Substituting
 to the first equation, $3z - 4 + 10 - 6z + 3z = 4$, or $6 = 4$,
 which is not true. Therefore, our results align! Below is the third
@@ -652,14 +652,14 @@ application in linear systems.
 
 As we discuss matrix multiplication, you may have wondered about
 matrix division. I mean it would be so nice if we could just
-divide coefficient matrix to find our variables. Although there
-is no ``division'' operation per se, but we could achieve similar
-operation with multiplicative inverse of a matrix, or simply
-inverse matrix. In other words, some solutions to linear systems
+divide the coefficient matrix to find our variables. Although there
+is no ``division'' operation per se, we could achieve similar
+operation with the multiplicative inverse of a matrix, or simply
+the inverse matrix. In other words, some solutions to linear systems
 can be written as $x = A^{-1}b$.
 
 \begin{definition}
-The \textbf{inverse of a matrix} is a matrix that produces identity
+The \textbf{inverse of a matrix} is a matrix that produces an identity
 matrix when multiplied with the original matrix. The inverse of
 $A$ is denoted as $A^{-1}$.
 \end{definition}
@@ -685,7 +685,7 @@ B =
 \]
 One thing to note from the definition is that $A$ and $B$ must be
 square matrices. Say we have $A_{4 \times 2}$ and $B_{2 \times 4}$.
-Even if both $AB$ and $BA$ returns an identity matrix, the order will
+Even if both $AB$ and $BA$ return an identity matrix, the order will
 be different. Therefore, for a matrix to have the inverse, it must
 be a square matrix.
 
@@ -713,7 +713,7 @@ A =
     a_{m1} & a_{m2} & a_{m3} & \cdots & a_{mm}
 \end{bmatrix}
 \]
-It suffices to show there there exists the inverse matrix
+It suffices to show that there exists the inverse matrix
 for all values of the elements. Consider the inverse below.
 \[
 A^{-1} =
@@ -726,12 +726,12 @@ A^{-1} =
 \end{bmatrix}
 \]
 Because $a_{ii}$ for integer $i \in [1, m]$ are nonzero numbers,
-the all elements in the matrix $A^{-1}$ are defined, and the
-inverse matrix exists.
+all elements in the matrix $A^{-1}$ are defined, and the inverse
+matrix exists.
 \end{proof}
 
 Now, it is important to note that not all square matrices have the
-inverse. For an example, consider a matrix with zero row. The same
+inverse. For example, consider a matrix with zero row. The same
 row in the product matrices will become a zero row. By definition,
 it is not possible to make an identity matrix with a zero row.
 
@@ -748,7 +748,7 @@ inverse of $A$. Consider the following equation.
 \[
 B = BI = B(AC) = (BA)C = IC = C
 \]
-Because the fact that $B = C$ contradicts with the initial assumption
+Because the fact that $B = C$ contradicts the initial assumption
 that $B \neq C$, all inverse matrices are unique.
 \end{proof}
 
@@ -766,7 +766,7 @@ $\lambda$, the following equations hold.
 \end{enumerate}
 \end{theorem}
 
-There's lot to prove and let's do them one by one starting with
+There's a lot to prove and let's do them one by one starting with
 the first one!
 
 \begin{proof}
@@ -828,7 +828,7 @@ let's discuss how to actually find one with tools to consider.
 \begin{definition}
 For a matrix $A$ that is not necessarily a square matrix, an
 \textbf{elementary matrix}, denoted as $E$, is a square matrix that
-performs elementary row operation by multiplying with $A$.
+performs an elementary row operation by multiplying with $A$.
 \end{definition}
 
 Let's take a look at an example. Consider matrix $A$ defined below,
@@ -893,7 +893,7 @@ E_2 A =
 \end{bmatrix}
 \]
 Now we can notice three observations and tips for constructing
-elementary matrices. For each elementary row operations, we could
+elementary matrices. For each elementary row operation, we could
 do the following.
 
 \begin{definition}
@@ -921,15 +921,15 @@ From this, we can notice the following theorem.
 All elementary matrices are invertible.
 \end{theorem}
 \begin{proof}
-The proof is rather rather simple. Because all elementary row
-operations can be inverted with the inverse operation,
-all elementary matrices are invertible.
+The proof is rather simple. Because all elementary row operations
+can be inverted with the inverse operation, all elementary matrices
+are invertible.
 \end{proof}
 
 Building onto the theorem, we could prove the uniqueness.
 
 \begin{theorem}{Uniqueness of Elementary Matrices}
-For each elementary row operations, the corresponding elementary
+For each elementary row operation, the corresponding elementary
 matrix is unique.
 \end{theorem}
 \begin{proof}
@@ -942,7 +942,7 @@ shown that elementary matrices are unique.
 \end{proof}
 
 There are more interesting lemmas and theorems, but let's discuss
-them in latter notes. However, let's discuss few theorems for each
+them in latter notes. However, let's discuss a few theorems for each
 elementary row operation before moving on to finding an inverse
 matrix.
 
@@ -952,13 +952,13 @@ operations, the following properties hold.
 \begin{enumerate}[noitemsep]
 \item
 For an elementary matrix that changes the order of two rows,
-the inverse of such matrices is itself.
+the inverse of such a matrix is itself.
 \item
 For an elementary matrix that scales a row with nonzero constant
 $k$, the inverse can be obtained by replacing $k$ in the elementary
 matrix with $\frac{1}{k}$.
 \item
-For a elementary matrix that adds the scaled row into the other,
+For an elementary matrix that adds the scaled row into the other,
 its inverse can be obtained by replacing the nonzero scalar $k$
 with $-k$.
 \end{enumerate}
@@ -977,7 +977,7 @@ of Identity Matrices}, $E = E^{-1}$.
 Continuing, here is the proof for the second property.
 
 \begin{proof}
-Let elementary matrices $E$ and $F$ be matrices that scales a
+Let elementary matrices $E$ and $F$ be matrices that scale a
 row by a nonzero scalar $k$ and $\frac{1}{k}$ respectively.
 By definition, $F(EI) = I$ and $FE = I$. Therefore, $F = E^{-1}$
 and the property is shown.
@@ -987,9 +987,9 @@ Lastly, here is the proof for the final property.
 
 \begin{proof}
 Similar to the proof for the second property, let elementary matrices
-$E$ and $F$ represents the elementary row operations that adds a
-row scaled by nonzero constant $k$ to another and the operation
-that adds a row scaled by $-k$ to another respectively. By definition,
+$E$ and $F$ represent the elementary row operations that add a row
+scaled by nonzero constant $k$ to another and the operation that adds
+a row scaled by $-k$ to another respectively. By definition,
 $F(EI) = I$ and $F = E^{-1}$ as demonstrated above.
 \end{proof}
 
@@ -998,8 +998,8 @@ square matrices have the inverse matrix.
 
 \begin{definition}
 A square matrix $A$ is invertible if and only if it can be represented
-as identity matrix after sequences of elementary row operations, i.e.
-there exists elementary matrices $E_i$ such that the following
+as an identity matrix after sequences of elementary row operations,
+i.e. there exist elementary matrices $E_i$ such that the following
 equation is true.
 \[
 E_k E_{k-1} \cdots E_1 A = I
@@ -1020,7 +1020,7 @@ Write an augmented matrix $[A \mid I]$ for $I_{m}$.
 Utilize elementary row operations on the augmented matrix for
 the block $A$ to be in REF.
 \item
-If the main diagonal of the left partition contains zero,
+If the main diagonal of the left partition contains a zero,
 $A$ is singular. If not, the next step can be continued.
 \item
 Use elementary row operations again to transform the block $A$
@@ -1032,15 +1032,12 @@ the inverse of $A$.
 Let's take a look at a few examples.
 
 \begin{problem}
-Find the inverse of the following matrix $A$.
-\[
-A =
+Find the inverse of $A =
 \begin{bmatrix}
     1 & 2 & 3 \\
     4 & 5 & 6 \\
     7 & 8 & 9
-\end{bmatrix}
-\]
+\end{bmatrix}$.
 \end{problem}
 \begin{solution}
 First, the augmented matrix can be constructed.
@@ -1077,7 +1074,7 @@ Consider the following elementary row operations.
     7 & 8 & 9 & 0 & 0 & 1
 \end{bNiceArray}
 \end{align*}
-It is evident that the main diagonal will contain zero after
+It is evident that the main diagonal will contain a zero after
 the transformation. Therefore, the matrix is not invertible.
 \end{solution}
 
@@ -1178,7 +1175,7 @@ fundamental definitions.
 \textbf{LU decomposition} is the process of factorizing an
 invertible matrix into the product of lower and upper triangular
 matrices where the diagonal elements of the lower triangular matrix
-is $1$.
+are $1$.
 \end{definition}
 
 Before we look at an important theorem and how it can be used to
@@ -1192,8 +1189,9 @@ A =
     3 & 10 & 18
 \end{bmatrix}
 \]
-From here, notice that matrix $A$ can transform to upper triangular
-matrix with following elementary row operations of $R_3$.
+From here, notice that matrix $A$ can be transformed to upper
+triangular matrix with the following elementary row operations of
+$R_3$.
 \[
 \begin{bmatrix}
     1 & 2  & 3 \\
@@ -1284,7 +1282,7 @@ Therefore, the following equation is obtained.
     \end{bmatrix}
 \end{align*}
 $A$ is now represented as the product of lower and upper triangular
-matrices! Now that we know how LU decomposition work, let's take
+matrices! Now that we know how LU decomposition works, let's take
 a look at an important lemma on triangular matrices to prove a
 theorem on LU decomposition.
 
@@ -1305,11 +1303,11 @@ for $i > j$. Similarly, if $b_{ji} = 0$ for $j > i$, then $c_{ij} = 0$
 for $i \neq j$. Continuing, if $b_{ij} = \frac{1}{a_{ij}}$ for
 $i = j$, $B$ can be constructed, which is an upper triangular
 matrix. Because the inverse matrix is unique, the inverse of an
-upper triangular matrix is upper triangular matrix if there exists
+upper triangular matrix is an upper triangular matrix if there exists
 one.
 
-Similarly, the fact that inverse of an lower triangular matrix is
-lower triangular matrix can be proven. Let $A'_{m \times m} =
+Similarly, the fact that the inverse of an lower triangular matrix is
+a lower triangular matrix can be proven. Let $A'_{m \times m} =
 [a'_{ij}]$ be a lower triangular matrix and $B' = [b'_{ij}]$ be
 its inverse. By definition, their product $C' = [c'_{ij}] =
 [ \sum_{k = 1}^m a'_{ij} b'_{ji} ]$ is the identity matrix $I_m$.
@@ -1328,13 +1326,13 @@ With the lemma in mind, let's prove the following theorem.
 
 \begin{theorem}{Condition for LU Decomposition}
 An invertible matrix has a LU decomposition if and only if
-multiplying sequence of lower triangular elementary matrices for
+multiplying a sequence of lower triangular elementary matrices for
 elementary row operations can transform the matrix into an upper
 triangular matrix.
 \end{theorem}
 \begin{proof}
 First, the statement that a nonsingular matrix has a LU decomposition
-if multiplying sequence of lower triangular elementary matrices for
+if multiplying a sequence of lower triangular elementary matrices for
 elementary row operations can transform the matrix into an upper
 triangular matrix can be proven. Let $A$ be an invertible matrix
 that can be represented as the following.
@@ -1346,7 +1344,7 @@ be written as the following.
 \[
 A = \left( E^{-1}_{21} E^{-1}_{31} \cdots E^{-1}_{n,n-1} \right) U
 \]
-From Lemma \ref{lem:Inverse of Triangular Matrices}, the inverse of
+From Lemma \ref{lem:Inverse of Triangular Matrices}, the inverses of
 the elementary matrices are lower triangular matrices. Moreover,
 by Theorem \ref{theo:Property of Triangular Matrix Multiplication},
 the product of the lower triangular matrices is also a lower
@@ -1363,7 +1361,7 @@ I = AA^{-1} = LUA^{-1} = L \left( UA^{-1} \right)
 \]
 Therefore, $L$ is nonsingular. From the proof for Lemma
 \ref{lem:Inverse of Triangular Matrices}, it is evident that the diagonal
-elements of an invertible lower triangular matrix is nonzero as
+elements of an invertible lower triangular matrix are nonzero as
 the diagonal elements in the inverse cannot be defined if a zero is
 present in the diagonal elements of the lower triangular matrix.
 
@@ -1374,7 +1372,7 @@ Moreover, let $U' = DU$. Thus, the following equation is obtained.
 A = LU = L'DU = L'U'
 \]
 Recall that $L$ is invertible. Because $L^{-1}$ exists and
-$(L'D)^{-1} = D^{-1} L'^{-1}$ exist, $L'$ is also invertible.
+$(L'D)^{-1} = D^{-1} L'^{-1}$ exists, $L'$ is also invertible.
 In other words, $L'^{-1} A = U'$. Therefore, it suffices to show
 that $L'^{-1}$ is a product of lower triangular elementary matrices.
 By definition of $D$, the diagonal elements of $L'$ are $1$. Thus,
@@ -1400,7 +1398,7 @@ system.
 \[
 Ux = y
 \]
-The good news is that both system is relatively easy to solve.
+The good news is that both systems are relatively easy to solve.
 The reason is simple. Consider the following equation.
 \[
 Ax = LUx = b
@@ -1491,7 +1489,7 @@ A =
 \end{bmatrix}
 \]
 Completing the LU decomposition, $A$ can be represented as the
-product of following lower and upper triangular matrices.
+product of the following lower and upper triangular matrices.
 \begin{align*}
     A
     &=
@@ -1584,8 +1582,8 @@ Writing in linear system, $x$, $y$, and $z$ can be found.
 Therefore, $z = 6$, $y = 3$, and $x = 2$.
 \end{solution}
 
-With LU decomposition, we completed our discussion for solving
-system of linear equations! Below are some practice problems
+With LU decomposition, we completed our discussion on solving
+systems of linear equations! Below are some practice problems
 for the topics that we covered.
 
 \section{Practice Problems}
