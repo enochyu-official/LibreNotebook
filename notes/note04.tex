@@ -36,7 +36,6 @@ The row space $\Row(A)$ is represented by $\Span\{ (1, 2), (3, 4),
 the following theorem.
 
 \begin{theorem}{REF and Row Space}{REF and Row Space}
-\label{REF and Row Space}
 A basis for the row space of a matrix $A$ in REF is the set of nonzero
 rows, and the number of such rows is the row rank.
 \end{theorem}
@@ -57,7 +56,6 @@ Continuing, we can also establish the following theorem.
 
 \begin{theorem}{Elementary Row Operations and Row Space}
 {Elementary Row Operations and Row Space}
-\label{Elementary Row Operations and Row Space}
 If $A$ and $B$ are matrices that can be obtained by applying
 elementary row operations to each other, then $\Row(A) = \Row(B)$.
 \end{theorem}
@@ -69,7 +67,7 @@ v_k, \ldots, v_n \} = \Span\{ v_1,\ldots, v_k, \ldots, v_j, \linebreak
 \ldots, v_n \}$. Moreover, for some scalar $\lambda$, $\Span\{ v_1,
 \ldots, \lambda v_k, \ldots, v_n \} = \{ v_1, \ldots, v_n \}$ and
 $\Span\{ v_1, \ldots, v_k + \lambda v_j, \ldots, v_n \}$ by statement
-four in Theorem \ref{Four Lemmas on Span of a Set of Vectors}.
+four in Theorem \ref{theo:Four Lemmas on Span of a Set of Vectors}.
 Continuing with induction, the same applies to $B$ that is obtained by
 a sequence of elementary operations from $A$. Thus, the theorem holds.
 \end{proof}
@@ -131,7 +129,6 @@ We could also consider the following theorem.
 
 \begin{theorem}{Coordinate Representation and Basis I}
 {Coordinate Representation and Basis I}
-\label{Coordinate Representation and Basis I}
 For a vector space $V$ and its basis $S = \{ v_1, \ldots, v_n \}$
 where $u, \{ u_1, \ldots, u_m \} \in V$, $u \in \Span\{ u_1, \ldots,
 u_m \}$ if and only if a linear combination of a coordinate
@@ -177,7 +174,6 @@ Continuing from this theorem, we can establish another theorem.
 
 \begin{theorem}{Coordinate Representation and Basis II}
 {Coordinate Representation and Basis II}
-\label{Coordinate Representation and Basis II}
 For an $n$-dimensional vector space $V$ and its basis $B$, consider a
 subset $U = \{ u_1, \ldots, u_m \} \subset V$. Construct a matrix
 $A = [a_{ij}]$ such that the coordinate representation of $u_i$ with
@@ -190,13 +186,13 @@ then $S$ is a basis for $\Span(U)$.
 First and foremost, assume that the coordinate representation of
 vectors in $S$ with respect to $B$ is a basis for $\Row(A)$.
 By definition, the span of such representations is the row space
-of $A$. Notice that by Theorem \ref{Coordinate Representation and
+of $A$. Notice that by Theorem \ref{theo:Coordinate Representation and
 Basis I}, an arbitrary vector $v \in \Span(S)$ if and only if a linear
 combination of a coordinate representation of $S$ with respect to $B$
 is the coordinate representation of $v$ with respect to $B$. In other
 words, $v \in \Span(S)$ if and only if the coordinate representation
-of $v$ is in $\Row(A)$. By Theorem \ref{Coordinate Representation and
-Basis I} again, the statement implies that $v \in \Span(U)$.
+of $v$ is in $\Row(A)$. By Theorem \ref{theo:Coordinate Representation
+and Basis I} again, the statement implies that $v \in \Span(U)$.
 Thus, $v \in \Span(S)$ if and only if $v \in \Span(U)$ and $\Span(S)
 = \Span(U)$.
 
@@ -204,9 +200,9 @@ To show that $S$ is a basis for $\Span(U)$, or $\Span(S)$, it suffices
 to show that $S$ is linearly independent. Notice that because the set
 of coordinate representations of $S$ is a basis for $\Row(A)$, the set
 of coordinate representations of $S$ is linearly independent.
-Moreover, by the proof for the Theorem \ref{Coordinate Representation
-and Basis I}, $S$ is also linearly independent. Thus, $S$ is a basis
-for $\Span(U)$.
+Moreover, by the proof for the Theorem \ref{theo:Coordinate
+Representation and Basis I}, $S$ is also linearly independent. Thus,
+$S$ is a basis for $\Span(U)$.
 \end{proof}
 
 There are lots of theorems and results! But here is another one
@@ -214,7 +210,6 @@ connects vectors and matrices.
 
 \begin{theorem}{Linear Independence and Rank}
 {Linear Independence and Rank}
-\label{Linear Independence and Rank}
 For $S \subset \mathbb{R}^n$ such that $|S| = k$, construct matrix
 $A_{k \times n}$ such that the rows are each vectors in $S$. $S$ is
 linearly independent if and only if $\Rank(A) = k$.
@@ -257,7 +252,6 @@ notation $\Row(A)$. That is because the row rank and column rank
 of a matrix are always equal.
 
 \begin{theorem}{Row and Column Ranks}{Row and Column Ranks}
-\label{Row and Column Ranks}
 The row rank and column rank of a matrix $A$ are always equal.
 \end{theorem}
 \begin{proof}
@@ -374,7 +368,6 @@ the basis for the column space. We can now write this idea as a
 theorem.
 
 \begin{theorem}{Linear System and Rank}{Linear System and Rank}
-\label{Linear System and Rank}
 A linear system $Ax = b$ has at least one solution if and only if
 $\Rank(A) = \Rank([A \mid b])$.
 \end{theorem}
@@ -398,14 +391,13 @@ other interesting result.
 
 \begin{theorem}{Rank and Number of Unknowns}
 {Rank and Number of Unknowns}
-\label{Rank and Number of Unknowns}
 For a consistent system with $n$ variables, if $\Rank(A) = k$, then
 the final solutions can be written with $n - k$ free variables.
 \end{theorem}
 \begin{proof}
 First and foremost, notice that because the system $Ax = b$ is
 consistent and $\Rank(A) = k$, $\Rank([A \mid b]) = k$. By Theorem
-\ref{REF and Row Space}, there exists $k$ nonzero rows, or $k$
+\ref{theo:REF and Row Space}, there exists $k$ nonzero rows, or $k$
 variables with set values for $\Rank([A \mid b])$ in REF. Therefore,
 there exists $n-k$ free variables.
 \end{proof}
@@ -415,12 +407,11 @@ systems.
 
 \begin{corollary}{Homogeneous Systems and Rank}
 {Homogeneous Systems and Rank}
-\label{Homogeneous Systems and Rank}
 For a homogeneous system $Ax = \mathbf{0}$ with $n$ variables,
 there exists nontrivial solutions if and only if $\Rank(A) \neq n$.
 \end{corollary}
 \begin{proof}
-By Theorem \ref{Rank and Number of Unknowns}, there exists free
+By Theorem \ref{theo:Rank and Number of Unknowns}, there exists free
 variables if $\Rank(A) < n$, which are not necessarily trivial
 solutions. However, if $\Rank(A) = n$, then there exists zero free
 variables and a unique solution, which is the trivial solution.
@@ -438,8 +429,7 @@ Indeed for two square matrices $A$ and $B$ with the same order,
 if $AB = I$, then $BA = I$. To prove this, let's first prove two
 lemmas.
 
-\begin{lemma}{}{}
-\label{Property of Inverse Lemma I}
+\begin{lemma}{}{Property of Inverse Lemma I}
 For two square matrices $A$ and $B$ with order $n \times n$ such that
 $AB = I$, $\Rank(A) = n$.
 \end{lemma}
@@ -461,8 +451,7 @@ $\Row(A)$ and $\Rank(A) = n$.
 
 Continuing, let's prove the second lemma.
 
-\begin{lemma}{}{}
-\label{Property of Inverse Lemma II}
+\begin{lemma}{}{Property of Inverse Lemma II}
 For a square matrix $A_{n \times n}$, if $\Rank(A) = n$, then there
 exists a matrix $B$ where $BA = I$.
 \end{lemma}
@@ -477,14 +466,13 @@ lemma holds.
 Now that we have the two lemmas in mind, let's prove the main result.
 
 \begin{theorem}{Property of Inverse}{Property of Inverse}
-\label{Property of Inverse}
 For square matrices $A$ and $B$ with the order $n \times n$, if
 $AB = I$, then $BA = I$.
 \end{theorem}
 \begin{proof}
-First and foremost, by Lemma \ref{Property of Inverse Lemma I},
-$\Rank(A) = n$. Moreover by \ref{Property of Inverse Lemma II},
-there exists matrix $C$ such that $CA = I$. Continuing, $C = CI =
+First and foremost, by Lemma \ref{lem:Property of Inverse Lemma I},
+$\Rank(A) = n$. Moreover by Lemma \ref{lem:Property of Inverse Lemma
+II}, there exists matrix $C$ such that $CA = I$. Continuing, $C = CI =
 CAB = IB = B$. Thus, if $AB = I$, then $BA = I$.
 \end{proof}
 
@@ -493,20 +481,19 @@ notes! Now with the two lemmas and the theorem in mind, we can
 derive the following result.
 
 \begin{theorem}{Rank and Invertibility}{Rank and Invertibility}
-\label{Rank and Invertibility}
 A square matrix $A_{n \times n}$ is invertible if and only if
 $\Rank(A) = n$.
 \end{theorem}
 \begin{proof}
 First and foremost, the first half of the theorem can be proven.
 By definition, if $A$ is invertible, then there exists a square matrix
-of the same order $B$ such that $AB = I$. By Lemma \ref{Property of
-Inverse Lemma I}, $\Rank(A) = n$.
+of the same order $B$ such that $AB = I$. By Lemma \ref{lem:Property
+of Inverse Lemma I}, $\Rank(A) = n$.
 
-Continuing, by Lemma \ref{Property of Inverse Lemma I}, if $\Rank(A) =
-n$, then there exists a matrix $C$ such that $CA = I$. By Theorem
-\ref{Property of Inverse} and definition of the inverse matrix,
-$A$ is invertible.
+Continuing, by Lemma \ref{lem:Property of Inverse Lemma I}, if
+$\Rank(A) = n$, then there exists a matrix $C$ such that $CA = I$.
+By Theorem \ref{theo:Property of Inverse} and definition of the
+inverse matrix, $A$ is invertible.
 \end{proof}
 
 This is it for row space and rank of a matrix! In the next section,
@@ -1003,7 +990,6 @@ theorems.
 
 \begin{theorem}{Coordinate Representation and Transformation}
 {Coordinate Representation and Transformation}
-\label{Coordinate Representation and Transformation}
 For a vector space $V$ and a basis $S = \{ v_1, \ldots, v_n \}$,
 the transformation $T: V \to \mathbb{R}^n$ defined as $Tv = (v)_S$
 is linear and bijective.
@@ -1068,7 +1054,6 @@ Continuing, below is an important theorem and definition.
 
 \begin{theorem}{Matrix Representation of $T$}
 {Matrix Representation of $T$}
-\label{Matrix Representation of $T$}
 For vector spaces $V$ and $W$ with basis $B = \{ v_1, \ldots, v_n \}$
 and $C = \{ w_1, \ldots, w_m \}$ respectively, there exists a matrix
 $A$ such that the following equation holds for a linear transformation
@@ -1125,9 +1110,9 @@ Continuing from the theorem, we can also notice that for a vector
 space $V$ and its basis $A$ and $B$, there exists a matrix $P_A^B$
 such that $(v)_B = P_A^B (v)_A$ holds for all $v \in V$.
 To prove this, consider the identity transformation $T: V \to V$.
-By theorem \ref{Matrix Representation of $T$}, there exists a matrix
-$P$ such that $(v)_B = P_A^B (v)_A$. This matrix too have a special
-name.
+By theorem \ref{theo:Matrix Representation of $T$}, there exists a
+matrix $P$ such that $(v)_B = P_A^B (v)_A$. This matrix too have a
+special name.
 
 \begin{definition}
 A \textbf{transition matrix} is a matrix that converts the coordinate
@@ -1142,7 +1127,6 @@ Consider the following theorem.
 
 \begin{theorem}{Transition Matrix and Basis I}
 {Transition Matrix and Basis I}
-\label{Transition Matrix and Basis I}
 For a vector space and its bases $A$ and $B$, the coordinate
 representation of $j$ vector of $A$ with respect to $B$ is the
 $j^\text{th}$ column of the transition matrix $P_A^B$.
@@ -1167,7 +1151,6 @@ Continuing with the theorem above, we can derive the following.
 
 \begin{theorem}{Inverse of Transition Matrix}
 {Inverse of Transition Matrix}
-\label{Inverse of Transition Matrix}
 A transition matrix $P_A^B$ is always invertible and $(P_A^B)^{-1}
 = P_B^A$.
 \end{theorem}
@@ -1186,7 +1169,6 @@ interesting theorem that links such matrices with transition matrices.
 
 \begin{theorem}{Transition Matrix and Basis II}
 {Transition Matrix and Basis II}
-\label{Transition Matrix and Basis II}
 Let $A_B^B$ and $A_C^C$ be the matrix representations of linear
 transformations for bases $B$ and $C$. If $P_B^C$ represent the
 transition matrix, then $A_B^B = P_C^B A_C^C P_B^C$.
@@ -1220,7 +1202,6 @@ theorem.
 
 \begin{theorem}{Similar Matrices and Linear Transformation}
 {Similar Matrices and Linear Transformation}
-\label{Similar Matrices and Linear Transformation}
 For a vector space $V$ with basis $B$, let $A$ be the matrix
 representation of the linear transformation $T: V \to V$ from $B$ to
 $B$. If $A$ is similar to another matrix representation $\tilde{A}$,
@@ -1242,6 +1223,229 @@ transition matrix similar to $A$. Moreover, because the whole
 process is invertible, the theorem holds.
 \end{proof}
 
+Now that we discussed that matrices can be used to represent linear
+transformations, let's discuss about topics that are never left out
+in linear algebra.
+
+\subsection{Kernels, Images, and Determinants}
+
+As you could have noticed, sometimes it is easier to discuss linear
+transformation with intuitions and sometimes matrices are much
+straightforward. Recall that linear transformations are functions
+for vectors spaces. Sometimes it is easier to look at the functions
+directly and sometimes it is more convenient to look at the matrix
+representation of such functions. That is what we are going to do
+with kernels, images, and determinants. As always, let's get
+started with definitions.
+
+\begin{definition}
+The \textbf{kernel} of a linear transformation $T: V \to W$, also
+known as the \textbf{nullspace} of $T$, is the set of vectors in
+$V$ that are mapped to zero vectors when transformed with $T$.
+\vspace{-0.8\baselineskip}
+\[
+\ker(T)
+= \{ v \in V \mid Tv = \mathbf{0} \}
+\]
+\end{definition}
+
+Continuing with the definition, we can establish two fundamental
+properties of the kernel a transformation.
+
+\begin{theorem}{Properties of the Kernel}{Properties of the Kernel}
+Consider the following statements for all linear transformation
+$T: V \to W$.
+\begin{enumerate}[noitemsep]
+\item $\mathbf{0} \in \ker(T)$
+\item $\ker(T)$ is a subspace of $V$.
+\end{enumerate}
+\end{theorem}
+
+Let's start by proving the first statement. The proof is rather
+straightforward with the properties of linear transformation.
+
+\begin{proof}
+Consider the following equation.
+\[
+T(\mathbf{0})
+= T(0 \mathbf{0})
+= 0 T(\mathbf{0})
+= \mathbf{0}
+\]
+Because $\mathbf{0}$ is mapped to $\mathbf{0}$ after any linear
+transformation $T$, $\mathbf{0} \in \ker(T)$ for all linear
+transformation $T$.
+\end{proof}
+
+Continuing, below is the proof for the second statement.
+
+\begin{proof}
+By definition, $\ker(T) \in V$. Therefore, it suffices to show that
+the kernel of $T$ is closed under vector addition and scalar
+multiplication. Because $\ker(T)$ is not empty by the first statement,
+consider the following equations for $u, v \in \ker(T)$ and some
+scalars $\alpha$ and $\beta$.
+\[
+T(\alpha u + \beta v)
+= \alpha Tu + \beta Tv
+= \alpha \mathbf{0} + \beta \mathbf{0}
+= \mathbf{0}
+\]
+In other words $\alpha u + \beta v \in \ker(T)$ and $\ker(T)$ is a
+subspace of $V$.
+\end{proof}
+
+Recall that a linear transformation can be represented as some
+matrix $A$. Therefore, kernel of $A$ can be interpreted as the
+set of solutions to $Ax = \mathbf{0}$. Notice that some solutions
+retain finite and infinite number of vectors. Therefore, we can
+establish the following definition.
+
+\begin{definition}
+The \textbf{nullity} of $T$, denoted as $\Null(T)$, is the dimension
+of $\ker(T)$ for some linear transformation $T$.
+\end{definition}
+
+Continuing, we can define the image of a transformation, which should
+be unsurprising.
+
+\begin{definition}
+The subset of the codomain $W$ for a transformation $T: V \to W$ that
+contains all output vectors is known as the \textbf{image} of $T$.
+Below defines $\Im(T)$ with $v \in V$.
+\vspace{-0.8\baselineskip}
+\[
+\Im(T)
+= \{ w \in W \mid w = Tv \}
+\]
+\end{definition}
+
+Although the kernel and the image of a transformation is very
+different, be can establish a very similar statements for the image
+just as how we derived them for the kernel.
+
+\begin{theorem}{Properties of the Image}{Properties of the Image}
+Consider the following statements for all linear transformation
+$T: V \to W$.
+\begin{enumerate}[noitemsep]
+\item $\mathbf{0} \in \Im(T)$
+\item $\Im(T)$ is a subspace of $W$.
+\end{enumerate}
+\end{theorem}
+
+Let's start by proving the first statement.
+
+\begin{proof}
+By theorem \ref{theo:Properties of the Kernel}, there exists a
+vector in $V$ such that it is mapped to $\mathbf{0}$ in $W$. Thus,
+the statement holds.
+\end{proof}
+
+Continuing, below is the proof for the second statement.
+
+\begin{proof}
+First and foremost, $\Im(T) \in W$ by definition. Therefore,
+it suffices to show that the image is closed under vector addition
+and scalar multiplication. Consider the following equation for
+$v_1, v_2 \in V$, $Tv_1 = w_1$, $Tv_2 = w_2$, and some scalars
+$\alpha$ and $\beta$.
+\[
+\alpha w_1 + \beta w_2
+= \alpha Tv_1 + \beta Tv_2
+= T(\alpha v_1 + \beta v_2)
+\]
+Because $T(\alpha v_1 + \beta v_2) \in \Im(T)$, $\alpha w_1 +
+\beta w_2 \in \Im(T)$ and the statement holds.
+\end{proof}
+
+Now recall the kernel of a matrix $A$ is the set of all solutions to
+the equation $Ax = \mathbf{0}$. Similarly, the image is the set of
+all possible outcomes of the product $Ax$ for some $x \in V$.
+Consider the equations below.
+\[
+\begin{bmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    a_{21} & a_{22} & \cdots & a_{2n} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    a_{m1} & a_{m2} & \cdots & a_{mn}
+\end{bmatrix}
+\begin{bmatrix}
+    x_1 \\
+    x_2 \\
+    \vdots \\
+    x_n
+\end{bmatrix}
+=
+\begin{bmatrix}
+    \sum_{k=1}^n a_{1k} x_k \\
+    \sum_{k=1}^n a_{2k} x_k \\
+    \vdots \\
+    \sum_{k=1}^n a_{mk} x_k
+\end{bmatrix}
+=
+\sum_{k=1}^n
+x_k
+\begin{bmatrix}
+    a_{1k} \\
+    a_{2k} \\
+    \vdots \\
+    a_{mk}
+\end{bmatrix}
+\]
+In other words, the image of $A$ is the column space of $A$.
+Therefore, we can establish the following definition.
+
+\begin{definition}
+The \textbf{rank} of a transformation $T$, denoted as $\Rank(T)$,
+is $\dim(\Im(T))$.
+\end{definition}
+
+Continuing from the definition and ideas of column space and the
+image, we can derive the following theorem.
+
+\begin{theorem}{Rank and Matrix Representation}
+{Rank and Matrix Representation}
+Let $B$ and $C$ be $n$-dimensional and $m$-dimensional bases for
+$V$ and $W$ in a linear transformation $T: V \to W$ respectively.
+If the matrix representation of $T$ is $A = A_B^C$, then
+$\Rank(T) = \Rank(A)$.
+\end{theorem}
+\begin{proof}
+First and foremost, let a basis for $\Im(T)$ be $\{ w_1, \ldots,
+w_k \}$. Notice that if $\{ (w_1)_C, \ldots, (w_k)_C \}$ is a
+basis for $\Col(A)$, then $\dim(\Im(T)) = \dim(\Col(A))$ and
+$\Rank(T) = \Rank(A)$. Thus, it suffices to show that $\{ (w_1)_C,
+\linebreak \ldots, (w_k)_C \}$ is a basis for $\Col(A)$.
+
+Let $c_k$ be some scalars that $x \in \Col(A)$ is represented
+as the linear combination of the columns $A_k$ of $A$ where
+$x = \sum_{k=1}^n c_k A_k$. Note that $c_k$ can be written as
+an $n$-tuple. Thus, let $v \in V$ be a vector such that the
+following equation holds.
+\[
+(v)_B =
+\begin{bmatrix}
+    c_1 \\
+    c_2 \\
+    \vdots \\
+    c_n
+\end{bmatrix}
+\]
+Continuing, $x = A(v)_B = (Tv)_C$. Because $Tv \in \Im(T)$,
+it is evident that $x \in \Span\{ (w_1)_C, \ldots, (w_k)_C \}$.
+Moreover, because $x$ is an arbitrary vector from $\Col(A)$,
+it is evident that $\Col(A) \subset \Span\{ (w_1)_C, \ldots,
+\linebreak (w_k)_C \}$ and $\{ (w_1)_C, \ldots, (w_k)_C \}$ spans
+$\Col(A)$.
+
+By definition, $\{ w_1, \ldots, w_k \}$ is linearly independent.
+For some scalars $d_k$, for $\sum_{k=1}^n d_k (w_k)_C$ to be
+a zero vector, $(\sum_{k=1}^n d_k w_k)_C = \mathbf{0}$ and
+$\sum_{k=1}^n d_k w_k = \mathbf{0}$, which only happens when
+$d_k = 0$ for all integer $k \in [0, n]$. Thus, $\{ (w_1)_C,
+\ldots, (w_k)_C \}$ is linearly independent and is a basis for
+$\Col(A)$.
+\end{proof}
 
 
 
@@ -1251,8 +1455,7 @@ process is invertible, the theorem holds.
 
 
 
-
-\section{Practice Problem}
+\section{Practice Problems}
 \begin{enumerate}
 \item
 Show that a transformation $T: V \to W$ is linear if and only if

@@ -369,7 +369,6 @@ its always nice to formally prove them so let's do that now.
 
 \begin{theorem}{Uniqueness of the Zero Vector}
 {Uniqueness of the Zero Vector}
-\label{Uniqueness of the Zero Vector}
 For all vector spaces, zero vector, or the additive identity element,
 is unique.
 \end{theorem}
@@ -392,7 +391,6 @@ we can assert the following theorem.
 
 \begin{theorem}{Uniqueness of Additive Inverse}
 {Uniqueness of Additive Inverse}
-\label{Uniqueness of Additive Inverse}
 For all $u \in V$ for any vector space $V$, $v \in V$ such that
 $u \oplus v = 0$ is unique.
 \end{theorem}
@@ -418,7 +416,6 @@ spaces.
 
 \begin{theorem}{Property of Zero Vectors I}
 {Property of Zero Vectors I}
-\label{Property of Zero Vectors I}
 For all $v \in V$ and any vector space $V$, $v \oplus v = v$ if and
 only if $v = 0$.
 \end{theorem}
@@ -438,7 +435,6 @@ Now let's take a look at theorems for scalar multiplications.
 
 \begin{theorem}{Properties of Scalar Multiplications}
 {Properties of Scalar Multiplications}
-\label{Properties of Scalar Multiplications}
 The following properties hold for all vector space $V$ over
 $\mathbb{F}$, $u, \mathbf{0} \in V$, and any scalars $\alpha$.
 \begin{enumerate}[noitemsep]
@@ -460,7 +456,8 @@ Consider the following equation.
 = (0 + 0) \odot u
 = 0 \odot u \oplus 0 \odot u
 \]
-By Theorem \ref{Property of Zero Vectors I}, $0 \odot u = \mathbf{0}$.
+By Theorem \ref{theo:Property of Zero Vectors I}, $0 \odot u =
+\mathbf{0}$.
 \end{proof}
 
 Below is the proof for the second property.
@@ -472,8 +469,8 @@ Consider the following equation.
 = \alpha \odot (\mathbf{0} \oplus \mathbf{0})
 = \alpha \odot \mathbf{0} \oplus \alpha \odot \mathbf{0}
 \]
-By Theorem \ref{Property of Zero Vectors I}, $\alpha \odot \mathbf{0}
-= \mathbf{0}$
+By Theorem \ref{theo:Property of Zero Vectors I}, $\alpha \odot
+\mathbf{0} = \mathbf{0}$
 \end{proof}
 
 Continuing, here's the proof for the third one.
@@ -490,7 +487,7 @@ Below is the proof for the fourth one.
 \begin{proof}
 Notice that $-(-u)$ is the additive inverse of $-u$. However, by
 definition, $u$ is the additive inverse of $-u$. By Theorem
-\ref{Uniqueness of Additive Inverse}, $u = -(-u)$.
+\ref{theo:Uniqueness of Additive Inverse}, $u = -(-u)$.
 \end{proof}
 
 Finally, let's prove the last property.
@@ -579,7 +576,6 @@ Now for a set to be a subspace, it must satisfy the following
 conditions.
 
 \begin{theorem}{Conditions of a Subspace}{Conditions of a Subspace}
-\label{Conditions of a Subspace}
 A non-empty subset $S$ of a vector space $V$ is a subspace of $V$ if
 and only if the following conditions are satisfied.
 \begin{enumerate}[noitemsep]
@@ -631,7 +627,6 @@ to a single condition.
 
 \begin{corollary}{The Condition for a Subspace}
 {The Condition for a Subspace}
-\label{The Condition for a Subspace}
 For scalars $\alpha$ and $\beta$ and $u, v \in S$ where $S$ is a
 non-empty subset of a vector space $V$ that has the same operations
 for vector addition and scalar multiplication, $S$ is a subspace if
@@ -645,7 +640,7 @@ First and foremost, the first half of the statement can be proven.
 If $\alpha u + \beta v \in S$, then $u + v \in S$ where $\alpha =
 \beta = 1$ since $\alpha$ and $\beta$ are all scalars. Similarly,
 $\alpha u + \beta v \in S$ implies that $\alpha u \in S$ where
-$\beta = 0$. By Theorem \ref{Conditions of a Subspace}, $S$ is a
+$\beta = 0$. By Theorem \ref{theo:Conditions of a Subspace}, $S$ is a
 subspace of $V$.
 
 Continuing with the second half of the statement, if $S$ is a subset
@@ -706,7 +701,6 @@ the set of all possible linear combinations of the vectors.
 With the definition, we could notice an important theorem.
 
 \begin{theorem}{Span and Subspace I}{Span and Subspace I}
-\label{Span and Subspace I}
 For a vector space $V$ and its subset $S = \{ v_1, \ldots, v_n \}$,
 $\Span(S)$ is a subspace of $V$.
 \end{theorem}
@@ -715,8 +709,9 @@ First and foremost, notice that $\mathbf{0} \in \Span(S)$ since all
 the scalars in linear combination can equal zero. Moreover, let $u =
 \sum_{k = 1}^n \alpha_k v_k$ and $v = \sum_{k = 1}^n \alpha_k v_k$ for
 any scalars $\alpha_k$ and $\beta_k$. By definition, $\alpha u +
-\beta v \in \Span(S)$ is true. Therefore, by Corollary \ref{The
-Condition for a Subspace}, $\Span(S)$ is a subspace of $V$.
+\beta v \in \Span(S)$ is true. Therefore, by Corollary
+\ref{cor:The Condition for a Subspace}, $\Span(S)$ is a subspace of
+$V$.
 \end{proof}
 
 Side note here is that there are spans of infinite sets and they
@@ -725,7 +720,6 @@ span of a set and its relation with subspace, we can show the two
 following theorems.
 
 \begin{theorem}{Span and Subspace II}{Span and Subspace II}
-\label{Span and Subspace II}
 Consider the following statements for a vector space $V$ and its
 subspace $W$ and non-empty subset $S$ such that $S \subset W$.
 \begin{enumerate}[noitemsep]
@@ -739,7 +733,8 @@ Let's start by proving the first statement.
 \begin{proof}
 Let $u = \sum_{k = 1}^n \alpha_k v_k \in \Span(S)$. By definition,
 $v_k \in W$ for integer $k \in [1, n]$. Moreover, $u \in W$ by
-Corollary \ref{The Condition for a Subspace} and $\Span(S) \subset W$.
+Corollary \ref{cor:The Condition for a Subspace} and $\Span(S)
+\subset W$.
 \end{proof}
 
 Below is the proof for the second one.
@@ -749,7 +744,7 @@ First and foremost, notice that by the previous statement, it was
 shown that $\Span(S)$ is included in all subspaces that contains $S$.
 Let $A$ be the intersection of all subspaces that contain $S$.
 Therefore, $\Span(S) \subset A$. Moreover, by Theorem
-\ref{Span and Subspace I} $\Span(S)$ is a subspace of $V$ that
+\ref{theo:Span and Subspace I} $\Span(S)$ is a subspace of $V$ that
 contains $S$. Thus, $A \subset \Span(S)$. Because $\Span(S) \subset A$
 and $A \subset \Span(S)$, $\Span(S) = A$.
 \end{proof}
@@ -759,7 +754,6 @@ of a set of vectors by proving the following statements.
 
 \begin{theorem}{Four Lemmas on Span of a Set of Vectors}
 {Four Lemmas on Span of a Set of Vectors}
-\label{Four Lemmas on Span of a Set of Vectors}
 For a vector space $V$ and its subsets $S, T \subset V$, consider the
 following statements.
 \begin{enumerate}[noitemsep]
@@ -884,7 +878,6 @@ Continuing, below is a theorem that we can deduce from the definition.
 
 \begin{theorem}{Finite Set of Vectors and Linear Dependence}
 {Finite Set of Vectors and Linear Dependence}
-\label{Finite Set of Vectors and Linear Dependence}
 A set with finite number of nonzero vectors is linearly dependent
 if and only if a vector in the ordering of the set can be represented
 as a linear combination of vectors preceding it.
@@ -928,7 +921,7 @@ $S = \{ v_1, \ldots, v_n \} \subset V$, then there exists a set
 $T \subset S$ such that $|T| = n - 1$ and $V = \Span(T)$.
 \end{corollary}
 \begin{proof}
-By Theorem \ref{Finite Set of Vectors and Linear Dependence},
+By Theorem \ref{theo:Finite Set of Vectors and Linear Dependence},
 there exits element $v_j \in S$ such that $v_j$ is the linear
 combination of the previous elements as listed in $S$.
 
@@ -954,7 +947,6 @@ asserted.
 
 \begin{theorem}{Properties of Linear Independence and Dependence}
 {Properties of Linear Independence and Dependence}
-\label{Properties of Linear Independence and Dependence}
 Consider the following statements for set $S$.
 \begin{enumerate}[noitemsep]
 \item
@@ -1088,7 +1080,6 @@ definitions above, we could establish a theorem.
 
 \begin{theorem}{Basis and Linear Dependence}
 {Basis and Linear Dependence}
-\label{Basis and Linear Dependence}
 For a basis $S$ of a vector space $V$ such that $|S| = n$, any set
 in $V$ with more than $n$ elements is linearly dependent.
 \end{theorem}
@@ -1136,7 +1127,7 @@ linearly independent subsets of $V$ contains at most $n$ elements.
 \begin{proof}
 By definition, a basis of a vector space $V$ spans $V$. Because any
 linearly dependent subsets of $V$ contains more than $n$ elements
-by Theorem \ref{Basis and Linear Dependence}, any linearly
+by Theorem \ref{theo:Basis and Linear Dependence}, any linearly
 independent subsets of $V$ must not contain more than $n$ elements.
 \end{proof}
 
@@ -1173,7 +1164,7 @@ n + 1$ is linearly dependent.
 \end{corollary}
 \begin{proof}
 By definition, a basis of an $n$-dimensional vector space $V$ contains
-$n$ elements. By Theorem \ref{Basis and Linear Dependence}, since
+$n$ elements. By Theorem \ref{theo:Basis and Linear Dependence}, since
 $n + 1 > n$, $S$ must be linearly dependent.
 \end{proof}
 
@@ -1182,7 +1173,6 @@ $\dim(\{0\}) = 0$ by convention. Moreover, consider the following
 theorem.
 
 \begin{theorem}{Unique Linear Combination}{Unique Linear Combination}
-\label{Unique Linear Combination}
 For a basis $S = \{ v_1, \ldots, v_n \}$ of a vector space $V$,
 any vector $u \in V$ can be written as a unique linear combination
 of $S$.
@@ -1261,8 +1251,8 @@ independent set that spans $V$. Therefore, it suffices to show that
 there exists a linearly independent set that spans $V$ that is also
 a subset of $S$.
 
-By Theorem \ref{Finite Set of Vectors and Linear Dependence}, a subset
-of $S$ is linearly dependent if any only if a vector can be
+By Theorem \ref{theo:Finite Set of Vectors and Linear Dependence},
+a subset of $S$ is linearly dependent if any only if a vector can be
 represented represented as the linear combination of the preceding
 vectors. Let $T$ be a subset of $S$ without the vectors that can be
 represented as the linear combination of the preceding vectors.

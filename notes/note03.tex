@@ -110,16 +110,15 @@ an important corollary.
 
 \begin{theorem}{Different Solutions to a System}
 {Different Solutions to a System}
-\label{Different Solutions to a System}
 For two distinct solutions $x_1$ and $x_2$ of $Ax = b$,
 $\alpha x_1 + \beta x_2$ is also a solution to the linear system
 given that $\alpha, \beta \in \mathbb{R}$ and $\alpha + \beta = 1$.
 \end{theorem}
 \begin{proof}
-From Theorem \ref{Properties of Matrix Multiplication}, it was shown
-that $\lambda (AB) = A (\lambda B)$ for scalar $\lambda$ and matrices
-$A$ and $B$ that can be multiplied. Substituting $\alpha x_1 +
-\beta x_2$, the following system is obtained.
+From Theorem \ref{theo:Properties of Matrix Multiplication}, it was
+shown that $\lambda (AB) = A (\lambda B)$ for scalar $\lambda$ and
+matrices $A$ and $B$ that can be multiplied. Substituting $\alpha x_1
++ \beta x_2$, the following system is obtained.
 \begin{align*}
     A (\alpha x_1 + \beta x_2)
     &= A(\alpha x_1) + A(\beta x_2)
@@ -136,7 +135,6 @@ number of solutions to a system of linear equations.
 
 \begin{corollary}{Number of Solutions to a Linear System}
 {Number of Solutions to a Linear System}
-\label{Number of Solutions to a Linear System}
 A system of linear equations can retain $0$, $1$, or infinitely many
 solutions.
 \end{corollary}
@@ -443,7 +441,6 @@ set of property of augmented matrices in mind, here are the steps
 for the Gaussian Elimination algorithm.
 
 \begin{theorem}{Gaussian Elimination}{Gaussian Elimination}
-\label{Gaussian Elimination}
 Execute the following steps in order for Gaussian Elimination.
 \begin{enumerate}[noitemsep]
 \item
@@ -704,7 +701,6 @@ Now from the definition above, we could establish a theorem.
 
 \begin{theorem}{Diagonal Elements and Invertibility}
 {Diagonal Elements and Invertibility}
-\label{Diagonal Elements and Invertibility}
 If all diagonal elements of a matrix are nonzero constants,
 then the matrix is invertible.
 \end{theorem}
@@ -748,7 +744,6 @@ reciprocal.
 
 \begin{theorem}{Uniqueness of Inverse Matrix}
 {Uniqueness of Inverse Matrix}
-\label{Uniqueness of Inverse Matrix}
 If there exists an inverse matrix, the inverse is unique.
 \end{theorem}
 \begin{proof}
@@ -766,7 +761,6 @@ four important properties of inverse matrices.
 
 \begin{theorem}{Properties of the Inverse Matrix}
 {Properties of the Inverse Matrix}
-\label{Properties of the Inverse Matrix}
 For invertible square matrices $A$ and $B$ and a nonzero scalar
 $\lambda$, the following equations hold.
 \begin{enumerate}
@@ -791,7 +785,7 @@ Below is the proof for the second property.
 
 \begin{proof}
 Notice that $(AB)^\intercal = B^\intercal A^\intercal$ from
-theorem \ref{Properties of Transpose of a Matrix}. Let matrix
+Theorem \ref{theo:Properties of Transpose of a Matrix}. Let matrix
 $B = A^{-1}$ and consider the following equation.
 \[
 I
@@ -930,7 +924,6 @@ From this, we can notice the following theorem.
 
 \begin{theorem}{Invertibility of Elementary Matrices}
 {Invertibility of Elementary Matrices}
-\label{Invertibility of Elementary Matrices}
 All elementary matrices are invertible.
 \end{theorem}
 \begin{proof}
@@ -943,16 +936,15 @@ Building onto the theorem, we could prove the uniqueness.
 
 \begin{theorem}{Uniqueness of Elementary Matrices}
 {Uniqueness of Elementary Matrices}
-\label{Uniqueness of Elementary Matrices}
 For each elementary row operations, the corresponding elementary
 matrix is unique.
 \end{theorem}
 \begin{proof}
 For the sake of contradiction, assume there exist elementary
 matrices $E$ and $F \neq E$. By definition, $EA = FA$ and
-$A = EE^{-1}A = E^{-1}FA$. By Theorem \ref{Uniqueness of Identity
+$A = EE^{-1}A = E^{-1}FA$. By Theorem \ref{theo:Uniqueness of Identity
 Matrices}, $E^{-1}F = I$ and $E = F$ is obtained by Theorem
-\ref{Uniqueness of Inverse Matrix}. By contradiction, it is
+\ref{theo:Uniqueness of Inverse Matrix}. By contradiction, it is
 shown that elementary matrices are unique.
 \end{proof}
 
@@ -963,7 +955,6 @@ matrix.
 
 \begin{theorem}{Three Properties of Elementary Matrices}
 {Three Properties of Elementary Matrices}
-\label{Three Properties of Elementary Matrices}
 For each elementary matrix for corresponding elementary row
 operations, the following properties hold.
 \begin{enumerate}[noitemsep]
@@ -987,7 +978,7 @@ As always, let's start by proving the first property.
 The inverse of an elementary matrix can be considered as undoing
 the elementary row operation. To undo the interchanging of two rows,
 the two rows can be interchanged again. In other words, because
-the elementary row operation $EE = I$ by Theorem \ref{Uniqueness
+the elementary row operation $EE = I$ by Theorem \ref{theo:Uniqueness
 of Identity Matrices}, $E = E^{-1}$.
 \end{proof}
 
@@ -1307,7 +1298,6 @@ theorem on LU decomposition.
 
 \begin{lemma}{Inverse of Triangular Matrices}
 {Inverse of Triangular Matrices}
-\label{Inverse of Triangular Matrices}
 The inverse of upper and lower triangular matrices are upper and
 lower triangular matrices respectively.
 \end{lemma}
@@ -1347,7 +1337,6 @@ With the lemma in mind, let's prove the following theorem.
 
 \begin{theorem}{Condition for LU Decomposition}
 {Condition for LU Decomposition}
-\label{Condition for LU Decomposition}
 An invertible matrix has a LU decomposition if and only if
 multiplying sequence of lower triangular elementary matrices for
 elementary row operations can transform the matrix into an upper
@@ -1367,9 +1356,9 @@ be written as the following.
 \[
 A = \left( E^{-1}_{21} E^{-1}_{31} \cdots E^{-1}_{n,n-1} \right) U
 \]
-From Lemma \ref{Inverse of Triangular Matrices}, the inverse of
+From Lemma \ref{lem:Inverse of Triangular Matrices}, the inverse of
 the elementary matrices are lower triangular matrices. Moreover,
-by Theorem \ref{Property of Triangular Matrix Multiplication},
+by Theorem \ref{theo:Property of Triangular Matrix Multiplication},
 the product of the lower triangular matrices is also a lower
 triangular matrix. Therefore, for a lower triangular matrix $L$,
 $A$ can be written as the following.
@@ -1383,7 +1372,7 @@ For the second half of the statement, consider the following equation.
 I = AA^{-1} = LUA^{-1} = L \left( UA^{-1} \right)
 \]
 Therefore, $L$ is nonsingular. From the proof for Lemma
-\ref{Inverse of Triangular Matrices}, it is evident that the diagonal
+\ref{lem:Inverse of Triangular Matrices}, it is evident that the diagonal
 elements of an invertible lower triangular matrix is nonzero as
 the diagonal elements in the inverse cannot be defined if a zero is
 present in the diagonal elements of the lower triangular matrix.

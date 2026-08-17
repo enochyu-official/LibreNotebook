@@ -83,35 +83,57 @@
 %%%%%%%%%%%%%%% CUSTOM %%%%%%%%%%%%%%%
 \usepackage{tcolorbox}
 \tcbuselibrary{theorems}
-\newtcbtheorem[number within=section]{theorem}{Theorem}%
+\newcounter{boxcounter}[section]
+\renewcommand{\theboxcounter}{\thesection.\arabic{boxcounter}}
+\newtcbtheorem[
+    auto counter,
+    number within=section,
+    use counter=boxcounter
+]{theorem}{Theorem}%
 {%
     colback=black!5,
     colframe=black,
     fonttitle=\bfseries,
     sharp corners
 }{theo}
-\newtcbtheorem[number within=section]{lemma}{Lemma}%
+\newtcbtheorem[
+    auto counter,
+    number within=section,
+    use counter=boxcounter
+]{lemma}{Lemma}%
 {%
     colback=Sepia!5,
     colframe=Sepia,
     fonttitle=\bfseries,
     sharp corners
 }{lem}
-\newtcbtheorem[number within=section]{probstyle}{Exercise}%
+\newtcbtheorem[
+    auto counter,
+    number within=section,
+    use counter=boxcounter
+]{probstyle}{Exercise}%
 {%
     colback=BrickRed!3,
     colframe=red!40!black,
     fonttitle=\bfseries,
     sharp corners
 }{probstyle}
-\newtcbtheorem[number within=section]{corollary}{Corollary}%
+\newtcbtheorem[
+    auto counter,
+    number within=section,
+    use counter=boxcounter
+]{corollary}{Corollary}%
 {%
     colback=blue!3,
     colframe=blue!30!black,
     fonttitle=\bfseries,
     sharp corners
 }{cor}
-\newtcbtheorem[number within=section]{defstyle}{Definition}%
+\newtcbtheorem[
+    auto counter,
+    number within=section,
+    use counter=boxcounter
+]{defstyle}{Definition}%
 {%
     colback=yellow!10,
     colframe=Sepia,
@@ -171,6 +193,7 @@
 \DeclareMathOperator{\Row}{row}
 \DeclareMathOperator{\Col}{col}
 \DeclareMathOperator{\Rank}{r}
+\DeclareMathOperator{\Null}{null}
 
 
 
