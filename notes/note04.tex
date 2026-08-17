@@ -427,6 +427,100 @@ solutions. However, if $\Rank(A) = n$, then there exists zero free
 variables and a unique solution, which is the trivial solution.
 \end{proof}
 
+Continuing from the system, we could also apply our knowledge to
+invertibility of a square matrix. Now before we prove an important
+theorem on the relationship between rank and invertibility, let's
+prove a property that we couldn't prove in our previous notes.
+In our previous notes, we proved the uniqueness of the inverse of
+a square matrix. Moreover, we also knew that if $AB = BA = I$, then
+$A$ and $B$ are inverse of each other. What if we truncate the
+equation to $AB = I$? The answer is that they imply the same thing!
+Indeed for two square matrices $A$ and $B$ with the same order,
+if $AB = I$, then $BA = I$. To prove this, let's first prove two
+lemmas.
+
+\begin{lemma}{}{}
+\label{Property of Inverse Lemma I}
+For two square matrices $A$ and $B$ with order $n \times n$ such that
+$AB = I$, $\Rank(A) = n$.
+\end{lemma}
+\begin{proof}
+First and foremost, notice that for all integers $i, j \in [1, n]$,
+the following equation is satisfied for $A_i$ the $i^\text{th}$ row of
+$A$ and $B_j$ the $j^\text{th}$ column of $B$.
+\[
+A_i B_j = I_{ij}
+\]
+Moreover, notice that if $\sum_{i=1}^n c_i A_i = \mathbf{0}$ for some
+constants $c_i$, then $\sum_{i=1}^n c_i A_i B_j = \mathbf{0}$ for
+any choice of $j$. By definition, $A_i B_j = 1$ if and only if
+$i = j$. In other words, if $\sum_{i=1}^n c_i A_i = \mathbf{0}$, then
+$c_i = 0$ for all integer $i \in [1, n]$. Therefore, the rows of $A$
+are linearly independent. By definition, the rows compose the basis of
+$\Row(A)$ and $\Rank(A) = n$.
+\end{proof}
+
+Continuing, let's prove the second lemma.
+
+\begin{lemma}{}{}
+\label{Property of Inverse Lemma II}
+For a square matrix $A_{n \times n}$, if $\Rank(A) = n$, then there
+exists a matrix $B$ where $BA = I$.
+\end{lemma}
+\begin{proof}
+Notice that because $\Rank(A) = n$, none of the elements in the main
+diagonal for $A$ in REF is zero after applying series of elementary
+row operations. From $A$ in REF, more elementary row operations can
+be applied to convert $A$ in REF to an identity matrix. Thus, the
+lemma holds.
+\end{proof}
+
+Now that we have the two lemmas in mind, let's prove the main result.
+
+\begin{theorem}{Property of Inverse}{Property of Inverse}
+\label{Property of Inverse}
+For square matrices $A$ and $B$ with the order $n \times n$, if
+$AB = I$, then $BA = I$.
+\end{theorem}
+\begin{proof}
+First and foremost, by Lemma \ref{Property of Inverse Lemma I},
+$\Rank(A) = n$. Moreover by \ref{Property of Inverse Lemma II},
+there exists matrix $C$ such that $CA = I$. Continuing, $C = CI =
+CAB = IB = B$. Thus, if $AB = I$, then $BA = I$.
+\end{proof}
+
+This is the proof for the definition that we skipped in the earlier
+notes! Now with the two lemmas and the theorem in mind, we can
+derive the following result.
+
+\begin{theorem}{Rank and Invertibility}{Rank and Invertibility}
+\label{Rank and Invertibility}
+A square matrix $A_{n \times n}$ is invertible if and only if
+$\Rank(A) = n$.
+\end{theorem}
+\begin{proof}
+First and foremost, the first half of the theorem can be proven.
+By definition, if $A$ is invertible, then there exists a square matrix
+of the same order $B$ such that $AB = I$. By Lemma \ref{Property of
+Inverse Lemma I}, $\Rank(A) = n$.
+
+Continuing, by Lemma \ref{Property of Inverse Lemma I}, if $\Rank(A) =
+n$, then there exists a matrix $C$ such that $CA = I$. By Theorem
+\ref{Property of Inverse} and definition of the inverse matrix,
+$A$ is invertible.
+\end{proof}
+
+This is it for row space and rank of a matrix! In the next section,
+we will discuss about linear transformations, an important topic in
+Linear Algebra.
+
+\section{Linear Transformations}
+
+
+
+
+
+
 
 
 
