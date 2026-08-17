@@ -1,0 +1,287 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% GLOBAL PREAMBLE BY ENOCH YU
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%% PACKAGES %%%%%%%%%%%%%%%
+% Core
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{palatino}
+\usepackage{mathpazo}
+
+% Math
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+
+% Page Layout
+\usepackage[margin=1in, headsep=7pt, headheight=14pt]{geometry}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\fancyhead[L]{Enoch's Notebook: Linear Algebra}
+\fancyhead[R]{Enoch Yu}
+\pagestyle{fancy}
+\usepackage{parskip}
+\usepackage{microtype}
+\setlength{\headsep}{7pt}
+\setlength{\headheight}{14pt}
+
+% Sections
+\usepackage{titlesec}
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{BrickRed}}
+  {\S\! \thesection}
+  {0.5em}
+  {}
+
+\usepackage[Lenny]{fncychap}
+\ChNameVar{\fontsize{14}{16}\usefont{OT1}{phv}{m}{n}\selectfont}
+\ChNumVar{\fontsize{60}{62}\usefont{OT1}{ptm}{m}{n}\selectfont}
+\ChTitleVar{\Huge\bfseries\rm}
+\ChRuleWidth{1pt}
+\renewcommand{\chaptername}{Note}
+
+
+% Tikz
+\usepackage{tikz}
+\usetikzlibrary{calc, angles, shapes.geometric, positioning, arrows.meta}
+\usepackage{tkz-euclide}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.9}
+\usepackage[font=small,labelfont=bf]{caption}
+
+% Miscellaneous
+\usepackage{enumitem}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[normalem]{ulem}
+\usepackage{url}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,      
+    urlcolor=blue,
+    %urlcolor=cyan,
+    pdfpagemode=FullScreen,
+}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+\usepackage{tabularx}
+\usepackage{arydshln}
+\usepackage{float}
+\usepackage{pdfpages}
+\usepackage{subfiles}
+
+
+%%%%%%%%%%%%%%% CUSTOM %%%%%%%%%%%%%%%
+% Theorems
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+% Environments
+\newenvironment{solution}
+    {\begin{trivlist}\item[]{\bf Solution:}}
+    {\qed \end{trivlist}}
+\newenvironment{conclusion}
+    {\begin{trivlist}\item[]{\bf Conclusion: }\color{BrickRed}}
+    {\end{trivlist}}
+\newenvironment{ThoughtProcess}
+    {\begin{trivlist}\item[]{\bf Thought Process: }\color{MidnightBlue}}
+    {\end{trivlist}}
+
+% Boxes
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems}
+\newtcbtheorem[number within=section]{theobox}{Theorem}%
+{%
+    colback=black!5,
+    colframe=black,
+    fonttitle=\bfseries,
+    sharp corners
+}{theo}
+\newtcbtheorem[number within=section]{probbox}{Exercise}%
+{%
+    colback=white,
+    colframe=red!40!black,
+    fonttitle=\bfseries,
+    sharp corners
+}{prob}
+\newtcbtheorem[number within=section]{corbox}{Corollary}%
+{%
+    colback=white,
+    colframe=blue!40!black,
+    fonttitle=\bfseries,
+    sharp corners
+}{cor}
+
+\usepackage[framemethod=TikZ]{mdframed}
+% Definition
+\newenvironment{keydef}
+{\begin{mdframed}[
+    linecolor=Sepia, 
+    linewidth=1pt,
+    skipabove=\medskipamount,
+    skipbelow=\medskipamount,
+    backgroundcolor=yellow!10,
+    innertopmargin=10pt,
+    innerbottommargin=10pt,
+    innerleftmargin=10pt,
+    innerrightmargin=10pt
+]}
+{\end{mdframed}}
+
+% Example
+\NewDocumentEnvironment{example}{o}
+{
+ \IfValueT{#1}{\vspace{11pt}}
+ \begin{mdframed}[
+    linecolor=CadetBlue,
+    linewidth=1pt,
+    skipabove=\medskipamount,
+    skipbelow=\medskipamount,
+    backgroundcolor=cyan!5,
+    innertopmargin=10pt,
+    innerbottommargin=10pt,
+    innerleftmargin=10pt,
+    innerrightmargin=10pt
+ ]
+ \IfValueT{#1}{%
+    \vspace{-11pt}%
+    \noindent
+    \begin{tikzpicture}[remember picture, overlay]
+        \node[
+            draw=CadetBlue,
+            line width=1pt,
+            fill=cyan!5,
+            text=Sepia,
+            font=\bfseries\small,
+            anchor=west,
+            xshift=2pt
+        ] {\,\strut #1\,};
+    \end{tikzpicture}\par
+    \vspace{5pt}%
+ }%
+}
+{\end{mdframed}}
+
+% Thought Process
+\newenvironment{thoughts}
+{\begin{mdframed}[
+    topline=false, 
+    bottomline=false, 
+    rightline=false,
+    linecolor=RoyalPurple, 
+    linewidth=2pt,
+    skipabove=\medskipamount, 
+    skipbelow=\medskipamount,
+    fontcolor=RoyalPurple,
+    font=\small\itshape
+]}
+{\end{mdframed}}
+
+% Tip/Side note
+\newenvironment{tip}
+{\begin{mdframed}[
+    topline=false, 
+    bottomline=false, 
+    rightline=false,
+    linecolor=BrickRed, 
+    linewidth=2pt,
+    skipabove=\medskipamount, 
+    skipbelow=\medskipamount,
+    fontcolor=BrickRed,
+    font=\small\itshape
+]}
+{\end{mdframed}}
+
+
+% Jupyter cell like block
+\usepackage{listings}
+\definecolor{nb@bg}{RGB}{231,234,234}
+\definecolor{nb@kw}{RGB}{0,64,153}
+\definecolor{nb@str}{RGB}{163,21,21}
+\definecolor{nb@cmt}{RGB}{100,100,100}
+
+\lstdefinestyle{jin}{
+    language=Python,
+    backgroundcolor=\color{nb@bg},
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{nb@kw}\bfseries,
+    stringstyle=\color{nb@str},
+    commentstyle=\color{nb@cmt}\itshape,
+    numberstyle=\tiny\color{gray},
+    numbers=left, numbersep=8pt,
+    breaklines=true,
+    frame=single,
+    rulecolor=\color{gray!50},
+    showstringspaces=false,
+    tabsize=4, captionpos=b,
+    xleftmargin=1.2em,
+    framexleftmargin=1.2em,
+    belowskip=0pt,
+    morekeywords={
+        Sequential,Dense,model,compile,fit,predict,
+        Adam,BinaryCrossentropy,SparseCategoricalCrossentropy,
+        MeanSquaredError,from_logits,activation,units,
+        optimizer,loss,epochs,learning_rate,
+        tf,keras,tensorflow,StandardScaler,
+        XGBClassifier,XGBRegressor,np,plt
+    }
+}
+\lstdefinestyle{jout}{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    showstringspaces=false,
+    tabsize=4, captionpos=b,
+    aboveskip=4pt,
+    xleftmargin=1.2em,
+}
+
+\newcounter{jupytercell}
+\newenvironment{jupyter}{
+    \stepcounter{jupytercell}
+    \begin{mdframed}[
+        backgroundcolor=white,
+        linecolor=Sepia!80,
+        linewidth=1pt,
+        innerleftmargin=10pt,
+        innerrightmargin=10pt,
+        innertopmargin=28pt,
+        innerbottommargin=0pt,
+        skipabove=15pt,
+        skipbelow=15pt
+    ]
+    \vspace{-28pt}%
+    \noindent\hspace{-11pt}%
+    \begin{tikzpicture}[remember picture, overlay]
+        \node[
+            draw=Sepia!80,
+            line width=1pt,
+            fill=white,
+            text=Sepia,
+            font=\bfseries\small,
+            anchor=west,
+            xshift=10pt,
+        ] {\,\strut Cell \thejupytercell\,};
+    \end{tikzpicture}\par
+    \vspace{8pt}%
+}{
+    \end{mdframed}
+}
+
+
+
+
+
+\title{Enoch's Notebook: Linear Algebra}
+\author{Enoch Yu}
+\date{\today}
+
+
+%%%%%%%%%%%%%%% END %%%%%%%%%%%%%%%
+
+
+
