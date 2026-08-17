@@ -1227,7 +1227,7 @@ Now that we discussed that matrices can be used to represent linear
 transformations, let's discuss about topics that are never left out
 in linear algebra.
 
-\subsection{Kernels, Images, and Determinants}
+\subsection{Kernels and Images}
 
 As you could have noticed, sometimes it is easier to discuss linear
 transformation with intuitions and sometimes matrices are much
@@ -1235,8 +1235,8 @@ straightforward. Recall that linear transformations are functions
 for vectors spaces. Sometimes it is easier to look at the functions
 directly and sometimes it is more convenient to look at the matrix
 representation of such functions. That is what we are going to do
-with kernels, images, and determinants. As always, let's get
-started with definitions.
+with kernels and images. As always, let's get started with
+definitions.
 
 \begin{definition}
 The \textbf{kernel} of a linear transformation $T: V \to W$, also
@@ -1447,6 +1447,218 @@ $d_k = 0$ for all integer $k \in [0, n]$. Thus, $\{ (w_1)_C,
 $\Col(A)$.
 \end{proof}
 
+As you can see above by the theorem, although the kernel and the
+image of a linear transformation appears to be totally unrelated,
+they are somehow related. Below is another theorem that connects
+the bases of the kernel and the image of a linear transformation.
+
+\begin{theorem}{Basis of the Kernel and the Image}
+{Basis of the Kernel and the Image}
+Let $\{ v_1, \ldots, v_k \}$ be the basis of the kernel of a
+linear transformation $T: V \to W$. If $\{ v_1, \ldots, v_k, \ldots
+v_n \}$ is a basis for $V$, then a basis of $\Im(T)$ is $\{ Tv_{k+1},
+\ldots, Tv_n \}$.
+\end{theorem}
+\begin{proof}
+To prove that $\{ Tv_{k+1}, \ldots, Tv_n \}$ is a basis of $\Im(T)$,
+it suffices to show that the set of vectors is linearly independent
+and spans $\Im(T)$. First, to show that the set is linearly
+independent, consider the following equations for some scalars $c_i$.
+\[
+\sum_{i=k+i}^n c_i Tv_i
+= T \left( \sum_{i=k+1}^n c_i v_i \right)
+= \mathbf{0}
+\]
+In other words, $\sum_{i=k+1}^n c_i v_i \in \ker(T)$ and it can
+be written as the linear combination of the basis, or $\sum_{i=k+1}^n
+c_i v_i = \sum_{i=1}^k c_i v_i$. By definition, because $\{ v_1,
+\ldots, v_k, \ldots v_n \}$ is linearly independent, $c_i$ must be
+all zero for integer $i \in [1, n]$ for $\sum_{i=k+1}^n c_i v_i -
+\sum_{i=1}^k c_i v_i = \mathbf{0}$ to satisfy. Thus, $\{ Tv_{k+1},
+\ldots, Tv_n \}$ is linearly independent.
+
+Continuing, the fact that the set $\{ Tv_{k+1}, \ldots, Tv_n \}$
+spans $\Im(T)$ can be proven. Let $w = Tv$ for any $w \in \Im(T)$.
+Consider the following equations below.
+\begin{align*}
+    w
+    &= Tv
+    = T \left( \sum_{i=1}^n c_i v_i \right)
+    = \sum_{i=1}^n c_i Tv_i \\
+    &= \sum_{i=1}^k c_i Tv_i + \sum_{i=k+1}^n c_i Tv_i
+    = \sum_{i=k+1}^n c_i Tv_i
+    \in \Span\{ Tv_{k+1}, \ldots, Tv_n \}
+\end{align*}
+In other words, $\{ Tv_{k+1}, \ldots, Tv_n \}$ spans $\Im(T)$. Thus,
+the theorem holds.
+\end{proof}
+
+Continuing from this theorem, we can establish another interesting
+corollary as a theorem.
+
+\begin{theorem}{Rank and Nullity of T}{Rank and Nullity of T}
+For a finite dimensional vector space $V$, the following equation
+is true for a linear transformation $T: V \to W$.
+\vspace{-0.8\baselineskip}
+\[
+\Rank(T) + \Null(T) = \dim(V)
+\]
+\end{theorem}
+\begin{proof}
+Let $k = \dim(\ker(T))$ and $n = \dim(V)$. By Theorem \ref{theo:Basis
+of the Kernel and the Image}, there exists a basis for $\Im(T)$ with
+$n - k$ vectors, or $\Rank(T) = \dim(\Im(T)) = n - k$. Thus,
+$\Rank(T) + \Null(T) = n - k + k = n = \dim(V)$.
+\end{proof}
+
+Moving on from the relationship with the kernel and the image of a
+linear transformation, let's discuss about injection, surjection,
+and bijection. Consider the following theorem.
+
+\begin{theorem}{Linear Transformation and Injection}
+{Linear Transformation and Injection}
+A linear transformation $T: V \to W$ is injective if and only if
+$\ker(T) = \{ \mathbf{0} \}$.
+\end{theorem}
+\begin{proof}
+By definition, $T$ is injective if $v_1, v_2 \in V$ such that
+$v_1 \neq v_2$ implies $Tv_1 \neq Tv_2$. Therefore, if $v \in
+\ker(T)$, then $Tv = \mathbf{0} = T\mathbf{0}$ and $\ker(T)$
+must contain no nonzero vectors for $T$ to be injective.
+Thus, $\ker(T)$ must only contain the zero vector.
+\end{proof}
+
+Continuing, below is another theorem on injection and surjection.
+
+\begin{theorem}{Injection and Surjection of a Linear Transformation}
+{Injection and Surjection of a Linear Transformation}
+For a linear transformation $T: V \to W$ with $\dim(V) = \dim(W) = n$,
+$T$ is injective if and only if $T$ is surjective.
+\end{theorem}
+\begin{proof}
+By Theorem \ref{theo:Linear Transformation and Injection}, $T$ is
+injective if and only if $\ker(T) = \{ \mathbf{0} \}$. Moreover by
+definition, $\ker(T) = \{ \mathbf{0} \}$ if and only if $\Null(T) = 0$
+and $\Rank(T) = \dim(V) - \Null(T) = n$ by Theorem \ref{theo:Rank and
+Nullity of T}. Continuing by definition, $\Rank(T) = n$ if and only if
+$\dim(\Im(T)) = n = \dim(W)$. Therefore, $T$ is injective if and only
+if $T$ is surjective.
+\end{proof}
+
+With the interesting properties, we can assign a special name for
+bijective linear transformation.
+
+\begin{definition}
+A bijective linear transformation is called an \textbf{isomorphism}.
+Moreover, a vector space $V$ is said to be \textbf{isomorphic} to
+another vector space $W$ if there exists an isomorphism $T: V \to W$,
+denoted as $V \cong W$.
+\end{definition}
+
+Continuing from the definition, we can derive the following
+properties.
+
+\begin{theorem}{Reflex, Symmetry, and Transition of Isomorphism}
+{Reflex, Symmetry, and Transition of Isomorphism}
+For vector spaces $U$, $V$, and $W$, isomorphism is reflexive,
+symmetric, and transitive.
+\begin{enumerate}[noitemsep]
+\item $U \cong U$
+\item If $U \cong V$, then $V \cong U$.
+\item If $U \cong V$ and $V \cong W$, then $U \cong W$.
+\end{enumerate}
+\end{theorem}
+
+Let's start by proving the first statement.
+
+\begin{proof}
+Notice that it suffices to show that the identity transformation
+is bijective. By definition, because each vector is mapped to
+itself, identity transformation is bijective and $U \cong U$.
+\end{proof}
+
+Below is the proof for the second property.
+
+\begin{proof}
+First and foremost, notice that if there exists $T: U \to V$ that
+is bijective, then there exists its inverse $T^{-1}: V \to U$
+that is also bijective. Continuing, consider the equation below
+for some vectors $v_1, v_2 \in V$ and scalars $\alpha$ and $\beta$.
+\begin{align*}
+    \alpha T^{-1} v_1 + \beta T^{-1} v_2
+    &= T^{-1} \left(
+        T \left( \alpha T^{-1} v_1 + \beta T^{-1} v_2 \right)
+    \right) \\
+    &= T^{-1} \left(
+        \alpha T \left( T^{-1} v_1 \right) +
+            \beta T \left( T^{-1} v_2 \right)
+    \right) \\
+    &= T^{-1} \left( \alpha v_1 + \beta v_2 \right)
+\end{align*}
+Therefore, $T^{-1}$ is linear and $T^{-1}$ is an isomorphism.
+\end{proof}
+
+Continuing, below is the proof for the last statement.
+
+\begin{proof}
+First and foremost, let $T_1: U \to V$ and $T_2: V \to W$ be
+isomorphisms. Therefore, it suffices to show that $T_2 \circ T_1$
+is an isomorphism. Notice that because $T_1$ and $T_2$ are
+bijective, $T_2 \circ T_1$ must also be bijective. Moreover,
+consider the following equation for some vectors $v_1, v_2 \in V$
+and scalars $\alpha$ and $\beta$.
+\begin{align*}
+    (T_2 \circ T_1) (\alpha v_1 + \beta v_2)
+    &= T_2 (\alpha T_1v_1 + \beta T_1v_2) \\
+    &= \alpha T_2 (T_1v_1) + \beta T_2 (T_1v_2) \\
+    &= \alpha (T_2 \circ T_1) (v_1) + \beta (T_2 \circ T_1) (v_2)
+\end{align*}
+Thus, $T_2 \circ T_1$ is linear and the statement is true.
+\end{proof}
+
+As you can see above, the three statements in Theorem
+\ref{theo:Reflex, Symmetry, and Transition of Isomorphism} each
+relation is called reflexive, symmetric, and transitive. Continuing
+from this terms, we can assign a special name for a relation.
+
+\begin{definition}
+An \textbf{equivalence relation} is a relation that is reflexive,
+symmetric, and transitive.
+\end{definition}
+
+Below is an another interesting theorem on isomorphism.
+
+\begin{theorem}{Dimension and Isomorphism}{Dimension and Isomorphism}
+For finite dimensional vector spaces $V$ and $W$, $V \cong W$ if and
+only if $\dim(V) = \dim(W)$.
+\end{theorem}
+\begin{proof}
+First, the statement if $\dim(V) = \dim(W)$, then $V \cong W$ can be
+proven. Notice that the coordinate representations of infinitely many
+vectors in $V$ and $W$ are unique. Therefore, $V \cong \mathbb{R}^n$
+and $W \cong \mathbb{R}^n$. By Theorem \ref{theo:Reflex, Symmetry, and
+Transition of Isomorphism}, $\mathbb{R}^n \cong W$ and $V \cong W$.
+
+Continuing, if $V \cong W$, then there exists a linear transformation
+$T: V \to W$ that is bijective. By Theorem \ref{theo:Linear
+Transformation and Injection}, $\ker(T) = \{ \mathbf{0} \}$ and
+$\Null(T) = 0$. Moreover by definition, because $T$ is surjective,
+$\Rank(T) = \dim(\Im(T)) = \dim(W)$. Finally by Theorem \ref{theo:Rank
+and Nullity of T}, $\dim(W) + 0 = \dim(V)$ and the theorem holds.
+\end{proof}
+
+From the theorem above, we can notice that if we consider a bijective
+linear transformation that maps to coordinate representation, then
+all $n$-dimensional vector spaces are isomorphic to $\mathbb{R}^n$.
+In other words, every $n$-dimensional vector spaces over a given
+field for some finite $n$ can be considered as the same vector spaces,
+but just with different representations.
+
+Now that we have discussed an approach to linear transformation as
+a function, let's return to matrices to see how areas or volumes
+change with linear transformation.
+
+\subsection{Determinants}
 
 
 
