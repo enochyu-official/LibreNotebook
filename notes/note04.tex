@@ -130,20 +130,55 @@ matrix are $\{ (1, 2, 3), (0, 1, 2) \}$, $\Span\{ (1, 2, 3), (0, 1, 2)
 
 We could also consider the following theorem.
 
+\begin{theorem}{Coordinate Representation and Basis I}
+{Coordinate Representation and Basis I}
+\label{Coordinate Representation and Basis I}
+For a basis $S = \{ v_1, \ldots, v_n \}$ of a vector space $V$ where
+$u, \{ u_1, \ldots, u_m \} \in V$, $u \in \Span\{ u_1, \ldots, u_m \}$
+if and only if a linear combination of a coordinate representation of
+$\{ u_1, \ldots, u_m \}$ with respect to $S$ is the coordinate
+representation of $u$ with respect to $S$.
+\end{theorem}
+\begin{proof}
+First and foremost, notice that $u \in \Span\{ u_1, \ldots, u_m \}$
+if and only if for some constants $c_k$, $u = \sum_{k=1}^m c_k u_k$.
+Let the coordinate representation of $u_i$ with respect to $S$ be
+$[a_{i1} \cdots a_{in}]$. Substituting, it could be inferred that
+$u \in \Span\{ u_1, \ldots, u_m \}$ holds if and only if $u$
+can be represented as the following.
+\[
+u
+= \sum_{i=1}^m \sum_{j=1}^n c_i (a_{ij} v_j)
+= \sum_{i=1}^n \sum_{j=1}^m (c_j a_{ji}) v_i
+\]
+In other words, $u \in \Span\{ u_1, \ldots, u_m \}$ if and only if
+the coordinate representation of $u$ with respect to $S$ is the
+following.
+\[
+[u]_S =
+\begin{bmatrix}
+    \sum_{j=1}^m (c_j a_{j1}) \\
+    \sum_{j=1}^m (c_j a_{j2}) \\
+    \vdots \\
+    \sum_{j=1}^m (c_j a_{jn})
+\end{bmatrix}
+=
+\sum_{k=1}^m
+c_k
+\begin{bmatrix}
+    a_{k1} \\
+    \vdots \\
+    a_{kn}
+\end{bmatrix}
+\]
+Therefore, the theorem holds.
+\end{proof}
 
+Continuing from this theorem, we can establish another theorem.
 
-
-
-
-For a basis $S = \{ v_1, \ldots, v_n \}$ of $V$ where $u, \{ u_1,
-\ldots, u_m \} \in V$, $u \in \Span\{ u_1, \ldots, u_m \}$ if and only
-if a linear combination of a coordinate representation of $\{ u_1,
-\ldots, u_m \}$ with respect to $S$ is the coordinate representation
-of $u$.
-
-\begin{theorem}{Coordinate Representation and Basis}
-{Coordinate Representation and Basis}
-\label{Coordinate Representation and Basis}
+\begin{theorem}{Coordinate Representation and Basis II}
+{Coordinate Representation and Basis II}
+\label{Coordinate Representation and Basis II}
 For an $n$-dimensional vector space $V$ and its basis $B$, consider a
 subset $U = \{ u_1, \ldots, u_m \} \subset V$. Construct a matrix
 $A = [a_{ij}]$ such that the coordinate representation of $u_i$ with
@@ -152,6 +187,64 @@ vectors $S \subset V$, if a basis for the row space of $A$ is the
 coordinate representation of vectors in $S$ with respect to $B$,
 then $S$ is a basis for $\Span(U)$.
 \end{theorem}
+\begin{proof}
+First and foremost, assume that the coordinate representation of
+vectors in $S$ with respect to $B$ is a basis for $\Row(A)$.
+By definition, the span of such representations is the row space
+of $A$. Notice that by Theorem \ref{Coordinate Representation and
+Basis I}, an arbitrary vector $v \in \Span(S)$ if and only if a linear
+combination of a coordinate representation of $S$ with respect to $B$
+is the coordinate representation of $v$ with respect to $B$. In other
+words, $v \in \Span(S)$ if and only if the coordinate representation
+of $v$ is in $\Row(A)$. By Theorem \ref{Coordinate Representation and
+Basis I} again, the statement implies that $v \in \Span(U)$.
+Thus, $v \in \Span(S)$ if and only if $v \in \Span(U)$ and $\Span(S)
+= \Span(U)$.
+
+To show that $S$ is a basis for $\Span(U)$, or $\Span(S)$, it suffices
+to show that $S$ is linearly independent. Notice that because the set
+of coordinate representations of $S$ is a basis for $\Row(A)$, the set
+of coordinate representations of $S$ is linearly independent.
+Moreover, by the proof for the Theorem \ref{Coordinate Representation
+and Basis I}, $S$ is also linearly independent. Thus, $S$ is a basis
+for $\Span(U)$.
+\end{proof}
+
+There are lots of theorems and results! But here is another one
+connects vectors and matrices
+
+\begin{theorem}{Linear Independence and Rank}
+{Linear Independence and Rank}
+\label{Linear Independence and Rank}
+For $S \subset \mathbb{R}^n$ such that $|S| = k$, construct matrix
+$A_{k \times n}$ such that the rows are each vectors in $S$. $S$ is
+linearly independent if and only if $\Rank(A) = k$.
+\end{theorem}
+\begin{proof}
+First and foremost, notice that by definition, $S$ is linearly
+independent if and only if it is a basis for its span. Moreover,
+by construction, $\Span(S) = \Row(A)$ and $S$ is linearly
+independent if and only if it is a basis for the row space of $A$.
+Continuing, $S$ is a basis for the row space of $A$ if and only if
+$\Rank(A) = |S|$ by definition. Therefore, $S$ is linearly independent
+if and only if $\Rank(A) = |S|$.
+\end{proof}
+
+To be honest, I procrastinated a bit when I was learning to prove
+the theorems above. For some reason, the proofs were hard to
+understand and less intuitive than the proofs that I have done
+through olympiad style problems. I think what helped for me to
+understand the proofs is to just continue looking at it over and
+over again until I fully knew the terms. Because the proofs above
+prioritize understanding of the basic concepts than creativity,
+I think procrastinating helped me fully understand the proofs.
+
+
+
+
+
+
+
 
 
 
