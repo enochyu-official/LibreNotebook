@@ -35,7 +35,7 @@ The row space $\Row(A)$ is represented by $\Span\{ (1, 2), (3, 4),
 = 2$. Connecting this with our knowledge in matrices, we can establish
 the following theorem.
 
-\begin{theorem}{REF and Row Space}{REF and Row Space}
+\begin{theorem}{REF and Row Space}
 A basis for the row space of a matrix $A$ in REF is the set of nonzero
 rows, and the number of such rows is the row rank.
 \end{theorem}
@@ -55,7 +55,6 @@ is the number of nonzero rows in $A$.
 Continuing, we can also establish the following theorem.
 
 \begin{theorem}{Elementary Row Operations and Row Space}
-{Elementary Row Operations and Row Space}
 If $A$ and $B$ are matrices that can be obtained by applying
 elementary row operations to each other, then $\Row(A) = \Row(B)$.
 \end{theorem}
@@ -128,7 +127,6 @@ matrix are $\{ (1, 2, 3), (0, 1, 2) \}$, $\Span\{ (1, 2, 3), (0, 1, 2)
 We could also consider the following theorem.
 
 \begin{theorem}{Coordinate Representation and Basis I}
-{Coordinate Representation and Basis I}
 For a vector space $V$ and its basis $S = \{ v_1, \ldots, v_n \}$
 where $u, \{ u_1, \ldots, u_m \} \in V$, $u \in \Span\{ u_1, \ldots,
 u_m \}$ if and only if a linear combination of a coordinate
@@ -173,7 +171,6 @@ Therefore, the theorem holds.
 Continuing from this theorem, we can establish another theorem.
 
 \begin{theorem}{Coordinate Representation and Basis II}
-{Coordinate Representation and Basis II}
 For an $n$-dimensional vector space $V$ and its basis $B$, consider a
 subset $U = \{ u_1, \ldots, u_m \} \subset V$. Construct a matrix
 $A = [a_{ij}]$ such that the coordinate representation of $u_i$ with
@@ -209,7 +206,6 @@ There are lots of theorems and results! But here is another one
 connects vectors and matrices.
 
 \begin{theorem}{Linear Independence and Rank}
-{Linear Independence and Rank}
 For $S \subset \mathbb{R}^n$ such that $|S| = k$, construct matrix
 $A_{k \times n}$ such that the rows are each vectors in $S$. $S$ is
 linearly independent if and only if $\Rank(A) = k$.
@@ -251,7 +247,7 @@ Now when we discussed about row rank of a matrix $A$, we used the
 notation $\Row(A)$. That is because the row rank and column rank
 of a matrix are always equal.
 
-\begin{theorem}{Row and Column Ranks}{Row and Column Ranks}
+\begin{theorem}{Row and Column Ranks}
 The row rank and column rank of a matrix $A$ are always equal.
 \end{theorem}
 \begin{proof}
@@ -367,7 +363,7 @@ $\Rank([A \mid b]) = \Rank(A) + 1$ since we need an extra vector for
 the basis for the column space. We can now write this idea as a
 theorem.
 
-\begin{theorem}{Linear System and Rank}{Linear System and Rank}
+\begin{theorem}{Linear System and Rank}
 A linear system $Ax = b$ has at least one solution if and only if
 $\Rank(A) = \Rank([A \mid b])$.
 \end{theorem}
@@ -390,7 +386,6 @@ we anyways have to write the matrices in REF. However, we can notice
 other interesting result.
 
 \begin{theorem}{Rank and Number of Unknowns}
-{Rank and Number of Unknowns}
 For a consistent system with $n$ variables, if $\Rank(A) = k$, then
 the final solutions can be written with $n - k$ free variables.
 \end{theorem}
@@ -406,7 +401,6 @@ Continuing with this theorem, we can set a corollary for homogeneous
 systems.
 
 \begin{corollary}{Homogeneous Systems and Rank}
-{Homogeneous Systems and Rank}
 For a homogeneous system $Ax = \mathbf{0}$ with $n$ variables,
 there exists nontrivial solutions if and only if $\Rank(A) \neq n$.
 \end{corollary}
@@ -429,7 +423,7 @@ Indeed for two square matrices $A$ and $B$ with the same order,
 if $AB = I$, then $BA = I$. To prove this, let's first prove two
 lemmas.
 
-\begin{lemma}{}{Property of Inverse Lemma I}
+\begin{lemma}{Property of Inverse Lemma I}
 For two square matrices $A$ and $B$ with order $n \times n$ such that
 $AB = I$, $\Rank(A) = n$.
 \end{lemma}
@@ -451,7 +445,7 @@ $\Row(A)$ and $\Rank(A) = n$.
 
 Continuing, let's prove the second lemma.
 
-\begin{lemma}{}{Property of Inverse Lemma II}
+\begin{lemma}{Property of Inverse Lemma II}
 For a square matrix $A_{n \times n}$, if $\Rank(A) = n$, then there
 exists a matrix $B$ where $BA = I$.
 \end{lemma}
@@ -465,7 +459,7 @@ lemma holds.
 
 Now that we have the two lemmas in mind, let's prove the main result.
 
-\begin{theorem}{Property of Inverse}{Property of Inverse}
+\begin{theorem}{Property of Inverse}
 For square matrices $A$ and $B$ with the order $n \times n$, if
 $AB = I$, then $BA = I$.
 \end{theorem}
@@ -480,7 +474,7 @@ This is the proof for the definition that we skipped in the earlier
 notes! Now with the two lemmas and the theorem in mind, we can
 derive the following result.
 
-\begin{theorem}{Rank and Invertibility}{Rank and Invertibility}
+\begin{theorem}{Rank and Invertibility}
 A square matrix $A_{n \times n}$ is invertible if and only if
 $\Rank(A) = n$.
 \end{theorem}
@@ -989,7 +983,6 @@ different basis. With this in mind, we can establish two important
 theorems.
 
 \begin{theorem}{Coordinate Representation and Transformation}
-{Coordinate Representation and Transformation}
 For a vector space $V$ and a basis $S = \{ v_1, \ldots, v_n \}$,
 the transformation $T: V \to \mathbb{R}^n$ defined as $Tv = (v)_S$
 is linear and bijective.
@@ -1053,7 +1046,6 @@ Thus, $T$ is linear and bijective.
 Continuing, below is an important theorem and definition.
 
 \begin{theorem}{Matrix Representation of $T$}
-{Matrix Representation of $T$}
 For vector spaces $V$ and $W$ with basis $B = \{ v_1, \ldots, v_n \}$
 and $C = \{ w_1, \ldots, w_m \}$ respectively, there exists a matrix
 $A$ such that the following equation holds for a linear transformation
@@ -1126,7 +1118,6 @@ the basis is mapped, we can understand the linear transformation.
 Consider the following theorem.
 
 \begin{theorem}{Transition Matrix and Basis I}
-{Transition Matrix and Basis I}
 For a vector space and its bases $A$ and $B$, the coordinate
 representation of $j$ vector of $A$ with respect to $B$ is the
 $j^\text{th}$ column of the transition matrix $P_A^B$.
@@ -1150,7 +1141,6 @@ In other words, $b'_i = \sum_{j=1}^n p_{ij} a'_j$ and $(v)_B =
 Continuing with the theorem above, we can derive the following.
 
 \begin{theorem}{Inverse of Transition Matrix}
-{Inverse of Transition Matrix}
 A transition matrix $P_A^B$ is always invertible and $(P_A^B)^{-1}
 = P_B^A$.
 \end{theorem}
@@ -1168,7 +1158,6 @@ Now how about matrix representations like $A_S^S$? We have an
 interesting theorem that links such matrices with transition matrices.
 
 \begin{theorem}{Transition Matrix and Basis II}
-{Transition Matrix and Basis II}
 Let $A_B^B$ and $A_C^C$ be the matrix representations of linear
 transformations for bases $B$ and $C$. If $P_B^C$ represent the
 transition matrix, then $A_B^B = P_C^B A_C^C P_B^C$.
@@ -1201,7 +1190,6 @@ Continuing with the definition, we can establish the following
 theorem.
 
 \begin{theorem}{Similar Matrices and Linear Transformation}
-{Similar Matrices and Linear Transformation}
 For a vector space $V$ with basis $B$, let $A$ be the matrix
 representation of the linear transformation $T: V \to V$ from $B$ to
 $B$. If $A$ is similar to another matrix representation $\tilde{A}$,
@@ -1252,7 +1240,7 @@ $V$ that are mapped to zero vectors when transformed with $T$.
 Continuing with the definition, we can establish two fundamental
 properties of the kernel a transformation.
 
-\begin{theorem}{Properties of the Kernel}{Properties of the Kernel}
+\begin{theorem}{Properties of the Kernel}
 Consider the following statements for all linear transformation
 $T: V \to W$.
 \begin{enumerate}[noitemsep]
@@ -1324,7 +1312,7 @@ Although the kernel and the image of a transformation is very
 different, be can establish a very similar statements for the image
 just as how we derived them for the kernel.
 
-\begin{theorem}{Properties of the Image}{Properties of the Image}
+\begin{theorem}{Properties of the Image}
 Consider the following statements for all linear transformation
 $T: V \to W$.
 \begin{enumerate}[noitemsep]
@@ -1404,7 +1392,6 @@ Continuing from the definition and ideas of column space and the
 image, we can derive the following theorem.
 
 \begin{theorem}{Rank and Matrix Representation}
-{Rank and Matrix Representation}
 Let $B$ and $C$ be $n$-dimensional and $m$-dimensional bases for
 $V$ and $W$ in a linear transformation $T: V \to W$ respectively.
 If the matrix representation of $T$ is $A = A_B^C$, then
@@ -1453,7 +1440,6 @@ they are somehow related. Below is another theorem that connects
 the bases of the kernel and the image of a linear transformation.
 
 \begin{theorem}{Basis of the Kernel and the Image}
-{Basis of the Kernel and the Image}
 Let $\{ v_1, \ldots, v_k \}$ be the basis of the kernel of a
 linear transformation $T: V \to W$. If $\{ v_1, \ldots, v_k, \ldots
 v_n \}$ is a basis for $V$, then a basis of $\Im(T)$ is $\{ Tv_{k+1},
@@ -1496,7 +1482,7 @@ the theorem holds.
 Continuing from this theorem, we can establish another interesting
 corollary as a theorem.
 
-\begin{theorem}{Rank and Nullity of T}{Rank and Nullity of T}
+\begin{theorem}{Rank and Nullity of T}
 For a finite dimensional vector space $V$, the following equation
 is true for a linear transformation $T: V \to W$.
 \vspace{-0.8\baselineskip}
@@ -1516,7 +1502,6 @@ linear transformation, let's discuss about injection, surjection,
 and bijection. Consider the following theorem.
 
 \begin{theorem}{Linear Transformation and Injection}
-{Linear Transformation and Injection}
 A linear transformation $T: V \to W$ is injective if and only if
 $\ker(T) = \{ \mathbf{0} \}$.
 \end{theorem}
@@ -1531,7 +1516,6 @@ Thus, $\ker(T)$ must only contain the zero vector.
 Continuing, below is another theorem on injection and surjection.
 
 \begin{theorem}{Injection and Surjection of a Linear Transformation}
-{Injection and Surjection of a Linear Transformation}
 For a linear transformation $T: V \to W$ with $\dim(V) = \dim(W) = n$,
 $T$ is injective if and only if $T$ is surjective.
 \end{theorem}
@@ -1559,7 +1543,6 @@ Continuing from the definition, we can derive the following
 properties.
 
 \begin{theorem}{Reflex, Symmetry, and Transition of Isomorphism}
-{Reflex, Symmetry, and Transition of Isomorphism}
 For vector spaces $U$, $V$, and $W$, isomorphism is reflexive,
 symmetric, and transitive.
 \begin{enumerate}[noitemsep]
@@ -1628,7 +1611,7 @@ symmetric, and transitive.
 
 Below is an another interesting theorem on isomorphism.
 
-\begin{theorem}{Dimension and Isomorphism}{Dimension and Isomorphism}
+\begin{theorem}{Dimension and Isomorphism}
 For finite dimensional vector spaces $V$ and $W$, $V \cong W$ if and
 only if $\dim(V) = \dim(W)$.
 \end{theorem}
@@ -1709,7 +1692,7 @@ Now eigenvectors and eigenvalues are important because they make
 our lives easier for investigating matrix representation of a
 linear transformation. Consider the following theorem.
 
-\begin{theorem}{Eigenvectors and Basis}{Eigenvectors and Basis}
+\begin{theorem}{Eigenvectors and Basis}
 For a linear transformation $T: V \to V$ for a finite dimensional
 vector space $V$, there exists a basis whose matrix representation
 is a diagonal matrix if and only if there exists a basis composed
@@ -1808,7 +1791,6 @@ as the first example from this section. Continuing, below are
 two interesting theorems on eigenvectors and eigenvalues.
 
 \begin{theorem}{Matrix Representation and Eigenvectors}
-{Matrix Representation and Eigenvectors}
 For a linear transformation $T: V \to V$, $v \in V$ is an
 eigenvector with the corresponding eigenvalue $\lambda$ if and only if
 $(v)_B$ is an eigenvector with the corresponding eigenvalue $\lambda$
@@ -1823,7 +1805,7 @@ This theorem will come handy has we can either find all eigenvectors
 and corresponding eigenvalues of the transformation or its matrix
 representation. Continuing, below is another theorem.
 
-\begin{theorem}{Eigenvalues and Subspace}{Eigenvalues and Subspace}
+\begin{theorem}{Eigenvalues and Subspace}
 For a linear transformation $T: V \to V$ and eigenvalue $\lambda$,
 $S_\lambda = \{ v \in V | Tv = \lambda v \}$ is a subspace of $V$.
 \end{theorem}
@@ -1856,7 +1838,6 @@ we could do the same for eigenspace. Now that we discussed what
 eigenvectors and eigenvalues are, let's discuss how to find one.
 
 \begin{theorem}{Eigenvalue and Determinants}
-{Eigenvalue and Determinants}
 For a square matrix $A_{n \times n}$, $\lambda$ is its eigenvalue
 if and only if $\det(A - \lambda I_n) = 0$.
 \end{theorem}
@@ -1974,7 +1955,6 @@ Eigenvalues and eigenvectors have interesting properties and
 relationship with vector spaces. Consider the following theorem.
 
 \begin{theorem}{Similar Matrices and Eigenvalues}
-{Similar Matrices and Eigenvalues}
 For two square matrices $A$ and $B$ such that $A \cong B$,
 the characteristic equation and eigenvalues for each matrix equal.
 \end{theorem}
@@ -1996,7 +1976,6 @@ and the theorem holds.
 Below is another theorem on the eigenvalues of triangular matrices.
 
 \begin{theorem}{Triangular Matrices and Eigenvalues}
-{Triangular Matrices and Eigenvalues}
 The eigenvalues of triangular (upper or lower) matrices are the
 diagonal elements.
 \end{theorem}
@@ -2017,7 +1996,6 @@ Continuing, below is another theorem on the relationship between
 eigenvalues and invertibility.
 
 \begin{theorem}{Invertibility and Eigenvalues}
-{Invertibility and Eigenvalues}
 A square matrix $A$ contains a zero eigenvalue if and only if it is
 not invertible.
 \end{theorem}
@@ -2032,7 +2010,6 @@ If you think this theorem is nice, below is another theorem on
 invertibility and eigenvalues.
 
 \begin{theorem}{Eigenvalues and Eigenvectors of an Invertible Matrix}
-{Eigenvalues and Eigenvectors of an Invertible Matrix}
 For an invertible matrix $A$ with eigenvector $x$ and its
 corresponding eigenvalue $\lambda$, $x$ is also an eigenvalue of
 $A^{-1}$ with corresponding eigenvalue $\frac{1}{\lambda}$.
@@ -2048,7 +2025,6 @@ Continuing, below is a theorem on the relationship between
 eigenvalues and linear independence.
 
 \begin{theorem}{Eigenvalues and Linear Independence}
-{Eigenvalues and Linear Independence}
 If $x_1, \ldots, x_k$ are eigenvectors of a square matrix $A$
 and the corresponding eigenvalues $\lambda_1, \ldots, \lambda_k$
 are all distinct, then $\{ x_1, \ldots, x_k \}$ is linearly
@@ -2080,7 +2056,6 @@ and the theorem holds by induction.
 Naturally, it would be consider the dimension of an eigenspace.
 
 \begin{theorem}{The Dimension of an Eigenspace}
-{The Dimension of an Eigenspace}
 For a matrix $A_{n \times n}$ with an eigenvalue $\lambda$,
 the following equation holds.
 \[
@@ -2105,7 +2080,6 @@ before we conclude this part of the note, I would like to discuss
 two more theorem.
 
 \begin{theorem}{Properties of Eigenvector and Eigenvalue}
-{Properties of Eigenvector and Eigenvalue}
 Consider the following statements for a matrix $A$ with an
 eigenvector $x$ with its corresponding eigenvalue $\lambda$.
 \begin{enumerate}[noitemsep]
@@ -2153,7 +2127,7 @@ is the sum of the diagonal elements of $A$.
 
 With the definition, we can continue with the theorem.
 
-\begin{theorem}{Properties of Eigenvalues}{Properties of Eigenvalues}
+\begin{theorem}{Properties of Eigenvalues}
 For a square matrix $A_{n \times n}$ with eigenvalues $\lambda_1,
 \ldots, \lambda_n$, the following equations hold.
 \begin{enumerate}[noitemsep]
@@ -2209,7 +2183,6 @@ are similar. Fortunately, the following theorem will help in checking
 whether a square matrix is diagonalizable.
 
 \begin{theorem}{Diagonalizability and Eigenvectors}
-{Diagonalizability and Eigenvectors}
 A square matrix $A_{n \times n}$ is diagonalizable if and only if
 it retains a set of $n$ eigenvectors that is linearly independent.
 \end{theorem}
@@ -2254,7 +2227,6 @@ by construction, $P^{-1} A P = D$ and $A$ is diagonalizable.
 Continuing from the theorem, we can establish the following corollary.
 
 \begin{corollary}{Corollary of Diagonalizability and Eigenvectors}
-{Corollary of Diagonalizability and Eigenvectors}
 A matrix $A_{n \times n}$ with $n$ distinct real eigenvalues is
 diagonalizable.
 \end{corollary}
@@ -2271,7 +2243,6 @@ can be similar to more than one diagonal matrices. The answer to
 that question can be found with the theorem below.
 
 \begin{theorem}{Multiple Diagonal Matrices}
-{Multiple Diagonal Matrices}
 If a square matrix is similar to both diagonal matrices $D_1$ and
 $D_2$, then the diagonal entries of $D_1$ and $D_2$ are the same
 with possibly different orderings.
@@ -2310,7 +2281,6 @@ Diagonalization is particularly useful as it makes calculations
 easier. Before concluding our notes, below is the final theorem!
 
 \begin{theorem}{Diagonalizability and Eigenspace}
-{Diagonalizability and Eigenspace}
 Let $A_{n \times n}$ be a matrix with real and distinct eigenvalues
 $\lambda_1, \ldots, \lambda_k$. The matrix $A$ is diagonalizable if
 and only if the following equation holds.
@@ -2360,6 +2330,38 @@ $T(v_1 + v_2) = T(v_1) + T(v_2)$ and $T(\alpha v_1) = \alpha T(v_1)$.
 \item
 Determine whether a transformation defined as $T(\langle a, b \rangle)
 = a + b$ is linear. How about $T(\langle a, b \rangle) = ab$?
+
+\item
+For square matrices $A$ and $B$ of order $n \times n$, show that if
+$\lambda$ is an eigenvalue of $AB$, then the eigenvalues of $BA$
+also includes $\lambda$ \cite{refbook1}.
+
+\item
+Find bases for the kernel and the image of
+$\begin{bmatrix}
+    1 & 1 & 1 \\
+    0 & 1 & 0
+\end{bmatrix}$.
+
+\item
+Show that $A \cong B$ if and only if $A^\intercal \cong B^\intercal$.
+
+\item
+Find the eigenvalues and corresponding eigenvectors and the eigenspace
+for
+$\begin{bmatrix}
+    1 & 2 & 3 \\
+    0 & 1 & 0 \\
+    0 & 1 & 2
+\end{bmatrix}$.
+
+\item
+Diagonalize
+$\begin{bmatrix}
+    1 & 2 & 3 \\
+    1 & 1 & 1 \\
+    0 & 1 & 2
+\end{bmatrix}$.
 \end{enumerate}
 \end{document}
 

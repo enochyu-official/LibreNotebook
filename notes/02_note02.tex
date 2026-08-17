@@ -32,7 +32,7 @@ A=
     0  & -1 & 0  & 1  \\
     \Hbrace{4}{4 \text{ columns}} &
 \end{bNiceMatrix}
-\qquad\quad,\qquad\qquad
+\qquad\quad,\qquad
 B =
 \begin{bNiceMatrix}[last-row,last-col]
 \pi & \Vbrace[horizontal-label]{4}{4 \text{ rows}} \\
@@ -130,7 +130,7 @@ of matrices.
 First, when are two matrices ``equal'' to each other? Consider
 the following definition for a formal explanation.
 
-\begin{theorem}{Equality of Matrix}{Equality of Matrix}
+\begin{theorem}{Equality of Matrix}
 Two matrices $A$ and $B$ with orders $m \times n$ and $p \times q$
 respectively are said to be equal to each other if they retain
 the same order and corresponding elements, i.e. they satisfy the
@@ -151,7 +151,7 @@ a_{ij} = b_{ij} \,
 Although this is very trivial and intuitive, it is always nice
 to formally define concepts!
 
-\begin{theorem}{Matrix Addition}{Matrix Addition}
+\begin{theorem}{Matrix Addition}
 For matrices $A$ and $B$ with same order, the element in the
 $(i, j)$-entry of their sum $A + B$ is equivalent to the sum of
 elements in the $(i, j)$-entry of $A$ and $B$.
@@ -200,7 +200,6 @@ Intuitively, the fundamental properties of addition can be
 applied with matrices addition.
 
 \begin{theorem}{Commutative Property of Matrix Addition}
-{Commutative Property of Matrix Addition}
 For matrices $A$ and $B$ with order $m \times n$, $A + B = B + A$.
 \end{theorem}
 \begin{proof}
@@ -220,7 +219,6 @@ In addition to the commutative property, the associative property
 is also applicable.
 
 \begin{theorem}{Associative Property of Matrix Addition}
-{Associative Property of Matrix Addition}
 For matrices $A$, $B$, and $C$ with order $m \times n$,
 $A + (B + C) = (A + B) + C$.
 \end{theorem}
@@ -244,7 +242,6 @@ One obvious property in addition is that when you add $0$ to a number,
 you get the number itself. The same applies in matrix addition.
 
 \begin{theorem}{Additive Identity of Matrix Addition}
-{Additive Identity of Matrix Addition}
 The sum of matrices $A_{m \times n}$ and $0_{m \times n}$ yields
 the matrix $A$, i.e. zero matrix is the identity elements of
 matrix addition.
@@ -259,7 +256,7 @@ Now what if we want to add same matrix multiple times? Fortunately,
 we already resolved the issue. For instance, we write $x + x + x$
 as $3x$. We can multiply matrices with scalars.
 
-\begin{theorem}{Scalar Multiplication}{Scalar Multiplication}
+\begin{theorem}{Scalar Multiplication}
 For a complex number $\lambda$ and $A = [a_{ij}]$, $\lambda A
 = [\lambda a_{ij}]$.
 \end{theorem}
@@ -321,7 +318,7 @@ can be represented as following.
 With the scalar multiplication in mind, we can expand the application
 of foundational concepts here with matrix.
 
-\begin{theorem}{Additional Properties}{Additional Properties}
+\begin{theorem}{Additional Properties}
 For $A = [a_{ij}]_{m \times n}$, $B = [b_{ij}]_{m \times n}$,
 and $\lambda_1, \lambda_2 \in \mathbb{C}$, the following
 properties hold.
@@ -542,7 +539,7 @@ As you can see above, matrix multiplication is not defined
 elementwise unlike addition and scalar multiplication. First,
 take a look at the following formula for individual elements.
 
-\begin{theorem}{Matrix Multiplication}{Matrix Multiplication}
+\begin{theorem}{Matrix Multiplication}
 For matrices $[a_{ij}]_{m \times n}$ and $[b_{ij}]_{n \times p}$,
 the elements $c_{ij}$ of the product matrix $[c_{ij}]_{m \times p}$
 is defined as the following expression.
@@ -632,7 +629,6 @@ It is important to note that matrix multiplication applies under
 a specific condition.
 
 \begin{theorem}{Condition for Matrix Multiplication}
-{Condition for Matrix Multiplication}
 For matrices $A_{m \times n}$ and $B_{p \times q}$, the matrices
 can be multiplied if and only if $n = p$. The resulting matrix
 will have order $m \times q$.
@@ -643,7 +639,6 @@ condition above is not met, we say the product is \textbf{undefined}.
 Continuing from this condition, we could get an interesting property.
 
 \begin{theorem}{Commutativity of Matrix Multiplication}
-{Commutativity of Matrix Multiplication}
 Matrix multiplication is not commutative, i.e. for matrices $A$ and
 $B$, it is not necessarily true that $AB = BA$.
 \end{theorem}
@@ -875,7 +870,6 @@ multiplication is not commutative, the associative and distributive
 property still applies.
 
 \begin{theorem}{Properties of Matrix Multiplication}
-{Properties of Matrix Multiplication}
 For matrices $A$, $B$, and $C$, the following equations are true
 given that the condition for the addition and multiplication are met.
 \begin{enumerate}
@@ -1074,7 +1068,6 @@ From this, we can obtain an important fact about the uniqueness
 of the identity matrix.
 
 \begin{theorem}{Uniqueness of Identity Matrices}
-{Uniqueness of Identity Matrices}
 The identity matrix $I$ for square matrices $A$ is unique.
 \end{theorem}
 \begin{proof}
@@ -1290,7 +1283,6 @@ square matrix to be skew-symmetric.
 Now let's discuss the properties of transpose of a matrix.
 
 \begin{theorem}{Properties of Transpose of a Matrix}
-{Properties of Transpose of a Matrix}
 For matrix $A$, $B$, scalar $\lambda$ and positive integer $n$,
 the following equations are true assuming that the addition and
 multiplication conditions are satisfied.
@@ -1690,6 +1682,7 @@ If there are both nonzero and zero rows, all zero rows must appear
 after the nonzero rows above.
 \end{itemize}
 
+The leading entry of matrices in REF is known as a \textbf{pivot}.
 Similarly, matrices in \textbf{reduced row echelon form (RREF)}
 are matrices that satisfy the following conditions.
 \begin{itemize}[noitemsep]
@@ -1762,7 +1755,6 @@ Now that we have definitions of triangular matrices in mind,
 we can discuss a theorem from such matrices.
 
 \begin{theorem}{Property of Triangular Matrix Multiplication}
-{Property of Triangular Matrix Multiplication}
 The product of two lower triangular matrices is a lower triangular
 matrix, and the product of two upper triangular matrices is an upper
 triangular matrix.
@@ -1960,7 +1952,7 @@ $2 \times 2$ matrices instead of memorizing complex formulas,
 but I don't know. I think its up to you. With this in mind,
 we can establish a very important theorem in computing determinants.
 
-\begin{theorem}{Cofactor Expansion}{Cofactor Expansion}
+\begin{theorem}{Cofactor Expansion}
 For any square matrix $A$, the cofactor expansion along the
 $i^\text{th}$ row and the cofactor expansion along the $j^\text{th}$
 column equal. In other words, the following equation holds.
@@ -1977,7 +1969,6 @@ above. For now, let's discuss a special property of triangular
 matrices.
 
 \begin{theorem}{The Determinants of Triangular Matrices}
-{The Determinants of Triangular Matrices}
 For a triangular (upper or lower) matrix $A_{n \times n} = [a_{ij}]$,
 the determinant is defined as the following.
 \[
@@ -2021,7 +2012,6 @@ As you could have guessed, we get a direct corollary from the
 theorem.
 
 \begin{corollary}{Determinants of Diagonal Matrices}
-{Determinants of Diagonal Matrices}
 The determinant of any diagonal matrix is the product of the
 diagonal entries.
 \end{corollary}
@@ -2036,7 +2026,6 @@ understanding of a transpose of a matrix. Consider the following
 theorem.
 
 \begin{theorem}{Transpose and Determinants}
-{Transpose and Determinants}
 $\det(A) = \det(A^\intercal)$ holds for all square matrix $A$.
 \end{theorem}
 \begin{proof}
@@ -2068,7 +2057,6 @@ of the product. To prove this result, we would need a lot of lemmas,
 so let's get started with the first one.
 
 \begin{lemma}{Determinants and Elementary Matrices I}
-{Determinants and Elementary Matrices I}
 For a matrix $A_{n \times n}$ and an elementary matrix
 $E_{n \times n}$ for interchanging two rows, $\det(E) = -1$
 and $\det(EA) = \det(E) \det(A)$.
@@ -2112,7 +2100,6 @@ Thus, the lemma holds.
 Continuing from this lemma, we can establish an interesting corollary.
 
 \begin{corollary}{Identical Rows or Columns and Determinant}
-{Identical Rows or Columns and Determinant}
 The equation $\det(A) = 0$ holds for all square matrices $A$ with
 either two identical rows or columns.
 \end{corollary}
@@ -2136,7 +2123,6 @@ $k_1$ and $k_2$, the same argument applies by Theorem
 For our second lemma, we have another elementary row operation.
 
 \begin{lemma}{Determinants and Elementary Matrices II}
-{Determinants and Elementary Matrices II}
 For a matrix $A_{n \times n}$ and an elementary matrix
 $E_{n \times n}$ that scales $k^\text{th}$ row of $A$ by some nonzero
 scalar $\lambda$, $\det(E) = \lambda$ and $\det(EA) = \det(E)
@@ -2160,7 +2146,7 @@ Thus, the lemma holds.
 Just like our first lemma, we can expand this second lemma with
 an interesting corollary.
 
-\begin{corollary}{Scalars and Determinants}{Scalars and Determinants}
+\begin{corollary}{Scalars and Determinants}
 For any matrix $A_{n \times n}$ and scalars $\lambda$,
 $\det(\lambda A) = \lambda^n \det(A)$.
 \end{corollary}
@@ -2180,7 +2166,6 @@ Thus, the corollary holds.
 Below is the third lemma on determinants and elementary matrices.
 
 \begin{lemma}{Determinants and Elementary Matrices III}
-{Determinants and Elementary Matrices III}
 For a matrix $A_{n \times n}$ and an elementary matrix $E$ of
 the same order that adds $\lambda$ times row $k_1$ to row $k_2$
 of $A$, then $\det(E) = 1$ and $\det(EA) = \det(E) \det(A)$.
@@ -2212,7 +2197,6 @@ With the three lemmas above, we can establish an important theorem
 that links the determinants of a matrix and an elementary matrix.
 
 \begin{theorem}{Elementary Matrices and Determinants}
-{Elementary Matrices and Determinants}
 For a matrix $A_{n \times n}$ and any elementary matrix $E$ of the
 same order, $\det(EA) = \det(E) \det(A)$.
 \end{theorem}
@@ -2233,7 +2217,6 @@ feel free to read Section 3.3 and return or vice versa as it shouldn't
 be something too hard.
 
 \begin{theorem}{Invertibility and the Determinant}
-{Invertibility and the Determinant}
 A square matrix $A$ is invertible if and only if $\det(A) \neq 0$.
 \end{theorem}
 \begin{proof}
@@ -2251,7 +2234,7 @@ theorem holds.
 
 Now finally! Let's prove the theorem!
 
-\begin{theorem}{Product and Determinants}{Product and Determinants}
+\begin{theorem}{Product and Determinants}
 For square matrices $A$ and $B$ with the same order, $\det(AB) =
 \det(A) \det(B)$.
 \end{theorem}
@@ -2276,7 +2259,6 @@ With this important theorem in mind, let's wrap up our notes with
 two corollaries.
 
 \begin{corollary}{Corollary of Product and Determinants I}
-{Corollary of Product and Determinants I}
 For an invertible matrix $A$, $\det(A^{-1}) = \frac{1}{\det(A)}$.
 \end{corollary}
 \begin{proof}
@@ -2288,7 +2270,6 @@ Notice that $1 = \det(AA^{-1}) = \det(A) \det(A^{-1})$ by Theorem
 Continuing, below is the second corollary.
 
 \begin{corollary}{Corollary of Product and Determinants II}
-{Corollary of Product and Determinants II}
 If two matrices $A$ and $B$ are similar, then $\det(A) = \det(B)$.
 \end{corollary}
 \begin{proof}
@@ -2363,7 +2344,22 @@ product $AB$ is nilpotent.
 Show that for square matrices $A$ and $B$, $AB + (AB)^\intercal$
 is symmetric.
 
-\item MORE ON DETERMINANTS
+\item
+For square matrices $A$ and $B$ of order $n \times n$, show that
+the following equation holds \cite{refbook1}.
+\[
+\det\left(
+    \begin{bmatrix}
+        A & B \\
+        B & A
+    \end{bmatrix}
+\right)
+= \det(A + B) \det(A - B)
+\]
+
+\item
+Show that if a square matrix $A$ is skew-symmetric, then $A^3$ is
+also skew-symmetric.
 \end{enumerate}
 \end{document}
 

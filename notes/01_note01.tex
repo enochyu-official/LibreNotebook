@@ -368,7 +368,6 @@ derive some important theorems. Although most of them are intuitive,
 its always nice to formally prove them so let's do that now.
 
 \begin{theorem}{Uniqueness of the Zero Vector}
-{Uniqueness of the Zero Vector}
 For all vector spaces, zero vector, or the additive identity element,
 is unique.
 \end{theorem}
@@ -390,7 +389,6 @@ Continuing from the uniqueness of the zero vector in a vector space,
 we can assert the following theorem.
 
 \begin{theorem}{Uniqueness of Additive Inverse}
-{Uniqueness of Additive Inverse}
 For all $u \in V$ for any vector space $V$, $v \in V$ such that
 $u \oplus v = 0$ is unique.
 \end{theorem}
@@ -415,7 +413,6 @@ Just as $x = 0$ if $x + x = x$, we could do similar things in vector
 spaces.
 
 \begin{theorem}{Property of Zero Vectors I}
-{Property of Zero Vectors I}
 For all $v \in V$ and any vector space $V$, $v \oplus v = v$ if and
 only if $v = 0$.
 \end{theorem}
@@ -434,7 +431,6 @@ then $v \oplus v = 0 \oplus 0 = 0$. Therefore, the premise holds.
 Now let's take a look at theorems for scalar multiplications.
 
 \begin{theorem}{Properties of Scalar Multiplications}
-{Properties of Scalar Multiplications}
 The following properties hold for all vector space $V$ over
 $\mathbb{F}$, $u, \mathbf{0} \in V$, and any scalars $\alpha$.
 \begin{enumerate}[noitemsep]
@@ -575,7 +571,7 @@ $V$.
 Now for a set to be a subspace, it must satisfy the following
 conditions.
 
-\begin{theorem}{Conditions of a Subspace}{Conditions of a Subspace}
+\begin{theorem}{Conditions of a Subspace}
 A non-empty subset $S$ of a vector space $V$ is a subspace of $V$ if
 and only if the following conditions are satisfied.
 \begin{enumerate}[noitemsep]
@@ -626,7 +622,6 @@ lives easier. However, to make it even better, we can boil it down
 to a single condition.
 
 \begin{corollary}{The Condition for a Subspace}
-{The Condition for a Subspace}
 For scalars $\alpha$ and $\beta$ and $u, v \in S$ where $S$ is a
 non-empty subset of a vector space $V$ that has the same operations
 for vector addition and scalar multiplication, $S$ is a subspace if
@@ -700,7 +695,7 @@ the set of all possible linear combinations of the vectors.
 
 With the definition, we could notice an important theorem.
 
-\begin{theorem}{Span and Subspace I}{Span and Subspace I}
+\begin{theorem}{Span and Subspace I}
 For a vector space $V$ and its subset $S = \{ v_1, \ldots, v_n \}$,
 $\Span(S)$ is a subspace of $V$.
 \end{theorem}
@@ -719,7 +714,7 @@ adhere to the theorem above. Continuing with the definition of the
 span of a set and its relation with subspace, we can show the two
 following theorems.
 
-\begin{theorem}{Span and Subspace II}{Span and Subspace II}
+\begin{theorem}{Span and Subspace II}
 Consider the following statements for a vector space $V$ and its
 subspace $W$ and non-empty subset $S$ such that $S \subset W$.
 \begin{enumerate}[noitemsep]
@@ -753,7 +748,6 @@ Next, let's conclude our discussion on linear combination and span
 of a set of vectors by proving the following statements.
 
 \begin{theorem}{Four Lemmas on Span of a Set of Vectors}
-{Four Lemmas on Span of a Set of Vectors}
 For a vector space $V$ and its subsets $S, T \subset V$, consider the
 following statements.
 \begin{enumerate}[noitemsep]
@@ -877,7 +871,6 @@ solutions. Therefore, such set of vectors must be linearly dependent.
 Continuing, below is a theorem that we can deduce from the definition.
 
 \begin{theorem}{Finite Set of Vectors and Linear Dependence}
-{Finite Set of Vectors and Linear Dependence}
 A set with finite number of nonzero vectors is linearly dependent
 if and only if a vector in the ordering of the set can be represented
 as a linear combination of vectors preceding it.
@@ -915,7 +908,7 @@ the theorem is true.
 
 From this theorem, we can deduce a corollary.
 
-\begin{corollary}{}{}
+\begin{corollary}{}
 For a vector space $V = \Span(S)$ and linearly dependent set
 $S = \{ v_1, \ldots, v_n \} \subset V$, then there exists a set
 $T \subset S$ such that $|T| = n - 1$ and $V = \Span(T)$.
@@ -946,7 +939,6 @@ Continuing from the corollary, the following theorems could be
 asserted.
 
 \begin{theorem}{Properties of Linear Independence and Dependence}
-{Properties of Linear Independence and Dependence}
 Consider the following statements for set $S$.
 \begin{enumerate}[noitemsep]
 \item
@@ -1079,7 +1071,6 @@ not be discussing infinite dimensional vector spaces. From the
 definitions above, we could establish a theorem.
 
 \begin{theorem}{Basis and Linear Dependence}
-{Basis and Linear Dependence}
 For a basis $S$ of a vector space $V$ such that $|S| = n$, any set
 in $V$ with more than $n$ elements is linearly dependent.
 \end{theorem}
@@ -1120,7 +1111,7 @@ equations for linear dependence, the theorem holds.
 
 Continuing, we can derive three corollaries from the theorem.
 
-\begin{corollary}{}{}
+\begin{corollary}{}
 If a basis for the vector space $V$ contains $n$ elements, then any
 linearly independent subsets of $V$ contains at most $n$ elements.
 \end{corollary}
@@ -1133,7 +1124,7 @@ independent subsets of $V$ must not contain more than $n$ elements.
 
 Below is the second corollary.
 
-\begin{corollary}{}{}
+\begin{corollary}{}
 If $V$ is a finite vector space, every basis of $V$ will contain
 the same number of elements.
 \end{corollary}
@@ -1158,7 +1149,7 @@ number of elements in the basis, we can write that $\dim(\mathbb{R}^n)
 = n$. Similarly, we can also notice that $\dim(\mathbb{P}^n) = n + 1$.
 Now let's continue with our third corollary.
 
-\begin{corollary}{}{}
+\begin{corollary}{}
 Every set $S$ in an $n$-dimensional vector space such that $|S| =
 n + 1$ is linearly dependent.
 \end{corollary}
@@ -1172,7 +1163,7 @@ One fun fact to note is that for the vector space $\{0\}$, we say
 $\dim(\{0\}) = 0$ by convention. Moreover, consider the following
 theorem.
 
-\begin{theorem}{Unique Linear Combination}{Unique Linear Combination}
+\begin{theorem}{Unique Linear Combination}
 For a basis $S = \{ v_1, \ldots, v_n \}$ of a vector space $V$,
 any vector $u \in V$ can be written as a unique linear combination
 of $S$.
@@ -1230,7 +1221,7 @@ following $3$-tuple.
 Lastly, let's conclude our discussion on basis and dimension with
 a theorem.
 
-\begin{theorem}
+\begin{theorem}{Properties of Subset}
 Consider the following statements for a vector space $V$ and
 its subset $S \subset V$.
 \begin{enumerate}[noitemsep]
@@ -1306,9 +1297,22 @@ is also a subspace of $V$.
 
 \item
 Show that for distinct real numbers $a_1, \ldots, a_n$, then the set
-$\{ e^{a_1 x}, \ldots, \linebreak e^{a_n x} \}$ is linearly independent.
+$\{ e^{a_1 x}, \ldots, \linebreak e^{a_n x} \}$ is linearly
+independent.
 
-\item More problems on basis and dimension
+\item
+Let $A, B \in \mathbb{R}^3$ be lines defined as $x = y = z$ and
+$3x = 4y = 5z$ respectively. If $C = \{ a + b \mid a \in A, b \in B
+\}$, show that $C = A \oplus B$ \cite{refbook1}.
+
+\item
+If $\{ a, b, c \}$ is linearly independent in a vector space $V$,
+show that $\{ a+b, b+c, c+a \}$ is also linearly independent
+\cite{refbook1}.
+
+\item
+Show that the set of all polynomials in $\mathbb{P}^3$ that includes
+the origin is a subspace of $\mathbb{P}^3$.
 \end{enumerate}
 \end{document}
 

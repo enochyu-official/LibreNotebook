@@ -78,6 +78,13 @@
 \usepackage{float}
 \usepackage{pdfpages}
 \usepackage{subfiles}
+\usepackage{csquotes}
+\usepackage[
+    backend=biber,
+    style=alphabetic,
+    sorting=ynt
+]{biblatex}
+\addbibresource{references.bib}
 
 
 %%%%%%%%%%%%%%% CUSTOM %%%%%%%%%%%%%%%
@@ -89,8 +96,7 @@
     auto counter,
     number within=section,
     use counter=boxcounter
-]{theorem}{Theorem}%
-{%
+]{theostyle}{Theorem}{%
     colback=black!5,
     colframe=black,
     fonttitle=\bfseries,
@@ -100,8 +106,7 @@
     auto counter,
     number within=section,
     use counter=boxcounter
-]{lemma}{Lemma}%
-{%
+]{lemstyle}{Lemma}{%
     colback=Sepia!5,
     colframe=Sepia,
     fonttitle=\bfseries,
@@ -111,19 +116,17 @@
     auto counter,
     number within=section,
     use counter=boxcounter
-]{probstyle}{Exercise}%
-{%
+]{probstyle}{Exercise}{%
     colback=BrickRed!3,
     colframe=red!40!black,
     fonttitle=\bfseries,
     sharp corners
-}{probstyle}
+}{prob}
 \newtcbtheorem[
     auto counter,
     number within=section,
     use counter=boxcounter
-]{corollary}{Corollary}%
-{%
+]{corstyle}{Corollary}{%
     colback=blue!3,
     colframe=blue!30!black,
     fonttitle=\bfseries,
@@ -133,13 +136,19 @@
     auto counter,
     number within=section,
     use counter=boxcounter
-]{defstyle}{Definition}%
-{%
+]{defstyle}{Definition}{%
     colback=yellow!10,
     colframe=Sepia,
     fonttitle=\bfseries,
     sharp corners
-}{defstyle}
+}{def}
+\newenvironment{theorem}
+{\begin{theostyle}{}}{\end{theostyle}}
+\newenvironment{corollary}
+{\begin{corstyle}{}}{\end{corstyle}}
+\newenvironment{lemma}
+{\begin{lemstyle}{}}{\end{lemstyle}}
+
 \newenvironment{definition}
 {\begin{defstyle}{}{}}{\end{defstyle}}
 \newenvironment{problem}

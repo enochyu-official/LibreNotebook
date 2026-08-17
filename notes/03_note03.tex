@@ -8,7 +8,7 @@ One of the most important application of matrices would be in
 linear systems of equations. With the ideas on matrices, we can
 open our third eye when viewing system of linear equations.
 This note is dedicated for matrices in linear equations,
-Gaussian Elimination, and LU Decompositions.
+Gaussian Elimination, and LU decompositions.
 
 \section{Basics and Intuitions}
 
@@ -109,7 +109,6 @@ and linear system of equations, let's take a look at a theorem and
 an important corollary.
 
 \begin{theorem}{Different Solutions to a System}
-{Different Solutions to a System}
 For two distinct solutions $x_1$ and $x_2$ of $Ax = b$,
 $\alpha x_1 + \beta x_2$ is also a solution to the linear system
 given that $\alpha, \beta \in \mathbb{R}$ and $\alpha + \beta = 1$.
@@ -134,7 +133,6 @@ From this theorem, we can establish an important corollary about the
 number of solutions to a system of linear equations.
 
 \begin{corollary}{Number of Solutions to a Linear System}
-{Number of Solutions to a Linear System}
 A system of linear equations can retain $0$, $1$, or infinitely many
 solutions.
 \end{corollary}
@@ -440,7 +438,7 @@ two set of properties refer to the same property. Now with the
 set of property of augmented matrices in mind, here are the steps
 for the Gaussian Elimination algorithm.
 
-\begin{theorem}{Gaussian Elimination}{Gaussian Elimination}
+\begin{theorem}{Gaussian Elimination}
 Execute the following steps in order for Gaussian Elimination.
 \begin{enumerate}[noitemsep]
 \item
@@ -700,7 +698,6 @@ does not have an inverse matrix.
 Now from the definition above, we could establish a theorem.
 
 \begin{theorem}{Diagonal Elements and Invertibility}
-{Diagonal Elements and Invertibility}
 If all diagonal elements of a matrix are nonzero constants,
 then the matrix is invertible.
 \end{theorem}
@@ -743,7 +740,6 @@ the inverse matrix is unique just as a nonzero integer has a unique
 reciprocal.
 
 \begin{theorem}{Uniqueness of Inverse Matrix}
-{Uniqueness of Inverse Matrix}
 If there exists an inverse matrix, the inverse is unique.
 \end{theorem}
 \begin{proof}
@@ -760,7 +756,6 @@ Before we discuss how we actually find an inverse, let's discuss
 four important properties of inverse matrices.
 
 \begin{theorem}{Properties of the Inverse Matrix}
-{Properties of the Inverse Matrix}
 For invertible square matrices $A$ and $B$ and a nonzero scalar
 $\lambda$, the following equations hold.
 \begin{enumerate}
@@ -923,7 +918,6 @@ $a^\text{th}$ column of the row to $k$.
 From this, we can notice the following theorem.
 
 \begin{theorem}{Invertibility of Elementary Matrices}
-{Invertibility of Elementary Matrices}
 All elementary matrices are invertible.
 \end{theorem}
 \begin{proof}
@@ -935,7 +929,6 @@ all elementary matrices are invertible.
 Building onto the theorem, we could prove the uniqueness.
 
 \begin{theorem}{Uniqueness of Elementary Matrices}
-{Uniqueness of Elementary Matrices}
 For each elementary row operations, the corresponding elementary
 matrix is unique.
 \end{theorem}
@@ -954,7 +947,6 @@ elementary row operation before moving on to finding an inverse
 matrix.
 
 \begin{theorem}{Three Properties of Elementary Matrices}
-{Three Properties of Elementary Matrices}
 For each elementary matrix for corresponding elementary row
 operations, the following properties hold.
 \begin{enumerate}[noitemsep]
@@ -1297,7 +1289,6 @@ a look at an important lemma on triangular matrices to prove a
 theorem on LU decomposition.
 
 \begin{lemma}{Inverse of Triangular Matrices}
-{Inverse of Triangular Matrices}
 The inverse of upper and lower triangular matrices are upper and
 lower triangular matrices respectively.
 \end{lemma}
@@ -1336,7 +1327,6 @@ triangular matrix is a lower triangular matrix.
 With the lemma in mind, let's prove the following theorem.
 
 \begin{theorem}{Condition for LU Decomposition}
-{Condition for LU Decomposition}
 An invertible matrix has a LU decomposition if and only if
 multiplying sequence of lower triangular elementary matrices for
 elementary row operations can transform the matrix into an upper
@@ -1603,6 +1593,75 @@ for the topics that we covered.
 \item
 Show that for an invertible square matrix $A$, the system $Ax = b$
 is always consistent.
+
+\item
+Show that the following system cannot have a unique solution for all
+$k \in \mathbb{R}$.
+\[
+\begin{bmatrix}
+    1 & 2 \\
+    2 & 4
+\end{bmatrix}
+\begin{bmatrix}
+    x \\
+    y
+\end{bmatrix}
+=
+\begin{bmatrix}
+    1 \\
+    k
+\end{bmatrix}
+\]
+
+\item
+Use Gaussian Elimination to find the solution for the following
+system.
+\begin{align*}
+    x + y + z   &= 10 \\
+    3x + 4y - z &= 2  \\
+    -x - 3y + z &= 4
+\end{align*}
+
+\item
+Solve the same system above using LU decomposition.
+
+\item
+Find the inverse of the following matrix.
+\[
+\begin{bmatrix}
+    1  &  1 & 1 \\
+    3  &  4 & -1 \\
+    -1 & -3 & 1
+\end{bmatrix}
+\]
+Then, find the values of $x, y, z$ that satisfy the following system.
+\[
+\begin{bmatrix}
+    1  &  1 & 1 \\
+    3  &  4 & -1 \\
+    -1 & -3 & 1
+\end{bmatrix}
+\begin{bmatrix}
+    x \\
+    y \\
+    z
+\end{bmatrix}
+=
+\begin{bmatrix}
+    10 \\
+    2 \\
+    4
+\end{bmatrix}
+\]
+
+\item
+Determine whether
+$\begin{bmatrix}
+    1 & 2 & 3 \\
+    0 & 1 & 0 \\
+    0 & 0 & 0
+\end{bmatrix}$
+has an inverse.
 \end{enumerate}
 \end{document}
 
