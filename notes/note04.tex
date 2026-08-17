@@ -2044,6 +2044,62 @@ $x$ is also an eigenvector of $A^{-1}$ with the corresponding
 eigenvalue $\frac{1}{\lambda}$.
 \end{proof}
 
+Continuing, below is a theorem on the relationship between
+eigenvalues and linear independence.
+
+\begin{theorem}{Eigenvalues and Linear Independence}
+{Eigenvalues and Linear Independence}
+If $x_1, \ldots, x_k$ are eigenvectors of a square matrix $A$
+and the corresponding eigenvalues $\lambda_1, \ldots, \lambda_k$
+are all distinct, then $\{ x_1, \ldots, x_k \}$ is linearly
+independent.
+\end{theorem}
+\begin{proof}
+First, notice that $\{ x_1 \}$ is linearly independent. Therefore,
+it suffices to show that if the theorem holds for $k - 1 > 0$, then
+the statement holds for $k$. Assume $\{ x_1, \ldots, x_{k-1} \}$
+is a linearly independent set of eigenvectors with distinct
+corresponding eigenvalues $\lambda_1, \ldots, \lambda_{k-1}$.
+Consider the following equations for some scalars $c_i$.
+\begin{align*}
+    \sum_{i=1}^k c_i x_i &= 0 \\
+    \sum_{i=1}^k c_i A x_i &= 0 \\
+    \sum_{i=1}^k c_i \lambda_i x_i &= 0 \\
+    \sum_{i=1}^{k-1} c_i \lambda_k x_i &= 0
+\end{align*}
+Subtracting the last two equations, $\sum_{i=1}^{k-1} c_i
+(\lambda_i - \lambda_k) x_i = 0$ is obtained. Because
+$\{ x_1, \ldots, x_{k-1} \}$ is linearly independent, $c_i
+(\lambda_i - \lambda_k) = 0$ for all integer $i \in [1, k)$.
+Continuing, because $\lambda_i - \lambda_k \neq 0$ by construction,
+$c_i = 0$ for all integer $i \in [1, k)$ and $c_k = 0$ since
+$x_k \neq 0$. Thus $\{ x_1, \ldots, x_k \}$ is linearly independent
+and the theorem holds by induction.
+\end{proof}
+
+Naturally, it would be consider the dimension of an eigenspace.
+
+\begin{theorem}{The Dimension of an Eigenspace}
+{The Dimension of an Eigenspace}
+For a matrix $A_{n \times n}$ with an eigenvalue $\lambda$,
+the following equation holds.
+\[
+\dim(S_\lambda) = n - \Rank(A - \lambda I)
+\]
+\end{theorem}
+\begin{proof}
+By definition, the eigenspace for $\lambda$ is the set of all
+vectors $v$ that satisfy $Av = \lambda v$. Because $(A - \lambda) v =
+0$, $S_\lambda$ can be interpreted as $\ker(A - \lambda I)$.
+Moreover by Theorem \ref{theo:Rank and Nullity of T}, the following
+equation holds.
+\[
+\Rank(A - \lambda I) + \Null(A - \lambda I) = n
+\]
+Because $\dim(\ker(A - \lambda I)) = \Null(A - \lambda I)$ holds by
+definition, $\dim(S_\lambda) = n - \Rank(A - \lambda I)$.
+\end{proof}
+
 We could really go on forever with interesting theorems, but
 before we conclude this part of the note, I would like to discuss
 two more theorem.
@@ -2139,10 +2195,161 @@ discuss diagonalization.
 
 \subsection{Diagonalization}
 
+Diagonalization in linear algebra is a technique that I think
+really makes our lives easier in calculations. To get into it,
+let's get started with definition and theorems.
 
+\begin{definition}
+A square matrix that is similar to a diagonal matrix is known to be
+\textbf{diagonalizable}.
+\end{definition}
 
+Now we cannot always use brute force method to see if two matrices
+are similar. Fortunately, the following theorem will help in checking
+whether a square matrix is diagonalizable.
 
+\begin{theorem}{Diagonalizability and Eigenvectors}
+{Diagonalizability and Eigenvectors}
+A square matrix $A_{n \times n}$ is diagonalizable if and only if
+it retains a set of $n$ eigenvectors that is linearly independent.
+\end{theorem}
+\begin{proof}
+First and foremost, notice that a $A$ and a diagonal matrix $D$ of
+the same order with entries $\lambda_i$ are similar if and only if
+there exists an invertible matrix $P$ such that $P^{-1} A P = D$ or
+$AP = PD$. Let $x_j$ and $e_j$ be the $j^\text{th}$ column of $P$ and
+$I$ respectively. Then, the following equations hold.
+\begin{align*}
+    A x_j
+    &= A Pe_j
+    = PDe_j
+    = P \lambda_j e_j \\
+    &= \lambda_j P e_j
+    = \lambda_j x_j
+\end{align*}
+Thus, $x_j$ and $\lambda_j$ are eigenvector and the corresponding
+eigenvalue of $A$. By definition, because $M$ is invertible,
+$x_j$ are all linearly independent and $A$ has $n$ linearly
+independent eigenvectors. In other words, if $A$ is diagonalizable,
+then $A$ has $n$ linearly independent eigenvectors.
 
+Continuing, the converse can be proven. Let $A$ have $n$ linearly
+independent eigenvectors denoted as $x_j$ with corresponding
+eigenvalues $\lambda_j$. Construct matrices $P$ and $D$ such that
+the $j^\text{th}$ column of $P$ is $x_j$ and the diagonal elements
+of $D$ is $\lambda_j$. If $e_j$ is the $j^\text{th}$ column of $I$,
+then the $j^\text{th}$ column of $AP$ can be written as the following.
+\[
+APe_j = A x_j = \lambda_j x_j
+\]
+Similarly, the $j^\text{th}$ column of $PD$ can be written as the
+following.
+\[
+PDe_j = M \lambda_j e_j = \lambda_j Me_j = \lambda_j x_j
+\]
+In other words, $AP = PD$ holds. Moreover, because $P$ is invertible
+by construction, $P^{-1} A P = D$ and $A$ is diagonalizable.
+\end{proof}
+
+Continuing from the theorem, we can establish the following corollary.
+
+\begin{corollary}{Corollary of Diagonalizability and Eigenvectors}
+{Corollary of Diagonalizability and Eigenvectors}
+A matrix $A_{n \times n}$ with $n$ distinct real eigenvalues is
+diagonalizable.
+\end{corollary}
+\begin{proof}
+First and foremost, notice that by Theorem \ref{theo:Eigenvalues and
+Linear Independence}, the set of corresponding eigenvectors
+$\{ x_1, \ldots, x_n \}$ of $A$ is linearly independent. Thus by
+Theorem \ref{theo:Diagonalizability and Eigenvectors}, the corollary
+holds.
+\end{proof}
+
+This theorem also naturally leads to the question if a square matrix
+can be similar to more than one diagonal matrices. The answer to
+that question can be found with the theorem below.
+
+\begin{theorem}{Multiple Diagonal Matrices}
+{Multiple Diagonal Matrices}
+If a square matrix is similar to both diagonal matrices $D_1$ and
+$D_2$, then the diagonal entries of $D_1$ and $D_2$ are the same
+with possibly different orderings.
+\end{theorem}
+\begin{proof}
+First and foremost, notice that Theorem \ref{theo:Similar Matrices and
+Eigenvalues}, because $A$ and $D_1$ are similar, they have the
+same characteristic equation. Similarly, because $A$ and $D_2$ are
+similar, they also have the same characteristic equation and the
+characteristic equation of $D_1$ and $D_2$ are equal.
+\[
+\det(D_1 - \lambda I) = \det(D_2 - \lambda I) = 0
+\]
+By construction, notice that $D_1 - \lambda I$ and $D_2 - \lambda I$
+are diagonal matrices. Thus by Corollary \ref{cor:Determinants of
+Diagonal Matrices}, the determinant is the product of all $(\lambda
+- \lambda_k$ for integer $k \in [1, n]$ where $\lambda_k$ are the
+diagonal entries for $D_1$. Because multiplication is commutative,
+the diagonal entries for $D_1$ and $D_2$ are the same.
+\end{proof}
+
+Naturally, we can see that if $A \cong D_1$ and $A \cong D_2$,
+then $D_1 \cong A$ and $D_1 \cong D_2$. In other words, if $A$ is
+similar to multiple diagonal matrices, then the diagonal matrices
+are similar to each other.
+
+Now that we discussed when a matrix is diagonalizable, let's discuss
+how to diagonalize and its applications.
+
+\begin{definition}
+\textbf{Diagonalization} is the process of writing a diagonalizable
+matrix $A$ in the form of $A = P D P^{-1}$.
+\end{definition}
+
+Diagonalization is particularly useful as it makes calculations
+easier. Before concluding our notes, below is the final theorem!
+
+\begin{theorem}{Diagonalizability and Eigenspace}
+{Diagonalizability and Eigenspace}
+Let $A_{n \times n}$ be a matrix with real and distinct eigenvalues
+$\lambda_1, \ldots, \lambda_k$. The matrix $A$ is diagonalizable if
+and only if the following equation holds.
+\[
+\sum_{i=1}^k \dim(S_{\lambda_i}) = n
+\]
+\end{theorem}
+\begin{proof}
+First, the statement if $\sum_{i=1}^k \dim(S_{\lambda_i}) = n$,
+then $A$ is diagonalizable can be proven. Let $B_i$ be a basis
+for eigenspace $S_{\lambda_i}$. By definition, vectors $v$ in
+eigenspace $S_{\lambda_i}$ satisfy $Av = \lambda_i v$. Because
+$\lambda_i$ are all distinct, no eigenspace share the same
+eigenvector and thus no basis of two different eigenspaces
+share a vector. In other words, $B$ contains $n$ distinct eigenvectors
+of $A$. Let $v_i \in S_{\lambda_i}$ be some linear combination of
+vectors in $B_i$. Notice that if $\sum_{i=1}^k v_i = 0$, then the
+coefficients must be zero since $\{ v_1, \ldots, v_k \}$ is linearly
+independent by Theorem \ref{theo:Eigenvalues and Linear Independence}.
+In other words, all coefficients for the linear combination of $B_i$
+that forms $v_i$ must be zero for $\sum_{i=1}^k v_i = 0$ to hold.
+Thus, $B$ is linearly independent and $A$ is diagonalizable by
+Theorem \ref{theo:Diagonalizability and Eigenvectors}.
+
+Continuing, the converse can be proven. Assume that $\sum_{i=1}^k
+\dim(S_{\lambda_i}) \linebreak > n$. Continuing from the previous
+definition, $B \subset \mathbb{R}^n$ and the inequality $\sum_{i=1}^k
+\dim(S_{\lambda_i}) > n$ leads to contradiction. Moreover, if
+$\sum_{i=1}^k \dim(S_{\lambda_i}) < n$ then $A$ have no set that
+contains $n$ linearly independent eigenvectors. Thus, $A$ is not
+diagonalizable if $\sum_{i=1}^k \dim(S_{\lambda_i}) \linebreak
+\neq n$.
+\end{proof}
+
+This is it for eigenvalues and eigenvectors! This note was a
+particularly long one, but I think it also means that the
+relationships between matrices and vector spaces are one of the
+most essential understanding for linear algebra. Below are few
+practice problems on the topics that we discussed.
 
 \section{Practice Problems}
 \begin{enumerate}
