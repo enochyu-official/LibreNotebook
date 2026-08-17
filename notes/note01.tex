@@ -1062,17 +1062,161 @@ exists $c_1, \ldots c_m$ that are not all zero and that satisfy the
 equations for linear dependence, the theorem holds.
 \end{proof}
 
+Continuing, we can derive three corollaries from the theorem.
 
+\begin{corollary}{}{}
+If a basis for the vector space $V$ contains $n$ elements, then any
+linearly independent subsets of $V$ contains at most $n$ elements.
+\end{corollary}
+\begin{proof}
+By definition, a basis of a vector space $V$ spans $V$. Because any
+linearly dependent subsets of $V$ contains more than $n$ elements
+by Theorem \ref{Basis and Linear Dependence}, any linearly
+independent subsets of $V$ must not contain more than $n$ elements.
+\end{proof}
 
+Below is the second corollary.
 
+\begin{corollary}{}{}
+If $V$ is a finite vector space, every basis of $V$ will contain
+the same number of elements.
+\end{corollary}
+\begin{proof}
+Let $S$ and $T$ be bases of $V$ with $p$ and $q$ elements
+respectively. By definition, the bases of a vector space is linearly
+independent. By the previous corollary, it is evident that $q \leq p$
+and $p \leq q$ are true. Therefore, $p = q$ and the corollary holds.
+\end{proof}
 
+Now before continuing with our third corollary, let's first define
+what the dimension of a vector space is.
 
+\begin{definition}
+For a finite dimensional vector space $V$, the number of elements
+in any basis of $V$ is called the \textbf{dimension} of $V$,
+denoted as $\dim(V)$.
+\end{definition}
 
+For instance, recall the standard basis of $\mathbb{R}^n$. From the
+number of elements in the basis, we can write that $\dim(\mathbb{R}^n)
+= n$. Similarly, we can also notice that $\dim(\mathbb{P}^n) = n + 1$.
+Now let's continue with our third corollary.
 
+\begin{corollary}{}{}
+Every set $S$ in an $n$-dimensional vector space such that $|S| =
+n + 1$ is linearly dependent.
+\end{corollary}
+\begin{proof}
+By definition, a basis of an $n$-dimensional vector space $V$ contains
+$n$ elements. By Theorem \ref{Basis and Linear Dependence}, since
+$n + 1 > n$, $S$ must be linearly dependent.
+\end{proof}
 
+One fun fact to note is that for the vector space $\{0\}$, we say
+$\dim(\{0\}) = 0$ by convention. Moreover, consider the following
+theorem.
 
+\begin{theorem}{Unique Linear Combination}{Unique Linear Combination}
+\label{Unique Linear Combination}
+For a basis $S = \{ v_1, \ldots, v_n \}$ of a vector space $V$,
+any vector $u \in V$ can be written as a unique linear combination
+of $S$.
+\end{theorem}
+\begin{proof}
+For the sake of contradiction, assume that $u$ can be written as
+$u = \sum_{k=1}^n c_k v_k = \sum_{k=1}^n d_k v_k$ where $c_k \neq d_k$
+for some choice of $k$. Therefore, the following equations can be
+obtained.
+\begin{align*}
+    \sum_{k=1}^n c_k v_k &= \sum_{k=1}^n d_k v_k \\
+    \sum_{k=1}^n (c_k - d_k) v_k &= 0
+\end{align*}
+Note that by definition, $S$ is linearly independent and $c_k - d_k
+= 0$ for all integer $k \in [1, n]$. Because it contradicts with
+the assumption that $c_k \neq d_k$ for some choice of $k$, the theorem
+holds.
+\end{proof}
 
+Now with the theorem in mind, because we know that the linear
+combination of a basis to represent a vector is unique, we can
+establish the following definition.
 
+\begin{definition}
+For a basis $S = \{ v_1, \ldots, v_n \}$ of a vector space $V$
+and any vector $u = \sum_{k=1}^n c_k v_k \in V$, the
+\textbf{coordinates of $u$ with respect to $S$} is the list of
+coefficients $c_1, \ldots, c_n$.
+\end{definition}
+
+We often represent the coordinates with $n$-tuple. To see that,
+let's take a look at the following example.
+
+\begin{problem}
+Find the coordinate of $f(x) = x^2 + 2x + 3$ with respect to the
+basis $S = \{ x^2, 2x^2 + 1, x \}$ in the vector space $\mathbb{P}^2$.
+\end{problem}
+\begin{solution}
+Consider the following equation.
+\[
+f(x)
+= 3 \left( 2x^2 + 1 \right) - 5 \left( x^2 \right) + 2(x)
+\]
+Therefore, the coordinate of $f(x)$ can be represented as the
+following $3$-tuple.
+\[
+\begin{bmatrix}
+    -5 \\
+    3 \\
+    2
+\end{bmatrix}_S
+\]
+\end{solution}
+
+Lastly, let's conclude our discussion on basis and dimension with
+a theorem.
+
+\begin{theorem}
+Consider the following statements for a vector space $V$ and
+its subset $S \subset V$.
+\begin{enumerate}[noitemsep]
+\item
+There exists a basis for $V$ that is a subset of $S$ if $\Span(S) =
+V$.
+\item
+There exists a basis for $V$ that includes all elements in $S$ if
+$S$ is linearly independent.
+\end{enumerate}
+\end{theorem}
+
+Let's start by proving the first statement.
+
+\begin{proof}
+Notice that by definition, a basis of a vector space $V$ is a linearly
+independent set that spans $V$. Therefore, it suffices to show that
+there exists a linearly independent set that spans $V$ that is also
+a subset of $S$.
+
+By Theorem \ref{Finite Set of Vectors and Linear Dependence}, a subset
+of $S$ is linearly dependent if any only if a vector can be
+represented represented as the linear combination of the preceding
+vectors. Let $T$ be a subset of $S$ without the vectors that can be
+represented as the linear combination of the preceding vectors.
+Notice that $T$ spans $V$ as the vector removed can be represented
+as the linear combination of the other vectors. Moreover, because
+$T$ is linearly independent, there exists a basis for $V$ that is a
+subset of $S$.
+\end{proof}
+
+Below is the proof for the second statement.
+
+\begin{proof}
+Let $T$ be a basis for $V$ and $A \coloneqq S \cup T$. By definition,
+$\Span(A) = V$. Construct $B \in A$ by removing all vectors that can
+be represented as a linear combination of the preceding vectors.
+Notice that no elements from $S$ will be removed as $S$ is linearly
+independent. By construction, $B$ spans $V$ and is also linearly
+independent. Because $S \subset B$, the statement holds.
+\end{proof}
 
 We discussed fundamental topics of vector spaces. Of course there
 are a lot more to discuss in vector spaces; however, to do so,
@@ -1104,6 +1248,8 @@ is also a subspace of $V$.
 \item
 Show that for distinct real numbers $a_1, \ldots, a_n$, then the set
 $\{ e^{a_1 x}, \ldots, e^{a_n x} \}$ is linearly independent.
+
+\item More problems on basis and dimension
 \end{enumerate}
 \end{document}
 
