@@ -12,12 +12,12 @@ of matrices.
 
 As always, let's get started with the definition.
 
-\begin{keydef}
+\begin{definition}
 A \textbf{matrix} is a 2-dimensional array composed with entries
 called \textbf{elements}. A matrix is said to have \textbf{order}
 ``$m$ by $n$'' and written as $m \times n$ if there are $m$ rows
 and $n$ columns.
-\end{keydef}
+\end{definition}
 
 Technically, the elements of a matrix can be anything including
 functions. However, majority of the matrices discussed in
@@ -61,39 +61,39 @@ It is also worth noting that matrix $A$ is often represented
 as $[a_{ij}]$ and the elements as $a_{ij}$ like $a_{12}$ for
 $a_{1, 2}$.
 
-\begin{keydef}
+\begin{definition}
 An element $a_{ij}$ is said to have row index of $i$ and
 column index of $j$.
-\end{keydef}
+\end{definition}
 
 As you probably have guessed, we assign special names to some
 matrices depending on $m$ and $n$.
 
-\begin{keydef}
+\begin{definition}
 \textbf{Square matrices} are matrices with equal number of rows
 and columns. The elements with same row and column index are
 called \textbf{diagonal element} of the matrix. The collection
 of such elements is called \textbf{main diagonal}, or
 \textbf{principal diagonal}.
-\end{keydef}
+\end{definition}
 
 What if either $m$ or $n$ is equal to $1$? Yes, we do have special
 terms for them.
 
-\begin{keydef}
+\begin{definition}
 \textbf{Row matrices} are matrices that is composed of only one
 row. A \textbf{column matrix} is an array composed with one column.
-\end{keydef}
+\end{definition}
 
 If you have machine learning background, you likely have heard
 of the term ``high dimensional arrays or vectors.'' Here, the
 term ``dimension'' works the same way.
 
-\begin{keydef}
+\begin{definition}
 The \textbf{dimension} of a row or column matrix is the number
 of \textbf{components}, or the elements. A \textbf{$\mathbf{n}$-tuple}
 is an $n$-dimensional row or column vector.
-\end{keydef}
+\end{definition}
 
 Let's take a look at an example from the previous matrix $B$
 reproduced below.
@@ -118,9 +118,9 @@ This column matrix can also be called as a $4$-tuple.
 
 We could also define matrices by its elements.
 
-\begin{keydef}
+\begin{definition}
 A \textbf{zero matrix} is a matrix with all its elements as $0$.
-\end{keydef}
+\end{definition}
 
 With the fundamental terms in mind, let's discuss the properties
 of matrices.
@@ -1043,7 +1043,7 @@ above as the following matrix multiplication.
 \]
 Let's take a look at more interesting facts on matrix multiplication.
 
-\begin{keydef}
+\begin{definition}
 A square matrix with $1$ in all entries of its main diagonal and
 $0$ is the other entries an \textbf{identity matrix}, denoted as
 $I_n$ for identity matrix with order $n \times n$. Moreover,
@@ -1052,7 +1052,7 @@ matrix $A$ that can be multiplied.
 \[
 AI = IA = A
 \]
-\end{keydef}
+\end{definition}
 
 This is called an identity matrix because when you multiply any
 square matrix by the identity matrix with the corresponding order,
@@ -1170,14 +1170,14 @@ that they have their own name!
 Let's begin with transpose of a matrix.
 
 \newpage
-\begin{keydef}
+\begin{definition}
 The \textbf{transpose} of a matrix $A$ is defined by a matrix that
 has switched rows and columns of $A$, i.e. each element is defined
 as following.
 \[
 (A^\intercal)_{ij} = A_{ji}
 \]
-\end{keydef}
+\end{definition}
 
 Let's take a look at an example. You could think of it as holding
 the left top and bottom right of a matrix and rotating to see its
@@ -1230,21 +1230,21 @@ Notice that the transpose of transpose of $A$ is simply $A$.
 Before formally stating our observations, here are few definitions
 to note.
 
-\begin{keydef}
+\begin{definition}
 A positive integral powers of $A$, or multiplying the matrix $n$
 times can be represented as $A^n$. $A^0$ is defined to be the
 identity matrix $I_n$ with corresponding order $n$. A square
 matrix is \textbf{nilpotent} if there exists $n \in \mathbb{Z}$
 such that $A^n = 0$.
-\end{keydef}
+\end{definition}
 
 Another definitions from transpose is symmetry and skew-symmetry.
 
-\begin{keydef}
+\begin{definition}
 For matrix $A$ and its transpose $A^\intercal$, matrix $A$ is
 \textbf{symmetric} if $A^\intercal = A$ and \textbf{skew-symmetric}
 if $A^\intercal = -A$.
-\end{keydef}
+\end{definition}
 
 An example of symmetric matrix is identity matrix. For more general
 example, matrix $A$ and $B$ below are symmetric and skew-symmetric
@@ -1388,10 +1388,10 @@ For the next part of the section, we will discuss partitions.
 
 As always, let's start with key definitions.
 
-\begin{keydef}
+\begin{definition}
 As the name suggests a \textbf{submatrix} is a matrix of $A$ that
 is obtained by omitting certain rows or columns.
-\end{keydef}
+\end{definition}
 
 Consider matrix $A$ defined as the following.
 \[
@@ -1453,10 +1453,10 @@ A =
 \end{bmatrix}
 \end{align*}
 
-\begin{keydef}
+\begin{definition}
 We say the matrix is \textbf{partitioned} if horizontal and vertical
 lines are used to divide the matrix into submatrices.
-\end{keydef}
+\end{definition}
 
 Here are few examples of different partitions of $A$.
 \[
@@ -1483,10 +1483,10 @@ Here are few examples of different partitions of $A$.
 \]
 From different partitions, we can obtain different \textbf{blocks}.
 
-\begin{keydef}
+\begin{definition}
 A \textbf{block} of a partition of $A$ is a submatrix of $A$ divided
 by the horizontal and vertical partition lines.
-\end{keydef}
+\end{definition}
 
 The highlighted portion of the second partition above is an example
 of a block. Now, why should we even care about partition and blocks?
@@ -1618,20 +1618,20 @@ of matrices, we could derive special forms from the ideas.
 
 As always, let's build from definitions.
 
-\begin{keydef}
+\begin{definition}
 \textbf{Symmetrically partitioned matrix} refers to a partitioned
 matrix such that its arrangements of the blocks are diagonally
 symmetric. The \textbf{diagonal blocks} are the blocks that passes
 through the diagonal symmetry.
-\end{keydef}
+\end{definition}
 
 We could also define matrices with diagonal blocks that are not
 necessarily symmetrically partitioned.
 
-\begin{keydef}
+\begin{definition}
 A \textbf{block diagonal matrix} is a matrix with square diagonal
 blocks and zero on the other entries.
-\end{keydef}
+\end{definition}
 
 Below is the general form for square matrices $A_i$.
 \[
@@ -1645,19 +1645,18 @@ A =
 \]
 Continuing, we could defined rows and columns based on its elements.
 
-\begin{keydef}
+\begin{definition}
 \textbf{Zero rows} and \textbf{zero columns} are rows and columns
 composed of zeros respectively.
-\end{keydef}
+\end{definition}
 
 This definition is quite straightforward, and now that we have
 basic terms in mind, let's discuss two forms from the definitions
 above.
 
-\begin{keydef}
+\begin{definition}
 Matrix in \textbf{row echelon form (REF)} satisfy the conditions
 below.
-\vspace{-5pt}
 \begin{itemize}[noitemsep]
 \item
 All nonzero leading entry is $1$. (Side note here that some textbooks
@@ -1674,7 +1673,6 @@ after the nonzero rows above.
 
 Similarly, matrices in \textbf{reduced row echelon form (RREF)}
 are matrices that satisfy the following conditions.
-\vspace{-5pt}
 \begin{itemize}[noitemsep]
 \item
 All nonzero leading entry in a nonzero row is $1$.
@@ -1688,7 +1686,7 @@ columns with previous leading $1$s.
 The leading $1$ must be the only nonzero element present in each
 column if there exists such $1$.
 \end{itemize}
-\end{keydef}
+\end{definition}
 
 Below are examples of a matrices in REF and RREF respectively.
 \[
@@ -1718,11 +1716,11 @@ the main diagonal are zeros, we call them \textbf{lower triangular}
 matrices. For more formal statement, consider the following
 definition.
 
-\begin{keydef}
+\begin{definition}
 A square matrix $A = [a_{ij}]$ is \textbf{upper triangular} if
 $a_{ij} = 0 \, \forall \, i > j$. Similarly, the matrix is
 \textbf{lower triangular} if $a_{ij} = 0 \, \forall \, i < j$.
-\end{keydef}
+\end{definition}
 
 Let's take a look at an example. The left and right matrices below
 are upper triangular and lower triangular matrices respectively.

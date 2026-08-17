@@ -107,19 +107,17 @@
     fonttitle=\bfseries,
     sharp corners
 }{cor}
+\newtcbtheorem[number within=section]{defstyle}{Definition}%
+{%
+    colback=yellow!10,
+    colframe=Sepia,
+    fonttitle=\bfseries,
+    sharp corners
+}{defstyle}
+\newenvironment{definition}
+{\begin{defstyle}{}{}}{\end{defstyle}}
 
 \usepackage{mdframed}
-\newmdenv[
-    linecolor=Sepia, 
-    linewidth=1pt,
-    skipabove=\bigskipamount,
-    skipbelow=\medskipamount,
-    backgroundcolor=yellow!10,
-    innertopmargin=10pt,
-    innerbottommargin=10pt,
-    innerleftmargin=10pt,
-    innerrightmargin=10pt
-]{keydef}
 \renewmdenv[
     topline=false, 
     bottomline=false, 

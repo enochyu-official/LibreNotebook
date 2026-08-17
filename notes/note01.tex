@@ -4,8 +4,6 @@
 
 \chapter{Vectors and Vector Spaces}
 
-\section{The Basics of Vectors}
-
 If you have backgrounds on physics or computer science, you are
 probably familiar with what vectors are. In physics classes,
 we learn that vectors are quantities with magnitude and direction.
@@ -13,15 +11,125 @@ In computer science, vectors are introduced as lists or arrays of
 data. Both definitions capture different aspects of what vectors
 are. Throughout the notes, we will implement both understandings.
 
-\begin{keydef}
-A \textbf{vector space} is a set of quantities and scalars that
-adheres to standard operations of addition and multiplication
-that satisfy certain axioms. \textbf{Vectors} are individual
-elements of the vector space.
-\end{keydef}
+\section{Basic Terms and Notations}
 
-Our definition here is not fully rigorous, but we will discuss
-more rigorous definitions in a moment.
+First, let's get started by building from definitions.
+
+\begin{definition}
+\textbf{Vectors} are mathematical objects, or quantities, with
+direction and magnitude. \textbf{Scalars} are real or complex
+numbers that does not have direction.
+\end{definition}
+
+Vector is a more general term that includes different objects like
+matrices and polynomials. Before we discuss about vector spaces,
+let's clarify common notations.
+
+\begin{definition}
+$\mathbb{R}$ and $\mathbb{C}$ denotes the set of real and complex
+numbers respectively. Epsilon symbols $\in$ and $\notin$ is used to
+denote whether an element is in the set or not.
+\end{definition}
+
+Examples of using such notations would be $\pi \in \mathbb{C}$
+and $i \notin \mathbb{R}$.
+
+\begin{definition}
+For binary operations, the symbol $\bigoplus$ is used to denote
+vector addition and $\bigodot$ is used to represent the scalar
+multiplication.
+\end{definition}
+
+Let's use these notations for defining vector space below as that
+is how I learned in the course and textbooks, but please not that
+I may lean towards to more ``standard'' notations like $v + u$
+and $\lambda v$ for vector addition and scalar multiplication.
+Also, we will get more into different interpretations of vector
+addition and scalar multiplication, but for now, let's define
+what vector space is.
+
+\begin{definition}
+A \textbf{vector space} is a set of vectors $\mathbb{V}$ and scalars
+with vector addition and scalar multiplication that adheres to the
+following ten properties, or \textbf{axioms for a vector space}.
+\begin{enumerate}[noitemsep]
+\item[]
+\item[] Vector Addition
+\item \textbf{Closure:}
+$\forall \, u, v \in \mathbb{V}$, $u \bigoplus v \in \mathbb{V}$.
+\item \textbf{Commutativity:}
+$\forall \, u, v \in \mathbb{V}$, $u \bigoplus v = v \bigoplus u$.
+\item \textbf{Associativity:}
+$\forall \, u, v, w \in \mathbb{V}$, $u \bigoplus (v \bigoplus w) =
+(u \bigoplus v) \bigoplus w$.
+\item \textbf{Additive Identity Element:}
+$\exists \, 0 \in \mathbb{V}$ such that $\forall \, u \in \mathbb{V},
+u \bigoplus 0 = u$, also known as the \textbf{zero vector}.
+\item \textbf{Additive Inverses:}
+$\forall \, u \in \mathbb{V}, \exists \, -u \in \mathbb{V}$ such
+that $u \bigoplus (-u) = 0$.
+\item[]
+\item[] Scalar Multiplication
+\item \textbf{Closure:}
+$\forall \, u \in \mathbb{V}$ and scalars $\alpha$, $\alpha \bigodot
+u \in \mathbb{V}$.
+\item \textbf{Associativity:}
+$\forall \, u \in \mathbb{V}$ and scalars $\alpha, \beta$,
+$\alpha \bigodot (\beta \bigodot u) = (\alpha \cdot \beta)
+\bigodot u$.
+\item \textbf{Identity Element:}
+$\forall \, u \in \mathbb{V}$, $1 \bigodot u = u$.
+\item \textbf{Distributivity I:}
+$\forall \, u \in \mathbb{V}$ and scalars $\alpha, \beta$,
+$(\alpha + \beta) \bigodot u = \alpha \bigodot u \bigoplus
+\beta \bigodot u$.
+\item \textbf{Distributivity II:}
+$\forall \, u, v \in \mathbb{V}$ and scalars $\alpha$,
+$\alpha \bigodot (u \bigoplus v) = \alpha \bigodot u \bigoplus
+\alpha \bigodot v$.
+\end{enumerate}
+\end{definition}
+
+Based on the scalars that we have here, we could indicate vector
+spaces with the following terms.
+
+\begin{definition}
+If the set of scalars are in $\mathbb{R}$, then the vector space
+is known as a \textbf{vector space over $\mathbb{R}$}, or a
+\textbf{real vector space}. Similarly, if the scalars are in
+$\mathbb{C}$, then the vector space is denoted as a
+\textbf{vector space over $\mathbb{C}$}, or a \textbf{complex vector
+space}.
+\end{definition}
+
+One thing note is that there is a concept called \textbf{scalar
+fields}; however, we will not go too deep into such fields.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \end{document}
 

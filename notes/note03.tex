@@ -20,7 +20,7 @@ equation is. However, because it is always nice to formally state
 our understanding, here is the definition of linear system of
 equation.
 
-\begin{keydef}
+\begin{definition}
 A \textbf{system of linear equations} is composed of linear equations,
 or equations whose highest degree is $1$. A system of $m$ equations
 and $n$ variables adhere to the following forms where $a_{ij}$ and
@@ -32,7 +32,7 @@ $b_{i}$ are known quantities.
     \vdots\qquad\qquad& \\
     a_{m1}x_1 + a_{m2}x_2 + a_{m3}x_3 + \cdots + a_{mn}x_n &= b_m
 \end{align*}
-\end{keydef}
+\end{definition}
 
 Below is an example of a system of linear equations.
 \begin{align*}
@@ -42,11 +42,11 @@ Below is an example of a system of linear equations.
 Notice that all equations above are linear, meaning, their degrees
 are $1$. Now, what does it mean to find a solution to such systems?
 
-\begin{keydef}
+\begin{definition}
 A \textbf{solution to a system of linear equations} is a set of
 scalar values for unknown variables such that all linear equations
 are satisfied when substituted.
-\end{keydef}
+\end{definition}
 
 For instance, $(2, 1)$ is the solution to the following system of
 linear equations.
@@ -61,7 +61,7 @@ Now, if you recall from the previous note where we discussed matrix
 multiplication, system of linear equations can be written as a
 matrix multiplication.
 
-\begin{keydef}
+\begin{definition}
 A system of linear equation
 \begin{align*}
     a_{11}x_1 + a_{12}x_2 + a_{13}x_3 + \cdots + a_{1n}x_n &= b_1 \\
@@ -100,7 +100,7 @@ b
     b_m
 \end{bmatrix}
 \]
-\end{keydef}
+\end{definition}
 
 When you actually perform matrix multiplication, you can see that
 $Ax = b$ is identical to the system of linear equations. Now that
@@ -348,29 +348,29 @@ Wow, not going to lie, it took some time to draw the diagrams above.
 Anyhow, with that in mind, let's discuss other fundamental terms
 and concepts before we move on to the next section of the note.
 
-\begin{keydef}
+\begin{definition}
 A linear system is \textbf{consistent} if it retains at least one
 solution, whereas a system is \textbf{inconsistent} if there is no
 solution.
-\end{keydef}
+\end{definition}
 
 We could also define a system based on the column matrix $b$.
 
-\begin{keydef}
+\begin{definition}
 A linear system is \textbf{homogeneous} if the column matrix $b$
 in the linear system $Ax = b$ is a zero matrix. If the matrix is not
 a zero matrix, the system is \textbf{nonhomogeneous}, or
 \textbf{inhomogeneous}.
-\end{keydef}
+\end{definition}
 
 Now from the definitions, we can see that all homogeneous systems
 are consistent. As you have guessed, we have a special name for
 a special solution in such cases.
 
-\begin{keydef}
+\begin{definition}
 \textbf{Trivial solution} is a solution where all the entries for
 $x$ in $Ax = b$ are zero.
-\end{keydef}
+\end{definition}
 
 With the fundamental terms in mind, let's take a look at how matrices
 can be used to solve complex linear system with Gaussian Elimination.
@@ -382,7 +382,7 @@ and add or subtract equations to cancel variables. That is exactly
 what we will be doing in Gaussian Elimination, but with matrices.
 First, define how we solve a linear system in a more rigorous way.
 
-\begin{keydef}
+\begin{definition}
 For a system of linear equations, performing following operations
 will result in a linear system with identical solution.
 \begin{enumerate}[noitemsep]
@@ -393,15 +393,15 @@ Multiply a nonzero constant, or nonzero scalars, to an equation
 \item
 Add equations from the system to form a new equation
 \end{enumerate}
-\end{keydef}
+\end{definition}
 
 Now before we connect this idea with matrices, let's define a matrix
 that we will use with the property of a linear system above.
 
-\begin{keydef}
+\begin{definition}
 An \textbf{augmented matrix} for a linear system $Ax = b$ is a
 partitioned matrix in the form $[A \mid b]$.
-\end{keydef}
+\end{definition}
 
 Consider the following system for an example.
 \begin{align*}
@@ -421,7 +421,7 @@ matrix.
 Now that we have augmented matrix in mind, let's take a look at
 how the three properties that we discussed applies with matrices.
 
-\begin{keydef}
+\begin{definition}
 For an augmented matrix for a linear system, performing the following
 operations will result in a linear system with identical solution as
 the initial system.
@@ -435,7 +435,7 @@ Add a row multiplied by a scalar with another to replace a row with
 new row
 \end{enumerate}
 Such operations are referred to as \textbf{elementary row operations}.
-\end{keydef}
+\end{definition}
 
 If you compare the operations one by one, you can notice that the
 two set of properties refer to the same property. Now with the
@@ -667,11 +667,11 @@ operation with multiplicative inverse of a matrix, or simply
 inverse matrix. In other words, some solutions to linear systems
 can be written as $x = A^{-1}b$.
 
-\begin{keydef}
+\begin{definition}
 The \textbf{inverse of a matrix} is a matrix that produces identity
 matrix when multiplied with the original matrix. The inverse of
 $A$ is denoted as $A^{-1}$.
-\end{keydef}
+\end{definition}
 
 We could see that matrices $A$ and $B$ are the inverse of each other
 if the following equation is satisfied.
@@ -698,11 +698,11 @@ Even if both $AB$ and $BA$ returns an identity matrix, the order will
 be different. Therefore, for a matrix to have the inverse, it must
 be a square matrix.
 
-\begin{keydef}
+\begin{definition}
 A matrix is \textbf{invertible}, or \textbf{nonsingular}, if it
 retains an inverse matrix. A matrix is \textbf{singular} if it
 does not have an inverse matrix.
-\end{keydef}
+\end{definition}
 
 Now from the definition above, we could establish a theorem.
 
@@ -840,11 +840,11 @@ $\lambda A$, proving the fourth property.
 Now that we took a look at different properties of inverse matrices,
 let's discuss how to actually find one with tools to consider.
 
-\begin{keydef}
+\begin{definition}
 For a matrix $A$ that is not necessarily a square matrix, an
 \textbf{elementary matrix}, denoted as $E$, is a square matrix that
 performs elementary row operation by multiplying with $A$.
-\end{keydef}
+\end{definition}
 
 Let's take a look at an example. Consider matrix $A$ defined below,
 and we want to perform elementary row operations of changing the
@@ -911,7 +911,7 @@ Now we can notice three observations and tips for constructing
 elementary matrices. For each elementary row operations, we could
 do the following.
 
-\begin{keydef}
+\begin{definition}
 \textbf{Methods to construct the elementary matrix for each
 elementary row operation:}
 \begin{itemize}[noitemsep]
@@ -928,7 +928,7 @@ start from the corresponding identity matrix and find the
 $b^\text{th}$ row in the matrix. Then, change the zero from the
 $a^\text{th}$ column of the row to $k$.
 \end{itemize}
-\end{keydef}
+\end{definition}
 
 From this, we can notice the following theorem.
 
@@ -1017,7 +1017,7 @@ $F(EI) = I$ and $F = E^{-1}$ as demonstrated above.
 Now before we actually find an inverse, we need to know which
 square matrices have the inverse matrix.
 
-\begin{keydef}
+\begin{definition}
 A square matrix $A$ is invertible if and only if it can be represented
 as identity matrix after sequences of elementary row operations, i.e.
 there exists elementary matrices $E_i$ such that the following
@@ -1025,13 +1025,13 @@ equation is true.
 \[
 E_k E_{k-1} \cdots E_1 A = I
 \]
-\end{keydef}
+\end{definition}
 
 This is a very important result that we will prove later in a note,
 so don't worry. Finally, here are the steps to find an inverse if
 there exists one.
 
-\begin{keydef}
+\begin{definition}
 \textbf{Steps to Find the Inverse Matrix of
 $\mathbf{A_{m \times m}}$:}
 \begin{enumerate}[noitemsep]
@@ -1048,7 +1048,7 @@ Use elementary row operations again to transform the block $A$
 in REF to an identity matrix. The right partition block is
 the inverse of $A$.
 \end{enumerate}
-\end{keydef}
+\end{definition}
 
 Let's take a look at a few examples.
 
@@ -1197,12 +1197,12 @@ The last popular method to solve a linear system that we will
 discuss is LU decomposition. As always, let's start by discussing
 fundamental definitions.
 
-\begin{keydef}
+\begin{definition}
 \textbf{LU decomposition} is the process of factorizing an
 invertible matrix into the product of lower and upper triangular
 matrices where the diagonal elements of the lower triangular matrix
 is $1$.
-\end{keydef}
+\end{definition}
 
 Before we look at an important theorem and how it can be used to
 solve a linear system, here is an example of LU decomposition
@@ -1612,33 +1612,16 @@ Writing in linear system, $x$, $y$, and $z$ can be found.
 Therefore, $z = 6$, $y = 3$, and $x = 2$.
 \end{solution}
 
+With LU decomposition, we completed our discussion for solving
+system of linear equations! Below are some practice problems
+for the topics that we covered.
+
+\section{Practice Problems}
+\begin{enumerate}
+\item
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\end{enumerate}
 \end{document}
 
 
