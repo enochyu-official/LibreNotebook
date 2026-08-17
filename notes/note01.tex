@@ -281,8 +281,8 @@ following equations for A2 and A3 where $w = \langle x_3, -x_3
     u \oplus (v \oplus w)
     &= \langle x_1, -x_1 \rangle + \left(
         \langle x_2, -x_2 \rangle + \langle x_3, -x_3 \rangle
-    \right)
-    = \langle x_1, -x_1 \rangle +
+    \right) \\
+    &= \langle x_1, -x_1 \rangle +
         \langle x_2 + x_3, -x_2 - x_3 \rangle \\
     &= \langle x_1 + x_2 + x_3, -x_1 - x_2 - x_3 \rangle
     = \langle x_1 + x_2, -x_1 - x_2 \rangle +
@@ -814,14 +814,14 @@ $\Span(T) \subset \Span(S)$.
 Finally, here is the proof for the last statement.
 
 \begin{proof}
-First, it is self-evident that $\Span\{ v_1, \ldots, v_k
-+ \lambda v_j, \ldots, v_n \} \subset \Span\{ v_1, \ldots, v_k,
-\ldots, v_n \}$ since all linear combination of the set of vectors on
-the left can be represented as the linear combination of the set of
-vectors on the right. Moreover notice that $v_k$ can be represented
-as $v_k = (v_k + \lambda v_j) - \lambda v_j$ even if $k = j$.
-Therefore, $v_k \in \Span\{ v_1, \ldots, v_k + \lambda v_j, \ldots,
-v_n \}$ and $\Span\{ v_1, \ldots, v_k, \ldots, v_n \} \subset
+First and foremost, it is self-evident that $\Span\{ v_1, \ldots, v_k
++ \lambda v_j, \ldots, v_n \} \subset \linebreak \Span\{ v_1, \ldots,
+v_k, \ldots, v_n \}$ since all linear combination of the set of
+vectors on the left can be represented as the linear combination of
+the set of vectors on the right. Moreover notice that $v_k$ can be
+represented as $v_k = (v_k + \lambda v_j) - \lambda v_j$ even if
+$k = j$. Therefore, $v_k \in \Span\{ v_1, \ldots, v_k + \lambda v_j,
+\ldots, v_n \}$ and $\Span\{ v_1, \ldots, v_k, \ldots, v_n \} \subset
 \Span\{ v_1, \ldots, v_k + \lambda v_j, \ldots, v_n \}$ by statement
 3. Therefore, the equations in the statement hold.
 \end{proof}
@@ -939,8 +939,9 @@ Consider the following equations for scalars $d_k$ and $c_k$.
 \begin{align*}
     V
     &= \sum_{k = 1}^n d_k v_k
-    = \sum_{k = 1}^{j-1} d_k v_k + d_j v_j + \sum_{k = j+1}^n d_k v_k
-    = \sum_{k = 1}^{j-1} d_k v_k +
+    = \sum_{k = 1}^{j-1} d_k v_k + d_j v_j +
+        \sum_{k = j+1}^n d_k v_k \\
+    &= \sum_{k = 1}^{j-1} d_k v_k +
         d_j \left( \sum_{k = 1}^{j-1} c_k v_k \right) +
         \sum_{k = j+1}^n d_k v_k \\
     &= \sum_{k = 1}^{j-1} (d_j c_k + d_k) v_k +

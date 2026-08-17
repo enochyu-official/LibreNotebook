@@ -16,11 +16,14 @@
 \usepackage{mathtools}
 
 % Page Layout
-\usepackage[margin=1in, headsep=7pt, headheight=14pt]{geometry}
+\usepackage[paperwidth=7in, paperheight=10in,
+            inner=0.75in, outer=0.625in, top=0.75in, bottom=0.75in,
+            headsep=7pt, headheight=14pt]{geometry}
 \usepackage{lastpage}
 \usepackage{fancyhdr}
-\fancyhead[L]{Enoch's Notebook: Linear Algebra}
-\fancyhead[R]{Enoch Yu}
+\fancyhead[L]{\thepage}
+\fancyhead[R]{\rightmark}
+\fancyfoot[C]{}
 \pagestyle{fancy}
 \usepackage{setspace}
 \onehalfspacing

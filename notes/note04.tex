@@ -31,9 +31,9 @@ following matrix $A$.
 \end{bmatrix}
 \]
 The row space $\Row(A)$ is represented by $\Span\{ (1, 2), (3, 4),
-(5, 6) \}$ and its rank $\Rank(A) = \dim(\Row(A)) = \dim(\mathbb{R}^2)
-= 2$. Connecting this with our knowledge in matrices, we can establish
-the following theorem.
+(5, 6) \}$ and its rank $\linebreak \Rank(A) = \dim(\Row(A)) =
+\dim(\mathbb{R}^2) = 2$. Connecting this with our knowledge in
+matrices, we can establish the following theorem.
 
 \begin{theorem}{REF and Row Space}{REF and Row Space}
 \label{REF and Row Space}
@@ -65,24 +65,102 @@ elementary row operations to each other, then $\Row(A) = \Row(B)$.
 Let $A = \{ v_1, \ldots, v_n \}$ and $B$ be a matrix that is obtained
 by a single row operation from $A$. For some $j, k \in [1, n]$ such
 that $j \neq k$, it is evident that $\Span\{ v_1, \ldots, v_j, \ldots,
-v_k, \ldots, v_n \} = \Span\{ v_1, \ldots, v_k, \ldots, v_j, \ldots,
-v_n \}$. Moreover, for some scalar $\lambda$, $\Span\{ v_1, \ldots,
-\lambda v_k, \ldots, v_n \} = \{ v_1, \ldots, v_n \}$ and $\Span\{
-v_1, \ldots, v_k + \lambda v_j, \ldots, v_n \}$ by statement four in
-Theorem \ref{Four Lemmas on Span of a Set of Vectors}. Continuing with
-induction, the same applies to $B$ that is obtained by a sequence of
-elementary operations from $A$. Thus, the theorem holds.
+\linebreak v_k, \ldots, v_n \} = \Span\{ v_1,\ldots, v_k, \ldots, v_j,
+\ldots, v_n \}$. Moreover, for some scalar $\lambda$, $\Span\{
+\linebreak v_1, \ldots, \lambda v_k, \ldots, v_n \} = \{ v_1, \ldots,
+v_n \}$ and $\Span\{ v_1, \ldots, v_k + \lambda v_j, \ldots, v_n \}$
+by statement four in Theorem \ref{Four Lemmas on Span of a Set of
+Vectors}. Continuing with induction, the same applies to $B$ that is
+obtained by a sequence of elementary operations from $A$. Thus, the
+theorem holds.
 \end{proof}
 
+From the two theorems above, we can notice that for any matrix $A$,
+we can find its basis and rank by transforming it into REF with
+elementary row operations and observing the nonzero rows. Below is
+a quick example.
+
+\begin{problem}
+Find the basis, row space, and rank of the following matrix.
+\[
+\begin{bmatrix}
+    1 & 2 & 3 \\
+    4 & 5 & 6 \\
+    7 & 8 & 9
+\end{bmatrix}
+\]
+\end{problem}
+\begin{solution}
+First and foremost, the matrix can be transformed into REF with
+elementary row operations.
+\[
+\begin{bmatrix}
+    1 & 2 & 3 \\
+    4 & 5 & 6 \\
+    7 & 8 & 9
+\end{bmatrix}
+\rightarrow
+\begin{bmatrix}
+    1 & 2  & 3 \\
+    0 & -3 & -6 \\
+    7 & 8  & 9
+\end{bmatrix}
+\rightarrow
+\begin{bmatrix}
+    1 & 2 & 3 \\
+    0 & 1 & 2 \\
+    7 & 8 & 9
+\end{bmatrix}
+\rightarrow
+\begin{bmatrix}
+    1 & 2  & 3 \\
+    0 & 1  & 2 \\
+    0 & -6 & -12
+\end{bmatrix}
+\begin{bmatrix}
+    1 & 2 & 3 \\
+    0 & 1 & 2 \\
+    0 & 0 & 0
+\end{bmatrix}
+\]
+Therefore, the basis for the row space, row space, and rank of the
+matrix are $\{ (1, 2, 3), (0, 1, 2) \}$, $\Span\{ (1, 2, 3), (0, 1, 2)
+\}$, and $2$ respectively.
+\end{solution}
+
+We could also consider the following theorem.
 
 
 
 
 
 
+For a basis $S = \{ v_1, \ldots, v_n \}$ of $V$ where $u, \{ u_1,
+\ldots, u_m \} \in V$, $u \in \Span\{ u_1, \ldots, u_m \}$ if and only
+if a linear combination of a coordinate representation of $\{ u_1,
+\ldots, u_m \}$ with respect to $S$ is the coordinate representation
+of $u$.
+
+\begin{theorem}{Coordinate Representation and Basis}
+{Coordinate Representation and Basis}
+\label{Coordinate Representation and Basis}
+For an $n$-dimensional vector space $V$ and its basis $B$, consider a
+subset $U = \{ u_1, \ldots, u_m \} \subset V$. Construct a matrix
+$A = [a_{ij}]$ such that the coordinate representation of $u_i$ with
+respect to $B$ is the $i^{\text{th}}$ row of $A$. For some set of
+vectors $S \subset V$, if a basis for the row space of $A$ is the
+coordinate representation of vectors in $S$ with respect to $B$,
+then $S$ is a basis for $\Span(U)$.
+\end{theorem}
 
 
 
+
+
+\section{Practice Problem}
+\begin{enumerate}
+\item
+\end{enumerate}
 \end{document}
 
 

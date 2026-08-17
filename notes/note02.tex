@@ -1098,20 +1098,27 @@ Another interesting insight on matrix multiplication is dissecting
 the matrices being multiplied. Let's take a look at a simple example.
 \begin{align*}
 \begin{bmatrix}
-    a_{11} & a_{12} & a_{13} \\
-    a_{21} & a_{22} & a_{23}
+    \scriptstyle a_{11} &
+    \scriptstyle a_{12} &
+    \scriptstyle a_{13} \\
+    \scriptstyle a_{21} &
+    \scriptstyle a_{22} &
+    \scriptstyle a_{23}
 \end{bmatrix}
 \begin{bmatrix}
-    b_{11} & b_{12} \\
-    b_{21} & b_{22} \\
-    b_{31} & b_{32}
+    \scriptstyle b_{11} &
+    \scriptstyle b_{12} \\
+    \scriptstyle b_{21} &
+    \scriptstyle b_{22} \\
+    \scriptstyle b_{31} &
+    \scriptstyle b_{32}
 \end{bmatrix}
 &=
 \begin{bmatrix}
-    a_{11} b_{11} + a_{12} b_{21} + a_{13} b_{31} &
-    a_{11} b_{12} + a_{12} b_{22} + a_{13} b_{32} \\
-    a_{21} b_{11} + a_{22} b_{21} + a_{23} b_{31} &
-    a_{21} b_{12} + a_{21} b_{22} + a_{23} b_{32}
+    \scriptstyle a_{11} b_{11} + a_{12} b_{21} + a_{13} b_{31} &
+    \scriptstyle a_{11} b_{12} + a_{12} b_{22} + a_{13} b_{32} \\
+    \scriptstyle a_{21} b_{11} + a_{22} b_{21} + a_{23} b_{31} &
+    \scriptstyle a_{21} b_{12} + a_{21} b_{22} + a_{23} b_{32}
 \end{bmatrix} \\
 &=
 \begin{bmatrix}
