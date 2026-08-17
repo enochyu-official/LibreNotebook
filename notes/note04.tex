@@ -956,9 +956,170 @@ matrices relate to it.
 
 \subsection{Matrices and Linear Transformation}
 
+Recall that every vector in a vector space can be represented as
+a linear combination of the basis. We will apply our understanding
+of linear transformation into vector representations in a vector space
+to find the relation.
 
+Consider a basis $S = \{ v_1, \ldots, v_n \}$ for a vector space $V$.
+Notice that by definition, an arbitrary vector $v \in V$ can be
+represented as a linear combination of a basis as shown below
+(where $c_k$ are constants).
+\[
+v = \sum_{k=1}^n c_k v_k
+\]
+Therefore, the following equation holds.
+\[
+(v)_S =
+\begin{bmatrix}
+    c_1 \\
+    \vdots \\
+    c_n
+\end{bmatrix}
+\]
+Now returning to the definition of linear transformation, we can
+consider the following equation.
+\[
+Tv
+= T \left( \sum_{k=1}^n c_k v_k \right)
+= \sum_{k=1}^n c_k Tv_k
+\]
+Notice that the coordinate is preserved. In other words, the
+following equation satisfy for the new basis $S' = \{ Tv_1, \ldots,
+Tv_n \}$
+\[
+(Tv)_{S'} =
+\begin{bmatrix}
+    c_1 \\
+    \vdots \\
+    c_n
+\end{bmatrix}
+\]
+This could let us geometrically understand that linear transformation
+``preserves'' the general shape of a vector space since the new
+vectors have the same coordinates as the original ones, but with
+different basis. With this in mind, we can establish two important
+theorems.
 
+\begin{theorem}{Coordinate Representation and Linear Transformation}
+{Coordinate Representation and Linear Transformation}
+\label{Coordinate Representation and Linear Transformation}
+For a vector space $V$ and a basis $S = \{ v_1, \ldots, v_n \}$,
+the transformation $T: V \to \mathbb{R}^n$ defined as $Tv = (v)_S$
+is linear and bijective.
+\end{theorem}
+\begin{proof}
+First, the linearity of the transformation could be proven.
+Consider the following equations for $u_1, u_2 \in V$ and some
+constants $c_k$ and $d_k$.
+\begin{align*}
+    T(\alpha u_1 + \beta u_2)
+    &= T \left(
+        \alpha \sum_{k=1}^n c_k v_k + \beta \sum_{k=1}^n d_k v_k
+    \right)
+    = T \left( \sum_{k=1}^n (\alpha c_k + \beta d_k) v_k \right) \\
+    &=
+    \begin{bmatrix}
+        \alpha c_1 + \beta d_1 \\
+        \alpha c_2 + \beta d_2 \\
+        \vdots \\
+        \alpha c_n + \beta d_n
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        \alpha c_1 \\
+        \alpha c_2 \\
+        \vdots \\
+        \alpha c_n
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+        \beta d_1 \\
+        \beta d_2 \\
+        \vdots \\
+        \beta d_n
+    \end{bmatrix}
+    =
+    \alpha
+    \begin{bmatrix}
+        c_1 \\
+        c_2 \\
+        \vdots \\
+        c_n
+    \end{bmatrix}
+    +
+    \beta
+    \begin{bmatrix}
+        d_1 \\
+        d_2 \\
+        \vdots \\
+        d_n
+    \end{bmatrix} \\
+    &= \alpha T(u_1) + \beta T(u_2)
+\end{align*}
+Thus, $T$ is linear. Continuing, notice that if $T(u_1) = T(u_2)$,
+then $(u_1)_S = (u_2)_S$ and $u_1 = u_2$. Therefore, the
+transformation is injective. The transformation is also surjective
+as the entries $c_k$ in the coordinates are arbitrary real numbers.
+Thus, $T$ is linear and bijective.
+\end{proof}
 
+Continuing, below is an important theorem and definition.
+
+\begin{theorem}{Matrix Representation of $T$}
+{Matrix Representation of $T$}
+\label{Matrix Representation of $T$}
+For vector spaces $V$ and $W$ with basis $B = \{ v_1, \ldots, v_n \}$
+and $C = \{ w_1, \ldots, w_m \}$ respectively, there exists a matrix
+$A$ such that the following equation holds for a linear transformation
+$T: V \to W$ and arbitrary $v \in V$.
+\[
+(Tv)_C = A(v)_B
+\]
+\end{theorem}
+\begin{proof}
+First and foremost, consider the following equation for any
+$Tv_j \in W$ and constant $a_{ij}$.
+\[
+Tv_j = \sum_{i=1}^m a_{ij} w_i
+\]
+Let $A = [a_{ij}]$ and consider the following equation.
+\[
+A(v_2)_B
+= A
+\begin{bmatrix}
+    0 \\
+    1 \\
+    \vdots \\
+    0
+\end{bmatrix}
+=
+\begin{bmatrix}
+    a_{12} \\
+    a_{22} \\
+    \vdots
+    a_{m2}
+\end{bmatrix}
+\]
+Generalizing, $(Tv_j)_C = A(v_j)_B$ and the following equations hold
+for constants $c_j$.
+\begin{align*}
+    (Tv)_C
+    &= \left( \sum_{j=1}^n c_j Tv_j \right)_C
+    = \sum_{j=1}^n (c_j Tv_j)_C
+    = \sum_{j=1}^n c_j (Tv_j)_C \\
+    &= \sum_{j=1}^n c_j A(v_j)_B
+    = A \left( \sum_{j=1}^n (c_j v_j)_B \right)
+    = A \left( \sum_{j=1}^n c_j v_j \right)_B \\
+    &= A(v)_B
+\end{align*}
+Thus, there always exist such matrix $A$.
+\end{proof}
+
+The matrix $A$ above has a special name. The matrix is known as
+the matrix representation of $T$ with respect to $B$ and $C$,
+denoted as $A_B^C$. Here, it is important to note that $A_B^C (v)_B =
+(Tv)_C$.
 
 
 
