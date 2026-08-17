@@ -130,7 +130,8 @@ of matrices.
 First, when are two matrices ``equal'' to each other? Consider
 the following definition for a formal explanation.
 
-\begin{theobox}{Equality of Matrix}{Equality of Matrix}
+\begin{theorem}{Equality of Matrix}{Equality of Matrix}
+\label{Equality of Matrix}
 Two matrices $A$ and $B$ with orders $m \times n$ and $p \times q$
 respectively are said to be equal to each other if they retain
 the same order and corresponding elements, i.e. they satisfy the
@@ -146,16 +147,17 @@ a_{ij} = b_{ij} \,
     \forall \, i \in [1, m] \text{ and } j \in [1, n]
 \]
 \end{enumerate}
-\end{theobox}
+\end{theorem}
 
 Although this is very trivial and intuitive, it is always nice
 to formally define concepts!
 
-\begin{theobox}{Matrix Addition}{Matrix Addition}
+\begin{theorem}{Matrix Addition}{Matrix Addition}
+\label{Matrix Addition}
 For matrices $A$ and $B$ with same order, the element in the
 $(i, j)$-entry of their sum $A + B$ is equivalent to the sum of
 elements in the $(i, j)$-entry of $A$ and $B$.
-\end{theobox}
+\end{theorem}
 
 Note that the orders of matrices being added must be identical.
 We do not consider additions with matrices of different orders.
@@ -199,10 +201,11 @@ you probably wondered about application of additive properties.
 Intuitively, the fundamental properties of addition can be
 applied with matrices addition.
 
-\begin{theobox}{Commutative Property of Matrix Addition}
+\begin{theorem}{Commutative Property of Matrix Addition}
 {Commutative Property of Matrix Addition}
+\label{Commutative Property of Matrix Addition}
 For matrices $A$ and $B$ with order $m \times n$, $A + B = B + A$.
-\end{theobox}
+\end{theorem}
 \begin{proof}
 Let $A = [a_{ij}]_{m \times n}$ and $B = [b_{ij}]_{m \times n}$.
 By definition, the sum $A + B = [a_{ij} + b_{ij}]$. Because
@@ -219,11 +222,12 @@ Thus, the commutative property of matrix addition holds.
 In addition to the commutative property, the associative property
 is also applicable.
 
-\begin{theobox}{Associative Property of Matrix Addition}
+\begin{theorem}{Associative Property of Matrix Addition}
 {Associative Property of Matrix Addition}
+\label{Associative Property of Matrix Addition}
 For matrices $A$, $B$, and $C$ with order $m \times n$,
 $A + (B + C) = (A + B) + C$.
-\end{theobox}
+\end{theorem}
 \begin{proof}
 Let $A = [a_{ij}]_{m \times n}$, $B = [b_{ij}]_{m \times n}$,
 and $C = [c_{ij}]_{m \times n}$. Consider the following equation.
@@ -243,12 +247,13 @@ addition.
 One obvious property in addition is that when you add $0$ to a number,
 you get the number itself. The same applies in matrix addition.
 
-\begin{theobox}{Additive Identity of Matrix Addition}
+\begin{theorem}{Additive Identity of Matrix Addition}
 {Additive Identity of Matrix Addition}
+\label{Additive Identity of Matrix Addition}
 The sum of matrices $A_{m \times n}$ and $0_{m \times n}$ yields
 the matrix $A$, i.e. zero matrix is the identity elements of
 matrix addition.
-\end{theobox}
+\end{theorem}
 \begin{proof}
 Let $A = [a_{ij}]_{m \times n}$. By definition, the sum $A + 0
 = [a_{ij} + 0] = [a_{ij}] = A$. Therefore, zero matrix is the
@@ -259,14 +264,15 @@ Now what if we want to add same matrix multiple times? Fortunately,
 we already resolved the issue. For instance, we write $x + x + x$
 as $3x$. We can multiply matrices with scalars.
 
-\begin{theobox}{Scalar Multiplication}{Scalar Multiplication}
+\begin{theorem}{Scalar Multiplication}{Scalar Multiplication}
+\label{Scalar Multiplication}
 For a complex number $\lambda$ and $A = [a_{ij}]$, $\lambda A
 = [\lambda a_{ij}]$.
-\end{theobox}
+\end{theorem}
 
 Let's take a look at an example.
 
-\begin{probbox}{}{}
+\begin{problem}{}{}
 Compute $2A - 3B$ for $A$ and $B$ defined as the following.
 \[
 A =
@@ -281,7 +287,7 @@ B =
     5  & 3 & 8
 \end{bmatrix}
 \]
-\end{probbox}
+\end{problem}
 \begin{solution}
 Before subtracting, we could perform scalar multiplication first.
 \[
@@ -320,7 +326,8 @@ can be represented as following.
 With the scalar multiplication in mind, we can expand the application
 of foundational concepts here with matrix.
 
-\begin{theobox}{Additional Properties}{Additional Properties}
+\begin{theorem}{Additional Properties}{Additional Properties}
+\label{Additional Properties}
 For $A = [a_{ij}]_{m \times n}$, $B = [b_{ij}]_{m \times n}$,
 and $\lambda_1, \lambda_2 \in \mathbb{C}$, the following
 properties hold.
@@ -329,7 +336,7 @@ properties hold.
 \item $(\lambda_1 \pm \lambda_2) A = \lambda_1 A \pm \lambda_2 A$
 \item $\lambda_1 (\lambda_2 A) = (\lambda_1 \lambda_2) A$
 \end{enumerate}
-\end{theobox}
+\end{theorem}
 
 Let's prove them! Below is the proof for the first property.
 
@@ -541,7 +548,8 @@ As you can see above, matrix multiplication is not defined
 elementwise unlike addition and scalar multiplication. First,
 take a look at the following formula for individual elements.
 
-\begin{theobox}{Matrix Multiplication}{Matrix Multiplication}
+\begin{theorem}{Matrix Multiplication}{Matrix Multiplication}
+\label{Matrix Multiplication}
 For matrices $[a_{ij}]_{m \times n}$ and $[b_{ij}]_{n \times p}$,
 the elements $c_{ij}$ of the product matrix $[c_{ij}]_{m \times p}$
 is defined as the following expression.
@@ -549,11 +557,11 @@ is defined as the following expression.
 c_{ij}
 = \sum_{k=1}^{n} a_{ik} b_{kj}
 \]
-\end{theobox}
+\end{theorem}
 
 Let's take a look at an example to see how this works.
 
-\begin{probbox}{}{}
+\begin{problem}{}{}
 Compute the following matrix multiplication.
 \[
 \begin{bmatrix}
@@ -566,7 +574,7 @@ Compute the following matrix multiplication.
     4 & 0
 \end{bmatrix}
 \]
-\end{probbox}
+\end{problem}
 \begin{solution}
 Consider the following computation.
 \begin{align*}
@@ -630,22 +638,24 @@ Consider the following computation.
 It is important to note that matrix multiplication applies under
 a specific condition.
 
-\begin{theobox}{Condition for Matrix Multiplication}
+\begin{theorem}{Condition for Matrix Multiplication}
 {Condition for Matrix Multiplication}
+\label{Condition for Matrix Multiplication}
 For matrices $A_{m \times n}$ and $B_{p \times q}$, the matrices
 can be multiplied if and only if $n = p$. The resulting matrix
 will have order $m \times q$.
-\end{theobox}
+\end{theorem}
 
 I believe the condition above is somewhat self-evident. When the
 condition above is not met, we say the product is \textbf{undefined}.
 Continuing from this condition, we could get an interesting property.
 
-\begin{theobox}{Commutativity of Matrix Multiplication}
+\begin{theorem}{Commutativity of Matrix Multiplication}
 {Commutativity of Matrix Multiplication}
+\label{Commutativity of Matrix Multiplication}
 Matrix multiplication is not commutative, i.e. for matrices $A$ and
 $B$, it is not necessarily true that $AB = BA$.
-\end{theobox}
+\end{theorem}
 \begin{proof}
 I will leave a more formal proof for the readers. However, I believe
 this is self-evident as for matrices $A_{m \times n}$ and
@@ -871,17 +881,18 @@ Think about the case when $C$ is a zero matrix. Although matrix
 multiplication is not commutative, the associative and distributive
 property still applies.
 
-\begin{theobox}
-{Associativity and Distributivity of Matrix Multiplication}
-{Associativity and Distributivity of Matrix Multiplication}
+\begin{theorem}{Properties of Matrix Multiplication}
+{Properties of Matrix Multiplication}
+\label{Properties of Matrix Multiplication}
 For matrices $A$, $B$, and $C$, the following equations are true
 given that the condition for the addition and multiplication are met.
 \begin{enumerate}
 \item $A(BC) = (AB)C$
 \item $A(B + C) = AB + AC$
 \item $(B + C)A = BA + CA$
+\item $\lambda(AB) = A(\lambda B)$
 \end{enumerate}
-\end{theobox}
+\end{theorem}
 
 Let's start by proving the associative property.
 \begin{proof}
@@ -989,6 +1000,20 @@ and $C = [c_{ij}]_{m \times n}$. Consider the following equation.
     &= [b_{ij}] [a_{ij}] + [c_{ij}] [a_{ij}]
 \end{align*}
 Thus, the right distributive property $(B + C)A = BA + CA$ holds.
+\end{proof}
+
+Finally, let's prove the fourth property.
+\begin{proof}
+Let $A = [a_{ij}]_{m \times n}$ and $B = [b_{ij}]_{n \times p}$.
+Consider the following equation.
+\[
+\lambda (AB)
+= \lambda \left[ \sum_{k = 1}^{n} a_{ik} b_{kj} \right]
+= \left[ \sum_{k = 1}^{n} \lambda a_{ik} b_{kj} \right]
+= \left[ \sum_{k = 1}^{n} a_{ik} (\lambda b_{kj}) \right]
+= A(\lambda B)
+\]
+Thus, the fourth property holds.
 \end{proof}
 
 In addition to the visual implications of a matrix and its
@@ -1183,7 +1208,9 @@ to note.
 \begin{keydef}
 A positive integral powers of $A$, or multiplying the matrix $n$
 times can be represented as $A^n$. $A^0$ is defined to be the
-identity matrix $I_n$ with corresponding order $n$.
+identity matrix $I_n$ with corresponding order $n$. A square
+matrix is \textbf{nilpotent} if there exists $n \in \mathbb{Z}$
+such that $A^n = 0$.
 \end{keydef}
 
 Another definitions from transpose is symmetry and skew-symmetry.
@@ -1218,8 +1245,9 @@ square matrix to be skew-symmetric.
 
 Now let's discuss the properties of transpose of a matrix.
 
-\begin{theobox}{Properties of Transpose of a Matrix}
+\begin{theorem}{Properties of Transpose of a Matrix}
 {Properties of Transpose of a Matrix}
+\label{Properties of Transpose of a Matrix}
 For matrix $A$, $B$, scalar $\lambda$ and positive integer $n$,
 the following equations are true assuming that the addition and
 multiplication conditions are satisfied.
@@ -1230,7 +1258,7 @@ multiplication conditions are satisfied.
 \item $(AB)^\intercal = B^\intercal A^\intercal$
 \item $(A^n)^\intercal = (A^\intercal)^n$
 \end{enumerate}
-\end{theobox}
+\end{theorem}
 
 There are lots of properties to prove, but let's do them one by one.
 Below is the proof for the first property.
@@ -1501,57 +1529,33 @@ AB
 \end{bmatrix} \\
 &=
 \begin{bmatrix}
-    \scriptstyle
-    a_{11}b_{11} + a_{12}b_{21} &
-    \scriptstyle
-    a_{11}b_{12} + a_{12}b_{22} &
-    \scriptstyle
-    a_{11}b_{13} + a_{12}b_{23} \\
-    \scriptstyle
-    a_{21}b_{11} + a_{22}b_{21} &
-    \scriptstyle
-    a_{21}b_{12} + a_{22}b_{22} &
-    \scriptstyle
-    a_{21}b_{13} + a_{22}b_{23} \\
-    \scriptstyle
-    a_{31}b_{11} + a_{32}b_{21} &
-    \scriptstyle
-    a_{31}b_{12} + a_{32}b_{22} &
-    \scriptstyle
-    a_{31}b_{13} + a_{32}b_{23} \\
-    \scriptstyle
-    a_{41}b_{11} + a_{42}b_{21} &
-    \scriptstyle
-    a_{41}b_{12} + a_{42}b_{22} &
-    \scriptstyle
-    a_{41}b_{13} + a_{42}b_{23}
+    \scriptstyle a_{11}b_{11} + a_{12}b_{21} &
+    \scriptstyle a_{11}b_{12} + a_{12}b_{22} &
+    \scriptstyle a_{11}b_{13} + a_{12}b_{23} \\
+    \scriptstyle a_{21}b_{11} + a_{22}b_{21} &
+    \scriptstyle a_{21}b_{12} + a_{22}b_{22} &
+    \scriptstyle a_{21}b_{13} + a_{22}b_{23} \\
+    \scriptstyle a_{31}b_{11} + a_{32}b_{21} &
+    \scriptstyle a_{31}b_{12} + a_{32}b_{22} &
+    \scriptstyle a_{31}b_{13} + a_{32}b_{23} \\
+    \scriptstyle a_{41}b_{11} + a_{42}b_{21} &
+    \scriptstyle a_{41}b_{12} + a_{42}b_{22} &
+    \scriptstyle a_{41}b_{13} + a_{42}b_{23}
 \end{bmatrix}
 +
 \begin{bmatrix}
-    \scriptstyle
-    a_{13}b_{31} + a_{14}b_{41} &
-    \scriptstyle
-    a_{13}b_{32} + a_{14}b_{42} &
-    \scriptstyle
-    a_{13}b_{33} + a_{14}b_{43} \\
-    \scriptstyle
-    a_{23}b_{31} + a_{24}b_{41} &
-    \scriptstyle
-    a_{23}b_{32} + a_{24}b_{42} &
-    \scriptstyle
-    a_{23}b_{33} + a_{24}b_{43} \\
-    \scriptstyle
-    a_{33}b_{31} + a_{34}b_{41} &
-    \scriptstyle
-    a_{33}b_{32} + a_{34}b_{42} &
-    \scriptstyle
-    a_{33}b_{33} + a_{34}b_{43} \\
-    \scriptstyle
-    a_{43}b_{31} + a_{44}b_{41} &
-    \scriptstyle
-    a_{43}b_{32} + a_{44}b_{42} &
-    \scriptstyle
-    a_{43}b_{33} + a_{44}b_{43}
+    \scriptstyle a_{13}b_{31} + a_{14}b_{41} &
+    \scriptstyle a_{13}b_{32} + a_{14}b_{42} &
+    \scriptstyle a_{13}b_{33} + a_{14}b_{43} \\
+    \scriptstyle a_{23}b_{31} + a_{24}b_{41} &
+    \scriptstyle a_{23}b_{32} + a_{24}b_{42} &
+    \scriptstyle a_{23}b_{33} + a_{24}b_{43} \\
+    \scriptstyle a_{33}b_{31} + a_{34}b_{41} &
+    \scriptstyle a_{33}b_{32} + a_{34}b_{42} &
+    \scriptstyle a_{33}b_{33} + a_{34}b_{43} \\
+    \scriptstyle a_{43}b_{31} + a_{44}b_{41} &
+    \scriptstyle a_{43}b_{32} + a_{44}b_{42} &
+    \scriptstyle a_{43}b_{33} + a_{44}b_{43}
 \end{bmatrix} \\
 &=
 \begin{bmatrix}
@@ -1585,12 +1589,13 @@ AB
 Well, this looks good to me! If the matrices being multiplied
 have higher dimension, partitioning such matrices could help in
 computation and reducing mistakes. Now that we have seen partitions
-of matrices, we could derive special forms from ideas.
+of matrices, we could derive special forms from the ideas.
 
 \subsection{Special Forms of Matrix}
 
 As always, let's build from definitions.
 
+\newpage
 \begin{keydef}
 \textbf{Symmetrically partitioned matrix} refers to a partitioned
 matrix such that its arrangements of the blocks are diagonally
@@ -1630,7 +1635,8 @@ above.
 \begin{keydef}
 \textbf{Reduced Row-Echelon Form (RREF)}, or \textbf{row-reduced form}
 are matrices the satisfy the following conditions.
-\begin{itemize}
+\vspace{-5pt}
+\begin{itemize}[noitemsep]
 \item
 All nonzero leading entry in a nonzero row is $1$.
 \item
@@ -1692,12 +1698,13 @@ are upper triangular and lower triangular matrices respectively.
 Now that we have definitions of triangular matrices in mind,
 we can discuss a theorem from such matrices.
 
-\begin{theobox}{Property of Triangular Matrix Multiplication}
+\begin{theorem}{Property of Triangular Matrix Multiplication}
 {Property of Triangular Matrix Multiplication}
+\label{Property of Triangular Matrix Multiplication}
 The product of two lower triangular matrices is a lower triangular
 matrix, and the product of two upper triangular matrices is an upper
 triangular matrix.
-\end{theobox}
+\end{theorem}
 \begin{proof}
 Let $A = [a_{ij}]_{n \times n}$ and $B = [b_{ij}]_{n \times n}$ be
 lower triangular matrices. Consider the following equation for their
@@ -1733,21 +1740,65 @@ Therefore, for $i > j$, $c'_{ij} = 0$ and the theorem is true.
 \end{proof}
 
 We have covered fundamental topics from matrix, and before we move on
-to the next note, here are some fun questions that we could try.
+to the next note, here are some fun problems that we could try.
 
-\section{Problems}
+\section{Practice Problems}
+\begin{enumerate}
+\item
+Consider matrices $A$ and $B$ defined as the following.
+\[
+A =
+\begin{bmatrix}
+    1 & 2 \\
+    2 & 0
+\end{bmatrix},
+\quad
+B =
+\begin{bmatrix}
+    -1 & 2 \\
+    0  & 3
+\end{bmatrix}
+\]
+Compute the following matrix operations.
+\begin{enumerate}[noitemsep]
+\item $A - 2B$
+\item $AB$
+\item $(AB - BA)^\intercal$
+\end{enumerate}
 
+\item
+Find $a_2B$ if $AB$ is defined as the following.
+\[
+AB =
+\begin{bmatrix}
+    1 & 2 & 3 \\
+    4 & 5 & 6 \\
+    7 & 8 & 9
+\end{bmatrix}
+\]
 
+\item
+Find matrix $A$ such that the following equation holds.
+\[
+2A - 3A^\intercal =
+\begin{bmatrix}
+    -1 & -5 \\
+    0  & -4
+\end{bmatrix}
+\]
 
+\item
+Show that all square matrices can be represented as the sum of
+symmetric and skew-symmetric matrices.
 
+\item
+Show that if $AB = BA$ for matrices $A$ and $B$, then the product
+$AB$ is nilpotent.
 
-
-
-
-
-
-
-
+\item
+Show that for square matrices $A$ and $B$, $AB + (AB)^\intercal$
+is symmetric.
+\end{enumerate}
 \end{document}
 
 

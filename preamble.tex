@@ -45,7 +45,7 @@
 
 
 % Tikz
-\usepackage{tikz}
+\usepackage{tikz,tikz-3dplot}
 \usetikzlibrary{calc, angles, tikzmark, positioning, arrows.meta}
 \usepackage{tkz-euclide}
 \usepackage{pgfplots}
@@ -77,28 +77,23 @@
 
 
 %%%%%%%%%%%%%%% CUSTOM %%%%%%%%%%%%%%%
-\newtheorem{theorem}{Theorem}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem*{lemma*}{Lemma}
-\newtheorem{corollary}[theorem]{Corollary}
-
 \usepackage{tcolorbox}
 \tcbuselibrary{theorems}
-\newtcbtheorem[number within=section]{theobox}{Theorem}%
+\newtcbtheorem[number within=section]{theorem}{Theorem}%
 {%
     colback=black!5,
     colframe=black,
     fonttitle=\bfseries,
     sharp corners
 }{theo}
-\newtcbtheorem[number within=section]{probbox}{Exercise}%
+\newtcbtheorem[number within=section]{problem}{Exercise}%
 {%
     colback=BrickRed!3,
     colframe=red!40!black,
     fonttitle=\bfseries,
     sharp corners
 }{prob}
-\newtcbtheorem[number within=section]{corbox}{Corollary}%
+\newtcbtheorem[number within=section]{corollary}{Corollary}%
 {%
     colback=white,
     colframe=blue!40!black,
