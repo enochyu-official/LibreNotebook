@@ -93,13 +93,13 @@
     fonttitle=\bfseries,
     sharp corners
 }{lem}
-\newtcbtheorem[number within=section]{problem}{Exercise}%
+\newtcbtheorem[number within=section]{probstyle}{Exercise}%
 {%
     colback=BrickRed!3,
     colframe=red!40!black,
     fonttitle=\bfseries,
     sharp corners
-}{prob}
+}{probstyle}
 \newtcbtheorem[number within=section]{corollary}{Corollary}%
 {%
     colback=white,
@@ -116,6 +116,8 @@
 }{defstyle}
 \newenvironment{definition}
 {\begin{defstyle}{}{}}{\end{defstyle}}
+\newenvironment{problem}
+{\begin{probstyle}{}{}}{\end{probstyle}}
 
 \usepackage{mdframed}
 \renewmdenv[
