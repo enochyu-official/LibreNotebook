@@ -10,10 +10,69 @@ vector spaces. This note will introduce more concepts on vector spaces
 and matrices like row spaces and rank of a matrix and linear
 transformation.
 
+\section{Row Space and Rank of a Matrix}
 
+As always, let's get started with the definition.
 
+\begin{definition}
+The span of rows of a matrix $A_{m \times n}$ in $\mathbb{R}^n$ is the
+\textbf{row space} of the matrix $A$. The dimension of the row space
+is known as the \textbf{row rank}.
+\end{definition}
 
+We can notice that by definition, the row spaces is a subspace of
+$\mathbb{R}^n$. Let's take a look at an example. Consider the
+following matrix $A$.
+\[
+\begin{bmatrix}
+    1 & 2 \\
+    3 & 4 \\
+    5 & 6
+\end{bmatrix}
+\]
+The row space $\Row(A)$ is represented by $\Span\{ (1, 2), (3, 4),
+(5, 6) \}$ and its rank $\Rank(A) = \dim(\Row(A)) = \dim(\mathbb{R}^2)
+= 2$. Connecting this with our knowledge in matrices, we can establish
+the following theorem.
 
+\begin{theorem}{REF and Row Space}{REF and Row Space}
+\label{REF and Row Space}
+A basis for the row space of a matrix $A$ in REF is the set of nonzero
+rows, and the number of such rows is the row rank.
+\end{theorem}
+\begin{proof}
+By definition, the nonzero rows span the row space since the zero rows
+do not contribute the vector addition. Therefore, it suffices to show
+that the set of nonzero vectors is linearly independent.
+
+By definition of matrices in REF, there exists no two rows with the
+same initial nonzero entry, implying its uniqueness. Therefore, by
+induction, all coefficients in the linear combination of the set of
+nonzero vectors must be zero. Thus, the set of nonzero rows is a basis
+for the row space of $A$. Moreover, by definition, the rank of $A$
+is the number of nonzero rows in $A$.
+\end{proof}
+
+Continuing, we can also establish the following theorem.
+
+\begin{theorem}{Elementary Row Operations and Row Space}
+{Elementary Row Operations and Row Space}
+\label{Elementary Row Operations and Row Space}
+If $A$ and $B$ are matrices that can be obtained by applying
+elementary row operations to each other, then $\Row(A) = \Row(B)$.
+\end{theorem}
+\begin{proof}
+Let $A = \{ v_1, \ldots, v_n \}$ and $B$ be a matrix that is obtained
+by a single row operation from $A$. For some $j, k \in [1, n]$ such
+that $j \neq k$, it is evident that $\Span\{ v_1, \ldots, v_j, \ldots,
+v_k, \ldots, v_n \} = \Span\{ v_1, \ldots, v_k, \ldots, v_j, \ldots,
+v_n \}$. Moreover, for some scalar $\lambda$, $\Span\{ v_1, \ldots,
+\lambda v_k, \ldots, v_n \} = \{ v_1, \ldots, v_n \}$ and $\Span\{
+v_1, \ldots, v_k + \lambda v_j, \ldots, v_n \}$ by statement four in
+Theorem \ref{Four Lemmas on Span of a Set of Vectors}. Continuing with
+induction, the same applies to $B$ that is obtained by a sequence of
+elementary operations from $A$. Thus, the theorem holds.
+\end{proof}
 
 
 
