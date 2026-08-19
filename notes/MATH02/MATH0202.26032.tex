@@ -214,9 +214,9 @@ Assume $(A^k)^\intercal = (A^\intercal)^k$. By the fourth property,
 the following equation is obtained.
 \[
 \left( A^{k+1} \right)^\intercal
-(A^k A)^\intercal
-= (A^k)^\intercal A^\intercal
-= (A^\intercal)^k A^\intercal
+= (A^k A)^\intercal
+= A^\intercal (A^k)^\intercal
+= A^\intercal (A^\intercal)^k
 = (A^\intercal)^{k + 1}
 \]
 By induction, the property holds for $k \geq 2$. For $k = 1$,
@@ -459,7 +459,7 @@ of matrices, we could derive special forms from the ideas.
 As always, let's build from definitions.
 
 \begin{definition}{}{}
-A \textbf{Symmetrically partitioned matrix} refers to a partitioned
+A \textbf{symmetrically partitioned matrix} refers to a partitioned
 matrix such that its arrangements of the blocks are diagonally
 symmetric. The \textbf{diagonal blocks} are the blocks that pass
 through the diagonal symmetry.

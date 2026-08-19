@@ -74,7 +74,7 @@ to a single condition.
 For scalars $\alpha$ and $\beta$ and $u, v \in S$ where $S$ is a
 non-empty subset of a vector space $V$ that has the same operations
 for vector addition and scalar multiplication, $S$ is a subspace if
-and only if the following equation is satisfied.
+and only if the following condition is satisfied.
 \[
 \alpha u + \beta v \in S
 \]
@@ -238,7 +238,10 @@ will not add more elements. Therefore, $\Span(\Span(S)) \subset
 \Span(S)$ and $\Span(\Span(S)) = \Span(S)$.
 \end{proof}
 
-Continuing, let's prove the third statement.
+An interesting fact about this property is that this applies for
+any subset $S$, finite or infinite. This is because even if $\Span(S)$
+is infinite, it only uses finite number of vectors to create
+each linear combination. Continuing, let's prove the third statement.
 
 \begin{proof}
 Notice that by the first statement, $\Span(T) \subset
@@ -281,9 +284,10 @@ following equation.
 \[
 \sum_{k = 1}^n c_k v_k = \mathbf{0}
 \]
-The set of vectors $V$ is \textbf{linearly dependent} if at least
-one of the scalars in the equation is nonzero. The set of vectors is
-\textbf{linearly independent} if all scalars are zero in the equation.
+The set of vectors $V$ is \textbf{linearly dependent} if there exists
+scalars $c_1, \ldots, c_k$ that are not all equal to zero. The set of
+vectors is \textbf{linearly independent} if all scalars are zero in
+the equation.
 \end{definition}
 
 Let's take a look at a quick example.
@@ -490,8 +494,8 @@ to $\mathbb{R}^n$.
 
 \begin{definition}{}{}
 The \textbf{standard basis for $\mathbb{R}^n$} is the set $S =
-\{ e_1, \ldots e_n \}$ where $e_i$ is the $i\text{th}$ column of
-$I_n$.
+\{ e_1, \ldots e_n \}$ where $e_i$ is an element of $\mathbb{R}^n$
+with $1$ in its $i^\text{th}$ entry and $0$ elsewhere.
 \end{definition}
 
 We could do the same for polynomials. First, notice that the set
