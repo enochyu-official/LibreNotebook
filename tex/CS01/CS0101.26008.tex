@@ -1,0 +1,120 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Linear Algebra}
+
+Linear algebra is a foundational building block of ML as majority
+of the components are written in very high dimensional arrays
+and tensors. Without exaggeration, training and using a model
+can be considered as performing billions of linear algebra
+operations. Therefore, it is encouraged to get familiar with
+the notations as they will be used throughout the future notes.
+That being said, because many of the contents were introduced
+in detail in the linear algebra part of LibreNotebook, I will
+keep it brief here for topics that were not introduced in the
+previous part.
+
+\subsection{Foundations}
+
+Many mathematicians might not like the definition below, but I think
+it is worth considering different perspectives of how we can see
+vectors and matrices.
+
+\begin{definition}{}{}
+A 1-dimensional vector is simply called \textbf{vector}. A 2D vector
+is called \textbf{matrix}. For vectors with 3+ dimensions, the term
+\textbf{tensor} is used.
+\end{definition}
+
+Now scalars are not considered vectors because it is only defined
+with magnitude. Geometrically speaking, the dimensions here can be
+interpreted as the dimension that we usually say in science.
+For example, a matrix can be plotted in a 2D space with $x$ and $y$
+components. Similarly, a 3D tensor can be drawn in 3-dimensional
+plane with $x$, $y$, and $z$ coordinates. Consider the following
+example.
+
+\begin{figure}[H]
+\centering
+\tdplotsetmaincoords{70}{110}
+\begin{tikzpicture}[
+        tdplot_main_coords,
+        axis/.style={->,thick},
+        scale=0.5
+    ]
+    \foreach \x in {0,1,...,7}
+        \foreach \y in {0,1,...,7} {
+			\draw[gray,very thin]
+                (\x,0,0) -- (\x,7.5,0);
+			\draw[gray,very thin] (0,\y,0) -- (7.5,\y,0);
+		}
+    \foreach \y in {0,1,...,7}
+        \foreach \z in {0,1,...,7} {
+			\draw[gray,very thin]
+                (0,\y,0) -- (0,\y,7.5);
+			\draw[gray,very thin] (0,0,\z) -- (0,7.5,\z);
+		}
+    \foreach \z in {0,1,...,7}
+        \foreach \x in {0,1,...,7} {
+			\draw[gray,very thin]
+                (0,0,\z) -- (7.5,0,\z);
+			\draw[gray,very thin] (\x,0,0) -- (\x,0,7.5);
+		}
+
+	\draw[axis] (-2,0,0) -- (8,0,0) node[left] {$x$};
+	\draw[axis] (0,-1,0) -- (0,8,0) node[right] {$y$};
+	\draw[axis] (0,0,-1) -- (0,0,8) node[left] {$z$};
+
+    \draw[->,very thick,Red,dashed] (0,0,0) -- (4,0,0);
+    \draw[->,very thick,Blue,dashed] (4,0,0) -- (4,3,0);
+    \draw[->,very thick,Green,dashed] (4,3,0) -- (4,3,5);
+    \draw[->,very thick,black] (0,0,0) -- (4,3,5)
+        node[right] {\small $\vec{v} = \langle 4,3,5 \rangle$};
+\end{tikzpicture}
+\end{figure}
+
+Continuing, we can see an operation that vectors can perform that
+we have not discussed in the notes for linear algebra.
+
+\begin{definition}{}{}
+A \textbf{dot product} of two vectors is the sum of products of the
+corresponding elements.
+\end{definition}
+
+Dot product will be quite important when we discuss attention and
+transformers because it can tell us how ``related'' two vectors are.
+Indeed, consider the vectors $A$ and $B$ with the angle between the
+two vectors as $\theta$. The following equation holds.
+\[
+A \cdot B = ||A|| ||B|| \cos\theta
+\]
+Here, $||V||$ for $V \in \mathbb{R}^n$ represents the magnitude of the
+vector, i.e. $\sqrt{\sum_{k=1}^n V_k^2}$. Let's take a look at a quick
+example.
+\begin{align*}
+    \langle 1, 0 \rangle \cdot \langle 1, \sqrt{3} \rangle
+    &= 1 \cdot 1 + 0 \cdot \sqrt{3} = 1 \\
+    &= 1 \cdot 2 \cdot \cos60^\circ = 1
+\end{align*}
+One thing to keep in mind is that we have a special term for the
+sign $||V||$.
+
+\begin{definition}{}{}
+The \textbf{vector norm} is the non-negative value that represents
+the magnitude of a vector.
+\end{definition}
+
+With that in mind, let's move on to a more abstract and advanced
+topics in linear algebra that are constantly used in machine learning.
+
+\subsection{CONTINUE}
+
+
+
+
+
+
+\end{document}
+
+

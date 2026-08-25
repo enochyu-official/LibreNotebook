@@ -1,3 +1,4 @@
 build/
-jupyter/.*
+src/jupyter/.*
+src/cpp/out
 

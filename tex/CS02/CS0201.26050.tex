@@ -1,0 +1,217 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{C++ Basics for Competitive Programming}
+
+Before learning algorithms and solving problems, we need to choose
+a language to use. There are many programming languages that we can
+choose from for competitive programming such as C++, Python, and Java.
+However, many competitors use C++ due to its speed and popularity
+\cite{CS02-2}. I was debating whether to learn C++ or just stick with
+Python that I am already familiar with; however, I decided to learn
+C++ because it never hurts to learn a new language and it is also a
+recommended language \cite{CS02-3}. With that in mind, let's get
+started with basic syntax from C++!
+
+\section{Foundations}
+
+Let's start with the Hello World example. However to do so, we need
+a text editor or an integrated development environment (IDE) and a
+compiler. There are many different options for text editor or IDE.
+There are online editors that lets you write and compile there.
+However, I highly recommend using local editors and compilers for
+maintainability. Among many local editors, some popular choices
+are Visual Studio Code, CLion, and Vim. Please don't get mad for not
+including your favorite editor as it could get very philosophical.
+I personally use Neovim due to its low learning curve and ease in
+set up. Choosing an editor is up to you!
+
+For compilers, two popular options are GNU Compiler Collection (GCC)
+and Clang. I personally use Clang, but this too is up to you!
+If you have an editor and a compiler of your choice, let's get
+started with printing ``Hello, World!'' on our screen.
+
+\begin{lstlisting}[style=cppstyle]
+#include <iostream>
+
+int main() {
+    std::cout << "Hello, World!\n";
+    return 0;
+}
+\end{lstlisting}
+
+I know this looks a lot, but let's first compile and see it before
+breaking down each line. To compile this, we can run
+
+\begin{lstlisting}[style=basic]
+$ clang++ program.cpp -o program
+\end{lstlisting}
+
+and execute it with the following commend.
+
+\begin{lstlisting}[style=basic]
+$ ./program
+\end{lstlisting}
+
+Then, you should see the following output in your terminal.
+
+\begin{lstlisting}[style=basic]
+Hello, World!
+\end{lstlisting}
+
+Now let's break down the program line by line. First,
+\verb|#include <iostream>| is for including the standard input and
+output streams library. We need this to print our output on the
+screen.
+
+Next, \verb|int main()| defines our \verb|main| function for
+execution. Next, \verb|std::cout << "Hello,| \verb|World!\n";| is to
+\verb|cout|, or character out, from the standard library specified
+with the namespace \verb|std|. We also have \verb|\n| to add a line
+break at the end to make a pretty output. Finally, don't forget your
+semicolon! We need to tell our compiler that our statement has ended
+with the semicolon. Meaning, unlike Python, indentation is only for
+writing a legible code.
+
+Lastly, \verb|return 0;| is used to tell that the program has
+successfully terminated. Nowadays, it isn't strictly necessary as
+reaching the end of the \verb|main| function automatically returns
+$0$. However, it's still a good habit to keep them at the end of the
+\verb|main| function.
+
+Below is an example with many outputs.
+
+\begin{lstlisting}[style=cppstyle]
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "I love banana. " << "Banana likes me" << endl;
+    cout << "I ate five bananas today\n";
+}
+\end{lstlisting}
+
+Compiling and executing returns the following.
+
+\begin{lstlisting}[style=basic]
+I love banana. Banana likes me
+I ate five bananas today
+\end{lstlisting}
+
+Notice that we can add \verb|using namespace std;| to avoid writing
+\verb|std::| every time we need \verb|cout|. We can do this for
+small projects and speed in competitive programming. However, this
+is highly discouraged in header files for large projects as it causes
+collisions. One more thing to note is that both \verb|\n| and
+\verb|endl| returns a new line. However, they are \textbf{not} the
+same thing! We will return to this later when we discuss about
+optimization.
+
+\subsection{Variables}
+
+We know how to print a value. How about storing them? Let's first
+start with definitions.
+
+\begin{definition}
+A region of a storage that a hardware can store a value is called an
+\textbf{object}. \textbf{Variables} are objects with a name.
+The \textbf{data type} is the type of value that can be stored in the
+object \cite{CS02-1}.
+\end{definition}
+
+There are many data types and we need to specify the data type
+before declaring a variable. Below are some examples of basic
+data types.
+
+\begin{center}
+\begin{tabularx}{\textwidth}{
+    |>{\hsize=.3\hsize\linewidth=\hsize}X
+    |>{\hsize=.7\hsize\linewidth=\hsize}X|
+}
+    \hline
+    \textbf{Types} & \textbf{Stores...} \\
+    \hline
+    int            & Integers \\
+    \hline
+    long long      & Larger 64-bit integers \\
+    \hline
+    float          & 4-bit decimals \\
+    \hline
+    double         & 8-bit decimals \\
+    \hline
+    char           & Single character \\
+    \hline
+    string         & Series of characters \\
+    \hline
+    bool           & True or false value \\
+    \hline
+\end{tabularx}
+\end{center}
+
+With the data type in mind, we can declare a variable as the
+following.
+
+\begin{lstlisting}[style=cppstyle]
+dataType variableName = value;
+\end{lstlisting}
+
+Below is a quick example of declaring a variable and printing
+the value.
+
+\begin{lstlisting}[style=cppstyle]
+#include <iostream>
+
+int main() {
+    std::string name = "Enoch";
+    int numBananas = 12 + 34;
+
+    std::cout << "Hi! I am " << name << ", and I ate "
+              << numBananas << " bananas today.\n";
+
+    return 0;
+}
+\end{lstlisting}
+
+Notice that it is important to use quotation when declaring a
+string, and we can use simple operations when declaring a variable.
+This time, let's take a look at another example where we can
+take in the value of a variable and declare variables of the same
+type.
+
+\begin{lstlisting}[style=cppstyle]
+#include <iostream>
+
+int main() {
+    int a, b;
+
+    std::cout << "Type two numbers to add: ";
+    std::cin >> a >> b;
+    std::cout << "Your sum is: " << a + b << std::endl;
+    
+    return 0;
+}
+\end{lstlisting}
+
+When you compile and run it, we can get a simple calculator that
+can add two numbers with adequate size (32-bit).
+
+\begin{lstlisting}[style=basic]
+Type two numbers to add: 12345 67890
+Your sum is: 80235
+\end{lstlisting}
+
+Now that we can take inputs and print outputs with various data types,
+let's discuss about loops and conditions.
+
+
+
+
+
+
+
+
+
+\end{document}
+
+

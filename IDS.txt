@@ -2,11 +2,11 @@
 MATH01         | Math Olympiad
 MATH02         | Linear Algebra
 CS01           | Machine Learning
+CS02           | Competitive Programming
 
 # Notes
 MATH0101       | Inequalities
 MATH0102       | Projective Geometry
-MATH0103       | Combinatorics
 MATH0201       | Vectors and Vector Spaces
 MATH0202       | Matrices
 MATH0203       | System of Linear Equations
@@ -19,6 +19,7 @@ CS0104         | Deep Dive into Deep Neural Networks
 CS0105         | Building Language Models
 CS0106         | AI and The Future
 CS0107         | Further Resources
+CS0201         | C++ Basics for Competitive Programming
 
 # Sections
 MATH0100.26001 | INIT
@@ -36,7 +37,7 @@ MATH0101.26005 | Practice Problems
   CS0103.26013 | Introduction to Large Language Models
   CS0103.26014 | Improving Large Language Models
   CS0104.26015 | Definitions and High Level Overview
-  CS0104.26016 | Conventions and Mathematical INterpretations
+  CS0104.26016 | Conventions and Mathematical Interpretations
   CS0104.26017 | Building Vanilla Neural Network From Scratch
   CS0105.26018 | Bigram Language Model
   CS0105.26019 | Attention and Transformers
@@ -69,6 +70,8 @@ MATH0205.26045 | Solutions for Note 2
 MATH0205.26046 | Solutions for Note 3
 MATH0205.26047 | Solutions for Note 4
 MATH0205.26048 | Final Thoughts
+  CS0200.26049 | INIT
+  CS0201.26050 | Foundations
 
 
 

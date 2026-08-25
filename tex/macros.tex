@@ -1,102 +1,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% GLOBAL PREAMBLE BY ENOCH YU
+% GLOBAL MACROS BY ENOCH YU
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%% PACKAGES %%%%%%%%%%%%%%%
-% Core
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage{palatino}
-\usepackage{mathpazo}
-\usepackage[english]{babel}
-
-% Math
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{amsthm}
-\usepackage{mathtools}
-
-% Page Layout
-\usepackage[a4paper,margin=1in,headsep=7pt,headheight=14pt]{geometry}
-\usepackage{lastpage}
-\usepackage{fancyhdr}
-\fancyhead[L]{\thepage}
-\fancyhead[R]{\rightmark}
-\fancyfoot[C]{}
-\pagestyle{fancy}
-\usepackage{setspace}
-\onehalfspacing
-\usepackage[skip=10pt]{parskip}
-\usepackage{microtype}
-
-% Sections
-\usepackage{titlesec}
-\titleformat{\section}
-  {\normalfont\LARGE\bfseries\color{BrickRed}}
-  {\S\! \thesection}
-  {0.5em}
-  {}
-\titleformat{\subsection}
-  {\normalfont\Large\bfseries}
-  {\thesubsection}
-  {0.5em}
-  {}
-
-\usepackage[Lenny]{fncychap}
-\ChNameVar{\fontsize{14}{16}\usefont{OT1}{phv}{m}{n}\selectfont}
-\ChNumVar{\fontsize{60}{62}\usefont{OT1}{ptm}{m}{n}\selectfont}
-\ChTitleVar{\Huge\bfseries\rm}
-\ChRuleWidth{1pt}
-\addto\captionsenglish{\renewcommand{\chaptername}{Note}}
-
-
-% Tikz
-\usepackage{tikz,tikz-3dplot}
-\usetikzlibrary{calc, angles, tikzmark, shapes.geometric,
-                positioning, arrows.meta}
-\usepackage{tkz-euclide}
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.9}
-\usepackage[font=small,labelfont=bf]{caption}
-
-% Miscellaneous
-\usepackage{enumitem}
-\usepackage[dvipsnames]{xcolor}
-\usepackage[normalem]{ulem}
-\usepackage{url}
-\usepackage{hyperref}
-\hypersetup{
-    colorlinks=true,
-    linkcolor=black,
-    filecolor=magenta,      
-    urlcolor=blue,
-    %urlcolor=cyan,
-    pdfpagemode=FullScreen,
-}
-\usepackage{graphicx}
-\graphicspath{ {./images/} }
-\usepackage{tabularx}
-\usepackage{nicematrix}
-\usepackage{arydshln}
-\usepackage{float}
-\usepackage{pdfpages}
-\usepackage{subfiles}
-\usepackage{csquotes}
-\usepackage[
-    backend=biber,
-    style=alphabetic,
-    sorting=ynt,
-    refsection=part
-]{biblatex}
-\addbibresource{references.bib}
-
-
-%%%%%%%%%%%%%%% CUSTOM %%%%%%%%%%%%%%%
 % Boxes
 \usepackage{tcolorbox}
 \tcbuselibrary{theorems}
 \newcounter{boxcounter}[section]
 \renewcommand{\theboxcounter}{\thesection.\arabic{boxcounter}}
+
 \newtcbtheorem[
     auto counter,
     number within=section,
@@ -107,6 +18,7 @@
     fonttitle=\bfseries,
     sharp corners
 }{theo}
+
 \newtcbtheorem[
     auto counter,
     number within=section,
@@ -117,6 +29,7 @@
     fonttitle=\bfseries,
     sharp corners
 }{lem}
+
 \newtcbtheorem[
     auto counter,
     number within=section,
@@ -127,6 +40,7 @@
     fonttitle=\bfseries,
     sharp corners
 }{probstyle}
+
 \newtcbtheorem[
     auto counter,
     number within=section,
@@ -137,6 +51,7 @@
     fonttitle=\bfseries,
     sharp corners
 }{cor}
+
 \newtcbtheorem[
     auto counter,
     number within=section,
@@ -147,6 +62,7 @@
     fonttitle=\bfseries,
     sharp corners
 }{def}
+
 \newenvironment{theorem}
 {\begin{theostyle}}{\end{theostyle}}
 \newenvironment{corollary}
@@ -169,6 +85,7 @@
     skipbelow=\medskipamount,
     frametitle=\it Proof.
 ]{proof}
+
 \newmdenv[
     topline=false, 
     bottomline=false, 
@@ -179,6 +96,7 @@
     skipbelow=\medskipamount,
     frametitle=Solution.
 ]{solution}
+
 \newmdenv[
     topline=false, 
     bottomline=false, 
@@ -189,6 +107,7 @@
     skipbelow=\medskipamount,
     frametitle=In my head...
 ]{thoughts}
+
 \newmdenv[
     topline=false, 
     bottomline=false, 
@@ -200,6 +119,7 @@
     fontcolor=BrickRed,
     frametitle=Tip.
 ]{tip}
+
 
 
 % Example
@@ -237,20 +157,51 @@
 {\end{mdframed}}
 
 
-% Jupyter cell like block
+% Code
 \usepackage{listings}
-\definecolor{nb@bg}{RGB}{231,234,234}
-\definecolor{nb@kw}{RGB}{0,64,153}
-\definecolor{nb@str}{RGB}{163,21,21}
-\definecolor{nb@cmt}{RGB}{100,100,100}
+\definecolor{bg}{RGB}{231,234,234}
+\definecolor{kw}{RGB}{0,64,153}
+\definecolor{str}{RGB}{163,21,21}
+\definecolor{cmt}{RGB}{100,100,100}
+
+\lstdefinestyle{basic}{
+    backgroundcolor=\color{bg},
+    basicstyle=\ttfamily\small,
+    numbers=none,
+    frame=none,
+    showstringspaces=false,
+    tabsize=4,
+    showtabs=false,
+    breaklines=true,
+    aboveskip=8pt,
+    belowskip=\dimexpr-\baselineskip+10pt\relax
+}
+
+\lstdefinestyle{cppstyle}{
+    language=C++,
+    backgroundcolor=\color{bg},
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{kw}\bfseries,
+    stringstyle=\color{str},
+    commentstyle=\color{cmt}\itshape,
+    numberstyle=\tiny\color{gray},
+    numbers=left, numbersep=5pt,
+    breaklines=true,
+    rulecolor=\color{gray!50},
+    showstringspaces=false,
+    tabsize=4, captionpos=b,
+    linewidth=\textwidth,
+    aboveskip=10pt,
+    belowskip=\dimexpr-\baselineskip+10pt\relax
+}
 
 \lstdefinestyle{jin}{
     language=Python,
-    backgroundcolor=\color{nb@bg},
+    backgroundcolor=\color{bg},
     basicstyle=\ttfamily\small,
-    keywordstyle=\color{nb@kw}\bfseries,
-    stringstyle=\color{nb@str},
-    commentstyle=\color{nb@cmt}\itshape,
+    keywordstyle=\color{kw}\bfseries,
+    stringstyle=\color{str},
+    commentstyle=\color{cmt}\itshape,
     numberstyle=\tiny\color{gray},
     numbers=left, numbersep=8pt,
     breaklines=true,
@@ -262,21 +213,17 @@
     framexleftmargin=1.2em,
     belowskip=0pt,
     morekeywords={
-        Sequential,Dense,model,compile,fit,predict,
-        Adam,BinaryCrossentropy,SparseCategoricalCrossentropy,
-        MeanSquaredError,from_logits,activation,units,
-        optimizer,loss,epochs,learning_rate,
-        tf,keras,tensorflow,StandardScaler,
-        XGBClassifier,XGBRegressor,np,plt
+        model,compile,fit,predict,activation,
+        units,optimizer,loss,epochs,lr,np,plt
     }
 }
+
 \lstdefinestyle{jout}{
     basicstyle=\ttfamily\small,
     breaklines=true,
     showstringspaces=false,
     tabsize=4, captionpos=b,
-    aboveskip=4pt,
-    xleftmargin=1.2em,
+    aboveskip=4pt
 }
 
 \newenvironment{jupyter}{
@@ -293,6 +240,7 @@
 ]}{\end{mdframed}}
 
 
+
 \DeclareMathOperator{\Span}{span}
 \DeclareMathOperator{\Row}{row}
 \DeclareMathOperator{\Col}{col}
@@ -300,11 +248,6 @@
 \DeclareMathOperator{\Null}{null}
 \DeclareMathOperator{\Tr}{tr}
 
-
-
-\title{LibreNotebook}
-\author{Enoch Yu}
-\date{Last Updated: \today}
 
 
 %%%%%%%%%%%%%%% END %%%%%%%%%%%%%%%

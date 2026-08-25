@@ -1,0 +1,101 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% GLOBAL PREAMBLE BY ENOCH YU
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Core
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{palatino}
+\usepackage{mathpazo}
+\usepackage[english]{babel}
+
+% Math
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+
+% Page Layout
+\usepackage[a4paper,margin=1in,headsep=7pt,headheight=14pt]{geometry}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\fancyhead[L]{\thepage}
+\fancyhead[R]{\rightmark}
+\fancyfoot[C]{}
+\pagestyle{fancy}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage[skip=10pt]{parskip}
+\usepackage{microtype}
+
+% Sections
+\usepackage{titlesec}
+\titleformat{\section}
+  {\normalfont\LARGE\bfseries\color{BrickRed}}
+  {\S\! \thesection}
+  {0.5em}
+  {}
+\titleformat{\subsection}
+  {\normalfont\Large\bfseries}
+  {\thesubsection}
+  {0.5em}
+  {}
+
+\usepackage[Lenny]{fncychap}
+\ChNameVar{\fontsize{14}{16}\usefont{OT1}{phv}{m}{n}\selectfont}
+\ChNumVar{\fontsize{60}{62}\usefont{OT1}{ptm}{m}{n}\selectfont}
+\ChTitleVar{\Huge\bfseries\rm}
+\ChRuleWidth{1pt}
+\addto\captionsenglish{\renewcommand{\chaptername}{Note}}
+
+
+% Tikz
+\usepackage{tikz,tikz-3dplot}
+\usetikzlibrary{calc, angles, tikzmark, shapes.geometric,
+                positioning, arrows.meta}
+\usepackage{tkz-euclide}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.9}
+\usepackage[font=small,labelfont=bf]{caption}
+
+% Miscellaneous
+\usepackage{enumitem}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[normalem]{ulem}
+\usepackage{url}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,      
+    urlcolor=blue,
+    pdfpagemode=FullScreen,
+}
+\usepackage{graphicx}
+\graphicspath{{../img/}}
+\usepackage{tabularx}
+\usepackage{nicematrix}
+\usepackage{arydshln}
+\usepackage{float}
+\usepackage{pdfpages}
+\usepackage{subfiles}
+\usepackage{csquotes}
+\usepackage[
+    backend=biber,
+    style=alphabetic,
+    sorting=ynt,
+    refsection=part
+]{biblatex}
+\addbibresource{tex/references.bib}
+
+
+
+\title{LibreNotebook}
+\author{Enoch Yu}
+\date{Last Updated: \today}
+
+
+%%%%%%%%%%%%%%% END %%%%%%%%%%%%%%%
+
+
+
