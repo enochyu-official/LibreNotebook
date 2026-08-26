@@ -201,16 +201,32 @@ Type two numbers to add: 12345 67890
 Your sum is: 80235
 \end{lstlisting}
 
+If you don't want the value of $a$ to change, we can use \verb|const|.
+
+\begin{lstlisting}[style=cppstyle]
+#include <iostream>
+
+int main() {
+    const int a = 5;
+    int b;
+
+    std::cout << "Type a number: ";
+    std::cin >> b;
+    std::cout << b << " + 5 = " << a + b << std::endl;
+    
+    return 0;
+}
+\end{lstlisting}
+
+In this variation, $a$ is fixed as $5$ and cannot be changed.
+
+\begin{lstlisting}[style=basic]
+Type a number: 123456789
+123456789 + 5 = 123456794
+\end{lstlisting}
+
 Now that we can take inputs and print outputs with various data types,
 let's discuss about loops and conditions.
-
-
-
-
-
-
-
-
 
 \end{document}
 

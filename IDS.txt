@@ -72,6 +72,7 @@ MATH0205.26047 | Solutions for Note 4
 MATH0205.26048 | Final Thoughts
   CS0200.26049 | INIT
   CS0201.26050 | Foundations
+  CS0201.26051 | Conditionals and Loops
 
 
 
