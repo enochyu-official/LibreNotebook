@@ -1,4 +1,5 @@
 build/
-src/jupyter/.*
-src/cpp/out
+.ipynb_checkpoints/
+.venv/
+out
 

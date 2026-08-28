@@ -19,7 +19,7 @@ CS0104         | Deep Dive into Deep Neural Networks
 CS0105         | Building Language Models
 CS0106         | AI and The Future
 CS0107         | Further Resources
-CS0201         | C++ Basics for Competitive Programming
+CS0201         | C++ for Competitive Programming
 
 # Sections
 MATH0100.26001 | INIT
@@ -73,6 +73,8 @@ MATH0205.26048 | Final Thoughts
   CS0200.26049 | INIT
   CS0201.26050 | Foundations
   CS0201.26051 | Conditionals and Loops
+  CS0201.26052 | Functions and References
+  CS0201.26053 | Arrays and Vectors
 
 
 

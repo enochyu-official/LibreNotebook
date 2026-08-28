@@ -33,11 +33,46 @@
 * CS0106.26021
 * CS0107.26022 - Change format
 
-
-
-
-
-
+## CS02
+* Data Structures
+  * Array
+  * Quees
+  * Stacks
+  * Hash Tables
+  * Linked lists
+  * Min max heaps
+  * Policy based data structures
+* Repetition, Consition, Array, Functions, Brute Force, Bit manipulation
+* Algorithms
+  * Search algorithms
+    * Binary search
+    * Linear search
+  * Sorting Algorithms
+    * Bubble Sort
+    * Merge Sort
+    * Insertion Sort
+    * Quick Sort
+    * Selection Sort
+    * Heap Sort
+  * Greedy
+  * Tree Algorithsm
+  * Graph Algorithms
+  * String Algorithms
+* Algorithmic COmplexity
+  * Time vs space
+  * Aymtptotic Notation
+  * Common Runtimes
+* Array characters, Simulation, Simple Demo
+* Data Structures
+  * Graph Data Structures
+  * Tree Data Structures
+  * Advanced Data Structures
+  * Complex Data Structures
+* Problem solving techniques
+* BFS/DFS
+* Two pointers
+* Dynamic Programming
+* Game Theory
 
 
 

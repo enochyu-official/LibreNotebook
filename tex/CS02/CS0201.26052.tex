@@ -1,0 +1,163 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Functions and References}
+
+Up until now, we had everything in our \verb|main| function.
+However, you may have noticed that dumping everything in there is
+not efficient nor scalable. This is where functions kick in.
+
+\subsection{Functions}
+
+As always, let's start with definition.
+
+\begin{definition}{}{}
+A reusable code block dedicated for a certain task is called a
+\textbf{function} \cite{CS02-5}.
+\end{definition}
+
+Functions are specially useful as we can use it multiple times just
+by calling them instead of copy and pasting every time we need them.
+Functions in C++ generally have the following format.
+
+\begin{basicbox}
+\begin{lstlisting}[style=cppstyle]
+outputDataType functionName(parameters) {
+    code block
+    return outputValue;
+}
+\end{lstlisting}
+\end{basicbox}
+
+Looking at a bare \verb|main| function, we can see that we have
+\verb|int| since the \verb|main| function returns an integer value
+like $0$. Since no arguments are taken in a bare \verb|main| function,
+we have empty parenthesis. There are some functions that do not
+return any value. In that case, we would be using \verb|void|.
+Moreover to use a function, we need to call it. Below is a quick
+example.
+
+\begin{cppbox}{CS0201.26052-01}{CS0201.26052-01}
+\begin{lstlisting}[style=cppstyle]
+#include <iostream>
+
+void helloWorld() {
+    std::cout << "Hello, World!\n";
+}
+
+int main() {
+    helloWorld();
+    helloWorld();
+    helloWorld();
+    return 0;
+}
+\end{lstlisting}
+\end{cppbox}
+
+In the example above, we have our \verb|helloWorld| function that
+prints the text ``Hello, World!'' to the console. The type is
+\verb|void| since it does not return any values. By calling the
+function three times in \verb|main|, we don't have to manually
+write long texts every time!
+
+\begin{outputbox}
+\begin{lstlisting}[style=basic]
+Hello, World!
+Hello, World!
+Hello, World!
+\end{lstlisting}
+\end{outputbox}
+
+Below is a more practical use of simple functions for basic
+mathematical operations.
+
+\begin{cppbox}{CS0201.26052-02}{CS0201.26052-02}
+\begin{lstlisting}[style=cppstyle]
+#include <iostream>
+
+int add(int a, int b) {
+    return a + b;
+}
+
+int subtract(int a, int b) {
+    return a - b;
+}
+
+int multiply(int a, int b) {
+    return a * b;
+}
+
+double divide(double a, double b) {
+    return a / b;
+}
+
+int mod(int a, int b) {
+    return a % b;
+}
+
+int main() {
+    std::cout << "1 + 2 = "    << add(1, 2)      << std::endl;
+    std::cout << "3 - 4 = "    << subtract(3, 4) << std::endl;
+    std::cout << "5 * 6 = "    << multiply(5, 6) << std::endl;
+    std::cout << "7 / 8 = "    << divide(7, 8)   << std::endl;
+    std::cout << "10 mod 9 = " << mod(10, 9)     << std::endl;
+
+    std::cout << "((1 + 2) * 4) mod 10 = "
+              << mod(multiply(add(1, 2), 4), 10) << std::endl;
+
+    return 0;
+}
+\end{lstlisting}
+\end{cppbox}
+
+Each function will take in the values $a$ and $b$ to perform the
+dedicated task. After declaring the functions, we can call them in
+the \verb|main| function to display them. Many times it is better
+to make the functions declare a value rather than print directly
+to the console for reusability. As shown in the last example,
+we can call a function as an input of different function.
+
+\begin{outputbox}
+\begin{lstlisting}[style=basic]
+1 + 2 = 3
+3 - 4 = -1
+5 * 6 = 30
+7 / 8 = 0.875
+10 mod 9 = 1
+((1 + 2) * 4) mod 10 = 2
+\end{lstlisting}
+\end{outputbox}
+
+With the ideas of functions in mind, we can continue with another
+important topic of references.
+
+\subsection{References}
+
+One of the primary goals of writing codes for competitive programming
+is efficiency. Indeed most, if not all, codes written for competitions
+are not maintained as the main purpose is to solve problems
+efficiently \cite{CS02-3}. Moreover, it is important that your
+program is fast enough to execute under the time limit.
+
+
+
+
+
+
+
+
+\end{document}
+
+
+\begin{cppbox}
+\begin{lstlisting}[style=cppstyle]
+
+\end{lstlisting}
+\end{cppbox}
+
+\begin{outputbox}
+\begin{lstlisting}[style=basic]
+
+\end{lstlisting}
+\end{outputbox}

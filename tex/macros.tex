@@ -173,8 +173,8 @@
     tabsize=4,
     showtabs=false,
     breaklines=true,
-    aboveskip=8pt,
-    belowskip=\dimexpr-\baselineskip+10pt\relax
+    aboveskip=0pt,
+    belowskip=0pt
 }
 
 \lstdefinestyle{cppstyle}{
@@ -191,8 +191,8 @@
     showstringspaces=false,
     tabsize=4, captionpos=b,
     linewidth=\textwidth,
-    aboveskip=10pt,
-    belowskip=\dimexpr-\baselineskip+10pt\relax
+    aboveskip=0pt,
+    belowskip=0pt
 }
 
 \lstdefinestyle{jin}{
@@ -225,6 +225,46 @@
     tabsize=4, captionpos=b,
     aboveskip=4pt
 }
+
+\newtcbtheorem[no counter]{basicboxstyle}{}{%
+    titlebox=invisible,
+    detach title,
+    colframe=bg,
+    colback=bg,
+    top=0pt, bottom=0pt, right=0pt, left=0pt,
+    boxrule=0pt,
+    sharp corners
+}{cpp}
+\newenvironment{basicbox}
+{\begin{basicboxstyle}{}{}}{\end{basicboxstyle}}
+
+\newtcbtheorem[
+    auto counter,
+    number within=section,
+    use counter=boxcounter
+]{cppboxstyle}{Code}{%
+    colframe=Sepia!80,
+    colback=bg,
+    top=0pt, bottom=0pt, right=0pt, left=0pt,
+    boxrule=0pt,
+    sharp corners
+}{cpp}
+\newenvironment{cppbox}
+{\begin{cppboxstyle}}{\end{cppboxstyle}}
+
+\newtcbtheorem[
+    auto counter,
+    number within=section,
+    use counter=boxcounter
+]{outputboxstyle}{Output}{%
+    colframe=black,
+    colback=bg,
+    top=0pt, bottom=0pt, right=0pt, left=0pt,
+    boxrule=0pt,
+    sharp corners
+}{cpp}
+\newenvironment{outputbox}
+{\begin{outputboxstyle}{}{}}{\end{outputboxstyle}}
 
 \newenvironment{jupyter}{
 \begin{mdframed}[

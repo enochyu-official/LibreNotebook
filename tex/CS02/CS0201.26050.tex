@@ -1,8 +1,8 @@
-\documentclass[../main.tex]{subfiles}
+\documentclass[../../main.tex]{subfiles}
 
 \begin{document}
 
-\chapter{C++ Basics for Competitive Programming}
+\chapter{C++ for Competitive Programming}
 
 Before learning algorithms and solving problems, we need to choose
 a language to use. There are many programming languages that we can
@@ -32,6 +32,7 @@ and Clang. I personally use Clang, but this too is up to you!
 If you have an editor and a compiler of your choice, let's get
 started with printing ``Hello, World!'' on our screen.
 
+\begin{cppbox}{CS0201.26050-01}{CS0201.26050-01}
 \begin{lstlisting}[style=cppstyle]
 #include <iostream>
 
@@ -40,25 +41,32 @@ int main() {
     return 0;
 }
 \end{lstlisting}
+\end{cppbox}
 
 I know this looks a lot, but let's first compile and see it before
 breaking down each line. To compile this, we can run
 
+\begin{basicbox}
 \begin{lstlisting}[style=basic]
 $ clang++ program.cpp -o program
 \end{lstlisting}
+\end{basicbox}
 
 and execute it with the following commend.
 
+\begin{basicbox}
 \begin{lstlisting}[style=basic]
 $ ./program
 \end{lstlisting}
+\end{basicbox}
 
 Then, you should see the following output in your terminal.
 
+\begin{outputbox}
 \begin{lstlisting}[style=basic]
 Hello, World!
 \end{lstlisting}
+\end{outputbox}
 
 Now let's break down the program line by line. First,
 \verb|#include <iostream>| is for including the standard input and
@@ -82,6 +90,7 @@ $0$. However, it's still a good habit to keep them at the end of the
 
 Below is an example with many outputs.
 
+\begin{cppbox}{CS0201.26050-02}{CS0201.26050-02}
 \begin{lstlisting}[style=cppstyle]
 #include <iostream>
 using namespace std;
@@ -89,15 +98,20 @@ using namespace std;
 int main() {
     cout << "I love banana. " << "Banana likes me" << endl;
     cout << "I ate five bananas today\n";
+
+    return 0;
 }
 \end{lstlisting}
+\end{cppbox}
 
 Compiling and executing returns the following.
 
+\begin{outputbox}
 \begin{lstlisting}[style=basic]
 I love banana. Banana likes me
 I ate five bananas today
 \end{lstlisting}
+\end{outputbox}
 
 Notice that we can add \verb|using namespace std;| to avoid writing
 \verb|std::| every time we need \verb|cout|. We can do this for
@@ -113,7 +127,7 @@ optimization.
 We know how to print a value. How about storing them? Let's first
 start with definitions.
 
-\begin{definition}
+\begin{definition}{}{}
 A region of a storage that a hardware can store a value is called an
 \textbf{object}. \textbf{Variables} are objects with a name.
 The \textbf{data type} is the type of value that can be stored in the
@@ -152,13 +166,16 @@ data types.
 With the data type in mind, we can declare a variable as the
 following.
 
+\begin{basicbox}
 \begin{lstlisting}[style=cppstyle]
 dataType variableName = value;
 \end{lstlisting}
+\end{basicbox}
 
 Below is a quick example of declaring a variable and printing
 the value.
 
+\begin{cppbox}{CS0201.26050-03}{CS0201.26050-03}
 \begin{lstlisting}[style=cppstyle]
 #include <iostream>
 
@@ -172,6 +189,7 @@ int main() {
     return 0;
 }
 \end{lstlisting}
+\end{cppbox}
 
 Notice that it is important to use quotation when declaring a
 string, and we can use simple operations when declaring a variable.
@@ -179,6 +197,7 @@ This time, let's take a look at another example where we can
 take in the value of a variable and declare variables of the same
 type.
 
+\begin{cppbox}{CS0201.26050-04}{CS0201.26050-04}
 \begin{lstlisting}[style=cppstyle]
 #include <iostream>
 
@@ -192,17 +211,21 @@ int main() {
     return 0;
 }
 \end{lstlisting}
+\end{cppbox}
 
 When you compile and run it, we can get a simple calculator that
 can add two numbers with adequate size (32-bit).
 
+\begin{outputbox}
 \begin{lstlisting}[style=basic]
 Type two numbers to add: 12345 67890
 Your sum is: 80235
 \end{lstlisting}
+\end{outputbox}
 
 If you don't want the value of $a$ to change, we can use \verb|const|.
 
+\begin{cppbox}{CS0201.26050-05}{CS0201.26050-05}
 \begin{lstlisting}[style=cppstyle]
 #include <iostream>
 
@@ -217,13 +240,16 @@ int main() {
     return 0;
 }
 \end{lstlisting}
+\end{cppbox}
 
 In this variation, $a$ is fixed as $5$ and cannot be changed.
 
+\begin{outputbox}
 \begin{lstlisting}[style=basic]
 Type a number: 123456789
 123456789 + 5 = 123456794
 \end{lstlisting}
+\end{outputbox}
 
 Now that we can take inputs and print outputs with various data types,
 let's discuss about loops and conditions.

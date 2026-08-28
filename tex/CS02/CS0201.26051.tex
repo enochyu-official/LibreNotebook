@@ -1,4 +1,4 @@
-\documentclass[../main.tex]{subfiles}
+\documentclass[../../main.tex]{subfiles}
 
 \begin{document}
 
@@ -11,18 +11,22 @@ the value, or increase or decrease, by $1$ with \verb|i++| and
 
 For instance if we do the following,
 
+\begin{basicbox}
 \begin{lstlisting}[style=basic]
 i = 5
 i++
 \end{lstlisting}
+\end{basicbox}
 
 then it is equivalent of the following statements.
 
+\begin{basicbox}
 \begin{lstlisting}[style=basic]
 i = 5
 i = i + 1
 i = 6
 \end{lstlisting}
+\end{basicbox}
 
 Similarly, \verb|i--| is identical to saying \verb|i = i - 1|.
 There is also \verb|++i| and \verb|--i|, which first increments or
@@ -48,6 +52,7 @@ the user input? Fortunately, we could achieve that through
 if-else statements without manual human inspections. If, else,
 if-else statements have the following forms.
 
+\begin{basicbox}
 \begin{lstlisting}[style=basic]
 if (condition) {
     body
@@ -57,9 +62,11 @@ if (condition) {
     body
 }
 \end{lstlisting}
+\end{basicbox}
 
 Let's take a look at a quick example.
 
+\begin{cppbox}{CS0201.26051-01}{CS0201.26051-01}
 \begin{lstlisting}[style=cppstyle]
 #include <iostream>
 
@@ -80,12 +87,14 @@ int main() {
     return 0;
 }
 \end{lstlisting}
+\end{cppbox}
 
 In this short example, we compare an input from the user with $10$.
 As you can see, we must use \verb|a == 10|, not \verb|a = 10|, as
 it would be declaring $a$ as ten. We can see that our program works
 as expected!
 
+\begin{outputbox}
 \begin{lstlisting}[style=basic]
 $ ./program
 Enter a number: -1
@@ -99,10 +108,12 @@ $ ./program
 Enter a number: 11
 Your number is greater than ten!
 \end{lstlisting}
+\end{outputbox}
 
 Instead of comparing numbers, we could also use statements for
 comparing strings.
 
+\begin{cppbox}{CS0201.26051-02}{CS0201.26051-02}
 \begin{lstlisting}[style=cppstyle]
 #include <iostream>
 
@@ -124,12 +135,14 @@ int main() {
     return 0;
 }
 \end{lstlisting}
+\end{cppbox}
 
 As you can see from the example above we can take in the boolean
 value. An alternative way would be directly putting
 \verb|input == password| in the condition for if without defining
 a new variable.
 
+\begin{outputbox}
 \begin{lstlisting}[style=basic]
 $ ./program
 Enter your password: password
@@ -139,6 +152,7 @@ $ ./program
 Enter your password: Password
 Incorrect!
 \end{lstlisting}
+\end{outputbox}
 
 If you have fixed options, and you don't want to type every
 syntax for if-else statements, we can use \textbf{switch}
@@ -148,6 +162,7 @@ statements.
 
 Switch statements have the following structure.
 
+\begin{basicbox}
 \begin{lstlisting}[style=basic]
 switch (expression) {
     case case1:
@@ -159,10 +174,12 @@ switch (expression) {
         block
 }
 \end{lstlisting}
+\end{basicbox}
 
 Here, \verb|break| and \verb|default| are optional, but nice to
 have. Consider the following example for more intuitive explanation.
 
+\begin{cppbox}{CS0201.26051-03}{CS0201.26051-03}
 \begin{lstlisting}[style=cppstyle]
 #include <iostream>
 
@@ -193,6 +210,7 @@ int main() {
     return 0;
 }
 \end{lstlisting}
+\end{cppbox}
 
 Here, the program would go through all the options to see
 if there are any matching cases. If not, it will execute
@@ -200,6 +218,7 @@ if there are any matching cases. If not, it will execute
 switch statement after finding the right case, we can do so
 with the \verb|break| keyword.
 
+\begin{outputbox}
 \begin{lstlisting}[style=basic]
 $ ./program
 Choices for Breakfast:
@@ -219,6 +238,7 @@ What would you like for breakfast today?
 D
 Please choose from the options
 \end{lstlisting}
+\end{outputbox}
 
 With the basic ideas of conditions in mind, let's discuss different
 loops for C++.
@@ -232,11 +252,13 @@ First, let's start with for loops.
 
 For loops retain the following structure.
 
+\begin{basicbox}
 \begin{lstlisting}[style=basic]
 for (start; condition; update) {
     body
 }
 \end{lstlisting}
+\end{basicbox}
 
 The introduction of loops really made our lives easier. One of the
 reason why we write program is to avoid repetitive tasks and work
@@ -245,6 +267,7 @@ times on the screen. Without loops, we may have to use \verb|cout|
 five times, which is ridiculous if the number increase to hundreds
 and thousands. Instead, we can use a for loop.
 
+\begin{cppbox}{CS0201.26051-04}{CS0201.26051-04}
 \begin{lstlisting}[style=cppstyle]
 #include <iostream>
 
@@ -256,12 +279,14 @@ int main() {
     return 0;
 }
 \end{lstlisting}
+\end{cppbox}
 
 When we compile and run, it is telling the computer to print
 ``I ate six bananas'' if $i < 5$ starting from $i = 0$ where it
 increments by $1$ after each pass. As expected, we will get the
 following result.
 
+\begin{outputbox}
 \begin{lstlisting}[style=basic]
 I ate six bananas
 I ate six bananas
@@ -269,9 +294,11 @@ I ate six bananas
 I ate six bananas
 I ate six bananas
 \end{lstlisting}
+\end{outputbox}
 
 A more practical use of for loops would be this.
 
+\begin{cppbox}{CS0201.26051-05}{CS0201.26051-05}
 \begin{lstlisting}[style=cppstyle]
 #include <iostream>
 
@@ -283,10 +310,12 @@ int main() {
     return 0;
 }
 \end{lstlisting}
+\end{cppbox}
 
 Instead of manually changing the numbers, the loop will display
 the following.
 
+\begin{outputbox}
 \begin{lstlisting}[style=basic]
 I ate 2 bananas
 I ate 3 bananas
@@ -294,6 +323,7 @@ I ate 4 bananas
 I ate 5 bananas
 I ate 6 bananas
 \end{lstlisting}
+\end{outputbox}
 
 With this, it is natural to consider for loops inside a for loop.
 This is called \textbf{nested loop} made with for loops. Consider
@@ -302,6 +332,7 @@ my breakfast assuming there exists three distinct bananas and
 two distinct apple where I must eat exactly one banana and exactly
 one apple.
 
+\begin{cppbox}{CS0201.26051-06}{CS0201.26051-06}
 \begin{lstlisting}[style=cppstyle]
 #include <iostream>
 
@@ -316,6 +347,7 @@ int main() {
     return 0;
 }
 \end{lstlisting}
+\end{cppbox}
 
 This will run the inner loop when $i = 0$, $i = 1$, and $i = 3$.
 We also have to start from $i = 1$ and $j = 1$ or add the
@@ -323,6 +355,7 @@ displayed number by $1$, or else we will get Banana $0$ and
 Apple $0$. Compiling and running, we can notice that we get
 $3 \cdot 2 = 6$ distinct combinations.
 
+\begin{outputbox}
 \begin{lstlisting}[style=basic]
 Banana 1 and Apple 1
 Banana 1 and Apple 2
@@ -331,6 +364,7 @@ Banana 2 and Apple 2
 Banana 3 and Apple 1
 Banana 3 and Apple 2
 \end{lstlisting}
+\end{outputbox}
 
 Moving on from for loops, let's discuss while loops.
 
@@ -338,15 +372,18 @@ Moving on from for loops, let's discuss while loops.
 
 While loops have the following form.
 
+\begin{basicbox}
 \begin{lstlisting}[style=basic]
 while (condition) {
     body
 }
 \end{lstlisting}
+\end{basicbox}
 
 There are many things that we can do with while loops. Below are
 two simple examples.
 
+\begin{cppbox}{CS0201.26051-07}{CS0201.26051-07}
 \begin{lstlisting}[style=cppstyle]
 #include <iostream>
 
@@ -362,17 +399,21 @@ int main() {
     return 0;
 }
 \end{lstlisting}
+\end{cppbox}
 
 The code block inside the while loop will iterate until $i$ reaches
 $1$.
 
+\begin{outputbox}
 \begin{lstlisting}[style=basic]
 10 9 8 7 6 5 4 3 2 1
 \end{lstlisting}
+\end{outputbox}
 
 Unlike the first example, the second example uses boolean for the
 condition.
 
+\begin{cppbox}{CS0201.26051-08}{CS0201.26051-08}
 \begin{lstlisting}[style=cppstyle]
 #include <iostream>
 
@@ -396,6 +437,7 @@ int main() {
     return 0;
 }
 \end{lstlisting}
+\end{cppbox}
 
 This program will ask the user the same question with feedback
 until the boolean value \verb|wrong| is false, or the answer is
@@ -403,6 +445,7 @@ correct. Notice that it is important to put
 \verb|std::cout << ":(\n";| in \verb|else| to prevent it showing
 when the answer is correct.
 
+\begin{outputbox}
 \begin{lstlisting}[style=basic]
 Guess which year I was born in!
 1234
@@ -414,6 +457,7 @@ Guess which year I was born in!
 9999
 Correct!
 \end{lstlisting}
+\end{outputbox}
 
 Lastly, below is an introduction to another loop.
 
@@ -426,15 +470,17 @@ time, then check if next run is eligible even if the first pass does
 not meet the condition. Below is the general structure of do/while
 loops.
 
+\begin{basicbox}
 \begin{lstlisting}[style=basic]
 do {
     block
-}
-while (condition);
+} while (condition);
 \end{lstlisting}
+\end{basicbox}
 
 Consider the following example.
 
+\begin{cppbox}{CS0201.26051-09}{CS0201.26051-09}
 \begin{lstlisting}[style=cppstyle]
 #include <iostream>
 
@@ -448,20 +494,23 @@ int main() {
     return 0;
 }
 \end{lstlisting}
+\end{cppbox}
 
 With the traditional while loop, no outputs are expected. However,
 do/while loop will give a different result.
 
+\begin{outputbox}
 \begin{lstlisting}[style=basic]
 Correct!
 \end{lstlisting}
+\end{outputbox}
 
 Notice that even if the condition is false for the first pass,
 the block still runs anyhow.
 
 This is it for the basics of conditionals and loops! Before discussing
-fundamental algorithms, let's discuss additional essential topics
-and tools that we have to use.
+fundamental algorithms, let's discuss more essential topics on
+functions and references.
 
 \end{document}
 
