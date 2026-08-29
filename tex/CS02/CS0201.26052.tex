@@ -138,26 +138,151 @@ One of the primary goals of writing codes for competitive programming
 is efficiency. Indeed most, if not all, codes written for competitions
 are not maintained as the main purpose is to solve problems
 efficiently \cite{CS02-3}. Moreover, it is important that your
-program is fast enough to execute under the time limit.
+program is fast enough to execute under the time limit. One way to
+achieve this is by preventing making of copies, and this is where
+reference comes in.
 
+References and pointers serves different purposes, although they look
+similar. Indeed, references are using pointers behind the scenes.
+However there are much more topics to discuss for pointers, and let's
+focus on references for now for the purpose of this note.
 
+\begin{definition}{}{}
+A \textbf{reference} is an alias of an existing object that allows
+indirect access to the object.
+\end{definition}
 
+Let's take a look at a quick example.
 
+\begin{cppbox}{CS0201.26052-03}{CS0201.26052-03}
+\begin{lstlisting}[style=cppstyle]
+#include <iostream>
 
+int main() {
+    int a = 5;
+    int& ref = a; // reference to a
 
+    std::cout << "ref: " << ref << "\n";
+    std::cout << "a:   " << a   << "\n";
+    ref++;
+    std::cout << "After adding 1 to ref\n";
+    std::cout << "ref: " << ref << "\n";
+    std::cout << "a:   " << a   << "\n";
 
+    return 0;
+}
+\end{lstlisting}
+\end{cppbox}
+
+When declaring a reference, we use the ampersand \&. Technically
+\verb|int& ref| and \verb|int &ref| does the same thing, but let's
+use the first one to be consistent. Here, \verb|ref| is our
+reference to \verb|a|. Unlike declaring \verb|int ref = a;|, which
+creates a copy of \verb|a|, reference become an alias of \verb|a|
+that we can use to edit \verb|a|. Below is the output from running
+the code.
+
+\begin{outputbox}
+\begin{lstlisting}[style=basic]
+ref: 5
+a:   5
+After adding 1 to ref
+ref: 6
+a:   6
+\end{lstlisting}
+\end{outputbox}
+
+As you can see above, incrementing \verb|ref| also increments \verb|a|
+as they refer to the same object. One of the most common application
+of reference is passing arguments in functions \cite{CS02-5}.
+Consider the example below.
+
+\begin{cppbox}{CS0201.26052-04}{CS0201.26052-04}
+\begin{lstlisting}[style=cppstyle]
+#include <iostream>
+
+void increment1(int a) {
+    a++;
+    std::cout << a << "\n";
+}
+
+void increment2(int& a) {
+    a++;
+    std::cout << a << "\n";
+}
+
+int main() {
+    int x = 5;
+    increment1(x);
+    x = 5;
+    increment2(x);
+
+    return 0;
+}
+\end{lstlisting}
+\end{cppbox}
+
+In the example above, the difference in performance between the
+two functions are trivial. However, the first function creates
+a local copy of $x$ while the second one doesn't. Passing arguments
+by reference can be especially helpful when we are dealing with
+large objects. Indeed, copying large objects won't be as efficient
+as just indirectly adjusting the original value.
+
+\begin{outputbox}
+\begin{lstlisting}[style=basic]
+5
+6
+\end{lstlisting}
+\end{outputbox}
+
+Another use case of reference in arguments is that we can directly
+change the value. Let's tweak our code above to further elaborate
+on the point above.
+
+\begin{cppbox}{CS0201.26052-05}{CS0201.26052-05}
+\begin{lstlisting}[style=cppstyle]
+#include <iostream>
+
+void increment1(int a) {
+    a++;
+}
+
+void increment2(int& a) {
+    a++;
+}
+
+int main() {
+    int x = 5;
+    increment1(x);
+    std::cout << x << "\n";
+
+    x = 5;
+    increment2(x);
+    std::cout << x << "\n";
+
+    return 0;
+}
+\end{lstlisting}
+\end{cppbox}
+
+This time, we have \verb|cout| in the \verb|main| function. As
+mentioned previously, the first function creates a local copy and
+adjust the copy. Meaning, the original values does not change.
+However, the second function changes the original value. Therefore,
+the values $5$ and $6$ must be the outputs.
+
+\begin{outputbox}
+\begin{lstlisting}[style=basic]
+5
+6
+\end{lstlisting}
+\end{outputbox}
+
+References are frequently used for efficiency and cleaner code.
+Before getting into exciting data structures and algorithms,
+let's discuss arrays and vectors.
 
 \end{document}
 
 
-\begin{cppbox}
-\begin{lstlisting}[style=cppstyle]
-
-\end{lstlisting}
-\end{cppbox}
-
-\begin{outputbox}
-\begin{lstlisting}[style=basic]
-
-\end{lstlisting}
-\end{outputbox}

@@ -34,6 +34,9 @@
 * CS0107.26022 - Change format
 
 ## CS02
+* CS0201.26052
+  * Function Recursion
+* Fast I/O
 * Data Structures
   * Array
   * Quees

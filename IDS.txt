@@ -19,7 +19,7 @@ CS0104         | Deep Dive into Deep Neural Networks
 CS0105         | Building Language Models
 CS0106         | AI and The Future
 CS0107         | Further Resources
-CS0201         | C++ for Competitive Programming
+CS0201         | C++ Basics
 
 # Sections
 MATH0100.26001 | INIT
