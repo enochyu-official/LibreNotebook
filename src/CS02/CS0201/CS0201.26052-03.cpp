@@ -1,15 +1,16 @@
 #include <iostream>
 
 int main() {
-    int a = 5;
-    int& ref = a; // reference to a
+    int n;
+    int sum = 0;
 
-    std::cout << "ref: " << ref << "\n";
-    std::cout << "a:   " << a   << "\n";
-    ref++;
-    std::cout << "After adding 1 to ref\n";
-    std::cout << "ref: " << ref << "\n";
-    std::cout << "a:   " << a   << "\n";
+    std::cout << "Enter n: ";
+    std::cin >> n;
+
+    for (int i = 1; i <= n; i++) {
+        sum += i;
+    }
+    std::cout << "Sum: " << sum << "\n";
 
     return 0;
 }

@@ -1,21 +1,15 @@
 #include <iostream>
 
-void increment1(int a) {
-    a++;
-}
-
-void increment2(int& a) {
-    a++;
-}
-
 int main() {
-    int x = 5;
-    increment1(x);
-    std::cout << x << "\n";
+    int a = 5;
+    int& ref = a; // reference to a
 
-    x = 5;
-    increment2(x);
-    std::cout << x << "\n";
+    std::cout << "ref: " << ref << "\n";
+    std::cout << "a:   " << a   << "\n";
+    ref++;
+    std::cout << "After adding 1 to ref\n";
+    std::cout << "ref: " << ref << "\n";
+    std::cout << "a:   " << a   << "\n";
 
     return 0;
 }

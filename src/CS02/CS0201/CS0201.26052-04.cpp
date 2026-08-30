@@ -1,20 +1,20 @@
 #include <iostream>
 
-void increment1(int a) {
-    a++;
-    std::cout << a << "\n";
-}
-
-void increment2(int& a) {
-    a++;
-    std::cout << a << "\n";
+int sum(int n) {
+    if (n > 0) {
+        return n + sum(n-1);
+    } else {
+        return 0;
+    }
 }
 
 int main() {
-    int x = 5;
-    increment1(x);
-    x = 5;
-    increment2(x);
+    int n;
+
+    std::cout << "Enter n: ";
+    std::cin >> n;
+    
+    std::cout << "Sum: " << sum(n) << "\n";
 
     return 0;
 }

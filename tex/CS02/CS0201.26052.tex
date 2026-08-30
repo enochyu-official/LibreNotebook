@@ -129,8 +129,128 @@ we can call a function as an input of different function.
 \end{lstlisting}
 \end{outputbox}
 
-With the ideas of functions in mind, we can continue with another
-important topic of references.
+Another very important technique that allows us to break down hard
+problems into simpler problems is recursion.
+
+\subsubsection{Recursion}
+
+As always, let's get started with definition.
+
+\begin{definition}{}{}
+A technique of calling a function in the function itself is
+\textbf{recursion}.
+\end{definition}
+
+The technique is rather straight forward when we look at some
+examples.
+
+\begin{problem}{}{}
+Write a code that returns the sum of integers from $1$ to $n$
+inclusive were $n$ is any input.
+\end{problem}
+\begin{solution}
+There are few ways of solving this problem. First, we can use a
+simple for loop. Consider the following program.
+
+\begin{cppbox}{CS0201.26052-03}{CS0201.26052-03}
+\begin{lstlisting}[style=cppstyle]
+#include <iostream>
+
+int main() {
+    int n;
+    int sum = 0;
+
+    std::cout << "Enter n: ";
+    std::cin >> n;
+
+    for (int i = 1; i <= n; i++) {
+        sum += i;
+    }
+    std::cout << "Sum: " << sum << "\n";
+
+    return 0;
+}
+\end{lstlisting}
+\end{cppbox}
+
+In the code above, we use a simple loop without compound assignment
+operator to find the sum from $1$ to any positive input $n$.
+
+\begin{outputbox}
+\begin{lstlisting}[style=basic]
+Enter n: 3
+Sum: 6
+\end{lstlisting}
+\end{outputbox}
+
+Below is another output.
+
+\begin{outputbox}
+\begin{lstlisting}[style=basic]
+Enter n: 10
+Sum: 55
+\end{lstlisting}
+\end{outputbox}
+
+Although this method works for simple example like this, we can also
+use recursion.
+
+\begin{cppbox}{CS0201.26052-04}{CS0201.26052-04}
+\begin{lstlisting}[style=cppstyle]
+#include <iostream>
+
+int sum(int n) {
+    if (n > 0) {
+        return n + sum(n-1);
+    } else {
+        return 0;
+    }
+}
+
+int main() {
+    int n;
+
+    std::cout << "Enter n: ";
+    std::cin >> n;
+    
+    std::cout << "Sum: " << sum(n) << "\n";
+
+    return 0;
+}
+\end{lstlisting}
+\end{cppbox}
+
+In the code above, we have a function \verb|sum| that returns
+\verb|n + sum(n-1)|. We also need \verb|return 0| as our base case.
+If $n = 5$, then it will return \verb|5 + sum(4)| which continues as
+\verb|5 + 4 + sum(3)| until we have $5 + 4 + 3 + 2 + 1 + 0$. With
+recursion, we broke down a hard problem of adding a range of numbers
+to a simple problem of adding two numbers.
+
+\begin{outputbox}
+\begin{lstlisting}[style=basic]
+Enter n: 3
+Sum: 6
+\end{lstlisting}
+\end{outputbox}
+
+Below is another output.
+
+\begin{outputbox}
+\begin{lstlisting}[style=basic]
+Enter n: 10
+Sum: 55
+\end{lstlisting}
+\end{outputbox}
+
+As shown above, both methods work.
+\end{solution}
+
+For a simple problem like the exercise above, the could be a more
+simple solution than recursion. However, the technique will come
+very handy when the problem gets harder. Now with the ideas of
+functions in mind, we can continue with another important topic of
+references.
 
 \subsection{References}
 
@@ -154,7 +274,7 @@ indirect access to the object.
 
 Let's take a look at a quick example.
 
-\begin{cppbox}{CS0201.26052-03}{CS0201.26052-03}
+\begin{cppbox}{CS0201.26052-05}{CS0201.26052-05}
 \begin{lstlisting}[style=cppstyle]
 #include <iostream>
 
@@ -197,7 +317,7 @@ as they refer to the same object. One of the most common application
 of reference is passing arguments in functions \cite{CS02-5}.
 Consider the example below.
 
-\begin{cppbox}{CS0201.26052-04}{CS0201.26052-04}
+\begin{cppbox}{CS0201.26052-06}{CS0201.26052-06}
 \begin{lstlisting}[style=cppstyle]
 #include <iostream>
 
@@ -240,7 +360,7 @@ Another use case of reference in arguments is that we can directly
 change the value. Let's tweak our code above to further elaborate
 on the point above.
 
-\begin{cppbox}{CS0201.26052-05}{CS0201.26052-05}
+\begin{cppbox}{CS0201.26052-07}{CS0201.26052-07}
 \begin{lstlisting}[style=cppstyle]
 #include <iostream>
 

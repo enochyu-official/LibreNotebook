@@ -75,6 +75,7 @@ MATH0205.26048 | Final Thoughts
   CS0201.26051 | Conditionals and Loops
   CS0201.26052 | Functions and References
   CS0201.26053 | Arrays and Vectors
+  CS0201.26054 | Practice Problems and Solutions
 
 
 

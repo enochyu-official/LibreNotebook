@@ -1,8 +1,5 @@
 # To Do List
 
-## Preface
-* Contributing
-
 ## MATH01
 * MATH0101.26002
   * Second problem for AM-GM Inequality
@@ -34,8 +31,6 @@
 * CS0107.26022 - Change format
 
 ## CS02
-* CS0201.26052
-  * Function Recursion
 * Fast I/O
 * Data Structures
   * Array
@@ -78,4 +73,5 @@
 * Game Theory
 
 
+* CS0201.26054-04 Fix bug
 
