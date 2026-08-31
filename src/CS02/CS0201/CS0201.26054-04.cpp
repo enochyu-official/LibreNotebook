@@ -1,6 +1,6 @@
-/*** IN PROGRESS
+/**
  * Enoch Yu
- * USACO 2020 January (Bronze)
+ * 2020 USACO Second Bronze
  * Problem 1. Word Processor
  *
  * .size() for num char
@@ -16,8 +16,10 @@
 
 int sumChar(int& numChar, int a, int N, int K,
             std::string sentence[]) {
-    while (numChar <= K) {
-        if (a < N-1) {
+    while (numChar <= K && a < N+1) {
+        if (a == N) {
+            a++;
+        } else {
             numChar += sentence[a].size();
             a++;
         }
@@ -30,20 +32,35 @@ void wordProcessor(int a, int N, int K, std::string sentence[]) {
     int numChar = 0;
     int b = sumChar(numChar, a, N, K, sentence) - 1;
 
-    for (int i = a; i < b; i++) {
-        if (i != b-1) {
-            std::cout << sentence[i] << " ";
-        } else {
-            std::cout << sentence[i];
+    /* Second to the last gives
+       n-2 -> n-1 -> n -> n-1
+       Last line gives
+       n-1 -> n -> n + 1 -> n */
+    if (a < N-1 && b < N) {
+        for (int i = a; i < b; i++) {
+            if (i < b-1) {
+                std::cout << sentence[i] << " ";
+            } else {
+                std::cout << sentence[i];
+            }
         }
+        std::cout << "\n";
+    } else if (a < N-1 && b == N) {
+        for (int i = a; i < b; i++) {
+            if (i <= b-2) {
+                std::cout << sentence[i] << " ";
+            } else {
+                std::cout << sentence[N-1];
+            }
+        }
+        std::cout << "\n";
+        return;
+    } else if (a == N-1) {
+        std::cout << sentence[N-1] << "\n";
+        return;
     }
-    std::cout << "\n";
 
-    if (b < N) {
-        wordProcessor(b, N, K, sentence);
-    } else {
-        std::cout << sentence[b] << "\n";
-    }
+    wordProcessor(b, N, K, sentence);
 }
 
 int main() {

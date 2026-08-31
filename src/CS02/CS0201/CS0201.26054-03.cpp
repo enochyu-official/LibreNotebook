@@ -1,6 +1,6 @@
-/***
+/**
  * Enoch Yu
- * USACO 2020 December (Bronze)
+ * 2020 USACO First Bronze
  * Problem 1. Do You Know Your ABCs?
  *
  * (A + B) + (B + C) - (A + B + C) = B

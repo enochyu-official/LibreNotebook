@@ -1,6 +1,6 @@
-/***
+/**
  * Enoch Yu
- * USACO 2018 February (Bronze)
+ * 2018 USACO Third Bronze
  * Problem 1. Teleportation
  *
  * a b x y

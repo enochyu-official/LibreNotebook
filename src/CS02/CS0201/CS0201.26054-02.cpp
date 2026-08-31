@@ -1,6 +1,6 @@
-/***
+/**
  * Enoch Yu
- * USACO 2016 January (Bronze)
+ * 2016 USACO Second Bronze
  * Problem 1. Promoting Counting
  *
  * Detailed Thought Process Below the Program

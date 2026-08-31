@@ -28,7 +28,6 @@
 * CS0105.26019
 * CS0105.26020
 * CS0106.26021
-* CS0107.26022 - Change format
 
 ## CS02
 * Fast I/O
@@ -72,6 +71,4 @@
 * Dynamic Programming
 * Game Theory
 
-
-* CS0201.26054-04 Fix bug
 

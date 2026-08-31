@@ -1,4 +1,4 @@
-/***
+/**
  * Enoch Yu
  * Codeforces
  * Problem 4A. Watermelon
