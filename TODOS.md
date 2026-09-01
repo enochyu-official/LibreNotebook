@@ -31,34 +31,53 @@
 
 ## CS02
 * Fast I/O
+* Basic Concepts
+  * Analysis
+    * Order of Growth
+    * Asymptotic Analysis
+    * Big O Notation, Theta, Big Omega
+    * Time Complexity, Space Complexity
+    * Common Runtimes
+  * Data Structures
+
+* Search
+  * Linear Search
+  * Binary Search
+* Sorting
+  * Bubble
+  * Selection
+  * Insertion
+  * Heap
+  * Quick
+  * Counting
+  * Radix
+  * Merge
+* Bit Manipulation
+* Advanced
+  * Hash Tables, Sets, Maps
+  * Hashing
+  * Two-pointer
+  * Linked-list
+
+  * Stack
+  * Queue
+
+  * Deque
+  * Binary Tree
+  * Graph
+  * Greedy
+* Dynamic Programming
+
 * Data Structures
   * Array
-  * Quees
-  * Stacks
-  * Hash Tables
-  * Linked lists
   * Min max heaps
   * Policy based data structures
-* Repetition, Consition, Array, Functions, Brute Force, Bit manipulation
+* Repetition, Consition, Functions, Brute Force, Bit manipulation
 * Algorithms
-  * Search algorithms
-    * Binary search
-    * Linear search
-  * Sorting Algorithms
-    * Bubble Sort
-    * Merge Sort
-    * Insertion Sort
-    * Quick Sort
-    * Selection Sort
-    * Heap Sort
   * Greedy
   * Tree Algorithsm
   * Graph Algorithms
   * String Algorithms
-* Algorithmic COmplexity
-  * Time vs space
-  * Aymtptotic Notation
-  * Common Runtimes
 * Array characters, Simulation, Simple Demo
 * Data Structures
   * Graph Data Structures
@@ -67,8 +86,6 @@
   * Complex Data Structures
 * Problem solving techniques
 * BFS/DFS
-* Two pointers
-* Dynamic Programming
 * Game Theory
 
 
