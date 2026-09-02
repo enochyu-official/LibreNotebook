@@ -33,6 +33,7 @@ CS0106         | AI and The Future
 CS0107         | Further Resources
 
 CS0201         | C++ Basics
+CS0202         | Foundations
 ----------------------------------------------------------------------
 
 
@@ -41,7 +42,7 @@ Section III. Sections
 MATH0100.26001 | INIT
 MATH0101.26002 | Classic Inequalities
 MATH0101.26003 | Advanced Inequalities
-MATH0101.26004 | Inequalities Techniques
+MATH0101.26004 | Techniques and Patterns
 MATH0101.26005 | Practice Problems
   CS0100.26006 | INIT
   CS0101.26007 | Calculus
@@ -97,6 +98,7 @@ MATH0205.26048 | Final Thoughts
   CS0201.26052 | Functions and References
   CS0201.26053 | Arrays and Vectors
   CS0201.26054 | Practice Problems and Solutions
+  CS0202.26055 | Time Complexity
 ----------------------------------------------------------------------
 
 END OF INDEX

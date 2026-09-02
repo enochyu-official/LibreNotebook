@@ -32,12 +32,6 @@
 ## CS02
 * Fast I/O
 * Basic Concepts
-  * Analysis
-    * Order of Growth
-    * Asymptotic Analysis
-    * Big O Notation, Theta, Big Omega
-    * Time Complexity, Space Complexity
-    * Common Runtimes
   * Data Structures
 
 * Search
