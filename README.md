@@ -1,8 +1,8 @@
 # LibreNotebook
 
 LibreNotebook is Enoch Yu's giant and free personal notebook.
-The most recent draft is available
-[HERE](https://archive.enochyu.com/mathematics/pdf/26100.pdf)!
+The [most recent draft](https://archive.enochyu.com/mathematics/pdf/26100.pdf)
+is available as a PDF file.
 The purpose is to inspire and accelerate open education as a
 way of returning the blessings that I received from public
 educational resources.

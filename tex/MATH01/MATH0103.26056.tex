@@ -1,0 +1,148 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{Euclidean Geometry}
+
+
+
+\section{Power of a Point}
+
+You might already be very familiar with this topic if you have
+math competition background. However, I wanted to revisit this
+topic as it is surprisingly common topic in math olympiad.
+However, the difference could be finding patterns and more
+advanced topics from power of a point. With that in mind,
+let's review some of the topics.
+
+\begin{definition}{}{}
+The \textbf{power of a point} of $P$ with respect to a circle
+$\omega$ represented as $P_\omega(P) = PO^2 - r^2$ where $O$
+and $r$ the center and radius of $\omega$ respectively.
+\end{definition}
+
+The power of a point is a numeric value that describes the
+relationship between the circle and the point. Before reviewing
+the relationship, let's first derive the formula in the definition.
+The theorem below is the heart of all concepts in this section.
+
+\begin{theorem}
+{Power of a Point Theorem}
+{Power of a Point Theorem}
+Let $P$ be a point and $\omega$ be a circle on the same space.
+If lines $l_1$ and $l_2$ that passes through $P$ meets $\omega$
+at $A$, $B$ and $C$, $D$ (not necessarily distinct) respectively,
+then $PA \cdot PB = PC \cdot PD$.
+\end{theorem}
+
+If you read the other notes, you may have noticed that I try my
+best to include proofs for all theorems included. However, let's
+skip the proof for now for the purpose of this note.
+
+From the theorem above, we can deduce that $PX \cdot PY$, where
+$X$ and $Y$ are points on $\omega$ such that $P, X, Y$ are collinear,
+is always consistent. With that in mind, consider the following
+diagram.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=0.5]
+    \draw[thick] (0,0) circle (5);
+    \draw[dotted,thick] (0,0) -- (0,5);
+    \draw[thick] (-15,5) -- (0,5);
+    \draw[thick] (-15,5) --
+        (1.5842608196170644,-4.742374685263309);
+    \draw[thick] (-15,5) -- (0,0);
+
+    \draw[fill=BrickRed] (-15,5) circle (0.15)
+        node[above left] {$P$};
+    \draw[fill=BrickRed] (0,0) circle (0.15)
+        node[above right] {$O$};
+    \draw[fill=black] (0,5) circle (0.1)
+        node[above] {$B$};
+    \draw[fill=black] (-4.913656347294443,-0.9251925749232064)
+        circle (0.1) node[below left] {$X$};
+    \draw[fill=black] (1.5842608196170644,-4.742374685263309)
+        circle (0.1) node[below right] {$Y$};
+\end{tikzpicture}
+\end{figure}
+
+By the theorem, $P_\omega(P) = PX \cdot PY = PB \cdot PB$. Moreover
+by the definition of a line tangent to a circle, $PB \perp BO$ and
+$PO^2 = PB^2 + r^2$ by Pythagorean Theorem. Therefore, $P_\omega(P)
+= PO^2 - r^2$.
+
+\begin{tip}
+With the definition, we can derive trivial relationship between
+the power of a point and the location of the point.
+If $P_\omega(P) < 0$, then $P$ is inside $\omega$.
+If $P_\omega(P) = 0$, then $P$ is on $\omega$ and $P$ is outside
+$\omega$ if and only if $P_\omega(P) > 0$.
+\end{tip}
+
+Continuing from the definition, we can derive another priceless
+definition that is one of the foundational concept in olympiad
+geometry.
+
+\begin{definition}{}{}
+The \textbf{radical axis} of two circles $\omega_1$ and $\omega_2$
+with different center is the locus of $P$ such that $P_{\omega_1}(P)
+= P_{\omega_2}(P)$.
+\end{definition}
+
+Another way of thinking about this is that a point $P$ is on the
+radical axis if and only if $O_1P^2 - r_1^2 = O_2P^2 - r_2^2$
+by definition.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=0.6]
+    \draw[thick] (-2,0) circle (3);
+    \draw[thick] (2,0) circle (3);
+    \draw[thick,dotted] (-6,0) -- (6,0);
+    \draw[thick,BrickRed] (0,-4) -- (0,4);
+
+    \draw[fill=black] (-2,0) circle (0.1)
+        node[below left] {$O_1$};
+    \draw[fill=black] (2,0) circle (0.1)
+        node[below right] {$O_2$};
+    \draw[fill=BrickRed] (0,2.23606797749979) circle (0.15);
+    \draw[fill=BrickRed] (0,-2.23606797749979) circle (0.15);
+\end{tikzpicture}
+\end{figure}
+
+Continuing, there is another very properties of radical axis.
+
+\begin{theorem}
+{Properties of Radical Axis}
+{Properties of Radical Axis}
+\begin{enumerate}
+\item The radical axis is always a straight line.
+\item The radical axis of $\omega_1$ and $\omega_2$ is always
+perpendicular to the line that pass through two origins of
+$\omega_1$ and $\omega_2$.
+\end{enumerate}
+\end{theorem}
+
+Let's first prove the first property.
+
+\begin{proof}
+
+
+\end{proof}
+
+Continuing, we can prove the second property.
+
+\begin{proof}
+
+
+\end{proof}
+
+Five special positions
+add more lemmas and practice problems
+
+
+
+\end{document}
+
+
