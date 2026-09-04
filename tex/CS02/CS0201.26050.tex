@@ -251,6 +251,24 @@ Type a number: 123456789
 \end{lstlisting}
 \end{outputbox}
 
+One more thing to keep in mind about inputs is that some competitions
+and older USACO takes file as an input. In that case, we can do the
+same by using this template.
+
+\begin{basicbox}
+\begin{lstlisting}[style=cppstyle]
+#include <cstdio>
+#include <iostream>
+
+int main() {
+    freopen("inputFileName.in", "r", stdin);
+    freopen("outputFileName.out", "w", stdout);
+
+    // Your code
+}
+\end{lstlisting}
+\end{basicbox}
+
 Now that we can take inputs and print outputs with various data types,
 let's discuss about loops and conditions.
 

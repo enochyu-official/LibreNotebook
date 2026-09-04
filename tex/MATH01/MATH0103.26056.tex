@@ -127,19 +127,181 @@ $\omega_1$ and $\omega_2$.
 Let's first prove the first property.
 
 \begin{proof}
-
-
+Let $\omega_1$ be a circle defined as $(x - a_1)^2 + (y - b_1)^2 =
+r_1^2$. Similarly, let $\omega_2$ be a circle $(x - a_2)^2 +
+(y - b_2)^2 = r_1^2$. Let $P(x, y)$ be any points such that
+$P_{\omega_1}(P) = P_{\omega_2}(P)$. Substituting, the following
+equation holds by definition.
+\[
+(x - a_1)^2 + (y - b_1)^2 - r_1^2 = (x - a_2)^2 + (y - b_2)^2 - r_2^2
+\]
+Expanding and rearranging the equation,
+\begin{align*}
+    x^2 - 2a_1 x + a_1^2 + y^2 - 2b_1 y + b_1^2 - r_1^2
+    &= x^2 - 2a_2 x + a_2^2 + y^2 - 2b_2 y + b_2^2 - r_2^2 \\
+    (2a_2 - 2a_1) x + (2b_2 - 2b_1) y + C &= 0
+\end{align*}
+holds where $C$ is the constant values. Notice that the locus of
+all $(x, y)$ that satisfies the equation above is a linear function.
+Thus, the radical axis is always linear.
 \end{proof}
 
-Continuing, we can prove the second property.
+Continuing, we can prove the second property. There are few ways of
+proving this, but let's take an algebraic approach with our equation
+above.
 
 \begin{proof}
-
-
+Continuing with the equation
+\[
+(2a_2 - 2a_1) x + (2b_2 - 2b_1) y + C = 0
+\]
+from the previous proof, it is evident that the slope of the line
+is $-\frac{2a_2 - 2a_1}{2b_2 - 2b_1}$. Continuing, the slope of
+the line that passes through the two centers of $\omega_1$ and
+$\omega_2$ is $\frac{b_2 - b_1}{a_2 - a_1}$. Because
+$-\frac{2a_2 - 2a_1}{2b_2 - 2b_1} \cdot \frac{b_2 - b_1}{a_2 - a_1}
+= -1$, the two lines are perpendicular to each other.
 \end{proof}
 
-Five special positions
-add more lemmas and practice problems
+Before we move on to further theorems, lemmas, definitions, and
+problems, here are five special forms that makes our lives easier
+when graphing to solve problems.
+
+\begin{minipage}{0.32\textwidth}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=0.4]
+    \draw[thick,Blue] (-3,0) circle (2.5);
+    \draw[thick,BrickRed] (0,0) circle (3.5);
+    \draw[thick,dotted] (-6.5,0) -- (4.5,0);
+    \draw[thick] (-2.5,-4.5) -- (-2.5,4.5);
+
+    \draw[fill=Blue] (-3,0) circle (0.1)
+        node[below left] {\footnotesize $O_1$};
+    \draw[fill=BrickRed] (0,0) circle (0.1)
+        node[below right] {\footnotesize $O_2$};
+    \draw[fill=black] (-2.5,2.449489742783178) circle (0.15);
+    \draw[fill=black] (-2.5,-2.449489742783178) circle (0.15);
+\end{tikzpicture}
+\end{figure}
+\end{minipage}
+\hfill
+\begin{minipage}{0.33\textwidth}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=0.4]
+    \draw[thick,Blue] (-2,0) circle (2);
+    \draw[thick,BrickRed] (3,0) circle (3);
+    \draw[thick,dotted] (-5,0) -- (7,0);
+    \draw[thick] (0,-4) -- (0,4);
+
+    \draw[fill=Blue] (-2,0) circle (0.1)
+        node[below left] {\footnotesize $O_1$};
+    \draw[fill=BrickRed] (3,0) circle (0.1)
+        node[below right] {\footnotesize $O_2$};
+    \draw[fill=black] (0,0) circle (0.15);
+\end{tikzpicture}
+\end{figure}
+\end{minipage}
+\hfill
+\begin{minipage}{0.33\textwidth}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=0.4]
+    \draw[thick,Blue] (-3,0) circle (2);
+    \draw[thick,BrickRed] (3,0) circle (3);
+    \draw[thick,dotted] (-6,0) -- (7,0);
+    \draw[thick] (-0.416666666667,-4) -- (-0.416666666667,4);
+
+    \draw[fill=Blue] (-3,0) circle (0.1)
+        node[below left] {\footnotesize $O_1$};
+    \draw[fill=BrickRed] (3,0) circle (0.1)
+        node[below right] {\footnotesize $O_2$};
+\end{tikzpicture}
+\end{figure}
+\end{minipage}
+
+\begin{minipage}{0.48\textwidth}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=0.45]
+    \draw[thick,Blue] (-2,0) circle (2.5);
+    \draw[thick,BrickRed] (0,0) circle (5);
+    \draw[thick,dotted] (-7,0) -- (6,0);
+    \draw[thick] (-5.6875,-6) -- (-5.6875,6);
+
+    \draw[fill=Blue] (-2,0) circle (0.1)
+        node[below left] {\footnotesize $O_1$};
+    \draw[fill=BrickRed] (0,0) circle (0.1)
+        node[below right] {\footnotesize $O_2$};
+\end{tikzpicture}
+\end{figure}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=0.45]
+    \draw[thick,Blue] (-2,0) circle (3);
+    \draw[thick,BrickRed] (0,0) circle (5);
+    \draw[thick,dotted] (-6,0) -- (6,0);
+    \draw[thick] (-5,-6) -- (-5,6);
+
+    \draw[fill=Blue] (-2,0) circle (0.1)
+        node[below left] {\footnotesize $O_1$};
+    \draw[fill=BrickRed] (0,0) circle (0.1)
+        node[below right] {\footnotesize $O_2$};
+\end{tikzpicture}
+\end{figure}
+\end{minipage}
+
+As you can see from the diagrams above, the fact that the radical
+axis passes through the intersection(s) of $\omega_1$ and $\omega_2$
+will come very handy when we solve problems. Also, because this
+knowledge is considered trivial and it is part of the definition,
+I believe the graders won't take points off for not proving why the
+radical axis passes through the intersection(s).
+
+Before moving on to common patterns and theorems, here is the
+final definition to keep in mind.
+
+\begin{definition}{}{}
+\textbf{Coaxial circles} are circles that share the common pairwise
+radical axis.
+\end{definition}
+
+Below is an example of three coaxial circles.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=0.7]
+    \draw[thick,Blue] (2,0) circle (3);
+    \draw[thick,BrickRed] (-2.369093593445236,0) circle (4);
+    \draw[thick,PineGreen] (-0.42615713198653143,0)
+        circle (2.8588861434377772);
+    \draw[thick,dotted] (-7.5,0) -- (6,0);
+    \draw[thick] (0.6165346919529509,-5) -- (0.6165346919529509,5);
+
+    \draw[fill=BrickRed] (-2.369093593445236,0,0) circle (0.1)
+        node[below right] {\footnotesize $O_1$};
+    \draw[fill=Blue] (2,0) circle (0.1)
+        node[below left] {\footnotesize $O_2$};
+    \draw[fill=PineGreen] (-0.426157,0) circle (0.1)
+        node[below right] {\footnotesize $O_3$};
+    \draw[fill=black] (0.6165346919529509,2.6619586287976533)
+        circle (0.15);
+    \draw[fill=black] (0.6165346919529509,-2.6619586287976533)
+        circle (0.15);
+\end{tikzpicture}
+\end{figure}
+
+The three circles $\omega_1, \omega_2, \omega_3$ are coaxial because
+the radical axis for $\omega_1, \omega_2$, for $\omega_2, \omega_3$,
+and for $\omega_3, \omega_1$ are all equal. It is also worth noting
+that three circles in this case all passes through two common
+intersections. Coaxial circles are not limited to three circles,
+but most problems would be on three circles for olympiads.
+
 
 
 

@@ -33,7 +33,6 @@
 * Fast I/O
 * Basic Concepts
   * Data Structures
-
 * Search
   * Linear Search
   * Binary Search

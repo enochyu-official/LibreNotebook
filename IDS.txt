@@ -102,6 +102,8 @@ MATH0205.26048 | Final Thoughts
   CS0201.26054 | Practice Problems and Solutions
   CS0202.26055 | Time Complexity
 MATH0103.26056 | Power of a Point
+  CS0202.26057 | Simulation
+  CS0202.26058 | Practice Problems and Solutions
 ----------------------------------------------------------------------
 
 END OF INDEX
