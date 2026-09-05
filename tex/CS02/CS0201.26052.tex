@@ -152,7 +152,7 @@ inclusive were $n$ is any input.
 There are few ways of solving this problem. First, we can use a
 simple for loop. Consider the following program.
 
-\begin{cppbox}{CS0201.26052-03}{CS0201.26052-03}
+\begin{cppboxSolution}{CS0201.26052-03}{CS0201.26052-03}
 \begin{lstlisting}[style=cppstyle]
 #include <iostream>
 
@@ -171,31 +171,31 @@ int main() {
     return 0;
 }
 \end{lstlisting}
-\end{cppbox}
+\end{cppboxSolution}
 
 In the code above, we use a simple loop without compound assignment
 operator to find the sum from $1$ to any positive input $n$.
 
-\begin{outputbox}
+\begin{outputboxSolution}
 \begin{lstlisting}[style=basic]
 Enter n: 3
 Sum: 6
 \end{lstlisting}
-\end{outputbox}
+\end{outputboxSolution}
 
 Below is another output.
 
-\begin{outputbox}
+\begin{outputboxSolution}
 \begin{lstlisting}[style=basic]
 Enter n: 10
 Sum: 55
 \end{lstlisting}
-\end{outputbox}
+\end{outputboxSolution}
 
 Although this method works for simple example like this, we can also
 use recursion.
 
-\begin{cppbox}{CS0201.26052-04}{CS0201.26052-04}
+\begin{cppboxSolution}{CS0201.26052-04}{CS0201.26052-04}
 \begin{lstlisting}[style=cppstyle]
 #include <iostream>
 
@@ -218,7 +218,7 @@ int main() {
     return 0;
 }
 \end{lstlisting}
-\end{cppbox}
+\end{cppboxSolution}
 
 In the code above, we have a function \verb|sum| that returns
 \verb|n + sum(n-1)|. We also need \verb|return 0| as our base case.
@@ -227,21 +227,21 @@ If $n = 5$, then it will return \verb|5 + sum(4)| which continues as
 recursion, we broke down a hard problem of adding a range of numbers
 to a simple problem of adding two numbers.
 
-\begin{outputbox}
+\begin{outputboxSolution}
 \begin{lstlisting}[style=basic]
 Enter n: 3
 Sum: 6
 \end{lstlisting}
-\end{outputbox}
+\end{outputboxSolution}
 
 Below is another output.
 
-\begin{outputbox}
+\begin{outputboxSolution}
 \begin{lstlisting}[style=basic]
 Enter n: 10
 Sum: 55
 \end{lstlisting}
-\end{outputbox}
+\end{outputboxSolution}
 
 As shown above, both methods work.
 \end{solution}

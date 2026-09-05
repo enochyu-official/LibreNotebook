@@ -1,5 +1,8 @@
 # To Do List
 
+## LaTeX
+* Figure out mdframed + tcolorbox with lstlisting break CS02
+
 ## MATH01
 * MATH0101.26002
   * Second problem for AM-GM Inequality
@@ -30,9 +33,8 @@
 * CS0106.26021
 
 ## CS02
+* FINISH SOLVING CS0202.26057-02
 * Fast I/O
-* Basic Concepts
-  * Data Structures
 * Search
   * Linear Search
   * Binary Search

@@ -302,6 +302,160 @@ that three circles in this case all passes through two common
 intersections. Coaxial circles are not limited to three circles,
 but most problems would be on three circles for olympiads.
 
+Before we move on to important theorems, let's solve a practice
+problem to see how problems hide this simple concept.
+
+\begin{problem}{2025 Korean MO Problem 5}{2025 Korean MO Problem 5}
+Let $D$ be a point on the segment $BC$ of triangle $ABC$ such that
+$\overline{AD} = \overline{BD} = \frac{1}{2} \overline{CD}$. Let
+$P (\neq A, D)$ be a point on segment $AD$, $M$ be the midpoint
+of $PD$, and $J$ be the incenter of triangle $MDC$. If the
+circumcircles of $\triangle{MJC}$ and $\triangle{ABP}$ intersect
+at two distinct points $Q$ and $R$, show that $D, Q, R$ are collinear.
+\end{problem}
+\begin{solution}
+First, let's draw the diagram.
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=1.5]
+    \coordinate (A) at (2,2);
+    \coordinate (B) at (0,0);
+    \coordinate (C) at (6,0);
+    \coordinate (D) at (2,0);
+    \coordinate (P) at (2,1.385466358638742);
+    \coordinate (M) at (2,0.692733179319371);
+    \coordinate (J) at (2.316595712335725,0.3165957123357249);
+    \coordinate (Q) at (1.5302652893822288,2.9027056009114447);
+    \coordinate (R) at (1.8494621195958614,0.9302424085794196);
+    \coordinate (O1) at (0.30726682068062916,1.6927331793193707);
+    \coordinate (O2) at (4.346366589659687,2.346366589659688);
+    \coordinate (P1) at (1.2248154811314231,4.7902196576029095);
+    \coordinate (P2) at (2.079743196518998,-0.4927696802858359);
+
+    \draw[thick] (A) -- (B) -- (C) -- cycle;
+    \draw[thick] (A) -- (D);
+    \draw[thick] (M) -- (C);
+    \draw[thick] (B) -- (P);
+    \draw[thick] (M) -- (J);
+    \draw[thick] (J) -- (C);
+    \draw[thick] (O1) circle (1.7203948719581348);
+    \draw[thick] (O2) circle (2.8705295032214835);
+    \draw[thick,dashed,BrickRed] (P1) -- (P2);
+
+    \draw[fill=black] (A) circle (0.05)
+        node[above right] {\footnotesize $A$};
+    \draw[fill=black] (B) circle (0.05)
+        node[below left] {\footnotesize $B$};
+    \draw[fill=black] (C) circle (0.05)
+        node[below right] {\footnotesize $C$};
+    \draw[fill=black] (D) circle (0.05)
+        node[below left] {\footnotesize $D$};
+    \draw[fill=black] (M) circle (0.05)
+        node[above right] {\footnotesize $M$};
+    \draw[fill=black] (P) circle (0.05)
+        node[right] {\footnotesize $P$};
+    \draw[fill=black] (J) circle (0.05)
+        node[below left] {\footnotesize $J$};
+    \draw[fill=black] (Q) circle (0.05)
+        node[left] {\footnotesize $Q$};
+    \draw[fill=black] (R) circle (0.05)
+        node[left] {\footnotesize $R$};
+\end{tikzpicture}
+\end{figure}
+
+Notice that because $Q$ and $R$ both lies of the circles $\omega_1$
+(left) and $\omega_2$ (right), it suffices to show that $D$ lies
+on the radical axis of $\omega_1$ and $\omega_2$. In other words,
+we must show that $P_{\omega_1} (D) = P_{\omega_2} (D)$. Consider
+the following equation.
+\[
+P_{\omega_1} (D)
+= \overline{AD} \cdot \overline{PD}
+= \overline{BD} \cdot (2 \cdot \overline{MD})
+= 2 \overline{BD} \cdot \overline{MD}
+= \overline{DC} \cdot \overline{MD}
+\]
+Therefore, it suffices to show that $P_{\omega_2} (D) = \overline{DC}
+\cdot \overline{MD}$.
+
+To find $P_{\omega_2}$, we can use another classic pattern that
+we can see from the problem. We see the point $D$, the incenter
+$J$ and the circumcircle of $\triangle{MJC}$. Naturally trying
+to implement incenter/excenter lemma here, we can draw and find
+excenter of $\triangle{MDC}$ at $D$.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=1.5]
+    \coordinate (A) at (2,2);
+    \coordinate (B) at (0,0);
+    \coordinate (C) at (6,0);
+    \coordinate (D) at (2,0);
+    \coordinate (P) at (2,1.385466358638742);
+    \coordinate (M) at (2,0.692733179319371);
+    \coordinate (J) at (2.316595712335725,0.3165957123357249);
+    \coordinate (Q) at (1.5302652893822288,2.9027056009114447);
+    \coordinate (R) at (1.8494621195958614,0.9302424085794196);
+    \coordinate (O1) at (0.30726682068062916,1.6927331793193707);
+    \coordinate (O2) at (4.346366589659687,2.346366589659688);
+    \coordinate (P1) at (1.2248154811314231,4.7902196576029095);
+    \coordinate (P2) at (2.079743196518998,-0.4927696802858359);
+    \coordinate (P3) at (6.37613746698365,4.37613746698365);
+
+    \draw[thick] (A) -- (B) -- (C) -- cycle;
+    \draw[thick] (A) -- (D);
+    \draw[thick] (M) -- (C);
+    \draw[thick] (B) -- (P);
+    \draw[thick] (M) -- (J);
+    \draw[thick] (J) -- (C);
+    \draw[thick] (O1) circle (1.7203948719581348);
+    \draw[thick] (O2) circle (2.8705295032214835);
+    \draw[thick,dashed,BrickRed] (P1) -- (P2);
+    \draw[thick] (D) -- (P3);
+    \draw[thick] (M) -- (P3);
+    \draw[fill=BrickRed,opacity=0.2] (D) -- (M) -- (P3) -- cycle;
+    \draw[fill=BrickRed,opacity=0.2] (D) -- (J) -- (C) -- cycle;
+
+    \draw[fill=black] (A) circle (0.05)
+        node[above right] {\footnotesize $A$};
+    \draw[fill=black] (B) circle (0.05)
+        node[below left] {\footnotesize $B$};
+    \draw[fill=black] (C) circle (0.05)
+        node[below right] {\footnotesize $C$};
+    \draw[fill=black] (D) circle (0.05)
+        node[below left] {\footnotesize $D$};
+    \draw[fill=black] (M) circle (0.05)
+        node[right] {\footnotesize $M$};
+    \draw[fill=black] (P) circle (0.05)
+        node[right] {\footnotesize $P$};
+    \draw[fill=black] (J) circle (0.05)
+        node[below] {\footnotesize $J$};
+    \draw[fill=black] (Q) circle (0.05)
+        node[left] {\footnotesize $Q$};
+    \draw[fill=black] (R) circle (0.05)
+        node[left] {\footnotesize $R$};
+    \draw[fill=black] (P3) circle (0.05)
+        node[right] {\footnotesize $I_D$};
+\end{tikzpicture}
+\end{figure}
+
+Notice that $\angle{MDJ} = \angle{JDC}$ by construction. Similarly,
+$\angle{MI_DJ} = \angle{MCJ} = \angle{JCD}$. Thus $\triangle{MDI_D}$
+and $\triangle{JDC}$ are similar. Because $MD : JD = DI_D : DC$,
+$P_{\omega_2}(D) = DJ \cdot DI_D = MD \cdot DC$.
+\end{solution}
+
+Never overestimate! I remember trying my best not to use power of
+a point during the exam because the morning problems were hard
+that day, and ended up wasting lots of time in the afternoon exam.
+I panicked, and learned a lesson.
+
+Although the problem above only used the definition and trivial
+properties of power of a point, we can expand the application much
+further with different theorems on coaxial circles.
+
+
+
 
 
 

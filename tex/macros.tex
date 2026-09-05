@@ -4,7 +4,7 @@
 
 % Boxes
 \usepackage{tcolorbox}
-\tcbuselibrary{theorems}
+\tcbuselibrary{theorems,breakable}
 \newcounter{boxcounter}[section]
 \renewcommand{\theboxcounter}{\thesection.\arabic{boxcounter}}
 
@@ -229,6 +229,7 @@
 }
 
 \newtcbtheorem[no counter]{basicboxstyle}{}{%
+    breakable,
     titlebox=invisible,
     detach title,
     colframe=bg,
@@ -236,15 +237,28 @@
     top=0pt, bottom=0pt, right=0pt, left=0pt,
     boxrule=0pt,
     sharp corners
-}{cpp}
+}{basic}
 \newenvironment{basicbox}
 {\begin{basicboxstyle}{}{}}{\end{basicboxstyle}}
+
+\newtcbtheorem[no counter]{basicboxstyleSolution}{}{%
+    titlebox=invisible,
+    detach title,
+    colframe=bg,
+    colback=bg,
+    top=0pt, bottom=0pt, right=0pt, left=0pt,
+    boxrule=0pt,
+    sharp corners
+}{basic}
+\newenvironment{basicboxSolution}
+{\begin{basicboxstyleSolution}{}{}}{\end{basicboxstyleSolution}}
 
 \newtcbtheorem[
     auto counter,
     number within=section,
     use counter=boxcounter
 ]{cppboxstyle}{Code}{%
+    breakable,
     colframe=Sepia!80,
     colback=bg,
     top=0pt, bottom=0pt, right=0pt, left=0pt,
@@ -258,15 +272,44 @@
     auto counter,
     number within=section,
     use counter=boxcounter
-]{outputboxstyle}{Output}{%
-    colframe=black,
+]{cppboxstyleSolution}{Code}{%
+    colframe=Sepia!80,
     colback=bg,
     top=0pt, bottom=0pt, right=0pt, left=0pt,
     boxrule=0pt,
     sharp corners
 }{cpp}
+\newenvironment{cppboxSolution}
+{\begin{cppboxstyleSolution}}{\end{cppboxstyleSolution}}
+
+\newtcbtheorem[
+    auto counter,
+    number within=section,
+    use counter=boxcounter
+]{outputboxstyle}{Output}{%
+    breakable,
+    colframe=black,
+    colback=bg,
+    top=0pt, bottom=0pt, right=0pt, left=0pt,
+    boxrule=0pt,
+    sharp corners
+}{output}
 \newenvironment{outputbox}
 {\begin{outputboxstyle}{}{}}{\end{outputboxstyle}}
+
+\newtcbtheorem[
+    auto counter,
+    number within=section,
+    use counter=boxcounter
+]{outputboxstyleSolution}{Output}{%
+    colframe=black,
+    colback=bg,
+    top=0pt, bottom=0pt, right=0pt, left=0pt,
+    boxrule=0pt,
+    sharp corners
+}{output}
+\newenvironment{outputboxSolution}
+{\begin{outputboxstyleSolution}{}{}}{\end{outputboxstyleSolution}}
 
 \newenvironment{jupyter}{
 \begin{mdframed}[

@@ -4,6 +4,107 @@
 
 \section{Simulation}
 
+The first topic that I wish to discuss is simulation. Surprisingly,
+many problems can be solved just by simulating the environment
+described in the problem \cite{CS02-7}. Meaning, we do not necessarily
+require a complex algorithms to solve the problems and it suffices to
+know that basic of the language that we are using, which we already
+did in our previous note.
+
+Because there isn't a definite concept, definition, and theorems for
+this concept, let's see what a simulation is by looking at an
+example problem.
+
+\begin{problem}
+{2018 USACO First Bronze Problem 1}
+{2018 USACO First Bronze Problem 1}
+(\href{https://usaco.org/index.php?page=viewproblem2&cpid=855}{Problem Statement})
+
+Say there are three buckets with capacity $c_1$, $c_2$, and $c_3$
+respectively. The buckets are initially filled with $m_1$, $m_2$,
+and $m_3$ amount of milk. A farmer wants to pour milk from bucket
+$1$ to $2$, $2$ to $3$, $3$ to $1$, $1$ to $2$, and so on for
+hundred times where each pour ends if the bucket being poured is
+empty or the bucket receiving the milk is full. How much milk is
+left in each bucket after the $100^\text{th}$ pour?
+\end{problem}
+\begin{solution}
+To solve this problem, we can literally simulate the process of
+pouring and receiving milk. Notice that in each pour, we stop
+if and only if a bucket is empty or a bucket is full. Then, we
+iterate the same process. Due to this nature, we can define a
+function that takes in the amount of milk in two buckets and the
+capacity of the bucket receiving to update the amount of milk in
+each bucket after the pour.
+
+\begin{basicboxSolution}
+\begin{lstlisting}[style=basic]
+void mix(int& a, int& b, int& x) {
+    if (a + b <= x) {
+        b = a + b;
+        a = 0;
+    } else {
+        a = a + b - x;
+        b = x;
+    }
+}
+\end{lstlisting}
+\end{basicboxSolution}
+
+Here, $a$ and $b$ are the amount of milk in two buckets and $x$
+is the capacity of the bucket with $b$ amount of milk. If the
+bucket receiving has the capacity to receive all milk, i.e.
+$a + b \leq x$, then our new $b$ will be $a + b$ while the bucket
+with originally $a$ amount of milk is empty. Notice that we want
+to update $b$ first before fixing $a$ to zero.
+
+The other case is when we cannot pour all milk when mixing, i.e.
+$a + b > x$. In that case, our new $a$ will be $a + b - x$ and
+$b = x$. Also notice that we want to update $a$ first since we don't
+want $a = a$. Applying this function $100$ times, we can successfully
+simulate the environment in the problem.
+
+\begin{cppboxSolution}{CS0202.26057-01}{CS0202.26057-01}
+\begin{lstlisting}[style=cppstyle]
+#include <cstdio>
+#include <iostream>
+using namespace std;
+
+void mix(int& a, int& b, int& x) {
+    if (a + b <= x) {
+        b = a + b;
+        a = 0;
+    } else {
+        a = a + b - x;
+        b = x;
+    }
+}
+
+int main() {
+    freopen("mixmilk.in", "r", stdin);
+    freopen("mixmilk.out", "w", stdout);
+
+    int c1, c2, c3, m1, m2, m3;
+    cin >> c1 >> m1 >> c2 >> m2 >> c3 >> m3;
+
+    for (int i = 0; i < 33; i++) {
+        mix(m1, m2, c2);
+        mix(m2, m3, c3);
+        mix(m3, m1, c1);
+    }
+    mix(m1, m2, c2);
+
+    cout << m1 << "\n" << m2 << "\n" << m3 << "\n";
+
+    return 0;
+}
+\end{lstlisting}
+\end{cppboxSolution}
+
+This solves the problem!
+\end{solution}
+
+
 
 
 

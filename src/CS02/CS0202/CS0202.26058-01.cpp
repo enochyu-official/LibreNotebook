@@ -12,7 +12,7 @@
 #include <iostream>
 #include <vector>
 #include <array>
-// #include <algorithm>
+#include <algorithm>
 
 using namespace std;
 
