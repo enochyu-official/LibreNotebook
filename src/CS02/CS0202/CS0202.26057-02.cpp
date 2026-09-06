@@ -1,41 +1,38 @@
-/** IN PROGRESS
+/**
  * Enoch Yu
- * 2015 USACO First Bronze
- * Problem 2. Speeding Ticket
+ * 2017 USACO Open Bronze
+ * Problem 1. The Lost Cow
  *
- * Cummulative stops for actual and bessie
- * Compare actual stops with bessie speed
+ * x -> x + 1 -> x - 2 -> x + 4 -> x - 8 -> ...
+ * 1 + 2 + 4 + ... + 2^n - |x pm 2^n mp y|
+ * Shift by x -> z = y - x
  */
 
 #include <cstdio>
 #include <iostream>
-#include <vector>
-#include <array>
+#include <cmath>
 using namespace std;
 
 int main() {
-    freopen("speeding.in", "r", stdin);
-    freopen("speeding.out", "w", stdout);
+    freopen("lostcow.in", "r", stdin);
+    freopen("lostcow.out", "w", stdout);
 
-    int N, M;
-    int MAX = 0;
-    cin >> N >> M;
+    int x, y;
+    cin >> x >> y;
+    int z = y - x;
 
-    vector<array<int, 2>> actual(N), bessie(M);
-    for (int i = 0; i < N; i++) {
-        cin >> actual[i][0] >> actual[i][1];
-        if (i > 0) {
-            actual[i][0] += actual[i-1][0];
+    int n = 0;
+    if (z > 0) {
+        while (pow(2,2*n) < z) {
+            n++;
         }
-    }
-    for (int i = 0; i < M; i++) {
-        cin >> bessie[i][0] >> bessie[i][1];
-        if (i > 0) {
-            bessie[i][0] += bessie[i-1][0];
+        cout << 2*(pow(2,2*n) - 1) + z << "\n";
+    } else if (z < 0) {
+        while (pow(2,2*n+1) < -z) {
+            n++;
         }
+        cout << 2*(pow(2,2*n) - 1) - z << "\n";
     }
-
-    cout << MAX << "\n";
 
     return 0;
 }
