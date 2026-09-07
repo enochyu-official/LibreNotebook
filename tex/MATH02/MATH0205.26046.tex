@@ -35,13 +35,14 @@ transformed as following.
         3  & 4  & -1 & 2 \\
         -1 & -3 & 1  & 4
     \end{bNiceArray}
+    \displaybreak
     &\rightarrow
     \begin{bNiceArray}{ccc|c}
         1  & 1  & 1  & 10 \\
         0  & 1  & -4 & -28 \\
         -1 & -3 & 1  & 4
-    \end{bNiceArray}
-    \rightarrow
+    \end{bNiceArray} \\
+    &\rightarrow
     \begin{bNiceArray}{ccc|c}
         1 & 1  & 1  & 10 \\
         0 & 1  & -4 & -28 \\
@@ -66,39 +67,39 @@ First and foremost, let $A =
     -1 & -3 & 1
 \end{bmatrix}$.
 Using elementary row operations, $A$ can be transformed as following.
-\[
-\begin{bmatrix}
-    1  & 1  & 1 \\
-    3  & 4  & -1 \\
-    -1 & -3 & 1
-\end{bmatrix}
-\rightarrow
-\begin{bmatrix}
-    1  & 1  & 1 \\
-    0  & 1  & -4 \\
-    -1 & -3 & 1
-\end{bmatrix}
-\rightarrow
-\begin{bmatrix}
-    1 & 1  & 1 \\
-    0 & 1  & -4 \\
-    0 & -2 & 2
-\end{bmatrix}
-\rightarrow
-\begin{bmatrix}
-    1 & 1 & 1 \\
-    0 & 1 & -4 \\
-    0 & 0 & -6
-\end{bmatrix}
-\]
-In other words, $A$ can be represented as the matrix multiplication
-below.
 \begin{align*}
     \begin{bmatrix}
         1  & 1  & 1 \\
         3  & 4  & -1 \\
         -1 & -3 & 1
     \end{bmatrix}
+    &\rightarrow
+    \begin{bmatrix}
+        1  & 1  & 1 \\
+        0  & 1  & -4 \\
+        -1 & -3 & 1
+    \end{bmatrix}
+    \rightarrow
+    \begin{bmatrix}
+        1 & 1  & 1 \\
+        0 & 1  & -4 \\
+        0 & -2 & 2
+    \end{bmatrix} \\
+    &\rightarrow
+    \begin{bmatrix}
+        1 & 1 & 1 \\
+        0 & 1 & -4 \\
+        0 & 0 & -6
+    \end{bmatrix}
+\end{align*}
+In other words, $A$ can be represented as the matrix multiplication
+below.
+\begin{align*}
+    &\quad\ \begin{bmatrix}
+        1  & 1  & 1 \\
+        3  & 4  & -1 \\
+        -1 & -3 & 1
+    \end{bmatrix} \\
     &=
     \begin{bmatrix}
         1 & 0 & 0 \\
@@ -120,6 +121,7 @@ below.
         0 & 1 & -4 \\
         0 & 0 & -6
     \end{bmatrix} \\
+    \displaybreak
     &=
     \begin{bmatrix}
         1 & 0 & 0 \\
@@ -217,6 +219,7 @@ transformations.
         0 & 1  & -4 & -3 & 1 & 0 \\
         0 & -2 & 2  & 1  & 0 & 1
     \end{bNiceArray} \\
+    \displaybreak
     &\rightarrow
     \begin{bNiceArray}{ccc|ccc}
         1 & 1 & 1  & 1  & 0 & 0 \\

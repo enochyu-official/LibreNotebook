@@ -151,14 +151,14 @@ Continuing, here is the proof for the third property.
 \begin{proof}
 Consider the following equation that uses the associative property
 of matrix multiplication.
-\[
-(B^{-1}A^{-1})(AB)
-= B^{-1}(A^{-1}A)B
-= B^{-1}(I)B
-= B^{-1}(IB)
-= B^{-1}B
-= I
-\]
+\begin{align*}
+    (B^{-1}A^{-1})(AB)
+    &= B^{-1}(A^{-1}A)B
+    = B^{-1}(I)B
+    = B^{-1}(IB) \\
+    &= B^{-1}B
+    = I
+\end{align*}
 Because $B^{-1}A^{-1}$ is the inverse of $AB$, the property is true.
 \end{proof}
 
@@ -414,9 +414,8 @@ Consider the following elementary row operations.
     1 & 2 & 3 & 1 & 0 & 0 \\
     8 & 10 & 12 & 0 & 2 & 0 \\
     7 & 8 & 9 & 0 & 0 & 1
-\end{bNiceArray}
-\displaybreak
-\rightarrow
+\end{bNiceArray} \\
+&\rightarrow
 \begin{bNiceArray}{ccc|ccc}
     1 & 2 & 3 & 1 & 0 & 0 \\
     1 & 2 & 3 & 0 & 2 & -1 \\
@@ -457,8 +456,8 @@ First and foremost, the augmented matrix can be constructed.
     1 & 0 & 0 & 1 & 0 & 0 \\
     0 & 1 & 2 & 0 & 0 & 1 \\
     2 & 1 & 1 & 0 & 1 & 0
-\end{bNiceArray}
-\rightarrow
+\end{bNiceArray} \\
+&\rightarrow
 \begin{bNiceArray}{ccc|ccc}
     1 & 0 & 0 & 1 & 0 & 0 \\
     0 & 1 & 2 & 0 & 0 & 1 \\

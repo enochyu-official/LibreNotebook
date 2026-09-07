@@ -293,7 +293,7 @@ $AB$ and the right diagram visualizes $BA$ with $\vec{v} =
 \centering
 \begin{tikzpicture}[
         vector/.style={->, thick},
-        scale=0.85
+        scale=0.7
     ]
 
     \foreach \i in {-2, -1, ..., 2} {
@@ -324,7 +324,7 @@ $AB$ and the right diagram visualizes $BA$ with $\vec{v} =
 \centering
 \begin{tikzpicture}[
         vector/.style={->, thick},
-        scale=0.85
+        scale=0.7
     ]
 
     \foreach \i in {-2, -1, ..., 2} {
@@ -575,8 +575,8 @@ and $C = [c_{ij}]_{n \times q}$. Consider the following equation.
     = \left[ \sum_{k=1}^{n} a_{ik} (b_{kj} + c_{kj}) \right] \\
     &= \left[
         \sum_{k=1}^{n} a_{ik} b_{kj} + \sum_{k=1}^{n} a_{ik} c_{kj}
-    \right]
-    = \left[ \sum_{k=1}^{n} a_{ik} b_{kj} \right]
+    \right] \\
+    &= \left[ \sum_{k=1}^{n} a_{ik} b_{kj} \right]
         + \left[ \sum_{k=1}^{n} a_{ik} c_{kj} \right] \\
     &= [a_{ij}] [b_{ij}] + [a_{ij}] [c_{ij}]
 \end{align*}
@@ -594,8 +594,8 @@ and $C = [c_{ij}]_{m \times n}$. Consider the following equation.
     = \left[ \sum_{k=1}^{n} (b_{ik} + c_{ik}) a_{kj} \right] \\
     &= \left[
         \sum_{k=1}^{n} b_{ik} a_{kj} + \sum_{k=1}^{n} c_{ik} a_{kj}
-    \right]
-    = \left[ \sum_{k=1}^{n} b_{ik} a_{kj} \right]
+    \right] \\
+    &= \left[ \sum_{k=1}^{n} b_{ik} a_{kj} \right]
         + \left[ \sum_{k=1}^{n} c_{ik} a_{kj} \right] \\
     &= [b_{ij}] [a_{ij}] + [c_{ij}] [a_{ij}]
 \end{align*}
@@ -707,60 +707,86 @@ Another interesting insight on matrix multiplication is dissecting
 the matrices being multiplied. Let's take a look at a simple example.
 \begin{align*}
 \begin{bmatrix}
-    a_{11} & a_{12} & a_{13} \\
-    a_{21} & a_{22} & a_{23}
+    \scriptstyle a_{11} &
+    \scriptstyle a_{12} &
+    \scriptstyle a_{13} \\
+    \scriptstyle a_{21} &
+    \scriptstyle a_{22} &
+    \scriptstyle a_{23}
 \end{bmatrix}
 &\begin{bmatrix}
-    b_{11} & b_{12} \\
-    b_{21} & b_{22} \\
-    b_{31} & b_{32}
+    \scriptstyle b_{11} &
+    \scriptstyle b_{12} \\
+    \scriptstyle b_{21} &
+    \scriptstyle b_{22} \\
+    \scriptstyle b_{31} &
+    \scriptstyle b_{32}
 \end{bmatrix}
 =
 \begin{bmatrix}
-    a_{11} b_{11} + a_{12} b_{21} + a_{13} b_{31} &
-    a_{11} b_{12} + a_{12} b_{22} + a_{13} b_{32} \\
-    a_{21} b_{11} + a_{22} b_{21} + a_{23} b_{31} &
-    a_{21} b_{12} + a_{22} b_{22} + a_{23} b_{32}
+    \scriptstyle a_{11} b_{11} + a_{12} b_{21} + a_{13} b_{31} &
+    \scriptstyle a_{11} b_{12} + a_{12} b_{22} + a_{13} b_{32} \\
+    \scriptstyle a_{21} b_{11} + a_{22} b_{21} + a_{23} b_{31} &
+    \scriptstyle a_{21} b_{12} + a_{22} b_{22} + a_{23} b_{32}
 \end{bmatrix} \\
 &=
 \begin{bmatrix}
-    a_{11} & a_{12} & a_{13} \\
-    0      & 0      & 0
+    \scriptstyle a_{11} &
+    \scriptstyle a_{12} &
+    \scriptstyle a_{13} \\
+    \scriptstyle 0      &
+    \scriptstyle 0      &
+    \scriptstyle 0
 \end{bmatrix}
 \begin{bmatrix}
-    b_{11} & b_{12} \\
-    b_{21} & b_{22} \\
-    b_{31} & b_{32}
+    \scriptstyle b_{11} &
+    \scriptstyle b_{12} \\
+    \scriptstyle b_{21} &
+    \scriptstyle b_{22} \\
+    \scriptstyle b_{31} &
+    \scriptstyle b_{32}
 \end{bmatrix}
 +
 \begin{bmatrix}
-    0      & 0      & 0 \\
-    a_{21} & a_{22} & a_{23}
+    \scriptstyle 0      &
+    \scriptstyle 0      &
+    \scriptstyle 0 \\
+    \scriptstyle a_{21} &
+    \scriptstyle a_{22} &
+    \scriptstyle a_{23}
 \end{bmatrix}
 \begin{bmatrix}
-    b_{11} & b_{12} \\
-    b_{21} & b_{22} \\
-    b_{31} & b_{32}
+    \scriptstyle b_{11} & \scriptstyle b_{12} \\
+    \scriptstyle b_{21} & \scriptstyle b_{22} \\
+    \scriptstyle b_{31} & \scriptstyle b_{32}
 \end{bmatrix} \\
 &=
 \begin{bmatrix}
-    a_{11} & a_{12} & a_{13} \\
-    a_{21} & a_{22} & a_{23}
+    \scriptstyle a_{11} &
+    \scriptstyle a_{12} &
+    \scriptstyle a_{13} \\
+    \scriptstyle a_{21} &
+    \scriptstyle a_{22} &
+    \scriptstyle a_{23}
 \end{bmatrix}
 \begin{bmatrix}
-    b_{11} & 0 \\
-    b_{21} & 0 \\
-    b_{31} & 0
+    \scriptstyle b_{11} & \scriptstyle 0 \\
+    \scriptstyle b_{21} & \scriptstyle 0 \\
+    \scriptstyle b_{31} & \scriptstyle 0
 \end{bmatrix}
 +
 \begin{bmatrix}
-    a_{11} & a_{12} & a_{13} \\
-    a_{21} & a_{22} & a_{23}
+    \scriptstyle a_{11} &
+    \scriptstyle a_{12} &
+    \scriptstyle a_{13} \\
+    \scriptstyle a_{21} &
+    \scriptstyle a_{22} &
+    \scriptstyle a_{23}
 \end{bmatrix}
 \begin{bmatrix}
-    0 & b_{12} \\
-    0 & b_{22} \\
-    0 & b_{32}
+    \scriptstyle 0 & \scriptstyle b_{12} \\
+    \scriptstyle 0 & \scriptstyle b_{22} \\
+    \scriptstyle 0 & \scriptstyle b_{32}
 \end{bmatrix}
 \end{align*}
 In the matrix multiplication above, we could see that to find

@@ -78,23 +78,6 @@ for vector addition and scalar multiplication. The reason I decided to
 use this is that this is the way I first learned and it helped me to
 emphasize axioms for vector spaces.
 
-Based on the scalars that we have here, we could indicate vector
-spaces with the following terms.
-
-\begin{definition}{}{}
-If the set of scalars is in $\mathbb{R}$, then the vector space
-is known as a \textbf{vector space over $\mathbb{R}$}, or a
-\textbf{real vector space}. Similarly, if the scalars are in
-$\mathbb{C}$, then the vector space is denoted as a
-\textbf{vector space over $\mathbb{C}$}, or a \textbf{complex vector
-space}.
-\end{definition}
-
-One thing to note is that there is a concept called \textbf{scalar
-fields}; however, we will not go too deep into such fields.
-Before we move on to different concepts in vector spaces, I wanted
-to discuss about tuples and dimensions.
-
 \begin{definition}{}{}
 An \textbf{$n$-tuple} is an ordered array, or list, of $n$ real
 numbers. For an $n$-tuple, its dimension is said to be $n$-dimensional
@@ -121,7 +104,7 @@ as we do in introductory physics classes.
 \centering
 \begin{tikzpicture}[
         vector/.style={->, thick},
-        scale=0.85
+        scale=0.65
     ]
 
     \foreach \i in {-4, -3, ..., 4} {
@@ -232,6 +215,23 @@ v = \langle x_2, y_2, z_2 \rangle \in \mathbb{R}^3$ and $\alpha
     &= \alpha \odot \langle x_1, y_1, z_1 \rangle
     = \langle \alpha x_1, \alpha y_1, \alpha z_1 \rangle
 \end{align*}
+Continuing, we can also distinguish vector spaces with different
+scalars with the following terms.
+
+\begin{definition}{}{}
+If the set of scalars is in $\mathbb{R}$, then the vector space
+is known as a \textbf{vector space over $\mathbb{R}$}, or a
+\textbf{real vector space}. Similarly, if the scalars are in
+$\mathbb{C}$, then the vector space is denoted as a
+\textbf{vector space over $\mathbb{C}$}, or a \textbf{complex vector
+space}.
+\end{definition}
+
+One thing to note is that there is a concept called \textbf{scalar
+fields}; however, we will not go too deep into such fields.
+Before we move on to different concepts in vector spaces, I wanted
+to discuss about tuples and dimensions.
+
 Now that we saw some geometrical interpretation of vector spaces,
 let's discuss more information with some problems.
 

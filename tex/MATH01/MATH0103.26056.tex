@@ -72,13 +72,13 @@ by the definition of a line tangent to a circle, $PB \perp BO$ and
 $PO^2 = PB^2 + r^2$ by Pythagorean Theorem. Therefore, $P_\omega(P)
 = PO^2 - r^2$.
 
-\begin{tip}
+\begin{important}
 With the definition, we can derive trivial relationship between
 the power of a point and the location of the point.
 If $P_\omega(P) < 0$, then $P$ is inside $\omega$.
 If $P_\omega(P) = 0$, then $P$ is on $\omega$ and $P$ is outside
 $\omega$ if and only if $P_\omega(P) > 0$.
-\end{tip}
+\end{important}
 
 Continuing from the definition, we can derive another priceless
 definition that is one of the foundational concept in olympiad
@@ -137,9 +137,9 @@ equation holds by definition.
 \]
 Expanding and rearranging the equation,
 \begin{align*}
-    x^2 - 2a_1 x + a_1^2 + y^2 - 2b_1 y + b_1^2 - r_1^2
+    &\quad\ x^2 - 2a_1 x + a_1^2 + y^2 - 2b_1 y + b_1^2 - r_1^2 \\
     &= x^2 - 2a_2 x + a_2^2 + y^2 - 2b_2 y + b_2^2 - r_2^2 \\
-    (2a_2 - 2a_1) x + (2b_2 - 2b_1) y + C &= 0
+    &(2a_2 - 2a_1) x + (2b_2 - 2b_1) y + C = 0
 \end{align*}
 holds where $C$ is the constant values. Notice that the locus of
 all $(x, y)$ that satisfies the equation above is a linear function.
@@ -167,10 +167,10 @@ Before we move on to further theorems, lemmas, definitions, and
 problems, here are five special forms that makes our lives easier
 when graphing to solve problems.
 
-\begin{minipage}{0.32\textwidth}
+\begin{minipage}{0.48\textwidth}
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}[scale=0.4]
+\begin{tikzpicture}[scale=0.44]
     \draw[thick,Blue] (-3,0) circle (2.5);
     \draw[thick,BrickRed] (0,0) circle (3.5);
     \draw[thick,dotted] (-6.5,0) -- (4.5,0);
@@ -186,10 +186,10 @@ when graphing to solve problems.
 \end{figure}
 \end{minipage}
 \hfill
-\begin{minipage}{0.33\textwidth}
+\begin{minipage}{0.48\textwidth}
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}[scale=0.4]
+\begin{tikzpicture}[scale=0.44]
     \draw[thick,Blue] (-2,0) circle (2);
     \draw[thick,BrickRed] (3,0) circle (3);
     \draw[thick,dotted] (-5,0) -- (7,0);
@@ -203,11 +203,11 @@ when graphing to solve problems.
 \end{tikzpicture}
 \end{figure}
 \end{minipage}
-\hfill
-\begin{minipage}{0.33\textwidth}
+
+\begin{minipage}{0.48\textwidth}
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}[scale=0.4]
+\begin{tikzpicture}[scale=0.44]
     \draw[thick,Blue] (-3,0) circle (2);
     \draw[thick,BrickRed] (3,0) circle (3);
     \draw[thick,dotted] (-6,0) -- (7,0);
@@ -220,11 +220,11 @@ when graphing to solve problems.
 \end{tikzpicture}
 \end{figure}
 \end{minipage}
-
+\hfill
 \begin{minipage}{0.48\textwidth}
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}[scale=0.45]
+\begin{tikzpicture}[scale=0.44]
     \draw[thick,Blue] (-2,0) circle (2.5);
     \draw[thick,BrickRed] (0,0) circle (5);
     \draw[thick,dotted] (-7,0) -- (6,0);
@@ -237,11 +237,11 @@ when graphing to solve problems.
 \end{tikzpicture}
 \end{figure}
 \end{minipage}
-\hfill
+
 \begin{minipage}{0.48\textwidth}
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}[scale=0.45]
+\begin{tikzpicture}[scale=0.44]
     \draw[thick,Blue] (-2,0) circle (3);
     \draw[thick,BrickRed] (0,0) circle (5);
     \draw[thick,dotted] (-6,0) -- (6,0);
@@ -254,13 +254,15 @@ when graphing to solve problems.
 \end{tikzpicture}
 \end{figure}
 \end{minipage}
-
+\hfill
+\begin{minipage}{0.48\textwidth}
 As you can see from the diagrams above, the fact that the radical
 axis passes through the intersection(s) of $\omega_1$ and $\omega_2$
 will come very handy when we solve problems. Also, because this
 knowledge is considered trivial and it is part of the definition,
 I believe the graders won't take points off for not proving why the
 radical axis passes through the intersection(s).
+\end{minipage}
 
 Before moving on to common patterns and theorems, here is the
 final definition to keep in mind.
@@ -313,11 +315,12 @@ of $PD$, and $J$ be the incenter of triangle $MDC$. If the
 circumcircles of $\triangle{MJC}$ and $\triangle{ABP}$ intersect
 at two distinct points $Q$ and $R$, show that $D, Q, R$ are collinear.
 \end{problem}
+(\href{https://youtu.be/BwEyAtgzZEE}{Video Solution})
 \begin{solution}
 First, let's draw the diagram.
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}[scale=1.5]
+\begin{tikzpicture}[scale=1.2]
     \coordinate (A) at (2,2);
     \coordinate (B) at (0,0);
     \coordinate (C) at (6,0);
@@ -386,7 +389,7 @@ excenter of $\triangle{MDC}$ at $D$.
 
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}[scale=1.5]
+\begin{tikzpicture}[scale=1.2]
     \coordinate (A) at (2,2);
     \coordinate (B) at (0,0);
     \coordinate (C) at (6,0);
@@ -453,6 +456,92 @@ I panicked, and learned a lesson.
 Although the problem above only used the definition and trivial
 properties of power of a point, we can expand the application much
 further with different theorems on coaxial circles.
+
+\begin{theorem}{}{Condition for Coaxial Circles}
+The centers of coaxial circles $\omega_1, \omega_2, \omega_3$ are
+collinear.
+\end{theorem}
+\begin{proof}
+Let the centers of $\omega_1, \omega_2, \omega_3$ be $O_1, O_2, O_3$
+and the radical axis be $l$. By definition, the radical axis of
+$\omega_1$ and $\omega_2$ is $l$ and $O_1O_2 \perp l$. Similarly,
+$O_1O_3 \perp l$ since $l$ is the radical axis of $\omega_1$ and
+$\omega_3$. Because there exists exactly one line perpendicular to
+$l$ that passes through $O_1$, $O_1O_2$ and $O_1O_3$ lines are the
+same line and $O_1,O_2,O_3$ are collinear.
+\end{proof}
+
+This theorem can look somewhat trivial. However, finding such
+conditions and looking for coaxial circles can come very handy.
+
+\begin{important}
+Never underestimate! Facts like $OA = OB$ for a circle with center
+$O$ and $P_\omega(A) = P_\omega(B)$ can be the key to the solution.
+Whenever you see three circles, circles defined by reflection,
+collinearity of their centers, and/or the intersection of three
+circles, we should be reminded of coaxial circles and suspect it as
+the key at least once.
+\end{important}
+
+Last, but not least, here is a very powerful theorem on coaxial
+circles. Honestly, this theorem made me suspect power of a point
+every time I see more than two circles on a problem.
+
+\begin{theorem}{}{}
+Let $\omega_1$ and $\omega_2$ be two distinct circles and $A, B, C$
+be three distinct points. If
+\[
+\frac{P_{\omega_1}(A)}{P_{\omega_2}(A)}
+= \frac{P_{\omega_1}(B)}{P_{\omega_2}(B)}
+= \frac{P_{\omega_1}(C)}{P_{\omega_2}(C)}
+\]
+holds, then either the circumcircle of $\triangle{ABC}$, $\omega_1$,
+and $\omega_2$ are coaxial circles or $A, B, C$ is the radical
+axis of $\omega_1$ and $\omega_2$.
+\end{theorem}
+\begin{proof}
+First, notice that for any circles $x^2 + y^2 + ax + by + c = 0$
+and a point $A(x_1, y_1)$, $P_\omega(A) = (x_1 - p)^2 + (y_2 - q)^2
+- r^2 = x_1^2 + y_1^2 + ax_1 + by_1 + c$. Moreover, if
+$\frac{P_{\omega_1}(A)}{P_{\omega_2}(A)}
+= \frac{P_{\omega_1}(B)}{P_{\omega_2}(B)}
+= \frac{P_{\omega_1}(C)}{P_{\omega_2}(C)} = k$, then
+$P_{\omega_1}(X) - k P_{\omega_2}(X) = 0$ for $X = A, B, C$.
+
+Let $\omega_1$ be defined as $x^2 + y^2 + a_1x + b_1y + c_1 = 0$ and
+$\omega_2$ as $x^2 + y^2 + a_2x + b_2y + c_2 = 0$. Rewriting the
+expression $P_{\omega_1}(X) - k P_{\omega_2}(X)$, the following
+equations are obtained.
+\begin{align*}
+    P_{\omega_1}(X) - k P_{\omega_2}(X)
+    &= x^2 + y^2 + a_1x + b_1y + c_1 \\
+    &\qquad\qquad\qquad\,- k(x^2 + y^2 + a_2x + b_2y + c_2) \\
+    &= (1 - k) x^2 + (1 - k) y^2 + (a_1 - ka_2) x \\
+    &\qquad\qquad\qquad\,+ (b_1 - kb_2) y + (c_1 - kc_2)
+\end{align*}
+Define $\omega_3$ as $(1 - k) x^2 + (1 - k) y^2 + (a_1 - ka_2) x +
+(b_1 - kb_2) y + (c_1 - kc_2) = 0$ for $k \neq 1$. Then, $A, B, C
+\in \omega_3$ and $\omega_3$ is the circumcircle of $\triangle{ABC}$.
+Moreover by construction, the power of any point $X$ satisfy the
+following equation.
+\[
+P_{\omega_3}(X)
+= \frac{P_{\omega_1}(X) - k P_{\omega_2}(X)}{1 - k}
+\]
+Therefore, if $X$ lies on the radical axis of $\omega_3$ and
+$\omega_1$, i.e. $P_{\omega_3}(X) = P_{\omega_1}(X)$, then
+$(1 - k) P_{\omega_1}(X) = P_{\omega_1}(X) - k P_{\omega_2}(X)$
+and $P_{\omega_1}(X) = P_{\omega_2}(X)$. In other words,
+$P_{\omega_3}(X) = P_{\omega_1}(X)$ if and only if $P_{\omega_1}(X) =
+P_{\omega_2}(X)$ and $\omega_1, \omega_2, \omega_3$ are coaxial
+circles.
+
+If $k = 1$, then $P_{\omega_1}(A) = P_{\omega_2}(A)$,
+$P_{\omega_1}(B) = P_{\omega_2}(B)$, and $P_{\omega_1}(C) =
+P_{\omega_2}(C)$ holds and $A, B, C$ lies on the radical axis of
+$\omega_1$ and $\omega_2$. Because radical axis is a straight line,
+$A, B, C$ are collinear and the points form the radical axis.
+\end{proof}
 
 
 

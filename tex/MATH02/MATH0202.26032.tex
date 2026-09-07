@@ -172,28 +172,28 @@ We have two more left! Here is the proof for the fourth property.
 Let $A = [a_{ij}]_{m \times n}$ and $B = [b_{ij}]_{n \times p}$.
 The following equation is satisfied by definitions of matrix
 multiplication and transpose.
-\[
-(AB)^\intercal
-= \left(
-    [a_{ij}]_{m \times n} [b_{ij}]_{n \times p}
-\right)^\intercal
-= \left(
-    \left[ \sum_{k = 1}^{n} a_{ik} b_{kj} \right]_{m \times p}
-\right)^\intercal
-= \left[ \sum_{k = 1}^{n} a_{jk} b_{ki} \right]_{p \times m}
-\]
+\begin{align*}
+    (AB)^\intercal
+    &= \left(
+        [a_{ij}]_{m \times n} [b_{ij}]_{n \times p}
+    \right)^\intercal
+    = \left(
+        \left[ \sum_{k = 1}^{n} a_{ik} b_{kj} \right]_{m \times p}
+    \right)^\intercal \\
+    &= \left[ \sum_{k = 1}^{n} a_{jk} b_{ki} \right]_{p \times m}
+\end{align*}
 Continuing from the right hand side, the following equation is
 obtained.
-\[
-B^\intercal A^\intercal
-= \left[ b_{ij}^\intercal \right]_{p \times n}
-    \left[ a_{ij}^\intercal \right]_{n \times m}
-= \left[
-    \sum_{k = 1}^{n} b_{ik}^\intercal a_{kj}^\intercal
-\right]_{p \times m}
-= \left[ \sum_{k = 1}^{n} b_{ki} a_{jk} \right]_{p \times m}
-= \left[ \sum_{k = 1}^{n} a_{jk} b_{ki} \right]_{p \times m}
-\]
+\begin{align*}
+    B^\intercal A^\intercal
+    &= \left[ b_{ij}^\intercal \right]_{p \times n}
+        \left[ a_{ij}^\intercal \right]_{n \times m}
+    = \left[
+        \sum_{k = 1}^{n} b_{ik}^\intercal a_{kj}^\intercal
+    \right]_{p \times m} \\
+    &= \left[ \sum_{k = 1}^{n} b_{ki} a_{jk} \right]_{p \times m}
+    = \left[ \sum_{k = 1}^{n} a_{jk} b_{ki} \right]_{p \times m}
+\end{align*}
 Because both the left-hand side and the right-hand side of the
 equation lead to the same matrix, the property holds.
 \end{proof}
@@ -368,6 +368,7 @@ AB
     b_{31} & b_{32} & b_{33} \\
     b_{41} & b_{42} & b_{43}
 \end{bNiceArray} \\
+\displaybreak
 &=
 \begin{bmatrix}
     a_{11} & a_{12} \\
@@ -392,59 +393,59 @@ AB
 \end{bmatrix} \\
 &=
 \begin{bmatrix}
-    a_{11}b_{11} + a_{12}b_{21} &
-    a_{11}b_{12} + a_{12}b_{22} &
-    a_{11}b_{13} + a_{12}b_{23} \\
-    a_{21}b_{11} + a_{22}b_{21} &
-    a_{21}b_{12} + a_{22}b_{22} &
-    a_{21}b_{13} + a_{22}b_{23} \\
-    a_{31}b_{11} + a_{32}b_{21} &
-    a_{31}b_{12} + a_{32}b_{22} &
-    a_{31}b_{13} + a_{32}b_{23} \\
-    a_{41}b_{11} + a_{42}b_{21} &
-    a_{41}b_{12} + a_{42}b_{22} &
-    a_{41}b_{13} + a_{42}b_{23}
+    \scriptscriptstyle a_{11}b_{11} + a_{12}b_{21} &
+    \scriptscriptstyle a_{11}b_{12} + a_{12}b_{22} &
+    \scriptscriptstyle a_{11}b_{13} + a_{12}b_{23} \\
+    \scriptscriptstyle a_{21}b_{11} + a_{22}b_{21} &
+    \scriptscriptstyle a_{21}b_{12} + a_{22}b_{22} &
+    \scriptscriptstyle a_{21}b_{13} + a_{22}b_{23} \\
+    \scriptscriptstyle a_{31}b_{11} + a_{32}b_{21} &
+    \scriptscriptstyle a_{31}b_{12} + a_{32}b_{22} &
+    \scriptscriptstyle a_{31}b_{13} + a_{32}b_{23} \\
+    \scriptscriptstyle a_{41}b_{11} + a_{42}b_{21} &
+    \scriptscriptstyle a_{41}b_{12} + a_{42}b_{22} &
+    \scriptscriptstyle a_{41}b_{13} + a_{42}b_{23}
 \end{bmatrix} \\
 &\qquad\qquad\qquad\qquad+
 \begin{bmatrix}
-    a_{13}b_{31} + a_{14}b_{41} &
-    a_{13}b_{32} + a_{14}b_{42} &
-    a_{13}b_{33} + a_{14}b_{43} \\
-    a_{23}b_{31} + a_{24}b_{41} &
-    a_{23}b_{32} + a_{24}b_{42} &
-    a_{23}b_{33} + a_{24}b_{43} \\
-    a_{33}b_{31} + a_{34}b_{41} &
-    a_{33}b_{32} + a_{34}b_{42} &
-    a_{33}b_{33} + a_{34}b_{43} \\
-    a_{43}b_{31} + a_{44}b_{41} &
-    a_{43}b_{32} + a_{44}b_{42} &
-    a_{43}b_{33} + a_{44}b_{43}
+    \scriptscriptstyle a_{13}b_{31} + a_{14}b_{41} &
+    \scriptscriptstyle a_{13}b_{32} + a_{14}b_{42} &
+    \scriptscriptstyle a_{13}b_{33} + a_{14}b_{43} \\
+    \scriptscriptstyle a_{23}b_{31} + a_{24}b_{41} &
+    \scriptscriptstyle a_{23}b_{32} + a_{24}b_{42} &
+    \scriptscriptstyle a_{23}b_{33} + a_{24}b_{43} \\
+    \scriptscriptstyle a_{33}b_{31} + a_{34}b_{41} &
+    \scriptscriptstyle a_{33}b_{32} + a_{34}b_{42} &
+    \scriptscriptstyle a_{33}b_{33} + a_{34}b_{43} \\
+    \scriptscriptstyle a_{43}b_{31} + a_{44}b_{41} &
+    \scriptscriptstyle a_{43}b_{32} + a_{44}b_{42} &
+    \scriptscriptstyle a_{43}b_{33} + a_{44}b_{43}
 \end{bmatrix} \\
 &=
 \begin{bmatrix}
-    \scriptstyle
+    \scriptscriptstyle
     a_{11}b_{11} + a_{12}b_{21} + a_{13}b_{31} + a_{14}b_{41} &
-    \scriptstyle
+    \scriptscriptstyle
     a_{11}b_{12} + a_{12}b_{22} + a_{13}b_{32} + a_{14}b_{42} &
-    \scriptstyle
+    \scriptscriptstyle
     a_{11}b_{13} + a_{12}b_{23} + a_{13}b_{33} + a_{14}b_{43} \\
-    \scriptstyle
+    \scriptscriptstyle
     a_{21}b_{11} + a_{22}b_{21} + a_{23}b_{31} + a_{24}b_{41} &
-    \scriptstyle
+    \scriptscriptstyle
     a_{21}b_{12} + a_{22}b_{22} + a_{23}b_{32} + a_{24}b_{42} &
-    \scriptstyle
+    \scriptscriptstyle
     a_{21}b_{13} + a_{22}b_{23} + a_{23}b_{33} + a_{24}b_{43} \\
-    \scriptstyle
+    \scriptscriptstyle
     a_{31}b_{11} + a_{32}b_{21} + a_{33}b_{31} + a_{34}b_{41} &
-    \scriptstyle
+    \scriptscriptstyle
     a_{31}b_{12} + a_{32}b_{22} + a_{33}b_{32} + a_{34}b_{42} &
-    \scriptstyle
+    \scriptscriptstyle
     a_{31}b_{13} + a_{32}b_{23} + a_{33}b_{33} + a_{34}b_{43} \\
-    \scriptstyle
+    \scriptscriptstyle
     a_{41}b_{11} + a_{42}b_{21} + a_{43}b_{31} + a_{44}b_{41} &
-    \scriptstyle
+    \scriptscriptstyle
     a_{41}b_{12} + a_{42}b_{22} + a_{43}b_{32} + a_{44}b_{42} &
-    \scriptstyle
+    \scriptscriptstyle
     a_{41}b_{13} + a_{42}b_{23} + a_{43}b_{33} + a_{44}b_{43}
 \end{bmatrix}
 \end{align*}
@@ -473,19 +474,33 @@ A \textbf{block diagonal matrix} is a matrix with square diagonal
 blocks and zero on the other entries.
 \end{definition}
 
-General form for square matrices $A_i$ can be represented as $A =
+Below is the general form for square matrices $A_i$.
+\[
+A =
 \begin{bmatrix}
     A_1    & 0      & \cdots & 0 \\
     0      & A_2    & \cdots & 0 \\
     \vdots & \vdots & \ddots & 0 \\
-    0      & 0      & 0      & 0 \\
-\end{bmatrix}$.
+    0      & 0      & 0      & A_n \\
+\end{bmatrix}
+\]
 Continuing, we could define rows and columns based on its elements.
 
 \begin{definition}{}{}
 \textbf{Zero rows} and \textbf{zero columns} are rows and columns
 composed of zeros respectively.
 \end{definition}
+
+For instance for matrix defined as the following,
+\[
+\begin{bmatrix}
+    1 & 2 & 0 & 3 \\
+    0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 1
+\end{bmatrix}
+\]
+the zero row is the second row and the zero column is the third
+column.
 
 This definition is quite straightforward, and now that we have
 basic terms in mind, let's discuss two forms from the definitions
@@ -598,10 +613,11 @@ C
 \right]
 \]
 From the expression, it suffices to show that $\sum_{k = 1}^{j-1}
-a_{ik} b_{kj} + \sum_{k = j}^{n} a_{ik} b_{kj} = 0$ for $i < j$.
-Notice that by definition, $b_{kj} = 0$ for all $k = 1$ to $k = j-1$.
-Similarly, $a_{ik} = 0$ for all integer $k \in [j, n]$. Therefore,
-$c_{ij} = 0$ for all $i < j$, proving the first half of the theorem.
+a_{ik} b_{kj} + \sum_{k = j}^{n} a_{ik} b_{kj} \linebreak = 0$ for
+$i < j$. Notice that by definition, $b_{kj} = 0$ for all $k = 1$ to
+$k = j-1$. Similarly, $a_{ik} = 0$ for all integer $k \in [j, n]$.
+Therefore, $c_{ij} = 0$ for all $i < j$, proving the first half of
+the theorem.
 
 Similarly, let $A' = [a'_{ij}]_{n \times n}$ and $B' =
 [b'_{ij}]_{n \times n}$ be upper triangular matrices. The product

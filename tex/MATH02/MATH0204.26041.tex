@@ -279,7 +279,7 @@ and graph it.
 \centering
 \begin{tikzpicture}[
         vector/.style={->, thick},
-        scale=0.8
+        scale=0.7
     ]
 
     \foreach \i in {-5, -4, ..., 5} {
@@ -380,7 +380,8 @@ Determine whether a transformation defined as $T(\langle a, b \rangle)
 Consider the following equation for arbitrary scalars $\alpha$ and
 $\beta$.
 \begin{align*}
-    T(\alpha \langle a, b \rangle + \beta \langle a', b' \rangle)
+    &\quad\ T(\alpha \langle a, b \rangle +
+        \beta \langle a', b' \rangle) \\
     &= T(\langle \alpha a, \alpha b \rangle +
         \langle \beta a', \beta b' \rangle)
     = T(\langle \alpha a + \beta a', \alpha b + \beta b' \rangle) \\
@@ -502,8 +503,8 @@ constants $c_k$ and $d_k$.
     T(\alpha u_1 + \beta u_2)
     &= T \left(
         \alpha \sum_{k=1}^n c_k v_k + \beta \sum_{k=1}^n d_k v_k
-    \right)
-    = T \left( \sum_{k=1}^n (\alpha c_k + \beta d_k) v_k \right) \\
+    \right) \\
+    &= T \left( \sum_{k=1}^n (\alpha c_k + \beta d_k) v_k \right) \\
     &=
     \begin{bmatrix}
         \scriptstyle \alpha c_1 + \beta d_1 \\
@@ -673,12 +674,12 @@ transition matrix, then $A_B^B = P_C^B A_C^C P_B^C$.
 For a vector $v$ in the same vector space, notice that $(Tv)_B =
 A_B^B (v)_B$ and $(v)_C = P_B^C (v)_B$ hold by definition.
 Consider the following equation.
-\[
-(Tv)_B
-= P_C^B (Tv)_C = P_C^B A_C^C (v)_C
-= P_C^B A_C^C P_B^C (v)_B
-= A_B^B (v)_B
-\]
+\begin{align*}
+    (Tv)_B
+    &= P_C^B (Tv)_C = P_C^B A_C^C (v)_C
+        = P_C^B A_C^C P_B^C (v)_B \\
+    &= A_B^B (v)_B
+\end{align*}
 Thus, $P_C^B A_C^C P_B^C = A_B^B$.
 \end{proof}
 
@@ -909,7 +910,7 @@ First and foremost, let a basis for $\Im(T)$ be $\{ w_1, \ldots,
 w_k \}$. Notice that if $\{ (w_1)_C, \ldots, (w_k)_C \}$ is a
 basis for $\Col(A)$, then $\dim(\Im(T)) = \dim(\Col(A))$ and
 $\Rank(T) = \Rank(A)$. Thus, it suffices to show that $\{ (w_1)_C,
-\ldots, (w_k)_C \}$ is a basis for $\Col(A)$.
+\linebreak \ldots, (w_k)_C \}$ is a basis for $\Col(A)$.
 
 Let $c_k$ be some scalars that $x \in \Col(A)$ is represented
 as the linear combination of the columns $A_k$ of $A$ where
@@ -926,10 +927,11 @@ following equation holds.
 \end{bmatrix}
 \]
 Continuing, $x = A(v)_B = (Tv)_C$. Because $Tv \in \Im(T)$,
-it is evident that $x$ lies in $\Span\{ (w_1)_C, \ldots, (w_k)_C \}$.
-Moreover, because $x$ is an arbitrary vector from $\Col(A)$, it is
-evident that $\Col(A) \subset \Span\{ (w_1)_C, \ldots, (w_k)_C \}$ and
-$\{ (w_1)_C, \ldots, (w_k)_C \}$ spans $\Col(A)$.
+it is evident that $x \in \Span\{ (w_1)_C, \ldots, (w_k)_C \}$.
+Moreover, because $x$ is an arbitrary vector from $\Col(A)$,
+it is evident that $\Col(A) \subset \Span\{ (w_1)_C, \ldots,
+\linebreak (w_k)_C \}$ and $\{ (w_1)_C, \ldots, (w_k)_C \}$ spans
+$\Col(A)$.
 
 By definition, $\{ w_1, \ldots, w_k \}$ is linearly independent.
 For some scalars $d_k$, for $\sum_{k=1}^n d_k (w_k)_C$ to be

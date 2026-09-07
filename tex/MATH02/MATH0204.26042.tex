@@ -406,7 +406,7 @@ Consider the following equations for some scalars $c_i$.
     \sum_{i=1}^{k-1} c_i \lambda_k x_i &= 0
 \end{align*}
 Subtracting the last two equations, $\sum_{i=1}^{k-1} c_i
-(\lambda_i - \lambda_k) x_i = 0$ is obtained. Because the set
+(\lambda_i - \lambda_k) x_i = 0$ is obtained. Because
 $\{ x_1, \ldots, x_{k-1} \}$ is linearly independent, $c_i
 (\lambda_i - \lambda_k) = 0$ for all integer $i \in [1, k)$.
 Continuing, because $\lambda_i - \lambda_k \neq 0$ by construction,
@@ -468,14 +468,14 @@ Below is the proof for the second statement.
 \begin{proof}
 Assume that if the statement holds for $n - 1$, then the statement
 holds for $n > 1$. Consider the following equations.
-\[
-A^n x
-= A \left( A^{n-1} x \right)
-= A \left( \lambda^{n-1} x \right)
-= \lambda^{n-1} Ax
-= \lambda^{n-1} \lambda x
-= \lambda^n x
-\]
+\begin{align*}
+    A^n x
+    &= A \left( A^{n-1} x \right)
+    = A \left( \lambda^{n-1} x \right)
+    = \lambda^{n-1} Ax \\
+    &= \lambda^{n-1} \lambda x
+    = \lambda^n x
+\end{align*}
 Because $Ax = \lambda x$, the statement holds by induction.
 \end{proof}
 
@@ -554,14 +554,14 @@ the same order with entries $\lambda_i$ are similar if and only if
 there exists an invertible matrix $P$ such that $P^{-1} A P = D$ or
 $AP = PD$. Let $x_j$ and $e_j$ be the $j^\text{th}$ column of $P$ and
 $I$ respectively. Then, the following equations hold.
-\[
-A x_j
-= A Pe_j
-= PDe_j
-= P \lambda_j e_j
-= \lambda_j P e_j
-= \lambda_j x_j
-\]
+\begin{align*}
+    A x_j
+    &= A Pe_j
+    = PDe_j
+    = P \lambda_j e_j \\
+    &= \lambda_j P e_j
+    = \lambda_j x_j
+\end{align*}
 Thus, $x_j$ and $\lambda_j$ are an eigenvector and the corresponding
 eigenvalue of $A$. By definition, because $M$ is invertible,
 $x_j$ are all linearly independent and $A$ has $n$ linearly
@@ -665,12 +665,13 @@ Thus, $B$ is linearly independent and $A$ is diagonalizable by
 Theorem \ref{theo:Diagonalizability and Eigenvectors}.
 
 Continuing, the converse can be proven. Assume that $\sum_{i=1}^k
-\dim(S_{\lambda_i}) > n$. Continuing from the previous definition,
-$B \subset \mathbb{R}^n$ and the inequality $\sum_{i=1}^k
+\dim(S_{\lambda_i}) \linebreak > n$. Continuing from the previous
+definition, $B \subset \mathbb{R}^n$ and the inequality $\sum_{i=1}^k
 \dim(S_{\lambda_i}) > n$ leads to contradiction. Moreover, if
 $\sum_{i=1}^k \dim(S_{\lambda_i}) < n$ then $A$ has no set that
 contains $n$ linearly independent eigenvectors. Thus, $A$ is not
-diagonalizable if $\sum_{i=1}^k \dim(S_{\lambda_i}) \neq n$.
+diagonalizable if $\sum_{i=1}^k \dim(S_{\lambda_i}) \linebreak
+\neq n$.
 \end{proof}
 
 This is it for eigenvalues and eigenvectors! This note was a

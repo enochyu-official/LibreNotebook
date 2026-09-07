@@ -8,34 +8,34 @@
 \begin{enumerate}
 \item
 Consider the following computation.
-\[
-A - 2B
-=
-\begin{bmatrix}
-    1 & 2 \\
-    2 & 0
-\end{bmatrix}
--
-2\begin{bmatrix}
-    -1 & 2 \\
-    0  & 3
-\end{bmatrix}
-=
-\begin{bmatrix}
-    1 & 2 \\
-    2 & 0
-\end{bmatrix}
-+
-\begin{bmatrix}
-    2 & -4 \\
-    0 & -6
-\end{bmatrix}
-=
-\begin{bmatrix}
-    3 & -2 \\
-    2 & -6
-\end{bmatrix}
-\]
+\begin{align*}
+    A - 2B
+    &=
+    \begin{bmatrix}
+        1 & 2 \\
+        2 & 0
+    \end{bmatrix}
+    -
+    2\begin{bmatrix}
+        -1 & 2 \\
+        0  & 3
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        1 & 2 \\
+        2 & 0
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+        2 & -4 \\
+        0 & -6
+    \end{bmatrix} \\
+    &=
+    \begin{bmatrix}
+        3 & -2 \\
+        2 & -6
+    \end{bmatrix}
+\end{align*}
 \item
 Consider the following equation.
 \[
@@ -73,33 +73,33 @@ BA =
 \end{bmatrix}
 \]
 Therefore, the following equation is true.
-\[
-(AB - BA)^\intercal
-=
-\left(
-\begin{bmatrix}
-    -1 & 8 \\
-    -2 & 7
-\end{bmatrix}
--
-\begin{bmatrix}
-    3 & -2 \\
-    6 & 0
-\end{bmatrix}
-\right)^\intercal
-=
-\left(
-\begin{bmatrix}
-    -4 & 10 \\
-    -8 & 7
-\end{bmatrix}
-\right)^\intercal
-=
-\begin{bmatrix}
-    -4 & -8 \\
-    10 & 7
-\end{bmatrix}
-\]
+\begin{align*}
+    (AB - BA)^\intercal
+    &=
+    \left(
+    \begin{bmatrix}
+        -1 & 8 \\
+        -2 & 7
+    \end{bmatrix}
+    -
+    \begin{bmatrix}
+        3 & -2 \\
+        6 & 0
+    \end{bmatrix}
+    \right)^\intercal
+    =
+    \left(
+    \begin{bmatrix}
+        -4 & 10 \\
+        -8 & 7
+    \end{bmatrix}
+    \right)^\intercal \\
+    &=
+    \begin{bmatrix}
+        -4 & -8 \\
+        10 & 7
+    \end{bmatrix}
+\end{align*}
 \end{enumerate}
 
 \item
@@ -116,9 +116,9 @@ A =
 \end{bmatrix}
 \]
 Therefore, the following equation is obtained.
-\[
+\begin{align*}
 2A - 3A^\intercal
-=
+&=
 \begin{bmatrix}
     2a_{11} & 2a_{12} \\
     2a_{21} & 2a_{22}
@@ -127,8 +127,8 @@ Therefore, the following equation is obtained.
 \begin{bmatrix}
     3a_{11} & 3a_{21} \\
     3a_{12} & 3a_{22}
-\end{bmatrix}
-=
+\end{bmatrix} \\
+&=
 \begin{bmatrix}
     2a_{11} - 3a_{11} & 2a_{12} - 3a_{21} \\
     2a_{21} - 3a_{12} & 2a_{22} - 3a_{22}
@@ -138,7 +138,7 @@ Therefore, the following equation is obtained.
     -1 & -5 \\
     0  & -4
 \end{bmatrix}
-\]
+\end{align*}
 Continuing, the elements of $A$ could be found.
 \begin{align*}
     2a_{11} - 3a_{11} &= -1 \\
@@ -205,28 +205,28 @@ P^{-1} =
 \end{bmatrix}
 \]
 Continuing,
-\[
-P^{-1}
-\begin{bmatrix}
-    A & B \\
-    B & A
-\end{bmatrix}
-P
-= \frac{1}{2}
-\begin{bmatrix}
-    A + B & B + A \\
-    A - B & B - A
-\end{bmatrix}
-\begin{bmatrix}
-    I & I \\
-    I & -I
-\end{bmatrix}
-=
-\begin{bmatrix}
-    A + B & 0 \\
-    0     & A - B
-\end{bmatrix}
-\]
+\begin{align*}
+    P^{-1}
+    \begin{bmatrix}
+        A & B \\
+        B & A
+    \end{bmatrix}
+    P
+    &= \frac{1}{2}
+    \begin{bmatrix}
+        A + B & B + A \\
+        A - B & B - A
+    \end{bmatrix}
+    \begin{bmatrix}
+        I & I \\
+        I & -I
+    \end{bmatrix} \\
+    &=
+    \begin{bmatrix}
+        A + B & 0 \\
+        0     & A - B
+    \end{bmatrix}
+\end{align*}
 holds and
 $\begin{bmatrix}
     A & B \\
@@ -244,7 +244,7 @@ $\det(A + B) \det(A - B)$.
 By definition, $A$ is skew-symmetric if $A^\intercal = -A$.
 Notice that $(A^3)^\intercal = (A^\intercal)^3$ by Theorem
 \ref{theo:Properties of Transpose of a Matrix}. Therefore,
-$(A^3)^\intercal = (A^\intercal)^3 = -A^3$. Thus, if $A$ is
+$(A^3)^\intercal = (A^\intercal)^3 \linebreak = -A^3$. Thus, if $A$ is
 skew-symmetric, then $A^3$ is also skew-symmetric.
 \end{enumerate}
 \end{document}

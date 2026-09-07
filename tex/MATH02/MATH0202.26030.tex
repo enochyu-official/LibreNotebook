@@ -158,8 +158,9 @@ B =
 \end{problem}
 \begin{solution}
 Before subtracting, we could perform scalar multiplication first.
-\[
-2A - 3B =
+\begin{align*}
+2A - 3B
+&=
 2\begin{bmatrix}
     2 & 3 & -1 \\
     1 & 7 & 3
@@ -168,8 +169,8 @@ Before subtracting, we could perform scalar multiplication first.
 3\begin{bmatrix}
     -2 & 1 & 0 \\
     5  & 3 & 8
-\end{bmatrix}
-=
+\end{bmatrix} \\
+&=
 \begin{bmatrix}
     4 & 6  & -2 \\
     2 & 14 & 6
@@ -179,7 +180,7 @@ Before subtracting, we could perform scalar multiplication first.
     -6 & 3 & 0 \\
     15 & 9 & 24
 \end{bmatrix}
-\]
+\end{align*}
 From here we could subtract two matrices. Therefore, $2A - 3B$
 can be represented as following.
 \[
@@ -250,15 +251,15 @@ Thus, the equation $(\lambda_1 \pm \lambda_2) A =
 Finally, here is the proof to the third property.
 
 \begin{proof}
-Consider the following equations.
-\[
-\lambda_1 (\lambda_2 [a_{ij}])
-= \lambda_1 [\lambda_2 a_{ij}]
-= [\lambda_1 \lambda_2 a_{ij}]
-= [(\lambda_1 \lambda_2) a_{ij}]
-= (\lambda_1 \lambda_2) [a_{ij}]
-= (\lambda_1 \lambda_2) A
-\]
+Consider the following equation.
+\begin{align*}
+    \lambda_1 (\lambda_2 [a_{ij}])
+    &= \lambda_1 [\lambda_2 a_{ij}]
+    = [\lambda_1 \lambda_2 a_{ij}]
+    = [(\lambda_1 \lambda_2) a_{ij}] \\
+    &= (\lambda_1 \lambda_2) [a_{ij}]
+    = (\lambda_1 \lambda_2) A
+\end{align*}
 Therefore, the property holds.
 \end{proof}
 

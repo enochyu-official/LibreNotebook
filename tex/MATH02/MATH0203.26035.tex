@@ -118,13 +118,13 @@ From Theorem \ref{theo:Properties of Matrix Multiplication}, it was
 shown that $\lambda (AB) = A (\lambda B)$ for scalar $\lambda$ and
 matrices $A$ and $B$ that can be multiplied. Substituting $\alpha x_1
 + \beta x_2$, the following system is obtained.
-\[
-A (\alpha x_1 + \beta x_2)
-= A(\alpha x_1) + A(\beta x_2)
-= \alpha (Ax_1) + \beta (Ax_2)
-= \alpha b + \beta b
-= b
-\]
+\begin{align*}
+    A (\alpha x_1 + \beta x_2)
+    &= A(\alpha x_1) + A(\beta x_2)
+    = \alpha (Ax_1) + \beta (Ax_2) \\
+    &= \alpha b + \beta b
+    = b
+\end{align*}
 Therefore, $(\alpha x_1 + \beta x_2)$ is another solution to the
 system.
 \end{proof}
@@ -169,7 +169,7 @@ not all three planes intersect at a single point.
 \begin{tikzpicture}[
         tdplot_main_coords,
         axis/.style={->,thick},
-        scale=0.55
+        scale=0.40
     ]
     \pgfmathsetmacro{\a}{1.13397459622}
     \pgfmathsetmacro{\b}{6.33012701892}
@@ -215,7 +215,7 @@ not all three planes intersect at a single point.
 \begin{tikzpicture}[
         tdplot_main_coords,
         axis/.style={->,thick},
-        scale=0.55
+        scale=0.40
     ]
     \foreach \x in {0,1,...,9}
         \foreach \y in {0,1,...,9} {
@@ -258,7 +258,7 @@ with infinite solutions.
 \begin{tikzpicture}[
         tdplot_main_coords,
         axis/.style={->,thick},
-        scale=0.55
+        scale=0.40
     ]
     \pgfmathsetmacro{\a}{6.24264068712}
 
@@ -302,7 +302,7 @@ with infinite solutions.
 \begin{tikzpicture}[
         tdplot_main_coords,
         axis/.style={->,thick},
-        scale=0.55
+        scale=0.40
     ]
     \pgfmathsetmacro{\a}{1.40192378865}
     \pgfmathsetmacro{\b}{6.59807621135}

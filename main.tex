@@ -2,13 +2,22 @@
 % LibreNotebook
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[11pt,oneside]{book}
+\documentclass[11pt,twoside]{book}
 
 \input{tex/preamble}
 \input{tex/macros}
 
 \begin{document}
+% Half-Title Page
+\begin{titlepage}
+    \thispagestyle{empty}
+    \vspace*{0.1\textheight}
+    \centering
+    {\Huge LibreNotebook}
+\end{titlepage}
 
+\thispagestyle{empty}
+% Title Page
 \begin{titlepage}
     \centering
     \vspace*{8em}
@@ -16,14 +25,29 @@
         \fontsize{35}{42}
         \selectfont\bfseries LibreNotebook \\
     }
-    \vspace{0.4cm}
-    {\large Last Updated: \today\par}
     \vfill
     {\LARGE\itshape Enoch Yu\par}
     \vspace{1.5cm}
 \end{titlepage}
 
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+{\small
+Copyright \textcopyright\ 2026 Enoch Yu \\
+This book is licensed under the
+\href{https://creativecommons.org/licenses/by-sa/4.0/}{CC BY-SA 4.0}
+License.
+
+\vspace{0.8em}
+
+Last Updated: \today
+}
+\end{center}
+
+\newpage
 \tableofcontents
+\newpage
 
 \subfile{tex/preface}
 

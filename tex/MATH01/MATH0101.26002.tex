@@ -42,11 +42,11 @@ and only if $a_1 = a_2 = \dots = a_n$.
 You might be more familiar with $a + b \geq 2 \sqrt{ab}$, but the
 inequality above is the generalized version.
 
-\begin{tip}
+\begin{important}
 AM-GM as a fundamental inequality has lots of application. However
 in olympiads, it is used the most for cancellation and investigating
 the minimum.
-\end{tip}
+\end{important}
 
 Consider the following example.
 
@@ -117,7 +117,7 @@ holds.
 
 \begin{solution}
 First, consider the following weighted AM-GM inequality for
-$a, b, c, d$ with weights $a, b, c, d$ respectively.
+$a, b, c, \linebreak d$ with weights $a, b, c, d$ respectively.
 \begin{align*}
     \frac{a \cdot a + b \cdot b + c \cdot c + d \cdot d}
         {a + b + c + d} 
@@ -142,10 +142,12 @@ Consider inequalities below.
 \end{align*}
 Integrating,
 \begin{align*}
-    (a + 2b + 3c + 4d)(a^2 + b^2 + c^2 + d^2)
-    &< a^2 (a + 3b + 3c + 3d) + b^2 (3a + b + 3c + 3d) \\
-    &\qquad + c^2 (3a + 3b + c + 3d) + d^2 (3a + 3b + 3c + d) \\
-    &\qquad < (a + b + c + d)^3 = 1
+    &(a + 2b + 3c + 4d)(a^2 + b^2 + c^2 + d^2) \\
+    \displaybreak
+    &\qquad\qquad< a^2 (a + 3b + 3c + 3d) + b^2 (3a + b + 3c + 3d) \\
+    &\qquad\qquad\qquad + c^2 (3a + 3b + c + 3d) +
+        d^2 (3a + 3b + 3c + d) \\
+    &\qquad\qquad < (a + b + c + d)^3 = 1
 \end{align*}
 and the inequality holds.
 \end{solution}
@@ -153,7 +155,7 @@ and the inequality holds.
 With the ideas of weighted AM-GM inequality in mind, we can further
 generalize our results for different means.
 
-\subsection{Power Mean and Weighted Power Mean Inequality}
+\subsection{Power Mean \& Weighted Power Mean Inequality}
 
 Power Mean inequality, also known as QM-AM-GM-HM inequality,
 compares the four major means with generalization of $AM-GM$
@@ -173,8 +175,8 @@ For positive real numbers $a_i$, the inequality
 holds with equality if and only if $a_1 = \cdots = a_n$.
 \end{definition}
 
-With the definition in mind, we can naturally apply the same for
-weighted power means.
+With the definition in mind, we can naturally apply the same
+definition for weighted power means.
 
 \begin{definition}
 {Weighted Power Mean Inequality}
