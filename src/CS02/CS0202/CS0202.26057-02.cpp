@@ -31,7 +31,7 @@ int main() {
         while (pow(2,2*n+1) < -z) {
             n++;
         }
-        cout << 2*(pow(2,2*n) - 1) - z << "\n";
+        cout << 2*(pow(2,2*n + 1) - 1) - z << "\n";
     }
 
     return 0;

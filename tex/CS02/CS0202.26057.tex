@@ -104,6 +104,104 @@ int main() {
 This solves the problem!
 \end{solution}
 
+As you can see from the example above, we simulate the environment
+described to solve the problem. Below is another example for
+simulation.
+
+\begin{problem}
+{2017 USACO Open Bronze Problem 1}
+{2017 USACO Open Bronze Problem 1}
+(\href{https://usaco.org/index.php?page=viewproblem2&cpid=735}{Problem Statement})
+
+A farmer and a cow is in a number line with position $x, y > 0$
+respectively. The farmer will move in zig zag from $x$ and doubling
+the distance from $x$ in each move. For instance, the farmer moves
+from $x$ to $x+1$ to $x-2$ to $x+4$ and so on. What is the total
+distance that the farmer moves until reaching the cow?
+\end{problem}
+\begin{solution}
+To solve this problem, we can simulate the situation where the farmer
+is moving. However before doing that, let's shift the position of
+the initial position of the farmer and the cow by $x$ to make
+our lives easier.
+
+\begin{basicboxSolution}
+\begin{lstlisting}[style=basic]
+int z = y - x;
+\end{lstlisting}
+\end{basicboxSolution}
+With this, the position of the farmer is $0$ and the cow is $z$.
+Note that this is possible because the distance between them remains
+unchanged. From here, we can separate the cases into two case:
+$z < 0$ and $z > 0$. $z$ can be negative since it is possible that
+$y < x$.
+
+For integer $n \geq 0$, we can see that the farmer won't reach
+$2^{2n}$ for some $n$ if $z > 0$ and the farmer will not reach
+$2^{2n+1}$ for some $n$ if $z < 0$. Using this, we can know that
+the distance that the farmer will move if $z > 0$ can be represented
+as the following where $n$ is the minimum value that the farmer
+will stop moving.
+\begin{align*}
+    &\quad\ 1 + (1 + 2) + (2 + 4) + \cdots +
+        \left( 2^{2n-2} + 2^{2n-1} \right) +
+        \left( 2^{2n-1} + z \right) \\
+    &=  2 \left( 1 + 2 + 4 + \cdots + 2^{2n-1} \right) + z
+    = 2 \left( 2^{2n} - 1 \right) + z
+\end{align*}
+Similarly using geometric sequence, we can apply the same idea
+for $z < 0$.
+\begin{align*}
+    \displaybreak
+    &\quad\ 1 + (1 + 2) + (2 + 4) + (4 + 8) \cdots +
+        \left( 2^{2n-1} + 2^{2n} \right) +
+        \left( 2^{2n} + z \right) \\
+    &=  2 \left( 1 + 2 + 4 + \cdots + 2^{2n} \right) + z
+    = 2 \left( 2^{2n+1} - 1 \right) + z
+\end{align*}
+Applying it with C++, we can use the while loop to find when to
+stop and conditions to determine which value to output.
+
+\begin{cppboxSolution}{CS0202.26057-02}{CS0202.26057-02}
+\begin{lstlisting}[style=cppstyle]
+#include <cstdio>
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+    freopen("lostcow.in", "r", stdin);
+    freopen("lostcow.out", "w", stdout);
+
+    int x, y;
+    cin >> x >> y;
+    int z = y - x;
+
+    int n = 0;
+    if (z > 0) {
+        while (pow(2,2*n) < z) {
+            n++;
+        }
+        cout << 2*(pow(2,2*n) - 1) + z << "\n";
+    } else if (z < 0) {
+        while (pow(2,2*n+1) < -z) {
+            n++;
+        }
+        cout << 2*(pow(2,2*n + 1) - 1) - z << "\n";
+    }
+
+    return 0;
+}
+\end{lstlisting}
+\end{cppboxSolution}
+
+This solves the problem!
+\end{solution}
+
+Before wrapping up this section, let's solve one last problem on
+simulation.
+
+
 
 
 

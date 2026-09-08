@@ -15,6 +15,10 @@ However, the difference could be finding patterns and more
 advanced topics from power of a point. With that in mind,
 let's review some of the topics.
 
+\subsection{Definitions and Theorems}
+
+As always, let's get started with the definition.
+
 \begin{definition}{}{}
 The \textbf{power of a point} of $P$ with respect to a circle
 $\omega$ represented as $P_\omega(P) = PO^2 - r^2$ where $O$
@@ -46,7 +50,7 @@ diagram.
 
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}[scale=0.5]
+\begin{tikzpicture}[scale=0.45]
     \draw[thick] (0,0) circle (5);
     \draw[dotted,thick] (0,0) -- (0,5);
     \draw[thick] (-15,5) -- (0,5);
@@ -96,7 +100,7 @@ by definition.
 
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}[scale=0.6]
+\begin{tikzpicture}[scale=0.55]
     \draw[thick] (-2,0) circle (3);
     \draw[thick] (2,0) circle (3);
     \draw[thick,dotted] (-6,0) -- (6,0);
@@ -304,8 +308,102 @@ that three circles in this case all passes through two common
 intersections. Coaxial circles are not limited to three circles,
 but most problems would be on three circles for olympiads.
 
-Before we move on to important theorems, let's solve a practice
-problem to see how problems hide this simple concept.
+With the definition in mind, we can observe some key properties
+of coaxial circles.
+
+\begin{theorem}{}{Condition for Coaxial Circles}
+The centers of coaxial circles $\omega_1, \omega_2, \omega_3$ are
+collinear.
+\end{theorem}
+\begin{proof}
+Let the centers of $\omega_1, \omega_2, \omega_3$ be $O_1, O_2, O_3$
+and the radical axis be $l$. By definition, the radical axis of
+$\omega_1$ and $\omega_2$ is $l$ and $O_1O_2 \perp l$. Similarly,
+$O_1O_3 \perp l$ since $l$ is the radical axis of $\omega_1$ and
+$\omega_3$. Because there exists exactly one line perpendicular to
+$l$ that passes through $O_1$, $O_1O_2$ and $O_1O_3$ lines are the
+same line and $O_1,O_2,O_3$ are collinear.
+\end{proof}
+
+This theorem can look somewhat trivial. However, finding such
+conditions and looking for coaxial circles can come very handy.
+
+\begin{important}
+Never underestimate! Facts like $OA = OB$ for a circle with center
+$O$ and $P_\omega(A) = P_\omega(B)$ can be the key to the solution.
+Whenever you see three circles, circles defined by reflection,
+collinearity of their centers, and/or the intersection of three
+circles, we should be reminded of coaxial circles and suspect it as
+the key at least once.
+\end{important}
+
+Last, but not least, here is a very powerful theorem on coaxial
+circles. Honestly, this theorem made me suspect power of a point
+every time I see more than two circles on a problem.
+
+\begin{theorem}{}{}
+Let $\omega_1$ and $\omega_2$ be two distinct circles and $A, B, C$
+be three distinct points. If
+\[
+\frac{P_{\omega_1}(A)}{P_{\omega_2}(A)}
+= \frac{P_{\omega_1}(B)}{P_{\omega_2}(B)}
+= \frac{P_{\omega_1}(C)}{P_{\omega_2}(C)}
+\]
+holds, then either the circumcircle of $\triangle{ABC}$, $\omega_1$,
+and $\omega_2$ are coaxial circles or $A, B, C$ is the radical
+axis of $\omega_1$ and $\omega_2$.
+\end{theorem}
+\begin{proof}
+First, notice that for any circles $x^2 + y^2 + ax + by + c = 0$
+and a point $A(x_1, y_1)$, $P_\omega(A) = (x_1 - p)^2 + (y_2 - q)^2
+- r^2 = x_1^2 + y_1^2 + ax_1 + by_1 + c$. Moreover, if
+$\frac{P_{\omega_1}(A)}{P_{\omega_2}(A)}
+= \frac{P_{\omega_1}(B)}{P_{\omega_2}(B)}
+= \frac{P_{\omega_1}(C)}{P_{\omega_2}(C)} = k$, then
+$P_{\omega_1}(X) - k P_{\omega_2}(X) = 0$ for $X = A, B, C$.
+
+Let $\omega_1$ be defined as $x^2 + y^2 + a_1x + b_1y + c_1 = 0$ and
+$\omega_2$ as $x^2 + y^2 + a_2x + b_2y + c_2 = 0$. Rewriting the
+expression $P_{\omega_1}(X) - k P_{\omega_2}(X)$, the following
+equations are obtained.
+\begin{align*}
+    P_{\omega_1}(X) - k P_{\omega_2}(X)
+    &= x^2 + y^2 + a_1x + b_1y + c_1 \\
+    &\qquad\qquad\qquad\,- k(x^2 + y^2 + a_2x + b_2y + c_2) \\
+    &= (1 - k) x^2 + (1 - k) y^2 + (a_1 - ka_2) x \\
+    &\qquad\qquad\qquad\,+ (b_1 - kb_2) y + (c_1 - kc_2)
+\end{align*}
+Define $\omega_3$ as $(1 - k) x^2 + (1 - k) y^2 + (a_1 - ka_2) x +
+(b_1 - kb_2) y + (c_1 - kc_2) = 0$ for $k \neq 1$. Then, $A, B, C
+\in \omega_3$ and $\omega_3$ is the circumcircle of $\triangle{ABC}$.
+Moreover by construction, the power of any point $X$ satisfy the
+following equation.
+\[
+P_{\omega_3}(X)
+= \frac{P_{\omega_1}(X) - k P_{\omega_2}(X)}{1 - k}
+\]
+Therefore, if $X$ lies on the radical axis of $\omega_3$ and
+$\omega_1$, i.e. $P_{\omega_3}(X) = P_{\omega_1}(X)$, then
+$(1 - k) P_{\omega_1}(X) = P_{\omega_1}(X) - k P_{\omega_2}(X)$
+and $P_{\omega_1}(X) = P_{\omega_2}(X)$. In other words,
+$P_{\omega_3}(X) = P_{\omega_1}(X)$ if and only if $P_{\omega_1}(X) =
+P_{\omega_2}(X)$ and $\omega_1, \omega_2, \omega_3$ are coaxial
+circles.
+
+If $k = 1$, then $P_{\omega_1}(A) = P_{\omega_2}(A)$,
+$P_{\omega_1}(B) = P_{\omega_2}(B)$, and $P_{\omega_1}(C) =
+P_{\omega_2}(C)$ holds and $A, B, C$ lies on the radical axis of
+$\omega_1$ and $\omega_2$. Because radical axis is a straight line,
+$A, B, C$ are collinear and the points form the radical axis.
+\end{proof}
+
+With the definition and theorems in mind, let's solve some practice
+problems to see how they are hidden.
+
+\subsection{Brain Teasers}
+
+The first problem is quite nostalgic and elegant problem that I
+wished to share.
 
 \begin{problem}{2025 Korean MO Problem 5}{2025 Korean MO Problem 5}
 Let $D$ be a point on the segment $BC$ of triangle $ABC$ such that
@@ -452,96 +550,6 @@ Never overestimate! I remember trying my best not to use power of
 a point during the exam because the morning problems were hard
 that day, and ended up wasting lots of time in the afternoon exam.
 I panicked, and learned a lesson.
-
-Although the problem above only used the definition and trivial
-properties of power of a point, we can expand the application much
-further with different theorems on coaxial circles.
-
-\begin{theorem}{}{Condition for Coaxial Circles}
-The centers of coaxial circles $\omega_1, \omega_2, \omega_3$ are
-collinear.
-\end{theorem}
-\begin{proof}
-Let the centers of $\omega_1, \omega_2, \omega_3$ be $O_1, O_2, O_3$
-and the radical axis be $l$. By definition, the radical axis of
-$\omega_1$ and $\omega_2$ is $l$ and $O_1O_2 \perp l$. Similarly,
-$O_1O_3 \perp l$ since $l$ is the radical axis of $\omega_1$ and
-$\omega_3$. Because there exists exactly one line perpendicular to
-$l$ that passes through $O_1$, $O_1O_2$ and $O_1O_3$ lines are the
-same line and $O_1,O_2,O_3$ are collinear.
-\end{proof}
-
-This theorem can look somewhat trivial. However, finding such
-conditions and looking for coaxial circles can come very handy.
-
-\begin{important}
-Never underestimate! Facts like $OA = OB$ for a circle with center
-$O$ and $P_\omega(A) = P_\omega(B)$ can be the key to the solution.
-Whenever you see three circles, circles defined by reflection,
-collinearity of their centers, and/or the intersection of three
-circles, we should be reminded of coaxial circles and suspect it as
-the key at least once.
-\end{important}
-
-Last, but not least, here is a very powerful theorem on coaxial
-circles. Honestly, this theorem made me suspect power of a point
-every time I see more than two circles on a problem.
-
-\begin{theorem}{}{}
-Let $\omega_1$ and $\omega_2$ be two distinct circles and $A, B, C$
-be three distinct points. If
-\[
-\frac{P_{\omega_1}(A)}{P_{\omega_2}(A)}
-= \frac{P_{\omega_1}(B)}{P_{\omega_2}(B)}
-= \frac{P_{\omega_1}(C)}{P_{\omega_2}(C)}
-\]
-holds, then either the circumcircle of $\triangle{ABC}$, $\omega_1$,
-and $\omega_2$ are coaxial circles or $A, B, C$ is the radical
-axis of $\omega_1$ and $\omega_2$.
-\end{theorem}
-\begin{proof}
-First, notice that for any circles $x^2 + y^2 + ax + by + c = 0$
-and a point $A(x_1, y_1)$, $P_\omega(A) = (x_1 - p)^2 + (y_2 - q)^2
-- r^2 = x_1^2 + y_1^2 + ax_1 + by_1 + c$. Moreover, if
-$\frac{P_{\omega_1}(A)}{P_{\omega_2}(A)}
-= \frac{P_{\omega_1}(B)}{P_{\omega_2}(B)}
-= \frac{P_{\omega_1}(C)}{P_{\omega_2}(C)} = k$, then
-$P_{\omega_1}(X) - k P_{\omega_2}(X) = 0$ for $X = A, B, C$.
-
-Let $\omega_1$ be defined as $x^2 + y^2 + a_1x + b_1y + c_1 = 0$ and
-$\omega_2$ as $x^2 + y^2 + a_2x + b_2y + c_2 = 0$. Rewriting the
-expression $P_{\omega_1}(X) - k P_{\omega_2}(X)$, the following
-equations are obtained.
-\begin{align*}
-    P_{\omega_1}(X) - k P_{\omega_2}(X)
-    &= x^2 + y^2 + a_1x + b_1y + c_1 \\
-    &\qquad\qquad\qquad\,- k(x^2 + y^2 + a_2x + b_2y + c_2) \\
-    &= (1 - k) x^2 + (1 - k) y^2 + (a_1 - ka_2) x \\
-    &\qquad\qquad\qquad\,+ (b_1 - kb_2) y + (c_1 - kc_2)
-\end{align*}
-Define $\omega_3$ as $(1 - k) x^2 + (1 - k) y^2 + (a_1 - ka_2) x +
-(b_1 - kb_2) y + (c_1 - kc_2) = 0$ for $k \neq 1$. Then, $A, B, C
-\in \omega_3$ and $\omega_3$ is the circumcircle of $\triangle{ABC}$.
-Moreover by construction, the power of any point $X$ satisfy the
-following equation.
-\[
-P_{\omega_3}(X)
-= \frac{P_{\omega_1}(X) - k P_{\omega_2}(X)}{1 - k}
-\]
-Therefore, if $X$ lies on the radical axis of $\omega_3$ and
-$\omega_1$, i.e. $P_{\omega_3}(X) = P_{\omega_1}(X)$, then
-$(1 - k) P_{\omega_1}(X) = P_{\omega_1}(X) - k P_{\omega_2}(X)$
-and $P_{\omega_1}(X) = P_{\omega_2}(X)$. In other words,
-$P_{\omega_3}(X) = P_{\omega_1}(X)$ if and only if $P_{\omega_1}(X) =
-P_{\omega_2}(X)$ and $\omega_1, \omega_2, \omega_3$ are coaxial
-circles.
-
-If $k = 1$, then $P_{\omega_1}(A) = P_{\omega_2}(A)$,
-$P_{\omega_1}(B) = P_{\omega_2}(B)$, and $P_{\omega_1}(C) =
-P_{\omega_2}(C)$ holds and $A, B, C$ lies on the radical axis of
-$\omega_1$ and $\omega_2$. Because radical axis is a straight line,
-$A, B, C$ are collinear and the points form the radical axis.
-\end{proof}
 
 
 
