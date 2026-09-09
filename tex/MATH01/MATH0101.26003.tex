@@ -7,6 +7,113 @@
 
 
 
+Muirhead's inequality is one of the powerful proving tools that is
+also a generalization of AM-GM inequality.
+
+\begin{theorem}{Muirhead's Inequality}{Muirhead's Inequality}
+Let $(a_i)$ and $(b_i)$ be sequences such that $(a_i) \succ (b_i)$.
+Then, the following inequality holds for all nonnegative $x_i$.
+\[
+\sum_\text{sym} {x_1}^{a_1} \cdots {x_n}^{a_n} 
+\geq \sum_\text{sym} {x_1}^{b_1} \cdots {x_n}^{b_n}
+\]
+The equality holds if and only if $(a_i)$ and $(b_i)$ are identical
+or if all $x_i$ are identical, which is the most common case.
+\end{theorem}
+
+
+
+
+
+
+Another very powerful inequality is Shur's inequality.
+Shur's inequality comes with many alternative forms, and it is
+generally encouraged to prove the derivation as there are also
+not-so-famous ones.
+
+\begin{theorem}{Schur's Inequality}{Schur's Inequality}
+For $a, b, c \geq 0$ and $r \geq 0$,
+\begin{align*}
+    \sum_\text{cyclic} a^r(a - b)(a - c)
+    &\geq 0 \\
+    a^r(a - b)(a - c) + b^r(b - a)(b - c) + c^r(c - a)(c - b)
+    &\geq 0
+\end{align*}
+holds with equality if $a = b = c$.
+\end{theorem}
+\begin{proof}
+First, notice that the left hand side of the inequality is cyclic.
+Therefore without loss of generality, let $a \geq b \geq c \geq 0$.
+Rewriting the inequality,
+\begin{align*}
+    a^r(a - b)(a - c) + b^r(b - a)(b - c) + c^r(c - a)(c - b)
+    &\geq 0 \\
+    (a - b)\left[ a^2(a - c) - b^r(b - c) \right] + c^r(c - a)(c - b)
+    &\geq 0
+\end{align*}
+holds. Moreover by construction, $a - b$, $a^2(a - c) - b^r(b - c)$,
+and $c^r(c - a)(c - b)$ are all greater than or equal to zero.
+Since the sum of all non-negative numbers is a non-negative number,
+the inequality holds.
+\end{proof}
+
+It won't be an exaggeration to say that the real power of Schur's
+inequality in olympiads come from its corollaries.
+
+\begin{corollary}{}{Shur's Inequality Corollary I}
+The following inequality holds for all reals $a, b, c$.
+\[
+a^2 + b^2 + c^2 \geq ab + bc + ca
+\]
+\end{corollary}
+\begin{proof}
+Substituting $r = 0$ in Schur's inequality, the following is obtained.
+\begin{align*}
+    (a - b)(a - c) + (b - a)&(b - c) + (c - a)(c - b)
+    \geq 0 \\
+    \therefore a^2 + b^2 + c^2
+    &\geq ab + bc + ca
+\end{align*}
+However, notice that unlike the condition for $a, b, c$ in Schur's
+inequality, the inequality above holds for negative $a, b, c$.
+Without loss of generality, let $a \geq b \geq c$. If $c < 0$ and
+$a, b \geq 0$, then it is self evident that the inequality is holds.
+Similarly, if two variables are negative, the inequality also holds.
+Lastly, when all $a, b, c$ are all negative, then the inequality
+holds as positive numbers are greater than negative sum.
+\end{proof}
+
+
+
+
+\subsection{Symmetric and Cyclic Inequalities}
+* Newton's Inequality
+* Maclaurin's Inequality
+* Nesbitt's Inequality
+* Popoviciu's Inequality
+
+
+\subsection{Additional Inequalities}
+
+Minkowski's inequality is a generalization of the triangle inequality.
+
+\begin{theorem}{Minkowski's Inequality}{Minkowski's Inequality}
+For $a_i, b_i > 0$ and $p > 1$, the following inequality is holds.
+\[
+\left( \sum_{k = 1}^n (a_k + b_k)^p \right)^\frac{1}{p}
+\leq
+\left( \sum_{k = 1}^n a_k^p \right)^\frac{1}{p}
+    + \left( \sum_{k = 1}^n b_k^p \right)^\frac{1}{p}
+\]
+The equality holds if and only if there exists $\lambda > 0$ such that
+$a_i = \lambda b_i$ for all $1 \leq i \leq n$.
+\end{theorem}
+
+
+* Bernoulli’s Inequality
+* Equal Value Principle
+
+
 
 \end{document}
 

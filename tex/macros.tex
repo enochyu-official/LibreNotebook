@@ -63,6 +63,15 @@
     sharp corners
 }{def}
 
+\newtheoremstyle{listprobstyle}
+    {\parsep}{\parsep}
+    {\normalfont}
+    {}
+    {\bfseries}
+    {}
+    { }
+    {{\thmnumber{#2}.}~\thmnote{\textcolor{BrickRed}{\bfseries #3}}\\}
+
 \newenvironment{theorem}
 {\begin{theostyle}}{\end{theostyle}}
 \newenvironment{corollary}
@@ -73,6 +82,8 @@
 {\begin{defstyle}}{\end{defstyle}}
 \newenvironment{problem}
 {\begin{probstyle}}{\end{probstyle}}
+\theoremstyle{listprobstyle}
+\newtheorem{listproblem}{}[section]
 
 \usepackage{mdframed}
 \renewmdenv[
@@ -319,6 +330,10 @@
     skipbelow=10pt
 ]}{\end{mdframed}}
 
+
+\newcommand{\easy}{(\ensuremath{\bullet \circ \circ})}
+\newcommand{\medium}{(\ensuremath{\bullet \bullet \circ})}
+\newcommand{\hard}{(\ensuremath{\bullet \bullet \bullet})}
 
 
 \DeclareMathOperator{\Span}{span}

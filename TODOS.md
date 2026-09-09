@@ -8,6 +8,8 @@
   * Second problem for AM-GM Inequality
   * Add more examples
 * MATH0101.26003
+  * Jensen's and Karamata's Inequality
+  * Examples
 * MATH0101.26004
 * MATH0101.26005
 
