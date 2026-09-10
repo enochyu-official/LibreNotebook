@@ -1,0 +1,206 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Roots of Unity}
+
+
+
+
+
+
+\begin{problem}{1976 USAMO Problem 5 \medium}{1976 USAMO Problem 5}
+For polynomials $P(x)$, $Q(x)$, $R(x)$, and $S(x)$ that satisfy
+the following equation,
+\[
+P(x^5) + xQ(x^5) + x^2 R(x^5)
+= (x^4 + x^3 + x^2 + x + 1) S(x),
+\]
+show that $x - 1$ is a factor of $P(x)$.
+\end{problem}
+\begin{solution}
+Looking at the equation, we can see $x^4 + x^3 + x^2 + x + 1$ and
+$x^5$. This should remind the equation $x^5 - 1 = (x - 1)
+(x^4 + x^3 + x^2 + x + 1)$. In other words, we should be reminded of
+the fifth roots of unity where we define $\omega_5 = 1$ and
+$\omega_1 + \omega_2 + \cdots + \omega_5 = 0$.
+
+The next thing that we want to try is substituting $\omega_1, \cdots,
+\omega_4$ since we know that the equation always hold.
+\begin{align*}
+    P(1) + \omega_1 Q(1) + \omega_1^2 R(1) &= 0 \\
+    P(1) + \omega_2 Q(1) + \omega_2^2 R(1) &= 0 \\
+    P(1) + \omega_3 Q(1) + \omega_3^2 R(1) &= 0 \\
+    P(1) + \omega_4 Q(1) + \omega_4^2 R(1) &= 0
+\end{align*}
+Now we see that only $P(1)$ has equal coefficient across all four
+equations. We also have defined $\omega_1, \cdots \omega_5$ to be
+the fifth root of unity. Meaning, if we multiply the equations
+appropriately, we would be able to cancel out $Q(1)$ and $R(1)$.
+\begin{align*}
+    \omega_1 P(1) + \omega_1^2 Q(1) + \omega_1^3 R(1) &= 0 \\
+    \omega_2 P(1) + \omega_2^2 Q(1) + \omega_2^3 R(1) &= 0 \\
+    \omega_3 P(1) + \omega_3^2 Q(1) + \omega_3^3 R(1) &= 0 \\
+    \omega_4 P(1) + \omega_4^2 Q(1) + \omega_4^3 R(1) &= 0
+\end{align*}
+Subtracting the four equations from the original equations,
+we obtain the following equations.
+\begin{align*}
+    &\qquad\quad P(1) + \omega_1 Q(1) + \omega_1^2 R(1) \\
+    &-\left(
+        \omega_1 P(1) + \omega_1^2 Q(1) + \omega_1^3 R(1)
+    \right) \\
+    &+ \quad\ \ \ P(1) + \omega_2 Q(1) + \omega_2^2 R(1) \\
+    &-\left(
+        \omega_2 P(1) + \omega_2^2 Q(1) + \omega_2^3 R(1)
+    \right) \\
+    &+ \quad\ \ \ P(1) + \omega_3 Q(1) + \omega_3^2 R(1) \\
+    &-\left(
+        \omega_3 P(1) + \omega_3^2 Q(1) + \omega_3^3 R(1)
+    \right) \\
+    &+ \quad\ \ \ P(1) + \omega_4 Q(1) + \omega_4^2 R(1) \\
+    &-\left(
+        \omega_4 P(1) + \omega_4^2 Q(1) + \omega_4^3 R(1)
+    \right) = 0
+\end{align*}
+Solving the equation, we get $5 P(1) = 0$ and $x - 1$ is a factor
+of $P(x)$.
+\end{solution}
+
+
+
+
+
+
+\subsection{Roots of Unity Filter}
+
+\[
+a_0 + a_n + a_{2n} + \cdots
+= \frac{f(\omega) + f\left(\omega^2\right) + \cdots +
+    f\left(\omega^n\right)
+}{n}
+\]
+
+\begin{problem}{}{}
+In Enoch's dreamland, there are $999$ mysterious boxes each labeled
+uniquely from $1$ to $999$. If Enoch chooses the box(es) randomly
+and the sum of the number of chosen box(es) is divisible by $3$,
+then he earns a dollar from the owner of the boxes. However, he is
+not granted money if he chooses the same combination next time.
+What is the maximum amount of money Enoch can earn?
+\end{problem}
+\begin{solution}
+This problem is basically asking for the number of ways to choose
+numbers randomly from $1$ through $999$ such that their sum is
+divisible by $3$. In other words, how many subsets of the set
+$\{1, 2, \ldots, 999\}$ have the sum of their elements divisible by
+three?
+
+When a large sequence appears, it is reasonable to generate functions.
+For the function that we are generating, we will associate the subsets
+with the its coefficients. This allows an algebraic approach towards
+the combinatorial problem.
+
+Consider the following function.
+\begin{align*}
+    f(x)
+    &= \prod_{i=1}^{999} \left( 1 + x^i \right)
+    = (1 + x) \left( 1 + x^2 \right) \left( 1 + x^3 \right) \cdots
+        \left( 1 + x^{999} \right)
+\end{align*}
+Notice that each number in the subset corresponds to the exponents of
+$x$. Consider the following samples to see how they are related.
+\begin{align*}
+    &\text{Exponent: $3$} \Rightarrow \text{Coefficient: $2$} \\
+    &\left.\begin{aligned}
+        3 &= 3 &&\Rightarrow \{ 3 \} \\
+        3 &= 1 + 2 &&\Rightarrow \{ 1, 2 \}
+    \end{aligned}\right\}
+    \quad \text{2 Cases}
+\end{align*}
+\begin{align*}
+    &\text{Exponent: $6$} \Rightarrow \text{Coefficient: $4$} \\
+    &\left.\begin{aligned}
+        6 &= 6 &&\Rightarrow \{ 6 \} \\
+        6 &= 1 + 5 &&\Rightarrow \{ 1, 5 \} \\
+        6 &= 2 + 4 &&\Rightarrow \{ 2, 4 \} \\
+        6 &= 1 + 2 + 3 &&\Rightarrow \{ 1, 2, 3 \} \\
+    \end{aligned}\right\}
+    \quad \text{4 Cases}
+\end{align*}
+The process of investigating the subsets with sum $n$ perfectly
+mirrors the behavior of terms of $x^n$ and its coefficients.
+Therefore, the sum of coefficients of $x^{3k}$ where
+$k \in \mathbb{N}_0$ is the number of subsets whose sum of the
+elements are divisible by $3$.
+
+Continuing, we can rewrite the function $f$.
+\[
+f(x) = a_0 + a_1x^1 + a_2x^2 + \cdots + a_{499500}x^{499500}
+\]
+Using the third roots of unity with $\omega_1, \omega_2, \omega_3$,
+\begin{align*}
+    f(\omega_1)
+    &= a_0 + a_1\omega_1 + \cdots + a_{499500}\omega_1^{499500} \\
+    f(\omega_2)
+    &= a_0 + a_1\omega_2 + \cdots + a_{499500}\omega_2^{499500} \\
+    f(\omega_3)
+    &= a_0 + a_1\omega_3 + \cdots + a_{499500}\omega_3^{499500}
+    \\[0.5em]
+    f(\omega_1) + f(\omega_2) + f(\omega_3)
+    &= 3a_0 + 3a_1(\omega_1 + \omega_2 + \omega_3) + \cdots \\
+    &\qquad + \, a_{499500} \left(
+        \omega_1^{499500} + \omega_2^{499500} + \omega_3^{499500}
+    \right) \\
+    &= 3a_0 + 3a_3 + 3a_6 + \cdots + 3a_{499500}
+\end{align*}
+holds since $e^{ i \frac{0\pi}{3} }, e^{ i \frac{2\pi}{3} },
+e^{ i \frac{4\pi}{3} }$ will continue to repeat. Therefore, it
+suffices to find the values of $\frac{f(\omega_1) + f(\omega_2) +
+f(\omega_3)}{3}$. Using the period again, we can obtain the following.
+\begin{align*}
+    \frac{ f(\omega_1) + f(\omega_2) + f(\omega_3) }{3}
+    &= \frac{ \left(
+        \left( 1 + \omega_1 \right)
+        \left( 1 + \omega_1^2 \right)
+        \left( 1 + \omega_1^3 \right)
+    \right)^{333}}{3} \\
+    &\qquad +\, \frac{ \left(
+        \left( 1 + \omega_2 \right)
+        \left( 1 + \omega_2^2 \right)
+        \left( 1 + \omega_2^3 \right)
+    \right)^{333}}{3} \\
+    &\qquad +\, \frac{ \left(
+        \left( 1 + \omega_3 \right)
+        \left( 1 + \omega_3^2 \right)
+        \left( 1 + \omega_3^3 \right)
+    \right)^{333}}{3}
+\end{align*}
+Without loss of generality, assume that $\omega_1 =
+e^{ i \frac{0\pi}{3} }$, $\omega_2 = e^{ i \frac{2\pi}{3} }$, and
+$\omega_3 = e^{ i \frac{4\pi}{3} }$. Except the term
+$\left( 1 + \omega_1 \right) \left( 1 + \omega_1^2 \right)
+\left( 1 + \omega_1^3 \right)$, the other expressions
+could be rewritten as $(1 + \omega_1)(1 + \omega_2)(1 + \omega_3)$.
+Moreover since $1 + \omega_i$ is the root of $(x - 1)^3 = 1$,
+\[
+(1 + \omega_1)(1 + \omega_2)(1 + \omega_3) = 2.
+\]
+by Vieta's formula. Continuing,
+\[
+\frac{f(\omega_1) + f(\omega_2) + f(\omega_3)}{3}
+= \frac{2^{999} + 2^{333} + 2^{333}}{3}
+= \frac{2^{334} + 2^{999}}{3}
+\]
+Therefore, Enoch can earn $\frac{2^{334} + 2^{999}}{3}$ dollars in
+total.
+\end{solution}
+
+
+
+
+
+
+\end{document}
+
+

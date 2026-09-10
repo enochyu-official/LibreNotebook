@@ -78,12 +78,16 @@
 {\begin{corstyle}}{\end{corstyle}}
 \newenvironment{lemma}
 {\begin{lemstyle}}{\end{lemstyle}}
+\newtheorem*{lemma*}{Lemma}
 \newenvironment{definition}
 {\begin{defstyle}}{\end{defstyle}}
 \newenvironment{problem}
 {\begin{probstyle}}{\end{probstyle}}
 \theoremstyle{listprobstyle}
 \newtheorem{listproblem}{}[section]
+\newenvironment{proofInBox}
+    {\begin{trivlist}\item[]{\textit{Proof. }}}
+    {\qed \end{trivlist}}
 
 \usepackage{mdframed}
 \renewmdenv[

@@ -12,6 +12,18 @@
   * Examples
 * MATH0101.26004
 * MATH0101.26005
+* MATH0105
+  * Lagrange Interpolation
+  * Descartes’ Rule of Signs
+  * Reducibility and Irreducibility
+    * Factorization over $\mathbb{R}$ and $\mathbb{C}$
+  * Special Polynomials
+    * Chebyshev Polynomials
+  * LTE (Lifting The Exponent Lemma)
+  * Root-Bounding Techniques
+* 26061 Solve problem
+
+
 
 ## CS01
 * CS0101.26007

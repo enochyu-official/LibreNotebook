@@ -1,0 +1,309 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{Functional Equations}
+
+Personally I think one of the most difficult sections in olympiad
+algebra is functional equations. Unlike other sections that involves
+application of background knowledge, functional equation problems
+tend to prioritize ingenuity and creativity. This could be a
+good news if you are cramming for an exam, but I think it is
+important to solve many problems to find different patterns in
+problems involving functional equations.
+
+\section{Foundations}
+
+Before we get into what a functional equation is, let's briefly
+review the terms related to functions as they appear quite a lot.
+
+\begin{minipage}{0.48\textwidth}
+\begin{center}
+\textbf{Injective Function}
+\begin{align*}
+    &\text{If } f(x_1) = f(x_2), \\
+    &\text{then } x_1 = x_2
+\end{align*}
+\end{center}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\begin{center}
+\begin{tikzpicture}[
+    >=latex, very thick,
+    inout/.style={
+        draw, fill=BrickRed!10, ellipse,
+        minimum width=1.3cm, minimum height=3cm
+    },
+    labelnode/.style={font=\large, black},
+    scale=0.60
+]
+
+    \node[inout] (L) at (0,0) {};
+    \node[labelnode, above=2mm of L.north] {X};
+
+    \foreach \i/\xs in {1/$x_1$,2/$x_2$,3/$x_3$}{
+        \node at ($(L) + (0cm,1.6cm - \i*0.8cm)$) {\xs};
+    }
+
+    \node[inout] (R) at (4,0) {};
+    \node[labelnode, above=2mm of R.north] {Y};
+
+    \foreach \i/\ys in {1/$y_1$,2/$y_2$,3/$y_3$,4/$y_4$}{
+        \node at ($(R) + (0cm,1.8cm - \i*0.8cm)$) {\ys};
+    }
+
+    \draw[->, Sepia]
+        ($(L)+(0.5cm,0.8cm)$) to ($(R)+(-0.5cm,1.0cm)$);
+    \draw[->, Sepia]
+        ($(L)+(0.5cm,0.0cm)$) to ($(R)+(-0.5cm,-1.4cm)$);
+    \draw[->, Sepia]
+        ($(L)+(0.5cm,-0.8cm)$) to ($(R)+(-0.5cm,-0.6cm)$);
+\end{tikzpicture}
+\end{center}
+\end{minipage}
+
+\begin{minipage}{0.48\textwidth}
+\begin{center}
+\textbf{Surjective Function}
+\begin{align*}
+    &\forall\, y_i \in Y,\ \exists\, x_j \in X \\
+    &\quad s.t.\ f(x_j) = y_i
+\end{align*}
+\end{center}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\begin{center}
+\begin{tikzpicture}[
+    >=latex, very thick,
+    inout/.style={
+        draw, fill=MidnightBlue!10, ellipse,
+        minimum width=1.3cm, minimum height=3cm
+    },
+    labelnode/.style={font=\large, black},
+    scale=0.6
+]
+
+    \node[inout] (L) at (0,0) {};
+    \node[labelnode, above=2mm of L.north] {X};
+
+    \foreach \i/\xs in {1/$x_1$,2/$x_2$,3/$x_3$,4/$x_4$}{
+        \node at ($(L) + (0cm,1.8cm - \i*0.8cm)$) {\xs};
+    }
+
+    \node[inout] (R) at (4,0) {};
+    \node[labelnode, above=2mm of R.north] {Y};
+
+    \foreach \i/\ys in {1/$y_1$,2/$y_2$,3/$y_3$}{
+        \node at ($(R) + (0cm,1.6cm - \i*0.8cm)$) {\ys};
+    }
+
+    \draw[->, Sepia] 
+        ($(L)+(0.5cm,1.0cm)$) to ($(R)+(-0.5cm,0.8cm)$);
+    \draw[->, Sepia] 
+        ($(L)+(0.5cm,0.2cm)$) to ($(R)+(-0.5cm,-0.8cm)$);
+    \draw[->, Sepia] 
+        ($(L)+(0.5cm,-0.6cm)$) to ($(R)+(-0.5cm,0.0cm)$);
+    \draw[->, Sepia]
+        ($(L)+(0.5cm,-1.4cm)$) to ($(R)+(-0.5cm,-0.8cm)$);
+\end{tikzpicture}
+\end{center}
+\end{minipage}
+
+\begin{minipage}{0.48\textwidth}
+\begin{center}
+\textbf{Bijective Function}
+\begin{align*}
+    &\forall\, y_i \in Y,\ \exists!\, x_j \in X \\
+    &\quad s.t.\ f(x_j) = y_i
+\end{align*}
+\end{center}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\begin{center}
+\begin{tikzpicture}[
+    >=latex, very thick,
+    inout/.style={
+        draw, fill=RoyalPurple!10, ellipse,
+        minimum width=1.3cm, minimum height=3cm
+    },
+    labelnode/.style={font=\large, black},
+    scale=0.6
+]
+
+    \node[inout] (L) at (0,0) {};
+    \node[labelnode, above=2mm of L.north] {X};
+  
+    \foreach \i/\xs in {1/$x_1$,2/$x_2$,3/$x_3$,4/$x_4$}{
+        \node at ($(L) + (0cm,1.8cm - \i*0.8cm)$) {\xs};
+    }
+
+    \node[inout] (R) at (4,0) {};
+    \node[labelnode, above=2mm of R.north] {Y};
+
+    \foreach \i/\ys in {1/$y_1$,2/$y_2$,3/$y_3$,4/$y_4$}{
+        \node at ($(R) + (0cm,1.8cm - \i*0.8cm)$) {\ys};
+    }
+  
+    \draw[->, Sepia]
+        ($(L)+(0.5cm,1.0cm)$) to ($(R)+(-0.5cm,1.0cm)$);
+    \draw[->, Sepia]
+        ($(L)+(0.5cm,0.2cm)$) to ($(R)+(-0.5cm,-1.4cm)$);
+    \draw[->, Sepia]
+        ($(L)+(0.5cm,-0.6cm)$) to ($(R)+(-0.5cm,0.2cm)$);
+    \draw[->, Sepia]
+        ($(L)+(0.5cm,-1.4cm)$) to ($(R)+(-0.5cm,-0.6cm)$);
+\end{tikzpicture}
+\end{center}
+\end{minipage}
+
+While we will be using the terms above, it is worth noting other
+famous terms describing the same functions.
+
+\begin{important}
+Some people use the term \textbf{one-to-one} for injective,
+\textbf{onto} for surjective, and \textbf{one-to-one onto} for
+bijective functions.
+\end{important}
+
+As mentioned, we don't really need other strong backgrounds for
+functional equations, though there are plenty of techniques to
+study. With the terms in mind, let's get started with functional
+equations!
+
+A functional equation as the name suggest is simply an equation
+where the variable is a function. To see what it means, let's
+solve practice problems. Really, there is nothing more to it
+and we now just need to keep practicing pattern recognition and
+thinking creatively. However before starting, there is an important
+note to keep in mind.
+
+\begin{important}
+The phrase \textbf{if and only if} cannot be stressed enough!
+If you think you've found all the solutions, chances are you
+probably haven't. Many points are taken off because of the lack
+of the proof for the \textbf{if and only if} condition, and it
+is always nice to suspect your assumption that you have found all
+the solutions.
+\end{important}
+
+With that in mind, let's start with a spicy problem.
+
+\begin{problem}{2008 IMO Problem 4 \hard}{2008 IMO Problem 4}
+Find all functions $f: (0, \infty) \mapsto (0, \infty)$ that satisfy
+the following equation for all positive reals $a, b, c, d$ where
+$ab = cd$.
+\[
+\frac{ f(a)^2 + f(b)^2 }{f(c^2) + f(d^2)}
+= \frac{a^2 + b^2}{c^2 + d^2}
+\]
+\end{problem}
+\begin{solution}
+First, let's start with what we can observe from the problem.
+The first thing that we can see is that we have squares everywhere.
+The second thing to note is that substituting $a = b = c = d = 1$
+gives us $f(x) = 1$. We can also notice that if we substitute
+$(n, n, n, n)$ we get $f(n)^2 = f(n^2)$.
+
+With the observations in mind, what we can try is getting rid of
+the square by substituting $(\sqrt{x}, \sqrt{x}, 1, x)$. This
+will lead us to following equations.
+\begin{align*}
+    \frac{ f(\sqrt{x})^2 + f(\sqrt{x})^2 }{ 1 + f(x^2) }
+    &= \frac{x + x}{1 + x^2} \\
+    \frac{ 2f(x) }{ 1 + f(x)^2 }
+    &= \frac{2x}{1 + x^2} \\
+    2f(x) (1 + x^2)
+    &= 2x(1 + f(x)^2)
+\end{align*}
+Continuing, we can rearrange the equations to solve for $f$.
+\begin{align*}
+    xf(x)^2 - (1 + x^2)f(x) + x &= 0 \\
+    (xf(x) - 1) (f(x) - x) &= 0 \\
+    \therefore
+    f(x) = x \text{ or } f(x) &= \frac{1}{x}
+\end{align*}
+Now we can see that if a function $f$ satisfy the equation given
+by the problem, then $f(x) = x$ or $f(x) = \frac{1}{x}$. Moreover,
+if $f(x) = x)$ or $f(x) = \frac{1}{x}$, then $f$ satisfies the
+original equation as we can see from direct substitution.
+
+If we end our solution here thinking that we have solved the problem,
+we will lose points for not showing that $x$ and $\frac{1}{x}$
+are the only solutions. Although we showed the if and only if
+condition, we have not showed that $f$ is not a piece-wise function.
+
+\begin{lemma*}
+$f(x) = x$ and $f(x) = \frac{1}{x}$ are the only solutions to the
+equation.
+\end{lemma*}
+\begin{proofInBox}
+For the sake of contradiction, let $f(\alpha) \neq \alpha$ and
+$f(\beta) \neq \frac{1}{\beta}$ for $\alpha, \beta \neq 1$.
+By our previous conclusions, we can see that it implies
+$f(\alpha) = \frac{1}{\alpha}$ and $f(\beta) = \beta$.
+
+Substitute $(\sqrt{\alpha}, \sqrt{\beta}, 1, \sqrt{\alpha\beta})$
+to eliminate the squares and use both $\alpha$ and $\beta$.
+\begin{align*}
+    \frac{ f(\sqrt{\alpha})^2 + f(\sqrt{\beta})^2 }
+        { f(1) + f(\alpha\beta) }
+    &= \frac{\alpha + \beta}{1 + \alpha\beta} \\
+    \frac{ \frac{1}{\alpha} + \beta }{ 1 + f(\alpha\beta) }
+    &= \frac{\alpha + \beta}{1 + \alpha\beta}
+\end{align*}
+Notice that $f(\alpha\beta)$ is either $\alpha\beta$ or
+$\frac{1}{\alpha\beta}$. Therefore, let $f(\alpha\beta) =
+\alpha\beta$. Solving the equation, the following equations are
+obtained.
+\begin{align*}
+    \frac{ \frac{1}{\alpha} + \beta }{ 1 + f(\alpha\beta) }
+    &= \frac{\alpha + \beta}{1 + \alpha\beta} \\
+    \frac{ \frac{1}{\alpha} + \beta }{ 1 + \alpha\beta }
+    &= \frac{\alpha + \beta}{1 + \alpha\beta} \\
+    \frac{1}{\alpha} &= \alpha
+\end{align*}
+This contradicts with the fact that $\alpha \neq 1$. Continuing,
+let $f(\alpha\beta) = \frac{1}{\alpha\beta}$.
+\begin{align*}
+    \frac{ \frac{1}{\alpha} + \beta }{ 1 + f(\alpha\beta) }
+    \displaybreak
+    &= \frac{\alpha + \beta}{1 + \alpha\beta} \\
+    \frac{ \frac{1}{\alpha} + \beta }{ 1 + \frac{1}{\alpha\beta} }
+    &= \frac{\alpha + \beta}{1 + \alpha\beta} \\
+    \frac{\beta + \alpha\beta^2}{\alpha\beta + 1}
+    &= \frac{\alpha + \beta}{1 + \alpha\beta} \\
+    \alpha\beta^2 &= \alpha \\
+    \beta^2 &= 1
+\end{align*}
+This also contradicts with $\beta \neq 1$. Therefore, there exists
+no $\alpha, \beta \neq 1$ such that $f(\alpha) \neq \alpha$ and
+$f(\beta) \neq \frac{1}{\beta}$.
+\end{proofInBox}
+
+Hence, $f(x) = x$ and $f(x) = \frac{1}{x}$ are the only solutions.
+\end{solution}
+
+As you probably have noticed from the solution, while vast amount
+of knowledge in different functions may come handy, ingenuity
+and clever substitution would do most of the work when solving
+problems. Here is another problem on using clever substitutions.
+
+\begin{problem}{2020 Baltic Way Problem 4}{2020 Baltic Way Problem 4}
+Find all functions $f: \mathbb{R} \rightarrow \mathbb{R}$ that
+satisfy the following for all $x, y \in \mathbb{R}$.
+\[
+f(f(x) + x + y) = f(x + y) + yf(y)
+\]
+\end{problem}
+
+
+
+
+
+
+\end{document}
+
+

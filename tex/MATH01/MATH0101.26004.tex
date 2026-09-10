@@ -39,12 +39,33 @@ For instance, the following sequence telescopes.
 &= 1 - \frac{1}{n + 1}
 = \frac{n}{n + 1}
 \end{align*}
+Below is another classic problem with an interesting property.
+\begin{problem}{}{}
+Show that the following inequality holds.
+\[
+\sum_{i = 1}^n \frac{1}{i^2} < 2
+\]
+\end{problem}
+\begin{proof}
+Consider the identity $\frac{1}{k(k + 1)} = \frac{1}{k} -
+\frac{1}{k + 1}$ for $k \neq 0, -1$. Expanding, the following
+inequalities are obtained.
+\begin{align*}
+    \frac{1}{1^2} + \frac{1}{2^2} + \cdots + \frac{1}{n^2}
+    &< 1 + \frac{1}{1 \cdot 2} + \cdots + \frac{1}{(n - 1) \cdot n} \\
+    &= 1 + \left( \frac{1}{1} - \frac{1}{2} \right) + \cdots
+        + \left( \frac{1}{n - 1} - \frac{1}{n} \right) \\
+    &= 2 - \frac{1}{n} < 2
+\end{align*}
+Therefore, the inequality holds.
+\end{proof}
+
 With the idea in mind, let's solve a problem to see how they can
 be powered with fundamental inequalities to solve problems.
 
 \begin{problem}
-{2007 Belarusian MO Final Round Problem 2}
-{2007 Belarusian MO Final Round Problem 2}
+{2007 Belarusian MO Final Problem 2 \easy}
+{2007 Belarusian MO Final Problem 2}
 Show that the following inequality holds for all $a_1, \ldots,
 a_{n+1} > 0$.
 \[

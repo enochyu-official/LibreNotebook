@@ -19,6 +19,8 @@ MATH0101       | Inequalities
 MATH0102       | Projective Geometry
 MATH0103       | Euclidean Geometry
 MATH0104       | Functional Equations
+MATH0105       | Polynomials
+MATH0100       | Appendix
 
 MATH0201       | Vectors and Vector Spaces
 MATH0202       | Matrices
@@ -104,6 +106,15 @@ MATH0205.26048 | Final Thoughts
 MATH0103.26056 | Power of a Point
   CS0202.26057 | Simulation
   CS0202.26058 | Practice Problems and Solutions
+MATH0105.26059 | Foundations
+MATH0105.26060 | Roots of Unity
+MATH0104.26061 | Foundations
+MATH0104.26062 | Cauchy's Functional Equation and Its Variants
+MATH0104.26063 | Symmetric and Cyclic Equations
+MATH0104.26064 | Invariance
+MATH0104.26065 | The CDE Method
+MATH0104.26066 | Additional Topics
+MATH0100.26067 | Solutions for Note 1
 ----------------------------------------------------------------------
 
 END OF INDEX

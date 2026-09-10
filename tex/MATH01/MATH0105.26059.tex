@@ -1,0 +1,149 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{Polynomials}
+
+
+\section{Foundations}
+
+Before we get into the world of polynomials in olympiad algebra,
+let's discuss some notations that we will be using throughout the
+notes and key theorems as a review. Please feel free to skip over
+to the next section if you are already familiar with the topics
+below.
+
+\begin{definition}{}{}
+A \textbf{monomial} is a single term composed with variables raised
+to powers of whole numbers and a coefficient. \textbf{Polynomial},
+denoted as $P(x)$, is a sum of finitely many monomials.
+\end{definition}
+
+Some examples of monomial includes $x, 3a^2, 9, (5-2i)x^3y^2$ while
+$x^{-2}, a + b, \sin{x}$ are not monomials. Polynomials are
+typically written with the following sum notation.
+\[
+P(x)
+= \sum_{i=0}^n a_i x^i
+= a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0
+\]
+With this in mind, we can define some notations that occasionally
+appear.
+
+\begin{definition}{}{}
+Below are common set notations for polynomials where $n$ is a
+non-negative integer.
+\vspace{-0.8\baselineskip}
+\begin{align*}
+    \mathbb{Z}[x]
+    &\coloneqq \left\{
+        \sum_{i=0}^n a_i x^i \mid a_i \in \mathbb{Z}
+    \right\} \\
+    \mathbb{Q}[x]
+    &\coloneqq \left\{
+        \sum_{i=0}^n a_i x^i \mid a_i \in \mathbb{Q}
+    \right\} \\
+    \mathbb{R}[x]
+    &\coloneqq \left\{
+        \sum_{i=0}^n a_i x^i \mid a_i \in \mathbb{R}
+    \right\} \\
+    \mathbb{C}[x]
+    &\coloneqq \left\{
+        \sum_{i=0}^n a_i x^i \mid a_i \in \mathbb{C}
+    \right\}
+\end{align*}
+\end{definition}
+
+Continuing with the notations, let's discuss some key theorems
+that cannot be omitted when discussing polynomials.
+
+\begin{theorem}
+{Fundamental Theorem of Algebra}
+{Fundamental Theorem of Algebra}
+Any nonconstant polynomial $P(x) \in \mathbb{C}[x]$ has at least one
+complex root \cite{MATH01-3}.
+\end{theorem}
+
+There are multiple proofs for this beautiful theorem, but I think
+they are out of scope for the notes. Trust me, the theorem is true,
+and maybe I will include a rigorous proof of the statement in other
+parts of LibreNotebook. Now this theorem can lead us to another very
+beautiful proven assumption that we can use when solving problems.
+
+\begin{corollary}{}{}
+All polynomials $P(x) \in \mathbb{C}[x]$ with $\deg(P) = n > 1$
+can be factored into $n$ linear factors with multiplicity.
+\end{corollary}
+\begin{proof}
+Notice that by FTA, $P_n(x)$ can be represented as $P_n(x) =
+a (x - z_1) P_{n-1}(x)$ where $P_k(x)$ is a polynomial with degree
+$k$. Continuing recursively until $n = 1$, $P_n(x)$ can be written as
+the following.
+\begin{align*}
+    P_n(x)
+    &= a (x - z_1) (x - z_2) \cdots (x - z_{n-1}) P_1 (x) \\
+    &= a (x - z_1) (x - z_2) \cdots (x - z_{n-1}) (x - z_n)
+\end{align*}
+Therefore, any polynomial with degree $n > 1$ can be factored into
+exactly $n$ linear factors with multiplicity.
+\end{proof}
+
+The corollary also implies that there exists $n$ roots counting
+multiplicity. Another key property to remember is remainder
+theorem and factor theorem. They are pretty self-evident, so I
+will omit the proof here, but below is the simple statement.
+
+\begin{theorem}{}{}
+For any polynomial $P$, if the polynomial is divided by $x - a$,
+then the remainder is $P(a)$. Moreover if $P(a) = 0$, then $(x - a)$
+is a factor of $P$.
+\end{theorem}
+
+The theorem above is basically stating that polynomials can be written
+as the following.
+\[
+P(x) = (x - a) Q(x) + P(a)
+\]
+This is pretty self evident as we get $P(a) = P(a)$ if we substitute
+$x = a$ and $Q(x)$ is the quotient polynomial.
+
+Before we finish our review, here is the final theorem.
+
+\begin{theorem}{Rational Root Theorem}{Rational Root Theorem}
+Every rational root $\frac{p}{q}$ in lowest terms of a polynomial
+$P(x) = \sum_{i=0}^n a_i x^i$ with $a_0, a_n \neq 0$ satisfies the
+following conditions: $p \mid a_0$ and $q \mid a_n$.
+\end{theorem}
+\begin{proof}
+First and foremost, notice that if $\frac{p}{q}$ is a solution to
+$P(x) = 0$, then the following equations hold.
+\begin{align*}
+    P \left( \frac{p}{q} \right)
+    = \sum_{i=0}^n a_i \left( \frac{p}{q} \right)^i
+    &= 0 \\
+    a_0 q^n + a_1 p q^{n-1} + a_2 p^2 q^{n-2} + \cdots + a_n p^n
+    &= 0
+\end{align*}
+Therefore, the following equations can be derived.
+\begin{align*}
+    q \left( a_0 q^{n-1} + a_1 p q^{n-2} + a_2 p^2 q^{n-3} +
+        \cdots + a_{n-1} p^{n-1}
+    \right)
+    &= -a_n p^n \\
+    p \left( a_1 q^{n-1} + a_2 p q^{n-2} + a_3 p^2 q^{n-3} +
+        \cdots + a_n p^{n - 1}
+    \right)
+    &= -a_0 q^n
+\end{align*}
+Because $p$ and $q$ are coprime, the first equation reveals that
+$q \mid a_n$ and the second equation shows that $p \mid a_0$.
+\end{proof}
+
+This theorem sometimes comes handy if we had to blindly guess
+a solution to further factorize as it narrows down our choices.
+Now with the reminders, let's discuss the topic that we all may
+have heard of: Roots of Unity.
+
+\end{document}
+
+
