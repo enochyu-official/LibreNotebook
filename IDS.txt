@@ -7,6 +7,7 @@ Section I. Parts
 ----------------------------------------------------------------------
 MATH01         | Math Olympiad
 MATH02         | Linear Algebra
+MATH03         | Multivariable Calculus
 
 CS01           | Machine Learning
 CS02           | Competitive Programming
@@ -27,6 +28,8 @@ MATH0202       | Matrices
 MATH0203       | System of Linear Equations
 MATH0204       | Matrices and Vector Spaces
 MATH0205       | Appendix
+
+MATH0301       | Vectors and Geometry
 
 CS0101         | Fundamental Math for Machine Learning
 CS0102         | Python Basics for Machine Learning
@@ -108,6 +111,7 @@ MATH0103.26056 | Power of a Point
   CS0202.26058 | Practice Problems and Solutions
 MATH0105.26059 | Foundations
 MATH0105.26060 | Roots of Unity
+
 MATH0104.26061 | Foundations
 MATH0104.26062 | Cauchy's Functional Equation and Its Variants
 MATH0104.26063 | Symmetric and Cyclic Equations
@@ -115,6 +119,9 @@ MATH0104.26064 | Invariance
 MATH0104.26065 | The CDE Method
 MATH0104.26066 | Additional Topics
 MATH0100.26067 | Solutions for Note 1
+MATH0300.26068 | INIT
+MATH0301.26069 | Basic Terms and Intuitions
+MATH0301.26070 | Vectors
 ----------------------------------------------------------------------
 
 END OF INDEX

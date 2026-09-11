@@ -1,0 +1,427 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Vectors}
+
+We have discussed on vectors more in-depth in the part for Linear
+Algebra. In this section however, let's focus more on the geometric
+intuition than the abstract nature of vectors.
+
+\begin{definition}{}{}
+\textbf{Vectors} are quantities with both magnitude and a direction.
+\end{definition}
+
+Some example of vectors include force, velocity, and acceleration
+because they all have a specific direction and also a magnitude.
+When we graph them, we can think of them as a arrow with starting
+and ending points.
+
+\begin{figure}[H]
+\centering
+\tdplotsetmaincoords{70}{110}
+\begin{tikzpicture}[
+        tdplot_main_coords,
+        axis/.style={->,thick},
+        scale=0.4
+    ]
+	\draw[axis] (-8,0,0) -- (8,0,0) node[left] {$x$};
+	\draw[axis] (0,-7,0) -- (0,8,0) node[right] {$y$};
+    \draw[axis] (0,0,-5) -- (0,0,8) node[left] {$z$};
+
+    \draw[axis] (2,-3,2) -- (1,3,5) node[above right] {$\mathbf{v}$};
+    \draw[axis] (2,-3,-1) -- (1,3,2) node[above right] {$\mathbf{w}$};
+    \node[circle,fill=black,inner sep=0pt,minimum size=1mm]
+        at (2,-3,2) {};
+    \node[circle,fill=black,inner sep=0pt,minimum size=1mm]
+        at (2,-3,-1) {};
+\end{tikzpicture}
+\end{figure}
+
+From now, let's represent vectors with $\mathbf{u}, \mathbf{v},
+\mathbf{w}$ and scalars, or real numbers, with $a, b, \alpha, \beta$.
+From the graph above, we can define another definition.
+
+\begin{definition}{}{}
+The \textbf{terminal point} of a vector is the point where the vector
+ends. The \textbf{initial point} is the point where the vector begins.
+\end{definition}
+
+When we want to add two vectors $\mathbf{v}$ and $\mathbf{w}$,
+we would connect the terminal point of $\mathbf{v}$ by the starting
+point of $\mathbf{w}$ and obtain a new vector by connecting the
+initial point of $\mathbf{v}$ and the terminal point of $\mathbf{w}$
+as shown by the figure below.
+
+\begin{figure}[H]
+\centering
+\tdplotsetmaincoords{70}{110}
+\begin{tikzpicture}[
+        tdplot_main_coords,
+        axis/.style={->,thick},
+        scale=0.4
+    ]
+	\draw[axis] (-8,0,0) -- (8,0,0) node[left] {$x$};
+	\draw[axis] (0,-7,0) -- (0,8,0) node[right] {$y$};
+    \draw[axis] (0,0,-5) -- (0,0,8) node[left] {$z$};
+
+    \draw[axis] (2,-3,-1) -- (1,-1,2) node[above] {$\mathbf{v}$};
+    \draw[axis] (1,-1,2) -- (1,6,4) node[above] {$\mathbf{w}$};
+    \draw[axis, Red] (2,-3,-1) -- (1,6,4)
+        node[below right] {$\mathbf{v + w}$};
+    \node[circle,fill=black,inner sep=0pt,minimum size=1mm]
+        at (2,-3,-1) {};
+    \node[circle,fill=black,inner sep=0pt,minimum size=1mm]
+        at (1,-1,2) {};
+\end{tikzpicture}
+\end{figure}
+
+Multiplying a vector by scalar $k$ can be though of as lengthening
+the vector by a factor of $k$. If $k < 0$, the vector is pointing
+the opposite direction.
+
+\begin{figure}[H]
+\centering
+\tdplotsetmaincoords{70}{110}
+\begin{tikzpicture}[
+        tdplot_main_coords,
+        axis/.style={->,thick},
+        scale=0.4
+    ]
+    \draw[axis] (-8,0,0) -- (8,0,0) node[left] {$x$};
+    \draw[axis] (0,-7,0) -- (0,8,0) node[right] {$y$};
+    \draw[axis] (0,0,-5) -- (0,0,8) node[left] {$z$};
+
+    \draw[axis] (2,-3,2) -- (1.5,0,3.5) node[above] {$\mathbf{v}$};
+    \draw[axis] (-2,3,-2) -- (-1.5,-0,-3.5)
+        node[right] {$\mathbf{-v}$};
+    \draw[axis] (2,-3,-1) -- (1,3,2) node[below] {$\mathbf{2v}$};
+    \node[circle,fill=black,inner sep=0pt,minimum size=1mm]
+        at (2,-3,2) {};
+    \node[circle,fill=black,inner sep=0pt,minimum size=1mm]
+        at (2,-3,-1) {};
+\end{tikzpicture}
+\end{figure}
+
+Also for the purpose of the notes, let's consider the vectors
+with same magnitude and direction but different initial vectors
+as the same vectors. The being said, we can write any vectors
+in $n$-dimension as $\langle v_1, v_2, v_3, \ldots, v_n \rangle$
+where $(v_1, v_2, v_3, \ldots, v_n)$ is the terminal point and
+$(0, 0, \linebreak, 0 \ldots, 0)$ is the initial point.
+Such numbers $v_1, \ldots, v_n$ are known as the \textbf{components}
+of $\mathbf{v}$.
+
+Now that we have defined $-\mathbf{v}$, we can consider vector
+subtraction. We can consider vector subtraction as adding two vectors
+where one is scaled by a negative factor.
+
+\begin{figure}[H]
+\centering
+\tdplotsetmaincoords{70}{110}
+\begin{tikzpicture}[
+        tdplot_main_coords,
+        axis/.style={->,thick},
+        scale=0.4
+    ]
+    \draw[axis] (-8,0,0) -- (8,0,0) node[left] {$x$};
+    \draw[axis] (0,-7,0) -- (0,8,0) node[right] {$y$};
+    \draw[axis] (0,0,-5) -- (0,0,8) node[left] {$z$};
+
+    \draw[axis] (2,2,-2) -- (1,5,3)
+        node[right] {\footnotesize $\mathbf{v}$};
+    \draw[axis] (2,2,-2) -- (2,-2,2)
+        node[left] {\footnotesize $\mathbf{w}$};
+    \draw[axis,dotted] (1,5,3) -- (1,1,7);
+    \draw[axis,dotted] (2,-2,2) -- (1,1,7);
+    \draw[axis,Red] (2,-2,2) -- (1,5,3)
+        node[pos=0.7, below] {\footnotesize $\mathbf{v - w}$};
+    \draw[axis,Blue] (2,2,-2) -- (1,1,7)
+        node[pos=0.7, left] {\footnotesize $\mathbf{v + w}$};
+\end{tikzpicture}
+\end{figure}
+
+Using components, we can write addition, subtraction and scalar
+multiplication as the following for $\mathbf{v} = \langle v_1, v_2,
+v_3 \rangle$ and $\mathbf{w} = \langle w_1, w_2, w_3 \rangle$.
+\begin{align*}
+    \mathbf{v} + \mathbf{w}
+    &= \langle v_1 + w_1, v_2 + w_2, v_3 + w_3 \rangle \\
+    \mathbf{v} - \mathbf{w}
+    &= \langle v_1 - w_1, v_2 - w_2, v_3 - w_3 \rangle \\
+    k\mathbf{v}
+    &= \langle kv_1, kv_2, kv_3 \rangle
+\end{align*}
+As you can see from the equations above, we can see that vector
+addition is commutative and associative and scalar multiplication is
+distributive. I will keep them brief here because we already discussed
+about these in-depth on my other notes for linear algebra. Now this
+property leads to the natural question of subtracting a vector by
+itself.
+
+\begin{definition}{}{}
+The \textbf{zero vector} is a vector with magnitude of zero.
+\end{definition}
+
+Intuitively, we can think of a zero vector as vector with the same
+initial and terminal points. Another way of thinking about a zero
+vector is a vector with zero as its components. This will naturally
+leads to $\mathbf{v} + \mathbf{0} = \mathbf{v}$ for any vector
+$\mathbf{v}$. For the purpose of this notes, let's consider zero
+vector as the vector that is parallel to every vectors.
+
+Continuing with the definition of components and the magnitude of a
+vector, we can define an important terminology.
+
+\begin{definition}{}{}
+The magnitude of a vector $\mathbf{v}$ is known as the \textbf{norm}
+of $\mathbf{v}$, denoted as $\| \mathbf{v} \|$.
+\end{definition}
+
+Notice that the magnitude, or length, cannot be negative. Therefore,
+we can see that the norm of any vector is non-negative. Moreover,
+$\| \mathbf{0} \| = 0$. Also note that scalar multiplication is
+defined element-wise. Using the distance formula, we can also obtain
+the following very important equation for a vector $\mathbf{v}$ and
+scalar $k$.
+\[
+\| k \mathbf{v} \| = |k| \cdot \| \mathbf{v} \|
+\]
+Let's take a look at a quick example. Consider the vector
+$\mathbf{v} = \langle 1, 2, 3 \rangle$. Notice that the following
+equation holds.
+\[
+\| \mathbf{v} \|
+= \sqrt{1^2 + 2^2 + 3^2}
+= \sqrt{14}
+\]
+We can also see that the following equation holds with scalar $2$
+and $2 \langle 1, 2, 3 \rangle = \langle 2, 4, 6 \rangle$.
+\begin{align*}
+    \| 2 \mathbf{v} \|
+    &= \sqrt{2^2 + 4^2 + 6^2}
+    = \sqrt{2^2 (1^2 + 2^2 + 3^2)} \\
+    &= 2 \sqrt{1^2 + 2^2 + 3^2} \\
+    &= 2 \cdot \| \mathbf{v} \|
+\end{align*}
+With this equation in mind, let's consider the following question.
+
+\begin{important}
+Given a vector $\mathbf{v}$, how do we find a unit vector, or
+vector with length $1$, with the same direction as $\mathbf{v}$?
+\end{important}
+
+One way of thinking this is rearranging our equation
+$\| k \mathbf{v} \| = |k| \cdot \| \mathbf{v} \|$. Consider the
+following equations with unit vector $\mathbf{u}$ and
+$\| \mathbf{v} \| = k \neq 0$.
+\[
+\left| \frac{1}{k} \right| \cdot \| \mathbf{v} \|
+= \frac{1}{k} \cdot k
+= 1
+= \| \mathbf{u} \|
+\]
+This solves it! We can find a unit vector with the same direction
+$\mathbf{v}$ by dividing it by its norm. Another variation of this
+equation would be the following.
+\[
+\| \mathbf{v} \| = |k| \cdot \| \mathbf{u} \|
+\]
+\begin{important}
+This implies that any vector $\mathbf{v}$ can be represented as
+the product of its norm and a unique unit vector with the same
+direction as $\mathbf{v}$. Such process of multiplying a nonzero
+vector by the reciprocal of its norm is known as \textbf{normalizing}.
+\end{important}
+
+Finally, another standard way of writing vectors is by linear
+combination of the standard basis vectors defined as the following.
+\[
+\mathbf{i} = \langle 1, 0, 0 \rangle, \quad
+\mathbf{j} = \langle 0, 1, 0 \rangle, \quad
+\mathbf{k} = \langle 0, 0, 1 \rangle
+\]
+With this, we can write $\mathbf{v} = \langle 1, 2, 3 \rangle$ as
+$\mathbf{i} + 2\mathbf{j} + 3\mathbf{k}$.
+
+More detailed and abstract introduction of vectors are included
+in the linear algebra part of LibreNotebook, and I highly recommend
+checking that out! From here, we will discuss more foundational and
+geometric interpretations of vectors that we have not discussed
+in my notes for linear algebra.
+
+\subsection{Dot Products and Projections}
+
+As always, let's start with definition.
+
+\begin{definition}{}{}
+The \textbf{dot product} of two vectors $\mathbf{u}$ and $\mathbf{v}$
+of the same dimension is defined as the sum of all products of
+elements in the same index.
+\end{definition}
+
+Writing them with mathematical notations, we can write them as the
+following.
+\[
+\langle u_1, u_2, \ldots, u_n \rangle \cdot
+    \langle v_1, v_2, \ldots, v_n \rangle
+= \sum_{i=1}^n u_i v_i
+\]
+Here is a quick example.
+\[
+\langle 1, 2, 3 \rangle \cdot \langle -1, 0, 1 \rangle
+= -1 + 0 + 3
+= 2
+\]
+Continuing, below are some properties of dot products. The statements
+below are quite self-evident as they mirror the properties of addition
+and subtraction.
+
+\begin{theorem}{}{Properties of the Dot Product}
+For vectors $\mathbf{u}, \mathbf{v}, \mathbf{w}$ of the same dimension
+and an arbitrary scalar $\lambda$, the following equations hold.
+\begin{enumerate}
+\item $\mathbf{u} \cdot \mathbf{v} = \mathbf{v} \cdot \mathbf{u}$
+\item $\lambda (\mathbf{u} \cdot \mathbf{v})
+= (\lambda \mathbf{u}) \cdot \mathbf{v}
+= \mathbf{u} \cdot (\lambda \mathbf{v})$
+\item $\mathbf{u} \cdot (\mathbf{v} + \mathbf{w})
+= \mathbf{u} \cdot \mathbf{v} + \mathbf{u} \cdot \mathbf{w}$
+\item $\mathbf{v} \cdot \mathbf{v} = \| v \|^2$
+\end{enumerate}
+\end{theorem}
+
+One of the reasons why the dot product of two vectors is so important
+is because it helps us determine the angle between the two vectors.
+Consider the following theorem.
+
+\begin{theorem}{}{The Dot Product and the Angle}
+Let $\mathbf{u}, \mathbf{v}$ be two nonzero vectors. Let $\theta$ be
+the smaller angle between the two vectors when their initial point
+coincide. Then, the following equation holds.
+\[
+\mathbf{u} \cdot \mathbf{v}
+= \| u \| \| v \| \cos\theta
+\]
+\end{theorem}
+\begin{proof}
+First and foremost, consider the following equation by the law of
+cosines.
+\[
+\cos\theta
+= \frac{ \| \mathbf{u} \|^2 + \| \mathbf{v} \|^2 -
+    \| \mathbf{v} - \mathbf{u} \|^2
+}{ 2 \| \mathbf{u} \| \| \mathbf{v} \| }
+\]
+By Theorem \ref{theo:Properties of the Dot Product}, the following
+equations hold.
+\begin{align*}
+    \cos\theta
+    &= \frac{ \| \mathbf{u} \|^2 + \| \mathbf{v} \|^2 -
+        ( \mathbf{v} - \mathbf{u} ) \cdot ( \mathbf{v} - \mathbf{u} )
+    }{ 2 \| \mathbf{u} \| \| \mathbf{v} \| } \\
+    &= \frac{ \| \mathbf{u} \|^2 + \| \mathbf{v} \|^2 - \left(
+        \mathbf{v} \cdot \mathbf{v}  - 2 \mathbf{u} \cdot \mathbf{v}
+            + \mathbf{u} \cdot \mathbf{u}
+        \right)
+    }{ 2 \| \mathbf{u} \| \| \mathbf{v} \| } \\
+    &= \frac{2 \mathbf{u} \cdot \mathbf{v}}
+        { 2 \| \mathbf{u} \| \| \mathbf{v} \| } \\
+    \therefore 
+    \| u \| \| v \| \cos\theta
+    &= \mathbf{u} \cdot \mathbf{v}
+\end{align*}
+Thus, the theorem holds.
+\end{proof}
+
+Now this theorem tells us the relationship between the angle between
+two vectors and their dot product.
+
+\begin{important}
+If $0 \leq \theta < \frac{\pi}{2}$, then $\mathbf{u} \cdot \mathbf{v}
+> 0$. If $\theta = \frac{\pi}{2}$, then $\mathbf{u} \cdot \mathbf{v}
+= 0$. If $\frac{\pi}{2} < \theta < \pi$, then $\mathbf{u} \cdot
+\mathbf{v} < 0$.
+\end{important}
+
+This somewhat simple observation with the cosine function and the
+fact that $\| \mathbf{u} \|, \| \mathbf{u} \| > 0$ reveals the
+relationship between the dot product of two vectors and their angles.
+Continuing from this observation, we can establish a definition.
+
+\begin{definition}{}{}
+Two nonzero vectors $\mathbf{u}$ and $\mathbf{v}$ are
+\textbf{orthogonal} if they form a right angle. In other words,
+$\mathbf{u} \cdot \mathbf{v} = 0$.
+\end{definition}
+
+Continuing with the relationship and definition, let's discuss
+more on the angle of vectors.
+
+\begin{definition}{}{}
+The \textbf{direction angles} of a nonzero vector $\mathbf{v}$ is
+the angle between $\mathbf{v}$ and the standard basis vectors.
+\end{definition}
+
+To find the direction angles of $\mathbf{v} = \langle v_1, v_2, v_3
+\rangle$, let's return to Theorem \ref{theo:The Dot Product and the
+Angle}. Consider the following equation for the angle $\alpha$
+between $\mathbf{v}$ and the standard basis vector $\mathbf{i}$.
+\begin{align*}
+    \mathbf{v} \cdot \mathbf{i}
+    &= \| \mathbf{v} \| \| \mathbf{i} \| \cos\alpha \\
+    v_1 &= \| \mathbf{v} \| \cos\alpha \\
+    \therefore
+    \alpha &= \cos^{-1} \left( \frac{v_1}{\| \mathbf{v} \|} \right)
+\end{align*}
+Following the same pattern for $\beta$ and $\gamma$, the can
+establish the following equations.
+\[
+\cos\alpha = \frac{v_1}{\| \mathbf{v} \|}, \quad
+\cos\beta = \frac{v_2}{\| \mathbf{v} \|}, \quad
+\cos\gamma = \frac{v_3}{\| \mathbf{v} \|}
+\]
+Indeed, we have special term for the values above. The values above
+are known as the \textbf{direction cosines} of $\mathbf{v}$. For
+vectors of direction cosines, the can write the following equation.
+\[
+\langle \cos\alpha, \cos\beta, \cos\gamma \rangle
+= \left\langle
+    \frac{v_1}{\| \mathbf{v} \|},
+    \frac{v_2}{\| \mathbf{v} \|},
+    \frac{v_3}{\| \mathbf{v} \|}
+\right\rangle
+= \frac{\mathbf{v}}{\| \mathbf{v} \|}
+\]
+Continuing, let's consider the case when $\| \mathbf{v} \| = 1$.
+In that case,
+\[
+\langle \cos\alpha, \cos\beta, \cos\gamma \rangle
+= \left\langle
+    \frac{v_1}{\| \mathbf{v} \|},
+    \frac{v_2}{\| \mathbf{v} \|},
+    \frac{v_3}{\| \mathbf{v} \|}
+\right\rangle
+= \mathbf{v}
+\]
+also hold! Finally, here is another interesting properties of the
+direction cosines.
+\[
+\cos^2\alpha + \cos^2\beta + \cos^2\gamma
+= \left( \frac{v_1}{\| \mathbf{v} \|} \right)^2
+    + \left( \frac{v_2}{\| \mathbf{v} \|} \right)^2
+    + \left( \frac{v_3}{\| \mathbf{v} \|} \right)^2
+= \frac{\| \mathbf{v} \|^2}{\| \mathbf{v} \|^2}
+= 1
+\]
+We can see that for nonzero $\mathbf{v}$, we can generalize this
+for any $n$. Therefore the sum of the squares of direction cosines
+are always $1$.
+
+
+
+
+
+\end{document}
+
+
