@@ -1,11 +1,11 @@
 /**
  * Enoch Yu
- * 2017 USACO First Bronze
- * Problem 2. The Bovine Shuffle
+ * 2016 USACO Third Bronze
+ * Problem 2. Circular Barn
  *
- * Loop through, find the first mismatch,
- * move the mismatch -> mismatch -> mismatch...
- * If loop stop, find the first mismatch again
+ * Try all cases from 1,...,n
+ * Print the minimum
+ * (n-1) r_k + (n-2) r_{k-1} + ... + r_{k+1}
  */
 
 #include <cstdio>
@@ -13,64 +13,36 @@
 #include <vector>
 using namespace std;
 
-int findMis(int N, vector<int> row) {
-    int pos = N + 1;
-    for (int i = 0; i < N; i++) {
-        if (row[i] != i + 1) {
-            pos = i;
-            break;
-        }
-    }
-    return pos;
-}
-
 int main() {
-    freopen("shuffle.in", "r", stdin);
-    freopen("shuffle.out", "w", stdout);
+    freopen("cbarn.in", "r", stdin);
+    freopen("cbarn.out", "w", stdout);
 
-    int N;
-    cin >> N;
-    vector<int> row(N);
-    for (int i = 0; i < N; i++) {
-        cin >> row[i];
-    }
-    vector<int> ID(N);
-    for (int i = 0; i < N; i++) {
-        cin >> ID[i];
+    int n;
+    cin >> n;
+    vector<int> config(n);
+    for (int i = 0; i < n; i++) {
+        cin >> config[i];
     }
 
-    /*
-    vector<int> row2;
-    for (int i = 0; i < 3; i++) {
-        row2 = row;
-
-        for (int j = 0; j < N; j++) {
-            int index1 = findMis(N, row2);
-
-            if (findMis(N, row2) != N + 1) {
-                int index2 = row2[index1] - 1;
-                int a = ID[index2];
-                ID[index2] = ID[index1];
-                ID[index1] = a;
-
-                int b = row2[index2];
-                row2[index2] = row2[index1];
-                row2[index1] = b;
+    vector<int> SUM(n);
+    for (int i = 0; i < n; i++) {
+        SUM[i] = 0;
+        for (int j = 1; j < n; j++) {
+            if (j + i < n) {
+                SUM[i] += j * config[j+i];
             } else {
-                break;
+                SUM[i] += j * config[j+i-n];
             }
         }
     }
-    */
-    vector<int> IDbak = ID;
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < N; j++) {
-            ID[j] = IDbak[row[j]-1];
+
+    int min = SUM[0];
+    for (int i = 0; i < n; i++) {
+        if (min >= SUM[i]) {
+            min = SUM[i];
         }
     }
-    for (int i = 0; i < N; i++) {
-        cout << ID[i] << "\n";
-    }
+    cout << min << "\n";
 
     return 0;
 }

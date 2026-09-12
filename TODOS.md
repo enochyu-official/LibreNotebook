@@ -9,6 +9,7 @@
   * Add more examples
 * MATH0101.26003
   * Jensen's and Karamata's Inequality
+  * Schur’s Inequality (Convexity Arguments)
   * Examples
 * MATH0101.26004
 * MATH0101.26005
@@ -22,7 +23,6 @@
   * LTE (Lifting The Exponent Lemma)
   * Root-Bounding Techniques
 * 26061 Solve problem
-
 
 
 ## CS01
@@ -47,8 +47,8 @@
 * CS0106.26021
 
 ## CS02
-* FINISH SOLVING CS0202.26057-03
 * FINISH SOLVING CS0202.26058-02
+* FINISH SOLVING CS0202.26058-03
 * Fast I/O
 * Search
   * Linear Search
@@ -79,7 +79,6 @@
 * Dynamic Programming
 
 * Data Structures
-  * Array
   * Min max heaps
   * Policy based data structures
 * Repetition, Consition, Functions, Brute Force, Bit manipulation

@@ -1,0 +1,75 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{Sequence and Series}
+
+
+\section{Telescoping Sums}
+
+We discussed telescoping briefly in the notes for inequality. In this
+part of the note, let's discuss how telescoping is used in sequence
+and series. As a quick refresher, let's solve a practice problem.
+
+\begin{problem}
+{USAMTS Year 11 Round 4 Problem 3 \easy}
+{USAMTS Year 11 Round 4 Problem 3}
+Find $S$ defined as the following.
+\[
+S
+= \sqrt{ 1 + \frac{1}{1^2} + \frac{1}{2^2} }
+    + \sqrt{ 1 + \frac{1}{2^2} + \frac{1}{3^2} } + \cdots
+    + \sqrt{ 1 + \frac{1}{1999^2} + \frac{1}{2000^2} }
+\]
+\end{problem}
+\begin{solution}
+First, let's rewrite the sum $S$ using the sum notation.
+\[
+S
+= \sum_{i=1}^{1999}
+    \sqrt{ 1 + \frac{1}{i^2} + \frac{1}{(i + 1)^2} }
+\]
+Now we see the terms $1 + \frac{1}{i^2} + \frac{1}{(i + 1)^2}$
+inside a square root. To get rid of the annoying square root,
+we can try writing the terms in a perfect square. Consider the
+following equation.
+\begin{align*}
+    &\quad\ \left( 1 + \frac{1}{n} + \frac{1}{n + 1} \right)^2 \\
+    &= 1 + \frac{1}{n^2} + \frac{1}{(n + 1)^2} + 2 \left(
+        \frac{1}{n} + \frac{1}{n + 1} + \frac{1}{n(n + 1)}
+    \right)
+\end{align*}
+Notice that because $\frac{1}{n} - \frac{1}{n+1} = \frac{1}{n(n+1)}$,
+it would be much preferable to have $\frac{1}{n} - \frac{1}{n}
+- \frac{1}{n(n+1)}$ instead of $\frac{1}{n} + \frac{1}{n + 1} +
+\frac{1}{n(n + 1)}$. Therefore, the following equations are obtained.
+\begin{align*}
+    &\quad\ \left( 1 + \frac{1}{n} - \frac{1}{n + 1} \right)^2 \\
+    &= 1 + \frac{1}{n^2} + \frac{1}{(n + 1)^2} + 2 \left(
+        \frac{1}{n} - \frac{1}{n + 1} - \frac{1}{n(n + 1)}
+    \right) \\
+    &= 1 + \frac{1}{n^2} + \frac{1}{(n + 1)^2}
+\end{align*}
+Substituting the equation to the series, we obtain the following
+equations.
+\begin{align*}
+    S
+    &= \sum_{i=1}^{1999}
+        \sqrt{1 + \frac{1}{i^2} + \frac{1}{(i + 1)^2}}
+    = \sum_{i=1}^{1999} \sqrt{\left(
+        \frac{1}{i} - \frac{1}{i + 1} + 1
+    \right)^2} \\
+    &= \sum_{i=1}^{1999}
+        \left( \frac{1}{i} - \frac{1}{i + 1} + 1 \right)
+    = 1999 + \frac{1}{1} - \frac{1}{2000} \\
+    &= \frac{2000^2 - 1}{2000}
+    = \frac{3999999}{2000}
+\end{align*}
+Thus, $S = \frac{3999999}{2000}$.
+\end{solution}
+
+
+
+\end{document}
+
+

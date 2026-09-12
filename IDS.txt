@@ -21,6 +21,7 @@ MATH0102       | Projective Geometry
 MATH0103       | Euclidean Geometry
 MATH0104       | Functional Equations
 MATH0105       | Polynomials
+MATH0106       | Sequence and Series
 MATH0100       | Appendix
 
 MATH0201       | Vectors and Vector Spaces
@@ -46,82 +47,87 @@ CS0202         | Foundations
 
 Section III. Sections
 ----------------------------------------------------------------------
-MATH0100.26001 | INIT
-MATH0101.26002 | Classic Inequalities
-MATH0101.26003 | Advanced Inequalities
-MATH0101.26004 | Techniques and Patterns
-MATH0101.26005 | Practice Problems
-  CS0100.26006 | INIT
-  CS0101.26007 | Calculus
-  CS0101.26008 | Linear Algebra
-  CS0101.26009 | Probability Theory
-  CS0102.26010 | Basic Syntax
+0.9 | MATH0100.26001 | INIT
+0.5 | MATH0101.26002 | Classic Inequalities
+0.3 | MATH0101.26003 | Advanced Inequalities
+0.3 | MATH0101.26004 | Techniques and Patterns
+0.8 | MATH0101.26005 | Practice Problems
+=== |   CS0100.26006 | INIT
+0.8 |   CS0101.26007 | Calculus
+0.7 |   CS0101.26008 | Linear Algebra
+0.4 |   CS0101.26009 | Probability Theory
+=== |   CS0102.26010 | Basic Syntax
 
-  CS0102.26011 | Modules and Libraries
-  CS0103.26012 | Fundamental Terms and Concepts
-  CS0103.26013 | Introduction to Large Language Models
-  CS0103.26014 | Improving Large Language Models
-  CS0104.26015 | Definitions and High Level Overview
-  CS0104.26016 | Conventions and Mathematical Interpretations
-  CS0104.26017 | Building Vanilla Neural Network From Scratch
-  CS0105.26018 | Bigram Language Model
-  CS0105.26019 | Attention and Transformers
-  CS0105.26020 | Building and LLM with PyTorch
+=== |   CS0102.26011 | Modules and Libraries
+=== |   CS0103.26012 | Fundamental Terms and Concepts
+=== |   CS0103.26013 | Introduction to Large Language Models
+=== |   CS0103.26014 | Improving Large Language Models
+=== |   CS0104.26015 | Definitions and High Level Overview
+=== |   CS0104.26016 | Conventions and Mathematical Interpretations
+=== |   CS0104.26017 | Building Vanilla Neural Network From Scratch
+0.0 |   CS0105.26018 | Bigram Language Model
+0.1 |   CS0105.26019 | Attention and Transformers
+0.0 |   CS0105.26020 | Building and LLM with PyTorch
 
-  CS0106.26021 | AI Safety
-  CS0107.26022 | Further Resources
-MATH0102.26023 | Desargues' Theorem
-MATH0200.26024 | INIT
-MATH0201.26025 | Basic Terms and Notations
-MATH0201.26026 | Fundamental Properties
-MATH0201.26027 | Subspaces
-MATH0201.26028 | Practice Problems
-MATH0202.26029 | Basic Terms and Notations
-MATH0202.26030 | Fundamental Properties
+0.0 |   CS0106.26021 | AI Safety
+0.7 |   CS0107.26022 | Further Resources
+0.8 | MATH0102.26023 | Desargues' Theorem
+=== | MATH0200.26024 | INIT
+=== | MATH0201.26025 | Basic Terms and Notations
+=== | MATH0201.26026 | Fundamental Properties
+=== | MATH0201.26027 | Subspaces
+=== | MATH0201.26028 | Practice Problems
+=== | MATH0202.26029 | Basic Terms and Notations
+=== | MATH0202.26030 | Fundamental Properties
 
-MATH0202.26031 | Matrix Multiplication
-MATH0202.26032 | Additional Fundamental Topics
-MATH0202.26033 | Determinants
-MATH0202.26034 | Practice Problems
-MATH0203.26035 | Basics and Intuitions
-MATH0203.26036 | Gaussian Elimination
-MATH0203.26037 | The Multiplicative Inverse
-MATH0203.26038 | LU Decomposition
-MATH0203.26039 | Practice Problems
-MATH0204.26040 | Row Space and Rank of a Matrix
+=== | MATH0202.26031 | Matrix Multiplication
+=== | MATH0202.26032 | Additional Fundamental Topics
+=== | MATH0202.26033 | Determinants
+=== | MATH0202.26034 | Practice Problems
+=== | MATH0203.26035 | Basics and Intuitions
+=== | MATH0203.26036 | Gaussian Elimination
+=== | MATH0203.26037 | The Multiplicative Inverse
+=== | MATH0203.26038 | LU Decomposition
+=== | MATH0203.26039 | Practice Problems
+=== | MATH0204.26040 | Row Space and Rank of a Matrix
 
-MATH0204.26041 | Linear Transformations
-MATH0204.26042 | Eigenvalues and Eigenvectors
-MATH0204.26043 | Practice Problems
-MATH0205.26044 | Solutions for Note 1
-MATH0205.26045 | Solutions for Note 2
-MATH0205.26046 | Solutions for Note 3
-MATH0205.26047 | Solutions for Note 4
-MATH0205.26048 | Final Thoughts
-  CS0200.26049 | INIT
-  CS0201.26050 | Foundations
+=== | MATH0204.26041 | Linear Transformations
+=== | MATH0204.26042 | Eigenvalues and Eigenvectors
+=== | MATH0204.26043 | Practice Problems
+=== | MATH0205.26044 | Solutions for Note 1
+=== | MATH0205.26045 | Solutions for Note 2
+=== | MATH0205.26046 | Solutions for Note 3
+=== | MATH0205.26047 | Solutions for Note 4
+=== | MATH0205.26048 | Final Thoughts
+0.0 |   CS0200.26049 | INIT
+=== |   CS0201.26050 | Foundations
 
-  CS0201.26051 | Conditionals and Loops
-  CS0201.26052 | Functions and References
-  CS0201.26053 | Arrays and Vectors
-  CS0201.26054 | Practice Problems and Solutions
-  CS0202.26055 | Time Complexity
-MATH0103.26056 | Power of a Point
-  CS0202.26057 | Simulation
-  CS0202.26058 | Practice Problems and Solutions
-MATH0105.26059 | Foundations
-MATH0105.26060 | Roots of Unity
+=== |   CS0201.26051 | Conditionals and Loops
+=== |   CS0201.26052 | Functions and References
+=== |   CS0201.26053 | Arrays and Vectors
+=== |   CS0201.26054 | Practice Problems and Solutions
+=== |   CS0202.26055 | Time Complexity
+0.8 | MATH0103.26056 | Power of a Point
+0.7 |   CS0202.26057 | Simulation
+0.1 |   CS0202.26058 | Practice Problems and Solutions
+=== | MATH0105.26059 | Foundations
+0.7 | MATH0105.26060 | Roots of Unity
 
-MATH0104.26061 | Foundations
-MATH0104.26062 | Cauchy's Functional Equation and Its Variants
-MATH0104.26063 | Symmetric and Cyclic Equations
-MATH0104.26064 | Invariance
-MATH0104.26065 | The CDE Method
-MATH0104.26066 | Additional Topics
-MATH0100.26067 | Solutions for Note 1
-MATH0300.26068 | INIT
-MATH0301.26069 | Basic Terms and Intuitions
-MATH0301.26070 | Vectors
+0.8 | MATH0104.26061 | Foundations
+0.0 | MATH0104.26062 | Cauchy's Functional Equation and Its Variants
+0.0 | MATH0104.26063 | Symmetric and Cyclic Equations
+0.0 | MATH0104.26064 | Invariance
+0.0 | MATH0104.26065 | The CDE Method
+0.0 | MATH0104.26066 | Additional Topics
+0.0 | MATH0100.26067 | Solutions for Note 1
+0.0 | MATH0300.26068 | INIT
+=== | MATH0301.26069 | Basic Terms and Intuitions
+0.8 | MATH0301.26070 | Vectors
+
+0.7 | MATH0106.26071 | Telescoping Sums
+0.0 | MATH0106.26072 | Bounding and Monotonicity
+0.0 | MATH0106.26073 | Symmetric and Cyclic Sums
+0.1 | MATH0106.26074 | Practice Problems
 ----------------------------------------------------------------------
 
 END OF INDEX

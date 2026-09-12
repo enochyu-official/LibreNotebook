@@ -2,18 +2,23 @@
 
 \begin{document}
 
-\section{Simulation}
+\section{Simulation and Complete Search}
 
-The first topic that I wish to discuss is simulation. Surprisingly,
-many problems can be solved just by simulating the environment
-described in the problem \cite{CS02-7}. Meaning, we do not necessarily
-require a complex algorithms to solve the problems and it suffices to
-know that basic of the language that we are using, which we already
-did in our previous note.
+The first topics that I wish to discuss are simulation and brute
+forcing. Surprisingly, many problems can be solved just by simulating
+the environment described in the problem and brute forcing all cases
+\cite{CS02-7}. Meaning, we do not necessarily require a complex
+algorithms to solve the problems and it suffices to know that basic
+of the language that we are using, which we already did in our
+previous note.
 
 Because there isn't a definite concept, definition, and theorems for
-this concept, let's see what a simulation is by looking at an
-example problem.
+these concept, let's see what they are through example problems.
+
+\subsection{Simulation}
+
+For our first simulation problem, let's solve 2018 USACO First Bronze
+Problem 1.
 
 \begin{problem}
 {2018 USACO First Bronze Problem 1}
@@ -198,8 +203,109 @@ int main() {
 This solves the problem!
 \end{solution}
 
-Before wrapping up this section, let's solve one last problem on
-simulation.
+Before wrapping up our discussion on simulation, let's solve one last
+problem.
+
+\begin{problem}
+{2016 USACO Third Bronze Problem 2}
+{2016 USACO Third Bronze Problem 2}
+(\href{https://usaco.org/index.php?page=viewproblem2&cpid=616}{Problem Statement})
+
+A farmer has a circular barn with $n$ rooms numbered $1$ through
+$n$ clockwise. Each room is connected with internal doors with the
+adjacent rooms and have a door to enter the room from the outside.
+The farmer wishes to place $r_i$ cows in the $i^\text{th}$ room
+and the farmer will open a single door to a room where cows will
+enter the room and find their places in clockwise and in organized
+manner. If the farmer opened a door such that the collective number of
+distance that all cows moved, i.e. the number of moves between the
+rooms, is minimum, then what is that minimum distance?
+\end{problem}
+\begin{solution}
+After understanding the problem, we can simulate the process where
+the farmer opened the first room. Then, the total distance can
+be represented as $(n-1) r_n + (n-2) r_{n-1} + \cdots + 2 r_3 + r_2$
+since all cows must move to certain location somehow.
+
+First, we can store the inputs in a vector.
+
+\begin{cppboxSolution}{CS0202.26057-03}{CS0202.26057-03}
+\begin{lstlisting}[style=cppstyle]
+int n;
+cin >> n;
+vector<int> config(n);
+for (int i = 0; i < n; i++) {
+    cin >> config[i];
+}
+\end{lstlisting}
+\end{cppboxSolution}
+
+Now we want to simulate the process of cows entering the room
+and finding the spot. Moreover, we want to simulate all possible
+cases to actually find the maximum value.
+
+\begin{basicboxSolution}
+\begin{lstlisting}[style=cppstyle]
+vector<int> SUM(n);
+for (int i = 0; i < n; i++) {
+    SUM[i] = 0;
+    for (int j = 1; j < n; j++) {
+        if (j + i < n) {
+            SUM[i] += j * config[j+i];
+        } else {
+            SUM[i] += j * config[j+i-n];
+        }
+    }
+}
+\end{lstlisting}
+\end{basicboxSolution}
+
+Lastly, we can complete our solution by printing the minimum
+value from our \verb|SUM| vector.
+
+\begin{basicboxSolution}
+\begin{lstlisting}[style=cppstyle]
+vector<int> SUM(n);
+for (int i = 0; i < n; i++) {
+    SUM[i] = 0;
+    for (int j = 1; j < n; j++) {
+        if (j + i < n) {
+            SUM[i] += j * config[j+i];
+        } else {
+            SUM[i] += j * config[j+i-n];
+        }
+    }
+}
+\end{lstlisting}
+\end{basicboxSolution}
+
+As you can see, the nested for loops will go through each case
+where \verb|i| represents the door that the farmer opens.
+Then, with the nested for loop, we add the count using the
+math formula shown above to compute the total distance moved
+by the cow. With the distances stored, we can now find the
+minimum value.
+
+\begin{basicboxSolution}
+\begin{lstlisting}[style=cppstyle]
+int min = SUM[0];
+for (int i = 0; i < n; i++) {
+    if (min >= SUM[i]) {
+        min = SUM[i];
+    }
+}
+cout << min << "\n";
+\end{lstlisting}
+\end{basicboxSolution}
+
+This solves the problem!
+\end{solution}
+
+Continuing, let's discuss complete search, or brute forcing all cases.
+
+\subsection{Complete Search}
+
+
 
 
 

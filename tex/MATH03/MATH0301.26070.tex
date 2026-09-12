@@ -418,6 +418,128 @@ We can see that for nonzero $\mathbf{v}$, we can generalize this
 for any $n$. Therefore the sum of the squares of direction cosines
 are always $1$.
 
+The last part that I wish to discuss about dot products is
+projections. First, consider a vector $\mathbf{v} = \mathbf{w}_1
++ \mathbf{w}_2$ in a plane where $\mathbf{w}_1$ and $\mathbf{w}_2$ are
+along the standard basis $\mathbf{i}$ and $\mathbf{j}$ respectively.
+By construction, we can write $\mathbf{w}_1 = \mathbf{v} \cdot
+\mathbf{i}$ and $\mathbf{w}_2 = \mathbf{v} \cdot \mathbf{j}$.
+
+\begin{important}
+In other words, for any nonzero vector $\mathbf{v}$ in a plane,
+it can be represented as the following.
+\[
+\mathbf{v}
+= (\mathbf{v} \cdot \mathbf{i}) \mathbf{i} +
+    (\mathbf{v} \cdot \mathbf{j}) \mathbf{j}
+\]
+Such vectors $(\mathbf{v} \cdot \mathbf{i}) \mathbf{i}$ and
+$(\mathbf{v} \cdot \mathbf{j}) \mathbf{j}$ are known as
+\textbf{vector components} of $\mathbf{v}$ along $\mathbf{i}$ and
+$\mathbf{j}$ where the dot products $\mathbf{v} \cdot \mathbf{i}$ and
+$\mathbf{v} \cdot \mathbf{j}$ are \textbf{scalar components} of
+$\mathbf{v}$ along $\mathbf{i}$ and $\mathbf{j}$.
+\end{important}
+
+This idea can be generalized for higher dimensions. Moreover,
+although we used standard basis vectors here, this works for any
+orthogonal unit vectors.
+
+Another way of expanding this is through geometric interpretation.
+
+\begin{minipage}{0.48\textwidth}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (4,0);
+    \coordinate (B) at (0,3);
+    \coordinate (C) at (4,3);
+    \coordinate (e1) at (1,0);
+    \coordinate (e2) at (0,1);
+
+    \draw[->, thick] (O) -- (A);
+    \draw[->, thick] (O) -- (B);
+    \draw[->, thick, BrickRed] (O) -- (C);
+    \draw[->, thick, RoyalPurple] (O) -- (e1);
+    \draw[->, thick, RoyalPurple] (O) -- (e2);
+    \draw[dashed, thick] (A) -- (C);
+    \draw[dashed, thick] (B) -- (C);
+
+    \pic[draw,"$\theta$",angle radius=8mm,angle eccentricity=1.4]
+        {angle=A--O--C};
+    \node[below] at (e1) {$\mathbf{e}_1$};
+    \node[left] at (e2) {$\mathbf{e}_2$};
+    \node[below] at (A) {$\mathbf{w}_1$};
+    \node[left] at (B) {$\mathbf{w}_2$};
+    \node[above right] at (C) {$\mathbf{v}$};
+    \node[below] at ($(B)!0.3!(C)$)
+        {\footnotesize $\| \mathbf{v} \| \cos\theta$};
+    \node[left] at ($(A)!0.3!(C)$)
+        {\footnotesize $\| \mathbf{v} \| \sin\theta$};
+\end{tikzpicture}
+\end{figure}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (-4,0);
+    \coordinate (B) at (0,3);
+    \coordinate (C) at (-4,3);
+    \coordinate (e1) at (1,0);
+    \coordinate (e2) at (0,1);
+
+    \draw[->, thick] (O) -- (A);
+    \draw[->, thick] (O) -- (B);
+    \draw[->, thick, BrickRed] (O) -- (C);
+    \draw[->, thick, RoyalPurple] (O) -- (e1);
+    \draw[->, thick, RoyalPurple] (O) -- (e2);
+    \draw[dashed, thick] (A) -- (C);
+    \draw[dashed, thick] (B) -- (C);
+
+    \pic[draw,"$\theta$",angle radius=4mm,angle eccentricity=1.6]
+        {angle=e1--O--C};
+    \node[below] at (e1) {$\mathbf{e}_1$};
+    \node[left] at (e2) {$\mathbf{e}_2$};
+    \node[below] at (A) {$\mathbf{w}_1$};
+    \node[right] at (B) {$\mathbf{w}_2$};
+    \node[above] at (C) {$\mathbf{v}$};
+    \node[below] at ($(B)!0.4!(C)$)
+        {\footnotesize $\| \mathbf{v} \| \cos\theta$};
+    \node[right] at ($(A)!0.3!(C)$)
+        {\footnotesize $\| \mathbf{v} \| \sin\theta$};
+\end{tikzpicture}
+\end{figure}
+\end{minipage}
+
+As you can see from the diagrams above, we can write the scalar
+components with respect to the norm of $\mathbf{v}$ and the
+angle $\theta$. Moreover, we can define a new definition.
+
+\begin{definition}{}{}
+The \textbf{orthogonal projection} of a vector $\mathbf{v}$,
+denoted as $\proj_\mathbf{u} \mathbf{v}$, on a unit vector
+$\mathbf{u}$ is the vector component of $\mathbf{v}$ that is parallel
+to $\mathbf{u}$.
+\end{definition}
+
+From the figures above, we can see that $\proj_{\mathbf{e}_1} =
+\mathbf{w}_1$ and $\proj_{\mathbf{e}_2} = \mathbf{w}_2$.
+Finally, this leads us to the conclusion that for any vector
+$\mathbf{v}$ and respective orthogonal unit vectors $\mathbf{e}_1$
+and $\mathbf{e}_2$, the following equation holds.
+\[
+\mathbf{v}
+= \proj_{\mathbf{e}_1} \mathbf{v} + \proj_{\mathbf{e}_2} \mathbf{v}
+\]
+This is it for dot products and orthogonal projections! Before
+we conclude our section on vectors, we will discuss about cross
+products and its geometric interpretations.
+
+\subsection{The Cross Product and Geometry}
 
 
 
