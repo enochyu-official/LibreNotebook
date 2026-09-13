@@ -2,8 +2,8 @@
 
 \begin{document}
 
-\addcontentsline{toc}{chapter}{Introducing the Notes}
 \chapter*{Introducing the Notes}
+\addcontentsline{toc}{chapter}{Introducing the Notes}
 
 
 \section{Definitions and Notations}
@@ -41,10 +41,7 @@ depending on the values of $p$, we can derive some of more familiar
 means.
 
 \begin{center}
-\begin{tabularx}{\textwidth}{
-    |>{\hsize=.3\hsize\linewidth=\hsize}X
-    |>{\hsize=.7\hsize\linewidth=\hsize}X|
-}
+\begin{tabular}{|p{0.3\textwidth}|p{0.6\textwidth}|}
     \hline
     $M_p$         & Definition \\
     \hline
@@ -53,15 +50,15 @@ means.
     $M_0$         & Geometric Mean \\
     $M_1$         & Arithmetic Mean \\
     $M_2$         & Quadratic Mean \\
-    $M_{\infty}$  & Maximum \\
+    $M_\infty$    & Maximum \\
     \hline
-\end{tabularx}
+\end{tabular}
 \end{center}
 
 First, let's substitute $p = 1$ to begin with arithmetic mean.
 \[
 M_1
-= \left( \frac{\sum_{k=1}^n a_k }{n} \right)
+= \left( \frac{ \sum_{k=1}^n a_k }{n} \right)
 \]
 This is \textbf{arithmetic mean}, the mean that we are all familiar
 with! Using the weighted generalized mean, we can get the formula for
@@ -169,7 +166,7 @@ we can also specify with variables we are going to cycle.
 \]
 As we have for cyclic sum, we also have notation for symmetric sums.
 
-\begin{definition}
+\begin{definition}{}{}
 Let $f(x_1, x_2, \ldots, x_n)$ be a function and $S_n$ be the
 symmetric group of degree $n$, i.e. a set of all sets that are
 permutation of numbers $1$ through $n$. Then, $\sum_\text{sym}$ is
