@@ -559,7 +559,152 @@ denoted as $\mathbf{u} \times \mathbf{v}$ and read as
 \]
 \end{definition}
 
+As you can see from the definition above, unlike the dot product
+that returns a scalar, the cross product of two vector return
+a vector. Also, if it is difficult to memorize the formula above,
+we can also think of cross product as the following.
+\begin{align*}
+    \mathbf{u} \times \mathbf{v}
+    &= \det\left(
+        \begin{bmatrix}
+            \mathbf{i} & \mathbf{j} & \mathbf{k} \\
+            u_1        & u_2        & u_3        \\
+            v_1        & v_2        & v_3
+        \end{bmatrix}
+    \right) \\
+    &= (u_2v_3 - u_3v_2) \mathbf{i} - (u_1v_3 - u_3v_1) \mathbf{j}
+        + (u_1v_2 - u_2v_1) \mathbf{k}
+\end{align*}
+If you are unfamiliar with the operation above, I highly recommend
+reading my notes on determinants, which is in Section \ref{sec:26033}!
 
+\begin{important}
+The cross product $\mathbf{u} \times \mathbf{v}$ is only defined for
+$\mathbf{u}, \mathbf{v} \in \mathbb{R}^3$. The other dimension does
+not return meaningful properties and definition of the cross product.
+\end{important}
+
+Unlike the dot product, the properties of the cross product are
+not so nice.
+
+\begin{theorem}{}{Properties of the Cross Product}
+For $\mathbf{u}, \mathbf{v}, \mathbf{w} \in \mathbb{R}^3$ and some
+scalar $\lambda$, the following equations hold.
+\vspace{-0.8\baselineskip}
+\begin{enumerate}
+\item
+$\mathbf{u} \times \mathbf{v} = - (\mathbf{v} \times \mathbf{u})$
+\item
+$\mathbf{u} \times \mathbf{u} = \mathbf{0}$
+\item
+$\mathbf{u} \times \mathbf{0} = \mathbf{0}$
+\item
+$\mathbf{u} \times (\mathbf{v} + \mathbf{w})
+= (\mathbf{u} \times \mathbf{v}) + (\mathbf{u} \times \mathbf{w})$
+\item
+$\lambda (\mathbf{u} \times \mathbf{v})
+= (\lambda \mathbf{u}) \times \mathbf{v}
+= \mathbf{u} \times (\lambda \mathbf{v})$
+\end{enumerate}
+\end{theorem}
+
+There are a lot to prove, but let's start with the first one.
+
+\begin{proof}
+Note that by definition, the following equations hold.
+\begin{align*}
+    \mathbf{u} \times \mathbf{v}
+    &= (u_2v_3 - u_3v_2) \mathbf{i} - (u_1v_3 - u_3v_1) \mathbf{j}
+        + (u_1v_2 - u_2v_1) \mathbf{k} \\
+    \mathbf{v} \times \mathbf{u}
+    &= (v_2u_3 - v_3u_2) \mathbf{i} - (v_1u_3 - v_3u_1) \mathbf{j}
+        + (v_1u_2 - v_2u_1) \mathbf{k} \\
+    &= -(v_3u_2 - v_2u_3) \mathbf{i} + (v_3u_1 - v_1u_3) \mathbf{j}
+        - (v_2u_1 - v_1u_2) \mathbf{k}
+\end{align*}
+Thus, $\mathbf{u} \times \mathbf{v} =
+- (\mathbf{v} \times \mathbf{u})$.
+\end{proof}
+
+Below is the proof for the second one.
+
+\begin{proof}
+By the first property, $\mathbf{u} \times \mathbf{u} =
+- (\mathbf{u} \times \mathbf{u})$. In other words,
+$2 \mathbf{u} \times \mathbf{u} = \mathbf{0}$ and
+$\mathbf{u} \times \mathbf{u} = \mathbf{0}$.
+\end{proof}
+
+Continuing, here is the proof for the third property.
+
+\begin{proof}
+By definition, $\mathbf{u} \times \mathbf{0} = (u_2v_3 - u_3v_2)
+\mathbf{i} - (u_1v_3 - u_3v_1) \mathbf{j} + (u_1v_2 - u_2v_1)
+\mathbf{k} = 0\mathbf{i} + 0\mathbf{j} + 0\mathbf{k} = \mathbf{0}$.
+\end{proof}
+
+Below is the proof for the fourth property.
+
+\begin{proof}
+First and foremost, consider the following equation for the
+first component only.
+\begin{align*}
+    \langle 1, 0, 0 \rangle \cdot
+        (\mathbf{u} \times (\mathbf{v} + \mathbf{w}))
+    &= u_2(v_3 + w_3) - u_3(v_2 + w_2) \\
+    &= (u_2v_3 + u_2w_3) - (u_3v_2 + u_3w_2) \\
+    &= u_2v_3 - u_3v_2 + u_2w_3 - u_3w_2 \\
+    &= \langle 1, 0, 0 \rangle \cdot \mathbf{u} \times \mathbf{v}
+        + \langle 1, 0, 0 \rangle \cdot \mathbf{u} \times \mathbf{w}
+\end{align*}
+Similarly, the second and the third entry hold with analogous
+argument. Thus, the property holds.
+\end{proof}
+
+Lastly, here is the proof for the last property.
+
+\begin{proof}
+By definition, the following equations hold.
+\begin{align*}
+    k (\mathbf{u} \times \mathbf{v})
+    &= k(u_2v_3 - u_3v_2) \mathbf{i} - k(u_1v_3 - u_3v_1) \mathbf{j}
+        + k(u_1v_2 - u_2v_1) \mathbf{k} \\
+    &= ((ku_2)v_3 - (ku_3)v_2) \mathbf{i}
+        - ((ku_1)v_3 - (ku_3)v_1) \mathbf{j} \\
+        &\qquad\qquad\qquad + ((ku_1)v_2 - (ku_2)v_1) \mathbf{k} \\
+    &= (k\mathbf{u}) \mathbf{v}
+\end{align*}
+The analogous computations apply for $k (\mathbf{u} \times \mathbf{v})
+= \mathbf{u} \times (k\mathbf{v})$.
+\end{proof}
+
+Continuing, it is worth memorizing the cross product between the
+standard basis vectors.
+\[
+\mathbf{i} \times \mathbf{j} = \mathbf{k}, \quad
+\mathbf{j} \times \mathbf{k} = \mathbf{i}, \quad
+\mathbf{k} \times \mathbf{i} = \mathbf{j}
+\]
+I personally think and easy way to memorize this is through cycle.
+For cycle counter clockwise, we get a negative one.
+\[
+\mathbf{j} \times \mathbf{i} = -\mathbf{k}, \quad
+\mathbf{k} \times \mathbf{j} = -\mathbf{i}, \quad
+\mathbf{i} \times \mathbf{k} = -\mathbf{j}
+\]
+We can also notice that the cross product returns a vector
+that are orthogonal to those being crossed!
+
+\begin{important}
+Parenthesis is very important! As you can see from the standard
+basis vectors above, cross products are generally not associative.
+Meaning,
+\[
+\mathbf{u} \times (\mathbf{v} \times \mathbf{w})
+\neq (\mathbf{u} \times \mathbf{v}) \times \mathbf{w}
+\]
+is true in general and parenthesis is necessarily to avoid ambiguity.
+\end{important}
 
 
 

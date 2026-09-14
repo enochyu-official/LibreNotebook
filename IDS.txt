@@ -16,13 +16,15 @@ CS02           | Competitive Programming
 
 Section II. Notes
 ----------------------------------------------------------------------
-MATH0101       | Inequalities
-MATH0102       | Projective Geometry
-MATH0103       | Euclidean Geometry
-MATH0104       | Functional Equations
-MATH0105       | Polynomials
-MATH0106       | Sequence and Series
-MATH0100       | Appendix
+MATH0101       | [A] Inequalities
+MATH0102       | [G] Projective Geometry
+MATH0103       | [G] Euclidean Geometry
+MATH0104       | [A] Functional Equations
+MATH0105       | [A] Polynomials
+MATH0106       | [A] Sequence and Series
+MATH0107       | [N] Modular Arithmetic
+MATH0108       | [N] Diophantine Equations
+MATH0100       | Solutions
 
 MATH0201       | Vectors and Vector Spaces
 MATH0202       | Matrices
@@ -128,6 +130,11 @@ Section III. Sections
 0.0 | MATH0106.26072 | Bounding and Monotonicity
 0.0 | MATH0106.26073 | Symmetric and Cyclic Sums
 0.1 | MATH0106.26074 | Practice Problems
+0.0 | MATH0107.26075 | Foundations
+=== | MATH0108.26076 | Pythagorean Triples
+0.0 | MATH0108.26077 | Pell's Equations
+0.0 | MATH0108.26078 | Infinite Descent
+0.0 | MATH0108.26079 | Practice Problems
 ----------------------------------------------------------------------
 
 END OF INDEX
