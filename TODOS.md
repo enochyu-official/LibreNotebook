@@ -2,6 +2,7 @@
 
 ## LaTeX
 * Figure out mdframed + tcolorbox with lstlisting break CS02
+* Figure out links for paperback
 
 ## MATH01
 * MATH0101.26002
