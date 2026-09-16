@@ -24,6 +24,7 @@
   * LTE (Lifting The Exponent Lemma)
   * Root-Bounding Techniques
 * 26061 Solve problem
+* INFINTE DSCENT AND PYTA
 
 
 ## CS01
