@@ -706,6 +706,113 @@ Meaning,
 is true in general and parenthesis is necessarily to avoid ambiguity.
 \end{important}
 
+However when we have a dot product and a cross product like
+$\mathbf{u} \cdot (\mathbf{v} \times \mathbf{w})$, then parenthesis
+is not necessary as the cross product is defined only between two
+three dimensional vectors. Speaking of such forms, consider the
+following theorem.
+
+\begin{theorem}{}{Cross Product Geometry 1}
+For two nonzero vectors $\mathbf{u}$ and $\mathbf{v}$ in the third
+dimension, $\mathbf{u} \cdot \mathbf{u} \times \mathbf{v}$ and
+$\mathbf{v} \cdot \mathbf{u} \times \mathbf{v}$ holds.
+\end{theorem}
+\begin{proof}
+First, let $\mathbf{u} = \langle u_1, u_2, u_3 \rangle$ and
+$\mathbf{v} = \langle v_1, v_2, v_3 \rangle$ and consider the
+following equations.
+\begin{align*}
+    \mathbf{u} \cdot \mathbf{u} \times \mathbf{v} 
+    &= \mathbf{u} \cdot \langle
+        u_2v_3 - u_3v_2, u_3v_1 - u_1v_3, u_1v_2 - u_2v_1
+    \rangle \\
+    &= u_1 (u_2v_3 - u_3v_2) + u_2 (u_3v_1 - u_1v_3)
+        + u_3 (u_1v_2 - u_2v_1) \\
+    &= u_1u_2v_3 - u_1u_3v_2 + u_2u_3v_1 - u_1u_2v_3
+        + u_1u_3v_2 - u_2u_3v_1 \\
+    &= 0
+\end{align*}
+Therefore, the first equation holds. Continuing, the following
+equations hold for the second equation by Theorem \ref{theo:Properties
+of the Cross Product}.
+\[
+\mathbf{v} \cdot \mathbf{u} \times \mathbf{v}
+= \mathbf{v} \cdot (-\mathbf{v} \times \mathbf{u})
+= - \mathbf{v} \cdot \mathbf{v} \times \mathbf{u}
+= 0
+\]
+Thus the theorem holds.
+\end{proof}
+
+From the theorem, we can notice that $\mathbf{u}$ is orthogonal
+to $\mathbf{u} \times \mathbf{v}$, which is orthogonal to
+$\mathbf{v}$. These types of operation is known as scalar
+triple product, and we will be discussing more on that soon!
+In addition to the orthogonal nature of $\mathbf{u} \times \mathbf{v}$
+and its adherence to the right-hand rule, we can also find the
+relationship between the norm of $\mathbf{u} \times \mathbf{v}$
+and $\mathbf{u}$ and $\mathbf{v}$.
+
+\begin{theorem}{}{Cross Product Geometry 2}
+For two nonzero vectors $\mathbf{u}$ and $\mathbf{v}$ in the third
+dimension with angle $\theta$, $\| \mathbf{u} \times \mathbf{v} \|
+= \| \mathbf{u} \| \| \mathbf{v} \| \sin\theta$.
+\end{theorem}
+\begin{proof}
+Let $\mathbf{u} = \langle u_1, u_2, u_3 \rangle$ and
+$\mathbf{v} = \langle v_1, v_2, v_3 \rangle$. Notice that because
+both the left-hand side and the right-hand side of the equation
+are both positive, it suffices to show that the square of each
+side equals. Consider the following equations.
+\begin{align*}
+    \| \mathbf{u} \times \mathbf{v} \|
+    &= (u_2v_3 - u_3v_2)^2 + (u_3v_1 - u_1v_3)^2
+        + (u_1v_2 - u_2v_1)^2 \\
+    &= u_2^2v_3^2 + u_3^2v_2^2 - 2u_2v_3u_3v_2
+        + u_3^2v_1^2 + u_1^2v_3^2 - 2u_3v_1u_1v_3 \\
+    &\qquad\quad+ u_1^2v_2^2 + u_2^2v_1^2 - 2u_1v_2u_2v_1 \\
+    &= u_1^2v_2^2 + u_2^2v_3^2 + u_3^2v_1^2
+        + v_1^2u_2^2 + v_2^2u_3^2 + v_3^2u_1^2 \\
+    &\qquad\quad- 2u_1u_2v_1v_2 - 2u_2u_3v_2v_3 - 2u_3u_1v_3v_1
+\end{align*}
+Continuing, the right-hand side can be rearranged as the following.
+\begin{align*}
+    &\quad\ \| \mathbf{u} \|^2 \| \mathbf{v} \|^2 \sin^2\theta \\
+    &= \| \mathbf{u} \|^2 \| \mathbf{v} \|^2
+        - \| \mathbf{u} \|^2 \| \mathbf{v} \|^2 \cos^2\theta \\
+    &= \| \mathbf{u} \|^2 \| \mathbf{v} \|^2
+        - (\mathbf{u} \times \mathbf{v})^2 \\
+    &= (u_1^2 + u_2^2 + u_3^2)(v_1^2 + v_2^2 + v_3^2)
+        - (u_1v_1 + u_2v_2 + u_3v_3)^2 \\
+    &= u_1^2v_1^2 + u_1^2v_2^2 + u_1^2v_3^2
+        + u_2^2v_1^2 + u_2^2v_2^2 + u_2^2v_3^2
+        + u_3^2v_1^2 + u_3^2v_2^2 + u_3^2v_3^2 \\
+    &\qquad - (u_1^2v_1^2 + u_2^2v_2^2 + u_3^2v_3^2)
+        - 2(u_1u_2v_1v_2 + u_2u_3v_2v_3 + u_3u_1v_3v_1) \\
+    &= u_1^2v_2^2 + u_2^2v_3^2 + u_3^2v_1^2
+        + v_1^2u_2^2 + v_2^2u_3^2 + v_3^2u_1^2 \\
+    &\qquad\quad- 2u_1u_2v_1v_2 - 2u_2u_3v_2v_3 - 2u_3u_1v_3v_1
+\end{align*}
+Thus, the theorem holds.
+\end{proof}
+
+This theorem implies that the norm of the cross product of the
+two vectors is the product of the norms of the vectors and sine of
+the angle between them. With this, we can also find another geometric
+representation of cross products.
+
+\begin{important}
+The area of the parallelogram with sides $\mathbf{u}$ and $\mathbf{v}$
+can be represented as $\| \mathbf{u} \times \mathbf{v} \|$.
+\end{important}
+
+This is somewhat simple to notice as if we consider $\mathbf{u}$
+as the base, then $\| \mathbf{v} \| \sin\theta$ is the height
+where $\theta$ is the angle between them. Therefore by Theorem
+\ref{theo:Cross Product Geometry 2}, the area of the parallelogram
+is $\| \mathbf{u} \| \| \mathbf{v} \| \sin\theta =
+\| \mathbf{u} \times \mathbf{v} \|$.
+
 
 
 \end{document}

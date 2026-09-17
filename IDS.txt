@@ -30,7 +30,7 @@ MATH0201       | Vectors and Vector Spaces
 MATH0202       | Matrices
 MATH0203       | System of Linear Equations
 MATH0204       | Matrices and Vector Spaces
-MATH0205       | Appendix
+MATH0205       | Solutions
 
 MATH0301       | Vectors and Geometry
 
