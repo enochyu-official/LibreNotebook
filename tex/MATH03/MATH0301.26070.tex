@@ -813,7 +813,106 @@ where $\theta$ is the angle between them. Therefore by Theorem
 is $\| \mathbf{u} \| \| \mathbf{v} \| \sin\theta =
 \| \mathbf{u} \times \mathbf{v} \|$.
 
+Before we move on to the next section, let's wrap up our discussion
+on vectors with the scalar triple product and its geometric
+representations.
 
+\begin{definition}{}{}
+The \textbf{scalar triple product} of three vectors $\mathbf{u}$,
+$\mathbf{v}$, and $\mathbf{w}$ in 3-space is defined as
+$\mathbf{u} \cdot \mathbf{v} \times \mathbf{w}$.
+\end{definition}
+
+Notice that the output of the scalar triple product of three
+vectors is a scalar. Also, using the definition of cross products
+and dot products, we can notice that the scalar triple product
+is equivalent to the following.
+\[
+\mathbf{u} \cdot \mathbf{v} \times \mathbf{w}
+=
+\begin{bmatrix}
+    u_1 & u_2 & u_3 \\
+    v_1 & v_2 & v_3 \\
+    w_1 & w_2 & w_3
+\end{bmatrix}
+\]
+From the matrix operation above, we can notice that the following
+equations hold.
+\begin{align*}
+    \mathbf{u} \cdot \mathbf{v} \times \mathbf{w}
+    &= \begin{bmatrix}
+        u_1 & u_2 & u_3 \\
+        v_1 & v_2 & v_3 \\
+        w_1 & w_2 & w_3
+    \end{bmatrix}
+    = -\begin{bmatrix}
+        u_1 & u_2 & u_3 \\
+        w_1 & w_2 & w_3 \\
+        v_1 & v_2 & v_3
+    \end{bmatrix}
+    = \begin{bmatrix}
+        w_1 & w_2 & w_3 \\
+        u_1 & u_2 & u_3 \\
+        v_1 & v_2 & v_3
+    \end{bmatrix} \\
+    &= \mathbf{w} \cdot \mathbf{u} \times \mathbf{v}
+\end{align*}
+Therefore, we could see that $\mathbf{u} \cdot \mathbf{v} \times
+\mathbf{w} = \mathbf{w} \cdot \mathbf{u} \times \mathbf{v}$ and
+$\mathbf{w} \cdot \mathbf{u} \times \mathbf{v} = \mathbf{v} \cdot
+\mathbf{w} \times \mathbf{u}$ both holds by cycling through
+the vectors.
+
+\begin{important}
+For any vectors $\mathbf{u}, \mathbf{v}, \mathbf{w}$ in 3-space,
+the following equation holds.
+\[
+\mathbf{u} \cdot \mathbf{v} \times \mathbf{w}
+= \mathbf{v} \cdot \mathbf{w} \times \mathbf{u}
+= \mathbf{w} \cdot \mathbf{u} \times \mathbf{v}
+\]
+Moreover because $\mathbf{u} \cdot \mathbf{v} \times \mathbf{w}
+= \mathbf{w} \cdot \mathbf{u} \times \mathbf{v}
+= \mathbf{u} \times \mathbf{v} \cdot \mathbf{w}$, the following
+equation also holds.
+\[
+\mathbf{u} \cdot \mathbf{v} \times \mathbf{w}
+= \mathbf{u} \times \mathbf{v} \cdot \mathbf{w}
+\]
+\end{important}
+
+Lastly before wrapping up, let's take a look at geometric
+interpretation of the scalar triple product. First, consider
+a parallelepiped with edges $\mathbf{u}, \mathbf{v}, \mathbf{w}$.
+
+From our previous observation, we can see that the area of the
+base of the parallelepiped can be represented as $\| \mathbf{v}
+\times \mathbf{w} \|$. Moreover the height can be represented
+as $\| \mathbf{u} \| | \cos\theta |$ where $\theta$ is the
+angle between $\mathbf{u}$ and $\mathbf{v} \times \mathbf{w}$.
+Therefore, the volume can be represented as $\| \mathbf{u} \|
+| \cos\theta | \| \mathbf{v} \times \mathbf{w} \| = | \mathbf{u}
+\times \mathbf{v} \times \mathbf{w} |$. Continuing with this
+idea, we can establish an important theorem.
+
+\begin{theorem}{}{Scalar Triple Product and Coplanar}
+$\mathbf{u}, \mathbf{v}, \mathbf{w}$ are coplanar if and only
+if $\mathbf{u} \cdot \mathbf{v} \times \mathbf{w} = 0$.
+\end{theorem}
+\begin{proof}
+From the previous observation on the relationship between
+the scalar triple product and the volume of the parallelepiped
+with the edges $\mathbf{u}, \mathbf{v}, \mathbf{w}$, it is
+evident that the volume equals zero if and only if
+$\mathbf{u} \cdot \mathbf{v} \times \mathbf{w} = 0$. Moreover,
+the volume equals zero if and only if the vectors are coplanar.
+\end{proof}
+
+This is it for the vector section! There were lots of topics and
+geometric interpretations of vectors that were not included in the
+notes for linear algebra. In our next section, we will continue
+our discussion through more extensions of geometric representations
+of vectors.
 
 \end{document}
 

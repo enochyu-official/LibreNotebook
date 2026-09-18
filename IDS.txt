@@ -124,7 +124,7 @@ Section III. Sections
 0.0 | MATH0100.26067 | Solutions for Note 1
 0.0 | MATH0300.26068 | INIT
 === | MATH0301.26069 | Basic Terms and Intuitions
-0.8 | MATH0301.26070 | Vectors
+=== | MATH0301.26070 | Vectors
 
 0.7 | MATH0106.26071 | Telescoping Sums
 0.0 | MATH0106.26072 | Bounding and Monotonicity
@@ -135,6 +135,8 @@ Section III. Sections
 0.8 | MATH0108.26077 | Infinite Descent
 0.0 | MATH0108.26078 | Pell's Equations
 0.0 | MATH0108.26079 | Practice Problems
+
+0.6 | MATH0301.26080 | Geometry in 3-Space
 ----------------------------------------------------------------------
 
 END OF INDEX
