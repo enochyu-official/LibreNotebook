@@ -10,7 +10,7 @@ such as solving for $x$ in $x + 1 > 2$ to problems involving
 numerous advanced techniques and known results. As a result,
 although few inequalities in advanced problems could be proven by
 bashing, most would require an elegant solution. With that in mind,
-this chapter will begin with numerous classical inequalities such as
+this note will begin with numerous classical inequalities such as
 the AM-GM inequality to advanced concepts such as majorization.
 
 \section{Classic Inequalities}
@@ -206,10 +206,64 @@ $1 \leq i \leq n$, where $k > 0$ and $a_ib_i \neq 0$.
 \end{definition}
 
 When $n = 2$ we get the form $(a^2 + b^2)(x^2 + y^2) \geq (ax + by)^2$
-that we initially learn. Continuing, we can obtain an interesting
-direct consequence. The lemma below known as Titu's lemma, T2 Lemma,
-Sedrakyan's inequality, and Engel's form and was named after one of
-the greatest mathematician Titu Andreescu.
+that we initially learn.
+
+Now there are few standard proofs for Cauchy inequality,
+and I personally learned the method using determinants,
+but there is another very interesting way that uses AMGM and
+normalization, and in my opinion much better than the one that
+uses determinants.
+
+\begin{proof}
+Let $\sum_{i=1}^n a_i^2 = A^2$ and $\sum_{i=1}^n b_i^2 = B^2$.
+Then, the terms can be rewritten as $a_i = A x_i$ and $b_i = B y_i$.
+Naturally by construction, it is evident that $\sum_{i=1}^n x_i^2
+= \sum_{i=1}^n y_i^2 = 1$. Rewriting the Cauchy inequality,
+we obtain the following.
+\[
+A^2 B^2
+\geq A^2 B^2 \left( \sum_{i=1}^n x_i y_i \right)
+\]
+In other words, it suffices to show that $\sum_{i=1}^n x_i y_i
+\leq 1$ for positive $x_i$ and $y_i$. Using AMGM,
+\[
+\sum_{i=1}^n x_i y_i
+\leq \sum_{i=1}^n \left( \frac{x^2 + y^2}{2} \right)
+\]
+holds and $\sum_{i=1}^n x_i y_i \leq \frac{2}{2} = 1$.
+\end{proof}
+
+I like this proof because we can expand Cauchy inequality as
+the following.
+\[
+\left( \sum_{i=1}^n a_i^3 \right) \left( \sum_{i=1}^n b_i^3 \right)
+    \left( \sum_{i=1}^n c_i^3 \right)
+\geq
+\left( \sum_{i=1}^n a_i b_i c_i \right)^3
+\]
+We cannot use determinants in this case. However letting
+$\sum_{i=1}^n a_i^3 = A^3$, $\sum_{i=1}^n b_i^3 = B^3$, and
+$\sum_{i=1}^n c_i^3 = C^3$, we can set the individual terms
+$a_i = Ax_i$, $b_i = By_i$, and $c_i = Cz_i$. Therefore,
+it suffices to show
+\[
+A^3 B^3 C^3
+\geq A^3 B^3 C^3 \left( \sum_{i=1}^n z_i y_i z_i \right)^3
+\]
+and that is equivalent of showing
+$\left( \sum_{i=1}^n z_i y_i z_i \right)^3 \leq 1$. Using AMGM,
+\[
+\left( \sum_{i=1}^n z_i y_i z_i \right)^3
+\leq \sum_{i=1}^n \left( \frac{x^3 + y^3 + z^3}{3} \right)
+= 1
+\]
+holds and our new version of Cauchy inequality holds.
+With this method, we can continue generalizing for $n > 3$.
+
+Continuing, we can obtain an interesting direct consequence.
+The lemma below known as Titu's lemma, T2 Lemma, Sedrakyan's
+inequality, and Engel's form and was named after one of the
+greatest mathematician Titu Andreescu.
 
 \begin{corollary}
 {Titu's Lemma}
@@ -292,14 +346,13 @@ To derive Cauchy-Scharz inequality from Hölder's, it suffices to show
 that a specific case of Hölder's inequality will lead to
 Cauchy-Schwarz inequality.
 
-Let $\lambda_a = \lambda_b = \frac{1}{2}$. Substituting, the following
-inequalities hold.
+Let $\lambda_a = \lambda_b = \frac{1}{2}$. Substituting,
+the following inequalities hold.
 \begin{align*}
     \left( \sum_{i=1}^n a_i \right)^\frac{1}{2}
     \left( \sum_{i=1}^n b_i \right)^\frac{1}{2}
     \left( \sum_{i=1}^n c_i \right)^0 \cdots
     \left( \sum_{i=1}^n z_i \right)^0
-    \displaybreak
     &\geq
     \sum_{i=1}^n
         a_i^{\frac{1}{2}} b_i^{\frac{1}{2}} \cdot
