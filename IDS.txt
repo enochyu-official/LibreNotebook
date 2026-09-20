@@ -50,7 +50,7 @@ CS0202         | Foundations
 Section III. Sections
 ----------------------------------------------------------------------
 0.9 | MATH0100.26001 | INIT
-0.5 | MATH0101.26002 | Classic Inequalities
+0.5 | MATH0101.26002 | Fundamental Inequalities
 0.3 | MATH0101.26003 | Advanced Inequalities
 0.3 | MATH0101.26004 | Techniques and Patterns
 0.8 | MATH0101.26005 | Practice Problems
@@ -115,7 +115,7 @@ Section III. Sections
 === | MATH0105.26059 | Foundations
 0.7 | MATH0105.26060 | Roots of Unity
 
-0.8 | MATH0104.26061 | Foundations
+=== | MATH0104.26061 | Foundations
 0.4 | MATH0104.26062 | Cauchy's Functional Equation and Its Variants
 0.0 | MATH0104.26063 | Symmetric and Cyclic Equations
 0.0 | MATH0104.26064 | Invariance

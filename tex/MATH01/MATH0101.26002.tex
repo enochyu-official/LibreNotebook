@@ -13,24 +13,25 @@ bashing, most would require an elegant solution. With that in mind,
 this note will begin with numerous classical inequalities such as
 the AM-GM inequality to advanced concepts such as majorization.
 
-\section{Classic Inequalities}
+\section{Fundamental Inequalities}
 
-One of the first concepts that most students, including myself,
-study when getting started with olympiad is I believe inequalities.
-Many problems are solved by tweaking known inequalities and doing
-some clever substitutions. In this note, we will discuss fundamental
-and classic inequalities as an introduction to olympiad inequalities.
+One of the first fields that I studied for olypmiads is inequality,
+and I think that is the same for many other students. Indeed,
+naive me when I first started inequalities didn't know that
+inequalities is one of the fields that really requires you to have
+lots of background knowledge because many problems are solved
+by tweaking known inequalities and doing some clever substitutions.
+In this section, let's discuss some fundamental must-know inequalities
+as an introduction to olympiad inequalities.
 
 \subsection{AM-GM Inequality}
 
-Let's start with AM-GM Inequality. I assume most of you know or
-at least have heard of this inequality as we learn it in middle and
-high school. AM-GM inequality stands for Arithmetic Mean-Geometric
-Mean inequality and literally compares those two means.
+I assume most of you know or at least have heard of this inequality
+as we learn it in middle and high school. AM-GM inequality stands
+for Arithmetic Mean-Geometric Mean inequality and literally compares
+those two means.
 
-\begin{definition}
-{AM-GM Inequality}
-{AM-GM Inequality}
+\begin{definition}{AM-GM Inequality}{AM-GM Inequality}
 For $a_k \geq 0$, the following inequality holds with equality if
 and only if $a_1 = a_2 = \dots = a_n$.
 \[
@@ -43,12 +44,11 @@ You might be more familiar with $a + b \geq 2 \sqrt{ab}$, but the
 inequality above is the generalized version.
 
 \begin{important}
-AM-GM as a fundamental inequality has lots of application. However
-in olympiads, it is used the most for cancellation and investigating
-the minimum.
+In the context of olympiads, AMGM is used the most for cancellation
+and investigating the minimum.
 \end{important}
 
-Consider the following example.
+Let's take a look at very simple example.
 
 \begin{problem}{}{}
 Prove the following inequality for $a, b, c, d \geq 0$.
@@ -76,12 +76,7 @@ hold and $(a + b)(b + c)(c + d)(d + a) \geq 16abcd$.
 \end{solution}
 
 When we discuss arithmetic and geometric mean, we normally
-include weighted means. Thus, it is natural to consider AM-GM
-inequality with weighted means.
-
-\subsubsection{Weighted AM-GM Inequality}
-
-Let's first get started with definitions.
+include weighted means, so let's do the same for inequality.
 
 \begin{definition}
 {Weighted AM-GM Inequality}
@@ -147,15 +142,15 @@ Integrating,
 and the inequality holds.
 \end{solution}
 
-With the ideas of weighted AM-GM inequality in mind, we can further
-generalize our results for different means.
+With the ideas of weighted AMGM in mind, we can further generalize
+our results for different means just as we have generalized the means.
 
 \subsection{Power Mean Inequality}
 
 Power Mean inequality, also known as QM-AM-GM-HM inequality,
-compares the four major means with generalization of AM-GM
-inequality. Without simple notations, we can represent the
-Power Mean inequality as $M_2 \geq M_1 \geq M_0 \geq M_{-1}$.
+compares the four major means with generalization of AMGM.
+Without simple notations, we can represent the Power Mean
+inequality as $M_2 \geq M_1 \geq M_0 \geq M_{-1}$.
 
 \begin{definition}{Power Mean Inequality}{Power Mean Inequality}
 For positive real numbers $a_i$, the inequality
@@ -184,8 +179,8 @@ For positive real numbers $a_i$, the inequality
 holds with equality if and only if $a_1 = \cdots = a_n$.
 \end{definition}
 
-Continuing from AM-GM inequality and its variations, the second most
-taught inequality in middle and high schools is probably
+Continuing from AMGM and its variations, let's discuss arguably the
+second most famous inequality in middle and high schools:
 Cauchy-Schwarz Inequality.
 
 \subsection{Cauchy-Schwarz Inequality}
@@ -265,9 +260,7 @@ The lemma below known as Titu's lemma, T2 Lemma, Sedrakyan's
 inequality, and Engel's form and was named after one of the
 greatest mathematician Titu Andreescu.
 
-\begin{corollary}
-{Titu's Lemma}
-{Titu's Lemma}
+\begin{corollary}{Titu's Lemma}{Titu's Lemma}
 For positive real numbers $a_i$ and $b_i$,
 \[
 \sum_{i=1}^n \frac{a_i^2}{b_i}
@@ -296,19 +289,16 @@ obtained.
     \right)^2
 \end{align*}
 Recasting,
-\[
-\left( \sum_{i=1}^n \frac{a_i^2}{b_i} \right)
-\left( \sum_{i=1}^n b_i \right)
-\geq
-\left( \sum_{i=1}^n a_i \right)^2
-\]
-and
-\[
-\sum_{i=1}^n \frac{a_i^2}{b_i}
-\geq
-\frac{ \left( \sum_{i=1}^n a_i \right)^2 }{ \sum_{i=1}^n b_i }
-\]
-is obtained. Thus, the lemma holds.
+\begin{align*}
+    \left( \sum_{i=1}^n \frac{a_i^2}{b_i} \right)
+        \left( \sum_{i=1}^n b_i \right)
+    &\geq
+    \left( \sum_{i=1}^n a_i \right)^2 \\
+    \sum_{i=1}^n \frac{a_i^2}{b_i}
+    &\geq
+    \frac{ \left( \sum_{i=1}^n a_i \right)^2 }{ \sum_{i=1}^n b_i }
+\end{align*}
+are obtained and the lemma holds.
 \end{proof}
 
 This lemma comes especially handy if an inequality involves

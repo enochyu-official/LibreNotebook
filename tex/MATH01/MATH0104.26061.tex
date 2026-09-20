@@ -169,9 +169,30 @@ bijective functions.
 \end{important}
 
 As mentioned, we don't really need other strong backgrounds for
-functional equations, though there are plenty of techniques to
-study. With the terms in mind, let's get started with functional
-equations!
+functional equations, though there are plenty of techniques to study.
+However, the terms injective, surjective, and bijective really cannot
+be stressed enough.
+
+\begin{important}
+A function $f$ has an inverse if and only if it is bijective.
+\end{important}
+
+This seemingly obvious statement can come very handy. To show it,
+you can consider the diagrams above. If the function is only
+injective, then we have inputs with no corresponding output.
+If $f$ is surjective only, then there are inputs with two outputs,
+which is not a function anymore. Another very interesting
+property to note is strictly increasing and decreasing functions.
+
+\begin{important}
+A strictly increasing or decreasing function is always injective.
+\end{important}
+
+First, note that a strictly increasing function $f$ have the property
+where if $x < y$ then $f(x) < f(y)$. This satisfies the definition
+of injective function because $f$ is \textit{strictly} increasing.
+The case for strictly decreasing is proven in analogous way.
+With these in mind, let's get started with functional equations!
 
 A functional equation as the name suggest is simply an equation
 where the variable is a function. To see what it means, let's
@@ -189,7 +210,39 @@ is always nice to suspect your assumption that you have found all
 the solutions.
 \end{important}
 
-With that in mind, let's start with a spicy problem.
+For our first problem, let's solve a classic problem that involves
+injection, surjection, and bijection.
+
+\begin{problem}{Classic Problem \easy}{}
+Find all functions $f$ such that $f(f(x) + f(y)) = x + y$ for all
+$x, y \in \mathbb{Z}$ \cite{MATH01-5}.
+\end{problem}
+\begin{solution}
+Unlike the traditional approach of substituting different values
+to $x$ and $y$, let's start by substituting $y = 1$. Substituting,
+$f(f(x) + f(1)) = x + 1 = f(f(x + 1) + f(0))$. To find injectivity,
+surjectivity, or bijectivity of the function $f$, assume
+$f(a) = f(b)$. Then, $f(f(a) + f(y)) = f(f(b) + f(y))$ and by
+definition, $f(a) = f(b)$ leads to $a = b$. In other words,
+$f$ is injective.
+
+Returning to our previous equation $f(f(x) + f(1)) =
+f(f(x + 1) + f(0))$, we could see that $f(x) + f(1) = f(x + 1) + f(0)$
+since $f$ is injective. Rearranging, $f(x + 1) - f(x) = f(1) - f(0)$
+and $f(x)$ is arithmetic sequence. Therefore let $f(x) = ax + b$.
+Substituting to our given equation, $f(ax + b + ay + b) =
+a (ax + b + ay + b) + b = x + y$. Solving the equation,
+\begin{align*}
+    a (ax + b + ay + b) + b &= x + y \\
+    \left( a^2 - 1 \right) x + \left( a^2 - 1 \right) y
+        + 2ab + b &= 0
+\end{align*}
+holds for all $x, y \in \mathbb{R}$. Thus $a = \pm 1$ and $b = 0$.
+Therefore, $f(x) = \pm x$ are all solutions.
+\end{solution}
+
+Continuing from this problem, we have a harder problem that requires
+smart substitutions.
 
 \begin{problem}{2008 IMO Problem 4 \hard}{2008 IMO Problem 4}
 Find all functions $f: (0, \infty) \mapsto (0, \infty)$ that satisfy
@@ -291,18 +344,57 @@ of knowledge in different functions may come handy, ingenuity
 and clever substitution would do most of the work when solving
 problems. Here is another problem on using clever substitutions.
 
-\begin{problem}{2020 Baltic Way Problem 4}{2020 Baltic Way Problem 4}
+\begin{problem}
+{2020 Baltic Way Problem 4 \easy}
+{2020 Baltic Way Problem 4}
 Find all functions $f: \mathbb{R} \rightarrow \mathbb{R}$ that
 satisfy the following for all $x, y \in \mathbb{R}$.
 \[
 f(f(x) + x + y) = f(x + y) + yf(y)
 \]
 \end{problem}
+(\href{https://youtu.be/STy74sON1Ho}{Video Solution})
+\begin{solution}
+First, let's start by doing typical substitutions. Substituting
+$x = y = 0$ gives $f(f(0)) = f(0)$ and $x = -y$ gives
+$f(f(x)) = f(0) - xf(-x)$. Also, trying $y = 0$ gives $f(f(x) + x)
+= f(x)$. Looking at the last observation, we could assume that
+$f(x) = 0$. Moreover our first observation also suggests that
+$f(0) = 0$. With the observations, let's first investigate the
+value of $f(0)$.
 
+Consider the following equation by the last observation with
+$y = f(x) + x$.
+\begin{align*}
+    f(x)
+    &= f(y)
+    = f(f(y) + y)
+    = f(f(x) + f(x) + x) \\
+    &= f(x + f(x)) + f(x) f(f(x))
+    = f(x) + f(x) f(f(x))
+\end{align*}
+Therefore, $f(x) f(f(x)) = 0$ and $f(0) f(f(0)) = 0$. Note that
+because $f(f(0)) = f(0)$, $f(0)^2 = 0$ and $f(0) = 0$ holds.
+Indeed $f(0) = 0$!
 
+Continuing, substitute $x = 0$ to the given equation.
+\[
+f(f(0) + 0 + y)
+= f(y)
+= f(0 + y) + y f(y)
+\]
+In other words, $y f(y) = 0$ holds for all $y \in \mathbb{R}$.
+Specially, $f(y) = 0$ for all $y \neq 0$ and we have found that
+$f(0) = 0$. Therefore, $f(x) = 0$ for all $x \in \mathbb{R}$ is
+the only solution.
+\end{solution}
 
-
-
+In this problem, using the observation carefully and letting
+$y = f(x) + x$ was the key part of the solution. There are
+many topics to discuss even if it requires less prerequisite
+knowledge to actually solve the problem. With the intuition
+discussed in this note, let's discuss few important topics and
+patterns that are widely used.
 
 \end{document}
 
