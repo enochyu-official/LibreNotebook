@@ -1,0 +1,189 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Number Theory}
+
+There are quite a few important that I wish to discuss before
+we do Diophantine equations. I don't think some of the contents
+come out in the actual exam as many are focused on Diophantine
+equations, but let's go over them anyways as a review.
+
+\begin{definition}{}{}
+A \textbf{residue class} of $a$ mod $n$ is the collection of
+all numbers that are congruent to $a \pmod{n}$.
+The \textbf{complete residue system} mod $n$ is the set of
+exactly one representative from each of the $n$ residue classes.
+The \textbf{reduced residue system} is a set of all elements
+from the complete residue system that only contains the elements
+that are relatively prime to $n$.
+\end{definition}
+
+An example for modulo $6$ is that the complete residue system
+is $\{ 0, 1, 2, 3, \linebreak 4, 5 \}$ while the reduced residue
+system is $\{ 1, 5 \}$. The reduced residue system for modulo $6$
+does not have to be $\{ 1, 5 \}$, but $\{ 7, -1 \}$ too.
+
+With this definition, we can also define a very special and
+important function.
+
+\begin{definition}{Euler's Totient Function}{Euler's Totient Function}
+\textbf{Euler's Totient Function}, denoted as $\phi(n)$ is
+the number of elements in the reduced residue system mod $n$.
+\end{definition}
+
+By definition, there are few ways to think about this function.
+
+\begin{important}
+$\phi(n)$ can be interpreted as the number of integers from
+$1$ to $n$ that are relatively prime to $n$.
+\end{important}
+
+As you can see from our previous example of residue systems,
+we can see that $\phi(6) = 2$. Another very important topic about
+Euler's Totient function is its formula. Consider the following
+equation for prime $p$.
+\[
+\phi\left( p^\alpha \right)
+= p^\alpha - \left\lfloor \frac{p^\alpha}{p} \right\rfloor
+= p^\alpha - p^{\alpha - 1}
+= p^\alpha \left( 1 - \frac{1}{p} \right)
+\]
+This holds because the floor function, or Gauss function,
+represents the number of elements that are multiples of $p$ and
+$p$ is relatively prime to other numbers that are not multiple
+of $p$. Before deriving the formula, let's briefly take a look
+at its multiplicative property.
+
+\begin{important}
+$\phi(ab) = \phi(a) \phi(b)$ for $(a, b) = 1$.
+\end{important}
+
+There are few ways to prove this property, but let's prove with
+the following arrangement.
+\[
+\begin{array}{ccccc}
+    1      & 2      & 3      & \cdots & b  \\
+    b + 1  & b + 2  & b + 3  & \cdots & 2b \\
+    2b + 1 & 2b + 2 & 2b + 3 & \cdots & 3b \\
+    \vdots & \vdots & \vdots & \ddots & \vdots \\
+    \cdots & \cdots & \cdots & \cdots & ab
+\end{array}
+\]
+As you can see, $\phi(b)$ is the number of integers that are
+relatively prime to $b$ in the first row. In other words,
+there exists exactly $\phi(b)$ columns that contain the integers
+that are relatively prime to $b$. Let $j$ be a relatively prime
+integer to $b$. Because $(a, b) = 1$, it is self-evident that
+there exists $\phi(a)$ numbers that are relatively prime to $a$
+in $j^\text{th}$ column. Because there exists $\phi(b)$ such columns,
+the total number of integers that are relatively prime to both
+$a$ and $b$, or relatively prime to $ab$, is $\phi(a) \phi(b)$ and
+$\phi(ab) = \phi(a) \phi(b)$ holds for $(a, b) = 1$.
+
+\begin{important}
+Continuing with this property, we can see that the same applies
+if we prime factorize $n$ as $n = p_1^{\alpha_1} p_2^{\alpha_2}
+\cdots p_k^{\alpha_k}$ for prime $k$. In other words, we can write
+the formula as the following.
+\[
+\phi(n)
+= p_1^{\alpha_1} \left( 1 - \frac{1}{p_1} \right)
+    \cdots
+    p_k^{\alpha_k} \left( 1 - \frac{1}{p_k} \right)
+= n \prod_{i=1}^k \left( 1 - \frac{1}{p_i} \right)
+\]
+\end{important}
+
+There is also very important property
+\[
+\sum_{d \mid n} \phi(d) = n
+\]
+but maybe we can discuss this later.
+
+Continuing with the totient function, we can derive two important
+theorems.
+
+\begin{theorem}{Euler's Theorem}{Euler's Theorem}
+$a^{\phi(n)} \equiv 1 \pmod{n}$ if $(a, n) = 1$.
+\end{theorem}
+\begin{proof}
+Let $\{ r_1, r_2, \ldots, r_{\phi(n)} \}$ be the set of integers
+that are relatively prime to $n$. Note that for positive integer $a$
+such that $(a, n) = 1$, $\{ ar_1, ar_2, \ldots, \linebreak
+ar_{\phi(n)} \}$ is the same set since $ar_i \not\equiv ar_j \pmod{n}$
+for $i \neq j$.
+
+Therefore,
+\[
+r_1 r_2 \ldots r_{\phi(n)}
+\equiv ar_1 ar_2 \ldots ar_{\phi(n)} \pmod{n}
+\]
+holds and $a^{\phi(n)} \equiv 1 \pmod{n}$.
+\end{proof}
+
+The next theorem Fermat's Little Theorem can be proven with multiple
+ways, but let's use Euler's Theorem to prove it. They are frequently
+introduced together and some say Fermat's Little Theorem is a
+corollary of Euler's Theorem, but let's consider it as a standalone
+theorem because there are plenty of other ways to prove the theorem.
+
+\begin{theorem}{Fermat's Little Theorem}{Fermat's Little Theorem}
+For prime $p$ and positive integer $a$ such that $(a, p) = 1$,
+$a^{p-1} \equiv 1 \pmod{p}$.
+\end{theorem}
+\begin{proof}
+By Euler's Theorem, $a^{\phi(p)} \equiv 1 \pmod{p}$. Because
+$\phi(p) = p - 1$, the theorem holds.
+\end{proof}
+
+Another very common way of representing this theorem is
+$a^p \equiv a \pmod{p}$. Before we move on to the final theorem
+that we will discuss in this section, let's take a look at an
+example of how they are used.
+
+\begin{problem}{}{}
+Show that $8^{43} \equiv 2 \pmod{10}$.
+\end{problem}
+\begin{solution}
+We can use CRT for this, but let's use Fermat's Little Theorem here.
+How can we use it if $(8, 10) \neq 1$? Well, we can force it.
+Consider the following congruences with $8^{43} \equiv 0 \pmod{2}$
+in mind.
+\begin{align*}
+    8^4 &\equiv 1 \pmod{5} \\
+    8^{43} &\equiv 8^3 \equiv 2^9 \equiv 2 \pmod{5}
+\end{align*}
+In other words, $8^{43} = 5m + 2 = 2n$ for some integers $m$ and $n$.
+Because $2 \mid m$, $8^{43} \equiv 2 \pmod{10}$.
+\end{solution}
+
+Like this, we can split the modulo $n$ for our appropriate need.
+Before moving on to the final one and concepts related to the
+theorem, here is another example.
+
+\begin{problem}{}{}
+Show that $2009^{2008^{2007}} \equiv 81 \pmod{1000}$ \cite{MATH01-5}.
+\end{problem}
+\begin{solution}
+First, notice that $(2009, 1000) = 1$ and $\phi(1000) = 400$.
+Therefore, $2009^{400} \equiv 1 \pmod{1000}$ and the following
+congruence holds for some $n$ and $k$.
+\[
+2009^{2008^{2007}}
+\equiv 2009^{400n + k}
+\equiv 2009^{k}
+\equiv 9^k \pmod{1000}
+\]
+Continuing, note that $2008^{2007} \equiv k \pmod{400}$.
+
+
+CONTINUE
+\end{solution}
+
+
+
+
+\end{document}
+
+

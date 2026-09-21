@@ -5,190 +5,58 @@
 \chapter*{Introducing the Notes}
 \addcontentsline{toc}{chapter}{Introducing the Notes}
 
+Math olympiads are competitive proof-based events where students
+gather to showcase their mathematical and critical thinking skills.
+Some major events include International Mathematical Olympiad (IMO),
+European Girls' Mathematical Olympiad (EGMO), Asian Pacific
+Mathematical Olympiad (APMO), and National Mathematical Olympiads.
+The contents in this collection of notes includes must know
+theorems, lemmas, tips, techniques, patterns, and their applications
+with problems from diverse sources.
 
-\section{Definitions and Notations}
+I don't know why (maybe it was due to my naiveness), but I thought
+I could solve an IMO problems after winning some competitions
+like AMC. Like I thought ``How bad could it be?'' One day passed,
+two days, and after about a week or so, I decided to look at the
+solution. Of course as a student who only studied AMC 8/10 style
+problems, it took me only minutes to fully understand their solutions.
+Just kidding, I took days and weeks trying to digest the official
+solutions, and it actually took me more time to understand the
+solutions than to attempt them. This is how I first became aware of
+what olympiads are and also a moment where I humble myself due to
+the vastness of math. It is really interesting because the more I
+learn about math, the more I realize that I know nothing about math,
+and I think that is one of the reasons why I do math everyday.
 
-Before getting started with the first topic, I wanted to include
-basic definitions and notations that would be used throughout
-this part. If you already know these topics, please feel free to
-skip over to the next section as it would be a review on basic
-definitions and notations.
+After that incident, I really wanted to study more for olympiads
+because the rewards that you get for yourself when you solve an
+IMO problem is incredible when you are just starting. This is also
+the moment when I realized how hard it is to study olympiads.
+Not only the concepts become very (really, extremely) difficult,
+it is also very difficult to start without an experienced mentor,
+whose classes are beyond expensiveness in South Korea. Also,
+the amount of time needed to dedicate in order to be competitive
+is incredible.
 
-\subsection{Basic Definitions}
+I initially quite gave up and just casually read one or two solutions
+a week just because I didn't know where to start. I have been
+searching online for resources, doomscrolling through AOPS forums,
+and collecting the resources. It was around 8th to 9th grade when I
+wanted to do more of olympiads and started learning the very basics
+starting from how to write a proof for olympiads, how to type math,
+what are different types of proof, etc. Of course students who start
+at the age of 6 were way ahead of me. However, I just continued trying
+because it is just fun to solve problems that you don't know and
+experience that \textit{AHA moment}.
 
-Let's get started with definitions for different means.
-
-\begin{definition}{}{}
-\textbf{Generalized mean}, also known as power mean, is a family of
-means $M_p$ that is generalized using the variable $p$ as shown below
-for $a_i \geq 0$ \cite{MATH01-4}.
-\[
-M_p
-\coloneqq \left( \frac{\sum_{k=1}^n a_k^p}{n} \right)^\frac{1}{p}
-\]
-\end{definition}
-
-For weighted means, we can do the same as we would normally do with
-$w_i \geq 0$.
-\[
-M_w^p
-\coloneqq \left(
-    \frac{ \sum_{k=1}^n w_k a_k^p }{ \sum_{k=1}^n w_k }
-\right)^\frac{1}{p}
-\]
-Note that the definition above is for generalized mean. Meaning,
-depending on the values of $p$, we can derive some of more familiar
-means.
-
-\begin{center}
-\begin{tabular}{|p{0.3\textwidth}|p{0.6\textwidth}|}
-    \hline
-    $M_p$         & Definition \\
-    \hline
-    $M_{-\infty}$ & Minimum \\
-    $M_{-1}$      & Harmonic Mean \\
-    $M_0$         & Geometric Mean \\
-    $M_1$         & Arithmetic Mean \\
-    $M_2$         & Quadratic Mean \\
-    $M_\infty$    & Maximum \\
-    \hline
-\end{tabular}
-\end{center}
-
-First, let's substitute $p = 1$ to begin with arithmetic mean.
-\[
-M_1
-= \left( \frac{ \sum_{k=1}^n a_k }{n} \right)
-\]
-This is \textbf{arithmetic mean}, the mean that we are all familiar
-with! Using the weighted generalized mean, we can get the formula for
-weighted arithmetic mean.
-\[
-M_w^1
-= \left( \frac{ \sum_{k=1}^n w_k a_k }{ \sum_{k=1}^n w_k } \right)
-\]
-Similarly, we can obtain \textbf{quadratic mean} by substituting
-$p = 2$.
-\[
-M_2
-= \sqrt{ \frac{\sum_{k=1}^n a_k^2}{n} }
-\]
-Deriving geometric mean is quite different because $p = 0$ gives us
-$\frac{1}{0}$ in the exponent, which is undefined. Therefore by
-convention, we define \textbf{geometric mean} with
-$M_0 (a_1, \dots, a_n) \equiv \lim_{p \to 0} M_p (a_1, \dots, a_n)$.
-Substituting, we obtain the following equations.
-\begin{align*}
-    M_0
-    &= \lim_{p \to 0} \left(
-        \frac{\sum_{k=1}^n a_k^p}{n}
-    \right)^\frac{1}{p} \\
-    \ln (M_0)
-    &= \ln\left( \lim_{p \to 0} \left(
-        \frac{\sum_{k=1}^n a_k^p}{n}
-    \right)^\frac{1}{p} \right)
-    = \lim_{p \to 0} \frac{ \ln\left(
-        \frac{1}{n} \sum_{k=1}^n a_k^p
-    \right) }{p}
-\end{align*}
-Therefore using L'Hôpital's rule,
-\[
-\ln (M_0)
-= \lim_{p \to 0} \frac{ \frac{1}{n} \sum_{k=1}^n a_k^p \ln(a_k)
-}{ \frac{1}{n} \sum_{k=1}^n a_k^p }
-= \frac{1}{n} \sum_{k=1}^n \ln(a_k)
-= \ln\left( \prod_{k=1}^n a_k \right)^\frac{1}{n}
-\]
-is obtained. Rewriting the equation, the familiar version of the
-geometric mean formula is obtained.
-\[
-M_0
-= \left( \prod_{k=1}^n a_k \right)^\frac{1}{n}
-= \prod_{k=1}^n a_k^\frac{1}{n}
-= \sqrt[n]{a_1 a_2 \cdots a_{n-1} a_n}
-\]
-Continuing, we can obtain \textbf{harmonic mean} with $p = -1$.
-\[
-M_{-1}
-= \left( \frac{\sum_{k=1}^n a_k^{-1}}{n} \right)^\frac{1}{-1}
-= \frac{n}{ \sum_{k=1}^n \frac{1}{a_k} }
-\]
-Lastly for unbounded $p$, we define $M_{-\infty}$ and $M_\infty$
-as the following by convention.
-\begin{align*}
-    M_{-\infty} (a_1, \dots, a_n)
-    &\equiv \lim_{p \to -\infty} M_p (a_1, \dots, a_n)
-    = \min(a_1, \dots, a_n) \\
-    M_{\infty}(a_1, \dots, a_n)
-    &\equiv \lim_{p \to \infty} M_p (a_1, \dots, a_n)
-    = \max(a_1, \dots, a_n)
-\end{align*}
-Continuing, here is another very important definition for
-sequences.
-
-\begin{definition}{}{}
-Let $a = (a_1, \ldots, a_n)$ and $b = (b_1, \ldots, b_n)$ be
-sequences such that $a_1 \geq \cdots \geq a_n$ and $b_1 \geq \cdots
-\geq b_n$. Sequence $a$ \textbf{majorizes} $b$, denoted as
-$a \succ b$ if $a_1 + \cdots + a_n = b_1 + \cdots + b_n$ and the
-inequality below holds for each $m = 1, \ldots, n$.
-\[
-\sum_{i = 1}^m a_i \geq \sum_{i = 1}^m b_i
-\]
-\end{definition}
-
-We will see more on majorization when we discuss inequalities.
-Continuing, let's discuss some common notations.
-
-\subsection{Basic Notations}
-
-Below are very common sum notations that will be used throughout
-the notes. They are very common in olympiads, and is worth noting
-even if you are not seriously studying for olympiads.
-
-\begin{definition}{}{}
-For a function $f(x_1, x_2, \ldots, x_n)$, $\sum_\text{cyc}$ is
-defined as the following.
-\vspace{-0.5\baselineskip}
-\begin{align*}
-    &\sum_\text{cyc} f(x_1, x_2, \ldots, x_n)
-    \coloneqq f(x_1, x_2, \ldots, x_n) \\[-0.8em]
-    &\qquad\qquad + \, f(x_2, x_3, \ldots, x_n, x_1) +
-        \cdots + f(x_n, x_1, x_2, \ldots, x_{n-1})
-\end{align*}
-\end{definition}
-
-You will most likely see this notation with three variables, and
-we can also specify with variables we are going to cycle.
-\[
-\sum_{x,y,z} \frac{xw}{yz}
-= \frac{xw}{yz} + \frac{yw}{zx} + \frac{zw}{xy}
-\]
-As we have for cyclic sum, we also have notation for symmetric sums.
-
-\begin{definition}{}{}
-Let $f(x_1, x_2, \ldots, x_n)$ be a function and $S_n$ be the
-symmetric group of degree $n$, i.e. a set of all sets that are
-permutation of numbers $1$ through $n$. Then, $\sum_\text{sym}$ is
-defined as the following.
-\[
-\sum_\text{sym} f(x_1, x_2, \ldots, x_n)
-\coloneqq \sum_{\sigma \in S_n}
-    f(x_{\sigma(1)}, x_{\sigma(2)}, \ldots, x_{\sigma(n)})
-\]
-\end{definition}
-
-Notice that permutation of variables does not affect the value for
-a symmetric function $f(s_1, s_2, \ldots, s_n)$. Therefore,
-\[
-\sum_\text{sym} f(s_1, s_2, \ldots, s_n)
-= n! f(s_1, s_2, \ldots, s_n)
-\]
-holds for such functions.
-
-These are the introduction to basic definition and notations!
-For our first note, let's discuss only of my favorite topics
-inequality in algebra.
+Despite my experience in competition math, the transition was
+honestly very difficult. Therefore I started writing these notes
+with the things that I already knew and what I think would be best
+way to start. Please keep in mind that I, to, am still a learning
+student and in no position to ``teach'' olympiads. However,
+I am constantly updating the notes with the contents that I learned
+and am learning. If you are also interested in math olympiads,
+or if you are unsure whether to start, I really hope my notes help.
 
 \end{document}
 

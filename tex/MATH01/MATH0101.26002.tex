@@ -223,9 +223,12 @@ In other words, it suffices to show that $\sum_{i=1}^n x_i y_i
 \leq 1$ for positive $x_i$ and $y_i$. Using AMGM,
 \[
 \sum_{i=1}^n x_i y_i
-\leq \sum_{i=1}^n \left( \frac{x^2 + y^2}{2} \right)
+\leq \sum_{i=1}^n \left( \frac{x_i^2 + y_i^2}{2} \right)
 \]
-holds and $\sum_{i=1}^n x_i y_i \leq \frac{2}{2} = 1$.
+holds and $\sum_{i=1}^n x_i y_i \leq \frac{2}{2} = 1$. Moreover,
+the equality holds if and only if $x_i = y_i$, i.e. $\frac{a_i}{A} =
+\frac{b_i}{B}$ for all integer $i \in [1, n]$ and $\frac{a_i}{b_i}$
+is constant.
 \end{proof}
 
 I like this proof because we can expand Cauchy inequality as
@@ -313,9 +316,7 @@ inequality. Both inequalities can be used in multiple ways such as
 eliminating radicals and fractions. Below is the definition of
 Hölder's inequality.
 
-\begin{definition}
-{Hölder's Inequality}
-{Hölder's Inequality}
+\begin{definition}{Hölder's Inequality}{Hölder's Inequality}
 Let $a_i, b_i, \ldots, z_i > 0$ and $\lambda_a, \lambda_b, \ldots,
 \lambda_z \geq 0$ such that $\lambda_a + \lambda_b + \dots +
 \lambda_z = 1$. Then,
@@ -331,10 +332,10 @@ holds with equality if $a_1 : a_2 : \dots : a_n \equiv b_1 : b_2 :
 \dots : b_n \equiv \dots \equiv z_1 : z_2 : \dots : z_n$.
 \end{definition}
 
-Indeed, Cauchy-Schwarz inequality does resemble Hölder's Inequality!
-To derive Cauchy-Scharz inequality from Hölder's, it suffices to show
+Indeed, Cauchy inequality does resemble Hölder's Inequality!
+To derive Cauchy inequality from Hölder's, it suffices to show
 that a specific case of Hölder's inequality will lead to
-Cauchy-Schwarz inequality.
+Cauchy inequality.
 
 Let $\lambda_a = \lambda_b = \frac{1}{2}$. Substituting,
 the following inequalities hold.
@@ -366,7 +367,7 @@ and
 \geq
 \left( \sum_{i=1}^n \alpha_i \beta_i \right)^2
 \]
-is obtained. This is Cauchy-Schwarz inequality! Below is a very
+are obtained. This is Cauchy-Schwarz inequality! Below is a very
 classic problem on Hölder's Inequality
 
 \begin{problem}{}{}

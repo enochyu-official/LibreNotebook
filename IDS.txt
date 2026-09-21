@@ -22,8 +22,9 @@ MATH0103       | [G] Euclidean Geometry
 MATH0104       | [A] Functional Equations
 MATH0105       | [A] Polynomials
 MATH0106       | [A] Sequence and Series
-MATH0107       | [N] Modular Arithmetic
+MATH0107       | [C] Combinatorics
 MATH0108       | [N] Diophantine Equations
+MATH0109       | Prerequisites
 MATH0100       | Solutions
 
 MATH0201       | Vectors and Vector Spaces
@@ -49,7 +50,7 @@ CS0202         | Foundations
 
 Section III. Sections
 ----------------------------------------------------------------------
-0.9 | MATH0100.26001 | INIT
+=== | MATH0100.26001 | INIT
 0.5 | MATH0101.26002 | Fundamental Inequalities
 0.3 | MATH0101.26003 | Advanced Inequalities
 0.3 | MATH0101.26004 | Techniques and Patterns
@@ -137,6 +138,8 @@ Section III. Sections
 0.0 | MATH0108.26079 | Practice Problems
 
 0.6 | MATH0301.26080 | Geometry in 3-Space
+=== | MATH0109.26081 | Definitions and Notations
+0.8 | MATH0109.26082 | Number Theory
 ----------------------------------------------------------------------
 
 END OF INDEX
