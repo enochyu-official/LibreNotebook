@@ -136,10 +136,11 @@ Section III. Sections
 0.8 | MATH0108.26077 | Infinite Descent
 0.0 | MATH0108.26078 | Pell's Equations
 0.0 | MATH0108.26079 | Practice Problems
-
 0.6 | MATH0301.26080 | Geometry in 3-Space
+
 === | MATH0109.26081 | Definitions and Notations
-0.8 | MATH0109.26082 | Number Theory
+=== | MATH0109.26082 | Number Theory
+0.4 | MATH0103.26083 | Points and Circles of a Triangle
 ----------------------------------------------------------------------
 
 END OF INDEX

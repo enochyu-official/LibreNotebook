@@ -176,13 +176,79 @@ congruence holds for some $n$ and $k$.
 \equiv 9^k \pmod{1000}
 \]
 Continuing, note that $2008^{2007} \equiv k \pmod{400}$.
+Consider the following congruences.
+\begin{align*}
+    2008^{2007} &\equiv 2008^7 \equiv 8^7 \equiv 2^{21}
+        \equiv 2 \pmod{25} \\
+    2008^{2007} &\equiv 0 \pmod{16}
+\end{align*}
+Therefore for some integer $p$ and $q$, $2008^{2007} = 25p + 2
+= 16q$. In other words, $2008^{2007} = 25(16p' + 14) + 2
+= 400p' + 352$ for some integer $p'$. Therefore $k = 352$ and
+it suffices to find $9^{352}$ modulo $1000$.
 
-
-CONTINUE
+Continuing, $2009^{2008^{2007}} \equiv 9^{352} \equiv 3^{704}
+\pmod{1000}$. Therefore, we can consider the following congruences
+with $3^4 \equiv 1 \pmod{8}$ and $3^{100} \equiv 1 \pmod{125}$.
+\begin{align*}
+    3^{704} &\equiv 81 \pmod{125} \\
+    3^{704} &\equiv 1 \pmod{8}
+\end{align*}
+Let $3^{704} = 125r + 81 = 8s + 1$ for some integers $r$ and $s$.
+Therefore, $3^{704} = 1000r' + 81$ for $r' \in \mathbb{N}$ and
+$2009^{2008^{2007}} \equiv 81 \pmod{1000}$.
 \end{solution}
 
+With these techniques in mind, let's conclude our review on
+number theory with a theorem and modular multiplicative inverse.
 
+\begin{definition}{}{}
+For two integers $a$ and $n$ such that $a x \equiv 1 \pmod{n}$
+and $(a, n) = 1$, $x$ often denoted as $a^{-1}$ is the
+\textbf{modular multiplicative inverse} of $a$.
+\end{definition}
 
+With this definition, we can see an interesting property.
+If we consider the equation $ax + nm = 1$, we can know that there
+always exists integer $x, m$ that satisfies the equation by
+\textbf{Bézout's Identity}. In other words, integer $x$ such that
+$ax \equiv 1 \pmod{n}$ always exist if $(a, n) = 1$. Here, we could
+also see that if $x_1 \neq x_2$ are both modular multiplicative
+inverse of $a$, then $ax_1 \equiv ax_2 \pmod{n}$ and
+$x_1 \equiv x_2 \pmod{n}$, implying the uniqueness of the modular
+multiplicative inverse of $a$ in the standard representatives.
+
+\begin{important}
+For an integer $a$ and modulo $n$, if $(a, n) = 1$, then there
+always exists the modular multiplicative inverse of $a$ and the
+inverse is unique in the residue system of $n$.
+\end{important}
+
+With this, we can consider Wilson's Theorem.
+
+\begin{theorem}{Wilson's Theorem}{Wilson's Theorem}
+For an integer $p > 1$, $(n - 1)! \equiv -1 \pmod{p}$ if and only if
+$p$ is a prime.
+\end{theorem}
+\begin{proof}
+To prove this theorem, first consider the case when an integer
+is a modular multiplicative inverse of itself.
+\[
+x \equiv x^{-1} \pmod{p}
+\]
+Note that by definition, $x^2 \equiv 1 \pmod{p}$ holds if
+$x \equiv 1 \pmod{p}$ or $x \equiv p-1 \pmod{p}$. Moreover,
+there exists even number of integers $1, \ldots, p-1$ for prime
+$p > 2$. Because those numbers are prime to $p$, there exists
+a unique modular multiplicative inverse, and this implies that
+the terms can be grouped in pairs, leaving only $(p - 1)! \equiv
+p - 1 \equiv -1 \pmod{p}$. Moreover, it is evident that the
+theorem holds for $p = 2$. Furthermore, because the pairing
+does not apply when $p$ is not a prime, the theorem holds.
+\end{proof}
+
+This was it for the review on number theory! In our next section,
+we will review some of the basic topics in combinatorics.
 
 \end{document}
 

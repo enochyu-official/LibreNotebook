@@ -1,0 +1,172 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Points and Circles of a Triangle}
+
+There are so many important points circles and circles in triangles.
+Knowing relationship between them can significantly help in solving
+many problems. Before we get into the first content, let's clear
+up some symbols. To be honest, I just don't think it would be
+efficient to define each points, so I will just mention them here.
+We will be using $O$ for circumcenter, $I$ for incenter, $H$ for
+orthocenter, $G$ for centroid, and $I_A, I_B, I_C$ for excenters
+unless otherwise stated. With that in mind, let's get started with
+Euler line and related theorem!
+
+\subsection{Servoir's Theorem and Euler Line}
+
+As a warm-up, let's start with Servoir's Theorem and Euler Line.
+Fun fact, when you search Servoir's Theorem online, you won't
+probably get the theorem that we will discuss. I am not sure if
+we have an English name for this theorem or if it is even named,
+but this is actually very useful and Koreans call this Servoir's
+Theorem.
+
+\begin{theorem}{Servoir's Theorem}{Servoir's Theorem}
+For triangle $ABC$ and midpoint $M$ on side $BC$, $AH = 2OM$.
+\end{theorem}
+\begin{proof}
+First, consider the following diagram.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=1.3]
+    \coordinate (A) at (1, 4);
+    \coordinate (B) at (0, 0);
+    \coordinate (C) at (5, 0);
+    \coordinate (D) at (1, 0);
+    \coordinate (E) at (0.29411764705882354,1.1764705882352942);
+    \coordinate (F) at (5, 3);
+    \coordinate (M) at (2.5, 0);
+    \coordinate (O) at (2.5, 1.5);
+    \coordinate (H) at (1, 1);
+
+    \draw[thick] (A) -- (B) -- (C) -- cycle;
+    \draw[thick] (O) circle (2.91547594742265);
+    \draw[thick, dotted] (A) -- (D);
+    \draw[thick, dotted] (C) -- (E);
+    \draw[thick, dotted, BrickRed] (A) -- (H);
+    \draw[thick, dotted, BrickRed] (O) -- (M);
+    \draw[thick, dotted] (A) -- (F);
+    \draw[thick, dotted] (B) -- (F);
+    \draw[thick, dotted] (C) -- (F);
+    \draw[thick, dotted] (H) -- (C);
+    \draw[fill=BrickRed,opacity=0.2]
+        (A) -- (H) -- (C) -- (F) -- cycle;
+
+    \pic [draw, angle radius=3mm] {right angle=O--M--C};
+    \pic [draw, angle radius=3mm] {right angle=A--D--C};
+    \pic [draw, angle radius=3mm] {right angle=B--A--F};
+    \pic [draw, angle radius=3mm] {right angle=B--C--F};
+    \pic [draw, angle radius=3mm] {right angle=C--E--B};
+
+    \draw[fill=black] (A) circle (0.05)
+        node[above left] {\small $A$};
+    \draw[fill=black] (B) circle (0.05)
+        node[below left] {\small $B$};
+    \draw[fill=black] (C) circle (0.05)
+        node[below right] {\small $C$};
+    \draw[fill=black] (D) circle (0.05);
+    \draw[fill=black] (E) circle (0.05);
+    \draw[fill=black] (F) circle (0.05)
+        node[above right] {\small $D$};
+    \draw[fill=BrickRed] (M) circle (0.05)
+        node[below] {\small $M$};
+    \draw[fill=BrickRed] (O) circle (0.05)
+        node[below right] {\small $O$};
+    \draw[fill=BrickRed] (H) circle (0.05)
+        node[above right] {\small $H$};
+\end{tikzpicture}
+\end{figure}
+
+From the diagram above, it is evident that lines $\overline{AH}$
+and $\overline{DC}$ are parallel. Similarly, $\overline{CH}$ and
+$\overline{AD}$ are parallel. Therefore, quadrilateral $AHCD$ is
+a parallelogram and $AH = CD = 2OM$.
+\end{proof}
+
+Continuing from the diagram above, we could also consider $G$ of
+$\triangle{ABC}$.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=1.3]
+    \coordinate (A) at (1, 4);
+    \coordinate (B) at (0, 0);
+    \coordinate (C) at (5, 0);
+    \coordinate (D) at (1, 0);
+    \coordinate (E) at (0.29411764705882354,1.1764705882352942);
+    \coordinate (F) at (5, 3);
+    \coordinate (M) at (2.5, 0);
+    \coordinate (O) at (2.5, 1.5);
+    \coordinate (H) at (1, 1);
+    \coordinate (G) at (2,1.3333333333333333);
+
+    \draw[thick] (A) -- (B) -- (C) -- cycle;
+    \draw[thick] (O) circle (2.91547594742265);
+    \draw[thick, dotted] (A) -- (D);
+    \draw[thick, dotted] (C) -- (E);
+    \draw[thick, dotted, BrickRed] (A) -- (H);
+    \draw[thick, dotted, BrickRed] (O) -- (M);
+    \draw[thick, dotted] (A) -- (F);
+    \draw[thick, dotted] (B) -- (F);
+    \draw[thick, dotted] (C) -- (F);
+    \draw[thick, dotted] (H) -- (C);
+    \draw[thick] (A) -- (M);
+    \draw[thick, BrickRed] (H) -- (G);
+    \draw[thick, RoyalPurple] (G) -- (O);
+    \draw[fill=BrickRed,opacity=0.2] (A) -- (H) -- (G) -- cycle;
+    \draw[fill=RoyalPurple,opacity=0.2] (G) -- (O) -- (M) -- cycle;
+
+    \pic [draw, angle radius=3mm] {right angle=O--M--C};
+    \pic [draw, angle radius=3mm] {right angle=A--D--C};
+    \pic [draw, angle radius=3mm] {right angle=B--A--F};
+    \pic [draw, angle radius=3mm] {right angle=B--C--F};
+    \pic [draw, angle radius=3mm] {right angle=C--E--B};
+
+    \draw[fill=black] (A) circle (0.05)
+        node[above left] {\small $A$};
+    \draw[fill=black] (B) circle (0.05)
+        node[below left] {\small $B$};
+    \draw[fill=black] (C) circle (0.05)
+        node[below right] {\small $C$};
+    \draw[fill=black] (D) circle (0.05);
+    \draw[fill=black] (E) circle (0.05);
+    \draw[fill=black] (F) circle (0.05)
+        node[above right] {\small $D$};
+    \draw[fill=BrickRed] (M) circle (0.05)
+        node[below] {\small $M$};
+    \draw[fill=BrickRed] (O) circle (0.05)
+        node[below right] {\small $O$};
+    \draw[fill=BrickRed] (H) circle (0.05)
+        node[above right] {\small $H$};
+    \draw[fill=BrickRed] (G) circle (0.05)
+        node[above left] {\small $G$};
+\end{tikzpicture}
+\end{figure}
+
+Consider triangles $AHG$ and $MOG$. Notice that $\angle(HAG) =
+\angle(OMG)$ since $\overline{AH} \parallel \overline{OM}$.
+Moreover by Servoir's Theorem, $AH : OM = 2 : 1$ holds and
+$AG : GM = 2 : 1$ is true by definition. Therefore, $\triangle{AHG}$
+and $\triangle{MOG}$ are similar and $\angle(AGH) = \angle(MGO)$.
+In other words, $H, G, O$ are collinear, and we have a special name
+for the line!
+
+\begin{definition}{}{}
+The \textbf{Euler Line} of a triangle $ABC$ is the line that contains
+$H, G, O$.
+\end{definition}
+
+As you can see, Euler line exists for all triangle except equilateral
+triangle. The fact that $H, G, O$ is collinear will come very handy
+when solving problems!
+
+\subsection{Nine-Point Circle}
+
+
+
+\end{document}
+
+

@@ -24,6 +24,10 @@
   * LTE (Lifting The Exponent Lemma)
   * Root-Bounding Techniques
 
+* Qudratic Residue
+* LTE
+* (a^m - 1, a^n - 1) = a^{(m, n) - 1}
+
 
 ## CS01
 * CS0101.26007
