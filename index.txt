@@ -141,6 +141,7 @@ Section III. Sections
 === | MATH0109.26081 | Definitions and Notations
 === | MATH0109.26082 | Number Theory
 0.4 | MATH0103.26083 | Points and Circles of a Triangle
+0.1 | MATH0103.26084 | Homothety
 ----------------------------------------------------------------------
 
 END OF INDEX

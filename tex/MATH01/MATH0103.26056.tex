@@ -214,11 +214,19 @@ when graphing to solve problems.
     \draw[thick,BrickRed] (3,0) circle (3);
     \draw[thick,dotted] (-6,0) -- (7,0);
     \draw[thick] (-0.416666666667,-4) -- (-0.416666666667,4);
+    \draw[thick, dashed]
+        (-5,1.6903085094570323) -- (6,3.549647869859772);
+    \draw[thick, dashed]
+        (-5,-1.6903085094570325) -- (6,-3.5496478698597724);
 
     \draw[fill=Blue] (-3,0) circle (0.1)
         node[below left] {\footnotesize $O_1$};
     \draw[fill=BrickRed] (3,0) circle (0.1)
         node[below right] {\footnotesize $O_2$};
+    \draw[fill=black] (-5,1.6903085094570323) circle (0.1);
+    \draw[fill=black] (-5,-1.6903085094570325) circle (0.1);
+    \draw[fill=black] (6,3.549647869859772) circle (0.1);
+    \draw[fill=black] (6,-3.5496478698597724) circle (0.1);
 \end{tikzpicture}
 \end{figure}
 \end{minipage}
@@ -266,8 +274,12 @@ I believe the graders won't take points off for not proving why the
 radical axis passes through the intersection(s).
 \end{minipage}
 
-Before moving on to common patterns and theorems, here is the
-final definition to keep in mind.
+Also for the third diagram, one tip when drawing is that you can
+find the radical axis by drawing two lines, or segments, that are
+\textit{tangent} to both circles. Then, the radical axis is the
+line that connects the centers of the two segments. Before moving
+on to common patterns and theorems, here is one more definition
+to keep in mind.
 
 \begin{definition}{}{}
 \textbf{Coaxial circles} are circles that share the common pairwise
@@ -334,6 +346,38 @@ collinearity of their centers, and/or the intersection of three
 circles, we should be reminded of coaxial circles and suspect it as
 the key at least once.
 \end{important}
+
+Continuing, we can see the relationship between the three radical
+axes with three distinct circles. One thing to keep in mind if you
+are taking Korean Mathematical Olympiad, then the following theorem
+is known as Monge's Theorem in addition to one that is related to
+homothety. However let's call this Radical Axis Concurrence Theorem
+since I think that is more universal.
+
+\begin{theorem}
+{Radical Axis Concurrence Theorem}
+{Radical Axis Concurrence Theorem}
+Given three distinct circles, the pairwise radical axes of the
+circles are concurrent.
+\end{theorem}
+\begin{proof}
+Let $\omega_1, \omega_2, \omega_3$ be three distinct circles with
+the centers $O_1, O_2, O_3$. Let $l_1, l_2, l_3$ be the radical
+axes of the pairs $O_1, O_2$ and $O_2, O_3$ and $O_3, O_1$
+respectively. Let $K$ be the intersection of $l_1$ and $l_2$.
+By definition, $P_{\omega_1}(K) = P_{\omega_2}(K)$ and
+$P_{\omega_2}(K) = P_{\omega_3}(K)$. Therefore, $P_{\omega_1}(K)
+= P_{\omega_3}(K)$ and $K \in l_3$. Therefore, $l_1, l_2, l_3$
+are concurrent.
+\end{proof}
+
+This is it! Continuing from the theorem, we can define the following
+term.
+
+\begin{definition}{}{}
+The \textbf{radical center} of three distinct circles is the
+concurrent point of pairwise radical axes.
+\end{definition}
 
 Last, but not least, here is a very powerful theorem on coaxial
 circles. Honestly, this theorem made me suspect power of a point
