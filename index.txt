@@ -25,6 +25,7 @@ MATH0106       | [A] Sequence and Series
 MATH0107       | [C] Combinatorics
 MATH0108       | [N] Diophantine Equations
 MATH0109       | Prerequisites
+MATH0110       | [N] Modular Arithmetic
 MATH0100       | Solutions
 
 MATH0201       | Vectors and Vector Spaces
@@ -142,6 +143,7 @@ Section III. Sections
 === | MATH0109.26082 | Number Theory
 0.4 | MATH0103.26083 | Points and Circles of a Triangle
 0.1 | MATH0103.26084 | Homothety
+0.0 | MATH0110.26085 | Primitive Root Modulo $n$
 ----------------------------------------------------------------------
 
 END OF INDEX

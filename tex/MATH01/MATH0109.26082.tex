@@ -101,8 +101,19 @@ There is also very important property
 \]
 but maybe we can discuss this later.
 
-Continuing with the totient function, we can derive two important
-theorems.
+Continuing, we can define another very important term.
+
+\begin{definition}{}{}
+For integers $n$ and $a$ such that $(a, n) = 1$,
+the \textbf{order of $a$ mod $n$}, denoted as $\ord_n a$ is
+the least positive integer $k$ such that $a^k \equiv 1 \pmod{n}$.
+\end{definition}
+
+Some examples of this would include $\ord_n 1 = 1$ and
+$\ord_n (-1) = 2$ for all $n > 3$. We will discuss more on
+primitive roots and the properties of the order of $a$ mod $n$
+later in the notes. Continuing with the totient function,
+we can derive two important theorems.
 
 \begin{theorem}{Euler's Theorem}{Euler's Theorem}
 $a^{\phi(n)} \equiv 1 \pmod{n}$ if $(a, n) = 1$.
