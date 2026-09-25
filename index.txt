@@ -137,13 +137,14 @@ Section III. Sections
 0.8 | MATH0108.26077 | Infinite Descent
 0.0 | MATH0108.26078 | Pell's Equations
 0.0 | MATH0108.26079 | Practice Problems
-0.6 | MATH0301.26080 | Geometry in 3-Space
+=== | MATH0301.26080 | Geometry in 3-Space
 
 === | MATH0109.26081 | Definitions and Notations
 === | MATH0109.26082 | Number Theory
 0.4 | MATH0103.26083 | Points and Circles of a Triangle
 0.1 | MATH0103.26084 | Homothety
 0.0 | MATH0110.26085 | Primitive Root Modulo $n$
+=== | MATH0301.26086 | Cylindrical and Spherical Coordinates
 ----------------------------------------------------------------------
 
 END OF INDEX

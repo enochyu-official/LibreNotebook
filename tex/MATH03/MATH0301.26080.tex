@@ -339,7 +339,793 @@ D
 This is it for this part! In the next part, let's continue from
 this linear ideas to expand them to curves.
 
+\subsection{Surfaces in 3-Space}
 
+Before we start graphing surfaces, let's think about how we may
+achieve that. In the coordinate plane, we graph curves by knowing
+the locus of points that satisfy the given equation of a curve.
+Graphing surfaces is similar! In 3-space, we find which curves
+lie on the surface to find the general shape of a given surface.
+
+\begin{definition}{}{}
+The \textbf{trace} of the surface in a plane is the set of points
+of intersection of the surface and the plane.
+\end{definition}
+
+Let's take a look at an example. It is self-evident that the trace
+of a sphere in a plane is always a circle or a point assuming that
+they intersect. However for an algebraic approach, let's forget
+how the surface $S$ defined as $x^2 + y^2 + z^2 = 9$ looks like.
+Given plane $z = 2$, we can see that the trace of $S$ in the plane
+$z = 2$ can be found by substituting the value. In other words,
+$S$ and the plane intersect if and only if $z = 2$ and the trace
+is $x^2 + y^2 = 5$. This trace is indeed a circle!
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=1.3]
+\begin{axis}[
+    view={135}{15},
+    axis equal,
+    axis lines=middle,
+    xlabel={$x$},ylabel={$y$},zlabel={$z$},
+    grid=none,
+    ticks=none,
+    xmin=-5, xmax=5,
+    ymin=-5, ymax=5,
+    zmin=-5, zmax=5,
+]
+\addplot3[
+    surf,
+    samples=40,
+    samples y=40,
+    domain=-1:1,
+    y domain=0:2*pi,
+] (
+    {3 * sqrt(1-x^2) * cos(deg(y))},
+    {3 * sqrt(1-x^2) * sin(deg(y))},
+    {3 * x}
+);
+
+\addplot3[
+    surf,
+    shader=flat,
+    draw=Blue,
+    fill=Blue,
+    fill opacity=0.3,
+    samples=2,
+    domain=-4:4,
+    y domain=-4:4,
+] (
+    {x},
+    {y},
+    {2}
+);
+
+\addplot3[
+    domain=0:2*pi,
+    Blue,
+    very thick,
+] (
+    {sqrt(5)*cos(deg(x))},
+    {sqrt(5)*sin(deg(x))},
+    {2}
+);
+\end{axis}
+\end{tikzpicture}
+\end{figure}
+
+Continuing with this idea, we can try to construct the general
+shape of a surface by finding the traces. Let's take a look at
+an example from our previous example.
+
+\begin{minipage}{0.48\textwidth}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=1.2]
+\begin{axis}[
+    view={135}{15},
+    axis equal,
+    axis lines=middle,
+    xlabel={$x$},ylabel={$y$},zlabel={$z$},
+    grid=none,
+    ticks=none,
+    xmin=-5, xmax=5,
+    ymin=-5, ymax=5,
+    zmin=-5, zmax=5,
+]
+\foreach \z/\i in {
+    -3/0,
+    -2/5,
+    -1/8,
+     1/8,
+     2/5,
+     3/0
+} {
+    \addplot3[
+        Blue,
+        domain=0:2*pi,
+    ] (
+        {sqrt(\i)*cos(deg(x))},
+        {sqrt(\i)*sin(deg(x))},
+        {\z}
+    );
+}
+
+\foreach \z/\i in {
+    -3/0,
+    -2/5,
+    -1/8,
+     1/8,
+     2/5,
+     3/0
+} {
+    \addplot3[
+        Red,
+        domain=0:2*pi,
+    ] (
+        {\z},
+        {sqrt(\i)*cos(deg(x))},
+        {sqrt(\i)*sin(deg(x))}
+    );
+}
+
+\foreach \z/\i in {
+    -3/0,
+    -2/5,
+    -1/8,
+     1/8,
+     2/5,
+     3/0
+} {
+    \addplot3[
+        Yellow,
+        domain=0:2*pi,
+    ] (
+        {sqrt(\i)*cos(deg(x))},
+        {\z},
+        {sqrt(\i)*sin(deg(x))}
+    );
+}
+\end{axis}
+\end{tikzpicture}
+\end{figure}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+For surface $S$ defined as $x^2 + y^2 + z^2 = 9$, we can find the
+trace of $S$ in $x = k$, $y = k$, and $z = k$. For each case,
+we can see that there is no intersection for $|k| > 3$. Therefore
+considering the equations for $|k| \leq 3$, we obtain the following
+general structure. This indeed looks like a sphere!
+\end{minipage}
+
+Continuing, here is another example.
+
+\begin{problem}{}{}
+Find the general shape of the surface $\frac{x^2}{36} - \frac{y^2}{9}
++ \frac{z^2}{4} = 1$.
+\end{problem}
+\begin{solution}
+To find the general shape of the surface, we can try to find different
+traces in different planes to later combine them for a general shape.
+
+\begin{minipage}{0.55\textwidth}
+First, let's take a look at the traces in the plane $x = k$.
+Substituting, we obtain an equation representing hyperbolas.
+\[
+\frac{z^2}{4} - \frac{y^2}{9} = 1 - \frac{k^2}{36}
+\]
+\end{minipage}
+\hfill
+\begin{minipage}{0.4\textwidth}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=0.8]
+\begin{axis}[
+    view={135}{15},
+    axis equal,
+    axis lines=middle,
+    xlabel={$x$},ylabel={$y$},zlabel={$z$},
+    grid=none,
+    ticks=none,
+    xmin=-20, xmax=20,
+    ymin=-20, ymax=20,
+    zmin=-20, zmax=20
+]
+\foreach \var in {-4,-2,0,2,4} {
+    \addplot3[
+        Red,
+        domain=-2:2,
+        samples=30,
+        samples y=0,
+        variable=\t
+    ] (
+        {\var},
+        {3 * sqrt(1 - (\var)^2/36) * sinh(\t)},
+        {2 * sqrt(1 - (\var)^2/36) * cosh(\t)}
+    );
+
+    \addplot3[
+        Red,
+        domain=-2:2,
+        samples=30,
+        samples y=0,
+        variable=\t
+    ] (
+        {\var},
+        {3 * sqrt(1 - (\var)^2/36) * sinh(\t)},
+        {-2 * sqrt(1 - (\var)^2/36) * cosh(\t)}
+    );
+}
+
+\foreach \var in {-6,6} {
+    \addplot3[
+        Red,
+        domain=-3:3,
+        samples=30,
+        samples y=0,
+        variable=\t
+    ] (
+        {\var},
+        {3*\t},
+        {2*\t}
+    );
+
+    \addplot3[
+        Red,
+        domain=-3:3,
+        samples=30,
+        samples y=0,
+        variable=\t
+    ] (
+        {\var},
+        {3*\t},
+        {-2*\t}
+    );
+}
+\end{axis}
+\end{tikzpicture}
+\end{figure}
+\end{minipage}
+
+Continuing, let's take a look at traces in the plane $y = k$.
+
+\begin{minipage}{0.55\textwidth}
+Substituting, we obtain $\frac{x^2}{36} + \frac{z^2}{4} =
+1 + \frac{k^2}{9}$. Rearranging the equation, the following equation
+of ellipse is obtained.
+\[
+\frac{x^2}{36 \left( 1 + \frac{k^2}{9} \right)}
+    + \frac{z^2}{4 \left( 1 + \frac{k^2}{9} \right)}
+= 1
+\]
+\end{minipage}
+\hfill
+\begin{minipage}{0.4\textwidth}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=0.8]
+\begin{axis}[
+    view={135}{15},
+    axis equal,
+    axis lines=middle,
+    xlabel={$x$},ylabel={$y$},zlabel={$z$},
+    grid=none,
+    ticks=none,
+    xmin=-20, xmax=20,
+    ymin=-20, ymax=20,
+    zmin=-20, zmax=20
+]
+\foreach \var in {-6,-4,-2,0,2,4,6} {
+    \addplot3[
+        Blue,
+        domain=0:2*pi,
+        samples y=0,
+        variable=\t
+    ] (
+        {6 * sqrt(1 + (\var)^2/9) * cos(deg(\t))},
+        {\var},
+        {2 * sqrt(1 + (\var)^2/9) * sin(deg(\t))}
+    );
+}
+\end{axis}
+\end{tikzpicture}
+\end{figure}
+\end{minipage}
+
+\begin{minipage}{0.55\textwidth}
+Finally for $z = k$, we obtain the following equations
+just like the case for $x = k$.
+\[
+\frac{x^2}{36} - \frac{y^2}{9} = 1 - \frac{k^2}{4}
+\]
+\end{minipage}
+\hfill
+\begin{minipage}{0.4\textwidth}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=0.8]
+\begin{axis}[
+    view={135}{15},
+    axis equal,
+    axis lines=middle,
+    xlabel={$x$},ylabel={$y$},zlabel={$z$},
+    grid=none,
+    ticks=none,
+    xmin=-20, xmax=20,
+    ymin=-20, ymax=20,
+    zmin=-3, zmax=3
+]
+\foreach \var in {-1,-0.5,0,0.5,1} {
+    \addplot3[
+        Yellow,
+        domain=-1.5:1.5,
+        samples=30,
+        samples y=0,
+        variable=\t
+    ] (
+        {6 * sqrt(1 - (\var)^2/4) * cosh(\t)},
+        {3 * sqrt(1 - (\var)^2/4) * sinh(\t)},
+        {\var}
+    );
+
+    \addplot3[
+        Yellow,
+        domain=-1.5:1.5,
+        samples=30,
+        samples y=0,
+        variable=\t
+    ] (
+        {-6 * sqrt(1 - (\var)^2/4) * cosh(\t)},
+        {3 * sqrt(1 - (\var)^2/4) * sinh(\t)},
+        {\var}
+    );
+}
+\end{axis}
+\end{tikzpicture}
+\end{figure}
+\end{minipage}
+
+Combining the traces, we obtain the general shape of the surface.
+
+\begin{minipage}{0.46\textwidth}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=1.2]
+\begin{axis}[
+    view={135}{15},
+    axis equal,
+    axis lines=middle,
+    xlabel={$x$},ylabel={$y$},zlabel={$z$},
+    grid=none,
+    ticks=none,
+    xmin=-20, xmax=20,
+    ymin=-20, ymax=20,
+    zmin=-20, zmax=20
+]
+\foreach \var in {-4,-2,0,2,4} {
+    \addplot3[
+        Red,
+        domain=-2:2,
+        samples=30,
+        samples y=0,
+        variable=\t
+    ] (
+        {\var},
+        {3 * sqrt(1 - (\var)^2/36) * sinh(\t)},
+        {2 * sqrt(1 - (\var)^2/36) * cosh(\t)}
+    );
+
+    \addplot3[
+        Red,
+        domain=-2:2,
+        samples=30,
+        samples y=0,
+        variable=\t
+    ] (
+        {\var},
+        {3 * sqrt(1 - (\var)^2/36) * sinh(\t)},
+        {-2 * sqrt(1 - (\var)^2/36) * cosh(\t)}
+    );
+}
+
+\foreach \var in {-6,6} {
+    \addplot3[
+        Red,
+        domain=-3:3,
+        samples=30,
+        samples y=0,
+        variable=\t
+    ] (
+        {\var},
+        {3*\t},
+        {2*\t}
+    );
+
+    \addplot3[
+        Red,
+        domain=-3:3,
+        samples=30,
+        samples y=0,
+        variable=\t
+    ] (
+        {\var},
+        {3*\t},
+        {-2*\t}
+    );
+}
+
+\foreach \var in {-6,-4,-2,0,2,4,6} {
+    \addplot3[
+        Blue,
+        domain=0:2*pi,
+        samples y=0,
+        variable=\t
+    ] (
+        {6 * sqrt(1 + (\var)^2/9) * cos(deg(\t))},
+        {\var},
+        {2 * sqrt(1 + (\var)^2/9) * sin(deg(\t))}
+    );
+}
+
+\foreach \var in {-1,-0.5,0,0.5,1} {
+    \addplot3[
+        Yellow,
+        domain=-1.5:1.5,
+        samples=30,
+        samples y=0,
+        variable=\t
+    ] (
+        {6 * sqrt(1 - (\var)^2/4) * cosh(\t)},
+        {3 * sqrt(1 - (\var)^2/4) * sinh(\t)},
+        {\var}
+    );
+
+    \addplot3[
+        Yellow,
+        domain=-1.5:1.5,
+        samples=30,
+        samples y=0,
+        variable=\t
+    ] (
+        {-6 * sqrt(1 - (\var)^2/4) * cosh(\t)},
+        {3 * sqrt(1 - (\var)^2/4) * sinh(\t)},
+        {\var}
+    );
+}
+\end{axis}
+\end{tikzpicture}
+\end{figure}
+\end{minipage}
+\hfill
+\begin{minipage}{0.46\textwidth}
+\begin{tikzpicture}
+\begin{axis}[
+    view={135}{15},
+    axis equal,
+    axis lines=middle,
+    xlabel={$x$},ylabel={$y$},zlabel={$z$},
+    grid=none,
+    ticks=none,
+    xmin=-20, xmax=20,
+    ymin=-20, ymax=20,
+    zmin=-20, zmax=20
+]
+\addplot3[
+    mesh,z buffer=sort,
+    samples=30,
+    samples y=60,
+    domain=-1.3:1.3,
+    y domain=0:360,
+    variable=\u,
+    variable y=\v,
+] (
+    {6*cosh(\u)*cos(\v)},
+    {3*sinh(\u)},
+    {2*cosh(\u)*sin(\v)}
+);
+\end{axis}
+\end{tikzpicture}
+\end{minipage}
+\end{solution}
+
+Such surfaces are known as \textbf{hyperboloid}. Continuing with
+surfaces, let's discuss quadratic surfaces.
+
+Note that in coordinate plane, we call equations of the form
+\[
+Ax^2 + bxy + Cy^2 + Dx + Ey + F = 0
+\]
+a conic section. Some examples include parabola, hyperbola, circle,
+and ellipse. Now, we could also generalize such equations in 3-space.
+
+\begin{definition}{}{}
+A \textbf{quadric surface} is known as the graph whose equation is
+of the following form.
+\vspace{-0.8\baselineskip}
+\[
+Ax^2 + By^2 + Cz^2 + Dxy + Eyz + Fzx + Gx + Hy + Iz + J = 0
+\]
+\end{definition}
+
+For instance, the graph from our previous example is a quadric
+surface.
+
+To investigate in some quadric surfaces, let's take a look at
+few examples. First, consider the examples of the following form.
+\[
+z^2 = \frac{x^2}{a^2} + \frac{y^2}{b^2}
+\]
+Considering the traces in planes $z = k$, we can notice that the
+equation becomes
+\[
+\frac{x^2}{a^2 k^2} + \frac{y^2}{b^2 k^2} = 1
+\]
+which are ellipses or $(0, 0)$ if $k = 0$.
+
+Similarly for $x = k$, we obtain
+\[
+\frac{z^2}{\left( \frac{k}{a} \right)^2}
+    - \frac{y^2}{\left( \frac{bk}{a} \right)^2}
+= 1
+\]
+which are hyperbolas. Continuing for $y = k$, we obtain the following
+equation for hyperbolas.
+\[
+\frac{z^2}{\left( \frac{k}{b} \right)^2}
+    - \frac{x^2}{\left( \frac{ak}{b} \right)^2}
+= 1
+\]
+With the found traces, we could try finding the general shape of
+the surface by combining them.
+
+\begin{minipage}{0.48\textwidth}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=0.8]
+\begin{axis}[
+    view={135}{15},
+    axis equal,
+    axis lines=middle,
+    xlabel={$x$},ylabel={$y$},zlabel={$z$},
+    grid=none,
+    ticks=none,
+    xmin=-12, xmax=12,
+    ymin=-12, ymax=12,
+    zmin=-12, zmax=12
+]
+\foreach \var in {-6,-4,-2,0,2,4,6} {
+    \addplot3[
+        Blue,
+        domain=0:2*pi,
+        samples y=0,
+        variable=\t
+    ] (
+        {sqrt((\var)^2) * cos(deg(\t))},
+        {sqrt((\var)^2) * sin(deg(\t))},
+        {\var}
+    );
+}
+
+\foreach \var in {-6,-4,-2,0,2,4,6} {
+    \addplot3[
+        Red,
+        domain=-1.5:1.5,
+        samples=30,
+        samples y=0,
+        variable=\t
+    ] (
+        {\var},
+        {\var*sinh(\t)},
+        {\var*cosh(\t)}
+    );
+
+    \addplot3[
+        Red,
+        domain=-1.5:1.5,
+        samples=30,
+        samples y=0,
+        variable=\t
+    ] (
+        {\var},
+        {\var*sinh(\t)},
+        {-\var*cosh(\t)}
+    );
+}
+
+\foreach \var in {-6,-4,-2,0,2,4,6} {
+    \addplot3[
+        Yellow,
+        domain=-1.5:1.5,
+        samples=30,
+        samples y=0,
+        variable=\t
+    ] (
+        {\var*sinh(\t)},
+        {\var},
+        {\var*cosh(\t)}
+    );
+
+    \addplot3[
+        Yellow,
+        domain=-1.5:1.5,
+        samples=30,
+        samples y=0,
+        variable=\t
+    ] (
+        {\var*sinh(\t)},
+        {\var},
+        {-\var*cosh(\t)}
+    );
+}
+\end{axis}
+\end{tikzpicture}
+\end{figure}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=1.2]
+\begin{axis}[
+    view={135}{15},
+    axis equal,
+    axis lines=middle,
+    xlabel={$x$},ylabel={$y$},zlabel={$z$},
+    grid=none,
+    ticks=none,
+    xmin=-20, xmax=20,
+    ymin=-20, ymax=20,
+    zmin=-20, zmax=20
+]
+\addplot3[
+    mesh,z buffer=sort,
+    samples=30,
+    samples y=60,
+    domain=-10:10,
+    y domain=0:360,
+    variable=\u,
+    variable y=\v,
+] (
+    {\u*cos(\v)},
+    {\u*sin(\v)},
+    {\u}
+);
+\end{axis}
+\end{tikzpicture}
+\end{figure}
+\end{minipage}
+
+Such graphs are known as \textbf{elliptic cone}. Continuing,
+let's try and graph surfaces of the following form with $a, b > 0$.
+\[
+y = \frac{x^2}{a^2} + \frac{z^2}{b^2}
+\]
+First, consider the trace in $y = k$. Note that if $k < 0$,
+then there are no points since right-hand side is sum of squares.
+Moreover rearranging the equations, we obtain the following equation
+for ellipses.
+\[
+\frac{x^2}{ka^2} + \frac{z^2}{kb^2} = 1
+\]
+Continuing, we can consider traces in $x = k$ and $z = k$.
+For each case, we can easily notice that it is the locus of quadratic
+functions of $y$ with respect to $x$ and $z$. Graphing, we obtain
+the general sketch.
+
+\begin{minipage}{0.48\textwidth}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=1.2]
+\begin{axis}[
+    view={135}{15},
+    axis equal,
+    axis lines=middle,
+    xlabel={$x$},ylabel={$y$},zlabel={$z$},
+    grid=none,
+    ticks=none,
+    xmin=-12, xmax=12,
+    ymin=-12, ymax=12,
+    zmin=-12, zmax=12
+]
+\foreach \var in {0,1,2,3,4,5,6} {
+    \addplot3[
+        Blue,
+        domain=0:2*pi,
+        samples y=0,
+        variable=\t
+    ] (
+        {sqrt(\var) * cos(deg(\t))},
+        {\var},
+        {sqrt(\var) * sin(deg(\t))}
+    );
+}
+
+\foreach \var in {-1,-0.5,0,0.5,1} {
+    \addplot3[
+        Red,
+        domain=-1.5:1.5,
+        samples=30,
+        samples y=0,
+        variable=\t
+    ] (
+        {\t},
+        {\t^2 + (\var)^2},
+        {\var}
+    );
+}
+
+\foreach \var in {-1,-0.5,0,0.5,1} {
+    \addplot3[
+        Yellow,
+        domain=-1.5:1.5,
+        samples=30,
+        samples y=0,
+        variable=\t
+    ] (
+        {\var},
+        {(\var)^2 + \t^2},
+        {\t}
+    );
+}
+\end{axis}
+\end{tikzpicture}
+\end{figure}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=1.2]
+\begin{axis}[
+    view={135}{15},
+    axis equal,
+    axis lines=middle,
+    xlabel={$x$},ylabel={$y$},zlabel={$z$},
+    grid=none,
+    ticks=none,
+    xmin=-20, xmax=20,
+    ymin=-20, ymax=20,
+    zmin=-20, zmax=20
+]
+\addplot3[
+    mesh,z buffer=sort,
+    samples=30,
+    samples y=60,
+    domain=0:4,
+    y domain=0:360,
+    variable=\u,
+    variable y=\v,
+] (
+    {\u*cos(\v)},
+    {\u^2},
+    {\u*sin(\v)}
+);
+\end{axis}
+\end{tikzpicture}
+\end{figure}
+\end{minipage}
+
+This is known as \textbf{elliptic paraboloid}. There are much more
+surfaces to discuss. For instance, \textbf{hyperboloid of two sheets}
+are represented by $\frac{z^2}{c^2} - \frac{x^2}{a^2} -
+\frac{y^2}{b^2} = 1$ while \textbf{hyperbolic paraboloid} is described
+by $\frac{z}{c} = \frac{x^2}{a^2} - \frac{y^2}{b^2}$. Moreover,
+\textbf{ellipsoid} are represented by $\frac{x^2}{a^2} +
+\frac{y^2}{b^2} + \frac{z^2}{c^2} = 1$. For all such surfaces,
+the following fact holds.
+
+\begin{important}
+Given a surface $S$ with equation $E(x, y, z)$, the equation of the
+surface $S'$, obtained by translating $S$ by $a, b, c$ units in the
+$x$, $y$, and $z$-direction respectively, is $E(x - a, y - b, z - c)$.
+\end{important}
+
+This is pretty straightforward with the same intuition we use for
+2-space. This is it for this section! With different surfaces in
+mind, let's discuss different ways to represent coordinates in
+3-space.
 
 \end{document}
 
