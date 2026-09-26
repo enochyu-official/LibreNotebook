@@ -1,0 +1,225 @@
+\documentclass[../../../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Cauchy's FE and Its Variants}
+
+Unlike the other problems, if there is one thing that you must
+know to solve a FE problem, it would be Cauchy FE. This could
+be a very nice problem, but could also be a very mean one.
+Before we look at what Cauchy FE is, let's discuss some very
+introductory topics from real analysis.
+
+\begin{theorem}
+{Density of Rational Numbers}
+{Density of Rational Numbers}
+For any real numbers $a$ and $b$, it is possible to choose
+a rational number $q$ such that $a < q < b$.
+\end{theorem}
+\begin{proof}
+Consider the interval $(na, nb)$ for some integer $n$. Choose a
+sufficiently large positive integer $n$ such that $nb - na > 1$.
+Because the length of the interval is greater than $1$, we can
+choose another integer $m$ such that $na < m < nb$. Therefore,
+$a < \frac{m}{n} < b$ and $\frac{m}{n} \in \mathbb{Q}$ since
+$m, n \in \mathbb{Z}$.
+\end{proof}
+
+This seems quite obvious when you think about it. However,
+it is important to consider and question the very seemingly obvious
+properties since conditions are very important for Cauchy FE.
+Continuing, we could try the same for irrational numbers.
+
+\begin{theorem}
+{Density of Irrational Numbers}
+{Density of Irrational Numbers}
+Given arbitrary real numbers $a$ and $b$, it is possible
+to choose a irrational number $q$ such that $a < q < b$.
+\end{theorem}
+\begin{proof}
+First, consider the inequality $\frac{a}{\sqrt{2}} < r <
+\frac{b}{\sqrt{2}}$ for some rational number $r$ by Theorem
+\ref{theo:Density of Rational Numbers}. Multiplying
+$\sqrt{2}$, $a < \sqrt{2} r = q < b$ holds.
+\end{proof}
+
+Using these two, we can notice that given two reals, we can
+choose a real number between them. Now before moving on to
+Cauchy FE, consider the following theorem.
+
+\begin{theorem}
+{Bolzano-Weierstrass Theorem}
+{Bolzano-Weierstrass Theorem}
+Any real number $x$ can be written as the limit of bounded
+sequence of rational numbers and of irrational numbers.
+\end{theorem}
+\begin{proof}
+Let $r_n$ be an increasing sequence of rational numbers
+defined as $x - \frac{1}{n} < r_n < x - \frac{1}{n+1}$ by
+Theorem \ref{theo:Density of Rational Numbers}. Therefore,
+\[
+x - \frac{1}{n}
+< r_n
+< x - \frac{1}{n + 1}
+< r_{n+1}
+\]
+holds and $x = \lim_{n \to \infty} r_n$ by Squeeze Theorem.
+If $r_n$ is a decreasing sequence defined as
+$x + \frac{1}{n+1} < r_n < x + \frac{1}{n}$, then
+$r_{n+1} < x + \frac{1}{n+1} < r_n < x + \frac{1}{n}$.
+Therefore $x = \lim_{n \to \infty} r_n$ by Squeeze Theorem.
+The case of irrational numbers are proven in analogous way.
+\end{proof}
+
+Now with these ideas in mind, let's finally discuss
+Cauchy's Functional Equations!
+
+\begin{definition}{}{}
+Equations with the following form is known as
+\textbf{Cauchy's Functional Equations}.
+\[
+f(x + y) = f(x) + f(y)
+\]
+\end{definition}
+
+Now this is pretty straight forward for certain input domain.
+Let's start by what we can notice just by looking at the
+equations. Substituting $x = y = 0$, we get $f(0) = 0$.
+Moreover, substituting $y = -x$ gives $f(x) = -f(-x)$ and we
+can see that $f$ is an odd function. With these in mind and having
+$k = f(1)$, let's start looking into different input domains.
+
+{\Large\textcolor{BrickRed}
+{\textbf{I. $\mathbf{f: \mathbb{N} \to \mathbb{R}}$}}}
+
+This case is pretty straightforward. Consider the following
+equations for some integer $n$.
+\[
+f(n)
+= f(n - 1) + f(1)
+= f(n - 2) + f(1) + f(1)
+= \cdots
+= n f(1)
+\]
+Therefore, $f(x) = kx$ if $x$ is defined under natural numbers.
+An extension would be using integers.
+
+{\Large\textcolor{BrickRed}
+{\textbf{II. $\mathbf{f: \mathbb{Z} \to \mathbb{R}}$}}}
+
+For this case, we will be using the fact that $f$ is an odd function.
+For $x > 0$, we have showed that $f(x) = kx$. For $x < 0$,
+consider the following equations.
+\[
+f(x) = -f(-x) = -k(-x) = kx
+\]
+Therefore with $f(0) = 0$, $f$ is still linear.
+
+{\Large\textcolor{BrickRed}
+{\textbf{III. $\mathbf{f: \mathbb{Q} \to \mathbb{R}}$}}}
+
+The next extension that we can have is defining $x$ over the
+rational numbers. Let $p$ and $q$ be relatively prime integers.
+First consider the following equation.
+\[
+f \left( \frac{p}{q} \right)
+= f \left( \frac{1}{q} + \cdots + \frac{1}{q} \right)
+= f \left( \frac{1}{q} \right) \cdot p
+\]
+Therefore, $f(1) = f \left( \frac{1}{q} \right) \cdot q$ and
+substituting back to the equation gives the following.
+\[
+f \left( \frac{p}{q} \right)
+= \frac{f(1)}{q} \cdot p
+= \frac{p}{q} k
+\]
+Therefore, $f(x) = kx$ also holds in this case. The final case
+that we can consider is when $f: \mathbb{R} \to \mathbb{R}$.
+
+{\Large\textcolor{BrickRed}
+{\textbf{IV. $\mathbf{f: \mathbb{R} \to \mathbb{R}}$}}}
+
+This is the part where it gets quite tricky and where conditions
+becomes very important. There are many different conditions that
+we could consider for this case, but let's focus on two major
+conditions for now.
+
+{\large
+\textbf{IV.I $\mathbf{f}$ is an increasing or decreasing function.}}
+
+First, let's consider the case when $f$ is increasing. Assume for
+the sake of contradiction that $f(x) \neq kx$. If $f(x) > kx$,
+then $x < \frac{f(x)}{k}$ and we can choose a rational $q$
+such that $x < q < \frac{f(x)}{k}$ by Theorem \ref{theo:Density of
+Rational Numbers}. Therefore, $f(x) \leq f(q) = kq$ since
+$q \in \mathbb{Q}$. Continuing, $\frac{f(x)}{k} \leq q <
+\frac{f(x)}{k}$ is obtained, which is a contradiction.
+
+This time, assume that $f(x) < kx$. We can choose a rational $q$
+such that $\frac{f(x)}{k} < q < x$. Continuing, we get
+$kq = f(q) \leq f(x) < kq$ which again is a contradiction.
+This proves that if $f$ is an increasing function, then $f(x) = kx$
+for $x \in \mathbb{R}$.
+
+The case when $f$ is decreasing is quite simple. Let $g(x) = -f(x)$.
+By construction, $g$ is an increasing function and the following
+equations hold.
+\[
+-f(x + y)
+= g(x + y)
+= g(x) + g(y)
+= -f(x) - f(y)
+= -(f(x) + f(y))
+\]
+Therefore, $f(x + y) = f(x) + f(y)$. This completes the proof!
+
+Note that these conditions are necessary. We cannot blindly assume
+that $f(x) = kx$ for $x \in \mathbb{R}$ without the condition.
+One very, very popular way of knowing if a function is increasing
+is $f(xy) = f(x) f(y)$.
+
+If $f(xy) = f(x) f(y)$, then $f(x^2) = f(x)^2 \geq 0$. Therefore
+for positive $y$, $f(x) = f(x - y) + f(y) \geq f(x - y)$ and
+$f$ is increasing.
+
+\begin{important}
+If $f(xy) = f(x) f(y)$, then $f$ is an increasing function.
+\end{important}
+
+This is very popular, and will make our lives greatly easier
+to use $f(x) = kx$.
+
+{\large\textbf{IV.II $\mathbf{f}$ is continuous.}}
+
+The second very popular condition is when $f$ is continuous.
+Note that by Bolzano-Weierstrass Theorem, there exists
+an increasing rational sequence $a_n$ and decreasing rational
+sequence $b_n$ such that $x = \lim_{n \to \infty} a_n =
+\lim_{n \to \infty} b_n$ for any real $x$. Therefore,
+the following equations hold.
+\begin{align*}
+    f(x)
+    &= f \left( \lim_{n \to \infty} a_n \right)
+    = \lim_{n \to \infty} f(a_n)
+    = \lim_{n \to \infty} ka_n
+    = kx \\
+    &= f \left( \lim_{n \to \infty} b_n \right)
+    = \lim_{n \to \infty} f(b_n)
+    = \lim_{n \to \infty} kb_n
+    = kx
+\end{align*}
+Therefore, $f(x) = kx$ holds if $f$ is continuous.
+
+This is the basic idea of Cauchy FE! With this in mind,
+let's solve few practice problems to see how they are used.
+
+
+
+
+
+\subsection{Pexider Functional Equation}
+
+
+\end{document}
+
+

@@ -1,0 +1,729 @@
+\documentclass[../../../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Subspaces}
+
+In the previous section, we discussed that all ten axioms must be
+satisfied for a set to be a vector space. However, testing and
+proving that a set satisfies all ten axioms, to be honest, is quite
+tedious. The good news is that we only need to prove three conditions
+to show that a set is a vector space thanks to \textbf{subspaces}!
+
+\begin{definition}{}{}
+A \textbf{subspace} of a vector space $V$ is a subset of $V$ that uses
+the same definition of vector addition and scalar multiplication from
+$V$.
+\end{definition}
+
+Now for a set to be a subspace, it must satisfy the following
+conditions.
+
+\begin{theorem}{}{Conditions of a Subspace}
+A non-empty subset $S$ of a vector space $V$ is a subspace of $V$ if
+and only if the following conditions are satisfied.
+\begin{enumerate}[noitemsep]
+\item
+\textbf{Closure for Addition: }
+$\forall u, v \in S, u + v \in S$
+\item
+\textbf{Closure for Scalar Multiplication: }
+$\forall u \in S$ and scalars $\alpha$, $\alpha u \in S$
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+Notice that it suffices to show that $S$ is a vector space, or adhere
+to the then axioms for a vector space. Moreover, A1 and S1 are assumed
+to be true by the initial condition.
+
+By the second condition, $\mathbf{0} = 0 u \in S$ and $-u = (-1) u
+\in S$. Therefore, A4 and A5 are satisfied. For A2 and A3, $u, v, w
+\in V$ is true for $u, v, w \in S$ by definition. Moreover, because
+$V$ is a vector space, A2 and A3 hold. Similarly, because $V$ is a
+vector space that satisfies S1, S2, S3, S4, and S5, its subset $S$
+also satisfies the conditions. Therefore, if the two closure
+conditions are met and $S$ is a subset of $V$, then $S$ is a subspace
+of $V$.
+\end{proof}
+
+Now the good thing is that subspaces are vector spaces, so it suffices
+to show that a set is a subspace of a known vector space with the two
+conditions shown above to show that it is a vector space. Let's take
+a look at an example.
+
+\begin{problem}{}{}
+Determine whether $S = \{ (x, y, z) \in \mathbb{R}^3 \mid y = 0 \}$
+is a vector space.
+\end{problem}
+\begin{solution}
+Notice that $S$ is a non-empty subset of $\mathbb{R}^3$, which is a
+known vector space. Therefore, it suffices to show that $u =
+(x_1, 0, z_1), v = (x_2, 0, z_2) \in S$ and scalars $\alpha$ satisfy
+the closure conditions for addition and scalar multiplication.
+
+Notice that $u + v = (x_1 + x_2, 0, z_1 + z_2) \in S$. Moreover,
+$\alpha u = (\alpha x_1, 0, \alpha z_1) \in S$. Therefore, $S$ is a
+vector space, more specifically a subset of $\mathbb{R}^3$.
+\end{solution}
+
+As you can see from the solution above, subspaces really made our
+lives easier. However, to make it even better, we can boil it down
+to a single condition.
+
+\begin{corollary}{}{The Condition for a Subspace}
+For scalars $\alpha$ and $\beta$ and $u, v \in S$ where $S$ is a
+non-empty subset of a vector space $V$ that has the same operations
+for vector addition and scalar multiplication, $S$ is a subspace if
+and only if the following condition is satisfied.
+\[
+\alpha u + \beta v \in S
+\]
+\end{corollary}
+\begin{proof}
+First and foremost, the first half of the statement can be proven.
+If $\alpha u + \beta v \in S$, then $u + v \in S$ where $\alpha =
+\beta = 1$ since $\alpha$ and $\beta$ are all scalars. Similarly,
+$\alpha u + \beta v \in S$ implies that $\alpha u \in S$ where
+$\beta = 0$. By Theorem \ref{theo:Conditions of a Subspace}, $S$ is a
+subspace of $V$.
+
+Continuing with the second half of the statement, if $S$ is a subset
+of $V$, then $\alpha u, \beta v \in S$. Therefore, $\alpha u +
+\beta v \in S$, proving the corollary.
+\end{proof}
+
+More examples on this can be found in the practice problems below.
+Now let's get into the topics of \textbf{linear combination} and the
+\textbf{span} of a set.
+
+\subsection{Linear Combinations and Span}
+
+As always, let's start with definitions.
+
+\begin{definition}{}{}
+For scalars $\alpha_i$ and $v_i$ in a vector space $V$, the vector
+$u$ defined as the following is a \textbf{linear combination of the
+vectors} $v_i$.
+\[
+u = \sum_{k = 1}^n \alpha_k v_k
+\]
+\end{definition}
+
+For instance, $[1, 2, 3]$ is a linear combination of $[2, -2, 1]$,
+$[1, 0, 2]$, and $[1, -1, 1]$ as it can be represented as the
+following.
+\[
+\begin{bmatrix}
+    1 & 2 & 3
+\end{bmatrix}
+=
+\begin{bmatrix}
+    2 & -2 & 1
+\end{bmatrix}
++
+3\begin{bmatrix}
+    1 & 0 & 2
+\end{bmatrix}
+-
+4\begin{bmatrix}
+    1 & -1 & 1
+\end{bmatrix}
+\]
+Now we have a special term for the collection of such vectors.
+
+\begin{definition}{}{}
+The \textbf{span of the set of vectors} $\{ v_1, \ldots v_n \}$ is
+the set of all possible linear combinations of the vectors.
+\[
+\Span\{v_1, \ldots, v_n\}
+= \left\{
+    \sum_{k = 1}^n \alpha_k v_k \; \middle|\; \alpha_k \in \mathbb{R}
+\right\}
+\]
+\end{definition}
+
+With the definition, we could notice an important theorem.
+
+\begin{theorem}{}{Span and Subspace I}
+For a vector space $V$ and its subset $S = \{ v_1, \ldots, v_n \}$,
+$\Span(S)$ is a subspace of $V$.
+\end{theorem}
+\begin{proof}
+First and foremost, notice that $\mathbf{0} \in \Span(S)$ since all
+the scalars in linear combination can equal zero. Moreover, let $u =
+\sum_{k = 1}^n \alpha_k v_k$ and $v = \sum_{k = 1}^n \alpha_k v_k$ for
+any scalars $\alpha_k$ and $\beta_k$. By definition, $\alpha u +
+\beta v \in \Span(S)$ is true. Therefore, by Corollary
+\ref{cor:The Condition for a Subspace}, $\Span(S)$ is a subspace of
+$V$.
+\end{proof}
+
+Side note here is that there are spans of infinite sets and they
+adhere to the theorem above. Continuing with the definition of the
+span of a set and its relation with subspace, we can show the two
+following theorems.
+
+\begin{theorem}{}{Span and Subspace II}
+Consider the following statements for a vector space $V$ and its
+subspace $W$ and non-empty subset $S$ such that $S \subset W$.
+\begin{enumerate}[noitemsep]
+\item $\Span(S) \subset W$
+\item The intersection of all subspaces containing $S$ is $\Span(S)$.
+\end{enumerate}
+\end{theorem}
+
+Let's start by proving the first statement.
+
+\begin{proof}
+Let $u = \sum_{k = 1}^n \alpha_k v_k \in \Span(S)$. By definition,
+$v_k \in W$ for integer $k \in [1, n]$. Moreover, $u \in W$ by
+Corollary \ref{cor:The Condition for a Subspace} and $\Span(S)
+\subset W$.
+\end{proof}
+
+Below is the proof for the second one.
+
+\begin{proof}
+First and foremost, notice that by the previous statement, it was
+shown that $\Span(S)$ is included in all subspaces that contains $S$.
+Let $A$ be the intersection of all subspaces that contain $S$.
+Therefore, $\Span(S) \subset A$. Moreover, by Theorem
+\ref{theo:Span and Subspace I} $\Span(S)$ is a subspace of $V$ that
+contains $S$. Thus, $A \subset \Span(S)$. Because $\Span(S) \subset A$
+and $A \subset \Span(S)$, $\Span(S) = A$.
+\end{proof}
+
+Next, let's conclude our discussion on linear combination and span
+of a set of vectors by proving the following statements.
+
+\begin{theorem}{}{Four Lemmas on Span of a Set of Vectors}
+For a vector space $V$ and its subsets $S, T \subset V$, consider the
+following statements.
+\begin{enumerate}[noitemsep]
+\item If $T \subset S$, then $\Span(T) \subset \Span(S)$.
+\item $\Span(\Span(S)) = \Span(S)$.
+\item If $T \subset \Span(S)$, then $\Span(T) \subset \Span(S)$.
+\item For nonzero vectors $v_1, \ldots, v_n \in V$, scalar
+$\lambda \in \mathbb{R}$, and $1 \leq j, k \leq n$ such that $\lambda
+\neq 0$ and $j \neq k$, the following equations hold.
+\vspace{-0.5\baselineskip}
+\begin{align*}
+    \Span\{ v_1, \ldots, v_k, \ldots, v_n \}
+    &= \Span\{ v_1, \ldots, v_k + \lambda v_j, \ldots, v_n \} \\
+    \Span\{ v_1, \ldots, v_k, \ldots, v_n \}
+    &= \Span\{ v_1, \ldots, \lambda v_k, \ldots, v_n \}
+\end{align*}
+\end{enumerate}
+\end{theorem}
+
+There's a lot to prove, but let's do them one by one starting with
+the first one.
+
+\begin{proof}
+Notice that since all $t_k \in T$ satisfy $t_k \in S$, all
+$\sum_{k=1}^n c_k t_k \in \Span(T)$ for some appropriate $n$ and
+constant $c_k$ also satisfy $\sum_{k=1}^n c_k t_k \in \Span(S)$.
+Therefore, $\Span(T) \subset \Span(S)$.
+\end{proof}
+
+Below is the proof for the second statement, which is a corollary
+of the first statement.
+
+\begin{proof}
+First and foremost, notice that $S \subset \Span(S)$. By the first
+statement, $\Span(S) \subset \Span(\Span(S))$ holds. Moreover,
+notice that because $\Span(S)$ contains all linear combinations of
+$S$, making more linear combinations of the linear combinations of
+$S$ will not add more elements. Therefore, $\Span(\Span(S)) \subset
+\Span(S)$ and $\Span(\Span(S)) = \Span(S)$.
+\end{proof}
+
+An interesting fact about this property is that this applies for
+any subset $S$, finite or infinite. This is because even if $\Span(S)$
+is infinite, it only uses finite number of vectors to create
+each linear combination. Continuing, let's prove the third statement.
+
+\begin{proof}
+Notice that by the first statement, $\Span(T) \subset
+\Span(\Span(S))$. Continuing with the second statement shows that
+$\Span(T) \subset \Span(S)$.
+\end{proof}
+
+Finally, here is the proof for the last statement.
+
+\begin{proof}
+First, it is self-evident that $\Span\{ v_1, \ldots, v_k
++ \lambda v_j, \ldots, v_n \} \subset \Span\{ v_1, \linebreak \ldots,
+v_k, \ldots, v_n \}$ since all linear combination of the set of
+vectors on the left can be represented as the linear combination of
+the set of vectors on the right. Moreover notice that $v_k$ can be
+represented as $v_k = (v_k + \lambda v_j) - \lambda v_j$ even if
+$k = j$. Therefore, $v_k \in \Span\{ v_1, \ldots, v_k + \lambda v_j,
+\ldots, v_n \}$ and $\Span\{ v_1, \ldots, v_k, \ldots, v_n \} \subset
+\Span\{ v_1, \ldots, v_k + \lambda v_j, \linebreak \ldots, v_n \}$ by
+statement 3. Therefore, the equations in the statement hold.
+\end{proof}
+
+With the ideas of linear combinations and the span of a set of vectors
+in mind, let's discuss about linear independence.
+
+\subsection{Linear Independence}
+
+One of the most important reasons why we use Linear Algebra is due to
+efficiency. As you could have guessed, most vector spaces have
+infinitely many vectors. Of course, there must be an efficient way
+of representing the vector space instead of manually listing.
+Determining such representative vectors involves numerous factors,
+and that's what we will discuss with linear independence, basis,
+and dimension.
+
+\begin{definition}{}{}
+Consider the linear combination of $V = \{ v_1, \ldots, v_n \}$
+in a vector space and scalars $c_1, \ldots, c_n$ that satisfy the
+following equation.
+\[
+\sum_{k = 1}^n c_k v_k = \mathbf{0}
+\]
+The set of vectors $V$ is \textbf{linearly dependent} if there exists
+scalars $c_1, \ldots, c_k$ that are not all equal to zero. The set of
+vectors is \textbf{linearly independent} if all scalars are zero in
+the equation.
+\end{definition}
+
+Let's take a look at a quick example.
+
+\begin{problem}{}{}
+Determine whether $V = \{ \langle 1, 1 \rangle, \langle 2, 3\rangle
+\in \mathbb{R}^2 \}$ is linearly independent.
+\end{problem}
+\begin{solution}
+By definition, for the set to be linearly independent, all scalars
+$c_1$ and $c_2$ must be zero for the following equation to hold.
+\[
+c_1 \langle 1, 1 \rangle + c_2 \langle 2, 3 \rangle
+= \langle 0, 0 \rangle
+\]
+Writing in system of linear equations, the equation above can
+be written as the following.
+\begin{align*}
+    c_1 + 2c_2 &= 0 \\
+    c_1 + 3c_2 &= 0
+\end{align*}
+Solving the equation, $c_1 = c_2 = 0$ and no other set of scalars
+can lead to the equation. Therefore, the set of vectors is linearly
+independent.
+\end{solution}
+
+One interesting observation that we can make is that for $n \in
+\mathbb{Z}$, if the set of vectors in $\mathbb{R}^n$ contains more
+than $n$ elements, then the set is linearly dependent. We will
+discuss more on this later when we discuss matrix and its application
+in linear systems, but for such cases, we have more variables than
+linear equations, which implies that there exists infinitely many
+solutions. Therefore, such a set of vectors must be linearly
+dependent. Continuing, below is a theorem that we can deduce from
+the definition.
+
+\begin{theorem}{}{Finite Set of Vectors and Linear Dependence}
+A set with a finite number of nonzero vectors is linearly dependent
+if and only if a vector in the ordering of the set can be represented
+as a linear combination of vectors preceding it.
+\end{theorem}
+\begin{proof}
+First and foremost, the first half of the theorem can be shown.
+Consider the set of vectors $\{ v_1, \ldots, v_{j-1}, v_j, \ldots,
+v_n \}$. Assume for scalars $c_k$, the following equation is true.
+\[
+v_j
+= \sum_{k = 1}^{j-1} c_k v_k
+\]
+Therefore, $\mathbf{0} = \sum_{k = 1}^{j-1} c_k v_k - v_j$.
+Letting $c_k = 0$ for integer $k \in (j, n]$, the following equation
+holds.
+\[
+\sum_{k = 1}^{j-1} c_k v_k - v_j + \sum_{k = j+1}^{n} c_k v_k
+= \mathbf{0}
+\]
+Because at least one scalar is nonzero, the set of vectors $\{ v_1,
+\ldots, v_n \}$ is linearly dependent.
+
+Continuing, let the set of vectors $\{ v_1, \ldots, v_n \}$ be
+linearly dependent. For the corresponding scalars $c_k$, let
+$c_j$ be the last scalar that is nonzero. Thus, the following
+equation holds.
+\[
+\sum_{k = 1}^{j} c_k v_k + \sum_{k = j+1}^{n} 0 v_k
+= \mathbf{0}
+\]
+Rearranging the equation, $v_k = -\sum_{k = 1}^{j-1} \frac{c_k}{v_j}
+v_k$, which is a linear combination. Because the converse holds,
+the theorem is true.
+\end{proof}
+
+From this theorem, we can deduce a corollary.
+
+\begin{corollary}{}{}
+For a vector space $V = \Span(S)$ and linearly dependent set
+$S = \{ v_1, \ldots, v_n \} \subset V$, then there exists a set
+$T \subset S$ such that $|T| = n - 1$ and $V = \Span(T)$.
+\end{corollary}
+\begin{proof}
+By Theorem \ref{theo:Finite Set of Vectors and Linear Dependence},
+there exists element $v_j \in S$ such that $v_j$ is the linear
+combination of the previous elements as listed in $S$.
+
+Let $T = \{ v_1, \ldots, v_{j-1}, v_{j+1}, \ldots, v_n \}$.
+Consider the following equations for scalars $d_k$ and $c_k$.
+\begin{align*}
+    V
+    &= \sum_{k = 1}^n d_k v_k
+    = \sum_{k = 1}^{j-1} d_k v_k + d_j v_j +
+        \sum_{k = j+1}^n d_k v_k \\
+    &= \sum_{k = 1}^{j-1} d_k v_k +
+        d_j \left( \sum_{k = 1}^{j-1} c_k v_k \right) +
+        \sum_{k = j+1}^n d_k v_k \\
+    &= \sum_{k = 1}^{j-1} (d_j c_k + d_k) v_k +
+        \sum_{k = j+1}^n d_k v_k
+    = \Span(T)
+\end{align*}
+Therefore, the corollary holds.
+\end{proof}
+
+Continuing from the corollary, the following theorems could be
+asserted.
+
+\begin{theorem}{}{Properties of Linear Independence and Dependence}
+Consider the following statements for set $S$.
+\begin{enumerate}[noitemsep]
+\item
+If $S$ contains a zero vector, then it is linearly dependent.
+\item
+If $|S| = 1$, then it is linearly dependent if and only if its
+element is the zero vector.
+\item
+If $|S| = 2$, then it is linearly dependent if and only if a vector
+is a scalar multiple of the other.
+\item
+If $S$ is linearly dependent, then every set that contains $S$ is
+linearly dependent.
+\item
+If $S$ is linearly independent, then all its subsets are linearly
+independent.
+\end{enumerate}
+\end{theorem}
+
+There's quite a bit to prove! Let's start with the first one.
+
+\begin{proof}
+Let $S = \{ \mathbf{0}, v_1, \ldots, v_n \}$. Notice that
+$\alpha(\mathbf{0}) + \sum_{k = 1}^n 0 v_k = \mathbf{0}$ for any
+scalar $\alpha$. Therefore, $S$ is linearly dependent.
+\end{proof}
+
+Below is the proof for the second one.
+
+\begin{proof}
+Let $S = \{ v \}$. Notice that if $v \neq \mathbf{0}$, it is not
+possible for a nonzero scalar $\alpha$ to make $\alpha v =
+\mathbf{0}$. Therefore, if $|S| = 1$, then $v = \mathbf{0}$.
+For the converse, if $v = \mathbf{0}$, then any scalar $\alpha$
+will let $\alpha v = \mathbf{0}$. Therefore the statement holds.
+\end{proof}
+
+Here is the proof for the third statement.
+
+\begin{proof}
+Let $S = \{ v_1, v_2 \}$. First, if $v_2 = \alpha v_1$ for any scalar
+$\alpha$, then $\mathbf{0} = \alpha v_1 - \alpha v_1 = \alpha v_1 -
+v_2$. Therefore, $S$ is linearly dependent. For the converse,
+$c_1 v_1 + c_2 v_2 = 0$ for scalars $c_1$ and $c_2$. Therefore,
+assuming that the scalars are nonzero without loss of generality,
+$v_2 = -\frac{c_1}{c_2} v_1$. Thus, the statement is true.
+\end{proof}
+
+Below is the proof for the fourth one.
+
+\begin{proof}
+Let $S = \{ v_1, \ldots, v_n \}$ and $T = \{ u_1, \ldots, u_n,
+v_1, \ldots, v_n \}$. By definition, there exists $c_k$ that are
+not all zero such that $\sum_{k = 1}^n c_k v_k = \mathbf{0}$.
+Because $\sum_{k = 1}^n 0 u_k + \sum_{k = 1}^n c_k v_k = \mathbf{0}$,
+$T$ is also linearly dependent.
+\end{proof}
+
+Finally, here is the proof for the last statement.
+
+\begin{proof}
+Let $T \subset S$ where $S$ is linearly independent. Assume for
+the sake of contradiction that there exists a subset $T$ that is
+linearly dependent. However, if $T$ is linearly dependent, then
+$S$ is linearly dependent by the previous property, which is
+a contradiction. Therefore, by contradiction, if $S$ is linearly
+independent then all its subsets $T$ are also linearly independent.
+\end{proof}
+
+With this, we have concluded our discussion on linear dependence
+and independence. Before concluding this note, let's discuss
+basis and dimension of a set of vectors.
+
+\subsection{Basis and Dimension}
+
+As always, let's start with definition.
+
+\begin{definition}{}{}
+For a vector space $V$ and its subset $S$, if $\Span(S) = V$, then
+$S$ is a spanning set for $V$.
+\end{definition}
+
+When we say aloud, we say that $S$ spans $V$. For instance, the set
+$\{ \langle 1, 0 \rangle, \langle 0, 1 \rangle \}$ spans
+$\mathbb{R}^2$ since all vectors $\langle a, b \rangle \in
+\mathbb{R}^2$ can be represented as the sum $a \langle 1, 0 \rangle
++ b\langle 0, 1 \rangle$.
+
+\begin{definition}{}{}
+A linearly independent subset that spans $V$ is a \textbf{basis} for
+$V$.
+\end{definition}
+
+Continuing from the previous example, we can see that $\{ \langle 1, 0
+\rangle, \langle 0, 1 \rangle \}$ not only spans $\mathbb{R}^2$,
+but is also a basis for $\mathbb{R}^2$ since it is linearly
+independent. As you can see, the same will apply if we generalize it
+to $\mathbb{R}^n$.
+
+\begin{definition}{}{}
+The \textbf{standard basis for $\mathbb{R}^n$} is the set $S =
+\{ e_1, \ldots e_n \}$ where $e_i$ is an element of $\mathbb{R}^n$
+with $1$ in its $i^\text{th}$ entry and $0$ elsewhere.
+\end{definition}
+
+We could do the same for polynomials. First, notice that the set
+$\{ 1, x, x^2 \}$ spans $\mathbb{P}^2$. Moreover, the set is linearly
+independent. Therefore, $\{ 1, x, x^2 \}$ is a basis for
+$\mathbb{P}^2$.
+
+\begin{definition}{}{}
+The \textbf{standard basis for $\mathbb{P}^n$} is the set $S =
+\{ 1, x, x^2, \ldots, x^n \}$.
+\end{definition}
+
+From the two definitions above, we can notice that there are finite
+elements for the two standard bases for $\mathbb{R}^n$ and
+$\mathbb{P}^n$. We call such vector spaces
+\textbf{finite-dimensional}.
+
+\begin{definition}{}{}
+A vector space with a basis of finite elements is called
+\textbf{finite-dimensional}. Whereas, \textbf{infinite dimensional}
+vector spaces do not contain a basis with finite elements.
+\end{definition}
+
+An example of infinite dimensional vector space would be $\mathbb{P}$
+since the basis is required to be an infinite set. However, we will
+not be discussing infinite dimensional vector spaces. From the
+definitions above, we could establish a theorem.
+
+\begin{theorem}{}{Basis and Linear Dependence}
+For a basis $S$ of a vector space $V$ such that $|S| = n$, any set
+in $V$ with more than $n$ elements is linearly dependent.
+\end{theorem}
+\begin{proof}
+Let $S = \{ v_1, \ldots, v_n \}$ and $T = \{ u_1, \ldots, u_m \}$
+such that $S, T \in V$ and $m > n$. Notice that because $\Span(S) = V$
+and $T \in V$, there exists a set of constants $a_{ij}$ that satisfies
+the following equation (note that we will be using this indices in
+the next note when we discuss matrices.).
+\begin{align*}
+    u_1 &= \sum_{j=1}^n a_{1j} v_j \\
+    u_2 &= \sum_{j=1}^n a_{2j} v_j \\
+    &\quad\vdots \\
+    u_m &= \sum_{j=1}^n a_{mj} v_j
+\end{align*}
+Therefore, it suffices to show that there exists constants $c_1,
+\ldots, c_m$ such that not all are zero and that satisfies the
+following equation.
+\[
+\sum_{i=1}^m \sum_{j=1}^n c_i a_{ij} v_j
+= \mathbf{0}
+\]
+Continuing, it suffices to show that the variables $c_i$ and constants
+$a_{ij}$ satisfy the following equations where not all $c_i$ are zero.
+\begin{align*}
+    \sum_{i=1}^m c_i a_{i1} &= 0 \\
+    \sum_{i=1}^m c_i a_{i2} &= 0 \\
+    &\ \vdots \\
+    \sum_{i=1}^m c_i a_{in} &= 0
+\end{align*}
+Notice that there are $m$ variables and $n$ equations. It is known
+that for a linear system of equations, there exists an infinite number
+of solutions if there are more variables than the equations (don't
+worry we will prove this in future notes.). Because $m > n$, there
+exists $c_1, \ldots c_m$ that are not all zero and that satisfy the
+equations for linear dependence, the theorem holds.
+\end{proof}
+
+Continuing, we can derive three corollaries from the theorem.
+
+\begin{corollary}{}{}
+If a basis for the vector space $V$ contains $n$ elements, then any
+linearly independent subsets of $V$ contain at most $n$ elements.
+\end{corollary}
+\begin{proof}
+By definition, a basis of a vector space $V$ spans $V$. Because any
+linearly dependent subsets of $V$ contain more than $n$ elements
+by Theorem \ref{theo:Basis and Linear Dependence}, any linearly
+independent subsets of $V$ must not contain more than $n$ elements.
+\end{proof}
+
+Below is the second corollary.
+
+\begin{corollary}{}{}
+If $V$ is a finite vector space, every basis of $V$ will contain
+the same number of elements.
+\end{corollary}
+\begin{proof}
+Let $S$ and $T$ be bases of $V$ with $p$ and $q$ elements
+respectively. By definition, the bases of a vector space are linearly
+independent. By the previous corollary, it is evident that $q \leq p$
+and $p \leq q$ are true. Therefore, $p = q$ and the corollary holds.
+\end{proof}
+
+Now before continuing with our third corollary, let's first define
+what the dimension of a vector space is.
+
+\begin{definition}{}{}
+For a finite dimensional vector space $V$, the number of elements
+in any basis of $V$ is called the \textbf{dimension} of $V$,
+denoted as $\dim(V)$.
+\end{definition}
+
+For instance, recall the standard basis of $\mathbb{R}^n$. From the
+number of elements in the basis, we can write that $\dim(\mathbb{R}^n)
+= n$. Similarly, we can also notice that $\dim(\mathbb{P}^n) = n + 1$.
+Now let's continue with our third corollary.
+
+\begin{corollary}{}{}
+Every set $S$ in an $n$-dimensional vector space such that $|S| =
+n + 1$ is linearly dependent.
+\end{corollary}
+\begin{proof}
+By definition, a basis of an $n$-dimensional vector space $V$ contains
+$n$ elements. By Theorem \ref{theo:Basis and Linear Dependence}, since
+$n + 1 > n$, $S$ must be linearly dependent.
+\end{proof}
+
+One fun fact to note is that for the vector space $\{0\}$, we say
+$\dim(\{0\}) = 0$ by convention. Moreover, consider the following
+theorem.
+
+\begin{theorem}{}{Unique Linear Combination}
+For a basis $S = \{ v_1, \ldots, v_n \}$ of a vector space $V$,
+any vector $u \in V$ can be written as a unique linear combination
+of $S$.
+\end{theorem}
+\begin{proof}
+For the sake of contradiction, assume that $u$ can be written as
+$u = \sum_{k=1}^n c_k v_k = \sum_{k=1}^n d_k v_k$ where $c_k \neq d_k$
+for some choice of $k$. Therefore, the following equations can be
+obtained.
+\begin{align*}
+    \sum_{k=1}^n c_k v_k &= \sum_{k=1}^n d_k v_k \\
+    \sum_{k=1}^n (c_k - d_k) v_k &= 0
+\end{align*}
+Note that by definition, $S$ is linearly independent and $c_k - d_k
+= 0$ for all integer $k \in [1, n]$. Because it contradicts with
+the assumption that $c_k \neq d_k$ for some choice of $k$, the theorem
+holds.
+\end{proof}
+
+Now with the theorem in mind, because we know that the linear
+combination of a basis to represent a vector is unique, we can
+establish the following definition.
+
+\begin{definition}{}{}
+For a basis $S = \{ v_1, \ldots, v_n \}$ of a vector space $V$
+and any vector $u = \sum_{k=1}^n c_k v_k \in V$, the
+\textbf{coordinates of $u$ with respect to $S$}, denoted as $(u)_S$
+is the list of coefficients $c_1, \ldots, c_n$.
+\end{definition}
+
+We often represent the coordinates with $n$-tuple. To see that,
+let's take a look at the following example.
+
+\begin{problem}{}{}
+Find the coordinate of $f(x) = x^2 + 2x + 3$ with respect to the
+basis $S = \{ x^2, 2x^2 + 1, x \}$ in the vector space $\mathbb{P}^2$.
+\end{problem}
+\begin{solution}
+Consider the following equation.
+\[
+f(x)
+= 3 \left( 2x^2 + 1 \right) - 5 \left( x^2 \right) + 2(x)
+\]
+Therefore, the coordinate of $f(x)$ can be represented as the
+following $3$-tuple.
+\[
+\begin{bmatrix}
+    -5 \\
+    3 \\
+    2
+\end{bmatrix}_S
+\]
+\end{solution}
+
+Lastly, let's conclude our discussion on basis and dimension with
+a theorem.
+
+\begin{theorem}{}{Properties of Subset}
+Consider the following statements for a vector space $V$ and
+its subset $S \subset V$.
+\begin{enumerate}[noitemsep]
+\item
+There exists a basis for $V$ that is a subset of $S$ if $\Span(S) =
+V$.
+\item
+There exists a basis for $V$ that includes all elements in $S$ if
+$S$ is linearly independent.
+\end{enumerate}
+\end{theorem}
+
+Let's start by proving the first statement.
+
+\begin{proof}
+Notice that by definition, a basis of a vector space $V$ is a linearly
+independent set that spans $V$. Therefore, it suffices to show that
+there exists a linearly independent set that spans $V$ that is also
+a subset of $S$.
+
+By Theorem \ref{theo:Finite Set of Vectors and Linear Dependence},
+a subset of $S$ is linearly dependent if any only if a vector can be
+represented as the linear combination of the preceding vectors.
+Let $T$ be a subset of $S$ without the vectors that can be represented
+as the linear combination of the preceding vectors. Notice that $T$
+spans $V$ as the vector removed can be represented as the linear
+combination of the other vectors. Moreover, because $T$ is linearly
+independent, there exists a basis for $V$ that is a subset of $S$.
+\end{proof}
+
+Below is the proof for the second statement.
+
+\begin{proof}
+Let $T$ be a basis for $V$ and $A \coloneqq S \cup T$. By definition,
+$\Span(A) = V$. Construct $B \in A$ by removing all vectors that can
+be represented as a linear combination of the preceding vectors.
+Notice that no elements from $S$ will be removed as $S$ is linearly
+independent. By construction, $B$ spans $V$ and is also linearly
+independent. Because $S \subset B$, the statement holds.
+\end{proof}
+
+We discussed fundamental topics of vector spaces. Of course there
+are a lot more to discuss in vector spaces; however, to do so,
+we need some understanding of matrices. So let's pause our discussions
+on vector spaces for now, and move on to matrices and their
+applications in linear system of equations before looking at their
+implications in vector spaces.
+
+\end{document}
+
+

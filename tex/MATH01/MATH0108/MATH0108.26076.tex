@@ -1,0 +1,162 @@
+\documentclass[../../../main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{[N] Diophantine Equations}
+
+Diophantine equation refers to equations with integer coefficient
+whose interests are integer solutions. For instance, equations like
+$ax + by = c$, $x^2 - ny^2 = 1$, and $x^n + y^n = z^n$ whose
+interests lie only on integer solutions are Diophantine equations.
+Diophantine equation has very wide range in difficulties starting
+from finding Pythagorean triples to famous theorems like
+Fermat's Last Theorem. In this note, we will discuss foundational
+topics on Diophantine equations to common techniques like proof
+by infinite descent and Vieta jumping.
+
+\section{Primitive Pythagorean Triples}
+
+Problems on Pythagorean triples are probably one of the first
+problems that most of us solve in number theory, and yet
+remains as one of the dominant theorem. Maybe this is slightly
+biased towards Korean MO, but Pythagorean triples are very
+common and worth noting. As always, let's start with foundational
+properties.
+
+\begin{theorem}{}{Euclid's Formula}
+For a primitive Pythagorean triple $(a, b, c)$, there exists a pair
+of positive integers $m > n$ such that the following equations hold.
+\[
+\{ a, b \} = \{ m^2 - n^2, 2mn \}, \quad
+c = m^2 + n^2
+\]
+\end{theorem}
+
+Before we prove this theorem, let's clarify few terms. A primitive
+Pythagorean triple $(a, b, c)$ means triples $(a, b, c)$ such that
+$(a, b) = (b, c) \linebreak = (c, a) = 1$. Also, we cannot
+definitively say that $a = m^2 - n^2$ and $b = 2mn$ because it depends
+on which term is odd and even. Indeed, we have opposite parities for
+$a$ and $b$. I mean we can technically say $a = m^2 - n^2$ and
+$b = 2mn$ without loss of generality, but let's keep our theorem
+this way to highlight the parity. Now here is the famous proof!
+
+\begin{proof}
+Without loss of generality, let $2 \nmid a$. By construction,
+the following congruences hold.
+\begin{align*}
+    a^2 \equiv 1 \pmod{4}&, \quad b^2 \equiv 0 \pmod{4} \\
+    c^2 \equiv a^2 + b^2 &\equiv 1 \pmod{4}
+\end{align*}
+Therefore, $c$ is odd. Let $a = 2a' + 1$ and $c = 2c' + 1$.
+Then, the following congruences hold.
+\begin{align*}
+    (2a' + 1)^2 + b^2 &\equiv (2c' + 1) \\
+    4a'^2 + 4a' + 1 + b^2 &\equiv 4c'^2 + 4c' + 1 \pmod{8} \\
+    b^2 \equiv 4c'^2 + 4c' - 4a'^2 - 4a'
+    &\equiv 4 (c'^2 + c' - a'^2 - a') \equiv 0 \pmod{8}
+\end{align*}
+Thus $4 \mid b$. Continuing, the following equation holds by
+definition.
+\[
+(c + a)(c - a) = b^2
+\]
+Let $d = (c + a, c - a)$. Note that $2 \mid d$ since $2 \nmid a, c$.
+Moreover, $d \mid (c + a) + (c - a) = 2c$ and $d \mid (c + a) -
+(c - a) = 2a$. Because $(a, c) = 1$, $d = 2$. In other words,
+$c + a = 2m^2$ and $c - a = 2n^2$ for some coprime positive
+integers $m, n$. Substituting, $b = 2mn$. Thus, there exists
+a pair of positive integers $m > n$ such that $\{ a, b \} =
+\{ m^2 - n^2, 2mn \}$ and $c = m^2 + n^2$.
+\end{proof}
+
+Honestly, this is pretty much it for the section. There isn't
+lots of topics to cover for primitive Pythagorean triple, but
+its applications are very worth noting. We will discuss more
+on the application of the theorem as we discuss infinite
+descent, but before we conclude this section, let's solve
+a practice problem to see how it is used in problems.
+
+\begin{important}
+When using this theorem, it is very important to consider the
+condition stated that $(a, b) = (b, c) = (c, a) = 1$. Moreover,
+it is important to consider the parity of $a$ and $b$ before
+assigning respective values $m^2 - n^2$ and $2mn$. Lastly, but
+most importantly, remember that $(m, n) = 1$ and they are opposite
+parity! The last condition is very easy to miss (at least for me)
+and used very often when we apply this theorem recursively.
+\end{important}
+
+Below is an application that seems obvious, but is actually
+way difficult than it looks. For some reasons, I got lost very
+easily when learning applications of the theorem and any topics
+in NT, and I keeping the conditions of given and new variables
+in mind really helped me.
+
+\begin{problem}{2020 Korean MO Problem 4}{2020 Korean MO Problem 4}
+Find a pair of positive coprime integers $(a, b)$ other than
+$(41, 12)$ such that $a^2 - 5b^2$ and $a^2 + 5b^2$ are both perfect
+squares.
+\end{problem}
+This solution is largely based on
+\href{https://youtu.be/4eetdspSRYw?si=U1hylcoUzUwPA66a}{a solution by WinnersKMO}.
+\begin{solution}
+First, let $(x, y)$ be another coprime pair such that
+$x^2 - 5y^2 = m^2$ and $x^2 + 5y^2 = n^2$ for some integers
+$m$ and $n$. Rearranging the equation, $2x^2 = m^2 + n^2$ and
+$10y^2 = n^2 - m^2$ hold. Starting with the first equation,
+the following equation is obtained.
+\[
+x^2
+= \frac{m^2 + n^2}{2}
+= \left( \frac{m + n}{2} \right)^2 + \left( \frac{m - n}{2} \right)^2
+\]
+From the equation, assume that $x$, $\frac{m + n}{2}$, and
+$\frac{m - n}{2}$ are pairwise coprime. Note that we are allowed
+to set this condition since we just need to find any $x$ and $y$.
+By Theorem \ref{theo:Euclid's Formula}, there exists coprime
+integers $u, v$ with opposite parity such that $x = u^2 + v^2$,
+$\frac{m - n}{2} = u^2 - v^2$, and $\frac{m + n}{2} = 2uv$.
+Again, we are allowed to set parities since we are finding any
+$x$ and $y$.
+
+Continuing, the second equation can be modified.
+\begin{align*}
+    10y^2
+    &= 4 \cdot \frac{n + m}{2} \cdot \frac{n - m}{2} \\
+    \frac{5}{2} y^2
+    &= (u^2 - v^2) 2uv \\
+    \therefore
+    5 \left( \frac{y}{2} \right)^2
+    &= (u + v)(u - v) uv
+\end{align*}
+By construction, $u, v$ are coprime to each other and $(u + v)(u - v)$
+and $uv$ are also coprime. Let $u = 41^2$ and $v = 5 \cdot 12^2$.
+Notice that the conditions that we have set while defining the
+variables are met. Moreover as given by the problem, it is evident
+that $(41^2 + 5 \cdot 12^2)(41^2 - 5 \cdot 12^2)$ are perfect
+squares, returning an integer $y$. Hence, the following equations
+are obtained.
+\begin{align*}
+    5 \left( \frac{y}{2} \right)^2
+    &= (41^2 + 5 \cdot 12^2)(41^2 - 5 \cdot 12^2)
+        \cdot 41^2 \cdot 5 \cdot 12^2 \\
+    \left( \frac{y}{2} \right)^2
+    &= (41^2 + 5 \cdot 12^2)(41^2 - 5 \cdot 12^2)
+        \cdot 41^2 \cdot 12^2 \\
+    \therefore y
+    &= 2 \cdot 12 \cdot 41 \cdot
+        \sqrt{(41^2 + 5 \cdot 12^2)(41^2 - 5 \cdot 12^2)}
+    = 1494696
+\end{align*}
+Moreover, $x = u^2 + v^2 = \left(41^2\right)^2 +
+\left(5 \cdot 12^2\right)^2 = 3344161$. Therefore,
+$(3344161, 1494696)$ is another pair.
+\end{solution}
+
+With this in mind, let's discuss Pell's equation, another fundamental
+topic from Diophantine equations.
+
+\end{document}
+
+

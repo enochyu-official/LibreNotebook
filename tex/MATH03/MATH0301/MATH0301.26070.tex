@@ -1,0 +1,919 @@
+\documentclass[../../../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Vectors}
+
+We have discussed on vectors more in-depth in the part for Linear
+Algebra. In this section however, let's focus more on the geometric
+intuition than the abstract nature of vectors.
+
+\begin{definition}{}{}
+\textbf{Vectors} are quantities with both magnitude and a direction.
+\end{definition}
+
+Some example of vectors include force, velocity, and acceleration
+because they all have a specific direction and also a magnitude.
+When we graph them, we can think of them as a arrow with starting
+and ending points.
+
+\begin{figure}[H]
+\centering
+\tdplotsetmaincoords{70}{110}
+\begin{tikzpicture}[
+        tdplot_main_coords,
+        axis/.style={->,thick},
+        scale=0.4
+    ]
+	\draw[axis] (-8,0,0) -- (8,0,0) node[left] {$x$};
+	\draw[axis] (0,-7,0) -- (0,8,0) node[right] {$y$};
+    \draw[axis] (0,0,-5) -- (0,0,8) node[left] {$z$};
+
+    \draw[axis] (2,-3,2) -- (1,3,5) node[above right] {$\mathbf{v}$};
+    \draw[axis] (2,-3,-1) -- (1,3,2) node[above right] {$\mathbf{w}$};
+    \node[circle,fill=black,inner sep=0pt,minimum size=1mm]
+        at (2,-3,2) {};
+    \node[circle,fill=black,inner sep=0pt,minimum size=1mm]
+        at (2,-3,-1) {};
+\end{tikzpicture}
+\end{figure}
+
+From now, let's represent vectors with $\mathbf{u}, \mathbf{v},
+\mathbf{w}$ and scalars, or real numbers, with $a, b, \alpha, \beta$.
+From the graph above, we can define another definition.
+
+\begin{definition}{}{}
+The \textbf{terminal point} of a vector is the point where the vector
+ends. The \textbf{initial point} is the point where the vector begins.
+\end{definition}
+
+When we want to add two vectors $\mathbf{v}$ and $\mathbf{w}$,
+we would connect the terminal point of $\mathbf{v}$ by the starting
+point of $\mathbf{w}$ and obtain a new vector by connecting the
+initial point of $\mathbf{v}$ and the terminal point of $\mathbf{w}$
+as shown by the figure below.
+
+\begin{figure}[H]
+\centering
+\tdplotsetmaincoords{70}{110}
+\begin{tikzpicture}[
+        tdplot_main_coords,
+        axis/.style={->,thick},
+        scale=0.4
+    ]
+	\draw[axis] (-8,0,0) -- (8,0,0) node[left] {$x$};
+	\draw[axis] (0,-7,0) -- (0,8,0) node[right] {$y$};
+    \draw[axis] (0,0,-5) -- (0,0,8) node[left] {$z$};
+
+    \draw[axis] (2,-3,-1) -- (1,-1,2) node[above] {$\mathbf{v}$};
+    \draw[axis] (1,-1,2) -- (1,6,4) node[above] {$\mathbf{w}$};
+    \draw[axis, Red] (2,-3,-1) -- (1,6,4)
+        node[below right] {$\mathbf{v + w}$};
+    \node[circle,fill=black,inner sep=0pt,minimum size=1mm]
+        at (2,-3,-1) {};
+    \node[circle,fill=black,inner sep=0pt,minimum size=1mm]
+        at (1,-1,2) {};
+\end{tikzpicture}
+\end{figure}
+
+Multiplying a vector by scalar $k$ can be though of as lengthening
+the vector by a factor of $k$. If $k < 0$, the vector is pointing
+the opposite direction.
+
+\begin{figure}[H]
+\centering
+\tdplotsetmaincoords{70}{110}
+\begin{tikzpicture}[
+        tdplot_main_coords,
+        axis/.style={->,thick},
+        scale=0.4
+    ]
+    \draw[axis] (-8,0,0) -- (8,0,0) node[left] {$x$};
+    \draw[axis] (0,-7,0) -- (0,8,0) node[right] {$y$};
+    \draw[axis] (0,0,-5) -- (0,0,8) node[left] {$z$};
+
+    \draw[axis] (2,-3,2) -- (1.5,0,3.5) node[above] {$\mathbf{v}$};
+    \draw[axis] (-2,3,-2) -- (-1.5,-0,-3.5)
+        node[right] {$\mathbf{-v}$};
+    \draw[axis] (2,-3,-1) -- (1,3,2) node[below] {$\mathbf{2v}$};
+    \node[circle,fill=black,inner sep=0pt,minimum size=1mm]
+        at (2,-3,2) {};
+    \node[circle,fill=black,inner sep=0pt,minimum size=1mm]
+        at (2,-3,-1) {};
+\end{tikzpicture}
+\end{figure}
+
+Also for the purpose of the notes, let's consider the vectors
+with same magnitude and direction but different initial vectors
+as the same vectors. The being said, we can write any vectors
+in $n$-dimension as $\langle v_1, v_2, v_3, \ldots, v_n \rangle$
+where $(v_1, v_2, v_3, \ldots, v_n)$ is the terminal point and
+$(0, 0, \linebreak, 0 \ldots, 0)$ is the initial point.
+Such numbers $v_1, \ldots, v_n$ are known as the \textbf{components}
+of $\mathbf{v}$.
+
+Now that we have defined $-\mathbf{v}$, we can consider vector
+subtraction. We can consider vector subtraction as adding two vectors
+where one is scaled by a negative factor.
+
+\begin{figure}[H]
+\centering
+\tdplotsetmaincoords{70}{110}
+\begin{tikzpicture}[
+        tdplot_main_coords,
+        axis/.style={->,thick},
+        scale=0.4
+    ]
+    \draw[axis] (-8,0,0) -- (8,0,0) node[left] {$x$};
+    \draw[axis] (0,-7,0) -- (0,8,0) node[right] {$y$};
+    \draw[axis] (0,0,-5) -- (0,0,8) node[left] {$z$};
+
+    \draw[axis] (2,2,-2) -- (1,5,3)
+        node[right] {\footnotesize $\mathbf{v}$};
+    \draw[axis] (2,2,-2) -- (2,-2,2)
+        node[left] {\footnotesize $\mathbf{w}$};
+    \draw[axis,dotted] (1,5,3) -- (1,1,7);
+    \draw[axis,dotted] (2,-2,2) -- (1,1,7);
+    \draw[axis,Red] (2,-2,2) -- (1,5,3)
+        node[pos=0.7, below] {\footnotesize $\mathbf{v - w}$};
+    \draw[axis,Blue] (2,2,-2) -- (1,1,7)
+        node[pos=0.7, left] {\footnotesize $\mathbf{v + w}$};
+\end{tikzpicture}
+\end{figure}
+
+Using components, we can write addition, subtraction and scalar
+multiplication as the following for $\mathbf{v} = \langle v_1, v_2,
+v_3 \rangle$ and $\mathbf{w} = \langle w_1, w_2, w_3 \rangle$.
+\begin{align*}
+    \mathbf{v} + \mathbf{w}
+    &= \langle v_1 + w_1, v_2 + w_2, v_3 + w_3 \rangle \\
+    \mathbf{v} - \mathbf{w}
+    &= \langle v_1 - w_1, v_2 - w_2, v_3 - w_3 \rangle \\
+    k\mathbf{v}
+    &= \langle kv_1, kv_2, kv_3 \rangle
+\end{align*}
+As you can see from the equations above, we can see that vector
+addition is commutative and associative and scalar multiplication is
+distributive. I will keep them brief here because we already discussed
+about these in-depth on my other notes for linear algebra. Now this
+property leads to the natural question of subtracting a vector by
+itself.
+
+\begin{definition}{}{}
+The \textbf{zero vector} is a vector with magnitude of zero.
+\end{definition}
+
+Intuitively, we can think of a zero vector as vector with the same
+initial and terminal points. Another way of thinking about a zero
+vector is a vector with zero as its components. This will naturally
+leads to $\mathbf{v} + \mathbf{0} = \mathbf{v}$ for any vector
+$\mathbf{v}$. For the purpose of this notes, let's consider zero
+vector as the vector that is parallel to every vectors.
+
+Continuing with the definition of components and the magnitude of a
+vector, we can define an important terminology.
+
+\begin{definition}{}{}
+The magnitude of a vector $\mathbf{v}$ is known as the \textbf{norm}
+of $\mathbf{v}$, denoted as $\| \mathbf{v} \|$.
+\end{definition}
+
+Notice that the magnitude, or length, cannot be negative. Therefore,
+we can see that the norm of any vector is non-negative. Moreover,
+$\| \mathbf{0} \| = 0$. Also note that scalar multiplication is
+defined element-wise. Using the distance formula, we can also obtain
+the following very important equation for a vector $\mathbf{v}$ and
+scalar $k$.
+\[
+\| k \mathbf{v} \| = |k| \cdot \| \mathbf{v} \|
+\]
+Let's take a look at a quick example. Consider the vector
+$\mathbf{v} = \langle 1, 2, 3 \rangle$. Notice that the following
+equation holds.
+\[
+\| \mathbf{v} \|
+= \sqrt{1^2 + 2^2 + 3^2}
+= \sqrt{14}
+\]
+We can also see that the following equation holds with scalar $2$
+and $2 \langle 1, 2, 3 \rangle = \langle 2, 4, 6 \rangle$.
+\begin{align*}
+    \| 2 \mathbf{v} \|
+    &= \sqrt{2^2 + 4^2 + 6^2}
+    = \sqrt{2^2 (1^2 + 2^2 + 3^2)} \\
+    &= 2 \sqrt{1^2 + 2^2 + 3^2} \\
+    &= 2 \cdot \| \mathbf{v} \|
+\end{align*}
+With this equation in mind, let's consider the following question.
+
+\begin{important}
+Given a vector $\mathbf{v}$, how do we find a unit vector, or
+vector with length $1$, with the same direction as $\mathbf{v}$?
+\end{important}
+
+One way of thinking this is rearranging our equation
+$\| k \mathbf{v} \| = |k| \cdot \| \mathbf{v} \|$. Consider the
+following equations with unit vector $\mathbf{u}$ and
+$\| \mathbf{v} \| = k \neq 0$.
+\[
+\left| \frac{1}{k} \right| \cdot \| \mathbf{v} \|
+= \frac{1}{k} \cdot k
+= 1
+= \| \mathbf{u} \|
+\]
+This solves it! We can find a unit vector with the same direction
+$\mathbf{v}$ by dividing it by its norm. Another variation of this
+equation would be the following.
+\[
+\| \mathbf{v} \| = |k| \cdot \| \mathbf{u} \|
+\]
+\begin{important}
+This implies that any vector $\mathbf{v}$ can be represented as
+the product of its norm and a unique unit vector with the same
+direction as $\mathbf{v}$. Such process of multiplying a nonzero
+vector by the reciprocal of its norm is known as \textbf{normalizing}.
+\end{important}
+
+Finally, another standard way of writing vectors is by linear
+combination of the standard basis vectors defined as the following.
+\[
+\mathbf{i} = \langle 1, 0, 0 \rangle, \quad
+\mathbf{j} = \langle 0, 1, 0 \rangle, \quad
+\mathbf{k} = \langle 0, 0, 1 \rangle
+\]
+With this, we can write $\mathbf{v} = \langle 1, 2, 3 \rangle$ as
+$\mathbf{i} + 2\mathbf{j} + 3\mathbf{k}$.
+
+More detailed and abstract introduction of vectors are included
+in the linear algebra part of LibreNotebook, and I highly recommend
+checking that out! From here, we will discuss more foundational and
+geometric interpretations of vectors that we have not discussed
+in my notes for linear algebra.
+
+\subsection{Dot Products and Projections}
+
+As always, let's start with definition.
+
+\begin{definition}{}{}
+The \textbf{dot product} of two vectors $\mathbf{u}$ and $\mathbf{v}$
+of the same dimension is defined as the sum of all products of
+elements in the same index.
+\end{definition}
+
+Writing them with mathematical notations, we can write them as the
+following.
+\[
+\langle u_1, u_2, \ldots, u_n \rangle \cdot
+    \langle v_1, v_2, \ldots, v_n \rangle
+= \sum_{i=1}^n u_i v_i
+\]
+Here is a quick example.
+\[
+\langle 1, 2, 3 \rangle \cdot \langle -1, 0, 1 \rangle
+= -1 + 0 + 3
+= 2
+\]
+Continuing, below are some properties of dot products. The statements
+below are quite self-evident as they mirror the properties of addition
+and subtraction.
+
+\begin{theorem}{}{Properties of the Dot Product}
+For vectors $\mathbf{u}, \mathbf{v}, \mathbf{w}$ of the same dimension
+and an arbitrary scalar $\lambda$, the following equations hold.
+\begin{enumerate}
+\item $\mathbf{u} \cdot \mathbf{v} = \mathbf{v} \cdot \mathbf{u}$
+\item $\lambda (\mathbf{u} \cdot \mathbf{v})
+= (\lambda \mathbf{u}) \cdot \mathbf{v}
+= \mathbf{u} \cdot (\lambda \mathbf{v})$
+\item $\mathbf{u} \cdot (\mathbf{v} + \mathbf{w})
+= \mathbf{u} \cdot \mathbf{v} + \mathbf{u} \cdot \mathbf{w}$
+\item $\mathbf{v} \cdot \mathbf{v} = \| v \|^2$
+\end{enumerate}
+\end{theorem}
+
+One of the reasons why the dot product of two vectors is so important
+is because it helps us determine the angle between the two vectors.
+Consider the following theorem.
+
+\begin{theorem}{}{The Dot Product and the Angle}
+Let $\mathbf{u}, \mathbf{v}$ be two nonzero vectors. Let $\theta$ be
+the smaller angle between the two vectors when their initial point
+coincide. Then, the following equation holds.
+\[
+\mathbf{u} \cdot \mathbf{v}
+= \| u \| \| v \| \cos\theta
+\]
+\end{theorem}
+\begin{proof}
+First and foremost, consider the following equation by the law of
+cosines.
+\[
+\cos\theta
+= \frac{ \| \mathbf{u} \|^2 + \| \mathbf{v} \|^2 -
+    \| \mathbf{v} - \mathbf{u} \|^2
+}{ 2 \| \mathbf{u} \| \| \mathbf{v} \| }
+\]
+By Theorem \ref{theo:Properties of the Dot Product}, the following
+equations hold.
+\begin{align*}
+    \cos\theta
+    &= \frac{ \| \mathbf{u} \|^2 + \| \mathbf{v} \|^2 -
+        ( \mathbf{v} - \mathbf{u} ) \cdot ( \mathbf{v} - \mathbf{u} )
+    }{ 2 \| \mathbf{u} \| \| \mathbf{v} \| } \\
+    &= \frac{ \| \mathbf{u} \|^2 + \| \mathbf{v} \|^2 - \left(
+        \mathbf{v} \cdot \mathbf{v}  - 2 \mathbf{u} \cdot \mathbf{v}
+            + \mathbf{u} \cdot \mathbf{u}
+        \right)
+    }{ 2 \| \mathbf{u} \| \| \mathbf{v} \| } \\
+    &= \frac{2 \mathbf{u} \cdot \mathbf{v}}
+        { 2 \| \mathbf{u} \| \| \mathbf{v} \| } \\
+    \therefore 
+    \| u \| \| v \| \cos\theta
+    &= \mathbf{u} \cdot \mathbf{v}
+\end{align*}
+Thus, the theorem holds.
+\end{proof}
+
+Now this theorem tells us the relationship between the angle between
+two vectors and their dot product.
+
+\begin{important}
+If $0 \leq \theta < \frac{\pi}{2}$, then $\mathbf{u} \cdot \mathbf{v}
+> 0$. If $\theta = \frac{\pi}{2}$, then $\mathbf{u} \cdot \mathbf{v}
+= 0$. If $\frac{\pi}{2} < \theta < \pi$, then $\mathbf{u} \cdot
+\mathbf{v} < 0$.
+\end{important}
+
+This somewhat simple observation with the cosine function and the
+fact that $\| \mathbf{u} \|, \| \mathbf{u} \| > 0$ reveals the
+relationship between the dot product of two vectors and their angles.
+Continuing from this observation, we can establish a definition.
+
+\begin{definition}{}{}
+Two nonzero vectors $\mathbf{u}$ and $\mathbf{v}$ are
+\textbf{orthogonal} if they form a right angle. In other words,
+$\mathbf{u} \cdot \mathbf{v} = 0$.
+\end{definition}
+
+Continuing with the relationship and definition, let's discuss
+more on the angle of vectors.
+
+\begin{definition}{}{}
+The \textbf{direction angles} of a nonzero vector $\mathbf{v}$ is
+the angle between $\mathbf{v}$ and the standard basis vectors.
+\end{definition}
+
+To find the direction angles of $\mathbf{v} = \langle v_1, v_2, v_3
+\rangle$, let's return to Theorem \ref{theo:The Dot Product and the
+Angle}. Consider the following equation for the angle $\alpha$
+between $\mathbf{v}$ and the standard basis vector $\mathbf{i}$.
+\begin{align*}
+    \mathbf{v} \cdot \mathbf{i}
+    &= \| \mathbf{v} \| \| \mathbf{i} \| \cos\alpha \\
+    v_1 &= \| \mathbf{v} \| \cos\alpha \\
+    \therefore
+    \alpha &= \cos^{-1} \left( \frac{v_1}{\| \mathbf{v} \|} \right)
+\end{align*}
+Following the same pattern for $\beta$ and $\gamma$, the can
+establish the following equations.
+\[
+\cos\alpha = \frac{v_1}{\| \mathbf{v} \|}, \quad
+\cos\beta = \frac{v_2}{\| \mathbf{v} \|}, \quad
+\cos\gamma = \frac{v_3}{\| \mathbf{v} \|}
+\]
+Indeed, we have special term for the values above. The values above
+are known as the \textbf{direction cosines} of $\mathbf{v}$. For
+vectors of direction cosines, the can write the following equation.
+\[
+\langle \cos\alpha, \cos\beta, \cos\gamma \rangle
+= \left\langle
+    \frac{v_1}{\| \mathbf{v} \|},
+    \frac{v_2}{\| \mathbf{v} \|},
+    \frac{v_3}{\| \mathbf{v} \|}
+\right\rangle
+= \frac{\mathbf{v}}{\| \mathbf{v} \|}
+\]
+Continuing, let's consider the case when $\| \mathbf{v} \| = 1$.
+In that case,
+\[
+\langle \cos\alpha, \cos\beta, \cos\gamma \rangle
+= \left\langle
+    \frac{v_1}{\| \mathbf{v} \|},
+    \frac{v_2}{\| \mathbf{v} \|},
+    \frac{v_3}{\| \mathbf{v} \|}
+\right\rangle
+= \mathbf{v}
+\]
+also hold! Finally, here is another interesting properties of the
+direction cosines.
+\[
+\cos^2\alpha + \cos^2\beta + \cos^2\gamma
+= \left( \frac{v_1}{\| \mathbf{v} \|} \right)^2
+    + \left( \frac{v_2}{\| \mathbf{v} \|} \right)^2
+    + \left( \frac{v_3}{\| \mathbf{v} \|} \right)^2
+= \frac{\| \mathbf{v} \|^2}{\| \mathbf{v} \|^2}
+= 1
+\]
+We can see that for nonzero $\mathbf{v}$, we can generalize this
+for any $n$. Therefore the sum of the squares of direction cosines
+are always $1$.
+
+The last part that I wish to discuss about dot products is
+projections. First, consider a vector $\mathbf{v} = \mathbf{w}_1
++ \mathbf{w}_2$ in a plane where $\mathbf{w}_1$ and $\mathbf{w}_2$ are
+along the standard basis $\mathbf{i}$ and $\mathbf{j}$ respectively.
+By construction, we can write $\mathbf{w}_1 = \mathbf{v} \cdot
+\mathbf{i}$ and $\mathbf{w}_2 = \mathbf{v} \cdot \mathbf{j}$.
+
+\begin{important}
+In other words, for any nonzero vector $\mathbf{v}$ in a plane,
+it can be represented as the following.
+\[
+\mathbf{v}
+= (\mathbf{v} \cdot \mathbf{i}) \mathbf{i} +
+    (\mathbf{v} \cdot \mathbf{j}) \mathbf{j}
+\]
+Such vectors $(\mathbf{v} \cdot \mathbf{i}) \mathbf{i}$ and
+$(\mathbf{v} \cdot \mathbf{j}) \mathbf{j}$ are known as
+\textbf{vector components} of $\mathbf{v}$ along $\mathbf{i}$ and
+$\mathbf{j}$ where the dot products $\mathbf{v} \cdot \mathbf{i}$ and
+$\mathbf{v} \cdot \mathbf{j}$ are \textbf{scalar components} of
+$\mathbf{v}$ along $\mathbf{i}$ and $\mathbf{j}$.
+\end{important}
+
+This idea can be generalized for higher dimensions. Moreover,
+although we used standard basis vectors here, this works for any
+orthogonal unit vectors.
+
+Another way of expanding this is through geometric interpretation.
+
+\begin{minipage}{0.48\textwidth}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (4,0);
+    \coordinate (B) at (0,3);
+    \coordinate (C) at (4,3);
+    \coordinate (e1) at (1,0);
+    \coordinate (e2) at (0,1);
+
+    \draw[->, thick] (O) -- (A);
+    \draw[->, thick] (O) -- (B);
+    \draw[->, thick, BrickRed] (O) -- (C);
+    \draw[->, thick, RoyalPurple] (O) -- (e1);
+    \draw[->, thick, RoyalPurple] (O) -- (e2);
+    \draw[dashed, thick] (A) -- (C);
+    \draw[dashed, thick] (B) -- (C);
+
+    \pic[draw,"$\theta$",angle radius=8mm,angle eccentricity=1.4]
+        {angle=A--O--C};
+    \node[below] at (e1) {$\mathbf{e}_1$};
+    \node[left] at (e2) {$\mathbf{e}_2$};
+    \node[below] at (A) {$\mathbf{w}_1$};
+    \node[left] at (B) {$\mathbf{w}_2$};
+    \node[above right] at (C) {$\mathbf{v}$};
+    \node[below] at ($(B)!0.3!(C)$)
+        {\footnotesize $\| \mathbf{v} \| \cos\theta$};
+    \node[left] at ($(A)!0.3!(C)$)
+        {\footnotesize $\| \mathbf{v} \| \sin\theta$};
+\end{tikzpicture}
+\end{figure}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (-4,0);
+    \coordinate (B) at (0,3);
+    \coordinate (C) at (-4,3);
+    \coordinate (e1) at (1,0);
+    \coordinate (e2) at (0,1);
+
+    \draw[->, thick] (O) -- (A);
+    \draw[->, thick] (O) -- (B);
+    \draw[->, thick, BrickRed] (O) -- (C);
+    \draw[->, thick, RoyalPurple] (O) -- (e1);
+    \draw[->, thick, RoyalPurple] (O) -- (e2);
+    \draw[dashed, thick] (A) -- (C);
+    \draw[dashed, thick] (B) -- (C);
+
+    \pic[draw,"$\theta$",angle radius=4mm,angle eccentricity=1.6]
+        {angle=e1--O--C};
+    \node[below] at (e1) {$\mathbf{e}_1$};
+    \node[left] at (e2) {$\mathbf{e}_2$};
+    \node[below] at (A) {$\mathbf{w}_1$};
+    \node[right] at (B) {$\mathbf{w}_2$};
+    \node[above] at (C) {$\mathbf{v}$};
+    \node[below] at ($(B)!0.4!(C)$)
+        {\footnotesize $\| \mathbf{v} \| \cos\theta$};
+    \node[right] at ($(A)!0.3!(C)$)
+        {\footnotesize $\| \mathbf{v} \| \sin\theta$};
+\end{tikzpicture}
+\end{figure}
+\end{minipage}
+
+As you can see from the diagrams above, we can write the scalar
+components with respect to the norm of $\mathbf{v}$ and the
+angle $\theta$. Moreover, we can define a new definition.
+
+\begin{definition}{}{}
+The \textbf{orthogonal projection} of a vector $\mathbf{v}$,
+denoted as $\proj_\mathbf{u} \mathbf{v}$, on a unit vector
+$\mathbf{u}$ is the vector component of $\mathbf{v}$ that is parallel
+to $\mathbf{u}$.
+\end{definition}
+
+From the figures above, we can see that $\proj_{\mathbf{e}_1} =
+\mathbf{w}_1$ and $\proj_{\mathbf{e}_2} = \mathbf{w}_2$.
+Finally, this leads us to the conclusion that for any vector
+$\mathbf{v}$ and respective orthogonal unit vectors $\mathbf{e}_1$
+and $\mathbf{e}_2$, the following equation holds.
+\[
+\mathbf{v}
+= \proj_{\mathbf{e}_1} \mathbf{v} + \proj_{\mathbf{e}_2} \mathbf{v}
+\]
+This is it for dot products and orthogonal projections! Before
+we conclude our section on vectors, we will discuss about cross
+products and its geometric interpretations.
+
+\subsection{The Cross Product and Geometry}
+
+Unlike how we defined vector addition and scalar multiplication,
+we had a special way of defining ``multiplication'' of vectors
+with the dot product. However specifically for $3$-dimensional
+space, we can also define cross products.
+
+\begin{definition}{}{}
+For $\mathbf{u} = \langle u_1, u_2, u_3 \rangle$ and $\mathbf{v} =
+\langle v_1, v_2, v_3 \rangle$, the \textbf{cross product},
+denoted as $\mathbf{u} \times \mathbf{v}$ and read as
+``$\mathbf{u}$ cross $\mathbf{v}$'', is defined as the following.
+\vspace{-0.8\baselineskip}
+\[
+\mathbf{u} \times \mathbf{v}
+= (u_2v_3 - u_3v_2) \mathbf{i} - (u_1v_3 - u_3v_1) \mathbf{j}
+    + (u_1v_2 - u_2v_1) \mathbf{k}
+\]
+\end{definition}
+
+As you can see from the definition above, unlike the dot product
+that returns a scalar, the cross product of two vector return
+a vector. Also, if it is difficult to memorize the formula above,
+we can also think of cross product as the following.
+\begin{align*}
+    \mathbf{u} \times \mathbf{v}
+    &= \det\left(
+        \begin{bmatrix}
+            \mathbf{i} & \mathbf{j} & \mathbf{k} \\
+            u_1        & u_2        & u_3        \\
+            v_1        & v_2        & v_3
+        \end{bmatrix}
+    \right) \\
+    &= (u_2v_3 - u_3v_2) \mathbf{i} - (u_1v_3 - u_3v_1) \mathbf{j}
+        + (u_1v_2 - u_2v_1) \mathbf{k}
+\end{align*}
+If you are unfamiliar with the operation above, I highly recommend
+reading my notes on determinants, which is in Section \ref{sec:26033}!
+
+\begin{important}
+The cross product $\mathbf{u} \times \mathbf{v}$ is only defined for
+$\mathbf{u}, \mathbf{v} \in \mathbb{R}^3$. The other dimension does
+not return meaningful properties and definition of the cross product.
+\end{important}
+
+Unlike the dot product, the properties of the cross product are
+not so nice.
+
+\begin{theorem}{}{Properties of the Cross Product}
+For $\mathbf{u}, \mathbf{v}, \mathbf{w} \in \mathbb{R}^3$ and some
+scalar $\lambda$, the following equations hold.
+\vspace{-0.8\baselineskip}
+\begin{enumerate}
+\item
+$\mathbf{u} \times \mathbf{v} = - (\mathbf{v} \times \mathbf{u})$
+\item
+$\mathbf{u} \times \mathbf{u} = \mathbf{0}$
+\item
+$\mathbf{u} \times \mathbf{0} = \mathbf{0}$
+\item
+$\mathbf{u} \times (\mathbf{v} + \mathbf{w})
+= (\mathbf{u} \times \mathbf{v}) + (\mathbf{u} \times \mathbf{w})$
+\item
+$\lambda (\mathbf{u} \times \mathbf{v})
+= (\lambda \mathbf{u}) \times \mathbf{v}
+= \mathbf{u} \times (\lambda \mathbf{v})$
+\end{enumerate}
+\end{theorem}
+
+There are a lot to prove, but let's start with the first one.
+
+\begin{proof}
+Note that by definition, the following equations hold.
+\begin{align*}
+    \mathbf{u} \times \mathbf{v}
+    &= (u_2v_3 - u_3v_2) \mathbf{i} - (u_1v_3 - u_3v_1) \mathbf{j}
+        + (u_1v_2 - u_2v_1) \mathbf{k} \\
+    \mathbf{v} \times \mathbf{u}
+    &= (v_2u_3 - v_3u_2) \mathbf{i} - (v_1u_3 - v_3u_1) \mathbf{j}
+        + (v_1u_2 - v_2u_1) \mathbf{k} \\
+    &= -(v_3u_2 - v_2u_3) \mathbf{i} + (v_3u_1 - v_1u_3) \mathbf{j}
+        - (v_2u_1 - v_1u_2) \mathbf{k}
+\end{align*}
+Thus, $\mathbf{u} \times \mathbf{v} =
+- (\mathbf{v} \times \mathbf{u})$.
+\end{proof}
+
+Below is the proof for the second one.
+
+\begin{proof}
+By the first property, $\mathbf{u} \times \mathbf{u} =
+- (\mathbf{u} \times \mathbf{u})$. In other words,
+$2 \mathbf{u} \times \mathbf{u} = \mathbf{0}$ and
+$\mathbf{u} \times \mathbf{u} = \mathbf{0}$.
+\end{proof}
+
+Continuing, here is the proof for the third property.
+
+\begin{proof}
+By definition, $\mathbf{u} \times \mathbf{0} = (u_2v_3 - u_3v_2)
+\mathbf{i} - (u_1v_3 - u_3v_1) \mathbf{j} + (u_1v_2 - u_2v_1)
+\mathbf{k} = 0\mathbf{i} + 0\mathbf{j} + 0\mathbf{k} = \mathbf{0}$.
+\end{proof}
+
+Below is the proof for the fourth property.
+
+\begin{proof}
+First and foremost, consider the following equation for the
+first component only.
+\begin{align*}
+    \langle 1, 0, 0 \rangle \cdot
+        (\mathbf{u} \times (\mathbf{v} + \mathbf{w}))
+    &= u_2(v_3 + w_3) - u_3(v_2 + w_2) \\
+    &= (u_2v_3 + u_2w_3) - (u_3v_2 + u_3w_2) \\
+    &= u_2v_3 - u_3v_2 + u_2w_3 - u_3w_2 \\
+    &= \langle 1, 0, 0 \rangle \cdot \mathbf{u} \times \mathbf{v}
+        + \langle 1, 0, 0 \rangle \cdot \mathbf{u} \times \mathbf{w}
+\end{align*}
+Similarly, the second and the third entry hold with analogous
+argument. Thus, the property holds.
+\end{proof}
+
+Lastly, here is the proof for the last property.
+
+\begin{proof}
+By definition, the following equations hold.
+\begin{align*}
+    k (\mathbf{u} \times \mathbf{v})
+    &= k(u_2v_3 - u_3v_2) \mathbf{i} - k(u_1v_3 - u_3v_1) \mathbf{j}
+        + k(u_1v_2 - u_2v_1) \mathbf{k} \\
+    &= ((ku_2)v_3 - (ku_3)v_2) \mathbf{i}
+        - ((ku_1)v_3 - (ku_3)v_1) \mathbf{j} \\
+        &\qquad\qquad\qquad + ((ku_1)v_2 - (ku_2)v_1) \mathbf{k} \\
+    &= (k\mathbf{u}) \mathbf{v}
+\end{align*}
+The analogous computations apply for $k (\mathbf{u} \times \mathbf{v})
+= \mathbf{u} \times (k\mathbf{v})$.
+\end{proof}
+
+Continuing, it is worth memorizing the cross product between the
+standard basis vectors.
+\[
+\mathbf{i} \times \mathbf{j} = \mathbf{k}, \quad
+\mathbf{j} \times \mathbf{k} = \mathbf{i}, \quad
+\mathbf{k} \times \mathbf{i} = \mathbf{j}
+\]
+I personally think and easy way to memorize this is through cycle.
+For cycle counter clockwise, we get a negative one.
+\[
+\mathbf{j} \times \mathbf{i} = -\mathbf{k}, \quad
+\mathbf{k} \times \mathbf{j} = -\mathbf{i}, \quad
+\mathbf{i} \times \mathbf{k} = -\mathbf{j}
+\]
+We can also notice that the cross product returns a vector
+that are orthogonal to those being crossed!
+
+\begin{important}
+Parenthesis is very important! As you can see from the standard
+basis vectors above, cross products are generally not associative.
+Meaning,
+\[
+\mathbf{u} \times (\mathbf{v} \times \mathbf{w})
+\neq (\mathbf{u} \times \mathbf{v}) \times \mathbf{w}
+\]
+is true in general and parenthesis is necessarily to avoid ambiguity.
+\end{important}
+
+However when we have a dot product and a cross product like
+$\mathbf{u} \cdot (\mathbf{v} \times \mathbf{w})$, then parenthesis
+is not necessary as the cross product is defined only between two
+three dimensional vectors. Speaking of such forms, consider the
+following theorem.
+
+\begin{theorem}{}{Cross Product Geometry 1}
+For two nonzero vectors $\mathbf{u}$ and $\mathbf{v}$ in the third
+dimension, $\mathbf{u} \cdot \mathbf{u} \times \mathbf{v}$ and
+$\mathbf{v} \cdot \mathbf{u} \times \mathbf{v}$ holds.
+\end{theorem}
+\begin{proof}
+First, let $\mathbf{u} = \langle u_1, u_2, u_3 \rangle$ and
+$\mathbf{v} = \langle v_1, v_2, v_3 \rangle$ and consider the
+following equations.
+\begin{align*}
+    \mathbf{u} \cdot \mathbf{u} \times \mathbf{v} 
+    &= \mathbf{u} \cdot \langle
+        u_2v_3 - u_3v_2, u_3v_1 - u_1v_3, u_1v_2 - u_2v_1
+    \rangle \\
+    &= u_1 (u_2v_3 - u_3v_2) + u_2 (u_3v_1 - u_1v_3)
+        + u_3 (u_1v_2 - u_2v_1) \\
+    &= u_1u_2v_3 - u_1u_3v_2 + u_2u_3v_1 - u_1u_2v_3
+        + u_1u_3v_2 - u_2u_3v_1 \\
+    &= 0
+\end{align*}
+Therefore, the first equation holds. Continuing, the following
+equations hold for the second equation by Theorem \ref{theo:Properties
+of the Cross Product}.
+\[
+\mathbf{v} \cdot \mathbf{u} \times \mathbf{v}
+= \mathbf{v} \cdot (-\mathbf{v} \times \mathbf{u})
+= - \mathbf{v} \cdot \mathbf{v} \times \mathbf{u}
+= 0
+\]
+Thus the theorem holds.
+\end{proof}
+
+From the theorem, we can notice that $\mathbf{u}$ is orthogonal
+to $\mathbf{u} \times \mathbf{v}$, which is orthogonal to
+$\mathbf{v}$. These types of operation is known as scalar
+triple product, and we will be discussing more on that soon!
+In addition to the orthogonal nature of $\mathbf{u} \times \mathbf{v}$
+and its adherence to the right-hand rule, we can also find the
+relationship between the norm of $\mathbf{u} \times \mathbf{v}$
+and $\mathbf{u}$ and $\mathbf{v}$.
+
+\begin{theorem}{}{Cross Product Geometry 2}
+For two nonzero vectors $\mathbf{u}$ and $\mathbf{v}$ in the third
+dimension with angle $\theta$, $\| \mathbf{u} \times \mathbf{v} \|
+= \| \mathbf{u} \| \| \mathbf{v} \| \sin\theta$.
+\end{theorem}
+\begin{proof}
+Let $\mathbf{u} = \langle u_1, u_2, u_3 \rangle$ and
+$\mathbf{v} = \langle v_1, v_2, v_3 \rangle$. Notice that because
+both the left-hand side and the right-hand side of the equation
+are both positive, it suffices to show that the square of each
+side equals. Consider the following equations.
+\begin{align*}
+    \| \mathbf{u} \times \mathbf{v} \|
+    &= (u_2v_3 - u_3v_2)^2 + (u_3v_1 - u_1v_3)^2
+        + (u_1v_2 - u_2v_1)^2 \\
+    &= u_2^2v_3^2 + u_3^2v_2^2 - 2u_2v_3u_3v_2
+        + u_3^2v_1^2 + u_1^2v_3^2 - 2u_3v_1u_1v_3 \\
+    &\qquad\quad+ u_1^2v_2^2 + u_2^2v_1^2 - 2u_1v_2u_2v_1 \\
+    &= u_1^2v_2^2 + u_2^2v_3^2 + u_3^2v_1^2
+        + v_1^2u_2^2 + v_2^2u_3^2 + v_3^2u_1^2 \\
+    &\qquad\quad- 2u_1u_2v_1v_2 - 2u_2u_3v_2v_3 - 2u_3u_1v_3v_1
+\end{align*}
+Continuing, the right-hand side can be rearranged as the following.
+\begin{align*}
+    &\quad\ \| \mathbf{u} \|^2 \| \mathbf{v} \|^2 \sin^2\theta \\
+    &= \| \mathbf{u} \|^2 \| \mathbf{v} \|^2
+        - \| \mathbf{u} \|^2 \| \mathbf{v} \|^2 \cos^2\theta \\
+    &= \| \mathbf{u} \|^2 \| \mathbf{v} \|^2
+        - (\mathbf{u} \times \mathbf{v})^2 \\
+    &= (u_1^2 + u_2^2 + u_3^2)(v_1^2 + v_2^2 + v_3^2)
+        - (u_1v_1 + u_2v_2 + u_3v_3)^2 \\
+    &= u_1^2v_1^2 + u_1^2v_2^2 + u_1^2v_3^2
+        + u_2^2v_1^2 + u_2^2v_2^2 + u_2^2v_3^2
+        + u_3^2v_1^2 + u_3^2v_2^2 + u_3^2v_3^2 \\
+    &\qquad - (u_1^2v_1^2 + u_2^2v_2^2 + u_3^2v_3^2)
+        - 2(u_1u_2v_1v_2 + u_2u_3v_2v_3 + u_3u_1v_3v_1) \\
+    &= u_1^2v_2^2 + u_2^2v_3^2 + u_3^2v_1^2
+        + v_1^2u_2^2 + v_2^2u_3^2 + v_3^2u_1^2 \\
+    &\qquad\quad- 2u_1u_2v_1v_2 - 2u_2u_3v_2v_3 - 2u_3u_1v_3v_1
+\end{align*}
+Thus, the theorem holds.
+\end{proof}
+
+This theorem implies that the norm of the cross product of the
+two vectors is the product of the norms of the vectors and sine of
+the angle between them. With this, we can also find another geometric
+representation of cross products.
+
+\begin{important}
+The area of the parallelogram with sides $\mathbf{u}$ and $\mathbf{v}$
+can be represented as $\| \mathbf{u} \times \mathbf{v} \|$.
+\end{important}
+
+This is somewhat simple to notice as if we consider $\mathbf{u}$
+as the base, then $\| \mathbf{v} \| \sin\theta$ is the height
+where $\theta$ is the angle between them. Therefore by Theorem
+\ref{theo:Cross Product Geometry 2}, the area of the parallelogram
+is $\| \mathbf{u} \| \| \mathbf{v} \| \sin\theta =
+\| \mathbf{u} \times \mathbf{v} \|$.
+
+Before we move on to the next section, let's wrap up our discussion
+on vectors with the scalar triple product and its geometric
+representations.
+
+\begin{definition}{}{}
+The \textbf{scalar triple product} of three vectors $\mathbf{u}$,
+$\mathbf{v}$, and $\mathbf{w}$ in 3-space is defined as
+$\mathbf{u} \cdot \mathbf{v} \times \mathbf{w}$.
+\end{definition}
+
+Notice that the output of the scalar triple product of three
+vectors is a scalar. Also, using the definition of cross products
+and dot products, we can notice that the scalar triple product
+is equivalent to the following.
+\[
+\mathbf{u} \cdot \mathbf{v} \times \mathbf{w}
+=
+\begin{bmatrix}
+    u_1 & u_2 & u_3 \\
+    v_1 & v_2 & v_3 \\
+    w_1 & w_2 & w_3
+\end{bmatrix}
+\]
+From the matrix operation above, we can notice that the following
+equations hold.
+\begin{align*}
+    \mathbf{u} \cdot \mathbf{v} \times \mathbf{w}
+    &= \begin{bmatrix}
+        u_1 & u_2 & u_3 \\
+        v_1 & v_2 & v_3 \\
+        w_1 & w_2 & w_3
+    \end{bmatrix}
+    = -\begin{bmatrix}
+        u_1 & u_2 & u_3 \\
+        w_1 & w_2 & w_3 \\
+        v_1 & v_2 & v_3
+    \end{bmatrix}
+    = \begin{bmatrix}
+        w_1 & w_2 & w_3 \\
+        u_1 & u_2 & u_3 \\
+        v_1 & v_2 & v_3
+    \end{bmatrix} \\
+    &= \mathbf{w} \cdot \mathbf{u} \times \mathbf{v}
+\end{align*}
+Therefore, we could see that $\mathbf{u} \cdot \mathbf{v} \times
+\mathbf{w} = \mathbf{w} \cdot \mathbf{u} \times \mathbf{v}$ and
+$\mathbf{w} \cdot \mathbf{u} \times \mathbf{v} = \mathbf{v} \cdot
+\mathbf{w} \times \mathbf{u}$ both holds by cycling through
+the vectors.
+
+\begin{important}
+For any vectors $\mathbf{u}, \mathbf{v}, \mathbf{w}$ in 3-space,
+the following equation holds.
+\[
+\mathbf{u} \cdot \mathbf{v} \times \mathbf{w}
+= \mathbf{v} \cdot \mathbf{w} \times \mathbf{u}
+= \mathbf{w} \cdot \mathbf{u} \times \mathbf{v}
+\]
+Moreover because $\mathbf{u} \cdot \mathbf{v} \times \mathbf{w}
+= \mathbf{w} \cdot \mathbf{u} \times \mathbf{v}
+= \mathbf{u} \times \mathbf{v} \cdot \mathbf{w}$, the following
+equation also holds.
+\[
+\mathbf{u} \cdot \mathbf{v} \times \mathbf{w}
+= \mathbf{u} \times \mathbf{v} \cdot \mathbf{w}
+\]
+\end{important}
+
+Lastly before wrapping up, let's take a look at geometric
+interpretation of the scalar triple product. First, consider
+a parallelepiped with edges $\mathbf{u}, \mathbf{v}, \mathbf{w}$.
+
+From our previous observation, we can see that the area of the
+base of the parallelepiped can be represented as $\| \mathbf{v}
+\times \mathbf{w} \|$. Moreover the height can be represented
+as $\| \mathbf{u} \| | \cos\theta |$ where $\theta$ is the
+angle between $\mathbf{u}$ and $\mathbf{v} \times \mathbf{w}$.
+Therefore, the volume can be represented as $\| \mathbf{u} \|
+| \cos\theta | \| \mathbf{v} \times \mathbf{w} \| = | \mathbf{u}
+\times \mathbf{v} \times \mathbf{w} |$. Continuing with this
+idea, we can establish an important theorem.
+
+\begin{theorem}{}{Scalar Triple Product and Coplanar}
+$\mathbf{u}, \mathbf{v}, \mathbf{w}$ are coplanar if and only
+if $\mathbf{u} \cdot \mathbf{v} \times \mathbf{w} = 0$.
+\end{theorem}
+\begin{proof}
+From the previous observation on the relationship between
+the scalar triple product and the volume of the parallelepiped
+with the edges $\mathbf{u}, \mathbf{v}, \mathbf{w}$, it is
+evident that the volume equals zero if and only if
+$\mathbf{u} \cdot \mathbf{v} \times \mathbf{w} = 0$. Moreover,
+the volume equals zero if and only if the vectors are coplanar.
+\end{proof}
+
+This is it for the vector section! There were lots of topics and
+geometric interpretations of vectors that were not included in the
+notes for linear algebra. In our next section, we will continue
+our discussion through more extensions of geometric representations
+of vectors.
+
+\end{document}
+
+

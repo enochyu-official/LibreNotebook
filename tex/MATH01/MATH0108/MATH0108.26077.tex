@@ -1,0 +1,176 @@
+\documentclass[../../../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Infinite Descent}
+
+Infinite descent is a powerful proving tool in number theory that
+is used very frequently. Many, if not most, problems on Diophantine
+equations are proven with infinite descent and it has wide range
+of applications from showing that there are no solutions under
+a certain condition and finding solutions to advance techniques
+like Vieta jumping.
+
+Before we get started with how this technique works, we need to
+discuss the foundational principle that infinite descent builds
+up on. Consider the following principle.
+
+\begin{theorem}{}{}
+The \textbf{well-ordering principle} states that there always
+exists a least element in an non-empty set of positive integers.
+\end{theorem}
+
+In olympiad, we take the principle above as an axiom and does not
+require a proof. Meaning, we can just use ``by well-ordering
+principle...'' when we prove by infinite descent.
+
+The well-ordering principle is foundational for infinite descent
+because it allows us to have contradiction. Here is what I mean.
+When we prove with infinite descent, we assume that there exists
+a minimum value in a set. The minimum value could be a number,
+sum, and much more depending on the problem. Also, note that we
+can assume this because our interests only lies on positive
+integers and there cannot be a ``least element'' for rational
+and reals. Then, we will infinitely descend, eventually getting
+contradiction with our assumption. This is quite hard to understand
+without an example, so let's take a look at very famous example
+before formally stating the method described.
+
+\begin{problem}{Classic Problem}{}
+Show that the equation $x^3 + 2y^3 = 4z^3$ does not have any
+solutions in positive integers.
+\end{problem}
+(\href{https://youtu.be/UJR56wT0NIM}{Video Solution})
+\begin{solution}
+For the sake of contradiction, assume that there exists positive
+integer solutions to the equation and let $(a, b, c)$ be the
+solution with the least $a$ by well-ordering principle.
+Consider the following congruence.
+\[
+x^3 + 2y^3 \equiv 4z^3 \equiv 0 \pmod{2}
+\]
+Therefore, $2 \mid x$. Let $x'$ be an integer such that $x = 2x'$.
+Substituting, $8x'^3 + 2y^3 = 4z^3$ and $4x'^3 + y^3 = 2z^3$ are
+obtained. By the similar argument, it is evident that $2 \mid y$
+and $y = 2y'$ for some integer $y'$. Substituting again,
+$4x'^3 + 8y'^3 = 2z^3$ and $2x'^3 + 4y'^3 = z^3$. Therefore,
+$2 \mid z$ and there exists some positive integer $z'$ such that
+$z = 2z'$. Continuing with the final substitution,
+$2x'^3 + 4y'^3 = 8z'^3$ and $x'^3 + 2y'^3 = 4z'^3$ are obtained.
+In other words, if $(x, y, z)$ is a solution, $(x', y', z')$ is
+also a solution to the equation.
+
+Note that $(a, b, c)$ is assumed to be a solution with the least $a$.
+Therefore, $(\frac{a}{2}, \frac{b}{2}, \frac{c}{2})$ is also a
+solution to the equation. Because $\frac{a}{2} < a$, there is no
+positive integer solutions to the equation.
+\end{solution}
+
+As you can see from the example above, we assume the minimum
+and show that the infinite descent contradicts with our assumption.
+
+\begin{definition}{}{}
+The \textbf{proof by infinite descent} is a technique that shows
+contradiction through infinitely descending sequence. Assume that
+there exists a solution with minimum condition by well-ordering
+principle. Then, construct a strictly and infinitely descending
+sequence. The proof completes by contradiction.
+\end{definition}
+
+We can expand our idea to see how we can use Pythagorean triples
+discussed earlier and infinite descent together to solve problems.
+
+\begin{problem}{}{}
+INFINTE DSCENT AND PYTA
+\end{problem}
+
+Infinite descent have wide range of applications, and we can
+extend its application with Vieta's formulas.
+
+\subsection{Vieta Jumping}
+
+Vieta jumping is a technique that has been formally introduced
+with the famous problem 1988 IMO Problem 6. Now it is a very
+standard and common technique, but back then, it was one of the
+revolutionary technique.
+
+The basic idea is to write a given equation as a quadratic
+equation with respect to a specific variable, then use the
+Vieta's formula to apply infinite descent. To see what I mean,
+let's actually solve 1988 IMO Problem 6 together to see how it
+works. Also, don't worry! It is often framed as one of the
+hardest IMO problems ever, but it is not too difficult when you
+understand the solution. Of course the problem is very difficult
+because Vieta jumping wasn't really a thing back then, if you
+understood the contents in this section, you would be surprised
+to see how satisfying this problem is!
+
+\begin{problem}{1988 IMO Problem 6}{1988 IMO Problem 6}
+Show that for positive integers $a$ and $b$, if
+$\frac{a^2 + b^2}{ab + 1}$ is an integer, then it is a perfect
+square.
+\end{problem}
+(\href{https://youtu.be/rU1e7ttQmh4}{Video Solution})
+\begin{solution}
+Let $\frac{a^2 + b^2}{ab + 1} = k$ for some integer $k$ and let
+$a > b$ without loss of generality. Assume for the sake of
+contradiction that $k$ is not the square of an integer.
+Rearranging the equation, $a^2 + b^2 = abk + k$ holds and the
+following quadratic equation can be written with respect to $a$.
+\[
+a^2 - bka + b^2 - k = 0
+\]
+Using Vieta's formulas, the other root $a'$ of the equation satisfy
+the following equation if $a$ is a root of the equation.
+\[
+a'
+= bk - a
+= \frac{b^2 - k}{a}
+\]
+Assume by well-ordering principle that $(a, b)$ is a root of the
+equation with least $a + b$. Therefore, it suffices to show that
+$a' + b < a + b$ and that $a'$ is a positive integer.
+
+First, consider the following inequality for showing that
+$a' + b < a + b$.
+\[
+a'
+= \frac{b^2 - k}{a}
+< \frac{b^2}{a}
+< \frac{b^2}{a}
+= a
+\]
+Therefore, $a' < a$ and $a' + b < a + b$. Continuing, we can show
+that $a'$ is always a positive integer. By construction, the following
+equation holds.
+\[
+a'^2 - bka' + b^2 - k = 0
+\]
+Rearranging the equation, $a'^2 + b^2 = bka' + k$. Assume for the
+sake of contradiction that $a' < 0$. Notice that the left-hand
+side is positive while the right-hand side $bka' + k = k(ba' + 1) \leq
+k(1 - b) \leq 0$. The inequality contradicts with the condition
+$bka' + k > 0$ given by the left-hand side. Continuing, if $a' = 0$,
+then $b^2 = k$ and this contradicts with the fact that $k$ is not
+a perfect square. Thus, $\frac{a^2 + b^2}{ab + 1}$ is always a
+perfect square if the value is an integer for positive integers
+$a$ and $b$.
+\end{solution}
+
+As you can see from the method above, this is pretty simple when
+we know what Vieta jumping is! Honestly I am not a huge fan of
+the term Vieta jumping because it is infinite descent plus
+Vieta's formulas, but I think the term Vieta jumping made it
+more intuitive to be used in other type of problems because other
+problems can also require jumping from one root to the another
+using Vieta's formulas.
+
+This is it for this section! Infinite descent is vary popular
+specially in Diophantine equations, and whenever you see
+lots of squares in the given equation, it is worth considering
+Vieta jumping. In the next section, we will be discussing another
+very popular topic in Diophantine equations Pell's equations.
+
+\end{document}
+
+

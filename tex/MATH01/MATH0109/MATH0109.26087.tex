@@ -1,0 +1,135 @@
+\documentclass[../../../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Algebra}
+
+Continuing from the review on definitions and notations,
+let's discuss some foundational knowledge in algebra that we learn
+from competition math. I intend to keep this section short because
+many of the topics reappear in olympiad style problems, and I think
+we can discuss the generalization of the topics in latter notes.
+In this section particular, let's discuss polynoimal expansion.
+
+Before discussing binomial theorem, here is one notation to keep
+in mind. I think many of us initially learn the notation for
+combination as ${}_nC_k$. However in our notes, let's use the
+standard notation $\binom{n}{k}$ as they are used for olympiad and
+higher level math. Below is an important theorem to keep in mind for
+our future proof.
+
+\begin{theorem}{Pascal's Identity}{Pascal's Identity}
+For positive integers $n > k$, the following equations hold.
+\[
+\binom{n}{k} = \binom{n-1}{k} + \binom{n-1}{k-1}
+\]
+\end{theorem}
+
+There are few ways to prove this identity with easiest being drawing
+Pascal's triangle in my opinion. However besides the visual proof,
+here are two very famous proofs. In our first proof, we will be
+approaching this problem with combinatoric ideas.
+
+\begin{proof}
+Assume that we are selecting $k$ leaders from $n$ people. You being
+one of the people, there are two possibilities. In the first case,
+you are the leader and the number of cases of choosing the rest of
+the leaders is $\binom{n-1}{k-1}$. In the second case, you are not
+a leader and there are $\binom{n-1}{k}$ number of cases of choosing
+the remaining leaders. Therefore, $\binom{n}{k} = \binom{n-1}{k} +
+\binom{n-1}{k-1}$.
+\end{proof}
+
+This was the first proof using combinatoric idea, and here is a proof
+with a more algebraic approach.
+
+\begin{proof}
+Consider the following equations.
+\begin{align*}
+    \binom{n}{k}
+    &= \frac{n!}{k! (n-k)!}
+    = \frac{(n-1)! (n-k) + (n-1)! k}{k! (n-k)!} \\
+    &= \frac{(n-1)!}{k! (n-k-1)!} + \frac{(n-1)!}{(k-1)! (n-k)!}
+    = \binom{n-1}{k} + \binom{n-1}{k-1}
+\end{align*}
+Therefore, the identity holds.
+\end{proof}
+
+Personally, I prefer the first proof than the second one because it
+feels more intuitive and second proof feels like a fallback just in
+case I cannot think of combinatoric approach to an algebra problem,
+but I think it depends on you!
+
+Okay, with this in mind, let's discuss Binomial Theorem. I wanted to
+discuss this because for some reason, it quite appears a lot in
+unexpected problems and places like inequality and algebraic
+combinatorics.
+
+\begin{theorem}{Binomial Theorem}{Binomial Theorem}
+For nonnegative integer $n$, the expansion of the term $(x + y)^n$
+can be represented as the following.
+\[
+(x + y)^n = \sum_{k=0}^n \binom{n}{k} x^k y^{n-k}
+\]
+\end{theorem}
+
+Again there are few different ways to prove this, and let's prove this
+using two different ways.
+
+\begin{proof}
+Consider the term $x^k y^{n-k}$ for some appropriate integer $k$.
+Notice that the number of such combination equals number of different
+ways of choosing $k$ number of $(x + y)$ in $(x + y)^n$.
+Therefore for all $x^k y^{n-k}$, their coefficient is $\binom{n}{k}$.
+In other words, $(x + y)^n = \sum_{k=0}^n \binom{n}{k} x^k y^{n-k}$.
+\end{proof}
+
+Continuing with this combinatoric approach, here is another one using
+induction.
+
+\begin{proof}
+First, notice that $x + y = \binom{1}{0} x + \binom{1}{1} y$.
+Therefore, it suffices to show that the equation holds for $n + 1$
+assuming that is holds for $n$. Consider the following equations.
+\begin{align*}
+    (x + y)^n (x + y)
+    &= \left( \sum_{k=0}^n \binom{n}{k} x^k y^{n-k} \right) (x + y) \\
+    &= \sum_{k=0}^n \left(
+        \binom{n}{k} x^{k+1} y^{n-k} + \binom{n}{k} x^k y^{n-k+1}
+    \right)
+\end{align*}
+Rewriting the terms, the following equation holds by Pascal's
+Identity.
+\begin{align*}
+    (x + y)^n (x + y)
+    &=\ \textcolor{Red}{\binom{n}{0} xy^n} + \binom{n}{0} y^{n+1} \\
+    &\ \,+ \textcolor{Blue}{\binom{n}{1} x^2y^{n-1}} +
+        \textcolor{Red}{\binom{n}{1} xy^n} \\
+    &\ \,+ \binom{n}{2} x^3y^{n-2} +
+        \textcolor{Blue}{\binom{n}{2} x^2y^{n-1}} \\
+    &\qquad\vdots \\
+    &=\ \binom{n}{n} x^{n+1} + \binom{n}{n} x^ny \\
+    &= \binom{n}{0} y^{n+1} + \binom{n}{n} x^{n+1}
+        + \sum_{k=1}^{n} \binom{n+1}{k} x^k y^{n+1-k} \\
+    &= \sum_{k=0}^{n+1} \binom{n+1}{k} x^k y^{n+1-k}
+\end{align*}
+Therefore, the theorem holds.
+\end{proof}
+
+For this theorem too, I personally prefer the first method because
+I think it is more intuitive and the second method of using induction
+can works as a fallback. However, both proofs are both great,
+and I think the choice depends on you!
+
+This was a very short review of algebra that we learn from
+competition math. Unlike geometry and number theory that requires
+strong background understandings of topics from competition math,
+I think algebra is one of those fields that are very different
+when it comes to olympiad-style proof-based problems because there
+are so many new topics that were not covered in competition math.
+Although this section was short, we will discuss much in-depth in
+future notes! For now, let's review some key properties from geometry.
+
+\end{document}
+
+

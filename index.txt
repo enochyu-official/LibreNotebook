@@ -11,6 +11,8 @@ MATH03         | Multivariable Calculus
 
 CS01           | Machine Learning
 CS02           | Competitive Programming
+
+MISC01         | Appendix
 ----------------------------------------------------------------------
 
 
@@ -46,6 +48,8 @@ CS0107         | Further Resources
 
 CS0201         | C++ Basics
 CS0202         | Foundations
+
+MISC0101       | Bibliography
 ----------------------------------------------------------------------
 
 
@@ -75,7 +79,7 @@ Section III. Sections
 
 0.0 |   CS0106.26021 | AI Safety
 0.7 |   CS0107.26022 | Further Resources
-0.8 | MATH0102.26023 | Desargues' Theorem
+0.8 | MATH0102.26023 | Fundamental Theorems
 === | MATH0200.26024 | INIT
 === | MATH0201.26025 | Basic Terms and Notations
 === | MATH0201.26026 | Fundamental Properties
@@ -145,6 +149,10 @@ Section III. Sections
 0.1 | MATH0103.26084 | Homothety
 0.0 | MATH0110.26085 | Primitive Root Modulo $n$
 === | MATH0301.26086 | Cylindrical and Spherical Coordinates
+=== | MATH0109.26087 | Algebra
+=== | MISC0101.26088 | Bibliography
+0.1 | MATH0109.26089 | Geometry
+0.0 | MATH0103.26090 | Isogonal Conjugate
 ----------------------------------------------------------------------
 
 END OF INDEX
