@@ -63,10 +63,8 @@ As you have noticed, benchmarking and reasoning is a giant
 hurdle for many LLMs. Modern engineers classify reasoning
 as another section in post-training to improve a model's logic.
 
-\subsubsection{Prompting}
-
 One of the most effective way to improve LLM reasoning is
-to use prompting strategies.
+to use \textbf{prompting strategies}.
 
 \begin{definition}{}{}
 One technique is \textbf{K-shot prompting} where you provide
@@ -78,57 +76,63 @@ prompting}}. This strategy explicitly tells a model to break
 a complex reasoning tasks into intermediate steps. 
 \end{definition}
 
-\newpage
-
 Let's take a look at an example on how K-shot prompting and
 CoT prompting work together.
 
-\begin{example}[Model Input]
+\begin{basicbox}
 \textbf{Instruction:}
+\vspace{0.3\baselineskip}
 
 Consider the following examples to provide a response to the
 final equation. Provide a step by step explanation for your
 answer as demonstrated in the samples.
+\vspace{0.4\baselineskip}
 
 \textbf{Example 1:}
+\vspace{0.3\baselineskip}
 
 Q: Henry the dog loves tomatoes. He originally had $5$ tomatoes.
 Henry ate $3$ of them, and sneaked into the owner's yard to
 secretly bring $4$ more. How many tomatoes does Henry have now?
+\vspace{0.2\baselineskip}
 
 A: Henry started with $5$, but ate $3$. Therefore, he has
 $5 - 3 = 2$ tomatoes left. Because he brought 4 more from the
 owner's yard, he now has $2 + 4 = 6$ tomatoes. Henry has $6$
 tomatoes now.
+\vspace{0.4\baselineskip}
 
 \textbf{Example 2:}
-
+\vspace{0.3\baselineskip}
 Q: Bob the yak loves burgers. One day, his lizard friend Sofia
 told him that she can bring three boxes of burgers than contain
 2 burgers each. Bob instantly pleaded Sofia, and he received the
 boxes. Out of hunger, he ate three burgers. How many burgers
 does he have now?
+\vspace{0.2\baselineskip}
 
 A: It is assumed that Bob does not have any burgers before the
 interaction with Sofia. With Sofia's virtue, Bob now has
 $2 \cdot 3 = 6$ burgers. Because he ate three burgers from
 six in total, Bob now has $6 - 3 = 3$ burgers left.
+\vspace{0.4\baselineskip}
 
 \textbf{Question:}
+\vspace{0.3\baselineskip}
 
 Charlotte the cat has five close friends. She wishes to split
 her $120 \text{ kg}$ tuna equally with her friends. After the
 allocation, Charlotte ate $4 \text{ kg}$ of tuna. How much
 tuna in kg does Charlotte have left?
-\end{example}
+\end{basicbox}
 
-\begin{example}[Model Output]
+\begin{outputbox}
 Charlotte initially has $120 \text{ kg}$ of tuna. Because she
 split it with her friends, she has $\frac{120}{5 + 1} = 20
 \text{ kg}$ of tuna after the allocation. Since Charlotte ate
 $4 \text{ kg}$ of tuna from $20 \text{ kg}$, she now has
 $20 - 4 = 16 \text{ kg}$ of tuna.
-\end{example}
+\end{outputbox}
 
 As demonstrated, CoT has the potential to increase reasoning
 of LLMs. However, it is important to note that although performance
@@ -142,8 +146,6 @@ sometimes ``lie''. What I mean to lie is that some models tend
 to provide a ``plausible CoT'' without actually providing one.
 This is more related to AI safety, and let's save that for final
 notes.
-
-\subsubsection{Self-Consistency}
 
 Another technique that could improve reasoning and performance
 is \textbf{self-consistency}.

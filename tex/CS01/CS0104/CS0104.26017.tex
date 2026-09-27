@@ -46,12 +46,10 @@ as it will adhere to the following structure.
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}[
-    box/.style={rectangle, draw, thick,
-                minimum height=0.8cm},
+    box/.style={rectangle, draw, thick,minimum height=0.8cm},
     arrow/.style={->, thick, >=stealth},
     scale=0.8
 ]
-
     \node[box, fill=CadetBlue!20] at (0, 0) (input)
         {\scriptsize Single Input};
     \node[box, fill=Lavender!30] at (4, 0) (mse)
@@ -64,7 +62,7 @@ as it will adhere to the following structure.
     \draw[arrow] (input) -- (mse);
     \draw[arrow] (mse) -- (backprop);
     \draw[arrow] (backprop) -- (update);
-    \draw[arrow, bend left=20] (update) to (forward);
+    \draw[arrow, bend left=20] (update) to (input);
 \end{tikzpicture}
 \caption{Overview of the Simple Learning Engine}
 \end{figure}

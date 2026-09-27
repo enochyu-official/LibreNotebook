@@ -5,6 +5,7 @@
 % Boxes
 \usepackage{tcolorbox}
 \tcbuselibrary{theorems,breakable}
+\tcbset{shield externalize}
 \newcounter{boxcounter}[section]
 \renewcommand{\theboxcounter}{\thesection.\arabic{boxcounter}}
 
@@ -131,42 +132,6 @@
     skipabove=\medskipamount,
     fontcolor=BrickRed
 ]{important}
-
-
-
-% Example
-\NewDocumentEnvironment{example}{o}
-{
- \IfValueT{#1}{\vspace{11pt}}
- \begin{mdframed}[
-    linecolor=CadetBlue,
-    linewidth=1pt,
-    skipabove=\medskipamount,
-    skipbelow=\medskipamount,
-    backgroundcolor=cyan!5,
-    innertopmargin=10pt,
-    innerbottommargin=10pt,
-    innerleftmargin=10pt,
-    innerrightmargin=10pt
- ]
- \IfValueT{#1}{%
-    \vspace{-11pt}%
-    \noindent
-    \begin{tikzpicture}[remember picture, overlay]
-        \node[
-            draw=CadetBlue,
-            line width=1pt,
-            fill=cyan!5,
-            text=Sepia,
-            font=\bfseries\small,
-            anchor=west,
-            xshift=2pt
-        ] {\,\strut #1\,};
-    \end{tikzpicture}\par
-    \vspace{5pt}%
- }%
-}
-{\end{mdframed}}
 
 
 % Code

@@ -109,8 +109,43 @@ $a_i = \lambda b_i$ for all $1 \leq i \leq n$.
 \subsection{Symmetric and Cyclic Inequalities}
 * Newton's Inequality
 * Maclaurin's Inequality
-* Nesbitt's Inequality
 * Popoviciu's Inequality
+
+Nesbitt's inequality can be considered as the direct consequence
+of Cauchy inequality.
+
+\begin{theorem}{Nesbitt's Inequality}{Nesbitt's Inequality}
+For arbitrary $a, b, c > 0$, the following inequality holds.
+\[
+\sum_\text{cyc} \frac{a}{b + c} \geq \frac{3}{2}
+\]
+\end{theorem}
+\begin{proof}
+Consider the following inequality by Cauchy inequality.
+\begin{align*}
+    \left( (a + b) + (b + c) + (c + a) \right) &\left(
+        \frac{1}{a + b} + \frac{1}{b + c} + \frac{1}{c + a}
+    \right) \\
+    &\qquad\qquad\qquad\quad
+    \geq (1 + 1 + 1)^2
+    = 9
+\end{align*}
+Therefore, the following inequalities hold.
+\begin{align*}
+    &\quad\,\ 2 \left(
+        \frac{a + b + c}{a + b} + \frac{a + b + c}{b + c}
+            + \frac{a + b + c}{c + a}
+    \right) \\
+    &= 2 \left(
+        \frac{c}{a + b} + \frac{a}{b + c} + \frac{b}{c + a} + 3
+    \right)
+    \geq 9
+\end{align*}
+Thus, the inequality holds.
+\end{proof}
+
+Nesbitt's inequality is less frequently used than other inequalities,
+but when applied, it can be a very powerful inequality.
 
 
 

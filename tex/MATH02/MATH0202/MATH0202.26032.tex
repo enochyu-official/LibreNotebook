@@ -245,55 +245,58 @@ A =
 \end{bmatrix}
 \]
 Below are a few example of submatrices of $A$.
+\begingroup
+\tikzexternaldisable
 \begin{align*}
-A =
-\begin{bmatrix}
-    \tikzmarknode{a11}{1} &
-    \tikzmarknode{a12}{2} &
-    \tikzmarknode{a13}{3} \\
-    \tikzmarknode{a21}{4} &
-    \tikzmarknode{a22}{5} &
-    \tikzmarknode{a23}{6} \\
-    \tikzmarknode{a31}{7} &
-    \tikzmarknode{a32}{8} &
-    \tikzmarknode{a33}{9}
-\end{bmatrix}
-\begin{tikzpicture}[
-        overlay, remember picture,
-        arrow/.style = {-, very thick, opacity=0.7}
-    ]
-    \draw[arrow, Red] (a21.west)  -- (a23.east);
-\end{tikzpicture}
-&\rightarrow
-\begin{bmatrix}
-    1 & 2 & 3 \\
-    7 & 8 & 9
-\end{bmatrix} \\
-A =
-\begin{bmatrix}
-    \tikzmarknode{a11}{1} &
-    \tikzmarknode{a12}{2} &
-    \tikzmarknode{a13}{3} \\
-    \tikzmarknode{a21}{4} &
-    \tikzmarknode{a22}{5} &
-    \tikzmarknode{a23}{6} \\
-    \tikzmarknode{a31}{7} &
-    \tikzmarknode{a32}{8} &
-    \tikzmarknode{a33}{9}
-\end{bmatrix}
-\begin{tikzpicture}[
-        overlay, remember picture,
-        arrow/.style = {-, very thick, opacity=0.7}
-    ]
-    \draw[arrow, Red] (a11.west) -- (a13.east);
-    \draw[arrow, Red] (a31.west) -- (a33.east);
-    \draw[arrow, Red] (a12.north) -- (a32.south);
-\end{tikzpicture}
-&\rightarrow
-\begin{bmatrix}
-    4 & 6
-\end{bmatrix}
+    A =
+    \begin{bmatrix}
+        \tikzmarknode{a11}{1} &
+        \tikzmarknode{a12}{2} &
+        \tikzmarknode{a13}{3} \\
+        \tikzmarknode{a21}{4} &
+        \tikzmarknode{a22}{5} &
+        \tikzmarknode{a23}{6} \\
+        \tikzmarknode{a31}{7} &
+        \tikzmarknode{a32}{8} &
+        \tikzmarknode{a33}{9}
+    \end{bmatrix}
+    \begin{tikzpicture}[
+            overlay, remember picture,
+            arrow/.style = {-, very thick, opacity=0.7}
+        ]
+        \draw[arrow, Red] (a21.west)  -- (a23.east);
+    \end{tikzpicture}
+    &\rightarrow
+    \begin{bmatrix}
+        1 & 2 & 3 \\
+        7 & 8 & 9
+    \end{bmatrix} \\
+    A =
+    \begin{bmatrix}
+        \tikzmarknode{a11}{1} &
+        \tikzmarknode{a12}{2} &
+        \tikzmarknode{a13}{3} \\
+        \tikzmarknode{a21}{4} &
+        \tikzmarknode{a22}{5} &
+        \tikzmarknode{a23}{6} \\
+        \tikzmarknode{a31}{7} &
+        \tikzmarknode{a32}{8} &
+        \tikzmarknode{a33}{9}
+    \end{bmatrix}
+    \begin{tikzpicture}[
+            overlay, remember picture,
+            arrow/.style = {-, very thick, opacity=0.7}
+        ]
+        \draw[arrow, Red] (a11.west) -- (a13.east);
+        \draw[arrow, Red] (a31.west) -- (a33.east);
+        \draw[arrow, Red] (a12.north) -- (a32.south);
+    \end{tikzpicture}
+    &\rightarrow
+    \begin{bmatrix}
+        4 & 6
+    \end{bmatrix}
 \end{align*}
+\endgroup
 
 \begin{definition}{}{}
 We say the matrix is \textbf{partitioned} if horizontal and vertical
