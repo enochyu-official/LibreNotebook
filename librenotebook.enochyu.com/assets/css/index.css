@@ -1,0 +1,102 @@
+#index-profile {
+  padding-top: 2rem;
+}
+
+#index-title {
+  margin-bottom: 1.5rem;
+}
+#index-title h1 {
+  font-size: 4rem;
+  text-align: center;
+  color: var(--accent-color1);
+  margin: 0;
+  margin-top: 3rem;
+  margin-bottom: 1.2rem;
+}
+#index-title h2 {
+  font-size: 1.8rem;
+  font-weight: 500;
+  text-align: center;
+  margin: 0;
+  margin-bottom: 8rem;
+  font-style: italic;
+}
+#index-title h3 {
+  font-size: 1.2rem;
+  margin: 0;
+  font-weight: 500;
+}
+
+#index-title h3 a {
+  font-size: 1.1rem;
+  color: blue;
+  margin: 0;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+
+.social-icons a {
+  color: inherit;
+  font-size: 1.1rem;
+  margin: 0 0.5rem;
+  margin-left: 0;
+  transition: transform 0.3s;
+  display: inline-block;
+}
+
+.social-icons a:hover {
+  transform: translateY(-3px);
+}
+
+#index-stat {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 8rem;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  color: var(--accent-color1);
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.index-stat-num {
+  font-size: 3rem;
+}
+
+#index-profile p {
+  font-size: 1.1rem;
+}
+
+
+#index-contents {
+  margin-top: 3rem;
+}
+
+#index-contents h2 {
+  font-size: 2.8rem;
+  margin: 0;
+  margin-bottom: 4rem;
+  margin-top: 4rem;
+  text-align: center;
+  font-weight: 400;
+}
+
+#index-contents h3 {
+  font-size: 1.4rem;
+  color: var(--accent-color1);
+  margin: 0;
+  margin-bottom: 0.5rem;
+  margin-top: 2.1rem;
+}
+
+#index-contents ul a {
+  margin: 0;
+  font-size: 1.1rem;
+  color: blue;
+  text-decoration: none;
+}
+
+

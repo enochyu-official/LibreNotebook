@@ -1,0 +1,22 @@
+baseURL = 'https://librenotebook.enochyu.com/'
+title = 'LibreNotebook'
+locale = 'en-us'
+
+enableRobotsTXT = true
+disableKinds = ["section", "taxonomy"]
+
+[params]
+author = "Enoch Yu"
+  favicon = "/favicon/favicon.ico"
+  [params.social]
+    website = "https://enochyu.com/"
+    youtube = "https://www.youtube.com/@enochyu_official"
+    github = "https://github.com/enochyu-official"
+    blog = "https://blog.enochyu.com/"
+    archive = "https://archive.enochyu.com/"
+
+[security]
+  allowContent = ['^text/html$']
+
+
+

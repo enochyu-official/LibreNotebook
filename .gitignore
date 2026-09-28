@@ -1,6 +1,16 @@
+.DS_Store
+
+# LibreNotebook
 build/
 .ipynb_checkpoints/
 .venv/
 out
-librenotebook.enochyu.com/
+
+# librenotebook.enochyu.com
+.hugo_build.lock
+.wrangler
+node_modules/
+
+public/
+
 

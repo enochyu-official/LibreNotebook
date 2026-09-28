@@ -1,0 +1,12 @@
+{{ define "main" }}
+<section class="tocHigh">
+  {{ partial "tocHigh.html" . }}
+</section>
+<section class="mainNote">
+  {{ .Content }}
+</section>
+<section class="tocLow">
+  {{ partial "tocLow.html" . }}
+</section>
+{{ end }}
+

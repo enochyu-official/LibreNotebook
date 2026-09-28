@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="{{ .Language.Params.locale | default "en" }}">
+<head>
+  {{ partial "head.html" . }}
+</head>
+<body>
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
+  
+  {{ partial "footer.html" . }}
+  
+  {{ $script := resources.Get "js/script.js" }}
+  <script src="{{ $script.RelPermalink }}"></script>
+  {{ $counter := resources.Get "js/counter.js" }}
+  <script src="{{ $counter.Permalink }}"></script>
+</body>
+</html>
+

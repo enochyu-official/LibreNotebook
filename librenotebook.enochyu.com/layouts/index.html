@@ -1,0 +1,110 @@
+{{ define "main" }}
+<section id="index-profile">
+  <hr>
+  <hr>
+  <div id="index-title">
+    <h1>LibreNotebook</h1>
+    <h2>A Giant Notebook</h2>
+    <h3>Author: Enoch Yu
+      {{ with .Site.Params.social.website }}
+      (<a href="{{ . }}" target="_blank" rel="noopener"
+         aria-label="Personal Website">Website</a>,
+      {{ end }}
+
+      {{ with .Site.Params.social.youtube }}
+      <a href="{{ . }}" target="_blank" rel="noopener"
+         aria-label="YouTube">YouTube</a>,
+      {{ end }}
+
+      {{ with .Site.Params.social.github }}
+      <a href="{{ . }}" target="_blank" rel="noopener"
+         aria-label="GitHub">GitHub</a>,
+      {{ end }}
+
+      {{ with .Site.Params.social.blog }}
+      <a href="{{ . }}" target="_blank" rel="noopener"
+         aria-label="Blog">Blog</a>)
+      {{ end }}
+    </h3>
+    <h3>License: CC-BY-SA-4.0</h3>
+    <h3>Last Updated:</h3>
+  </div>
+  <hr>
+
+  <div id="index-stat">
+    <div>
+      <div class="index-stat-num" id="view-count">0</div>
+      <div>Visits</div>
+    </div>
+    <div>
+      {{ with partialCached "githubstars.html" . }}
+      <div class="index-stat-num">{{ .stargazers_count }}</div>
+      <div>GitHub Stars</div>
+      {{ end }}
+    </div>
+  </div>
+
+  <p>
+  LibreNotebook is a giant and free personal notebook.
+  The purpose is to inspire and accelerate open education
+  as a way of returning the blessings that I received from
+  public resources.
+  <br>
+  <br>
+  The PDF version of LibreNotebook is also available.
+  <br>
+  <br>
+  Join LibreNotebook on GitHub.
+  </p>
+  <br>
+  <hr>
+  <hr>
+</section>
+
+<section id="index-contents">
+  <h2>LibreNotebook</h2>
+  <ul>
+    <li>Preface</li>
+    <ul>
+      <li>About the Book</li>
+      <li>Purpose and Motivation</li>
+      <li>Contributing</li>
+      <li>About the Author</li>
+    </ul>
+  </ul>
+
+  <h3>Part 1: Math Olympiad</h3>
+  <ul>
+    <li>Introducing the Notes</li>
+    <li>Prerequisites</li>
+    <ul>
+      <li>Definitions and Notations</li>
+    </ul>
+  </ul>
+
+  <h3>Part 2: Linear Algebra</h3>
+  <ul>
+    <li>Note 1</li>
+    <li>Note 2</li>
+  </ul>
+
+  <h3>Part 3: Multivariable Calculus</h3>
+  <ul>
+    <li>Note 1</li>
+    <li>Note 2</li>
+  </ul>
+
+  <h3>Part 4: Machine Learning</h3>
+  <ul>
+    <li>Note 1</li>
+    <li>Note 2</li>
+  </ul>
+
+  <h3>Part 5: Competitive Programming</h3>
+  <ul>
+    <li>Note 1</li>
+    <li>Note 2</li>
+  </ul>
+</section>
+{{ end }}
+

@@ -1,0 +1,44 @@
+:root {
+  --bg-color: #FDFCFA;
+  --primary-color: #1C1C1E;
+  --secondary-color: #1A1110;
+  --accent-color1: #880808;
+  --accent-color2: #002147;
+  --text-light: #f5f5f5;
+  --text-dark: #1B1212;
+  --transition: all 0.3s ease;
+}
+
+body {
+/*
+  background-color: Canvas;
+  color: CanvasText;
+  color-scheme: light dark;
+*/
+  background-color: #FEFCF5;
+  width: 45vw;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+/*
+  font-family: 'Times New Roman', Times, serif;
+  line-height: 1.6;
+  color: var(--text-dark);
+  background-color: var(--bg-color);
+*/
+}
+
+p, h1, h2, h3, h4, a, span {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.footer {
+  text-align: center;
+  padding: 1.7rem;
+  margin-top: 1.8rem;
+  margin-bottom: 1.2rem;
+}
+
+
