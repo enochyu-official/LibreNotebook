@@ -18,13 +18,14 @@
   font-weight: 500;
   text-align: center;
   margin: 0;
-  margin-bottom: 8rem;
+  margin-bottom: 5rem;
   font-style: italic;
 }
 #index-title h3 {
   font-size: 1.2rem;
   margin: 0;
   font-weight: 500;
+  margin-bottom: 0.1rem;
 }
 
 #index-title h3 a {
@@ -36,25 +37,12 @@
 }
 
 
-.social-icons a {
-  color: inherit;
-  font-size: 1.1rem;
-  margin: 0 0.5rem;
-  margin-left: 0;
-  transition: transform 0.3s;
-  display: inline-block;
-}
-
-.social-icons a:hover {
-  transform: translateY(-3px);
-}
-
 #index-stat {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  gap: 8rem;
+  gap: 6rem;
   margin: 0 auto;
   font-size: 1.2rem;
   color: var(--accent-color1);
@@ -64,10 +52,29 @@
 
 .index-stat-num {
   font-size: 3rem;
+  font-weight: bold;
 }
 
+#index-stat a {
+  color: var(--accent-color1);
+  font-size: 3rem;
+  transition: transform 0.3s;
+}
+#index-stat a:hover {
+  transform: translateY(-3px);
+}
+
+
 #index-profile p {
+  margin-top: 1.5rem;
   font-size: 1.1rem;
+}
+#intropara {
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+  padding-left: 5.5rem;
+  padding-right: 5.5rem;
+  text-align: justify;
 }
 
 
@@ -85,18 +92,60 @@
 }
 
 #index-contents h3 {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   color: var(--accent-color1);
   margin: 0;
   margin-bottom: 0.5rem;
-  margin-top: 2.1rem;
+  margin-top: 2rem;
 }
 
+#index-contents ul {
+  margin: 0;
+}
+#index-contents ul li {
+  padding: 0.1rem !important;
+  padding-left: 0.2rem !important;
+}
 #index-contents ul a {
   margin: 0;
   font-size: 1.1rem;
   color: blue;
   text-decoration: none;
+}
+
+
+.accordion {
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+  margin: 0;
+  padding: 0;
+  font-size: 1.1rem;
+  font-family: inherit;
+  background-color: inherit;
+}
+.active, .accordion:hover {
+  background-color: var(--accent-color3);
+}
+.accordion:after {
+  content: '\002B';
+  font-size: 1.1rem;
+  float: right;
+}
+.active:after {
+  content: '\2212';
+  font-size: 1.1rem;
+}
+
+
+.panel {
+  padding-left: 30px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
 }
 
 

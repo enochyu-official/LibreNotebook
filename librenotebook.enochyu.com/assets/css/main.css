@@ -4,6 +4,7 @@
   --secondary-color: #1A1110;
   --accent-color1: #880808;
   --accent-color2: #002147;
+  --accent-color3: #FCA311;
   --text-light: #f5f5f5;
   --text-dark: #1B1212;
   --transition: all 0.3s ease;
@@ -28,6 +29,12 @@ body {
 */
 }
 
+@media (max-width: 912px) {
+  body {
+    width: 90vw;
+  }
+}
+
 p, h1, h2, h3, h4, a, span {
   -webkit-user-select: none;
   -ms-user-select: none;
@@ -39,6 +46,38 @@ p, h1, h2, h3, h4, a, span {
   padding: 1.7rem;
   margin-top: 1.8rem;
   margin-bottom: 1.2rem;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+
+
+
+/* 404 Error Page */
+.error-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+}
+
+.error-page h1 {
+  font-size: 15vw;
+  color: var(--accent-color1);
+}
+
+.error-page p {
+  font-size: 2.1rem;
+  font-weight: 400;
+}
+
+.error-page a {
+  text-decoration: none;
+  font-size: 1.7rem;
+  font-weight: 400;
 }
 
 

@@ -68,11 +68,11 @@ Section III. Sections
 
 === |   CS0102.26011 | Modules and Libraries
 === |   CS0103.26012 | Fundamental Terms and Concepts
-=== |   CS0103.26013 | Introduction to Large Language Models
+=== |   CS0103.26013 | Introduction to LLMs
 === |   CS0103.26014 | Improving Large Language Models
 === |   CS0104.26015 | Definitions and High Level Overview
-=== |   CS0104.26016 | Conventions and Mathematical Interpretations
-=== |   CS0104.26017 | Building Vanilla Neural Network From Scratch
+=== |   CS0104.26016 | Mathematical Interpretations
+=== |   CS0104.26017 | Building Vanilla NN From Scratch
 0.0 |   CS0105.26018 | Bigram Language Model
 0.1 |   CS0105.26019 | Attention and Transformers
 0.0 |   CS0105.26020 | Building and LLM with PyTorch
@@ -122,7 +122,7 @@ Section III. Sections
 0.7 | MATH0105.26060 | Roots of Unity
 
 === | MATH0104.26061 | Foundations
-0.4 | MATH0104.26062 | Cauchy's Functional Equation and Its Variants
+0.4 | MATH0104.26062 | Cauchy's FE and Its Variants
 0.0 | MATH0104.26063 | Symmetric and Cyclic Equations
 0.0 | MATH0104.26064 | Invariance
 0.0 | MATH0104.26065 | The CDE Method
@@ -137,7 +137,7 @@ Section III. Sections
 0.0 | MATH0106.26073 | Symmetric and Cyclic Sums
 0.1 | MATH0106.26074 | Practice Problems
 0.0 | MATH0107.26075 | Foundations
-=== | MATH0108.26076 | Pythagorean Triples
+=== | MATH0108.26076 | Primitive Pythagorean Triples
 0.8 | MATH0108.26077 | Infinite Descent
 0.0 | MATH0108.26078 | Pell's Equations
 0.0 | MATH0108.26079 | Practice Problems
