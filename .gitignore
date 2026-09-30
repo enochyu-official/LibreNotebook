@@ -11,6 +11,8 @@ out
 .wrangler
 node_modules/
 
-public/
+librenotebook.enochyu.com/content/
+librenotebook.enochyu.com/public/
+librenotebook.enochyu.com/assets/css/make4ht/
 
 
