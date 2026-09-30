@@ -1,0 +1,49 @@
+- title: Fundamental Math for Machine Learning
+  items:
+    - title: Calculus
+      url: /cs0101/cs0101/cs0101.26007/
+    - title: Linear Algebra
+      url: /cs0101/cs0101/cs0101.26008/
+    - title: Probability Theory
+      url: /cs0101/cs0101/cs0101.26009/
+
+- title: Python Basics for Machine Learning
+  items:
+    - title: Basic Syntax
+      url: /cs0102/cs0102/cs0102.26010/
+    - title: Modules and Libraries
+      url: /cs0102/cs0102/cs0102.26011/
+
+- title: Foundations and Intuitions
+  items:
+    - title: Fundamental Terms and Concepts
+      url: /cs0103/cs0103/cs0103.26012/
+    - title: Introduction to LLMs
+      url: /cs0103/cs0103/cs0103.26013/
+    - title: Improving Large Language Models
+      url: /cs0103/cs0103/cs0103.26014/
+
+- title: Deep Dive into Deep Neural Networks
+  items:
+    - title: Definitions and High Level Overview
+      url: /cs0104/cs0104/cs0104.26015/
+    - title: Mathematical Interpretations
+      url: /cs0104/cs0104/cs0104.26016/
+    - title: Building Vanilla NN From Scratch
+      url: /cs0104/cs0104/cs0104.26017/
+
+- title: Building Language Models
+  items:
+    - title: Bigram Language Model
+      url: /cs0105/cs0105/cs0105.26018/
+    - title: Attention and Transformers
+      url: /cs0105/cs0105/cs0105.26019/
+    - title: Building and LLM with PyTorch
+      url: /cs0105/cs0105/cs0105.26020/
+
+- title: AI and The Future
+  items:
+    - title: AI Safety
+      url: /cs0106/cs0106/cs0106.26021/
+
+

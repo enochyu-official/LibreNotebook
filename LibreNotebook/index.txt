@@ -116,7 +116,7 @@ Section III. Sections
 === |   CS0201.26054 | Practice Problems and Solutions
 === |   CS0202.26055 | Time Complexity
 0.8 | MATH0103.26056 | Power of a Point
-0.7 |   CS0202.26057 | Simulation
+0.7 |   CS0202.26057 | Simulation and Complete Search
 0.1 |   CS0202.26058 | Practice Problems and Solutions
 === | MATH0105.26059 | Foundations
 0.7 | MATH0105.26060 | Roots of Unity

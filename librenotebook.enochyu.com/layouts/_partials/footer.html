@@ -16,9 +16,13 @@
           }
         }
       },
+      loader: {
+        load: ['[tex]/mathtools']
+      },
       tex: {
         inlineMath: [['$', '$'], ['\\(', '\\)']],
-        displayMath: [['\\[', '\\]'], ['$$', '$$']]
+        displayMath: [['\\[', '\\]'], ['$$', '$$']],
+        packages: {'[+]': ['mathtools']}
       },
       svg: { fontCache: 'global' }
     };

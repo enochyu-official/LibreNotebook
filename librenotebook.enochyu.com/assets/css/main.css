@@ -29,6 +29,10 @@ body {
 */
 }
 
+body p {
+  text-align: justify;
+}
+
 @media (max-width: 912px) {
   body {
     width: 90vw;
