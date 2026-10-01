@@ -19,7 +19,8 @@ for dir in tex/*; do
   [[ -d "$dir" ]] || continue
 
   dirName="${dir#tex}"
-  mkdir -p "$CONTENT$dirName"
+  dirNameLower=$(echo "$dirName" | tr 'A-Z' 'a-z')
+  mkdir -p "$CONTENT$dirNameLower"
 
   for subdir in "$dir"/*; do
     [[ -d "$subdir" ]] || continue
@@ -28,22 +29,29 @@ for dir in tex/*; do
       cd "$HOME/projects/LibreNotebook/LibreNotebook/$subdir"
 
       subdirName="${subdir#"$dir"}"
-      mkdir "$CONTENT$dirName$subdirName"
+      subdirNameLower=$(echo "$subdirName" | tr 'A-Z' 'a-z')
+      mkdir -p "$CONTENT$dirNameLower/$subdirNameLower"
 
       for file in *.tex; do
         fileName="$(basename "$file" .tex)"
+        fileNameLower=$(echo "$fileName" | tr 'A-Z' 'a-z')
 
         make4ht -u -B "$TMP_DIR" -f html5+tidy "$fileName".tex "mathjax"
-        tidy -indent -wrap 70 -utf8 -m "$TMP_DIR/$fileName".html
-        mv "$TMP_DIR/$fileName".html "$CONTENT$dirName$subdirName"
-        mv "$TMP_DIR/$fileName".css "$CSS"
+        perl -0777 -pi -e "s#src\s*=\s*'([^']+\.svg)'#src='/svg/\$1'#g" \
+          "$TMP_DIR/$fileName".html
+        tidy -indent -wrap 70 -utf8 -m --show-body-only yes \
+          "$TMP_DIR/$fileName".html
+
+        mv "$TMP_DIR/$fileName".html \
+           "$CONTENT$dirNameLower$subdirNameLower/$fileNameLower".html
+        mv "$TMP_DIR/$fileName".css "$CSS/$fileNameLower".css
       done
     )
   done
 done
 
 cd "$HOME/projects/LibreNotebook/LibreNotebook/"
-mv temp/*.svg "$OUT_DIR"static/svg/
+mv temp/*.svg "$OUT_DIR"/static/svg/
 rm -r temp/
 
 

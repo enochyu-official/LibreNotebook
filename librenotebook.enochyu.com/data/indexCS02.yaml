@@ -1,23 +1,23 @@
 - title: C++ Basics
   item:
     - title: Foundations
-      url: /cs0201/cs0201/cs0201.26050/
+      url: /cs02/cs0201/cs0201.26050/
     - title: Conditionals and Loops
-      url: /cs0201/cs0201/cs0201.26051/
+      url: /cs02/cs0201/cs0201.26051/
     - title: Functions and References
-      url: /cs0201/cs0201/cs0201.26052/
+      url: /cs02/cs0201/cs0201.26052/
     - title: Arrays and Vectors
-      url: /cs0201/cs0201/cs0201.26053/
+      url: /cs02/cs0201/cs0201.26053/
     - title: Practice Problems and Solutions
-      url: /cs0201/cs0201/cs0201.26054/
+      url: /cs02/cs0201/cs0201.26054/
 
 - title: Foundations
   item:
     - title: Time Complexity
-      url: /cs0202/cs0202/cs0202.26055/
+      url: /cs02/cs0202/cs0202.26055/
     - title: Simulation and Complete Search
-      url: /cs0202/cs0202/cs0202.26057/
+      url: /cs02/cs0202/cs0202.26057/
     - title: Practice Problems and Solutions
-      url: /cs0202/cs0202/cs0202.26058/
+      url: /cs02/cs0202/cs0202.26058/
 
 

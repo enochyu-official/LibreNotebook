@@ -15,8 +15,24 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 <link rel="canonical" href="https://librenotebook.enochyu.com/" />
 
-{{ $css := resources.Match "css/*.css" | resources.Concat "css/bundle.css" | minify | fingerprint }}
-<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+
+{{ $main := resources.Get "css/main.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $main.RelPermalink }}" integrity="{{ $main.Data.Integrity }}">
+
+{{ if .IsHome }}
+  {{ with resources.Get "css/index.css" }}
+    {{ $css := . | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+  {{ end }}
+{{ else }}
+  {{ with .File }}
+    {{ with resources.Get (printf "css/make4ht/%s.css" .BaseFileName) }}
+      {{ $css := . | minify | fingerprint }}
+      <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+    {{ end }}
+  {{ end }}
+{{ end }}
+
 
 <script type="application/ld+json">
 {
@@ -26,4 +42,6 @@
   "url": "https://librenotebook.enochyu.com/"
 }
 </script>
+
+
 

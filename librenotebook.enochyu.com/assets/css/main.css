@@ -11,17 +11,17 @@
 }
 
 body {
-/*
   background-color: Canvas;
   color: CanvasText;
   color-scheme: light dark;
-*/
-  background-color: #FEFCF5;
-  width: 45vw;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
+  width: 45vw;
+  line-height: 1.4;
+
 /*
+  background-color: #FEFCF5;
   font-family: 'Times New Roman', Times, serif;
   line-height: 1.6;
   color: var(--text-dark);
