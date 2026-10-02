@@ -1,12 +1,33 @@
 {{ define "main" }}
-<section class="tocHigh">
-  {{ partial "tocHigh.html" . }}
+<section class="single">
+  <aside class="single-left">
+    {{ partial "singleLeft.html" . }}
+  </aside>
+
+  <div class="single-content">
+    {{ .Content }}
+  </div>
+
+  <aside class="single-right">
+    {{ partial "singleRight.html" . }}
+  </aside>
 </section>
-<section class="mainNote">
-  {{ .Content }}
-</section>
-<section class="tocLow">
-  {{ partial "tocLow.html" . }}
-</section>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  });
+}
+</script>
 {{ end }}
 

@@ -37,6 +37,7 @@ MATH0204       | Matrices and Vector Spaces
 MATH0205       | Solutions
 
 MATH0301       | Vectors and Geometry
+MATH0302       | Vector-Valued Functions and Parametrization
 
 CS0101         | Fundamental Math for Machine Learning
 CS0102         | Python Basics for Machine Learning
@@ -153,6 +154,9 @@ Section III. Sections
 === | MISC0101.26088 | Bibliography
 0.1 | MATH0109.26089 | Geometry
 0.0 | MATH0103.26090 | Isogonal Conjugate
+
+=== | MATH0302.26091 | Vector-Valued Functions and Calculus
+0.0 | MATH0302.26092 | Different Parameterizations of Curves
 ----------------------------------------------------------------------
 
 END OF INDEX

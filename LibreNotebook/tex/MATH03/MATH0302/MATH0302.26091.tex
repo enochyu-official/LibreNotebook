@@ -1,0 +1,277 @@
+\documentclass[../../../main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{Vector-Valued Functions and Parametrization}
+
+In our previous note, we reviewed about vectors and their geometry.
+For calculus in higher dimension, we also study vector-valued
+functions in addition to real-valued ones that we discussed for
+calculus in 2-space. In this note, we will further extend our
+discussion on vectors with vector-valued functions, parametric
+curves, and calculus in higher dimension.
+
+\section{Vector-Valued Functions and Calculus}
+
+As always, let's get started with the definition.
+
+\begin{definition}{}{}
+A function with real inputs is a \textbf{vector-valued function}
+if its outputs are vectors. The \textbf{implicit domain} is the
+largest set of reals for which the function is well-defined
+when the domain of a vector-valued function is not explicitly
+stated.
+\end{definition}
+
+Below are some examples of vector-valued functions.
+\begin{align*}
+    \mathbf{F}(t) &= \langle t + 2, 3t^2, 4t^3 \rangle,
+        \quad -10 \leq t \leq 10 \\
+    \mathbf{r}(t) &= t \mathbf{i} + 5t \mathbf{j} + \cos t \mathbf{k},
+        \quad -2\pi \leq t \leq 10\pi
+\end{align*}
+Note that the range need not be vectors in 3-space, but it could
+be any vectors. From the example above, we could define another term.
+
+\begin{definition}{}{}
+Consider a vector-valued function $\mathbf{r} = f_1 (t) \mathbf{i}
++ f_2 (t) \mathbf{j} + f_3 (t) \mathbf{k}$. The functions $f_1, f_2,
+f_3$ of $t$ are known as the \textbf{component functions} of
+$\mathbf{r}$.
+\end{definition}
+
+Graphing such functions is pretty intuitive. For each input $t$,
+we would draw the resulting vector from the origin, which is called
+the \textbf{radius vector} or \textbf{position vector}. Below is an
+example of graphing $\mathbf{r} = \cos t \mathbf{i} +
+\sin t \mathbf{j} + t \mathbf{k}$ for $t \in [-\pi, 2\pi]$.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=1.4]
+\begin{axis}[
+    view={120}{35},
+    axis lines=center,
+    grid=none,ticks=none,
+    samples=300,
+    samples y=0,
+    xlabel={$x$},ylabel={$y$},zlabel={$z$},
+    xmin=-2, xmax=2,
+    ymin=-2, ymax=2,
+    zmin=-3.5, zmax=6.5
+]
+    \pgfmathsetmacro{\coorda}{cos(deg(pi))}
+    \pgfmathsetmacro{\coordb}{sin(deg(pi))}
+    \pgfmathsetmacro{\coordc}{pi}
+    \pgfmathsetmacro{\coordd}{cos(deg(pi/2-0.4))}
+    \pgfmathsetmacro{\coorde}{sin(deg(pi/2-0.4))+0.05}
+    \pgfmathsetmacro{\coordf}{pi/2-0.4}
+    \pgfmathsetmacro{\coordg}{cos(deg(pi/2+0.4))}
+    \pgfmathsetmacro{\coordh}{sin(deg(pi/2+0.4))+0.05}
+    \pgfmathsetmacro{\coordi}{pi/2+0.4}
+
+    \addplot3[
+        very thick,
+        Red,
+        domain=-pi:2*pi,
+        variable=\t,
+    ] ({cos(deg(\t))}, {sin(deg(\t))}, {\t});
+
+    \addplot3[very thick,Blue,-{Stealth[length=2mm]}]
+    coordinates {
+        (0,0,0)
+        (\coorda,\coordb,\coordc)
+    };
+
+    \addplot3[line width=4pt,Green,-{Stealth[length=2mm,width=4mm]}]
+    coordinates {
+        (\coordd,\coorde,\coordf)
+        (\coordg,\coordh,\coordi)
+    };
+\end{axis}
+\end{tikzpicture}
+\end{figure}
+
+As you can see from the figure above, the blue arrow from the origin
+is a radius vector of the helix. The arrowhead on the curve is known
+as the \textbf{orientation} of the graph, which represents the
+direction in which the curve traverse as the input increase.
+
+\begin{important}
+One more important thing to note is that the parametrization of a
+curve is \textit{not} unique. For instance, the curve above
+$\mathbf{r} = \cos t \mathbf{i} + \sin t \mathbf{j} + t \mathbf{k}$
+for $t \in [-\pi, 2\pi]$ can also be represented as
+$\mathbf{s} = \cos 2t \mathbf{i} + \sin 2t \mathbf{j} + 2t \mathbf{k}$
+for $t \in [-\frac{\pi}{2}, \pi]$.
+\end{important}
+
+Extending our example, we can see that the curve also lies on an
+circular curve since for $x(t) = \cos t$ and $y(t) = \sin t$,
+$x^2 + y^2 = 1$.
+
+\subsection{Calculus for Vector-Valued Functions}
+
+Now that we discussed what vector-valued functions are and how to
+graph them, it is natural to see how calculus work for such functions.
+Just like graphing, it is quite natural to see how calculus works
+given the properties of limits, derivatives, and integrals.
+
+\begin{important}
+Given a vector-valued function $\mathbf{r}(t) = f_1(t) \mathbf{i}
++ f_2(t) \mathbf{j} + f_3(t) \mathbf{k}$, its limits, derivative,
+and integrals are defined as the following.
+\begin{itemize}
+\item $\displaystyle \lim_{t \to a} \mathbf{r}(t) = 
+    \left( \lim_{t \to a} f_1(t) \right) \mathbf{i} +
+    \left( \lim_{t \to a} f_2(t) \right) \mathbf{j} +
+    \left( \lim_{t \to a} f_3(t) \right) \mathbf{k}$
+\item $\mathbf{r}'(t) = f_1'(t) \mathbf{i} + f_2'(t) \mathbf{j} +
+    f_3'(t) \mathbf{k}$
+\item $\displaystyle \int\mathbf{r}(t)\, dt =
+    \int f_1(t)\, dt\ \mathbf{i} +
+    \int f_2(t)\, dt\ \mathbf{j} +
+    \int f_3(t)\, dt\ \mathbf{k}$
+\item $\displaystyle \int_{a}^{b} \mathbf{r}(t)\, dt =
+    \int_{a}^{b} f_1(t)\, dt\ \mathbf{i} +
+    \int_{a}^{b} f_2(t)\, dt\ \mathbf{j} +
+    \int_{a}^{b} f_3(t)\, dt\ \mathbf{k}$
+\end{itemize}
+\end{important}
+
+Continuing with the definitions, it is natural to notice that the
+limit, derivatives, and integrals exist if and only if they
+exist for the component functions. In other words, $\mathbf{r}$
+is continuous at $a$ if and only if its component functions are
+continuous at $a$.
+
+\begin{important}
+Using the definition and properties of derivatives and integrals for
+real-valued functions, it is self-evident that the following rules
+also hold for vector-valued functions $\mathbf{r}$ under the
+appropriate conditions.
+\begin{itemize}
+\item $(k\mathbf{r})' = k\mathbf{r}'$
+\item $(\mathbf{r_1} \pm \mathbf{r_2})'=
+    \mathbf{r_1}' \pm \mathbf{r_2}'$
+\item For real-valued function $f$, $(f \cdot \mathbf{r})' =
+    f' \cdot \mathbf{r} + f \cdot \mathbf{r}'$
+\item $\displaystyle \int k\mathbf{r}(t)\, dt =
+    k \int \mathbf{r}(t)\, dt$
+\item $\displaystyle \int \mathbf{r_1}(t) \pm \mathbf{r_2}(t)\, dt =
+    \int \mathbf{r_1}(t)\, dt \pm \int \mathbf{r_2}(t)\, dt$
+\item For $\mathbf{R}'(t) = \mathbf{r}(t)$ satisfying for
+$t \in [a, b]$, $\displaystyle \int_{a}^{b} \mathbf{r}(t)\, dt =
+    \mathbf{R}(b) - \mathbf{R}(a)$
+\end{itemize}
+\end{important}
+
+Before concluding this section of the note, let's discuss how we
+could geometrically interpret derivatives of vector-valued functions.
+
+First, consider the following equations.
+\begin{align*}
+    &\quad\ \mathbf{r}'(t) \\
+    &= f_1'(t) \mathbf{i} + f_2'(t) \mathbf{j} + f_3'(t) \mathbf{k} \\
+    &= \left(
+        \lim_{h \to 0} \frac{f_1(t + h) - f_1(t)}{h}
+    \right) \mathbf{i} + \left(
+        \lim_{h \to 0} \frac{f_2(t + h) - f_2(t)}{h}
+    \right) \mathbf{j} \\
+    &\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\quad+ \left(
+        \lim_{h \to 0} \frac{f_3(t + h) - f_3(t)}{h}
+    \right) \mathbf{k} \\
+    &= \lim_{h \to 0} \frac{f_1(t + h) \mathbf{i} +
+        f_2(t + h) \mathbf{j} + f_3(t + h) \mathbf{k} - \left(
+            f_1(t) \mathbf{i} + f_2(t) \mathbf{j} + f_3(t) \mathbf{k}
+        \right)
+    }{h} \\
+    &= \lim_{h \to 0} \frac{\mathbf{r}(t + h) - \mathbf{r}(t)}{h}
+\end{align*}
+
+From our equation, it is evident that $\mathbf{r}'(t)$ is getting
+more parallel with line tangent to the curve at the terminal point
+of $\mathbf{r}(t)$ as $h \to 0$. In other words, $\mathbf{r}'(t)$
+is a vector that is tangent to the curve at $r(t)$ for some value $t$.
+Such vectors are called \textbf{tangent vector} and the line that
+passes through tangent vectors is known as \textbf{tangent line}.
+Let's take a look at an example.
+
+\begin{problem}{}{}
+Given $\mathbf{r}(t) = \langle \frac{t^2}{2}, \sin t, e^t \rangle$,
+find the tangent vector and tangent line at $t = \pi$.
+\end{problem}
+\begin{solution}
+First, notice that $\mathbf{r}'(t) = \langle t, \cos t, e^t \rangle$.
+Therefore, $\mathbf{r}'(\pi) = \langle \pi, -1, e^\pi \rangle$,
+which is the tangent vector.
+
+Continuing, note that $\mathbf{r}(\pi) = \langle \frac{\pi^2}{2}, 0,
+e^\pi \rangle$. Therefore, the tangent line can be represented as
+$L(t) = \langle \frac{\pi^2}{2}, 0, e^\pi \rangle + t \langle \pi,
+-1, e^\pi \rangle$.
+\end{solution}
+
+Before concluding this section of the note, consider the following
+theorem.
+
+\begin{theorem}{}{Derivates for Dot and Cross Products}
+Given vector-valued functions $\mathbf{r_1}$ and $\mathbf{r_2}$,
+the following equations hold.
+\begin{itemize}
+\item $(\mathbf{r_1} \cdot \mathbf{r_2})' = \mathbf{r_1}' \cdot
+    \mathbf{r_2} + \mathbf{r_1} \cdot \mathbf{r_2}'$
+\item $(\mathbf{r_1} \times \mathbf{r_2})' = \mathbf{r_1}' \times
+    \mathbf{r_2} + \mathbf{r_1} \times \mathbf{r_2}'$
+\end{itemize}
+\end{theorem}
+\begin{proof}
+For the first equation, it suffices to show for vectors in 3-space
+without loss of generality. Define $\mathbf{r_1} = \langle f_1, g_1,
+h_1 \rangle$ and $\mathbf{r_2} = \langle f_2, g_2, h_2 \rangle$.
+By definition, $\mathbf{r_1} \cdot \mathbf{r_2} = f_1f_2 + g_1g_2 +
+h_1h_2$. Therefore, $(\mathbf{r_1} \cdot \mathbf{r_2})' =
+(f_1'f_2 + g_1'g_2 + h_1'h_2) + (f_1f_2' + g_1g_2' + h_1h_2')$,
+which is equal to $\langle f_1', g_1', \linebreak h_1' \rangle \cdot
+\langle f_2, g_2, h_2 \rangle +  \langle f_1, g_1, h_1 \rangle \cdot
+\langle f_2', g_2', h_2' \rangle$. Thus, the first equation holds.
+
+Note that the second equation holds for $\mathbf{r_1}$ and
+$\mathbf{r_2}$ in 3-space. Therefore, define $\mathbf{r_1} =
+\langle f_1, g_1, h_1 \rangle$ and $\mathbf{r_2} =
+\langle f_2, g_2, h_2 \rangle$. Consider the following equations.
+\begin{align*}
+    \mathbf{r_1} \times \mathbf{r_2}
+    &= \langle
+        g_1h_2 - h_1g_2, h_1f_2 - f_1h_2, f_1g_2 - g_1f_2
+    \rangle \\
+    (\mathbf{r_1} \times \mathbf{r_2})'
+    &= \langle
+        g_1'h_2 - h_1'g_2 + g_1h_2' - h_1g_2',
+        h_1'f_2 - f_1'h_2 \\
+    &\qquad\qquad\qquad\quad+ h_1f_2' - f_1h_2',
+        f_1'g_2 - g_1'f_2 + f_1g_2' - g_1f_2' \rangle \\
+    &= \langle
+        g_1'h_2 - h_1'g_2, h_1'f_2 - f_1'h_2, f_1'g_2 - g_1'f_2
+    \rangle \\
+    \displaybreak
+    &\qquad\qquad\qquad\quad+ \langle
+        g_1h_2' - h_1g_2', h_1f_2' - f_1h_2', f_1g_2' - g_1f_2'
+    \rangle \\
+    &= \mathbf{r_1}' \times \mathbf{r_2} +
+        \mathbf{r_1} \times \mathbf{r_2}'
+\end{align*}
+Thus, the theorem holds.
+\end{proof}
+
+One fun fact that we can notice from the first equation is that
+if we assume $\mathbf{r}(t) \cdot \mathbf{r}(t) = a$ for some
+constant $a$, then $\mathbf{r}'(t) \cdot \mathbf{r}(t) + \mathbf{r}(t)
+\cdot \mathbf{r}'(t) = 0$ and $\mathbf{r}(t) \cdot \mathbf{r}'(t)
+= 0$. In other words, $\mathbf{r}(t)$ and $\mathbf{r}'(t)$ are
+orthogonal! This is it for this section, and let's discuss more on
+parametrization in the next section.
+
+\end{document}
+
+

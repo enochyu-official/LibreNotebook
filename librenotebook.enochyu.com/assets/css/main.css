@@ -17,8 +17,11 @@ body {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  width: 45vw;
   line-height: 1.4;
+  margin: 0 !important;
+  max-width: none !important;
+  padding: 0 !important;
+  width: 100% !important;
 
 /*
   background-color: #FEFCF5;
@@ -57,8 +60,6 @@ p, h1, h2, h3, h4, a, span {
 }
 
 
-
-
 /* 404 Error Page */
 .error-page {
   display: flex;
@@ -82,6 +83,122 @@ p, h1, h2, h3, h4, a, span {
   text-decoration: none;
   font-size: 1.7rem;
   font-weight: 400;
+}
+
+
+/* SINGLE */
+.single {
+  display: grid;
+  grid-template-columns: 2.7fr 5fr 2.3fr;
+  gap: 2rem;
+  width: 100%;
+}
+
+.single-left {
+  min-width: 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  border-right: 2px solid #37353E;
+  padding: 0 2rem 2rem 2rem;
+}
+
+.single-right {
+  min-width: 0;
+  position: sticky;
+  top: 0;
+  height: fit-content;
+  overflow-y: auto;
+  border-left: 2px solid #37353E;
+  border-bottom: 2px solid #37353E;
+}
+
+.toc-h2 {
+  color: var(--accent-color1);
+  text-decoration: none;
+  margin-bottom: 0rem !important;
+}
+
+.single-content {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+@media (max-width: 912px) {
+  .single-left, .single-right {
+    display: none;
+  }
+}
+
+.toc {
+  margin-top: 3rem;
+}
+
+.toc h2 {
+  font-size: 2.8rem;
+  margin: 0;
+  margin-bottom: 4rem;
+  margin-top: 4rem;
+  text-align: center;
+  font-weight: 400;
+}
+
+.toc h3 {
+  font-size: 1.3rem;
+  color: var(--accent-color1);
+  margin: 0;
+  margin-bottom: 0.5rem;
+  margin-top: 2rem;
+}
+
+.toc ul {
+  margin: 0;
+}
+.toc ul li {
+  padding: 0.1rem !important;
+  padding-left: 0.2rem !important;
+}
+.toc ul a {
+  margin: 0;
+  font-size: 1.1rem;
+  color: blue;
+  text-decoration: none;
+}
+
+
+.accordion {
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+  margin: 0;
+  padding: 0;
+  font-size: 1.1rem;
+  font-family: inherit;
+  background-color: inherit;
+}
+.active, .accordion:hover {
+  background-color: var(--accent-color3);
+}
+.accordion:after {
+  content: '\002B';
+  font-size: 1.1rem;
+  float: right;
+}
+.active:after {
+  content: '\2212';
+  font-size: 1.1rem;
+}
+
+.panel {
+  padding-left: 30px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
 }
 
 
