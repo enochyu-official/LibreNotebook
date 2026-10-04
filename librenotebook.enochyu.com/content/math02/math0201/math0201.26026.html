@@ -1,0 +1,506 @@
+<h3 class='sectionHead' id='fundamental-properties'><span class=
+'titlemark'>0.1</span> <a id='x1-10000.1'></a>Fundamental
+Properties</h3><!-- l. 7 -->
+
+<p class='noindent'>Let’s first start by solving some problems.</p>
+
+<div class='tcolorbox probstyle' id='tcolobox-1'>
+  <div class='tcolorbox-title'>
+    <!-- l. 12 -->
+
+    <p class='noindent'>Exercise&nbsp;0.1.1</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 10 -->
+
+    <p class='noindent'>Identify if the set <span class=
+    'mathjax-inline'>\(\mathbb {S} = \{ (x, y) \in \mathbb {R}^2 \mid
+    x + y = 5 \}\)</span> is a vector space.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-1'>
+  <!-- l. 14 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 14 -->
+
+  <p class='noindent'>We could see if the set satisfies all axioms
+  for a vector space. However, just by looking at the condition
+  <span class='mathjax-inline'>\(x + y = 5\)</span>, we know that
+  there cannot exist a zero vector since <span class=
+  'mathjax-inline'>\(0 + 0 \neq 5\)</span>. Because the set violates
+  A4, the set is not a vector space.</p>
+</div>
+
+<div class='tcolorbox probstyle' id='tcolobox-2'>
+  <div class='tcolorbox-title'>
+    <!-- l. 23 -->
+
+    <p class='noindent'>Exercise&nbsp;0.1.2</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 21 -->
+
+    <p class='noindent'>Identify if the set <span class=
+    'mathjax-inline'>\(\mathbb {S} = \{ \langle x, y \rangle \in
+    \mathbb {R}^2 \mid x + y = 0 \}\)</span> is a vector space.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-2'>
+  <!-- l. 25 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 25 -->
+
+  <p class='noindent'>Unlike the previous problem, we know that there
+  exists a zero vector. For this one, let’s go through each axiom.
+  Let <span class='mathjax-inline'>\(u = \langle x_1, -x_1 \rangle
+  \)</span> and <span class='mathjax-inline'>\(v = \langle x_2, -x_2
+  \rangle \)</span>. Notice that <span class='mathjax-inline'>\(u
+  \oplus v = \langle x_1 + x_2, -x_1 - x_2 \rangle \in \mathbb
+  {R}^2\)</span> and satisfies the condition <span class=
+  'mathjax-inline'>\(x_1 + x_2 + (-x_1 -x_2) = 0\)</span>. Therefore,
+  A1 is satisfied. Moreover, consider the following equations for A2
+  and A3 where <span class='mathjax-inline'>\(w = \langle x_3, -x_3
+  \rangle \)</span>. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} u \oplus v &amp;=
+  \langle x_1, -x_1 \rangle + \langle x_2, -x_2 \rangle = \langle x_1
+  + x_2, -x_1 - x_2 \rangle \\ &amp;= \langle x_2 + x_1, -x_2 - x_1
+  \rangle = \langle x_2, -x_2 \rangle + \langle x_1, -x_1 \rangle \\
+  &amp;= v \oplus u \\ u \oplus (v \oplus w) &amp;= \langle x_1, -x_1
+  \rangle + \left ( \langle x_2, -x_2 \rangle + \langle x_3, -x_3
+  \rangle \right ) \\ &amp;= \langle x_1, -x_1 \rangle + \langle x_2
+  + x_3, -x_2 - x_3 \rangle \\ &amp;= \langle x_1 + x_2 + x_3, -x_1 -
+  x_2 - x_3 \rangle \\ &amp;= \langle x_1 + x_2, -x_1 - x_2 \rangle +
+  \langle x_3, -x_3 \rangle \\ &amp;= (u \oplus v) \oplus w
+  \end{align*}</span></p><!-- l. 51 -->
+
+  <p class='noindent'>Therefore, A2 and A3 are satisfied.
+  Furthermore, notice that <span class='mathjax-inline'>\(\langle 0,
+  0 \rangle \in \mathbb {R}^2\)</span> and <span class=
+  'mathjax-inline'>\(0 + 0 = 0\)</span>, satisfying A4. Lastly for
+  vector addition A5 holds as <span class='mathjax-inline'>\(\langle
+  -x, x \rangle \)</span> is the additive inverse of <span class=
+  'mathjax-inline'>\(\langle x, -x \rangle \)</span> that satisfies
+  the provided conditions. Thus, all axioms for vector addition are
+  met.</p><!-- l. 57 -->
+
+  <p class='noindent'>Continuing with scalar multiplication, notice
+  that S1 and S3 satisfy as <span class='mathjax-inline'>\(\langle x,
+  y \rangle \in \mathbb {R}^2\)</span> and <span class=
+  'mathjax-inline'>\(1 \odot \langle x, y \rangle = \langle x, y
+  \rangle \)</span>. Moreover, consider the following equations for
+  <span class='mathjax-inline'>\(\alpha , \beta \in \mathbb
+  {R}\)</span>. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} \alpha \odot (\beta
+  \odot u) &amp;= \alpha \odot \langle \beta x_1, -\beta x_1 \rangle
+  = \langle \alpha \beta x_1, -\alpha \beta x_1 \rangle = \alpha
+  \beta \odot \langle x_1, -x_1 \rangle \\ &amp;= (\alpha \beta )
+  \odot u \\ (\alpha + \beta ) \odot u &amp;= \langle (\alpha + \beta
+  ) x_1, -(\alpha + \beta ) x_1 \rangle = \langle \alpha x_1 + \beta
+  x_1, -\alpha x_1 - \beta x_1 \rangle \\ &amp;= \langle \alpha x_1,
+  -\alpha x_1 \rangle + \langle \beta x_1, -\beta x_1 \rangle \\
+  &amp;= \alpha \langle x_1, -x_1 \rangle + \beta \langle x_1, -x_1
+  \rangle \\ &amp;= \alpha \odot u \oplus \beta \odot u \\ \alpha
+  \odot (u \oplus v) &amp;= \alpha \langle x_1 + x_2, -x_1 - x_2
+  \rangle = \langle \alpha x_1 + \alpha x_2, -\alpha x_1 - \alpha x_2
+  \rangle \\ &amp;= \langle \alpha x_1, -\alpha x_1
+  \rangle + \langle \alpha x_2, -\alpha x_2 \rangle \\ &amp;= \alpha
+  \langle x_1, -x_1 \rangle + \alpha \langle x_2, -x_2 \rangle \\
+  &amp;= \alpha \odot u \oplus \alpha \odot v \end{align*}</span></p>
+  <!-- l. 87 -->
+
+  <p class='noindent'>Thus, S2, S4, and S5 are all satisfied. Because
+  all ten axioms for a vector space are met, the set <span class=
+  'mathjax-inline'>\(\mathbb {S} = \{ \langle x, y \rangle \in
+  \mathbb {R}^2 \mid x + y = 0 \}\)</span> is a vector space.</p>
+</div>
+
+<div class='tcolorbox probstyle' id='tcolobox-3'>
+  <div class='tcolorbox-title'>
+    <!-- l. 99 -->
+
+    <p class='noindent'>Exercise&nbsp;0.1.3</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 93 -->
+
+    <p class='noindent'>Consider vectors in the form <span class=
+    'mathjax-inline'>\(\langle x, y, z \rangle \)</span> where the
+    vector addition is defined as <span class=
+    'mathjax-inline'>\(\langle x, y, z \rangle \oplus \langle x', y',
+    z' \rangle = \langle x + x', y + y', z + z' \rangle \)</span> and
+    scalar multiplication as <span class='mathjax-inline'>\(\alpha
+    \langle x, y, z \rangle = \langle x^\alpha , y^\alpha , z^\alpha
+    \rangle \)</span>. Identify if the vectors form a vector
+    space.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-3'>
+  <!-- l. 101 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 101 -->
+
+  <p class='noindent'>First, notice that the vector addition adheres
+  to the standard vector addition. Therefore, we only have to look at
+  scalar multiplication if any axioms are violated. From a glance,
+  S1, S2, and S3 appears to be satisfied. Therefore, let’s take a
+  look at S4. <span class='mathjax-block'>\[ (\alpha + \beta ) \odot
+  u = \left ( x^{\alpha + \beta }, y^{\alpha + \beta }, z^{\alpha +
+  \beta } \right ) \]</span> Notice that in general, <span class=
+  'mathjax-inline'>\(x^{\alpha + \beta } \neq x^\alpha + x^\beta
+  \)</span>. Therefore, the set of vectors does not form a vector
+  space.</p>
+</div><!-- l. 115 -->
+
+<p class='noindent'>Just as we have vector spaces <span class=
+'mathjax-inline'>\(\mathbb {R}^n\)</span>, we could also define
+spaces depending on the objects.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-4'>
+  <div class='tcolorbox-title'>
+    <!-- l. 123 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.4</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 119 -->
+
+    <p class='noindent'>The symbol <span class=
+    'mathjax-inline'>\(\mathbb {P}^n\)</span> denotes the vector
+    space composed of polynomials of degree at most <span class=
+    'mathjax-inline'>\(n\)</span> and adheres to the ten properties.
+    <span class='mathjax-inline'>\(\mathbb {M}_{m \times n}\)</span>
+    represents the vector space with matrices of order <span class=
+    'mathjax-inline'>\(m \times n\)</span> that adheres to the ten
+    properties.</p>
+  </div>
+</div><!-- l. 125 -->
+
+<p class='noindent'>Therefore, we can say that <span class=
+'mathjax-inline'>\(\mathbb {R}^n\)</span> is more or less the same as
+<span class='mathjax-inline'>\(\mathbb {M}_{1 \times n}\)</span>.
+With the understandings above, we can derive some important theorems.
+Although most of them are intuitive, it’s always nice to formally
+prove them so let’s do that now.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-5'>
+  <a id='x1-1006x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 133 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.5</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 131 -->
+
+    <p class='noindent'>For all vector spaces, zero vector, or the
+    additive identity element, is unique.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-4'>
+  <!-- l. 135 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 135 -->
+
+  <p class='noindent'>For the sake of contradiction, let <span class=
+  'mathjax-inline'>\(0_1, 0_2 \in V\)</span> be distinct additive
+  identity element for a vector space <span class=
+  'mathjax-inline'>\(V\)</span>. By definition, the following
+  equations hold. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} 0_1 \oplus 0_2 &amp;=
+  0_1 \\ 0_1 \oplus 0_2 &amp;= 0_2 \\ \therefore 0_1 \oplus 0_2
+  &amp;= 0_1 = 0_2 \end{align*}</span></p><!-- l. 143 -->
+
+  <p class='noindent'>Because <span class='mathjax-inline'>\(0_1 =
+  0_2\)</span> is contradictory from the fact that <span class=
+  'mathjax-inline'>\(0_1\)</span> and <span class=
+  'mathjax-inline'>\(0_2\)</span> are distinct, the initial
+  assumption that there exists distinct additive identity element in
+  a vector space is false.</p>
+</div><!-- l. 148 -->
+
+<p class='noindent'>Continuing from the uniqueness of the zero vector
+in a vector space, we can assert the following theorem.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-6'>
+  <a id='x1-1008x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 154 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.6</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 152 -->
+
+    <p class='noindent'>For all <span class='mathjax-inline'>\(u \in
+    V\)</span> for any vector space <span class=
+    'mathjax-inline'>\(V\)</span>, <span class='mathjax-inline'>\(v
+    \in V\)</span> such that <span class='mathjax-inline'>\(u \oplus
+    v = 0\)</span> is unique.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-5'>
+  <!-- l. 156 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 156 -->
+
+  <p class='noindent'>For the sake of contradiction, assume
+  <span class='mathjax-inline'>\(v, w \in V\)</span> are distinct
+  additive inverses of <span class='mathjax-inline'>\(u\)</span>. By
+  definition and properties of vector spaces, the following equations
+  hold. <span class='mathjax-block'>\[ v = v \oplus 0 = v \oplus (u
+  \oplus w) = (v \oplus u) \oplus w = 0 \oplus w = w \]</span>
+  Because <span class='mathjax-inline'>\(v = w\)</span> contradicts
+  the definition that <span class='mathjax-inline'>\(v\)</span> and
+  <span class='mathjax-inline'>\(w\)</span> are unique, the initial
+  assumption that there exists more than one additive inverse of a
+  vector in vector spaces is false.</p>
+</div><!-- l. 172 -->
+
+<p class='noindent'>Just as <span class='mathjax-inline'>\(x =
+0\)</span> if <span class='mathjax-inline'>\(x + x = x\)</span>, we
+could do similar things in vector spaces.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-7'>
+  <a id='x1-1010x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 178 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.7</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 176 -->
+
+    <p class='noindent'>For all <span class='mathjax-inline'>\(v \in
+    V\)</span> and any vector space <span class=
+    'mathjax-inline'>\(V\)</span>, <span class='mathjax-inline'>\(v
+    \oplus v = v\)</span> if and only if <span class=
+    'mathjax-inline'>\(v = 0\)</span>.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-6'>
+  <!-- l. 180 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 180 -->
+
+  <p class='noindent'>First, the first half of the statement can be
+  proven. Consider the following equations. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} (v \oplus v) \oplus
+  (-v) &amp;= v \oplus (-v) = 0 \\ &amp;= v \oplus (v \oplus (-v)) =
+  v \oplus 0 = v \end{align*}</span></p><!-- l. 187 -->
+
+  <p class='noindent'>Therefore, if <span class='mathjax-inline'>\(v
+  \oplus v = v\)</span>, then <span class='mathjax-inline'>\(v =
+  0\)</span>. Moreover, if <span class='mathjax-inline'>\(v =
+  0\)</span>, then <span class='mathjax-inline'>\(v \oplus v = 0
+  \oplus 0 = 0\)</span>. Therefore, the premise holds.</p>
+</div><!-- l. 191 -->
+
+<p class='noindent'>Now let’s take a look at theorems for scalar
+multiplications.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-8'>
+  <a id='x1-1017x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 204 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.8</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 194 -->
+
+    <p class='noindent'>The following properties hold for all vector
+    space <span class='mathjax-inline'>\(V\)</span> over <span class=
+    'mathjax-inline'>\(\mathbb {F}\)</span>, <span class=
+    'mathjax-inline'>\(u, \mathbf {0} \in V\)</span>, and any scalars
+    <span class='mathjax-inline'>\(\alpha \)</span>.</p>
+
+    <dl class='enumerate-enumitem'>
+      <dt class='enumerate-enumitem'>1.</dt>
+
+      <dd class='enumerate-enumitem'><span class='mathjax-inline'>\(0
+      \odot u = \mathbf {0}\)</span></dd>
+
+      <dt class='enumerate-enumitem'>2.</dt>
+
+      <dd class='enumerate-enumitem'><span class=
+      'mathjax-inline'>\(\alpha \odot \mathbf {0} = \mathbf
+      {0}\)</span>.</dd>
+
+      <dt class='enumerate-enumitem'>3.</dt>
+
+      <dd class='enumerate-enumitem'><span class=
+      'mathjax-inline'>\((-1) \odot u = -u\)</span></dd>
+
+      <dt class='enumerate-enumitem'>4.</dt>
+
+      <dd class='enumerate-enumitem'><span class='mathjax-inline'>\(u
+      = -(-u)\)</span></dd>
+
+      <dt class='enumerate-enumitem'>5.</dt>
+
+      <dd class='enumerate-enumitem'><span class=
+      'mathjax-inline'>\(\alpha \odot u = \mathbf {0}\)</span> if and
+      only if <span class='mathjax-inline'>\(\alpha = 0\)</span> or
+      <span class='mathjax-inline'>\(u = \mathbf {0}\)</span>.</dd>
+    </dl>
+  </div>
+</div><!-- l. 206 -->
+
+<p class='noindent'>Let’s start with the first proof.</p>
+
+<div class='mdframed' id='mdframed-7'>
+  <!-- l. 209 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 209 -->
+
+  <p class='noindent'>Consider the following equation. <span class=
+  'mathjax-block'>\[ 0 \odot u = (0 + 0) \odot u = 0 \odot u \oplus 0
+  \odot u \]</span> By Theorem <a href='#x1-1010x0.1'>0.1.7
+  <!-- tex4ht:ref: theo:Property of Zero Vectors I  --></a>,
+  <span class='mathjax-inline'>\(0 \odot u = \mathbf
+  {0}\)</span>.</p>
+</div><!-- l. 219 -->
+
+<p class='noindent'>Below is the proof for the second property.</p>
+
+<div class='mdframed' id='mdframed-8'>
+  <!-- l. 222 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 222 -->
+
+  <p class='noindent'>Consider the following equation. <span class=
+  'mathjax-block'>\[ \alpha \odot \mathbf {0} = \alpha \odot (\mathbf
+  {0} \oplus \mathbf {0}) = \alpha \odot \mathbf {0} \oplus \alpha
+  \odot \mathbf {0} \]</span> By Theorem <a href='#x1-1010x0.1'>0.1.7
+  <!-- tex4ht:ref: theo:Property of Zero Vectors I  --></a>,
+  <span class='mathjax-inline'>\(\alpha \odot \mathbf {0} = \mathbf
+  {0}\)</span></p>
+</div><!-- l. 232 -->
+
+<p class='noindent'>Continuing, here’s the proof for the third
+one.</p>
+
+<div class='mdframed' id='mdframed-9'>
+  <!-- l. 235 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 235 -->
+
+  <p class='noindent'>By the properties of vector spaces,
+  <span class='mathjax-inline'>\(\mathbf {0} = 0 \odot u = (1 - 1)
+  \odot u = 1 \odot u \oplus (-1) \odot u = u \oplus (-1) \odot u
+  \)</span>. Because <span class='mathjax-inline'>\((-1) \odot
+  u\)</span> is the additive inverse of <span class=
+  'mathjax-inline'>\(u\)</span>, <span class='mathjax-inline'>\((-1)
+  \odot u = -u\)</span>.</p>
+</div><!-- l. 241 -->
+
+<p class='noindent'>Below is the proof for the fourth one.</p>
+
+<div class='mdframed' id='mdframed-10'>
+  <!-- l. 244 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 244 -->
+
+  <p class='noindent'>Notice that <span class=
+  'mathjax-inline'>\(-(-u)\)</span> is the additive inverse of
+  <span class='mathjax-inline'>\(-u\)</span>. However, by definition,
+  <span class='mathjax-inline'>\(u\)</span> is the additive inverse
+  of <span class='mathjax-inline'>\(-u\)</span>. By Theorem <a href=
+  '#x1-1008x0.1'>0.1.6
+  <!-- tex4ht:ref: theo:Uniqueness of Additive Inverse  --></a>,
+  <span class='mathjax-inline'>\(u = -(-u)\)</span>.</p>
+</div><!-- l. 249 -->
+
+<p class='noindent'>Finally, let’s prove the last property.</p>
+
+<div class='mdframed' id='mdframed-11'>
+  <!-- l. 252 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 252 -->
+
+  <p class='noindent'>It suffices to show the latter half of the
+  statement as the first half is shown by the first two properties.
+  Consider the following equations for <span class=
+  'mathjax-inline'>\(\alpha \neq 0\)</span>. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} \frac {1}{\alpha }
+  \odot (\alpha \odot u) &amp;= \frac {1}{\alpha } \odot \mathbf {0}
+  = \mathbf {0} \\ &amp;= \left ( \frac {1}{\alpha } \cdot \alpha
+  \right ) \odot u = 1 \odot u = u \end{align*}</span></p>
+  <!-- l. 263 -->
+
+  <p class='noindent'>Therefore, if <span class=
+  'mathjax-inline'>\(\alpha \neq 0\)</span>, then <span class=
+  'mathjax-inline'>\(u = \mathbf {0}\)</span>. Similarly, if
+  <span class='mathjax-inline'>\(u \neq \mathbf {0}\)</span>, then
+  <span class='mathjax-inline'>\(\alpha = 0\)</span> as the product
+  of nonzero numbers is a nonzero number.</p>
+</div><!-- l. 268 -->
+
+<p class='noindent'>We have covered the fundamental concepts and
+properties in vector spaces. Before we move on with the next topic in
+vector spaces, I wanted to discuss briefly on dot product as it will
+frequently appear when you deal with vectors.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-9'>
+  <div class='tcolorbox-title'>
+    <!-- l. 281 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.9</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 274 -->
+
+    <p class='noindent'><span class='pplb8t-x-x-109'>Dot
+    product</span> is an algebraic operation defined as the following
+    for vectors <span class='mathjax-inline'>\(a = [ a_1, \ldots ,
+    a_n]\)</span> and <span class='mathjax-inline'>\(b = [ b_1,
+    \ldots , b_n]\)</span> <span class='mathjax-block'>\[ a \cdot b =
+    \sum _{k = 1}^n a_k b_k \]</span></p>
+  </div>
+</div><!-- l. 283 -->
+
+<p class='noindent'>Here notice that the number of elements of the
+vectors in dot product must be equal for the product to be defined.
+Below are some examples of dot products. <span class=
+'mathjax-env mathjax-align*'>\begin{align*} \begin {bmatrix} 1 \\ 2
+\\ 3 \end {bmatrix} \cdot \begin {bmatrix} -1 \\ -2 \\ -3 \end
+{bmatrix} &amp;= 1(-1) + 2(-2) + 3(-3) = -14 \\ \begin {bmatrix} 0
+&amp; 1 &amp; 2 \end {bmatrix} \cdot \begin {bmatrix} 0 &amp; 1 &amp;
+0 \end {bmatrix} &amp;= 0 \cdot 0 + 1 \cdot 1 + 2 \cdot 0 = 1
+\end{align*}</span></p><!-- l. 311 -->
+
+<p class='noindent'>Note that this is very different from the matrix
+multiplication that we will discuss in the next note and we must
+write the notation <span class='mathjax-inline'>\(\cdot \)</span> to
+ensure that we are not doing matrix multiplication. With that in
+mind, let’s continue our discussion with subspaces.</p>

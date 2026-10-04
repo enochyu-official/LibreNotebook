@@ -1,0 +1,326 @@
+<h3 class='sectionHead' id='cauchys-fe-and-its-variants'><span class=
+'titlemark'>0.1</span> <a id='x1-10000.1'></a>Cauchy’s FE and Its
+Variants</h3><!-- l. 7 -->
+
+<p class='noindent'>Unlike the other problems, if there is one thing
+that you must know to solve a FE problem, it would be Cauchy FE. This
+could be a very nice problem, but could also be a very mean one.
+Before we look at what Cauchy FE is, let’s discuss some very
+introductory topics from real analysis.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-1'>
+  <a id='x1-1002x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 18 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.1:&nbsp;Density of Rational
+    Numbers</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 16 -->
+
+    <p class='noindent'>For any real numbers <span class=
+    'mathjax-inline'>\(a\)</span> and <span class=
+    'mathjax-inline'>\(b\)</span>, it is possible to choose a
+    rational number <span class='mathjax-inline'>\(q\)</span> such
+    that <span class='mathjax-inline'>\(a &lt; q &lt; b\)</span>.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-1'>
+  <!-- l. 20 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 20 -->
+
+  <p class='noindent'>Consider the interval <span class=
+  'mathjax-inline'>\((na, nb)\)</span> for some integer <span class=
+  'mathjax-inline'>\(n\)</span>. Choose a sufficiently large positive
+  integer <span class='mathjax-inline'>\(n\)</span> such that
+  <span class='mathjax-inline'>\(nb - na &gt; 1\)</span>. Because the
+  length of the interval is greater than <span class=
+  'mathjax-inline'>\(1\)</span>, we can choose another integer
+  <span class='mathjax-inline'>\(m\)</span> such that <span class=
+  'mathjax-inline'>\(na &lt; m &lt; nb\)</span>. Therefore,
+  <span class='mathjax-inline'>\(a &lt; \frac {m}{n} &lt; b\)</span>
+  and <span class='mathjax-inline'>\(\frac {m}{n} \in \mathbb
+  {Q}\)</span> since <span class='mathjax-inline'>\(m, n \in \mathbb
+  {Z}\)</span>.</p>
+</div><!-- l. 28 -->
+
+<p class='noindent'>This seems quite obvious when you think about it.
+However, it is important to consider and question the very seemingly
+obvious properties since conditions are very important for Cauchy FE.
+Continuing, we could try the same for irrational numbers.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-2'>
+  <a id='x1-1004x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 38 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.2:&nbsp;Density of
+    Irrational Numbers</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 36 -->
+
+    <p class='noindent'>Given arbitrary real numbers <span class=
+    'mathjax-inline'>\(a\)</span> and <span class=
+    'mathjax-inline'>\(b\)</span>, it is possible to choose a
+    irrational number <span class='mathjax-inline'>\(q\)</span> such
+    that <span class='mathjax-inline'>\(a &lt; q &lt; b\)</span>.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-2'>
+  <!-- l. 40 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 40 -->
+
+  <p class='noindent'>First, consider the inequality <span class=
+  'mathjax-inline'>\(\frac {a}{\sqrt {2}} &lt; r &lt; \frac {b}{\sqrt
+  {2}}\)</span> for some rational number <span class=
+  'mathjax-inline'>\(r\)</span> by Theorem <a href=
+  '#x1-1002x0.1'>0.1.1
+  <!-- tex4ht:ref: theo:Density of Rational Numbers  --></a>.
+  Multiplying <span class='mathjax-inline'>\(\sqrt {2}\)</span>,
+  <span class='mathjax-inline'>\(a &lt; \sqrt {2} r = q &lt;
+  b\)</span> holds.</p>
+</div><!-- l. 46 -->
+
+<p class='noindent'>Using these two, we can notice that given two
+reals, we can choose a real number between them. Now before moving on
+to Cauchy FE, consider the following theorem.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-3'>
+  <a id='x1-1006x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 55 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.3:&nbsp;Bolzano-Weierstrass
+    Theorem</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 53 -->
+
+    <p class='noindent'>Any real number <span class=
+    'mathjax-inline'>\(x\)</span> can be written as the limit of
+    bounded sequence of rational numbers and of irrational
+    numbers.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-3'>
+  <!-- l. 57 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 57 -->
+
+  <p class='noindent'>Let <span class='mathjax-inline'>\(r_n\)</span>
+  be an increasing sequence of rational numbers defined as
+  <span class='mathjax-inline'>\(x - \frac {1}{n} &lt; r_n &lt; x -
+  \frac {1}{n+1}\)</span> by Theorem <a href='#x1-1002x0.1'>0.1.1
+  <!-- tex4ht:ref: theo:Density of Rational Numbers  --></a>.
+  Therefore, <span class='mathjax-block'>\[ x - \frac {1}{n} &lt; r_n
+  &lt; x - \frac {1}{n + 1} &lt; r_{n+1} \]</span> holds and
+  <span class='mathjax-inline'>\(x = \lim _{n \to \infty }
+  r_n\)</span> by Squeeze Theorem. If <span class=
+  'mathjax-inline'>\(r_n\)</span> is a decreasing sequence defined as
+  <span class='mathjax-inline'>\(x + \frac {1}{n+1} &lt; r_n &lt; x +
+  \frac {1}{n}\)</span>, then <span class='mathjax-inline'>\(r_{n+1}
+  &lt; x + \frac {1}{n+1} &lt; r_n &lt; x + \frac {1}{n}\)</span>.
+  Therefore <span class='mathjax-inline'>\(x = \lim _{n \to \infty }
+  r_n\)</span> by Squeeze Theorem. The case of irrational numbers are
+  proven in analogous way.</p>
+</div><!-- l. 74 -->
+
+<p class='noindent'>Now with these ideas in mind, let’s finally
+discuss Cauchy’s Functional Equations!</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-4'>
+  <div class='tcolorbox-title'>
+    <!-- l. 83 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.4</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 78 -->
+
+    <p class='noindent'>Equations with the following form is known as
+    <span class='pplb8t-x-x-109'>Cauchy’s Functional
+    Equations</span>. <span class='mathjax-block'>\[ f(x + y) = f(x)
+    + f(y) \]</span></p>
+  </div>
+</div><!-- l. 85 -->
+
+<p class='noindent'>Now this is pretty straight forward for certain
+input domain. Let’s start by what we can notice just by looking at
+the equations. Substituting <span class='mathjax-inline'>\(x = y =
+0\)</span>, we get <span class='mathjax-inline'>\(f(0) = 0\)</span>.
+Moreover, substituting <span class='mathjax-inline'>\(y = -x\)</span>
+gives <span class='mathjax-inline'>\(f(x) = -f(-x)\)</span> and we
+can see that <span class='mathjax-inline'>\(f\)</span> is an odd
+function. With these in mind and having <span class=
+'mathjax-inline'>\(k = f(1)\)</span>, let’s start looking into
+different input domains.</p><!-- l. 93 -->
+
+<p class='noindent'><span style='color:#B80000;'><span class=
+'pplb8t-x-x-144'>I.</span> <span class='mathjax-inline'>\(\mathbf {f:
+\mathbb {N} \to \mathbb {R}}\)</span></span></p><!-- l. 95 -->
+
+<p class='noindent'>This case is pretty straightforward. Consider the
+following equations for some integer <span class=
+'mathjax-inline'>\(n\)</span>. <span class='mathjax-block'>\[ f(n) =
+f(n - 1) + f(1) = f(n - 2) + f(1) + f(1) = \cdots = n f(1) \]</span>
+Therefore, <span class='mathjax-inline'>\(f(x) = kx\)</span> if
+<span class='mathjax-inline'>\(x\)</span> is defined under natural
+numbers. An extension would be using integers.</p><!-- l. 108 -->
+
+<p class='noindent'><span style='color:#B80000;'><span class=
+'pplb8t-x-x-144'>II.</span> <span class='mathjax-inline'>\(\mathbf
+{f: \mathbb {Z} \to \mathbb {R}}\)</span></span></p><!-- l. 110 -->
+
+<p class='noindent'>For this case, we will be using the fact that
+<span class='mathjax-inline'>\(f\)</span> is an odd function. For
+<span class='mathjax-inline'>\(x &gt; 0\)</span>, we have showed that
+<span class='mathjax-inline'>\(f(x) = kx\)</span>. For <span class=
+'mathjax-inline'>\(x &lt; 0\)</span>, consider the following
+equations. <span class='mathjax-block'>\[ f(x) = -f(-x) = -k(-x) = kx
+\]</span> Therefore with <span class='mathjax-inline'>\(f(0) =
+0\)</span>, <span class='mathjax-inline'>\(f\)</span> is still
+linear.</p><!-- l. 119 -->
+
+<p class='noindent'><span style='color:#B80000;'><span class=
+'pplb8t-x-x-144'>III.</span> <span class='mathjax-inline'>\(\mathbf
+{f: \mathbb {Q} \to \mathbb {R}}\)</span></span></p><!-- l. 121 -->
+
+<p class='noindent'>The next extension that we can have is defining
+<span class='mathjax-inline'>\(x\)</span> over the rational numbers.
+Let <span class='mathjax-inline'>\(p\)</span> and <span class=
+'mathjax-inline'>\(q\)</span> be relatively prime integers. First
+consider the following equation. <span class='mathjax-block'>\[ f
+\left ( \frac {p}{q} \right ) = f \left ( \frac {1}{q} + \cdots +
+\frac {1}{q} \right ) = f \left ( \frac {1}{q} \right ) \cdot p
+\]</span> Therefore, <span class='mathjax-inline'>\(f(1) = f \left (
+\frac {1}{q} \right ) \cdot q\)</span> and substituting back to the
+equation gives the following. <span class='mathjax-block'>\[ f \left
+( \frac {p}{q} \right ) = \frac {f(1)}{q} \cdot p = \frac {p}{q} k
+\]</span> Therefore, <span class='mathjax-inline'>\(f(x) =
+kx\)</span> also holds in this case. The final case that we can
+consider is when <span class='mathjax-inline'>\(f: \mathbb {R} \to
+\mathbb {R}\)</span>.</p><!-- l. 140 -->
+
+<p class='noindent'><span style='color:#B80000;'><span class=
+'pplb8t-x-x-144'>IV.</span> <span class='mathjax-inline'>\(\mathbf
+{f: \mathbb {R} \to \mathbb {R}}\)</span></span></p><!-- l. 142 -->
+
+<p class='noindent'>This is the part where it gets quite tricky and
+where conditions becomes very important. There are many different
+conditions that we could consider for this case, but let’s focus on
+two major conditions for now.</p><!-- l. 148 -->
+
+<p class='noindent'><span class='pplb8t-x-x-120'>IV.I</span>
+<span class='mathjax-inline'>\(\mathbf {f}\)</span> <span class=
+'pplb8t-x-x-120'>is an increasing or decreasing function.</span></p>
+<!-- l. 150 -->
+
+<p class='noindent'>First, let’s consider the case when <span class=
+'mathjax-inline'>\(f\)</span> is increasing. Assume for the sake of
+contradiction that <span class='mathjax-inline'>\(f(x) \neq
+kx\)</span>. If <span class='mathjax-inline'>\(f(x) &gt; kx\)</span>,
+then <span class='mathjax-inline'>\(x &lt; \frac {f(x)}{k}\)</span>
+and we can choose a rational <span class=
+'mathjax-inline'>\(q\)</span> such that <span class=
+'mathjax-inline'>\(x &lt; q &lt; \frac {f(x)}{k}\)</span> by Theorem
+<a href='#x1-1002x0.1'>0.1.1
+<!-- tex4ht:ref: theo:Density of Rational Numbers  --></a>.
+Therefore, <span class='mathjax-inline'>\(f(x) \leq f(q) =
+kq\)</span> since <span class='mathjax-inline'>\(q \in \mathbb
+{Q}\)</span>. Continuing, <span class='mathjax-inline'>\(\frac
+{f(x)}{k} \leq q &lt; \frac {f(x)}{k}\)</span> is obtained, which is
+a contradiction.</p><!-- l. 158 -->
+
+<p class='noindent'>This time, assume that <span class=
+'mathjax-inline'>\(f(x) &lt; kx\)</span>. We can choose a rational
+<span class='mathjax-inline'>\(q\)</span> such that <span class=
+'mathjax-inline'>\(\frac {f(x)}{k} &lt; q &lt; x\)</span>.
+Continuing, we get <span class='mathjax-inline'>\(kq = f(q) \leq f(x)
+&lt; kq\)</span> which again is a contradiction. This proves that if
+<span class='mathjax-inline'>\(f\)</span> is an increasing function,
+then <span class='mathjax-inline'>\(f(x) = kx\)</span> for
+<span class='mathjax-inline'>\(x \in \mathbb {R}\)</span>.</p>
+<!-- l. 164 -->
+
+<p class='noindent'>The case when <span class=
+'mathjax-inline'>\(f\)</span> is decreasing is quite simple. Let
+<span class='mathjax-inline'>\(g(x) = -f(x)\)</span>. By
+construction, <span class='mathjax-inline'>\(g\)</span> is an
+increasing function and the following equations hold. <span class=
+'mathjax-block'>\[ -f(x + y) = g(x + y) = g(x) + g(y) = -f(x) - f(y)
+= -(f(x) + f(y)) \]</span> Therefore, <span class=
+'mathjax-inline'>\(f(x + y) = f(x) + f(y)\)</span>. This completes
+the proof!</p><!-- l. 176 -->
+
+<p class='noindent'>Note that these conditions are necessary. We
+cannot blindly assume that <span class='mathjax-inline'>\(f(x) =
+kx\)</span> for <span class='mathjax-inline'>\(x \in \mathbb
+{R}\)</span> without the condition. One very, very popular way of
+knowing if a function is increasing is <span class=
+'mathjax-inline'>\(f(xy) = f(x) f(y)\)</span>.</p><!-- l. 181 -->
+
+<p class='noindent'>If <span class='mathjax-inline'>\(f(xy) = f(x)
+f(y)\)</span>, then <span class='mathjax-inline'>\(f(x^2) = f(x)^2
+\geq 0\)</span>. Therefore for positive <span class=
+'mathjax-inline'>\(y\)</span>, <span class='mathjax-inline'>\(f(x) =
+f(x - y) + f(y) \geq f(x - y)\)</span> and <span class=
+'mathjax-inline'>\(f\)</span> is increasing.</p>
+
+<div class='mdframed' id='mdframed-4'>
+  <!-- l. 186 -->
+
+  <p class='noindent'>If <span class='mathjax-inline'>\(f(xy) = f(x)
+  f(y)\)</span>, then <span class='mathjax-inline'>\(f\)</span> is an
+  increasing function.</p>
+</div><!-- l. 189 -->
+
+<p class='noindent'>This is very popular, and will make our lives
+greatly easier to use <span class='mathjax-inline'>\(f(x) =
+kx\)</span>.</p><!-- l. 192 -->
+
+<p class='noindent'><span class='pplb8t-x-x-120'>IV.II</span>
+<span class='mathjax-inline'>\(\mathbf {f}\)</span> <span class=
+'pplb8t-x-x-120'>is continuous.</span></p><!-- l. 194 -->
+
+<p class='noindent'>The second very popular condition is when
+<span class='mathjax-inline'>\(f\)</span> is continuous. Note that by
+Bolzano-Weierstrass Theorem, there exists an increasing rational
+sequence <span class='mathjax-inline'>\(a_n\)</span> and decreasing
+rational sequence <span class='mathjax-inline'>\(b_n\)</span> such
+that <span class='mathjax-inline'>\(x = \lim _{n \to \infty } a_n =
+\lim _{n \to \infty } b_n\)</span> for any real <span class=
+'mathjax-inline'>\(x\)</span>. Therefore, the following equations
+hold. <span class='mathjax-env mathjax-align*'>\begin{align*} f(x)
+&amp;= f \left ( \lim _{n \to \infty } a_n \right ) = \lim _{n \to
+\infty } f(a_n) = \lim _{n \to \infty } ka_n = kx \\ &amp;= f \left (
+\lim _{n \to \infty } b_n \right ) = \lim _{n \to \infty } f(b_n) =
+\lim _{n \to \infty } kb_n = kx \end{align*}</span></p>
+<!-- l. 211 -->
+
+<p class='noindent'>Therefore, <span class='mathjax-inline'>\(f(x) =
+kx\)</span> holds if <span class='mathjax-inline'>\(f\)</span> is
+continuous.</p><!-- l. 213 -->
+
+<p class='noindent'>This is the basic idea of Cauchy FE! With this in
+mind, let’s solve few practice problems to see how they are used.</p>
+
+<h4 class='subsectionHead' id='pexider-functional-equation'>
+<span class='titlemark'>0.1.1</span> <a id='x1-20000.1.1'></a>Pexider
+Functional Equation</h4>

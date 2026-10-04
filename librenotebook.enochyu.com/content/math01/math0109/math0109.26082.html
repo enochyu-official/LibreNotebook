@@ -1,0 +1,495 @@
+<h3 class='sectionHead' id='number-theory'><span class=
+'titlemark'>0.1</span> <a id='x1-10000.1'></a>Number Theory</h3>
+<!-- l. 7 -->
+
+<p class='noindent'>There are quite a few important that I wish to
+discuss before we do Diophantine equations. I don’t think some of the
+contents come out in the actual exam as many are focused on
+Diophantine equations, but let’s go over them anyways as a
+review.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-1'>
+  <div class='tcolorbox-title'>
+    <!-- l. 20 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.1</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 13 -->
+
+    <p class='noindent'>A <span class='pplb8t-x-x-109'>residue
+    class</span> of <span class='mathjax-inline'>\(a\)</span> mod
+    <span class='mathjax-inline'>\(n\)</span> is the collection of
+    all numbers that are congruent to <span class=
+    'mathjax-inline'>\(a \pmod {n}\)</span>. The <span class=
+    'pplb8t-x-x-109'>complete residue system</span> mod <span class=
+    'mathjax-inline'>\(n\)</span> is the set of exactly one
+    representative from each of the <span class=
+    'mathjax-inline'>\(n\)</span> residue classes. The <span class=
+    'pplb8t-x-x-109'>reduced residue system</span> is a set of all
+    elements from the complete residue system that only contains the
+    elements that are relatively prime to <span class=
+    'mathjax-inline'>\(n\)</span>.</p>
+  </div>
+</div><!-- l. 22 -->
+
+<p class='noindent'>An example for modulo <span class=
+'mathjax-inline'>\(6\)</span> is that the complete residue system is
+<span class='mathjax-inline'>\(\{ 0, 1, 2, 3, 4, 5
+\}\)</span> while the reduced residue system is <span class=
+'mathjax-inline'>\(\{ 1, 5 \}\)</span>. The reduced residue system
+for modulo <span class='mathjax-inline'>\(6\)</span> does not have to
+be <span class='mathjax-inline'>\(\{ 1, 5 \}\)</span>, but
+<span class='mathjax-inline'>\(\{ 7, -1 \}\)</span> too.</p>
+<!-- l. 27 -->
+
+<p class='noindent'>With this definition, we can also define a very
+special and important function.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-2'>
+  <a id='x1-1003x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 33 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.2:&nbsp;Euler’s Totient
+    Function</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 31 -->
+
+    <p class='noindent'><span class='pplb8t-x-x-109'>Euler’s Totient
+    Function</span>, denoted as <span class='mathjax-inline'>\(\phi
+    (n)\)</span> is the number of elements in the reduced residue
+    system mod <span class='mathjax-inline'>\(n\)</span>.</p>
+  </div>
+</div><!-- l. 35 -->
+
+<p class='noindent'>By definition, there are few ways to think about
+this function.</p>
+
+<div class='mdframed' id='mdframed-1'>
+  <!-- l. 38 -->
+
+  <p class='noindent'><span class='mathjax-inline'>\(\phi
+  (n)\)</span> can be interpreted as the number of integers from
+  <span class='mathjax-inline'>\(1\)</span> to <span class=
+  'mathjax-inline'>\(n\)</span> that are relatively prime to
+  <span class='mathjax-inline'>\(n\)</span>.</p>
+</div><!-- l. 42 -->
+
+<p class='noindent'>As you can see from our previous example of
+residue systems, we can see that <span class='mathjax-inline'>\(\phi
+(6) = 2\)</span>. Another very important topic about Euler’s Totient
+function is its formula. Consider the following equation for prime
+<span class='mathjax-inline'>\(p\)</span>. <span class=
+'mathjax-block'>\[ \phi \left ( p^\alpha \right ) = p^\alpha - \left
+\lfloor \frac {p^\alpha }{p} \right \rfloor = p^\alpha - p^{\alpha -
+1} = p^\alpha \left ( 1 - \frac {1}{p} \right ) \]</span> This holds
+because the floor function, or Gauss function, represents the number
+of elements that are multiples of <span class=
+'mathjax-inline'>\(p\)</span> and <span class=
+'mathjax-inline'>\(p\)</span> is relatively prime to other numbers
+that are not multiple of <span class='mathjax-inline'>\(p\)</span>.
+Before deriving the formula, let’s briefly take a look at its
+multiplicative property.</p>
+
+<div class='mdframed' id='mdframed-2'>
+  <!-- l. 59 -->
+
+  <p class='noindent'><span class='mathjax-inline'>\(\phi (ab) = \phi
+  (a) \phi (b)\)</span> for <span class='mathjax-inline'>\((a, b) =
+  1\)</span>.</p>
+</div><!-- l. 62 -->
+
+<p class='noindent'>There are few ways to prove this property, but
+let’s prove with the following arrangement. <span class=
+'mathjax-block'>\[ \begin {array}{ccccc} 1 &amp; 2 &amp; 3 &amp;
+\cdots &amp; b \\ b + 1 &amp; b + 2 &amp; b + 3 &amp; \cdots &amp; 2b
+\\ 2b + 1 &amp; 2b + 2 &amp; 2b + 3 &amp; \cdots &amp; 3b \\ \vdots
+&amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ \cdots &amp;
+\cdots &amp; \cdots &amp; \cdots &amp; ab \end {array} \]</span> As
+you can see, <span class='mathjax-inline'>\(\phi (b)\)</span> is the
+number of integers that are relatively prime to <span class=
+'mathjax-inline'>\(b\)</span> in the first row. In other words, there
+exists exactly <span class='mathjax-inline'>\(\phi (b)\)</span>
+columns that contain the integers that are relatively prime to
+<span class='mathjax-inline'>\(b\)</span>. Let <span class=
+'mathjax-inline'>\(j\)</span> be a relatively prime integer to
+<span class='mathjax-inline'>\(b\)</span>. Because <span class=
+'mathjax-inline'>\((a, b) = 1\)</span>, it is self-evident that there
+exists <span class='mathjax-inline'>\(\phi (a)\)</span> numbers that
+are relatively prime to <span class='mathjax-inline'>\(a\)</span> in
+<span class='mathjax-inline'>\(j^\text {th}\)</span> column. Because
+there exists <span class='mathjax-inline'>\(\phi (b)\)</span> such
+columns, the total number of integers that are relatively prime to
+both <span class='mathjax-inline'>\(a\)</span> and <span class=
+'mathjax-inline'>\(b\)</span>, or relatively prime to <span class=
+'mathjax-inline'>\(ab\)</span>, is <span class=
+'mathjax-inline'>\(\phi (a) \phi (b)\)</span> and <span class=
+'mathjax-inline'>\(\phi (ab) = \phi (a) \phi (b)\)</span> holds for
+<span class='mathjax-inline'>\((a, b) = 1\)</span>.</p>
+
+<div class='mdframed' id='mdframed-3'>
+  <!-- l. 85 -->
+
+  <p class='noindent'>Continuing with this property, we can see that
+  the same applies if we prime factorize <span class=
+  'mathjax-inline'>\(n\)</span> as <span class='mathjax-inline'>\(n =
+  p_1^{\alpha _1} p_2^{\alpha _2} \cdots p_k^{\alpha _k}\)</span> for
+  prime <span class='mathjax-inline'>\(k\)</span>. In other words, we
+  can write the formula as the following. <span class=
+  'mathjax-block'>\[ \phi (n) = p_1^{\alpha _1} \left ( 1 - \frac
+  {1}{p_1} \right ) \cdots p_k^{\alpha _k} \left ( 1 - \frac {1}{p_k}
+  \right ) = n \prod _{i=1}^k \left ( 1 - \frac {1}{p_i} \right )
+  \]</span></p>
+</div><!-- l. 98 -->
+
+<p class='noindent'>There is also very important property
+<span class='mathjax-block'>\[ \sum _{d \mid n} \phi (d) = n
+\]</span> but maybe we can discuss this later.</p><!-- l. 104 -->
+
+<p class='noindent'>Continuing, we can define another very important
+term.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-3'>
+  <div class='tcolorbox-title'>
+    <!-- l. 110 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.3</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 107 -->
+
+    <p class='noindent'>For integers <span class=
+    'mathjax-inline'>\(n\)</span> and <span class=
+    'mathjax-inline'>\(a\)</span> such that <span class=
+    'mathjax-inline'>\((a, n) = 1\)</span>, the <span class=
+    'pplb8t-x-x-109'>order of</span> <span class=
+    'mathjax-inline'>\(a\)</span> <span class=
+    'pplb8t-x-x-109'>mod</span> <span class=
+    'mathjax-inline'>\(n\)</span>, denoted as <span class=
+    'mathjax-inline'>\(\ord _n a\)</span> is the least positive
+    integer <span class='mathjax-inline'>\(k\)</span> such that
+    <span class='mathjax-inline'>\(a^k \equiv 1 \pmod
+    {n}\)</span>.</p>
+  </div>
+</div><!-- l. 112 -->
+
+<p class='noindent'>Some examples of this would include <span class=
+'mathjax-inline'>\(\ord _n 1 = 1\)</span> and <span class=
+'mathjax-inline'>\(\ord _n (-1) = 2\)</span> for all <span class=
+'mathjax-inline'>\(n &gt; 3\)</span>. We will discuss more on
+primitive roots and the properties of the order of <span class=
+'mathjax-inline'>\(a\)</span> mod <span class=
+'mathjax-inline'>\(n\)</span> later in the notes. Continuing with the
+totient function, we can derive two important theorems.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-4'>
+  <a id='x1-1006x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 120 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.4:&nbsp;Euler’s Theorem</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 119 -->
+
+    <p class='noindent'><span class='mathjax-inline'>\(a^{\phi (n)}
+    \equiv 1 \pmod {n}\)</span> if <span class='mathjax-inline'>\((a,
+    n) = 1\)</span>.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-4'>
+  <!-- l. 122 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 122 -->
+
+  <p class='noindent'>Let <span class='mathjax-inline'>\(\{ r_1, r_2,
+  \ldots , r_{\phi (n)} \}\)</span> be the set of integers that are
+  relatively prime to <span class='mathjax-inline'>\(n\)</span>. Note
+  that for positive integer <span class='mathjax-inline'>\(a\)</span>
+  such that <span class='mathjax-inline'>\((a, n) = 1\)</span>,
+  <span class='mathjax-inline'>\(\{ ar_1, ar_2, \ldots , 
+  ar_{\phi (n)} \}\)</span> is the same set since <span class=
+  'mathjax-inline'>\(ar_i \not \equiv ar_j \pmod {n}\)</span> for
+  <span class='mathjax-inline'>\(i \neq j\)</span>.</p>
+  <!-- l. 128 -->
+
+  <p class='noindent'>Therefore, <span class='mathjax-block'>\[ r_1
+  r_2 \ldots r_{\phi (n)} \equiv ar_1 ar_2 \ldots ar_{\phi (n)} \pmod
+  {n} \]</span> holds and <span class='mathjax-inline'>\(a^{\phi (n)}
+  \equiv 1 \pmod {n}\)</span>.</p>
+</div><!-- l. 136 -->
+
+<p class='noindent'>The next theorem Fermat’s Little Theorem can be
+proven with multiple ways, but let’s use Euler’s Theorem to prove it.
+They are frequently introduced together and some say Fermat’s Little
+Theorem is a corollary of Euler’s Theorem, but let’s consider it as a
+standalone theorem because there are plenty of other ways to prove
+the theorem.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-5'>
+  <a id='x1-1008x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 145 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.5:&nbsp;Fermat’s Little
+    Theorem</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 143 -->
+
+    <p class='noindent'>For prime <span class=
+    'mathjax-inline'>\(p\)</span> and positive integer <span class=
+    'mathjax-inline'>\(a\)</span> such that <span class=
+    'mathjax-inline'>\((a, p) = 1\)</span>, <span class=
+    'mathjax-inline'>\(a^{p-1} \equiv 1 \pmod {p}\)</span>.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-5'>
+  <!-- l. 147 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 147 -->
+
+  <p class='noindent'>By Euler’s Theorem, <span class=
+  'mathjax-inline'>\(a^{\phi (p)} \equiv 1 \pmod {p}\)</span>.
+  Because <span class='mathjax-inline'>\(\phi (p) = p - 1\)</span>,
+  the theorem holds.</p>
+</div><!-- l. 151 -->
+
+<p class='noindent'>Another very common way of representing this
+theorem is <span class='mathjax-inline'>\(a^p \equiv a \pmod
+{p}\)</span>. Before we move on to the final theorem that we will
+discuss in this section, let’s take a look at an example of how they
+are used.</p>
+
+<div class='tcolorbox probstyle' id='tcolobox-6'>
+  <div class='tcolorbox-title'>
+    <!-- l. 158 -->
+
+    <p class='noindent'>Exercise&nbsp;0.1.6</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 157 -->
+
+    <p class='noindent'>Show that <span class=
+    'mathjax-inline'>\(8^{43} \equiv 2 \pmod {10}\)</span>.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-6'>
+  <!-- l. 160 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 160 -->
+
+  <p class='noindent'>We can use CRT for this, but let’s use Fermat’s
+  Little Theorem here. How can we use it if <span class=
+  'mathjax-inline'>\((8, 10) \neq 1\)</span>? Well, we can force it.
+  Consider the following congruences with <span class=
+  'mathjax-inline'>\(8^{43} \equiv 0 \pmod {2}\)</span> in mind.
+  <span class='mathjax-env mathjax-align*'>\begin{align*} 8^4
+  &amp;\equiv 1 \pmod {5} \\ 8^{43} &amp;\equiv 8^3 \equiv 2^9 \equiv
+  2 \pmod {5} \end{align*}</span></p><!-- l. 168 -->
+
+  <p class='noindent'>In other words, <span class=
+  'mathjax-inline'>\(8^{43} = 5m + 2 = 2n\)</span> for some integers
+  <span class='mathjax-inline'>\(m\)</span> and <span class=
+  'mathjax-inline'>\(n\)</span>. Because <span class=
+  'mathjax-inline'>\(2 \mid m\)</span>, <span class=
+  'mathjax-inline'>\(8^{43} \equiv 2 \pmod {10}\)</span>.</p>
+</div><!-- l. 172 -->
+
+<p class='noindent'>Like this, we can split the modulo <span class=
+'mathjax-inline'>\(n\)</span> for our appropriate need. Before moving
+on to the final one and concepts related to the theorem, here is
+another example.</p>
+
+<div class='tcolorbox probstyle' id='tcolobox-7'>
+  <div class='tcolorbox-title'>
+    <!-- l. 178 -->
+
+    <p class='noindent'>Exercise&nbsp;0.1.7</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 177 -->
+
+    <p class='noindent'>Show that <span class=
+    'mathjax-inline'>\(2009^{2008^{2007}} \equiv 81 \pmod
+    {1000}\)</span> [<span class=
+    'pplb8t-x-x-109'>MATH01-5</span>].</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-7'>
+  <!-- l. 180 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 180 -->
+
+  <p class='noindent'>First, notice that <span class=
+  'mathjax-inline'>\((2009, 1000) = 1\)</span> and <span class=
+  'mathjax-inline'>\(\phi (1000) = 400\)</span>. Therefore,
+  <span class='mathjax-inline'>\(2009^{400} \equiv 1 \pmod
+  {1000}\)</span> and the following congruence holds for some
+  <span class='mathjax-inline'>\(n\)</span> and <span class=
+  'mathjax-inline'>\(k\)</span>. <span class='mathjax-block'>\[
+  2009^{2008^{2007}} \equiv 2009^{400n + k} \equiv 2009^{k} \equiv
+  9^k \pmod {1000} \]</span> Continuing, note that <span class=
+  'mathjax-inline'>\(2008^{2007} \equiv k \pmod {400}\)</span>.
+  Consider the following congruences. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} 2008^{2007} &amp;\equiv
+  2008^7 \equiv 8^7 \equiv 2^{21} \equiv 2 \pmod {25} \\ 2008^{2007}
+  &amp;\equiv 0 \pmod {16} \end{align*}</span></p><!-- l. 196 -->
+
+  <p class='noindent'>Therefore for some integer <span class=
+  'mathjax-inline'>\(p\)</span> and <span class=
+  'mathjax-inline'>\(q\)</span>, <span class=
+  'mathjax-inline'>\(2008^{2007} = 25p + 2 = 16q\)</span>. In other
+  words, <span class='mathjax-inline'>\(2008^{2007} = 25(16p' + 14) +
+  2 = 400p' + 352\)</span> for some integer <span class=
+  'mathjax-inline'>\(p'\)</span>. Therefore <span class=
+  'mathjax-inline'>\(k = 352\)</span> and it suffices to find
+  <span class='mathjax-inline'>\(9^{352}\)</span> modulo <span class=
+  'mathjax-inline'>\(1000\)</span>.</p><!-- l. 201 -->
+
+  <p class='noindent'>Continuing, <span class=
+  'mathjax-inline'>\(2009^{2008^{2007}} \equiv 9^{352} \equiv 3^{704}
+  \pmod {1000}\)</span>. Therefore, we can consider the following
+  congruences with <span class='mathjax-inline'>\(3^4 \equiv 1 \pmod
+  {8}\)</span> and <span class='mathjax-inline'>\(3^{100} \equiv 1
+  \pmod {125}\)</span>. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} 3^{704} &amp;\equiv 81
+  \pmod {125} \\ 3^{704} &amp;\equiv 1 \pmod {8}
+  \end{align*}</span></p><!-- l. 208 -->
+
+  <p class='noindent'>Let <span class='mathjax-inline'>\(3^{704} =
+  125r + 81 = 8s + 1\)</span> for some integers <span class=
+  'mathjax-inline'>\(r\)</span> and <span class=
+  'mathjax-inline'>\(s\)</span>. Therefore, <span class=
+  'mathjax-inline'>\(3^{704} = 1000r' + 81\)</span> for <span class=
+  'mathjax-inline'>\(r' \in \mathbb {N}\)</span> and <span class=
+  'mathjax-inline'>\(2009^{2008^{2007}} \equiv 81 \pmod
+  {1000}\)</span>.</p>
+</div><!-- l. 213 -->
+
+<p class='noindent'>With these techniques in mind, let’s conclude our
+review on number theory with a theorem and modular multiplicative
+inverse.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-8'>
+  <div class='tcolorbox-title'>
+    <!-- l. 220 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.8</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 217 -->
+
+    <p class='noindent'>For two integers <span class=
+    'mathjax-inline'>\(a\)</span> and <span class=
+    'mathjax-inline'>\(n\)</span> such that <span class=
+    'mathjax-inline'>\(a x \equiv 1 \pmod {n}\)</span> and
+    <span class='mathjax-inline'>\((a, n) = 1\)</span>, <span class=
+    'mathjax-inline'>\(x\)</span> often denoted as <span class=
+    'mathjax-inline'>\(a^{-1}\)</span> is the <span class=
+    'pplb8t-x-x-109'>modular multiplicative inverse</span> of
+    <span class='mathjax-inline'>\(a\)</span>.</p>
+  </div>
+</div><!-- l. 222 -->
+
+<p class='noindent'>With this definition, we can see an interesting
+property. If we consider the equation <span class=
+'mathjax-inline'>\(ax + nm = 1\)</span>, we can know that there
+always exists integer <span class='mathjax-inline'>\(x, m\)</span>
+that satisfies the equation by <span class='pplb8t-x-x-109'>Bézout’s
+Identity</span>. In other words, integer <span class=
+'mathjax-inline'>\(x\)</span> such that <span class=
+'mathjax-inline'>\(ax \equiv 1 \pmod {n}\)</span> always exist if
+<span class='mathjax-inline'>\((a, n) = 1\)</span>. Here, we could
+also see that if <span class='mathjax-inline'>\(x_1 \neq x_2\)</span>
+are both modular multiplicative inverse of <span class=
+'mathjax-inline'>\(a\)</span>, then <span class=
+'mathjax-inline'>\(ax_1 \equiv ax_2 \pmod {n}\)</span> and
+<span class='mathjax-inline'>\(x_1 \equiv x_2 \pmod {n}\)</span>,
+implying the uniqueness of the modular multiplicative inverse of
+<span class='mathjax-inline'>\(a\)</span> in the standard
+representatives.</p>
+
+<div class='mdframed' id='mdframed-8'>
+  <!-- l. 233 -->
+
+  <p class='noindent'>For an integer <span class=
+  'mathjax-inline'>\(a\)</span> and modulo <span class=
+  'mathjax-inline'>\(n\)</span>, if <span class=
+  'mathjax-inline'>\((a, n) = 1\)</span>, then there always exists
+  the modular multiplicative inverse of <span class=
+  'mathjax-inline'>\(a\)</span> and the inverse is unique in the
+  residue system of <span class='mathjax-inline'>\(n\)</span>.</p>
+</div><!-- l. 238 -->
+
+<p class='noindent'>With this, we can consider Wilson’s Theorem.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-9'>
+  <a id='x1-1013x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 243 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.9:&nbsp;Wilson’s Theorem</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 241 -->
+
+    <p class='noindent'>For an integer <span class=
+    'mathjax-inline'>\(p &gt; 1\)</span>, <span class=
+    'mathjax-inline'>\((n - 1)! \equiv -1 \pmod {p}\)</span> if and
+    only if <span class='mathjax-inline'>\(p\)</span> is a prime.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-9'>
+  <!-- l. 245 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 245 -->
+
+  <p class='noindent'>To prove this theorem, first consider the case
+  when an integer is a modular multiplicative inverse of itself.
+  <span class='mathjax-block'>\[ x \equiv x^{-1} \pmod {p} \]</span>
+  Note that by definition, <span class='mathjax-inline'>\(x^2 \equiv
+  1 \pmod {p}\)</span> holds if <span class='mathjax-inline'>\(x
+  \equiv 1 \pmod {p}\)</span> or <span class='mathjax-inline'>\(x
+  \equiv p-1 \pmod {p}\)</span>. Moreover, there exists even number
+  of integers <span class='mathjax-inline'>\(1, \ldots , p-1\)</span>
+  for prime <span class='mathjax-inline'>\(p &gt; 2\)</span>. Because
+  those numbers are prime to <span class=
+  'mathjax-inline'>\(p\)</span>, there exists a unique modular
+  multiplicative inverse, and this implies that the terms can be
+  grouped in pairs, leaving only <span class='mathjax-inline'>\((p -
+  1)! \equiv p - 1 \equiv -1 \pmod {p}\)</span>. Moreover, it is
+  evident that the theorem holds for <span class='mathjax-inline'>\(p
+  = 2\)</span>. Furthermore, because the pairing does not apply when
+  <span class='mathjax-inline'>\(p\)</span> is not a prime, the
+  theorem holds.</p>
+</div><!-- l. 261 -->
+
+<p class='noindent'>This was it for the review on number theory! In
+our next section, we will review some of the basic topics in
+combinatorics.</p>

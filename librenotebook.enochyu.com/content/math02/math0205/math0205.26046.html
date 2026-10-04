@@ -1,0 +1,173 @@
+<h3 class='sectionHead' id='solutions-for-note-3'><span class=
+'titlemark'>0.1</span> <a id='x1-10000.1'></a>Solutions for Note
+3</h3><!-- l. 7 -->
+
+<p class='noindent'></p>
+
+<dl class='enumerate-enumitem'>
+  <dt class='enumerate-enumitem'>1.</dt>
+
+  <dd class='enumerate-enumitem'>If <span class=
+  'mathjax-inline'>\(A\)</span> is invertible, then <span class=
+  'mathjax-inline'>\(A^{-1} A x = A^{-1} b\)</span> and <span class=
+  'mathjax-inline'>\(x = A^{-1} b\)</span>. Therefore, the system
+  <span class='mathjax-inline'>\(Ax = b\)</span> is always
+  consistent.</dd>
+
+  <dt class='enumerate-enumitem'>2.</dt>
+
+  <dd class='enumerate-enumitem'>
+    Consider the following representation of the system. <span class=
+    'mathjax-env mathjax-align*'>\begin{align*} x + 2y &amp;= 1 \\ 2x
+    + 4y &amp;= k \end{align*}</span> <!-- l. 17 -->
+
+    <p class='noindent'>Notice that if <span class=
+    'mathjax-inline'>\(k = 2\)</span>, then there exist infinitely
+    many solutions while <span class='mathjax-inline'>\(k \neq
+    2\)</span> gives no solutions. Thus the system never has a unique
+    solution.</p>
+  </dd>
+
+  <dt class='enumerate-enumitem'>3.</dt>
+
+  <dd class='enumerate-enumitem'>
+    First and foremost, consider the following augmented matrix.
+    <span class='mathjax-block'>\[ \begin {bNiceArray}{ccc|c} 1 &amp;
+    1 &amp; 1 &amp; 10 \\ 3 &amp; 4 &amp; -1 &amp; 2 \\ -1 &amp; -3
+    &amp; 1 &amp; 4 \end {bNiceArray} \]</span> Using elementary row
+    operations, the augmented matrix can be transformed as following.
+    <span class='mathjax-env mathjax-align*'>\begin{align*} \begin
+    {bNiceArray}{ccc|c} 1 &amp; 1 &amp; 1 &amp; 10 \\ 3 &amp; 4 &amp;
+    -1 &amp; 2 \\ -1 &amp; -3 &amp; 1 &amp; 4 \end {bNiceArray}
+    &amp;\rightarrow \begin {bNiceArray}{ccc|c} 1 &amp;
+    1 &amp; 1 &amp; 10 \\ 0 &amp; 1 &amp; -4 &amp; -28 \\ -1 &amp; -3
+    &amp; 1 &amp; 4 \end {bNiceArray} \\ &amp;\rightarrow \begin
+    {bNiceArray}{ccc|c} 1 &amp; 1 &amp; 1 &amp; 10 \\ 0 &amp; 1 &amp;
+    -4 &amp; -28 \\ 0 &amp; -2 &amp; 2 &amp; 14 \end {bNiceArray} \\
+    &amp;\rightarrow \begin {bNiceArray}{ccc|c} 1 &amp; 1 &amp; 1
+    &amp; 10 \\ 0 &amp; 1 &amp; -4 &amp; -28 \\ 0 &amp; 0 &amp; -6
+    &amp; -42 \end {bNiceArray} \end{align*}</span> <!-- l. 58 -->
+
+    <p class='noindent'>Therefore, <span class='mathjax-inline'>\(-6z
+    = -42\)</span> and <span class='mathjax-inline'>\(z = 7\)</span>.
+    Moreover, <span class='mathjax-inline'>\(y - 4z = -28\)</span>
+    and <span class='mathjax-inline'>\(y = 0\)</span>. Finally,
+    <span class='mathjax-inline'>\(x + y + z = 10\)</span> and
+    <span class='mathjax-inline'>\(x = 3\)</span>. Therefore, the
+    solution to the system is <span class='mathjax-inline'>\((3, 0,
+    7)\)</span>.</p>
+  </dd>
+
+  <dt class='enumerate-enumitem'>4.</dt>
+
+  <dd class='enumerate-enumitem'>
+    First and foremost, let <span class='mathjax-inline'>\(A = \begin
+    {bmatrix} 1 &amp; 1 &amp; 1 \\ 3 &amp; 4 &amp; -1 \\ -1 &amp; -3
+    &amp; 1 \end {bmatrix}\)</span>. Using elementary row operations,
+    <span class='mathjax-inline'>\(A\)</span> can be transformed as
+    following. <span class=
+    'mathjax-env mathjax-align*'>\begin{align*} \begin {bmatrix} 1
+    &amp; 1 &amp; 1 \\ 3 &amp; 4 &amp; -1 \\ -1 &amp; -3 &amp; 1 \end
+    {bmatrix} &amp;\rightarrow \begin {bmatrix} 1 &amp; 1 &amp; 1 \\
+    0 &amp; 1 &amp; -4 \\ -1 &amp; -3 &amp; 1 \end {bmatrix}
+    \rightarrow \begin {bmatrix} 1 &amp; 1 &amp; 1 \\ 0 &amp; 1 &amp;
+    -4 \\ 0 &amp; -2 &amp; 2 \end {bmatrix} \\ &amp;\rightarrow
+    \begin {bmatrix} 1 &amp; 1 &amp; 1 \\ 0 &amp; 1 &amp; -4 \\ 0
+    &amp; 0 &amp; -6 \end {bmatrix} \end{align*}</span> 
+    <!-- l. 95 -->
+
+    <p class='noindent'>In other words, <span class=
+    'mathjax-inline'>\(A\)</span> can be represented as the matrix
+    multiplication below. <span class=
+    'mathjax-env mathjax-align*'>\begin{align*} &amp;\quad \ \begin
+    {bmatrix} 1 &amp; 1 &amp; 1 \\ 3 &amp; 4 &amp; -1 \\ -1 &amp; -3
+    &amp; 1 \end {bmatrix} \\ &amp;= \begin {bmatrix} 1 &amp; 0 &amp;
+    0 \\ 3 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end {bmatrix} \begin
+    {bmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ -1 &amp; 0
+    &amp; 1 \end {bmatrix} \begin {bmatrix} 1 &amp; 0 &amp; 0 \\ 0
+    &amp; 1 &amp; 0 \\ 0 &amp; -2 &amp; 1 \end {bmatrix} \begin
+    {bmatrix} 1 &amp; 1 &amp; 1 \\ 0 &amp; 1 &amp; -4 \\ 0 &amp; 0
+    &amp; -6 \end {bmatrix} \\ &amp;= \begin {bmatrix}
+    1 &amp; 0 &amp; 0 \\ 3 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end
+    {bmatrix} \begin {bmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0
+    \\ -1 &amp; -2 &amp; 1 \end {bmatrix} \begin {bmatrix} 1 &amp; 1
+    &amp; 1 \\ 0 &amp; 1 &amp; -4 \\ 0 &amp; 0 &amp; -6 \end
+    {bmatrix} \\ &amp;= \begin {bmatrix} 1 &amp; 0 &amp; 0 \\ 3 &amp;
+    1 &amp; 0 \\ -1 &amp; -2 &amp; 1 \end {bmatrix} \begin {bmatrix}
+    1 &amp; 1 &amp; 1 \\ 0 &amp; 1 &amp; -4 \\ 0 &amp; 0 &amp; -6
+    \end {bmatrix} \end{align*}</span></p><!-- l. 153 -->
+
+    <p class='noindent'>Consider the following system for equation
+    for <span class='mathjax-inline'>\(Ly = b\)</span>. <span class=
+    'mathjax-block'>\[ \begin {bmatrix} 1 &amp; 0 &amp; 0 \\ 3 &amp;
+    1 &amp; 0 \\ -1 &amp; -2 &amp; 1 \end {bmatrix} \begin {bmatrix}
+    x' \\ y' \\ z' \end {bmatrix} = \begin {bmatrix} 10 \\ 2 \\ 4
+    \end {bmatrix} \]</span> It is evident that <span class=
+    'mathjax-inline'>\(x' = 10\)</span>, <span class=
+    'mathjax-inline'>\(y' = 2 - 3x' = -28\)</span>, and <span class=
+    'mathjax-inline'>\(z' = 4 + x' + 2y' = -42\)</span>. Continuing,
+    the system for <span class='mathjax-inline'>\(Ux = y\)</span> can
+    be solved. <span class='mathjax-block'>\[ \begin {bmatrix} 1
+    &amp; 1 &amp; 1 \\ 0 &amp; 1 &amp; -4 \\ 0 &amp; 0 &amp; -6 \end
+    {bmatrix} \begin {bmatrix} x \\ y \\ z \end {bmatrix} = \begin
+    {bmatrix} 10 \\ -28 \\ -42 \end {bmatrix} \]</span> Therefore,
+    <span class='mathjax-inline'>\(z = 7\)</span>, <span class=
+    'mathjax-inline'>\(y = 0\)</span>, and <span class=
+    'mathjax-inline'>\(x = 3\)</span> holds and the solution for the
+    system is <span class='mathjax-inline'>\((3, 0, 7)\)</span> as
+    shown in the previous problem.</p>
+  </dd>
+
+  <dt class='enumerate-enumitem'>5.</dt>
+
+  <dd class='enumerate-enumitem'>
+    To find the inverse of <span class='mathjax-inline'>\(A = \begin
+    {bmatrix} 1 &amp; 1 &amp; 1 \\ 3 &amp; 4 &amp; -1 \\ -1 &amp; -3
+    &amp; 1 \end {bmatrix}\)</span>, consider the following
+    augmentation and transformations. <span class=
+    'mathjax-env mathjax-align*'>\begin{align*} \begin
+    {bNiceArray}{ccc|ccc} 1 &amp; 1 &amp; 1 &amp; 1 &amp; 0 &amp; 0
+    \\ 3 &amp; 4 &amp; -1 &amp; 0 &amp; 1 &amp; 0 \\ -1 &amp; -3
+    &amp; 1 &amp; 0 &amp; 0 &amp; 1 \end {bNiceArray}
+    &amp;\rightarrow \begin {bNiceArray}{ccc|ccc} 1 &amp; 1 &amp; 1
+    &amp; 1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; -4 &amp; -3 &amp; 1
+    &amp; 0 \\ -1 &amp; -3 &amp; 1 &amp; 0 &amp; 0 &amp; 1 \end
+    {bNiceArray} \\ &amp;\rightarrow \begin {bNiceArray}{ccc|ccc} 1
+    &amp; 1 &amp; 1 &amp; 1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; -4
+    &amp; -3 &amp; 1 &amp; 0 \\ 0 &amp; -2 &amp; 2 &amp; 1 &amp; 0
+    &amp; 1 \end {bNiceArray} \\ &amp;\rightarrow
+    \begin {bNiceArray}{ccc|ccc} 1 &amp; 1 &amp; 1 &amp; 1 &amp; 0
+    &amp; 0 \\ 0 &amp; 1 &amp; -4 &amp; -3 &amp; 1 &amp; 0 \\ 0 &amp;
+    0 &amp; -6 &amp; -5 &amp; 2 &amp; 1 \end {bNiceArray} \\
+    &amp;\rightarrow \begin {bNiceArray}{ccc|ccc} 1 &amp; 1 &amp; 1
+    &amp; 1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; -4 &amp; -3 &amp; 1
+    &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; \frac {5}{6} &amp; -\frac
+    {1}{3} &amp; -\frac {1}{6} \end {bNiceArray} \\ &amp;\rightarrow
+    \begin {bNiceArray}{ccc|ccc} 1 &amp; 1 &amp; 1 &amp; 1 &amp; 0
+    &amp; 0 \\ 0 &amp; 1 &amp; 0 &amp; \frac {1}{3} &amp; -\frac
+    {1}{3} &amp; -\frac {2}{3} \\ 0 &amp; 0 &amp; 1 &amp; \frac
+    {5}{6} &amp; -\frac {1}{3} &amp; -\frac {1}{6} \end {bNiceArray}
+    \\ &amp;\rightarrow \begin {bNiceArray}{ccc|ccc} 1 &amp; 0 &amp;
+    0 &amp; -\frac {1}{6} &amp; \frac {2}{3} &amp; \frac {5}{6} \\ 0
+    &amp; 1 &amp; 0 &amp; \frac {1}{3} &amp; -\frac {1}{3} &amp;
+    -\frac {2}{3} \\ 0 &amp; 0 &amp; 1 &amp; \frac {5}{6} &amp;
+    -\frac {1}{3} &amp; -\frac {1}{6} \end {bNiceArray} \\
+    \end{align*}</span> <!-- l. 248 -->
+
+    <p class='noindent'>Therefore, <span class=
+    'mathjax-inline'>\(A^{-1} = \begin {bmatrix} -\frac {1}{6} &amp;
+    \frac {2}{3} &amp; \frac {5}{6} \\ \frac {1}{3} &amp; -\frac
+    {1}{3} &amp; -\frac {2}{3} \\ \frac {5}{6} &amp; -\frac {1}{3}
+    &amp; -\frac {1}{6} \end {bmatrix}\)</span> and the system could
+    be solved by multiplying <span class=
+    'mathjax-inline'>\(A^{-1}\)</span> and <span class=
+    'mathjax-inline'>\(b\)</span>. <span class='mathjax-block'>\[
+    \begin {bmatrix} -\frac {1}{6} &amp; \frac {2}{3} &amp; \frac
+    {5}{6} \\ \frac {1}{3} &amp; -\frac {1}{3} &amp; -\frac {2}{3} \\
+    \frac {5}{6} &amp; -\frac {1}{3} &amp; -\frac {1}{6} \end
+    {bmatrix} \begin {bmatrix} 10 \\ 2 \\ 4 \end {bmatrix} = \begin
+    {bmatrix} 3 \\ 0 \\ 7 \end {bmatrix} \]</span> Thus, the solution
+    is <span class='mathjax-inline'>\((3, 0, 7)\)</span>, which is
+    consistent with the previous problems.</p>
+  </dd>
+</dl>

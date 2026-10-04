@@ -1,0 +1,228 @@
+<h3 class='sectionHead' id='advanced-inequalities'><span class=
+'titlemark'>0.1</span> <a id='x1-10000.1'></a>Advanced
+Inequalities</h3><!-- l. 10 -->
+
+<p class='noindent'>Muirhead’s inequality is one of the powerful
+proving tools that is also a generalization of AM-GM inequality.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-1'>
+  <a id='x1-1002x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 22 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.1:&nbsp;Muirhead’s
+    Inequality</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 14 -->
+
+    <p class='noindent'>Let <span class=
+    'mathjax-inline'>\((a_i)\)</span> and <span class=
+    'mathjax-inline'>\((b_i)\)</span> be sequences such that
+    <span class='mathjax-inline'>\((a_i) \succ (b_i)\)</span>. Then,
+    the following inequality holds for all nonnegative <span class=
+    'mathjax-inline'>\(x_i\)</span>. <span class='mathjax-block'>\[
+    \sum _\text {sym} {x_1}^{a_1} \cdots {x_n}^{a_n} \geq \sum _\text
+    {sym} {x_1}^{b_1} \cdots {x_n}^{b_n} \]</span> The equality holds
+    if and only if <span class='mathjax-inline'>\((a_i)\)</span> and
+    <span class='mathjax-inline'>\((b_i)\)</span> are identical or if
+    all <span class='mathjax-inline'>\(x_i\)</span> are identical,
+    which is the most common case.</p>
+  </div>
+</div><!-- l. 29 -->
+
+<p class='noindent'>Another very powerful inequality is Shur’s
+inequality. Shur’s inequality comes with many alternative forms, and
+it is generally encouraged to prove the derivation as there are also
+not-so-famous ones.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-2'>
+  <a id='x1-1004x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 43 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.2:&nbsp;Schur’s
+    Inequality</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 35 -->
+
+    <p class='noindent'>For <span class='mathjax-inline'>\(a, b, c
+    \geq 0\)</span> and <span class='mathjax-inline'>\(r \geq
+    0\)</span>, <span class=
+    'mathjax-env mathjax-align*'>\begin{align*} \sum _\text {cyclic}
+    a^r(a - b)(a - c) &amp;\geq 0 \\ a^r(a - b)(a - c) + b^r(b - a)(b
+    - c) + c^r(c - a)(c - b) &amp;\geq 0 \end{align*}</span></p>
+    <!-- l. 42 -->
+
+    <p class='noindent'>holds with equality if <span class=
+    'mathjax-inline'>\(a = b = c\)</span>.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-1'>
+  <!-- l. 45 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 45 -->
+
+  <p class='noindent'>First, notice that the left hand side of the
+  inequality is cyclic. Therefore without loss of generality, let
+  <span class='mathjax-inline'>\(a \geq b \geq c \geq 0\)</span>.
+  Rewriting the inequality, <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} a^r(a - b)(a - c) +
+  b^r(b - a)(b - c) + c^r(c - a)(c - b) &amp;\geq 0 \\ (a - b)\left [
+  a^2(a - c) - b^r(b - c) \right ] + c^r(c - a)(c - b) &amp;\geq 0
+  \end{align*}</span></p><!-- l. 54 -->
+
+  <p class='noindent'>holds. Moreover by construction, <span class=
+  'mathjax-inline'>\(a - b\)</span>, <span class=
+  'mathjax-inline'>\(a^2(a - c) - b^r(b - c)\)</span>, and
+  <span class='mathjax-inline'>\(c^r(c - a)(c - b)\)</span> are all
+  greater than or equal to zero. Since the sum of all non-negative
+  numbers is a non-negative number, the inequality holds.</p>
+</div><!-- l. 60 -->
+
+<p class='noindent'>It won’t be an exaggeration to say that the real
+power of Schur’s inequality in olympiads come from its
+corollaries.</p>
+
+<div class='tcolorbox corstyle' id='tcolobox-3'>
+  <a id='x1-1006x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 68 -->
+
+    <p class='noindent'>Corollary&nbsp;0.1.3</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 64 -->
+
+    <p class='noindent'>The following inequality holds for all reals
+    <span class='mathjax-inline'>\(a, b, c\)</span>. <span class=
+    'mathjax-block'>\[ a^2 + b^2 + c^2 \geq ab + bc + ca
+    \]</span></p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-2'>
+  <!-- l. 70 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 70 -->
+
+  <p class='noindent'>Substituting <span class='mathjax-inline'>\(r =
+  0\)</span> in Schur’s inequality, the following is obtained.
+  <span class='mathjax-env mathjax-align*'>\begin{align*} (a - b)(a -
+  c) + (b - a)&amp;(b - c) + (c - a)(c - b) \geq 0 \\ \therefore a^2
+  + b^2 + c^2 &amp;\geq ab + bc + ca \end{align*}</span></p>
+  <!-- l. 77 -->
+
+  <p class='noindent'>However, notice that unlike the condition for
+  <span class='mathjax-inline'>\(a, b, c\)</span> in Schur’s
+  inequality, the inequality above holds for negative <span class=
+  'mathjax-inline'>\(a, b, c\)</span>. Without loss of generality,
+  let <span class='mathjax-inline'>\(a \geq b \geq c\)</span>. If
+  <span class='mathjax-inline'>\(c &lt; 0\)</span> and <span class=
+  'mathjax-inline'>\(a, b \geq 0\)</span>, then it is self evident
+  that the inequality is holds. Similarly, if two variables are
+  negative, the inequality also holds. Lastly, when all <span class=
+  'mathjax-inline'>\(a, b, c\)</span> are all negative, then the
+  inequality holds as positive numbers are greater than negative
+  sum.</p>
+</div><!-- l. 91 -->
+
+<p class='noindent'>Minkowski’s inequality is a generalization of the
+triangle inequality.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-4'>
+  <a id='x1-1008x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 103 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.4:&nbsp;Minkowski’s
+    Inequality</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 94 -->
+
+    <p class='noindent'>For <span class='mathjax-inline'>\(a_i, b_i
+    &gt; 0\)</span> and <span class='mathjax-inline'>\(p &gt;
+    1\)</span>, the following inequality is holds. <span class=
+    'mathjax-block'>\[ \left ( \sum _{k = 1}^n (a_k + b_k)^p \right
+    )^\frac {1}{p} \leq \left ( \sum _{k = 1}^n a_k^p \right )^\frac
+    {1}{p} + \left ( \sum _{k = 1}^n b_k^p \right )^\frac {1}{p}
+    \]</span> The equality holds if and only if there exists
+    <span class='mathjax-inline'>\(\lambda &gt; 0\)</span> such that
+    <span class='mathjax-inline'>\(a_i = \lambda b_i\)</span> for all
+    <span class='mathjax-inline'>\(1 \leq i \leq n\)</span>.</p>
+  </div>
+</div><!-- l. 106 -->
+
+<p class='noindent'>* Bernoulli’s Inequality * Equal Value
+Principle</p>
+
+<h4 class='subsectionHead' id='symmetric-and-cyclic-inequalities'>
+<span class='titlemark'>0.1.1</span> <a id=
+'x1-20000.1.1'></a>Symmetric and Cyclic Inequalities</h4>
+<!-- l. 110 -->
+
+<p class='noindent'>* Newton’s Inequality * Maclaurin’s Inequality *
+Popoviciu’s Inequality</p><!-- l. 114 -->
+
+<p class='noindent'>Nesbitt’s inequality can be considered as the
+direct consequence of Cauchy inequality.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-5'>
+  <a id='x1-2002x0.1.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 122 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.5:&nbsp;Nesbitt’s
+    Inequality</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 118 -->
+
+    <p class='noindent'>For arbitrary <span class=
+    'mathjax-inline'>\(a, b, c &gt; 0\)</span>, the following
+    inequality holds. <span class='mathjax-block'>\[ \sum _\text
+    {cyc} \frac {a}{b + c} \geq \frac {3}{2} \]</span></p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-3'>
+  <!-- l. 124 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 124 -->
+
+  <p class='noindent'>Consider the following inequality by Cauchy
+  inequality. <span class='mathjax-env mathjax-align*'>\begin{align*}
+  \left ( (a + b) + (b + c) + (c + a) \right ) &amp;\left ( \frac
+  {1}{a + b} + \frac {1}{b + c} + \frac {1}{c + a} \right ) \\
+  &amp;\qquad \qquad \qquad \quad \geq (1 + 1 + 1)^2 = 9
+  \end{align*}</span></p><!-- l. 133 -->
+
+  <p class='noindent'>Therefore, the following inequalities hold.
+  <span class='mathjax-env mathjax-align*'>\begin{align*} &amp;\quad
+  \,\ 2 \left ( \frac {a + b + c}{a + b} + \frac {a + b + c}{b + c} +
+  \frac {a + b + c}{c + a} \right ) \\ &amp;= 2 \left ( \frac {c}{a +
+  b} + \frac {a}{b + c} + \frac {b}{c + a} + 3 \right ) \geq 9
+  \end{align*}</span></p><!-- l. 144 -->
+
+  <p class='noindent'>Thus, the inequality holds.</p>
+</div><!-- l. 147 -->
+
+<p class='noindent'>Nesbitt’s inequality is less frequently used than
+other inequalities, but when applied, it can be a very powerful
+inequality.</p>

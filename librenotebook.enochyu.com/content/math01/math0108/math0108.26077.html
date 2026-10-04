@@ -1,0 +1,265 @@
+<h3 class='sectionHead' id='infinite-descent'><span class=
+'titlemark'>0.1</span> <a id='x1-10000.1'></a>Infinite Descent</h3>
+<!-- l. 7 -->
+
+<p class='noindent'>Infinite descent is a powerful proving tool in
+number theory that is used very frequently. Many, if not most,
+problems on Diophantine equations are proven with infinite descent
+and it has wide range of applications from showing that there are no
+solutions under a certain condition and finding solutions to advance
+techniques like Vieta jumping.</p><!-- l. 14 -->
+
+<p class='noindent'>Before we get started with how this technique
+works, we need to discuss the foundational principle that infinite
+descent builds up on. Consider the following principle.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-1'>
+  <div class='tcolorbox-title'>
+    <!-- l. 21 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.1</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 19 -->
+
+    <p class='noindent'>The <span class=
+    'pplb8t-x-x-109'>well-ordering principle</span> states that there
+    always exists a least element in an non-empty set of positive
+    integers.</p>
+  </div>
+</div><!-- l. 23 -->
+
+<p class='noindent'>In olympiad, we take the principle above as an
+axiom and does not require a proof. Meaning, we can just use “by
+well-ordering principle...” when we prove by infinite descent.</p>
+<!-- l. 27 -->
+
+<p class='noindent'>The well-ordering principle is foundational for
+infinite descent because it allows us to have contradiction. Here is
+what I mean. When we prove with infinite descent, we assume that
+there exists a minimum value in a set. The minimum value could be a
+number, sum, and much more depending on the problem. Also, note that
+we can assume this because our interests only lies on positive
+integers and there cannot be a “least element” for rational and
+reals. Then, we will infinitely descend, eventually getting
+contradiction with our assumption. This is quite hard to understand
+without an example, so let’s take a look at very famous example
+before formally stating the method described.</p>
+
+<div class='tcolorbox probstyle' id='tcolobox-2'>
+  <div class='tcolorbox-title'>
+    <!-- l. 42 -->
+
+    <p class='noindent'>Exercise&nbsp;0.1.2:&nbsp;Classic Problem</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 40 -->
+
+    <p class='noindent'>Show that the equation <span class=
+    'mathjax-inline'>\(x^3 + 2y^3 = 4z^3\)</span> does not have any
+    solutions in positive integers.</p>
+  </div>
+</div>
+
+<p>(<a href='https://youtu.be/UJR56wT0NIM'>Video Solution</a>)</p>
+
+<div class='mdframed' id='mdframed-1'>
+  <!-- l. 45 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 45 -->
+
+  <p class='noindent'>For the sake of contradiction, assume that
+  there exists positive integer solutions to the equation and let
+  <span class='mathjax-inline'>\((a, b, c)\)</span> be the solution
+  with the least <span class='mathjax-inline'>\(a\)</span> by
+  well-ordering principle. Consider the following congruence.
+  <span class='mathjax-block'>\[ x^3 + 2y^3 \equiv 4z^3 \equiv 0
+  \pmod {2} \]</span> Therefore, <span class='mathjax-inline'>\(2
+  \mid x\)</span>. Let <span class='mathjax-inline'>\(x'\)</span> be
+  an integer such that <span class='mathjax-inline'>\(x =
+  2x'\)</span>. Substituting, <span class='mathjax-inline'>\(8x'^3 +
+  2y^3 = 4z^3\)</span> and <span class='mathjax-inline'>\(4x'^3 + y^3
+  = 2z^3\)</span> are obtained. By the similar argument, it is
+  evident that <span class='mathjax-inline'>\(2 \mid y\)</span> and
+  <span class='mathjax-inline'>\(y = 2y'\)</span> for some integer
+  <span class='mathjax-inline'>\(y'\)</span>. Substituting again,
+  <span class='mathjax-inline'>\(4x'^3 + 8y'^3 = 2z^3\)</span> and
+  <span class='mathjax-inline'>\(2x'^3 + 4y'^3 = z^3\)</span>.
+  Therefore, <span class='mathjax-inline'>\(2 \mid z\)</span> and
+  there exists some positive integer <span class=
+  'mathjax-inline'>\(z'\)</span> such that <span class=
+  'mathjax-inline'>\(z = 2z'\)</span>. Continuing with the final
+  substitution, <span class='mathjax-inline'>\(2x'^3 + 4y'^3 =
+  8z'^3\)</span> and <span class='mathjax-inline'>\(x'^3 + 2y'^3 =
+  4z'^3\)</span> are obtained. In other words, if <span class=
+  'mathjax-inline'>\((x, y, z)\)</span> is a solution, <span class=
+  'mathjax-inline'>\((x', y', z')\)</span> is also a solution to the
+  equation.</p><!-- l. 63 -->
+
+  <p class='noindent'>Note that <span class='mathjax-inline'>\((a, b,
+  c)\)</span> is assumed to be a solution with the least <span class=
+  'mathjax-inline'>\(a\)</span>. Therefore, <span class=
+  'mathjax-inline'>\((\frac {a}{2}, \frac {b}{2}, \frac
+  {c}{2})\)</span> is also a solution to the equation. Because
+  <span class='mathjax-inline'>\(\frac {a}{2} &lt; a\)</span>, there
+  is no positive integer solutions to the equation.</p>
+</div><!-- l. 69 -->
+
+<p class='noindent'>As you can see from the example above, we assume
+the minimum and show that the infinite descent contradicts with our
+assumption.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-3'>
+  <div class='tcolorbox-title'>
+    <!-- l. 78 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.3</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 73 -->
+
+    <p class='noindent'>The <span class='pplb8t-x-x-109'>proof by
+    infinite descent</span> is a technique that shows contradiction
+    through infinitely descending sequence. Assume that there exists
+    a solution with minimum condition by well-ordering principle.
+    Then, construct a strictly and infinitely descending sequence.
+    The proof completes by contradiction.</p>
+  </div>
+</div><!-- l. 80 -->
+
+<p class='noindent'>We can expand our idea to see how we can use
+Pythagorean triples discussed earlier and infinite descent together
+to solve problems.</p>
+
+<div class='tcolorbox probstyle' id='tcolobox-4'>
+  <div class='tcolorbox-title'>
+    <!-- l. 85 -->
+
+    <p class='noindent'>Exercise&nbsp;0.1.4</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 84 -->
+
+    <p class='noindent'>INFINTE DSCENT AND PYTA</p>
+  </div>
+</div><!-- l. 87 -->
+
+<p class='noindent'>Infinite descent have wide range of applications,
+and we can extend its application with Vieta’s formulas.</p>
+
+<h4 class='subsectionHead' id='vieta-jumping'><span class=
+'titlemark'>0.1.1</span> <a id='x1-20000.1.1'></a>Vieta Jumping</h4>
+<!-- l. 92 -->
+
+<p class='noindent'>Vieta jumping is a technique that has been
+formally introduced with the famous problem 1988 IMO Problem 6. Now
+it is a very standard and common technique, but back then, it was one
+of the revolutionary technique.</p><!-- l. 97 -->
+
+<p class='noindent'>The basic idea is to write a given equation as a
+quadratic equation with respect to a specific variable, then use the
+Vieta’s formula to apply infinite descent. To see what I mean, let’s
+actually solve 1988 IMO Problem 6 together to see how it works. Also,
+don’t worry! It is often framed as one of the hardest IMO problems
+ever, but it is not too difficult when you understand the solution.
+Of course the problem is very difficult because Vieta jumping wasn’t
+really a thing back then, if you understood the contents in this
+section, you would be surprised to see how satisfying this problem
+is!</p>
+
+<div class='tcolorbox probstyle' id='tcolobox-5'>
+  <a id='x1-2002x0.1.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 112 -->
+
+    <p class='noindent'>Exercise&nbsp;0.1.5:&nbsp;1988 IMO Problem
+    6</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 109 -->
+
+    <p class='noindent'>Show that for positive integers <span class=
+    'mathjax-inline'>\(a\)</span> and <span class=
+    'mathjax-inline'>\(b\)</span>, if <span class=
+    'mathjax-inline'>\(\frac {a^2 + b^2}{ab + 1}\)</span> is an
+    integer, then it is a perfect square.</p>
+  </div>
+</div>
+
+<p>(<a href='https://youtu.be/rU1e7ttQmh4'>Video Solution</a>)</p>
+
+<div class='mdframed' id='mdframed-2'>
+  <!-- l. 115 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 115 -->
+
+  <p class='noindent'>Let <span class='mathjax-inline'>\(\frac {a^2 +
+  b^2}{ab + 1} = k\)</span> for some integer <span class=
+  'mathjax-inline'>\(k\)</span> and let <span class=
+  'mathjax-inline'>\(a &gt; b\)</span> without loss of generality.
+  Assume for the sake of contradiction that <span class=
+  'mathjax-inline'>\(k\)</span> is not the square of an integer.
+  Rearranging the equation, <span class='mathjax-inline'>\(a^2 + b^2
+  = abk + k\)</span> holds and the following quadratic equation can
+  be written with respect to <span class=
+  'mathjax-inline'>\(a\)</span>. <span class='mathjax-block'>\[ a^2 -
+  bka + b^2 - k = 0 \]</span> Using Vieta’s formulas, the other root
+  <span class='mathjax-inline'>\(a'\)</span> of the equation satisfy
+  the following equation if <span class='mathjax-inline'>\(a\)</span>
+  is a root of the equation. <span class='mathjax-block'>\[ a' = bk -
+  a = \frac {b^2 - k}{a} \]</span> Assume by well-ordering principle
+  that <span class='mathjax-inline'>\((a, b)\)</span> is a root of
+  the equation with least <span class='mathjax-inline'>\(a +
+  b\)</span>. Therefore, it suffices to show that <span class=
+  'mathjax-inline'>\(a' + b &lt; a + b\)</span> and that <span class=
+  'mathjax-inline'>\(a'\)</span> is a positive integer.</p>
+  <!-- l. 134 -->
+
+  <p class='noindent'>First, consider the following inequality for
+  showing that <span class='mathjax-inline'>\(a' + b &lt; a +
+  b\)</span>. <span class='mathjax-block'>\[ a' = \frac {b^2 - k}{a}
+  &lt; \frac {b^2}{a} &lt; \frac {b^2}{a} = a \]</span> Therefore,
+  <span class='mathjax-inline'>\(a' &lt; a\)</span> and <span class=
+  'mathjax-inline'>\(a' + b &lt; a + b\)</span>. Continuing, we can
+  show that <span class='mathjax-inline'>\(a'\)</span> is always a
+  positive integer. By construction, the following equation holds.
+  <span class='mathjax-block'>\[ a'^2 - bka' + b^2 - k = 0 \]</span>
+  Rearranging the equation, <span class='mathjax-inline'>\(a'^2 + b^2
+  = bka' + k\)</span>. Assume for the sake of contradiction that
+  <span class='mathjax-inline'>\(a' &lt; 0\)</span>. Notice that the
+  left-hand side is positive while the right-hand side <span class=
+  'mathjax-inline'>\(bka' + k = k(ba' + 1) \leq k(1 - b) \leq
+  0\)</span>. The inequality contradicts with the condition
+  <span class='mathjax-inline'>\(bka' + k &gt; 0\)</span> given by
+  the left-hand side. Continuing, if <span class=
+  'mathjax-inline'>\(a' = 0\)</span>, then <span class=
+  'mathjax-inline'>\(b^2 = k\)</span> and this contradicts with the
+  fact that <span class='mathjax-inline'>\(k\)</span> is not a
+  perfect square. Thus, <span class='mathjax-inline'>\(\frac {a^2 +
+  b^2}{ab + 1}\)</span> is always a perfect square if the value is an
+  integer for positive integers <span class=
+  'mathjax-inline'>\(a\)</span> and <span class=
+  'mathjax-inline'>\(b\)</span>.</p>
+</div><!-- l. 160 -->
+
+<p class='noindent'>As you can see from the method above, this is
+pretty simple when we know what Vieta jumping is! Honestly I am not a
+huge fan of the term Vieta jumping because it is infinite descent
+plus Vieta’s formulas, but I think the term Vieta jumping made it
+more intuitive to be used in other type of problems because other
+problems can also require jumping from one root to the another using
+Vieta’s formulas.</p><!-- l. 168 -->
+
+<p class='noindent'>This is it for this section! Infinite descent is
+vary popular specially in Diophantine equations, and whenever you see
+lots of squares in the given equation, it is worth considering Vieta
+jumping. In the next section, we will be discussing another very
+popular topic in Diophantine equations Pell’s equations.</p>

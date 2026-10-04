@@ -1,0 +1,404 @@
+<h3 class='sectionHead' id='geometry-in-3space'><span class='titlemark'>0.1    </span>   <a id='x1-10000.1'></a>Geometry in 3-Space</h3>
+<!-- l. 7 --><p class='noindent'>In this section of the note, we will discuss more geometric analysis in
+3-space with vectors. I personally think it was very interesting to see
+different interpretations of vectors in 3-space because they could be very
+abstract, yet a fundamental component that helps analyzing geometry in
+3-dimensions.
+
+</p>
+<h4 class='subsectionHead' id='lines-in-3space'><span class='titlemark'>0.1.1    </span>   <a id='x1-20000.1.1'></a>Lines in 3-Space</h4>
+<!-- l. 15 --><p class='noindent'>Continuing with our prior discussion on vectors, let’s discuss more on lines
+and planes in 3-space and how they relate to vectors.
+</p><!-- l. 18 --><p class='noindent'>First, the components of lines in the coordinate plane can be thought of as a
+point and a direction, which would be slope. Given a point that a line
+passes through and the slope, or direction, of the line, we can find
+the unique line. Similarly, we could do the same for 3-space. The
+direction in this case would be a nonzero vector. In other words, given a
+point and a nonzero vector parallel to the line, we can find the unique
+line.
+</p>
+<figure class='figure'> 
+
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+<!-- l. 29 --><p class='noindent'><img alt='[Picture]' src='/svg/MATH0301.260800x.svg' />
+                                                                 
+                                                                 
+</p>
+</figure>
+<!-- l. 49 --><p class='noindent'>Looking at the graph above, we can derive a very important concept of
+representing lines in parametric equations.</p>
+<div class='mdframed' id='mdframed-1'>
+<!-- l. 53 --><p class='noindent'>A line <span class='mathjax-inline'>\(l\)</span> in 3-space that passes through the point <span class='mathjax-inline'>\((x_0, y_0, z_0)\)</span> and parallel to vector <span class='mathjax-inline'>\(\mathbf {v} = \langle a, b, c \rangle \)</span> can be
+represented as the following parametric equation for <span class='mathjax-inline'>\(t \in (-\infty , \infty )\)</span>. <span class='mathjax-block'>\[ x = x_0 + at, \quad y = y_0 + bt, \quad z = z_0 + ct \]</span></p>
+</div>
+<!-- l. 64 --><p class='noindent'>To prove this, we can see that the line actually contains infinitely many
+vectors that passes through the point <span class='mathjax-inline'>\((x_0, y_0, z_0)\)</span> and <span class='mathjax-inline'>\((x, y, z)\)</span> while being parallel to <span class='mathjax-inline'>\(\langle a, b, c \rangle \)</span>. In other
+words, <span class='mathjax-inline'>\(\langle x - x_0, y - y_0, z - z_0 \rangle = t\mathbf {v} = \langle ta, tb, tc \rangle \)</span> for some <span class='mathjax-inline'>\(t\)</span>. Comparing the vectors element-wise, we obtain the
+parametric equation.</p>
+<div class='mdframed' id='mdframed-2'>
+<!-- l. 72 --><p class='noindent'>Another standard way of writing the parametric equation <span class='mathjax-inline'>\(x = x_0 + at, y = y_0 + bt, z = z_0 + ct\)</span> is the following. <span class='mathjax-block'>\[ \langle x, y, z \rangle = \langle x_0, y_0, z_0 \rangle + t \langle a, b, c \rangle \]</span>
+This is known as a <span class='pplb8t-x-x-109'>vector equation</span>.</p>
+</div>
+<!-- l. 81 --><p class='noindent'>Let’s take a look at a quick example.
+</p>
+<div class='tcolorbox probstyle' id='tcolobox-1'>     
+<div class='tcolorbox-title'>
+<!-- l. 87 --><p class='noindent'>Exercise 0.1.1</p></div> 
+<div class='tcolorbox-content'><!-- l. 84 --><p class='noindent'>Find a parametric equation and a vector equation of the line that
+passes through the point <span class='mathjax-inline'>\((1, 2, 3)\)</span> and parallel to <span class='mathjax-inline'>\(\langle 1, 2, 3 \rangle \)</span>. </p> 
+</div> 
+</div><div class='mdframed' id='mdframed-3'>
+<!-- l. 89 --><p class='noindent'><span class='pplb8t-x-x-109'>Solution.</span>
+</p><!-- l. 89 --><p class='noindent'>Because the line passes through the point <span class='mathjax-inline'>\((1, 2, 3)\)</span> and is parallel to <span class='mathjax-inline'>\(\langle 1, 2, 3 \rangle \)</span>, a vector
+equation can be written as <span class='mathjax-inline'>\(\langle x, y, z \rangle = \langle 1, 2, 3 \rangle + t \langle 1, 2, 3 \rangle \)</span>. Similarly, a parametric equation can be written
+as <span class='mathjax-inline'>\(x = 1 + t\)</span>, <span class='mathjax-inline'>\(y = 2 + 2t\)</span>, and <span class='mathjax-inline'>\(z = 3 + 3t\)</span>.</p>
+</div>
+<!-- l. 96 --><p class='noindent'>However, this is not the only answer. Because the line is also parallel to <span class='mathjax-inline'>\(\langle 1, 2, 3 \rangle \)</span>, it is
+also parallel to <span class='mathjax-inline'>\(\langle 2, 4, 6 \rangle \)</span>. Using this instead, we get a vector equation <span class='mathjax-inline'>\(\langle 1, 2, 3 \rangle + t \langle 2, 4, 6 \rangle \)</span>. This shows
+                                                                 
+                                                                 
+that there are different parametrizations and vector equations for a given
+line.
+</p><!-- l. 103 --><p class='noindent'>One way vector equation can be very helpful than parametric equation is
+that we can directly see if two lines are parallel to each other. If the two
+vectors that are being scaled by <span class='mathjax-inline'>\(t\)</span> are scale multiples of each other, then the
+two lines are similar. This observation also leads us to define as new
+term.
+</p>
+<div class='tcolorbox defstyle' id='tcolobox-2'>     
+<div class='tcolorbox-title'>
+<!-- l. 112 --><p class='noindent'>Definition 0.1.2</p></div> 
+<div class='tcolorbox-content'><!-- l. 110 --><p class='noindent'>The <span class='pplb8t-x-x-109'>skew </span>lines are two lines in 3-space that are not parallel to
+each other and that do not intersect. </p> 
+</div> 
+</div>
+<!-- l. 114 --><p class='noindent'>Unlike 2-space, we can see that not being parallel does not necessarily imply
+that the two lines intersect.</p>
+<div class='mdframed' id='mdframed-4'>
+<!-- l. 118 --><p class='noindent'>Segments are very similar to lines. When we have to obtain a segment, then
+we can just limit our parameter <span class='mathjax-inline'>\(t\)</span> from the line obtained from the methods
+above.</p>
+</div>
+<!-- l. 123 --><p class='noindent'>Now that we have took a look at the lines in 3-space, let’s discuss its
+extension: planes.
+
+</p>
+<h4 class='subsectionHead' id='planes-in-3space'><span class='titlemark'>0.1.2    </span>   <a id='x1-30000.1.2'></a>Planes in 3-Space</h4>
+<!-- l. 128 --><p class='noindent'>First, let’s define the terms <span class='pplb8t-x-x-109'>perpendicular </span>and <span class='pplb8t-x-x-109'>parallel </span>in the context of
+planes.
+</p>
+<div class='tcolorbox defstyle' id='tcolobox-3'>     
+<div class='tcolorbox-title'>
+                                                                 
+                                                                 
+<!-- l. 138 --><p class='noindent'>Definition 0.1.3</p></div> 
+<div class='tcolorbox-content'><!-- l. 132 --><p class='noindent'>A plane <span class='mathjax-inline'>\(A\)</span> and a vector <span class='mathjax-inline'>\(\mathbf {v}\)</span> are <span class='pplb8t-x-x-109'>perpendicular </span>if any vector lying on the
+plane <span class='mathjax-inline'>\(A\)</span> is orthogonal to <span class='mathjax-inline'>\(\mathbf {v}\)</span>. Moreover, if there exists a vector that is
+perpendicular to two planes, then the planes are <span class='pplb8t-x-x-109'>parallel</span>. Finally,
+a vector and a plane is <span class='pplb8t-x-x-109'>parallel </span>if some normal vector of the plane
+is orthogonal to the vector. </p> 
+</div> 
+</div>
+<!-- l. 140 --><p class='noindent'>Similar to how we found vector equations of a line, we could extend our
+understandings on plane.</p>
+<div class='mdframed' id='mdframed-5'>
+<!-- l. 144 --><p class='noindent'>The plane in 3-space that is perpendicular to a nonzero vector <span class='mathjax-inline'>\(\mathbf {v} = \langle a, b, c \rangle \)</span> and
+contains the point <span class='mathjax-inline'>\((x_0, y_0, z_0)\)</span> can be represented as the following equation. <span class='mathjax-block'>\[ a(x - x_0) + b(y - y_0) + c(z - z_0) = 0 \]</span> Such
+vectors <span class='mathjax-inline'>\(\mathbf {v}\)</span> that are perpendicular to the plane are known as <span class='pplb8t-x-x-109'>normal
+vectors</span>. Moreover, the equation above is called the <span class='pplb8t-x-x-109'>point-normal
+form</span>.</p>
+</div>
+<!-- l. 155 --><p class='noindent'>Similar to how we defined a line, we can notice that the plane contains all
+vectors <span class='mathjax-inline'>\(\langle x - x_0, y - y_0, z - z_0 \rangle \)</span> that is perpendicular to <span class='mathjax-inline'>\(\mathbf {v}\)</span>. Therefore using the dot product, we know
+that the vectors are orthogonal if and only if their dot product is zero. <span class='mathjax-block'>\[ \langle x - x_0, y - y_0, z - z_0 \rangle \cdot \langle a, b, c \rangle = 0 \]</span>
+Expanding the equation, we obtain the equations of a plane. Besides this
+point-normal form of the equation of the plane, we obtain the following form
+by expanding. <span class='mathjax-block'>\[ ax + by + cz + d = 0 \]</span> Here, <span class='mathjax-inline'>\(d = -ax_0 - by_0 - cz_0\)</span> and the from above is called the <span class='pplb8t-x-x-109'>general form</span>.
+Continuing, we can establish an important theorem on the general
+form.
+</p>
+<div class='tcolorbox theostyle' id='tcolobox-4'>    <a id='x1-3003x0.1.2'></a> 
+<div class='tcolorbox-title'>
+<!-- l. 179 --><p class='noindent'>Theorem 0.1.4</p></div> 
+<div class='tcolorbox-content'><!-- l. 176 --><p class='noindent'>For a plane <span class='mathjax-inline'>\(ax + by + cz + d = 0\)</span> with <span class='mathjax-inline'>\(\langle a, b, c \rangle \neq \langle 0, 0, 0 \rangle \)</span>, the normal vector is <span class='mathjax-inline'>\(\langle a, b, c \rangle \)</span>. </p> 
+</div> 
+</div><div class='mdframed' id='mdframed-6'>
+<!-- l. 181 --><p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span>
+</p><!-- l. 181 --><p class='noindent'>First, consider the case when <span class='mathjax-inline'>\(a \neq 0\)</span>. Rearranging the equation, <span class='mathjax-block'>\[ ax + by + cz + d = a \left ( x + \frac {d}{a} \right ) + by + cz \]</span> is obtained
+and <span class='mathjax-inline'>\(a \left ( x + \frac {d}{a} \right ) + by + cz = 0\)</span>, which represents the plane with the normal vector <span class='mathjax-inline'>\(\langle a, b, c \rangle \)</span> and passes
+through the point <span class='mathjax-inline'>\((-\frac {d}{a}, 0, 0)\)</span>. The case when <span class='mathjax-inline'>\(b \neq 0\)</span> or <span class='mathjax-inline'>\(c \neq 0\)</span> is proven in analogous way.
+Lastly, if all <span class='mathjax-inline'>\(a, b, c\)</span> are nonzero, then it is a plane that is shifted from the
+origin.</p>
+                                                                 
+                                                                 
+</div>
+
+<!-- l. 194 --><p class='noindent'>Let’s take a look at quick example.
+</p>
+<div class='tcolorbox probstyle' id='tcolobox-5'>     
+<div class='tcolorbox-title'>
+<!-- l. 200 --><p class='noindent'>Exercise 0.1.5</p></div> 
+<div class='tcolorbox-content'><!-- l. 197 --><p class='noindent'>Find the equation of the plane that contains <span class='mathjax-inline'>\(\langle 1, 2, 3 \rangle \)</span> and perpendicular
+to <span class='mathjax-inline'>\(\langle 1, 2, 3 \rangle \)</span> in point-normal form and in general form. </p> 
+</div> 
+</div><div class='mdframed' id='mdframed-7'>
+<!-- l. 202 --><p class='noindent'><span class='pplb8t-x-x-109'>Solution.</span>
+</p><!-- l. 202 --><p class='noindent'>Using the form <span class='mathjax-inline'>\(a(x - x_0) + b(y - y_0) + c(z - z_0) = 0\)</span>, the equation of the plane can be represented as <span class='mathjax-inline'>\((x - 1) + 2(y - 2) + 3(z - 3) = 0\)</span>, or
+<span class='mathjax-inline'>\(x + 2y + 3z - 14 = 0\)</span>.</p>
+</div>
+<!-- l. 207 --><p class='noindent'>Similar to lines, there can be multiple representations of the same plane.
+Now before we move on to curves, let’s discuss few meaningful geometric
+interpretations of planes.
+</p><!-- l. 211 --><p class='noindent'>The two cases that we will check are the angle between two planes and the
+distance between two parallel planes.
+</p>
+<div class='tcolorbox defstyle' id='tcolobox-6'>     
+<div class='tcolorbox-title'>
+<!-- l. 217 --><p class='noindent'>Definition 0.1.6</p></div> 
+<div class='tcolorbox-content'><!-- l. 215 --><p class='noindent'>The smaller angle between two planes are known as the <span class='pplb8t-x-x-109'>acute
+angle of intersection </span>between the two planes. </p> 
+</div> 
+</div>
+<!-- l. 219 --><p class='noindent'>I know we have the term “acute” in it, but <span class='mathjax-inline'>\(\frac {\pi }{2}\)</span> is included as acute angle of
+intersection if the two planes make a right angle. Now to find an interesting
+equation like Theorem <span class='pplb8t-x-x-109'>??</span>, let’s prove a lemma.
+</p>
+<div class='tcolorbox lemstyle' id='tcolobox-7'>    <a id='x1-3007x0.1.2'></a> 
+<div class='tcolorbox-title'>
+<!-- l. 232 --><p class='noindent'>Lemma 0.1.7</p></div> 
+<div class='tcolorbox-content'><!-- l. 225 --><p class='noindent'>For  two  intersecting  lines  <span class='mathjax-inline'>\(L_A\)</span>  and  <span class='mathjax-inline'>\(L_B\)</span>  in  3-space,  let  <span class='mathjax-inline'>\(\theta \)</span>  be  <span class='mathjax-inline'>\(\angle (L_A, L_B)\)</span>.  If  <span class='mathjax-inline'>\(n_A\)</span>  and  <span class='mathjax-inline'>\(n_B\)</span>
+are  vectors  that  are  parallel  to  the  lines  respectively,  then  the
+following equation holds. <span class='mathjax-block'>\[ \cos \theta = \frac {| n_A \cdot n_B |}{\| n_A \| \| n_B \|} \]</span> </p> 
+</div> 
+</div><div class='mdframed' id='mdframed-8'>
+                                                                 
+                                                                 
+<!-- l. 234 --><p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span>
+</p><!-- l. 234 --><p class='noindent'>Let <span class='mathjax-inline'>\(\alpha \)</span> be the angle between <span class='mathjax-inline'>\(n_A\)</span> and <span class='mathjax-inline'>\(n_B\)</span>. If <span class='mathjax-inline'>\(0 &lt; \alpha &lt; \frac {\pi }{2}\)</span>, then the following equation holds by
+Theorem <span class='pplb8t-x-x-109'>??</span>. <span class='mathjax-block'>\[ \cos \theta = \cos \alpha = \frac {n_A \cdot n_B}{\| n_A \| \| n_B \|} = \frac {| n_A \cdot n_B |}{\| n_A \| \| n_B \|} \]</span> Similarly, consider the case when <span class='mathjax-inline'>\(\frac {\pi }{2} \leq \alpha &lt; \pi \)</span>. By the property of
+cosine functions, the following equation holds. <span class='mathjax-block'>\[ \cos \theta = -\cos \alpha = |\cos \alpha | = \frac {| n_A \cdot n_B |}{\| n_A \| \| n_B \|} \]</span> Thus, the lemma
+holds.</p>
+</div>
+
+<!-- l. 254 --><p class='noindent'>With the lemma shown, we can derive an important theorem regarding the
+angle between two intersecting planes.
+</p>
+<div class='tcolorbox theostyle' id='tcolobox-8'>    <a id='x1-3009x0.1.2'></a> 
+<div class='tcolorbox-title'>
+<!-- l. 265 --><p class='noindent'>Theorem 0.1.8</p></div> 
+<div class='tcolorbox-content'><!-- l. 258 --><p class='noindent'>For two intersecting planes <span class='mathjax-inline'>\(A\)</span> and <span class='mathjax-inline'>\(B\)</span> with normal vectors <span class='mathjax-inline'>\(n_A\)</span> and <span class='mathjax-inline'>\(n_B\)</span>, if <span class='mathjax-inline'>\(\theta \)</span> is
+the acute angle of intersection between <span class='mathjax-inline'>\(A\)</span> and <span class='mathjax-inline'>\(B\)</span>, then the following
+equation holds. <span class='mathjax-block'>\[ \cos \theta = \frac {| n_A \cdot n_B |}{\| n_A \| \| n_B \|} \]</span> </p> 
+</div> 
+</div><div class='mdframed' id='mdframed-9'>
+<!-- l. 267 --><p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span>
+</p><!-- l. 267 --><p class='noindent'>Let <span class='mathjax-inline'>\(l_A\)</span> and <span class='mathjax-inline'>\(l_B\)</span> be two lines normal to planes <span class='mathjax-inline'>\(A\)</span> and <span class='mathjax-inline'>\(B\)</span> respectively that also passes
+through the intersection of the planes. Let <span class='mathjax-inline'>\(\alpha \)</span> and <span class='mathjax-inline'>\(\beta \)</span> be the <span class='mathjax-inline'>\(\angle (l_A, l_B)\)</span> and <span class='mathjax-inline'>\(\angle (l_B, A)\)</span> respectively.
+Notice that <span class='mathjax-inline'>\(\alpha + \beta = \frac {\pi }{2} = \beta + \theta \)</span> through geometric interpretations. Therefore, <span class='mathjax-inline'>\(\alpha = \theta \)</span> and it suffices to
+find <span class='mathjax-inline'>\(\cos \alpha \)</span>. Because the angle between <span class='mathjax-inline'>\(l_A\)</span> and <span class='mathjax-inline'>\(l_B\)</span> and the angle between <span class='mathjax-inline'>\(n_A\)</span> and <span class='mathjax-inline'>\(n_B\)</span> equal, the
+theorem holds by Lemma <a href='#x1-3009x0.1.2'>0.1.8<!-- tex4ht:ref: theo:Intersection Angle Theorem  --></a>.</p>
+</div>
+
+<!-- l. 278 --><p class='noindent'>Continuing, let’s take a look at the case when two different planes do not
+intersect. To begin, consider the following theorem.
+</p>
+<div class='tcolorbox theostyle' id='tcolobox-9'>    <a id='x1-3011x0.1.2'></a> 
+<div class='tcolorbox-title'>
+<!-- l. 289 --><p class='noindent'>Theorem 0.1.9</p></div> 
+<div class='tcolorbox-content'><!-- l. 282 --><p class='noindent'>For a plane <span class='mathjax-inline'>\(ax + by + cz + d = 0\)</span> and a point <span class='mathjax-inline'>\((x_0, y_0, z_0)\)</span>, the distance <span class='mathjax-inline'>\(D\)</span> between the plane and the
+point is represented with the following formula. <span class='mathjax-block'>\[ D = \frac {| ax_0 + by_0 + cz_0 + d |}{\sqrt {a^2 + b^2 + c^2}} \]</span> </p> 
+</div> 
+</div><div class='mdframed' id='mdframed-10'>
+<!-- l. 291 --><p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span>
+                                                                 
+                                                                 
+</p><!-- l. 291 --><p class='noindent'>Let <span class='mathjax-inline'>\(Q(x_1, y_1, z_1)\)</span> be any point in the plane. If the angle between the normal vector <span class='mathjax-inline'>\(\mathbf {n}\)</span> of the
+plane from <span class='mathjax-inline'>\(Q\)</span> and the vector from <span class='mathjax-inline'>\(Q\)</span> to <span class='mathjax-inline'>\(P\)</span> is <span class='mathjax-inline'>\(\theta \)</span>, then the distance <span class='mathjax-inline'>\(D\)</span> can be represented
+as <span class='mathjax-inline'>\(\| \vec {QP} \| |\cos \theta |\)</span>. Thus, the following equations hold by Theorem <span class='pplb8t-x-x-109'>??</span>. <span class='mathjax-block'>\[ D = \| \vec {QP} \| \cos \theta = \frac {\| \mathbf {n} \| \| \vec {QP} \| |\cos \theta |}{\| \mathbf {n} \|} = \frac {| \mathbf {n} \cdot \vec {QP} |}{\| \mathbf {n} \|} \]</span> Defining <span class='mathjax-inline'>\(\mathbf {n} = \langle a, b, c \rangle \)</span>, the
+following equations hold by construction. <span class='mathjax-env mathjax-align*'>\begin{align*} | \mathbf {n} \cdot \vec {QP} | &amp;= \left | \langle a, b, c \rangle \cdot \langle x_0 - x_1, y_0 - y_1, z_0 - z_1 \rangle \right | \\ &amp;= | ax_0 + by_0 + cz_0 + d | \end{align*}</span>
+</p><!-- l. 312 --><p class='noindent'>Because <span class='mathjax-inline'>\(\| \mathbf {n} \| = \sqrt {a^2 + b^2 + c^2}\)</span>, the theorem satisfy.</p>
+</div>
+
+<!-- l. 316 --><p class='noindent'>Continuing from the theorem above, we could see that the distance between
+two planes is the distance between a plane and a point on the other plane.
+Note that both planes <span class='mathjax-inline'>\(ax + by + cz + d_1 = 0\)</span> and <span class='mathjax-inline'>\(ax + by + cz + d_2 = 0\)</span> are parallel. Therefore, the distance <span class='mathjax-inline'>\(D\)</span> between the
+two planes can be represented as the following by Theorem <a href='#x1-3011x0.1.2'>0.1.9<!-- tex4ht:ref: theo:Distance Between Plane and Point  --></a>. <span class='mathjax-block'>\[ D = \frac {| ax_0 + by_0 + cz_0 + d_1 |}{\sqrt {a^2 + b^2 + c^2}} = \frac {| d_1 - d_2 |}{\sqrt {a^2 + b^2 + c^2}} \]</span> Notice that
+this holds because <span class='mathjax-inline'>\((x_0, y_0, z_0)\)</span> lies on <span class='mathjax-inline'>\(ax + by + cz + d_2 = 0\)</span>.</p>
+<div class='mdframed' id='mdframed-11'>
+<!-- l. 331 --><p class='noindent'>The distance <span class='mathjax-inline'>\(D\)</span> between two parallel planes <span class='mathjax-inline'>\(ax + by + cz + d_1 = 0\)</span> and <span class='mathjax-inline'>\(ax + by + cz + d_2 = 0\)</span> can be represented as the
+following. <span class='mathjax-block'>\[ D = \frac {| d_1 - d_2 |}{\sqrt {a^2 + b^2 + c^2}} \]</span></p>
+</div>
+<!-- l. 339 --><p class='noindent'>This is it for this part! In the next part, let’s continue from this linear ideas to
+expand them to curves.
+
+</p>
+<h4 class='subsectionHead' id='surfaces-in-3space'><span class='titlemark'>0.1.3    </span>   <a id='x1-40000.1.3'></a>Surfaces in 3-Space</h4>
+<!-- l. 344 --><p class='noindent'>Before we start graphing surfaces, let’s think about how we may achieve
+that. In the coordinate plane, we graph curves by knowing the locus of
+points that satisfy the given equation of a curve. Graphing surfaces is similar!
+In 3-space, we find which curves lie on the surface to find the general shape
+of a given surface.
+</p>
+                                                                 
+                                                                 
+<div class='tcolorbox defstyle' id='tcolobox-10'>     
+<div class='tcolorbox-title'>
+<!-- l. 353 --><p class='noindent'>Definition 0.1.10</p></div> 
+<div class='tcolorbox-content'><!-- l. 351 --><p class='noindent'>The  <span class='pplb8t-x-x-109'>trace  </span>of  the  surface  in  a  plane  is  the  set  of  points  of
+intersection of the surface and the plane. </p> 
+</div> 
+</div>
+<!-- l. 355 --><p class='noindent'>Let’s take a look at an example. It is self-evident that the trace of a sphere in a
+plane is always a circle or a point assuming that they intersect. However
+for an algebraic approach, let’s forget how the surface <span class='mathjax-inline'>\(S\)</span> defined as <span class='mathjax-inline'>\(x^2 + y^2 + z^2 = 9\)</span>
+looks like. Given plane <span class='mathjax-inline'>\(z = 2\)</span>, we can see that the trace of <span class='mathjax-inline'>\(S\)</span> in the plane
+<span class='mathjax-inline'>\(z = 2\)</span> can be found by substituting the value. In other words, <span class='mathjax-inline'>\(S\)</span> and the
+plane intersect if and only if <span class='mathjax-inline'>\(z = 2\)</span> and the trace is <span class='mathjax-inline'>\(x^2 + y^2 = 5\)</span>. This trace is indeed a
+circle!
+</p>
+<figure class='figure'> 
+
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+<!-- l. 366 --><p class='noindent'><img alt='[Picture]' src='/svg/MATH0301.260801x.svg' />
+                                                                 
+                                                                 
+</p>
+</figure>
+<!-- l. 418 --><p class='noindent'>Continuing with this idea, we can try to construct the general shape of a
+surface by finding the traces. Let’s take a look at an example from our
+previous example.
+</p>
+<div class='minipage'><figure class='figure'> 
+
+<!-- l. 425 --><p class='noindent'><img alt='[Picture]' src='/svg/MATH0301.260802x.svg' />
+</p>
+</figure>                               </div>  <div class='minipage'>For  surface  <span class='mathjax-inline'>\(S\)</span>  defined  as  <span class='mathjax-inline'>\(x^2 + y^2 + z^2 = 9\)</span>,  we  can
+find  the  trace  of  <span class='mathjax-inline'>\(S\)</span>  in  <span class='mathjax-inline'>\(x = k\)</span>,  <span class='mathjax-inline'>\(y = k\)</span>,  and  <span class='mathjax-inline'>\(z = k\)</span>.  For
+each  case,  we  can  see  that  there
+is  no  intersection  for  <span class='mathjax-inline'>\(|k| &gt; 3\)</span>.  Therefore
+considering   the   equations   for   <span class='mathjax-inline'>\(|k| \leq 3\)</span>,
+we  obtain  the  following  general
+structure. This indeed looks like a
+sphere!                                               </div>
+<!-- l. 503 --><p class='noindent'>Continuing, here is another example.
+</p>
+<div class='tcolorbox probstyle' id='tcolobox-11'>     
+<div class='tcolorbox-title'>
+<!-- l. 508 --><p class='noindent'>Exercise 0.1.11</p></div> 
+<div class='tcolorbox-content'><!-- l. 506 --><p class='noindent'>Find the general shape of the surface <span class='mathjax-inline'>\(\frac {x^2}{36} - \frac {y^2}{9} + \frac {z^2}{4} = 1\)</span>. </p> 
+</div> 
+</div><div class='mdframed' id='mdframed-12'>
+<!-- l. 510 --><p class='noindent'><span class='pplb8t-x-x-109'>Solution.</span>
+</p><!-- l. 510 --><p class='noindent'>To find the general shape of the surface, we can try to find different traces in
+different planes to later combine them for a general shape.
+</p>
+                                                                 
+                                                                 
+<div class='minipage'><!-- l. 514 --><p class='noindent'>First,  let’s  take  a  look  at  the  traces  in
+the  plane  <span class='mathjax-inline'>\(x = k\)</span>.  Substituting,  we  obtain  an
+equation representing hyperbolas. <span class='mathjax-block'>\[ \frac {z^2}{4} - \frac {y^2}{9} = 1 - \frac {k^2}{36} \]</span>    </p></div>   <div class='minipage'><figure class='figure'> 
+
+<!-- l. 524 --><p class='noindent'><img alt='[Picture]' src='/svg/MATH0301.260803x.svg' />
+</p>
+</figure>                         </div>
+<!-- l. 592 --><p class='noindent'>Continuing, let’s take a look at traces in the plane <span class='mathjax-inline'>\(y = k\)</span>.
+</p>
+<div class='minipage'><!-- l. 595 --><p class='noindent'>Substituting,  we  obtain  <span class='mathjax-inline'>\(\frac {x^2}{36} + \frac {z^2}{4} = 1 + \frac {k^2}{9}\)</span>.  Rearranging
+the equation, the following equation of
+ellipse is obtained. <span class='mathjax-block'>\[ \frac {x^2}{36 \left ( 1 + \frac {k^2}{9} \right )} + \frac {z^2}{4 \left ( 1 + \frac {k^2}{9} \right )} = 1 \]</span>                  </p></div>   <div class='minipage'><figure class='figure'> 
+
+<!-- l. 608 --><p class='noindent'><img alt='[Picture]' src='/svg/MATH0301.260804x.svg' />
+</p>
+</figure>                         </div>
+                                                                 
+                                                                 
+<div class='minipage'><!-- l. 638 --><p class='noindent'>Finally  for  <span class='mathjax-inline'>\(z = k\)</span>,  we  obtain  the  following
+equations just like the case for <span class='mathjax-inline'>\(x = k\)</span>. <span class='mathjax-block'>\[ \frac {x^2}{36} - \frac {y^2}{9} = 1 - \frac {k^2}{4} \]</span>       </p></div>   <div class='minipage'><figure class='figure'> 
+
+<!-- l. 648 --><p class='noindent'><img alt='[Picture]' src='/svg/MATH0301.260805x.svg' />
+</p>
+</figure>                         </div>
+<!-- l. 690 --><p class='noindent'>Combining the traces, we obtain the general shape of the surface.
+</p>
+<div class='minipage'><figure class='figure'> 
+
+<!-- l. 695 --><p class='noindent'><img alt='[Picture]' src='/svg/MATH0301.260806x.svg' />
+</p>
+</figure>                              </div>     <div class='minipage'>
+<img alt='[Picture]' src='/svg/MATH0301.260807x.svg' />   </div>
+</div>
+<!-- l. 833 --><p class='noindent'>Such surfaces are known as <span class='pplb8t-x-x-109'>hyperboloid</span>. Continuing with surfaces, let’s
+discuss quadratic surfaces.
+                                                                 
+                                                                 
+</p><!-- l. 836 --><p class='noindent'>Note that in coordinate plane, we call equations of the form <span class='mathjax-block'>\[ Ax^2 + bxy + Cy^2 + Dx + Ey + F = 0 \]</span> a conic section.
+Some examples include parabola, hyperbola, circle, and ellipse. Now, we
+could also generalize such equations in 3-space.
+</p>
+<div class='tcolorbox defstyle' id='tcolobox-12'>     
+<div class='tcolorbox-title'>
+<!-- l. 850 --><p class='noindent'>Definition 0.1.12</p></div> 
+<div class='tcolorbox-content'><!-- l. 844 --><p class='noindent'>A <span class='pplb8t-x-x-109'>quadric surface </span>is known as the graph whose equation is of
+the following form. <span class='mathjax-block'>\[ Ax^2 + By^2 + Cz^2 + Dxy + Eyz + Fzx + Gx + Hy + Iz + J = 0 \]</span> </p> 
+</div> 
+</div>
+<!-- l. 852 --><p class='noindent'>For instance, the graph from our previous example is a quadric surface.
+</p><!-- l. 855 --><p class='noindent'>To investigate in some quadric surfaces, let’s take a look at few examples.
+First, consider the examples of the following form. <span class='mathjax-block'>\[ z^2 = \frac {x^2}{a^2} + \frac {y^2}{b^2} \]</span> Considering the traces in
+planes <span class='mathjax-inline'>\(z = k\)</span>, we can notice that the equation becomes <span class='mathjax-block'>\[ \frac {x^2}{a^2 k^2} + \frac {y^2}{b^2 k^2} = 1 \]</span> which are ellipses or <span class='mathjax-inline'>\((0, 0)\)</span> if
+<span class='mathjax-inline'>\(k = 0\)</span>.
+</p><!-- l. 867 --><p class='noindent'>Similarly for <span class='mathjax-inline'>\(x = k\)</span>, we obtain <span class='mathjax-block'>\[ \frac {z^2}{\left ( \frac {k}{a} \right )^2} - \frac {y^2}{\left ( \frac {bk}{a} \right )^2} = 1 \]</span> which are hyperbolas. Continuing for <span class='mathjax-inline'>\(y = k\)</span>, we
+obtain the following equation for hyperbolas. <span class='mathjax-block'>\[ \frac {z^2}{\left ( \frac {k}{b} \right )^2} - \frac {x^2}{\left ( \frac {ak}{b} \right )^2} = 1 \]</span> With the found traces,
+we could try finding the general shape of the surface by combining
+them.
+</p>
+                                                                 
+                                                                 
+<div class='minipage'><figure class='figure'> 
+
+<!-- l. 886 --><p class='noindent'><img alt='[Picture]' src='/svg/MATH0301.260808x.svg' />
+</p>
+</figure>                               </div>  <div class='minipage'><figure class='figure'> 
+
+<!-- l. 970 --><p class='noindent'><img alt='[Picture]' src='/svg/MATH0301.260809x.svg' />
+</p>
+</figure>                             </div>
+<!-- l. 1000 --><p class='noindent'>Such graphs are known as <span class='pplb8t-x-x-109'>elliptic cone</span>. Continuing, let’s try and graph
+surfaces of the following form with <span class='mathjax-inline'>\(a, b &gt; 0\)</span>. <span class='mathjax-block'>\[ y = \frac {x^2}{a^2} + \frac {z^2}{b^2} \]</span> First, consider the trace in <span class='mathjax-inline'>\(y = k\)</span>.
+Note that if <span class='mathjax-inline'>\(k &lt; 0\)</span>, then there are no points since right-hand side is sum of
+squares. Moreover rearranging the equations, we obtain the following
+equation for ellipses. <span class='mathjax-block'>\[ \frac {x^2}{ka^2} + \frac {z^2}{kb^2} = 1 \]</span> Continuing, we can consider traces in <span class='mathjax-inline'>\(x = k\)</span> and <span class='mathjax-inline'>\(z = k\)</span>.
+For each case, we can easily notice that it is the locus of quadratic
+functions of <span class='mathjax-inline'>\(y\)</span> with respect to <span class='mathjax-inline'>\(x\)</span> and <span class='mathjax-inline'>\(z\)</span>. Graphing, we obtain the general
+sketch.
+</p>
+                                                                 
+                                                                 
+<div class='minipage'><figure class='figure'> 
+
+<!-- l. 1020 --><p class='noindent'><img alt='[Picture]' src='/svg/MATH0301.2608010x.svg' />
+</p>
+</figure>                               </div>  <div class='minipage'><figure class='figure'> 
+
+<!-- l. 1080 --><p class='noindent'><img alt='[Picture]' src='/svg/MATH0301.2608011x.svg' />
+</p>
+</figure>                             </div>
+<!-- l. 1110 --><p class='noindent'>This is known as <span class='pplb8t-x-x-109'>elliptic paraboloid</span>. There are much more surfaces to
+discuss. For instance, <span class='pplb8t-x-x-109'>hyperboloid of two sheets </span>are represented by <span class='mathjax-inline'>\(\frac {z^2}{c^2} - \frac {x^2}{a^2} - \frac {y^2}{b^2} = 1\)</span> while
+<span class='pplb8t-x-x-109'>hyperbolic paraboloid </span>is described by <span class='mathjax-inline'>\(\frac {z}{c} = \frac {x^2}{a^2} - \frac {y^2}{b^2}\)</span>. Moreover, <span class='pplb8t-x-x-109'>ellipsoid </span>are represented
+by <span class='mathjax-inline'>\(\frac {x^2}{a^2} + \frac {y^2}{b^2} + \frac {z^2}{c^2} = 1\)</span>. For all such surfaces, the following fact holds.</p>
+<div class='mdframed' id='mdframed-13'>
+<!-- l. 1120 --><p class='noindent'>Given a surface <span class='mathjax-inline'>\(S\)</span> with equation <span class='mathjax-inline'>\(E(x, y, z)\)</span>, the equation of the surface <span class='mathjax-inline'>\(S'\)</span>, obtained by
+translating <span class='mathjax-inline'>\(S\)</span> by <span class='mathjax-inline'>\(a, b, c\)</span> units in the <span class='mathjax-inline'>\(x\)</span>, <span class='mathjax-inline'>\(y\)</span>, and <span class='mathjax-inline'>\(z\)</span>-direction respectively, is <span class='mathjax-inline'>\(E(x - a, y - b, z - c)\)</span>.</p>
+</div>
+<!-- l. 1125 --><p class='noindent'>This is pretty straightforward with the same intuition we use for 2-space.
+This is it for this section! With different surfaces in mind, let’s discuss
+different ways to represent coordinates in 3-space.
+</p>
+ 

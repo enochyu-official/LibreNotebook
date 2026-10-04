@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="Enoch Yu">
+<meta name="keywords" content="LibreNotebook, Enoch Yu, 유에녹">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="LibreNotebook" />
+
+<title>LibreNotebook</title>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+<link rel="canonical" href="https://librenotebook.enochyu.com/" />
+
+
+
+<link rel="stylesheet" href="/css/main.min.6f2c7792773f070fbcbe5db095f86a45e6055b4791d68b97728088fde0fd125c.css" integrity="sha256-byx3knc/Bw&#43;8vl2wlfhqReYFW0eR1ouXcoCI/eD9Elw=">
+
+
+  
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "LibreNotebook",
+  "url": "https://librenotebook.enochyu.com/"
+}
+</script>
+
+
+
+
+</head>
+<body>
+  <main>
+    
+<div class="error-page">
+  <h1>404</h1>
+  <p>Page Not Found</p>
+  <br>
+  <br>
+  <a href="https://librenotebook.enochyu.com/">Go Home</a>
+  <br>
+</div>
+
+  </main>
+  
+  <footer class="footer">
+  <span>
+    &copy; 2026 Enoch Yu. All Rights Reserved.
+  </span>
+
+  <script>
+    MathJax = {
+      options: {
+        menuOptions: {
+          settings: {
+            enrich: false,
+            collapsible: false,
+            speech: false,
+            braille: false,
+            assistiveMml: false,
+          }
+        }
+      },
+      loader: {
+        load: ['[tex]/mathtools']
+      },
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['\\[', '\\]'], ['$$', '$$']],
+        packages: {'[+]': ['mathtools']}
+      },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-svg.js"></script>
+
+  <script>
+    const today = new Date();
+
+    const year = today.getFullYear() - 2025;
+    const month = String(today.getMonth() + 1).padStart(2, "0");
+    const day = String(today.getDate()).padStart(2, "0");
+
+    document.getElementById("version").textContent =
+      `v${year}.${month}.${day}`;
+
+
+    const date = new Date();
+
+    document.getElementById("last-updated").textContent =
+      date.toLocaleDateString("en-GB", {
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+    });
+  </script>
+</footer>
+
+
+  
+  
+  <script src="/js/script.js"></script>
+  
+  <script src="https://librenotebook.enochyu.com/js/counter.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,667 @@
+<!-- l. 5 -->
+
+<p class='noindent'></p>
+
+<h2 class='chapterHead' id='python-basics-for-machine-learning'>
+<span class='titlemark'>Note&nbsp;1</span><br>
+<a id='x1-10001'></a>Python Basics for Machine Learning</h2>
+<!-- l. 7 -->
+
+<p class='noindent'>To develop a model represented in abstract math,
+we need a programming language. If you ask any ML engineer on the
+language they use the most, I can guarantee you that it’s Python
+(well most likely). The reason is simple: syntax and libraries.
+Although all heavy computations in ML is mostly done by C++, Python
+is way easier to write than C++. You don’t have to deal with
+segmentation faults and spend more time adding the missing semicolon
+than actually debugging. Moreover, Python has popular libraries like
+NumPy, Matplotlib, and PyTorch that will make our lives easier.
+Therefore, we will discuss about basic syntax, NumPy, and Matplotlib
+for ML in this note. Don’t worry, we will discuss about PyTorch in
+latter notes as it requires ML concepts.</p>
+
+<h3 class='sectionHead' id='basic-syntax'><span class=
+'titlemark'>1.1</span> <a id='x1-20001.1'></a>Basic Syntax</h3>
+<!-- l. 23 -->
+
+<p class='noindent'>As always, let’s get started by being more
+familiar with the nature of Python. Unlike most other languages,
+indentation is a vital factor in Python. Two spaces, four spaces,
+doesn’t really matter, let’s use four spaces as it is more common and
+readable. Here is the Hello World example.</p>
+
+<div class='mdframed' id='mdframed-1'>
+  <!-- l. 30 -->
+  <pre class='lstlisting' id='listing-1'>
+<span class='label'><a id='x1-2001r1'></a><span class=
+'pplr8t-x-x-60'>1</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>print</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>(</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>Hello</span></span><span style=
+'color:#A31515'> <span class=
+'pcrr8t-'>World"</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>)</span></span>
+</pre><!-- l. 34 -->
+  <pre class='lstlisting' id='listing-2'>
+<span class='label'><a id='x1-2002r1'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>Hello</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>World</span></span>
+</pre>
+</div><!-- l. 39 -->
+
+<p class='noindent'>Please note that this Jupyter Notebook can be
+found in <span class='obeylines-h'><code class=
+'verb'>jupyter/</code></span> directory in GitHub under the root
+directory for these notes. Please feel free to download and follow
+along! The next example is a list of simple operations that we can do
+with Python.</p>
+
+<div class='mdframed' id='mdframed-2'>
+  <!-- l. 46 -->
+  <pre class='lstlisting' id='listing-3'>
+<span class='label'><a id='x1-2003r1'></a><span class=
+'pplr8t-x-x-60'>1</span></span><span style=
+'color:#004099'><span class=
+'pcrb8t-'>import</span></span><span style='color:#000000'> <span class='pcrr8t-'>math</span> 
+</span><span class='label'><a id='x1-2004r2'></a><span class=
+'pplr8t-x-x-60'>2</span></span><span style=
+'color:#004099'><span class=
+'pcrb8t-'>import</span></span><span style='color:#000000'> <span class='pcrr8t-'>numpy</span> </span><span style='color:#004099'><span class='pcrb8t-'>as</span></span><span style='color:#000000'> </span><span style='color:#004099'><span class='pcrb8t-'>np</span></span> 
+<span class='label'><a id='x1-2005r3'></a><span class=
+'pplr8t-x-x-60'>3</span></span><span style=
+'color:#004099'><span class=
+'pcrb8t-'>import</span></span><span style='color:#000000'> <span class='pcrr8t-'>matplotlib.pyplot</span> </span><span style='color:#004099'><span class='pcrb8t-'>as</span></span><span style='color:#000000'> </span><span style='color:#004099'><span class='pcrb8t-'>plt</span></span> 
+<span class='label'><a id='x1-2006r4'></a><span class=
+'pplr8t-x-x-60'>4</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>%</span></span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>matplotlib</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>inline</span> 
+</span><span class='label'><a id='x1-2007r5'></a><span class=
+'pplr8t-x-x-60'>5</span></span> 
+<span class='label'><a id='x1-2008r6'></a><span class=
+'pplr8t-x-x-60'>6</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>print</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>(1</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>+ 2)</span> </span><span class='pcrro8t-'>      </span><span style='color:#646464'><span class='pcrro8t-'>#</span></span><span style='color:#646464'> <span class='pcrro8t-'>Addition</span> 
+</span><span class='label'><a id='x1-2009r7'></a><span class=
+'pplr8t-x-x-60'>7</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>print</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>(3</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>- 9)</span> </span><span class='pcrro8t-'>      </span><span style='color:#646464'><span class='pcrro8t-'>#</span></span><span style='color:#646464'> <span class='pcrro8t-'>Subtraction</span> 
+</span><span class='label'><a id='x1-2010r8'></a><span class=
+'pplr8t-x-x-60'>8</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>print</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>(4</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>* 3)</span> </span><span class='pcrro8t-'>      </span><span style='color:#646464'><span class='pcrro8t-'>#</span></span><span style='color:#646464'> <span class='pcrro8t-'>Multiplication</span> 
+</span><span class='label'><a id='x1-2011r9'></a><span class=
+'pplr8t-x-x-60'>9</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>print</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>(5</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>** 2)</span> </span><span class=
+'pcrro8t-'>     </span><span style='color:#646464'><span class=
+'pcrro8t-'>#</span></span><span style='color:#646464'> <span class=
+'pcrro8t-'>Power</span> 
+</span><span class='label'><a id='x1-2012r10'></a><span class=
+'pplr8t-x-x-60'>10</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>print</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>(</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>math</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>.</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>log</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>(5)</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>)</span></span><span style=
+'color:#000000'> </span><span style='color:#646464'><span class=
+'pcrro8t-'>#</span></span><span style='color:#646464'> <span class=
+'pcrro8t-'>log(a, base), default base is e</span> 
+</span><span class='label'><a id='x1-2013r11'></a><span class=
+'pplr8t-x-x-60'>11</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>print</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>(</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>math</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>.</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>exp</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>(2)</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>)</span></span><span style=
+'color:#000000'> </span><span style='color:#646464'><span class=
+'pcrro8t-'>#</span></span><span style='color:#646464'> <span class=
+'pcrro8t-'>e^2</span> 
+</span><span class='label'><a id='x1-2014r12'></a><span class=
+'pplr8t-x-x-60'>12</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>print</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>(</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>math</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>.</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>e</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>)</span></span><span style=
+'color:#000000'> </span><span class=
+'pcrro8t-'>     </span><span style='color:#646464'><span class=
+'pcrro8t-'>#</span></span><span style='color:#646464'> <span class=
+'pcrro8t-'>Accessing constants</span></span>
+</pre><!-- l. 61 -->
+  <pre class='lstlisting' id='listing-4'>
+<span class='label'><a id='x1-2015r1'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>3</span></span> 
+<span class='label'><a id='x1-2016r2'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>-6</span></span> 
+<span class='label'><a id='x1-2017r3'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>12</span></span> 
+<span class='label'><a id='x1-2018r4'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>25</span></span> 
+<span class='label'><a id='x1-2019r5'></a></span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>1.6094379124341003</span></span> 
+<span class='label'><a id='x1-2020r6'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>7.38905609893065</span></span> 
+<span class='label'><a id='x1-2021r7'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>2.718281828459045</span></span>
+</pre>
+</div><!-- l. 72 -->
+
+<p class='noindent'>As you can see in Cell 2, we need module “math”
+to access constants and functions like <span class=
+'mathjax-inline'>\(e\)</span>, <span class='mathjax-inline'>\(\pi
+\)</span>, and <span class='mathjax-inline'>\(\log _a b\)</span>.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-1'>
+  <div class='tcolorbox-title'>
+    <!-- l. 79 -->
+
+    <p class='noindent'>Definition&nbsp;1.1.1</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 76 -->
+
+    <p class='noindent'>We can achieve the same effect with
+    <span class='pplb8t-x-x-109'>variables</span>, or a place with
+    name that stores a value. A <span class=
+    'pplb8t-x-x-109'>function</span> is a reusable block of code
+    dedicated for specific tasks.</p>
+  </div>
+</div><!-- l. 81 -->
+
+<p class='noindent'>Let’s take a look at an example of how function
+and variable in addition to the operations above can be used to find
+the approximation of the derivative of <span class=
+'mathjax-inline'>\(f(x) = x^2 + 5\)</span> at <span class=
+'mathjax-inline'>\(x = 3\)</span>.</p>
+
+<div class='mdframed' id='mdframed-3'>
+  <!-- l. 87 -->
+  <pre class='lstlisting' id='listing-5'>
+<span class='label'><a id='x1-2023r1'></a><span class=
+'pplr8t-x-x-60'>1</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>def</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>f(x):</span> 
+</span><span class='label'><a id='x1-2024r2'></a><span class=
+'pplr8t-x-x-60'>2</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>return</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>x**2 + 5</span> 
+</span><span class='label'><a id='x1-2025r3'></a><span class=
+'pplr8t-x-x-60'>3</span></span> 
+<span class='label'><a id='x1-2026r4'></a><span class=
+'pplr8t-x-x-60'>4</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>a</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>= 3</span> 
+</span><span class='label'><a id='x1-2027r5'></a><span class=
+'pplr8t-x-x-60'>5</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>h</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>= 0.0001</span> 
+</span><span class='label'><a id='x1-2028r6'></a><span class=
+'pplr8t-x-x-60'>6</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>der</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>= (f(a + h) - f(a))/h</span> 
+</span><span class='label'><a id='x1-2029r7'></a><span class=
+'pplr8t-x-x-60'>7</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>print</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>(</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>der</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>)</span></span>
+</pre><!-- l. 97 -->
+  <pre class='lstlisting' id='listing-6'>
+<span class='label'><a id='x1-2030r1'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>6.000100000012054</span></span>
+</pre>
+</div><!-- l. 102 -->
+
+<p class='noindent'>Let’s check if our answer is reasonable. Using
+the Power Rule, we know that <span class='mathjax-inline'>\(f'(x) =
+2x\)</span>. Because <span class='mathjax-inline'>\(f(3) = 2 \cdot 3
+= 6\)</span> and <span class=
+'mathjax-inline'>\(6.000100000012054\)</span> and <span class=
+'mathjax-inline'>\(6\)</span> are somewhat close, our result is
+reasonable.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-2'>
+  <div class='tcolorbox-title'>
+    <!-- l. 112 -->
+
+    <p class='noindent'>Definition&nbsp;1.1.2</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 108 -->
+
+    <p class='noindent'><span class='pplb8t-x-x-109'>Lists</span> are
+    dynamic and ordered collection of elements of potentially
+    different data types. An <span class=
+    'pplb8t-x-x-109'>index</span> is the position of an element in
+    the list. The index of the first item is <span class=
+    'mathjax-inline'>\(0\)</span>.</p>
+  </div>
+</div><!-- l. 114 -->
+
+<p class='noindent'>Below are examples of what we can do with
+lists.</p>
+
+<div class='mdframed' id='mdframed-4'>
+  <!-- l. 117 -->
+  <pre class='lstlisting' id='listing-7'>
+<span class='label'><a id='x1-2032r1'></a><span class=
+'pplr8t-x-x-60'>1</span></span><span style=
+'color:#646464'><span class='pcrro8t-'>#</span></span><span style=
+'color:#646464'> <span class='pcrro8t-'>A list can be empty</span> 
+</span><span class='label'><a id='x1-2033r2'></a><span class=
+'pplr8t-x-x-60'>2</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>a</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>= []</span> 
+</span><span class='label'><a id='x1-2034r3'></a><span class=
+'pplr8t-x-x-60'>3</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>print</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>(</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>a</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>)</span></span> 
+<span class='label'><a id='x1-2035r4'></a><span class=
+'pplr8t-x-x-60'>4</span></span> 
+<span class='label'><a id='x1-2036r5'></a><span class=
+'pplr8t-x-x-60'>5</span></span><span style=
+'color:#646464'><span class='pcrro8t-'>#</span></span><span style=
+'color:#646464'> <span class=
+'pcrro8t-'>We can append a value at the end</span> 
+</span><span class='label'><a id='x1-2037r6'></a><span class=
+'pplr8t-x-x-60'>6</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>a</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>= [1,</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>’</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>hi</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>’</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>,</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>3]</span> 
+</span><span class='label'><a id='x1-2038r7'></a><span class=
+'pplr8t-x-x-60'>7</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>a</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>.</span></span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>append</span></span><span style='color:#000000'><span class='pcrr8t-'>(</span></span><span style='color:#A31515'><span class='pcrr8t-'>’</span></span><span style='color:#A31515'><span class='pcrr8t-'>bye</span></span><span style='color:#A31515'><span class='pcrr8t-'>’</span></span><span style='color:#000000'><span class='pcrr8t-'>)</span></span> 
+<span class='label'><a id='x1-2039r8'></a><span class=
+'pplr8t-x-x-60'>8</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>print</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>(</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>a</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>)</span></span> 
+<span class='label'><a id='x1-2040r9'></a><span class=
+'pplr8t-x-x-60'>9</span></span> 
+<span class='label'><a id='x1-2041r10'></a><span class=
+'pplr8t-x-x-60'>10</span></span><span style=
+'color:#646464'><span class='pcrro8t-'>#</span></span><span style=
+'color:#646464'> <span class='pcrro8t-'>Remove an element</span> 
+</span><span class='label'><a id='x1-2042r11'></a><span class=
+'pplr8t-x-x-60'>11</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>a</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>.</span></span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>remove</span></span><span style='color:#000000'><span class='pcrr8t-'>(</span></span><span style='color:#A31515'><span class='pcrr8t-'>’</span></span><span style='color:#A31515'><span class='pcrr8t-'>hi</span></span><span style='color:#A31515'><span class='pcrr8t-'>’</span></span><span style='color:#000000'><span class='pcrr8t-'>)</span></span> 
+<span class='label'><a id='x1-2043r12'></a><span class=
+'pplr8t-x-x-60'>12</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>print</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>(</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>a</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>)</span></span> 
+<span class='label'><a id='x1-2044r13'></a><span class=
+'pplr8t-x-x-60'>13</span></span> 
+<span class='label'><a id='x1-2045r14'></a><span class=
+'pplr8t-x-x-60'>14</span></span><span style=
+'color:#646464'><span class='pcrro8t-'>#</span></span><span style=
+'color:#646464'> <span class=
+'pcrro8t-'>Access an element with index</span> 
+</span><span class='label'><a id='x1-2046r15'></a><span class=
+'pplr8t-x-x-60'>15</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>print</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>(</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>a</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>[2])</span></span> 
+<span class='label'><a id='x1-2047r16'></a><span class=
+'pplr8t-x-x-60'>16</span></span> 
+<span class='label'><a id='x1-2048r17'></a><span class=
+'pplr8t-x-x-60'>17</span></span><span style=
+'color:#646464'><span class='pcrro8t-'>#</span></span><span style=
+'color:#646464'> <span class=
+'pcrro8t-'>Find the number of elements</span> 
+</span><span class='label'><a id='x1-2049r18'></a><span class=
+'pplr8t-x-x-60'>18</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>print</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>(</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>len</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>(</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>a</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>)</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>)</span></span>
+</pre><!-- l. 138 -->
+  <pre class='lstlisting' id='listing-8'>
+<span class='label'><a id='x1-2050r1'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>[]</span></span> 
+<span class='label'><a id='x1-2051r2'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>[1,</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>’hi’, 3, ’bye’]</span> 
+</span><span class='label'><a id='x1-2052r3'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>[1,</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>3, ’bye’]</span> 
+</span><span class='label'><a id='x1-2053r4'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>bye</span></span> 
+<span class='label'><a id='x1-2054r5'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>3</span></span>
+</pre>
+</div><!-- l. 147 -->
+
+<p class='noindent'>What do we do if we need to access multiple
+elements? This is where <span class='pplb8t-x-x-109'>slicing</span>
+shines. Consider the following example.</p>
+
+<div class='mdframed' id='mdframed-5'>
+  <!-- l. 151 -->
+  <pre class='lstlisting' id='listing-9'>
+<span class='label'><a id='x1-2055r1'></a><span class=
+'pplr8t-x-x-60'>1</span></span><span style=
+'color:#646464'><span class='pcrro8t-'>#</span></span><span style=
+'color:#646464'> <span class=
+'pcrro8t-'>a[i:j] to access from index ’i’ to index ’j-1’</span> 
+</span><span class='label'><a id='x1-2056r2'></a><span class=
+'pplr8t-x-x-60'>2</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>a</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>= [1, 2, 3, 4, 5, 6, 7, 8, 9]</span> 
+</span><span class='label'><a id='x1-2057r3'></a><span class=
+'pplr8t-x-x-60'>3</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>print</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>(</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>a</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>[1:5])</span></span> 
+<span class='label'><a id='x1-2058r4'></a><span class=
+'pplr8t-x-x-60'>4</span></span> 
+<span class='label'><a id='x1-2059r5'></a><span class=
+'pplr8t-x-x-60'>5</span></span><span style=
+'color:#646464'><span class='pcrro8t-'>#</span></span><span style=
+'color:#646464'> <span class=
+'pcrro8t-'>Omit ’i’ or ’j’ to define only the start or end values</span> 
+</span><span class='label'><a id='x1-2060r6'></a><span class=
+'pplr8t-x-x-60'>6</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>print</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>(</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>a</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>[:6])</span></span> 
+<span class='label'><a id='x1-2061r7'></a><span class=
+'pplr8t-x-x-60'>7</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>print</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>(</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>a</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>[3:])</span></span>
+</pre><!-- l. 161 -->
+  <pre class='lstlisting' id='listing-10'>
+<span class='label'><a id='x1-2062r1'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>[2,</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>3, 4, 5]</span> 
+</span><span class='label'><a id='x1-2063r2'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>[1,</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>2, 3, 4, 5, 6]</span> 
+</span><span class='label'><a id='x1-2064r3'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>[4,</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>5, 6, 7, 8, 9]</span></span>
+</pre>
+</div><!-- l. 168 -->
+
+<p class='noindent'>Now that we know basic operations, lists, and how
+we can use functions, let’s discuss about conditions and loops.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-3'>
+  <div class='tcolorbox-title'>
+    <!-- l. 178 -->
+
+    <p class='noindent'>Definition&nbsp;1.1.3</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 172 -->
+
+    <p class='noindent'><span class='pplb8t-x-x-109'>Conditional
+    statements</span> are statements that performs certain tasks
+    under specific conditions. <span class=
+    'pplb8t-x-x-109'>Loops</span> are structure that repeats a block
+    of code until they are explicitly told to end. One more
+    definition that will make our lives easier is <span class=
+    'pplb8t-x-x-109'>increment</span>, which is an assignment
+    operator that augments certain values.</p>
+  </div>
+</div><!-- l. 180 -->
+
+<p class='noindent'>Here is an example of conditional statements.</p>
+
+<div class='mdframed' id='mdframed-6'>
+  <!-- l. 183 -->
+  <pre class='lstlisting' id='listing-11'>
+<span class='label'><a id='x1-2066r1'></a><span class=
+'pplr8t-x-x-60'>1</span></span><span style=
+'color:#646464'><span class='pcrro8t-'>#</span></span><span style=
+'color:#646464'> <span class=
+'pcrro8t-'>If, Else, Elif (else if)</span> 
+</span><span class='label'><a id='x1-2067r2'></a><span class=
+'pplr8t-x-x-60'>2</span></span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>banana_num</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>= 10</span> 
+</span><span class='label'><a id='x1-2068r3'></a><span class=
+'pplr8t-x-x-60'>3</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>if</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>banana_num &lt; 10:</span> 
+</span><span class='label'><a id='x1-2069r4'></a><span class=
+'pplr8t-x-x-60'>4</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>print</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>(</span></span><span style='color:#A31515'><span class=
+'pcrr8t-'>"</span></span><span style='color:#A31515'><span class=
+'pcrr8t-'>There</span></span><span style=
+'color:#A31515'> <span class='pcrr8t-'>are less than ten bananas"</span></span><span style='color:#000000'><span class='pcrr8t-'>)</span></span> 
+<span class='label'><a id='x1-2070r5'></a><span class=
+'pplr8t-x-x-60'>5</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>elif</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>banana_num == 10:</span> 
+</span><span class='label'><a id='x1-2071r6'></a><span class=
+'pplr8t-x-x-60'>6</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>print</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>(</span></span><span style='color:#A31515'><span class=
+'pcrr8t-'>"</span></span><span style='color:#A31515'><span class=
+'pcrr8t-'>There</span></span><span style=
+'color:#A31515'> <span class='pcrr8t-'>are ten bananas"</span></span><span style='color:#000000'><span class='pcrr8t-'>)</span></span> 
+<span class='label'><a id='x1-2072r7'></a><span class=
+'pplr8t-x-x-60'>7</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>else</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>:</span></span> 
+<span class='label'><a id='x1-2073r8'></a><span class=
+'pplr8t-x-x-60'>8</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>print</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>(</span></span><span style='color:#A31515'><span class=
+'pcrr8t-'>"</span></span><span style='color:#A31515'><span class=
+'pcrr8t-'>There</span></span><span style=
+'color:#A31515'> <span class='pcrr8t-'>are more than ten bananas"</span></span><span style='color:#000000'><span class='pcrr8t-'>)</span></span>
+</pre><!-- l. 194 -->
+  <pre class='lstlisting' id='listing-12'>
+<span class='label'><a id='x1-2074r1'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>There</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>are ten bananas</span></span>
+</pre>
+</div><!-- l. 199 -->
+
+<p class='noindent'>Here, because “<span class=
+'mathjax-inline'>\(=\)</span>” is reserved, we use “<span class=
+'mathjax-inline'>\(==\)</span>” for “equal to.” We could also do less
+than or equal to, greater than or equal to, and not equal to with
+<span class='mathjax-inline'>\(&lt;=\)</span>, <span class=
+'mathjax-inline'>\(&gt;=\)</span>, and <span class=
+'mathjax-inline'>\(!=\)</span> respectively.</p><!-- l. 203 -->
+
+<p class='noindent'>Regarding loops, “for loop” and “while loop” are
+two primary methods. Below are examples of how both loops can be
+used.</p>
+
+<div class='mdframed' id='mdframed-7'>
+  <!-- l. 207 -->
+  <pre class='lstlisting' id='listing-13'>
+<span class='label'><a id='x1-2075r1'></a><span class=
+'pplr8t-x-x-60'>1</span></span><span style=
+'color:#646464'><span class='pcrro8t-'>#</span></span><span style=
+'color:#646464'> <span class='pcrro8t-'>While loop</span> 
+</span><span class='label'><a id='x1-2076r2'></a><span class=
+'pplr8t-x-x-60'>2</span></span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>love_banana</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>= True</span> 
+</span><span class='label'><a id='x1-2077r3'></a><span class=
+'pplr8t-x-x-60'>3</span></span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>banana_num</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>= 0</span> 
+</span><span class='label'><a id='x1-2078r4'></a><span class=
+'pplr8t-x-x-60'>4</span></span> 
+<span class='label'><a id='x1-2079r5'></a><span class=
+'pplr8t-x-x-60'>5</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>while</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>love_banana</span> </span><span style=
+'color:#004099'><span class='pcrb8t-'>and</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>banana_num &lt; 5:</span> 
+</span><span class='label'><a id='x1-2080r6'></a><span class=
+'pplr8t-x-x-60'>6</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>banana_num</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>+= 1</span> </span><span style='color:#646464'><span class=
+'pcrro8t-'>#</span></span><span style='color:#646464'> <span class=
+'pcrro8t-'>Increment</span> 
+</span><span class='label'><a id='x1-2081r7'></a><span class=
+'pplr8t-x-x-60'>7</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>print</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>(</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>banana_num</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>)</span></span> 
+<span class='label'><a id='x1-2082r8'></a><span class=
+'pplr8t-x-x-60'>8</span></span> 
+<span class='label'><a id='x1-2083r9'></a><span class=
+'pplr8t-x-x-60'>9</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>print</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>()</span></span> 
+<span class='label'><a id='x1-2084r10'></a><span class=
+'pplr8t-x-x-60'>10</span></span> 
+<span class='label'><a id='x1-2085r11'></a><span class=
+'pplr8t-x-x-60'>11</span></span><span style=
+'color:#646464'><span class='pcrro8t-'>#</span></span><span style=
+'color:#646464'> <span class='pcrro8t-'>For loop</span> 
+</span><span class='label'><a id='x1-2086r12'></a><span class=
+'pplr8t-x-x-60'>12</span></span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>my_banana</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>= [</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>’</span></span><span style=
+'color:#A31515'><span class=
+'pcrr8t-'>yellow</span></span><span style='color:#A31515'><span class='pcrr8t-'>’</span></span><span style='color:#000000'><span class='pcrr8t-'>,</span></span><span style='color:#000000'> </span><span style='color:#A31515'><span class='pcrr8t-'>’</span></span><span style='color:#A31515'><span class='pcrr8t-'>green</span></span><span style='color:#A31515'><span class='pcrr8t-'>’</span></span><span style='color:#000000'><span class='pcrr8t-'>,</span></span><span style='color:#000000'> </span><span style='color:#A31515'><span class='pcrr8t-'>’</span></span><span style='color:#A31515'><span class='pcrr8t-'>mushy</span></span><span style='color:#A31515'><span class='pcrr8t-'>’</span></span><span style='color:#000000'><span class='pcrr8t-'>,</span></span><span style='color:#000000'> </span><span style='color:#A31515'><span class='pcrr8t-'>’</span></span><span style='color:#A31515'><span class='pcrr8t-'>sweet</span></span><span style='color:#A31515'><span class='pcrr8t-'>’</span></span><span style='color:#000000'><span class='pcrr8t-'>]</span></span> 
+<span class='label'><a id='x1-2087r13'></a><span class=
+'pplr8t-x-x-60'>13</span></span> 
+<span class='label'><a id='x1-2088r14'></a><span class=
+'pplr8t-x-x-60'>14</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>for</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>i</span> </span><span style=
+'color:#004099'><span class='pcrb8t-'>in</span></span><span style=
+'color:#000000'> </span><span style='color:#004099'><span class=
+'pcrb8t-'>range</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>(</span></span><span style='color:#004099'><span class=
+'pcrb8t-'>len</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>(</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>my_banana</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>)</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>)</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>:</span></span> 
+<span class='label'><a id='x1-2089r15'></a><span class=
+'pplr8t-x-x-60'>15</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>print</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>(</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>my_banana</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>[</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>i</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>])</span></span>
+</pre><!-- l. 225 -->
+  <pre class='lstlisting' id='listing-14'>
+<span class='label'><a id='x1-2090r1'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>1</span></span> 
+<span class='label'><a id='x1-2091r2'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>2</span></span> 
+<span class='label'><a id='x1-2092r3'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>3</span></span> 
+<span class='label'><a id='x1-2093r4'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>4</span></span> 
+<span class='label'><a id='x1-2094r5'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>5</span></span> 
+<span class='label'><a id='x1-2095r6'></a></span> 
+<span class='label'><a id='x1-2096r7'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>yellow</span></span> 
+<span class='label'><a id='x1-2097r8'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>green</span></span> 
+<span class='label'><a id='x1-2098r9'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>mushy</span></span> 
+<span class='label'><a id='x1-2099r10'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>sweet</span></span>
+</pre>
+</div><!-- l. 239 -->
+
+<p class='noindent'>First, <span class='obeylines-h'><code class=
+'verb'>love_banana&nbsp;=&nbsp;True</code></span> is a Boolean value.
+In the while loop, what it does is while <span class=
+'obeylines-h'><code class='verb'>love_banana</code></span> is True,
+we will increase the value <span class='obeylines-h'><code class=
+'verb'>banana_num</code></span> by 1 and print them. Notice that the
+increment with <span class='obeylines-h'><code class=
+'verb'>banana_num&nbsp;+=&nbsp;1</code></span> is a shorter form of
+writing <span class='obeylines-h'><code class=
+'verb'>banana_num&nbsp;=</code></span><br class='newline'>
+<span class='obeylines-h'><code class=
+'verb'>banana_num&nbsp;+&nbsp;1</code></span>. Moreover, we use
+<span class='obeylines-h'><code class='verb'>and</code></span> to
+make the loop continue if <span class='obeylines-h'><code class=
+'verb'>love_banana</code></span> is true and <span class=
+'obeylines-h'><code class='verb'>banana_num</code></span> is less
+than five.</p><!-- l. 247 -->
+
+<p class='noindent'>In the second loop, we listed all elements in the
+list <span class='obeylines-h'><code class=
+'verb'>my_banana</code></span>. The loop <span class=
+'obeylines-h'><code class=
+'verb'>for&nbsp;i&nbsp;in&nbsp;range()</code></span> tells Python to
+go through the code<br class='newline'>
+<span class='obeylines-h'><code class=
+'verb'>print(my_banana[i])</code></span> from <span class=
+'mathjax-inline'>\(i = 0\)</span> to <span class=
+'mathjax-inline'>\(\text {range(len(my\_banana))} - 1\)</span>.</p>
+<!-- l. 252 -->
+
+<p class='noindent'>We discussed very basic Python syntax that we
+must know to understand the following notes. Let’s discuss core
+libraries NumPy and Matplotlib now, and save PyTorch for later.</p>

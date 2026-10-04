@@ -1,0 +1,157 @@
+<h2 class='chapterHead' id='vectorvalued-functions-and-parametrization'><span class='titlemark'>Note 1</span><br />  <a id='x1-10001'></a>Vector-Valued Functions and Parametrization</h2>
+<!-- l. 7 --><p class='noindent'>In our previous note, we reviewed about vectors and their geometry. For
+calculus in higher dimension, we also study vector-valued functions in
+addition to real-valued ones that we discussed for calculus in 2-space.
+In this note, we will further extend our discussion on vectors with
+vector-valued functions, parametric curves, and calculus in higher
+dimension.
+
+</p>
+<h3 class='sectionHead' id='vectorvalued-functions-and-calculus'><span class='titlemark'>1.1    </span>   <a id='x1-20001.1'></a>Vector-Valued Functions and Calculus</h3>
+<!-- l. 16 --><p class='noindent'>As always, let’s get started with the definition.
+</p>
+<div class='tcolorbox defstyle' id='tcolobox-1'>     
+<div class='tcolorbox-title'>
+<!-- l. 24 --><p class='noindent'>Definition 1.1.1</p></div> 
+<div class='tcolorbox-content'><!-- l. 19 --><p class='noindent'>A  function  with  real  inputs  is  a  <span class='pplb8t-x-x-109'>vector-valued  function  </span>if  its
+outputs  are  vectors.  The  <span class='pplb8t-x-x-109'>implicit  domain  </span>is  the  largest  set  of
+reals for which the function is well-defined when the domain of
+a vector-valued function is not explicitly stated. </p> 
+</div> 
+</div>
+<!-- l. 26 --><p class='noindent'>Below are some examples of vector-valued functions. <span class='mathjax-env mathjax-align*'>\begin{align*} \mathbf {F}(t) &amp;= \langle t + 2, 3t^2, 4t^3 \rangle , \quad -10 \leq t \leq 10 \\ \mathbf {r}(t) &amp;= t \mathbf {i} + 5t \mathbf {j} + \cos t \mathbf {k}, \quad -2\pi \leq t \leq 10\pi \end{align*}</span>
+</p><!-- l. 33 --><p class='noindent'>Note that the range need not be vectors in 3-space, but it could be any
+vectors. From the example above, we could define another term.
+</p>
+<div class='tcolorbox defstyle' id='tcolobox-2'>     
+<div class='tcolorbox-title'>
+<!-- l. 41 --><p class='noindent'>Definition 1.1.2</p></div> 
+<div class='tcolorbox-content'><!-- l. 37 --><p class='noindent'>Consider a vector-valued function <span class='mathjax-inline'>\(\mathbf {r} = f_1 (t) \mathbf {i} + f_2 (t) \mathbf {j} + f_3 (t) \mathbf {k}\)</span>. The functions <span class='mathjax-inline'>\(f_1, f_2, f_3\)</span> of <span class='mathjax-inline'>\(t\)</span> are known
+as the <span class='pplb8t-x-x-109'>component functions </span>of <span class='mathjax-inline'>\(\mathbf {r}\)</span>. </p> 
+</div> 
+</div>
+                                                                 
+                                                                 
+<!-- l. 43 --><p class='noindent'>Graphing such functions is pretty intuitive. For each input <span class='mathjax-inline'>\(t\)</span>, we would draw
+the resulting vector from the origin, which is called the <span class='pplb8t-x-x-109'>radius vector </span>or
+<span class='pplb8t-x-x-109'>position vector</span>. Below is an example of graphing <span class='mathjax-inline'>\(\mathbf {r} = \cos t \mathbf {i} + \sin t \mathbf {j} + t \mathbf {k}\)</span> for <span class='mathjax-inline'>\(t \in [-\pi , 2\pi ]\)</span>.
+</p>
+<figure class='figure'> 
+
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+<!-- l. 51 --><p class='noindent'><img alt='[Picture]' src='/svg/MATH0302.260910x.svg' />
+                                                                 
+                                                                 
+</p>
+</figure>
+<!-- l. 95 --><p class='noindent'>As you can see from the figure above, the blue arrow from the origin is a
+radius vector of the helix. The arrowhead on the curve is known as the
+<span class='pplb8t-x-x-109'>orientation </span>of the graph, which represents the direction in which the curve
+traverse as the input increase.</p>
+<div class='mdframed' id='mdframed-1'>
+<!-- l. 101 --><p class='noindent'>One more important thing to note is that the parametrization of a curve is <span class='pplri8t-x-x-109'>not</span>
+unique. For instance, the curve above <span class='mathjax-inline'>\(\mathbf {r} = \cos t \mathbf {i} + \sin t \mathbf {j} + t \mathbf {k}\)</span> for <span class='mathjax-inline'>\(t \in [-\pi , 2\pi ]\)</span> can also be represented as <span class='mathjax-inline'>\(\mathbf {s} = \cos 2t \mathbf {i} + \sin 2t \mathbf {j} + 2t \mathbf {k}\)</span> for
+<span class='mathjax-inline'>\(t \in [-\frac {\pi }{2}, \pi ]\)</span>.</p>
+</div>
+<!-- l. 109 --><p class='noindent'>Extending our example, we can see that the curve also lies on an circular
+curve since for <span class='mathjax-inline'>\(x(t) = \cos t\)</span> and <span class='mathjax-inline'>\(y(t) = \sin t\)</span>, <span class='mathjax-inline'>\(x^2 + y^2 = 1\)</span>.
+
+</p>
+<h4 class='subsectionHead' id='calculus-for-vectorvalued-functions'><span class='titlemark'>1.1.1    </span>   <a id='x1-30001.1.1'></a>Calculus for Vector-Valued Functions</h4>
+<!-- l. 115 --><p class='noindent'>Now that we discussed what vector-valued functions are and how to graph
+them, it is natural to see how calculus work for such functions. Just like
+graphing, it is quite natural to see how calculus works given the properties
+of limits, derivatives, and integrals.</p>
+<div class='mdframed' id='mdframed-2'>
+<!-- l. 121 --><p class='noindent'>Given a vector-valued function <span class='mathjax-inline'>\(\mathbf {r}(t) = f_1(t) \mathbf {i} + f_2(t) \mathbf {j} + f_3(t) \mathbf {k}\)</span>, its limits, derivative, and integrals are
+defined as the following. </p>
+     <ul class='itemize1'>
+     <li class='itemize'><span class='mathjax-inline'>\(\displaystyle \lim _{t \to a} \mathbf {r}(t) = \left ( \lim _{t \to a} f_1(t) \right ) \mathbf {i} + \left ( \lim _{t \to a} f_2(t) \right ) \mathbf {j} + \left ( \lim _{t \to a} f_3(t) \right ) \mathbf {k}\)</span>
+     </li>
+                                                                 
+                                                                 
+     <li class='itemize'><span class='mathjax-inline'>\(\mathbf {r}'(t) = f_1'(t) \mathbf {i} + f_2'(t) \mathbf {j} + f_3'(t) \mathbf {k}\)</span>
+     </li>
+     <li class='itemize'><span class='mathjax-inline'>\(\displaystyle \int \mathbf {r}(t)\, dt = \int f_1(t)\, dt\ \mathbf {i} + \int f_2(t)\, dt\ \mathbf {j} + \int f_3(t)\, dt\ \mathbf {k}\)</span>
+     </li>
+     <li class='itemize'><span class='mathjax-inline'>\(\displaystyle \int _{a}^{b} \mathbf {r}(t)\, dt = \int _{a}^{b} f_1(t)\, dt\ \mathbf {i} + \int _{a}^{b} f_2(t)\, dt\ \mathbf {j} + \int _{a}^{b} f_3(t)\, dt\ \mathbf {k}\)</span></li></ul>
+</div>
+<!-- l. 142 --><p class='noindent'>Continuing with the definitions, it is natural to notice that the limit,
+derivatives, and integrals exist if and only if they exist for the component
+functions. In other words, <span class='mathjax-inline'>\(\mathbf {r}\)</span> is continuous at <span class='mathjax-inline'>\(a\)</span> if and only if its component
+functions are continuous at <span class='mathjax-inline'>\(a\)</span>.</p>
+<div class='mdframed' id='mdframed-3'>
+<!-- l. 149 --><p class='noindent'>Using the definition and properties of derivatives and integrals for
+real-valued functions, it is self-evident that the following rules also
+hold for vector-valued functions <span class='mathjax-inline'>\(\mathbf {r}\)</span> under the appropriate conditions.
+</p>
+     <ul class='itemize1'>
+     <li class='itemize'><span class='mathjax-inline'>\((k\mathbf {r})' = k\mathbf {r}'\)</span>
+     </li>
+     <li class='itemize'><span class='mathjax-inline'>\((\mathbf {r_1} \pm \mathbf {r_2})'= \mathbf {r_1}' \pm \mathbf {r_2}'\)</span>
+     </li>
+     <li class='itemize'>For real-valued function <span class='mathjax-inline'>\(f\)</span>, <span class='mathjax-inline'>\((f \cdot \mathbf {r})' = f' \cdot \mathbf {r} + f \cdot \mathbf {r}'\)</span>
+     </li>
+     <li class='itemize'><span class='mathjax-inline'>\(\displaystyle \int k\mathbf {r}(t)\, dt = k \int \mathbf {r}(t)\, dt\)</span>
+     </li>
+     <li class='itemize'><span class='mathjax-inline'>\(\displaystyle \int \mathbf {r_1}(t) \pm \mathbf {r_2}(t)\, dt = \int \mathbf {r_1}(t)\, dt \pm \int \mathbf {r_2}(t)\, dt\)</span>
+     </li>
+                                                                 
+                                                                 
+     <li class='itemize'>For <span class='mathjax-inline'>\(\mathbf {R}'(t) = \mathbf {r}(t)\)</span> satisfying for <span class='mathjax-inline'>\(t \in [a, b]\)</span>, <span class='mathjax-inline'>\(\displaystyle \int _{a}^{b} \mathbf {r}(t)\, dt = \mathbf {R}(b) - \mathbf {R}(a)\)</span></li></ul>
+</div>
+<!-- l. 169 --><p class='noindent'>Before concluding this section of the note, let’s discuss how we could
+geometrically interpret derivatives of vector-valued functions.
+</p><!-- l. 172 --><p class='noindent'>First, consider the following equations. <span class='mathjax-env mathjax-align*'>\begin{align*} &amp;\quad \ \mathbf {r}'(t) \\ &amp;= f_1'(t) \mathbf {i} + f_2'(t) \mathbf {j} + f_3'(t) \mathbf {k} \\ &amp;= \left ( \lim _{h \to 0} \frac {f_1(t + h) - f_1(t)}{h} \right ) \mathbf {i} + \left ( \lim _{h \to 0} \frac {f_2(t + h) - f_2(t)}{h} \right ) \mathbf {j} \\ &amp;\qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \quad + \left ( \lim _{h \to 0} \frac {f_3(t + h) - f_3(t)}{h} \right ) \mathbf {k} \\ &amp;= \lim _{h \to 0} \frac {f_1(t + h) \mathbf {i} + f_2(t + h) \mathbf {j} + f_3(t + h) \mathbf {k} - \left ( f_1(t) \mathbf {i} + f_2(t) \mathbf {j} + f_3(t) \mathbf {k} \right ) }{h} \\ &amp;= \lim _{h \to 0} \frac {\mathbf {r}(t + h) - \mathbf {r}(t)}{h} \end{align*}</span>
+</p><!-- l. 192 --><p class='noindent'>From our equation, it is evident that <span class='mathjax-inline'>\(\mathbf {r}'(t)\)</span> is getting more parallel with line
+tangent to the curve at the terminal point of <span class='mathjax-inline'>\(\mathbf {r}(t)\)</span> as <span class='mathjax-inline'>\(h \to 0\)</span>. In other words, <span class='mathjax-inline'>\(\mathbf {r}'(t)\)</span> is a vector
+that is tangent to the curve at <span class='mathjax-inline'>\(r(t)\)</span> for some value <span class='mathjax-inline'>\(t\)</span>. Such vectors are called
+<span class='pplb8t-x-x-109'>tangent vector </span>and the line that passes through tangent vectors is known as
+<span class='pplb8t-x-x-109'>tangent line</span>. Let’s take a look at an example.
+</p>
+<div class='tcolorbox probstyle' id='tcolobox-3'>     
+<div class='tcolorbox-title'>
+<!-- l. 203 --><p class='noindent'>Exercise 1.1.3</p></div> 
+<div class='tcolorbox-content'><!-- l. 201 --><p class='noindent'>Given <span class='mathjax-inline'>\(\mathbf {r}(t) = \langle \frac {t^2}{2}, \sin t, e^t \rangle \)</span>, find the tangent vector and tangent line at <span class='mathjax-inline'>\(t = \pi \)</span>. </p> 
+</div> 
+</div><div class='mdframed' id='mdframed-4'>
+<!-- l. 205 --><p class='noindent'><span class='pplb8t-x-x-109'>Solution.</span>
+</p><!-- l. 205 --><p class='noindent'>First, notice that <span class='mathjax-inline'>\(\mathbf {r}'(t) = \langle t, \cos t, e^t \rangle \)</span>. Therefore, <span class='mathjax-inline'>\(\mathbf {r}'(\pi ) = \langle \pi , -1, e^\pi \rangle \)</span>, which is the tangent vector.
+</p><!-- l. 209 --><p class='noindent'>Continuing, note that <span class='mathjax-inline'>\(\mathbf {r}(\pi ) = \langle \frac {\pi ^2}{2}, 0, e^\pi \rangle \)</span>. Therefore, the tangent line can be represented as
+<span class='mathjax-inline'>\(L(t) = \langle \frac {\pi ^2}{2}, 0, e^\pi \rangle + t \langle \pi , -1, e^\pi \rangle \)</span>.</p>
+</div>
+<!-- l. 215 --><p class='noindent'>Before concluding this section of the note, consider the following
+theorem.
+</p>
+<div class='tcolorbox theostyle' id='tcolobox-4'>    <a id='x1-3003x1.1.1'></a> 
+<div class='tcolorbox-title'>
+                                                                 
+                                                                 
+<!-- l. 227 --><p class='noindent'>Theorem 1.1.4</p></div> 
+<div class='tcolorbox-content'><!-- l. 219 --><p class='noindent'>Given vector-valued functions <span class='mathjax-inline'>\(\mathbf {r_1}\)</span> and <span class='mathjax-inline'>\(\mathbf {r_2}\)</span>, the following equations hold.
+</p>
+          <ul class='itemize1'>
+          <li class='itemize'><span class='mathjax-inline'>\((\mathbf {r_1} \cdot \mathbf {r_2})' = \mathbf {r_1}' \cdot \mathbf {r_2} + \mathbf {r_1} \cdot \mathbf {r_2}'\)</span>
+          </li>
+          <li class='itemize'><span class='mathjax-inline'>\((\mathbf {r_1} \times \mathbf {r_2})' = \mathbf {r_1}' \times \mathbf {r_2} + \mathbf {r_1} \times \mathbf {r_2}'\)</span></li></ul>
+ 
+</div> 
+</div><div class='mdframed' id='mdframed-5'>
+<!-- l. 229 --><p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span>
+</p><!-- l. 229 --><p class='noindent'>For the first equation, it suffices to show for vectors in 3-space without loss of
+generality. Define <span class='mathjax-inline'>\(\mathbf {r_1} = \langle f_1, g_1, h_1 \rangle \)</span> and <span class='mathjax-inline'>\(\mathbf {r_2} = \langle f_2, g_2, h_2 \rangle \)</span>. By definition, <span class='mathjax-inline'>\(\mathbf {r_1} \cdot \mathbf {r_2} = f_1f_2 + g_1g_2 + h_1h_2\)</span>. Therefore, <span class='mathjax-inline'>\((\mathbf {r_1} \cdot \mathbf {r_2})' = (f_1'f_2 + g_1'g_2 + h_1'h_2) + (f_1f_2' + g_1g_2' + h_1h_2')\)</span>, which is equal to <span class='mathjax-inline'>\(\langle f_1', g_1', h_1' \rangle \cdot \langle f_2, g_2, h_2 \rangle + \langle f_1, g_1, h_1 \rangle \cdot \langle f_2', g_2', h_2' \rangle \)</span>. Thus,
+the first equation holds.
+</p><!-- l. 239 --><p class='noindent'>Note that the second equation holds for <span class='mathjax-inline'>\(\mathbf {r_1}\)</span> and <span class='mathjax-inline'>\(\mathbf {r_2}\)</span> in 3-space. Therefore, define <span class='mathjax-inline'>\(\mathbf {r_1} = \langle f_1, g_1, h_1 \rangle \)</span>
+and <span class='mathjax-inline'>\(\mathbf {r_2} = \langle f_2, g_2, h_2 \rangle \)</span>. Consider the following equations. <span class='mathjax-env mathjax-align*'>\begin{align*} \mathbf {r_1} \times \mathbf {r_2} &amp;= \langle g_1h_2 - h_1g_2, h_1f_2 - f_1h_2, f_1g_2 - g_1f_2 \rangle \\ (\mathbf {r_1} \times \mathbf {r_2})' &amp;= \langle g_1'h_2 - h_1'g_2 + g_1h_2' - h_1g_2', h_1'f_2 - f_1'h_2 \\ &amp;\qquad \qquad \qquad \quad + h_1f_2' - f_1h_2', f_1'g_2 - g_1'f_2 + f_1g_2' - g_1f_2' \rangle \\ &amp;= \langle g_1'h_2 - h_1'g_2, h_1'f_2 - f_1'h_2, f_1'g_2 - g_1'f_2 \rangle \\ &amp;\qquad \qquad \qquad \quad + \langle g_1h_2' - h_1g_2', h_1f_2' - f_1h_2', f_1g_2' - g_1f_2' \rangle \\ &amp;= \mathbf {r_1}' \times \mathbf {r_2} + \mathbf {r_1} \times \mathbf {r_2}' \end{align*}</span>
+</p><!-- l. 264 --><p class='noindent'>Thus, the theorem holds.</p>
+</div>
+
+<!-- l. 267 --><p class='noindent'>One fun fact that we can notice from the first equation is that if we assume <span class='mathjax-inline'>\(\mathbf {r}(t) \cdot \mathbf {r}(t) = a\)</span>
+for some constant <span class='mathjax-inline'>\(a\)</span>, then <span class='mathjax-inline'>\(\mathbf {r}'(t) \cdot \mathbf {r}(t) + \mathbf {r}(t) \cdot \mathbf {r}'(t) = 0\)</span> and <span class='mathjax-inline'>\(\mathbf {r}(t) \cdot \mathbf {r}'(t) = 0\)</span>. In other words, <span class='mathjax-inline'>\(\mathbf {r}(t)\)</span> and <span class='mathjax-inline'>\(\mathbf {r}'(t)\)</span> are orthogonal! This is it
+for this section, and let’s discuss more on parametrization in the next
+section.
+</p>
+ 

@@ -1,0 +1,159 @@
+<h3 class='sectionHead' id='techniques-and-patterns'><span class=
+'titlemark'>0.1</span> <a id='x1-10000.1'></a>Techniques and
+Patterns</h3><!-- l. 7 -->
+
+<p class='noindent'>One of the many fields in olympiad algebra that
+has known techniques and patterns that could come very handy would be
+inequality. This section mostly includes the techniques that can be
+implemented with simple pattern recognition, and shares some of my
+personal experience that I built from solving inequality
+problems.</p>
+
+<h4 class='subsectionHead' id='telescoping'><span class=
+'titlemark'>0.1.1</span> <a id='x1-20000.1.1'></a>Telescoping</h4>
+<!-- l. 15 -->
+
+<p class='noindent'>Telescoping series and generalization powered
+with classic inequalities like AM-GM and Cauchy Schwarz can really
+come handy in solving some problems.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-1'>
+  <div class='tcolorbox-title'>
+    <!-- l. 22 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.1</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 20 -->
+
+    <p class='noindent'><span class='pplb8t-x-x-109'>Telescoping
+    series</span> refers to a substantially large series that cancels
+    out to leave only the beginning and the ending terms.</p>
+  </div>
+</div><!-- l. 24 -->
+
+<p class='noindent'>The definition above is not “formal” per se, but
+an example of such series would be the following. <span class=
+'mathjax-env mathjax-align*'>\begin{align*} \sum _{k=1}^n (a_k -
+a_{k+1}) &amp;= a_1 - a_2 + a_2 - a_3 + a_4 - a_5 + \cdots + a_n -
+a_{n+1} \\ &amp;= a_1 - a_{n+1} \end{align*}</span></p><!-- l. 31 -->
+
+<p class='noindent'>Of course telescoping series do not reveal
+themselves in problems easily. A common form in which they are found
+is fraction. For instance, the following sequence telescopes.
+<span class='mathjax-env mathjax-align*'>\begin{align*} \sum _{k=1}^n
+\left ( \frac {1}{k(k + 1)} \right ) &amp;= \sum _{k=1}^n \left (
+\frac {1}{k} - \frac {1}{k + 1} \right ) \\ &amp;= \frac {1}{1} -
+\frac {1}{2} + \frac {1}{2} - \frac {1}{3} + \cdots + \frac {1}{n} -
+\frac {1}{n + 1} \\ &amp;= 1 - \frac {1}{n + 1} = \frac {n}{n + 1}
+\end{align*}</span></p><!-- l. 42 -->
+
+<p class='noindent'>Below is another classic problem with an
+interesting property.</p>
+
+<div class='tcolorbox probstyle' id='tcolobox-2'>
+  <div class='tcolorbox-title'>
+    <!-- l. 48 -->
+
+    <p class='noindent'>Exercise&nbsp;0.1.2</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 44 -->
+
+    <p class='noindent'>Show that the following inequality holds.
+    <span class='mathjax-block'>\[ \sum _{i = 1}^n \frac {1}{i^2}
+    &lt; 2 \]</span></p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-1'>
+  <!-- l. 50 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 50 -->
+
+  <p class='noindent'>Consider the identity <span class=
+  'mathjax-inline'>\(\frac {1}{k(k + 1)} = \frac {1}{k} - \frac {1}{k
+  + 1}\)</span> for <span class='mathjax-inline'>\(k \neq 0,
+  -1\)</span>. Expanding, the following inequalities are obtained.
+  <span class='mathjax-env mathjax-align*'>\begin{align*} \frac
+  {1}{1^2} + \frac {1}{2^2} + \cdots + \frac {1}{n^2} &amp;&lt; 1 +
+  \frac {1}{1 \cdot 2} + \cdots + \frac {1}{(n - 1) \cdot n} \\
+  &amp;= 1 + \left ( \frac {1}{1} - \frac {1}{2} \right ) + \cdots +
+  \left ( \frac {1}{n - 1} - \frac {1}{n} \right ) \\ &amp;= 2 -
+  \frac {1}{n} &lt; 2 \end{align*}</span></p><!-- l. 60 -->
+
+  <p class='noindent'>Therefore, the inequality holds.</p>
+</div><!-- l. 63 -->
+
+<p class='noindent'>With the idea in mind, let’s solve a problem to
+see how they can be powered with fundamental inequalities to solve
+problems.</p>
+
+<div class='tcolorbox probstyle' id='tcolobox-3'>
+  <a id='x1-2004x0.1.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 76 -->
+
+    <p class='noindent'>Exercise&nbsp;0.1.3:&nbsp;2007 Belarusian MO
+    Final Problem 2 (<span class='mathjax-inline'>\(\bullet
+    \circ \circ \)</span>)</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 69 -->
+
+    <p class='noindent'>Show that the following inequality holds for
+    all <span class='mathjax-inline'>\(a_1, \ldots , a_{n+1} &gt;
+    0\)</span>. <span class='mathjax-block'>\[ \frac {1}{a_1} + \frac
+    {a_1}{a_2} + \frac {a_1 a_2}{a_3} + \cdots + \frac {a_1 a_2
+    \cdots a_n}{a_{n+1}} \geq 4(1 - a_1 \cdots a_{n+1}) \]</span></p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-2'>
+  <!-- l. 78 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 78 -->
+
+  <p class='noindent'>Before applying any techniques or inequalities,
+  let’s first analyze the inequality. Notice that in our left hand
+  side of the inequality, we have products <span class=
+  'mathjax-inline'>\(a_1 \cdots a_k\)</span> that grows after each
+  term. On our right hand side, we have the product <span class=
+  'mathjax-inline'>\(a_1 \cdots a_{n+1}\)</span>. Now letting
+  <span class='mathjax-inline'>\(p_k = a_1 \cdots a_k\)</span> and
+  <span class='mathjax-inline'>\(p_0 = 1\)</span>, we can see that
+  our right hand side becomes <span class='mathjax-inline'>\(4(p_0 -
+  p_{n+1})\)</span>, which hints that the sequence telescopes.
+  Indeed, consider the following expansion. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} 4(1 - a_1 \cdots
+  a_{n+1}) &amp;= 4 \left \{ (1 - a_1) + (a_1 - a_1 a_2) + \cdots
+  \right . \\ &amp;\qquad \qquad \qquad \qquad \quad +\left . (a_1
+  \cdots a_{n} - a_1 \cdots a_{n+1}) \right \}
+  \end{align*}</span></p><!-- l. 92 -->
+
+  <p class='noindent'>Matching each expanded term with the terms in
+  left hand side, it suffices to show that <span class=
+  'mathjax-block'>\[ \frac {a_1 \cdots a_k}{a_{k+1}} \geq 4(a_1
+  \cdots a_k - a_1 \cdots a_{k+1}) \]</span> holds. Rearranging the
+  terms the following inequality hold. <span class='mathjax-block'>\[
+  \frac {a_1^2 a_2^2 \cdots a_k^2}{a_1^2 a_2^2 \cdots a_{k+1}^2} + 4
+  a_1 \cdots a_{k+1} \geq 4 a_1 \cdots a_k \]</span> Because
+  <span class='mathjax-inline'>\(a_k &gt; 0\)</span> by definition,
+  the inequality holds by AM-GM inequality.</p>
+</div><!-- l. 108 -->
+
+<p class='noindent'>The problem above uses the property of
+telescoping series and AM-GM inequality for a proof. If you see such
+form, it would be worth suspecting that we can use telescoping
+technique.</p><!-- l. 118 -->
+
+<p class='noindent'>* Homogenization, Normalization * Substitution,
+uvw method, Ravi Transformation * Fudging, Smoothing, and Ordering *
+Super-Sums of Square-Weights (SOS) * Majorization Theory * Mixing
+Variables * Isoperimetric Inequalities</p>

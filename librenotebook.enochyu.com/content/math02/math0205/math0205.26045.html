@@ -1,0 +1,169 @@
+<h3 class='sectionHead' id='solutions-for-note-2'><span class=
+'titlemark'>0.1</span> <a id='x1-10000.1'></a>Solutions for Note
+2</h3><!-- l. 7 -->
+
+<p class='noindent'></p>
+
+<dl class='enumerate-enumitem'>
+  <dt class='enumerate-enumitem'>1.</dt>
+
+  <dd class='enumerate-enumitem'>
+    <dl class='enumerate-enumitem'>
+      <dt class='enumerate-enumitem'>(a)</dt>
+
+      <dd class='enumerate-enumitem'>Consider the following
+      computation. <span class=
+      'mathjax-env mathjax-align*'>\begin{align*} A - 2B &amp;=
+      \begin {bmatrix} 1 &amp; 2 \\ 2 &amp; 0 \end {bmatrix} -
+      2\begin {bmatrix} -1 &amp; 2 \\ 0 &amp; 3 \end {bmatrix} =
+      \begin {bmatrix} 1 &amp; 2 \\ 2 &amp; 0 \end {bmatrix} + \begin
+      {bmatrix} 2 &amp; -4 \\ 0 &amp; -6 \end {bmatrix} \\ &amp;=
+      \begin {bmatrix} 3 &amp; -2 \\ 2 &amp; -6 \end {bmatrix}
+      \end{align*}</span></dd>
+
+      <dt class='enumerate-enumitem'>(b)</dt>
+
+      <dd class='enumerate-enumitem'>Consider the following equation.
+      <span class='mathjax-block'>\[ AB = \begin {bmatrix} 1 &amp; 2
+      \\ 2 &amp; 0 \end {bmatrix} \begin {bmatrix} -1 &amp; 2 \\ 0
+      &amp; 3 \end {bmatrix} = \begin {bmatrix} -1 &amp; 8 \\ -2
+      &amp; 7 \end {bmatrix} \]</span></dd>
+
+      <dt class='enumerate-enumitem'>(c)</dt>
+
+      <dd class='enumerate-enumitem'>Because <span class=
+      'mathjax-inline'>\(AB\)</span> is found above, <span class=
+      'mathjax-inline'>\(BA\)</span> could be found. <span class=
+      'mathjax-block'>\[ BA = \begin {bmatrix} -1 &amp; 2 \\ 0 &amp;
+      3 \end {bmatrix} \begin {bmatrix} 1 &amp; 2 \\ 2 &amp; 0 \end
+      {bmatrix} = \begin {bmatrix} 3 &amp; -2 \\ 6 &amp; 0 \end
+      {bmatrix} \]</span> Therefore, the following equation is true.
+      <span class='mathjax-env mathjax-align*'>\begin{align*} (AB -
+      BA)^\intercal &amp;= \left ( \begin {bmatrix} -1 &amp; 8 \\ -2
+      &amp; 7 \end {bmatrix} - \begin {bmatrix} 3 &amp; -2 \\ 6 &amp;
+      0 \end {bmatrix} \right )^\intercal = \left ( \begin {bmatrix}
+      -4 &amp; 10 \\ -8 &amp; 7 \end {bmatrix} \right )^\intercal \\
+      &amp;= \begin {bmatrix} -4 &amp; -8 \\ 10 &amp; 7 \end
+      {bmatrix} \end{align*}</span></dd>
+    </dl>
+  </dd>
+
+  <dt class='enumerate-enumitem'>2.</dt>
+
+  <dd class='enumerate-enumitem'>By the definition of matrix
+  multiplication, <span class='mathjax-inline'>\(a_2B = [4, 5,
+  6]\)</span>.</dd>
+
+  <dt class='enumerate-enumitem'>3.</dt>
+
+  <dd class='enumerate-enumitem'>
+    Notice that <span class='mathjax-inline'>\(A\)</span> is a
+    <span class='mathjax-inline'>\(2 \times 2\)</span> square matrix.
+    Therefore, define <span class='mathjax-inline'>\(A\)</span> as
+    the following. <span class='mathjax-block'>\[ A = \begin
+    {bmatrix} a_{11} &amp; a_{12} \\ a_{21} &amp; a_{22} \end
+    {bmatrix} \]</span> Therefore, the following equation is
+    obtained. <span class='mathjax-env mathjax-align*'>\begin{align*}
+    2A - 3A^\intercal &amp;= \begin {bmatrix} 2a_{11} &amp; 2a_{12}
+    \\ 2a_{21} &amp; 2a_{22} \end {bmatrix} - \begin {bmatrix}
+    3a_{11} &amp; 3a_{21} \\ 3a_{12} &amp; 3a_{22} \end {bmatrix} \\
+    &amp;= \begin {bmatrix} 2a_{11} - 3a_{11} &amp; 2a_{12} - 3a_{21}
+    \\ 2a_{21} - 3a_{12} &amp; 2a_{22} - 3a_{22} \end {bmatrix} =
+    \begin {bmatrix} -1 &amp; -5 \\ 0 &amp; -4 \end {bmatrix}
+    \end{align*}</span> <!-- l. 142 -->
+
+    <p class='noindent'>Continuing, the elements of <span class=
+    'mathjax-inline'>\(A\)</span> could be found. <span class=
+    'mathjax-env mathjax-align*'>\begin{align*} 2a_{11} - 3a_{11}
+    &amp;= -1 \\ 2a_{12} - 3a_{21} &amp;= -5 \\ 2a_{21} - 3a_{12}
+    &amp;= 0 \\ 2a_{22} - 3a_{22} &amp;= -4 \end{align*}</span></p>
+    <!-- l. 149 -->
+
+    <p class='noindent'>Therefore, <span class=
+    'mathjax-inline'>\(a_{11} = 1\)</span>, <span class=
+    'mathjax-inline'>\(a_{12} = 2\)</span>, <span class=
+    'mathjax-inline'>\(a_{21} = 3\)</span>, and <span class=
+    'mathjax-inline'>\(a_{22} = 4\)</span>. Thus, <span class=
+    'mathjax-inline'>\(A\)</span> can be defined as the following.
+    <span class='mathjax-block'>\[ A = \begin {bmatrix} 1 &amp; 2 \\
+    3 &amp; 4 \end {bmatrix} \]</span></p>
+  </dd>
+
+  <dt class='enumerate-enumitem'>4.</dt>
+
+  <dd class='enumerate-enumitem'>For any square matrix <span class=
+  'mathjax-inline'>\(S\)</span>, define <span class=
+  'mathjax-inline'>\(A\)</span> and <span class=
+  'mathjax-inline'>\(B\)</span> as the following. <span class=
+  'mathjax-block'>\[ A = \frac {S + S^\intercal }{2}, \quad B = \frac
+  {S - S^\intercal }{2} \]</span> Notice that <span class=
+  'mathjax-inline'>\(S = A + B\)</span>. Therefore, it suffices to
+  show that <span class='mathjax-inline'>\(A\)</span> is symmetric
+  and <span class='mathjax-inline'>\(B\)</span> is skew-symmetric. By
+  Theorem <span class='pplb8t-x-x-109'>??</span>, the following
+  equations hold. <span class='mathjax-block'>\[ A^\intercal = \frac
+  {S + S^\intercal }{2}, \quad B^\intercal = \frac {S^\intercal -
+  S}{2} = -B \]</span> Thus, all square matrices can be represented
+  as the sum of a symmetric and skew-symmetric matrices.</dd>
+
+  <dt class='enumerate-enumitem'>5.</dt>
+
+  <dd class='enumerate-enumitem'>By definition, there exist
+  <span class='mathjax-inline'>\(n, m \in \mathbb {Z}\)</span> such
+  that <span class='mathjax-inline'>\(A^n = 0\)</span> and
+  <span class='mathjax-inline'>\(B^m = 0\)</span>. Because
+  <span class='mathjax-inline'>\(AB = BA\)</span>, <span class=
+  'mathjax-inline'>\(A^{nm} B^{nm} = 0\)</span> can be written as
+  <span class='mathjax-inline'>\((AB)^{nm} = 0\)</span> and
+  <span class='mathjax-inline'>\(AB\)</span> is nilpotent.</dd>
+
+  <dt class='enumerate-enumitem'>6.</dt>
+
+  <dd class='enumerate-enumitem'>By Theorem <span class=
+  'pplb8t-x-x-109'>??</span>, <span class='mathjax-inline'>\((AB +
+  (AB)^\intercal )^\intercal = (AB)^\intercal + AB = AB +
+  (AB)^\intercal \)</span>. Therefore, <span class=
+  'mathjax-inline'>\(AB + (AB)^\intercal \)</span> is symmetric.</dd>
+
+  <dt class='enumerate-enumitem'>7.</dt>
+
+  <dd class='enumerate-enumitem'>
+    An easy trap for this problem is that you might be tempted to do
+    <span class='mathjax-inline'>\(\det (A^2 - B^2) = \det (A + B)
+    \det (A - B)\)</span>. However, notice that this does not hold in
+    general as <span class='mathjax-inline'>\(AB \neq BA\)</span> in
+    general. <!-- l. 193 -->
+
+    <p class='noindent'>Consider the following matrix <span class=
+    'mathjax-inline'>\(P\)</span> and its inverse <span class=
+    'mathjax-inline'>\(P^{-1}\)</span>. <span class=
+    'mathjax-block'>\[ P = \begin {bmatrix} I &amp; I \\ I &amp; -I
+    \end {bmatrix}, \quad P^{-1} = \frac {1}{2} \begin {bmatrix} I
+    &amp; I \\ I &amp; -I \end {bmatrix} \]</span> Continuing,
+    <span class='mathjax-env mathjax-align*'>\begin{align*} P^{-1}
+    \begin {bmatrix} A &amp; B \\ B &amp; A \end {bmatrix} P &amp;=
+    \frac {1}{2} \begin {bmatrix} A + B &amp; B + A \\ A - B &amp; B
+    - A \end {bmatrix} \begin {bmatrix} I &amp; I \\ I &amp; -I \end
+    {bmatrix} \\ &amp;= \begin {bmatrix} A + B &amp; 0 \\ 0 &amp; A -
+    B \end {bmatrix} \end{align*}</span></p><!-- l. 230 -->
+
+    <p class='noindent'>holds and <span class=
+    'mathjax-inline'>\(\begin {bmatrix} A &amp; B \\ B &amp; A \end
+    {bmatrix} \cong \begin {bmatrix} A + B &amp; 0 \\ 0 &amp; A - B
+    \end {bmatrix}\)</span>. Therefore, the determinant of the
+    original matrix is <span class='mathjax-inline'>\(\det (A + B)
+    \det (A - B)\)</span>.</p>
+  </dd>
+
+  <dt class='enumerate-enumitem'>8.</dt>
+
+  <dd class='enumerate-enumitem'>By definition, <span class=
+  'mathjax-inline'>\(A\)</span> is skew-symmetric if <span class=
+  'mathjax-inline'>\(A^\intercal = -A\)</span>. Notice that
+  <span class='mathjax-inline'>\((A^3)^\intercal = (A^\intercal
+  )^3\)</span> by Theorem <span class='pplb8t-x-x-109'>??</span>.
+  Therefore, <span class='mathjax-inline'>\((A^3)^\intercal =
+  (A^\intercal )^3 = -A^3\)</span>. Thus, if <span class=
+  'mathjax-inline'>\(A\)</span> is skew-symmetric, then <span class=
+  'mathjax-inline'>\(A^3\)</span> is also skew-symmetric.</dd>
+</dl>

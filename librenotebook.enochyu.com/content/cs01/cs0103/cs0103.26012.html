@@ -1,0 +1,264 @@
+<!-- l. 5 -->
+
+<p class='noindent'></p>
+
+<h2 class='chapterHead' id='foundations-and-intuitions'><span class=
+'titlemark'>Note&nbsp;1</span><br>
+<a id='x1-10001'></a>Foundations and Intuitions</h2><!-- l. 7 -->
+
+<p class='noindent'>This note covers basic concepts as well as
+intuitions through the introduction of Large Language Models.</p>
+
+<h3 class='sectionHead' id='fundamental-terms-and-concepts'>
+<span class='titlemark'>1.1</span> <a id='x1-20001.1'></a>Fundamental
+Terms and Concepts</h3><!-- l. 12 -->
+
+<p class='noindent'>This section is an introduction to basic terms
+and concepts that will be used throughout my notes. That being said,
+more advanced concepts will be introduced in latter notes. Please
+feel free to skip over this section if you already know the bold
+words.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-1'>
+  <div class='tcolorbox-title'>
+    <!-- l. 21 -->
+
+    <p class='noindent'>Definition&nbsp;1.1.1</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 18 -->
+
+    <p class='noindent'><span class='pplb8t-x-x-109'>Machine
+    learning</span> is a subset of artificial intelligence that
+    learns from data. <span class='pplb8t-x-x-109'>Deep
+    learning</span> is a subset of machine learning that utilizes
+    neural networks.</p>
+  </div>
+</div><!-- l. 23 -->
+
+<p class='noindent'>The primary purpose of ML is to make AI
+“smarter”. For instance, calculators are “dumb” in a sense that it
+requires an input and can only do certain tasks such as outputting
+calculated input. However, we can make it “smarter” by teaching data.
+We can clearly see that WolframAlpha is smarter than a normal
+scientific calculator. (Please note that this is just an analogy not
+an example because WolframAlpha is a knowledge engine, not a machine
+learning model. But I mean you get the point.)</p><!-- l. 32 -->
+
+<p class='noindent'>On the high level, you can think of an AI model
+as a giant function with billions of array of numbers, called
+parameters.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-2'>
+  <div class='tcolorbox-title'>
+    <!-- l. 41 -->
+
+    <p class='noindent'>Definition&nbsp;1.1.2</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 36 -->
+
+    <p class='noindent'><span class=
+    'pplb8t-x-x-109'>Parameters</span> are the internal values in a
+    model composed with <span class='pplb8t-x-x-109'>weights</span>
+    and <span class='pplb8t-x-x-109'>biases</span> that are learned
+    by the model. After the parameters are finalized with the
+    training phase, the models generate <span class=
+    'pplb8t-x-x-109'>predictions</span> through the process called
+    <span class='pplb8t-x-x-109'>inference</span>.</p>
+  </div>
+</div><!-- l. 43 -->
+
+<p class='noindent'>Indeed, models are prediction machines based on
+the trained parameters. One fun fact here is that it generally costs
+way less to run inference than to train the model. More in-depth
+explanation will be available in latter notes where we discuss neural
+nets.</p>
+
+<h4 class='subsectionHead' id='ml-paradigms'><span class=
+'titlemark'>1.1.1</span> <a id='x1-30001.1.1'></a>ML Paradigms</h4>
+<!-- l. 50 -->
+
+<p class='noindent'>In ML, there are three primary learning
+paradigms: supervised learning, unsupervised learning, and
+reinforcement learning. First, what does it mean to “learn” and
+“train”?</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-3'>
+  <div class='tcolorbox-title'>
+    <!-- l. 58 -->
+
+    <p class='noindent'>Definition&nbsp;1.1.3</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 55 -->
+
+    <p class='noindent'>Machine learning utilizes the process of
+    <span class='pplb8t-x-x-109'>training</span> to learn from data
+    with algorithms. A common example would be dog and cat
+    recognition from picture with <span class=
+    'pplb8t-x-x-109'>labeled</span> data.</p>
+  </div>
+</div><!-- l. 60 -->
+
+<p class='noindent'>There are multiple ways in which models are
+trained. One of the most used method out of the three paradigms is
+supervised learning.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-4'>
+  <div class='tcolorbox-title'>
+    <!-- l. 67 -->
+
+    <p class='noindent'>Definition&nbsp;1.1.4</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 64 -->
+
+    <p class='noindent'>When a model is trained with <span class=
+    'pplb8t-x-x-109'>supervised learning</span>, the model utilizes
+    labeled dataset, or examples of input-output pairs, to learn.</p>
+  </div>
+</div><!-- l. 69 -->
+
+<p class='noindent'>With supervised learning, there are two primary
+predictions that models make.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-5'>
+  <div class='tcolorbox-title'>
+    <!-- l. 76 -->
+
+    <p class='noindent'>Definition&nbsp;1.1.5</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 73 -->
+
+    <p class='noindent'><span class=
+    'pplb8t-x-x-109'>Classification</span> is a prediction where the
+    label of an input data is being predicted. <span class=
+    'pplb8t-x-x-109'>Regression</span> is utilized to predict
+    continuous values.</p>
+  </div>
+</div><!-- l. 78 -->
+
+<p class='noindent'>Classic examples of classification would be
+categorizing dog/cat pictures and email spam filtering. An example of
+regression would be the house price over years.</p><!-- l. 82 -->
+
+<p class='noindent'>The second most common learning paradigm is
+unsupervised learning.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-6'>
+  <div class='tcolorbox-title'>
+    <!-- l. 87 -->
+
+    <p class='noindent'>Definition&nbsp;1.1.6</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 85 -->
+
+    <p class='noindent'><span class='pplb8t-x-x-109'>Unsupervised
+    learning</span> is a process of training a model with unlabeled
+    data.</p>
+  </div>
+</div><!-- l. 89 -->
+
+<p class='noindent'>How is it possible for a model to learn without
+labeled data? One primary example algorithm is <span class=
+'mathjax-inline'>\(k\)</span>-means clustering, where the model
+categorizes the data with relevance and similarity. To cluster high
+dimensional data, we often perform <span class=
+'pplb8t-x-x-109'>dimensionality reduction</span> to reduce the
+dimension for clustering with the trust in <span class=
+'pplb8t-x-x-109'>manifold hypothesis</span>. I won’t go to deep into
+unsupervised learning and <span class=
+'mathjax-inline'>\(k\)</span>-means clustering in this note, but you
+can check out this <a href=
+'https://www.naftaliharris.com/blog/visualizing-k-means-clustering/'>awesome
+visualization</a> of <span class='mathjax-inline'>\(k\)</span>-means
+clustering.</p><!-- l. 100 -->
+
+<p class='noindent'>The third most used learning paradigm is
+reinforcement learning.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-7'>
+  <div class='tcolorbox-title'>
+    <!-- l. 105 -->
+
+    <p class='noindent'>Definition&nbsp;1.1.7</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 103 -->
+
+    <p class='noindent'><span class='pplb8t-x-x-109'>Reinforcement
+    learning</span> is a process of training models through
+    interactions with environment and reward system.</p>
+  </div>
+</div><!-- l. 107 -->
+
+<p class='noindent'>Personally, reinforcement learning is more
+complicated compared to the two paradigms introduced above. On the
+high level, an agent will take an action in an environment, where it
+returns <span class='pplb8t-x-x-109'>rewards</span> based on the
+action. The agent will then update its policies with the provided
+reward. The process is continued until the “adequate” amount is
+reached.</p><!-- l. 114 -->
+
+<p class='noindent'>Training a model can be understood as writing a
+best fit mathematical function to training datasets that captures the
+holistic trend. There are few terms that describe the function.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-8'>
+  <div class='tcolorbox-title'>
+    <!-- l. 123 -->
+
+    <p class='noindent'>Definition&nbsp;1.1.8</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 119 -->
+
+    <p class='noindent'>A model is <span class=
+    'pplb8t-x-x-109'>overfit</span> if it learns too much from the
+    data that it does not effectively capture that holistic pattern
+    but small <span class='pplb8t-x-x-109'>noises</span>. On the
+    other hand, an <span class='pplb8t-x-x-109'>underfitting</span>
+    model is formed when it does not learn effectively from the
+    data.</p>
+  </div>
+</div><!-- l. 125 -->
+
+<p class='noindent'>On the high level, our goal is to generalize and
+capture the general pattern and prevent overfitting or underfitting.
+We normally would stop training a model when it does not appear to
+improve, or is degrading, but how do we assess it?</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-9'>
+  <div class='tcolorbox-title'>
+    <!-- l. 135 -->
+
+    <p class='noindent'>Definition&nbsp;1.1.9</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 131 -->
+
+    <p class='noindent'>To prevent overfitting and to evaluate the
+    model during training, <span class=
+    'pplb8t-x-x-109'>validation</span> is utilized with <span class=
+    'pplb8t-x-x-109'>unseen data</span>. Unlike validation,
+    <span class='pplb8t-x-x-109'>test sets</span> are used at the end
+    of the training to evaluate the finalized model.</p>
+  </div>
+</div><!-- l. 137 -->
+
+<p class='noindent'>We have discussed the fundamental terms and
+concepts that would repeatedly appear in the following notes. Now
+let’s build our high level intuitions on ML with the introduction to
+LLMs!</p>

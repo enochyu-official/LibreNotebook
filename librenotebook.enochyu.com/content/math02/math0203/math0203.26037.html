@@ -1,0 +1,744 @@
+<h3 class='sectionHead' id='the-multiplicative-inverse'><span class=
+'titlemark'>0.1</span> <a id='x1-10000.1'></a>The Multiplicative
+Inverse</h3><!-- l. 7 -->
+
+<p class='noindent'>As we discuss matrix multiplication, you may have
+wondered about matrix division. I mean it would be so nice if we
+could just divide the coefficient matrix to find our variables.
+Although there is no “division” operation per se, we could achieve
+similar operation with the multiplicative inverse of a matrix, or
+simply the inverse matrix. In other words, some solutions to linear
+systems can be written as <span class='mathjax-inline'>\(x =
+A^{-1}b\)</span>.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-1'>
+  <div class='tcolorbox-title'>
+    <!-- l. 19 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.1</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 16 -->
+
+    <p class='noindent'>The <span class='pplb8t-x-x-109'>inverse of a
+    matrix</span> is a matrix that produces an identity matrix when
+    multiplied with the original matrix. The inverse of <span class=
+    'mathjax-inline'>\(A\)</span> is denoted as <span class=
+    'mathjax-inline'>\(A^{-1}\)</span>.</p>
+  </div>
+</div><!-- l. 21 -->
+
+<p class='noindent'>We could see that matrices <span class=
+'mathjax-inline'>\(A\)</span> and <span class=
+'mathjax-inline'>\(B\)</span> are the inverse of each other if the
+following equation is satisfied. <span class='mathjax-block'>\[ AB =
+BA = I \]</span> Below is an example where <span class=
+'mathjax-inline'>\(B = A^{-1}\)</span>. <span class=
+'mathjax-block'>\[ A = \begin {bmatrix} 1 &amp; 2 \\ 3 &amp; 5 \end
+{bmatrix}, \quad B = \begin {bmatrix} -5 &amp; 2 \\ 3 &amp; -1 \end
+{bmatrix} \]</span> One thing to note from the definition is that
+<span class='mathjax-inline'>\(A\)</span> and <span class=
+'mathjax-inline'>\(B\)</span> must be square matrices. Say we have
+<span class='mathjax-inline'>\(A_{4 \times 2}\)</span> and
+<span class='mathjax-inline'>\(B_{2 \times 4}\)</span>. Even if both
+<span class='mathjax-inline'>\(AB\)</span> and <span class=
+'mathjax-inline'>\(BA\)</span> return an identity matrix, the order
+will be different. Therefore, for a matrix to have the inverse, it
+must be a square matrix.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-2'>
+  <div class='tcolorbox-title'>
+    <!-- l. 50 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.2</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 47 -->
+
+    <p class='noindent'>A matrix is <span class=
+    'pplb8t-x-x-109'>invertible</span>, or <span class=
+    'pplb8t-x-x-109'>nonsingular</span>, if it retains an inverse
+    matrix. A matrix is <span class='pplb8t-x-x-109'>singular</span>
+    if it does not have an inverse matrix.</p>
+  </div>
+</div><!-- l. 52 -->
+
+<p class='noindent'>Now from the definition above, we could establish
+a theorem.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-3'>
+  <a id='x1-1004x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 57 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.3</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 55 -->
+
+    <p class='noindent'>If all diagonal elements of a matrix are
+    nonzero constants, then the matrix is invertible.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-1'>
+  <!-- l. 59 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 59 -->
+
+  <p class='noindent'>Consider the matrix <span class=
+  'mathjax-inline'>\(A_{m \times m}\)</span> defined below.
+  <span class='mathjax-block'>\[ A = \begin {bmatrix} a_{11} &amp;
+  a_{12} &amp; a_{13} &amp; \cdots &amp; a_{1m} \\ a_{21} &amp;
+  a_{22} &amp; a_{23} &amp; \cdots &amp; a_{2m} \\ a_{31} &amp;
+  a_{32} &amp; a_{33} &amp; \cdots &amp; a_{3m} \\ \vdots &amp;
+  \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ a_{m1} &amp;
+  a_{m2} &amp; a_{m3} &amp; \cdots &amp; a_{mm} \end {bmatrix}
+  \]</span> It suffices to show that there exists the inverse matrix
+  for all values of the elements. Consider the inverse below.
+  <span class='mathjax-block'>\[ A^{-1} = \begin {bmatrix} \frac
+  {1}{a_{11}} &amp; 0 &amp; 0 &amp; \cdots &amp; 0 \\ 0 &amp; \frac
+  {1}{a_{22}} &amp; 0 &amp; \cdots &amp; 0 \\ 0 &amp; 0 &amp; \frac
+  {1}{a_{33}} &amp; \cdots &amp; 0 \\ \vdots &amp; \vdots &amp;
+  \vdots &amp; \ddots &amp; \vdots \\ 0 &amp; 0 &amp; 0 &amp; \cdots
+  &amp; \frac {1}{a_{mm}} \end {bmatrix} \]</span> Because
+  <span class='mathjax-inline'>\(a_{ii}\)</span> for integer
+  <span class='mathjax-inline'>\(i \in [1, m]\)</span> are nonzero
+  numbers, all elements in the matrix <span class=
+  'mathjax-inline'>\(A^{-1}\)</span> are defined, and the inverse
+  matrix exists.</p>
+</div><!-- l. 87 -->
+
+<p class='noindent'>Now, it is important to note that not all square
+matrices have the inverse. For example, consider a matrix with zero
+row. The same row in the product matrices will become a zero row. By
+definition, it is not possible to make an identity matrix with a zero
+row.</p><!-- l. 92 -->
+
+<p class='noindent'>Now that we discussed the existence, we could
+also investigate if the inverse matrix is unique just as a nonzero
+integer has a unique reciprocal.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-4'>
+  <a id='x1-1006x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 98 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.4</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 97 -->
+
+    <p class='noindent'>If there exists an inverse matrix, the
+    inverse is unique.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-2'>
+  <!-- l. 100 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 100 -->
+
+  <p class='noindent'>For the sake of contradiction, let <span class=
+  'mathjax-inline'>\(B\)</span> and <span class=
+  'mathjax-inline'>\(C\)</span> be different inverse of <span class=
+  'mathjax-inline'>\(A\)</span>. Consider the following equation.
+  <span class='mathjax-block'>\[ B = BI = B(AC) = (BA)C = IC = C
+  \]</span> Because the fact that <span class='mathjax-inline'>\(B =
+  C\)</span> contradicts the initial assumption that <span class=
+  'mathjax-inline'>\(B \neq C\)</span>, all inverse matrices are
+  unique.</p>
+</div><!-- l. 109 -->
+
+<p class='noindent'>Before we discuss how we actually find an
+inverse, let’s discuss four important properties of inverse
+matrices.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-5'>
+  <a id='x1-1012x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 121 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.5</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 113 -->
+
+    <p class='noindent'>For invertible square matrices <span class=
+    'mathjax-inline'>\(A\)</span> and <span class=
+    'mathjax-inline'>\(B\)</span> and a nonzero scalar <span class=
+    'mathjax-inline'>\(\lambda \)</span>, the following equations
+    hold.</p>
+
+    <dl class='enumerate-enumitem'>
+      <dt class='enumerate-enumitem'>1.</dt>
+
+      <dd class='enumerate-enumitem'><span class=
+      'mathjax-inline'>\((A^{-1})^{-1} = A\)</span></dd>
+
+      <dt class='enumerate-enumitem'>2.</dt>
+
+      <dd class='enumerate-enumitem'><span class=
+      'mathjax-inline'>\((A^\intercal )^{-1} = (A^{-1})^\intercal
+      \)</span></dd>
+
+      <dt class='enumerate-enumitem'>3.</dt>
+
+      <dd class='enumerate-enumitem'><span class=
+      'mathjax-inline'>\((AB)^{-1} = B^{-1}A^{-1}\)</span></dd>
+
+      <dt class='enumerate-enumitem'>4.</dt>
+
+      <dd class='enumerate-enumitem'><span class=
+      'mathjax-inline'>\((\lambda A)^{-1} = (\frac {1}{\lambda
+      })A^{-1}\)</span></dd>
+    </dl>
+  </div>
+</div><!-- l. 123 -->
+
+<p class='noindent'>There’s a lot to prove and let’s do them one by
+one starting with the first one!</p>
+
+<div class='mdframed' id='mdframed-3'>
+  <!-- l. 127 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 127 -->
+
+  <p class='noindent'>Let matrix <span class='mathjax-inline'>\(B =
+  A^{-1}\)</span>. Substituting, it suffices to show that
+  <span class='mathjax-inline'>\(B^{-1} = A\)</span>. By definition
+  of inverse matrix, the equation <span class='mathjax-inline'>\(AB =
+  BA = 1\)</span> holds. In other words, <span class=
+  'mathjax-inline'>\(A\)</span> is the inverse of <span class=
+  'mathjax-inline'>\(B\)</span> and the property holds.</p>
+</div><!-- l. 133 -->
+
+<p class='noindent'>Below is the proof for the second property.</p>
+
+<div class='mdframed' id='mdframed-4'>
+  <!-- l. 136 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 136 -->
+
+  <p class='noindent'>Notice that <span class=
+  'mathjax-inline'>\((AB)^\intercal = B^\intercal A^\intercal
+  \)</span> from Theorem <span class='pplb8t-x-x-109'>??</span>. Let
+  matrix <span class='mathjax-inline'>\(B = A^{-1}\)</span> and
+  consider the following equation. <span class='mathjax-block'>\[ I =
+  (AB)^\intercal = B^\intercal A^\intercal = \left ( A^{-1} \right
+  )^\intercal A^\intercal \]</span> In other words, <span class=
+  'mathjax-inline'>\((A^{-1})^\intercal \)</span> is the inverse of
+  <span class='mathjax-inline'>\(A^\intercal \)</span>, or
+  <span class='mathjax-inline'>\((A^\intercal )^{-1}\)</span>,
+  proving the property.</p>
+</div><!-- l. 149 -->
+
+<p class='noindent'>Continuing, here is the proof for the third
+property.</p>
+
+<div class='mdframed' id='mdframed-5'>
+  <!-- l. 152 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 152 -->
+
+  <p class='noindent'>Consider the following equation that uses the
+  associative property of matrix multiplication. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} (B^{-1}A^{-1})(AB)
+  &amp;= B^{-1}(A^{-1}A)B = B^{-1}(I)B = B^{-1}(IB) \\ &amp;= B^{-1}B
+  = I \end{align*}</span></p><!-- l. 162 -->
+
+  <p class='noindent'>Because <span class=
+  'mathjax-inline'>\(B^{-1}A^{-1}\)</span> is the inverse of
+  <span class='mathjax-inline'>\(AB\)</span>, the property is
+  true.</p>
+</div><!-- l. 165 -->
+
+<p class='noindent'>Finally, here is the proof for the last
+property.</p>
+
+<div class='mdframed' id='mdframed-6'>
+  <!-- l. 168 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 168 -->
+
+  <p class='noindent'>Let <span class='mathjax-inline'>\(B = \lambda
+  A\)</span>. Consider the following equation. <span class=
+  'mathjax-block'>\[ \frac {1}{\lambda } A^{-1} B = \frac {1}{\lambda
+  } A^{-1} \lambda A = A^{-1} A = I \]</span> In other words,
+  <span class='mathjax-inline'>\(\frac {1}{\lambda } A^{-1}\)</span>
+  is the inverse of <span class='mathjax-inline'>\(\lambda
+  A\)</span>, proving the fourth property.</p>
+</div><!-- l. 179 -->
+
+<p class='noindent'>Now that we took a look at different properties
+of inverse matrices, let’s discuss how to actually find one with
+tools to consider.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-6'>
+  <div class='tcolorbox-title'>
+    <!-- l. 186 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.6</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 183 -->
+
+    <p class='noindent'>For a matrix <span class=
+    'mathjax-inline'>\(A\)</span> that is not necessarily a square
+    matrix, an <span class='pplb8t-x-x-109'>elementary matrix</span>,
+    denoted as <span class='mathjax-inline'>\(E\)</span>, is a square
+    matrix that performs an elementary row operation by multiplying
+    with <span class='mathjax-inline'>\(A\)</span>.</p>
+  </div>
+</div><!-- l. 188 -->
+
+<p class='noindent'>Let’s take a look at an example. Consider matrix
+<span class='mathjax-inline'>\(A\)</span> defined below, and we want
+to perform elementary row operations of changing the order of rows
+<span class='mathjax-inline'>\(1\)</span> and <span class=
+'mathjax-inline'>\(3\)</span> and add two times the fourth row to the
+second respectively. <span class='mathjax-block'>\[ A = \begin
+{bmatrix} 1 &amp; 2 &amp; 3 &amp; 4 \\ 1 &amp; 0 &amp; 2 &amp; 0 \\ 2
+&amp; 4 &amp; 6 &amp; 8 \\ 1 &amp; 1 &amp; 1 &amp; 1 \end {bmatrix}
+\]</span> The elementary row operations above can be complicated with
+words, but we can represent that with two elementary matrices
+respectively. Letting <span class='mathjax-inline'>\(E_1\)</span> and
+<span class='mathjax-inline'>\(E_2\)</span> be elementary matrices
+for each operation, we can represent the elementary row operations as
+the following. <span class='mathjax-block'>\[ E_1 = \begin {bmatrix}
+0 &amp; 0 &amp; 1 &amp; 0 \\ 0 &amp; 1 &amp; 0 &amp; 0 \\ 1 &amp; 0
+&amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 1 \end {bmatrix}, \quad
+E_2 = \begin {bmatrix} 1 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0
+&amp; 2 \\ 0 &amp; 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 1
+\end {bmatrix} \]</span> Let’s multiply to see if we are right.
+<span class='mathjax-block'>\[ E_1 A = \begin {bmatrix} \textcolor
+{Red}{2} &amp; \textcolor {Red}{4} &amp; \textcolor {Red}{6} &amp;
+\textcolor {Red}{8} \\ 1 &amp; 0 &amp; 2 &amp; 0 \\ \textcolor
+{Red}{1} &amp; \textcolor {Red}{2} &amp; \textcolor {Red}{3} &amp;
+\textcolor {Red}{4} \\ 1 &amp; 1 &amp; 1 &amp; 1 \end {bmatrix},
+\quad E_2 A = \begin {bmatrix} 1 &amp; 2 &amp; 3 &amp; 4 \\
+\textcolor {Red}{3} &amp; \textcolor {Red}{2} &amp; \textcolor
+{Red}{4} &amp; \textcolor {Red}{2} \\ 2 &amp; 4 &amp; 6 &amp; 8 \\ 1
+&amp; 1 &amp; 1 &amp; 1 \end {bmatrix} \]</span> Now we can notice
+three observations and tips for constructing elementary matrices. For
+each elementary row operation, we could do the following.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-7'>
+  <div class='tcolorbox-title'>
+    <!-- l. 270 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.7</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 255 -->
+
+    <p class='noindent'><span class='pplb8t-x-x-109'>Methods to
+    construct the elementary matrix for each elementary row
+    operation:</span></p>
+
+    <ul class='itemize1'>
+      <li class='itemize'>To interchange row <span class=
+      'mathjax-inline'>\(a\)</span> and <span class=
+      'mathjax-inline'>\(b\)</span>, write the corresponding identity
+      matrix and interchange row <span class=
+      'mathjax-inline'>\(a\)</span> and <span class=
+      'mathjax-inline'>\(b\)</span> from the identity matrix.</li>
+
+      <li class='itemize'>To multiply a nonzero scalar <span class=
+      'mathjax-inline'>\(k\)</span> to <span class=
+      'mathjax-inline'>\(a^\text {th}\)</span> row, start from the
+      corresponding identity matrix and change the <span class=
+      'mathjax-inline'>\(1\)</span> from <span class=
+      'mathjax-inline'>\(a^\text {th}\)</span> row of the identity
+      matrix to <span class='mathjax-inline'>\(k\)</span>.</li>
+
+      <li class='itemize'>To add row <span class=
+      'mathjax-inline'>\(a\)</span> multiplied by the nonzero scalar
+      <span class='mathjax-inline'>\(k\)</span> to row <span class=
+      'mathjax-inline'>\(b\)</span>, start from the corresponding
+      identity matrix and find the <span class=
+      'mathjax-inline'>\(b^\text {th}\)</span> row in the matrix.
+      Then, change the zero from the <span class=
+      'mathjax-inline'>\(a^\text {th}\)</span> column of the row to
+      <span class='mathjax-inline'>\(k\)</span>.</li>
+    </ul>
+  </div>
+</div><!-- l. 272 -->
+
+<p class='noindent'>From this, we can notice the following
+theorem.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-8'>
+  <a id='x1-1016x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 276 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.8</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 275 -->
+
+    <p class='noindent'>All elementary matrices are invertible.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-7'>
+  <!-- l. 278 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 278 -->
+
+  <p class='noindent'>The proof is rather simple. Because all
+  elementary row operations can be inverted with the inverse
+  operation, all elementary matrices are invertible.</p>
+</div><!-- l. 283 -->
+
+<p class='noindent'>Building onto the theorem, we could prove the
+uniqueness.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-9'>
+  <a id='x1-1018x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 288 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.9</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 286 -->
+
+    <p class='noindent'>For each elementary row operation, the
+    corresponding elementary matrix is unique.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-8'>
+  <!-- l. 290 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 290 -->
+
+  <p class='noindent'>For the sake of contradiction, assume there
+  exist elementary matrices <span class='mathjax-inline'>\(E\)</span>
+  and <span class='mathjax-inline'>\(F \neq E\)</span>. By
+  definition, <span class='mathjax-inline'>\(EA = FA\)</span> and
+  <span class='mathjax-inline'>\(A = EE^{-1}A = E^{-1}FA\)</span>. By
+  Theorem <span class='pplb8t-x-x-109'>??</span>, <span class=
+  'mathjax-inline'>\(E^{-1}F = I\)</span> and <span class=
+  'mathjax-inline'>\(E = F\)</span> is obtained by Theorem <a href=
+  '#x1-1006x0.1'>0.1.4
+  <!-- tex4ht:ref: theo:Uniqueness of Inverse Matrix  --></a>. By
+  contradiction, it is shown that elementary matrices are unique.</p>
+</div><!-- l. 298 -->
+
+<p class='noindent'>There are more interesting lemmas and theorems,
+but let’s discuss them in latter notes. However, let’s discuss a few
+theorems for each elementary row operation before moving on to
+finding an inverse matrix.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-10'>
+  <a id='x1-1023x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 319 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.10</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 304 -->
+
+    <p class='noindent'>For each elementary matrix for corresponding
+    elementary row operations, the following properties hold.</p>
+
+    <dl class='enumerate-enumitem'>
+      <dt class='enumerate-enumitem'>1.</dt>
+
+      <dd class='enumerate-enumitem'>For an elementary matrix that
+      changes the order of two rows, the inverse of such a matrix is
+      itself.</dd>
+
+      <dt class='enumerate-enumitem'>2.</dt>
+
+      <dd class='enumerate-enumitem'>For an elementary matrix that
+      scales a row with nonzero constant <span class=
+      'mathjax-inline'>\(k\)</span>, the inverse can be obtained by
+      replacing <span class='mathjax-inline'>\(k\)</span> in the
+      elementary matrix with <span class='mathjax-inline'>\(\frac
+      {1}{k}\)</span>.</dd>
+
+      <dt class='enumerate-enumitem'>3.</dt>
+
+      <dd class='enumerate-enumitem'>For an elementary matrix that
+      adds the scaled row into the other, its inverse can be obtained
+      by replacing the nonzero scalar <span class=
+      'mathjax-inline'>\(k\)</span> with <span class=
+      'mathjax-inline'>\(-k\)</span>.</dd>
+    </dl>
+  </div>
+</div><!-- l. 321 -->
+
+<p class='noindent'>As always, let’s start by proving the first
+property.</p>
+
+<div class='mdframed' id='mdframed-9'>
+  <!-- l. 324 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 324 -->
+
+  <p class='noindent'>The inverse of an elementary matrix can be
+  considered as undoing the elementary row operation. To undo the
+  interchanging of two rows, the two rows can be interchanged again.
+  In other words, because the elementary row operation <span class=
+  'mathjax-inline'>\(EE = I\)</span> by Theorem <span class=
+  'pplb8t-x-x-109'>??</span>, <span class='mathjax-inline'>\(E =
+  E^{-1}\)</span>.</p>
+</div><!-- l. 331 -->
+
+<p class='noindent'>Continuing, here is the proof for the second
+property.</p>
+
+<div class='mdframed' id='mdframed-10'>
+  <!-- l. 334 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 334 -->
+
+  <p class='noindent'>Let elementary matrices <span class=
+  'mathjax-inline'>\(E\)</span> and <span class=
+  'mathjax-inline'>\(F\)</span> be matrices that scale a row by a
+  nonzero scalar <span class='mathjax-inline'>\(k\)</span> and
+  <span class='mathjax-inline'>\(\frac {1}{k}\)</span> respectively.
+  By definition, <span class='mathjax-inline'>\(F(EI) = I\)</span>
+  and <span class='mathjax-inline'>\(FE = I\)</span>. Therefore,
+  <span class='mathjax-inline'>\(F = E^{-1}\)</span> and the property
+  is shown.</p>
+</div><!-- l. 340 -->
+
+<p class='noindent'>Lastly, here is the proof for the final
+property.</p>
+
+<div class='mdframed' id='mdframed-11'>
+  <!-- l. 343 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 343 -->
+
+  <p class='noindent'>Similar to the proof for the second property,
+  let elementary matrices <span class='mathjax-inline'>\(E\)</span>
+  and <span class='mathjax-inline'>\(F\)</span> represent the
+  elementary row operations that add a row scaled by nonzero constant
+  <span class='mathjax-inline'>\(k\)</span> to another and the
+  operation that adds a row scaled by <span class=
+  'mathjax-inline'>\(-k\)</span> to another respectively. By
+  definition, <span class='mathjax-inline'>\(F(EI) = I\)</span> and
+  <span class='mathjax-inline'>\(F = E^{-1}\)</span> as demonstrated
+  above.</p>
+</div><!-- l. 350 -->
+
+<p class='noindent'>Now before we actually find an inverse, we need
+to know which square matrices have the inverse matrix.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-11'>
+  <div class='tcolorbox-title'>
+    <!-- l. 361 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.11</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 354 -->
+
+    <p class='noindent'>A square matrix <span class=
+    'mathjax-inline'>\(A\)</span> is invertible if and only if it can
+    be represented as an identity matrix after sequences of
+    elementary row operations, i.e. there exist elementary matrices
+    <span class='mathjax-inline'>\(E_i\)</span> such that the
+    following equation is true. <span class='mathjax-block'>\[ E_k
+    E_{k-1} \cdots E_1 A = I \]</span></p>
+  </div>
+</div><!-- l. 363 -->
+
+<p class='noindent'>This is a very important result that we will
+prove later in a note, so don’t worry. Finally, here are the steps to
+find an inverse if there exists one.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-12'>
+  <div class='tcolorbox-title'>
+    <!-- l. 384 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.12</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 369 -->
+
+    <p class='noindent'><span class='pplb8t-x-x-109'>Steps to Find
+    the Inverse Matrix of</span> <span class=
+    'mathjax-inline'>\(\mathbf {A_{m \times m}}\)</span><span class=
+    'pplb8t-x-x-109'>:</span></p>
+
+    <dl class='enumerate-enumitem'>
+      <dt class='enumerate-enumitem'>1.</dt>
+
+      <dd class='enumerate-enumitem'>Write an augmented matrix
+      <span class='mathjax-inline'>\([A \mid I]\)</span> for
+      <span class='mathjax-inline'>\(I_{m}\)</span>.</dd>
+
+      <dt class='enumerate-enumitem'>2.</dt>
+
+      <dd class='enumerate-enumitem'>Utilize elementary row
+      operations on the augmented matrix for the block <span class=
+      'mathjax-inline'>\(A\)</span> to be in REF.</dd>
+
+      <dt class='enumerate-enumitem'>3.</dt>
+
+      <dd class='enumerate-enumitem'>If the main diagonal of the left
+      partition contains a zero, <span class=
+      'mathjax-inline'>\(A\)</span> is singular. If not, the next
+      step can be continued.</dd>
+
+      <dt class='enumerate-enumitem'>4.</dt>
+
+      <dd class='enumerate-enumitem'>Use elementary row operations
+      again to transform the block <span class=
+      'mathjax-inline'>\(A\)</span> in REF to an identity matrix. The
+      right partition block is the inverse of <span class=
+      'mathjax-inline'>\(A\)</span>.</dd>
+    </dl>
+  </div>
+</div><!-- l. 386 -->
+
+<p class='noindent'>Let’s take a look at a few examples.</p>
+
+<div class='tcolorbox probstyle' id='tcolobox-13'>
+  <div class='tcolorbox-title'>
+    <!-- l. 395 -->
+
+    <p class='noindent'>Exercise&nbsp;0.1.13</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 389 -->
+
+    <p class='noindent'>Find the inverse of <span class=
+    'mathjax-inline'>\(A = \begin {bmatrix} 1 &amp; 2 &amp; 3 \\ 4
+    &amp; 5 &amp; 6 \\ 7 &amp; 8 &amp; 9 \end {bmatrix}\)</span>.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-12'>
+  <!-- l. 397 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 397 -->
+
+  <p class='noindent'>First, the augmented matrix can be constructed.
+  <span class='mathjax-block'>\[ \begin {bNiceArray}{ccc|ccc} 1 &amp;
+  2 &amp; 3 &amp; 1 &amp; 0 &amp; 0 \\ 4 &amp; 5 &amp; 6 &amp; 0
+  &amp; 1 &amp; 0 \\ 7 &amp; 8 &amp; 9 &amp; 0 &amp; 0 &amp; 1 \end
+  {bNiceArray} \]</span> Consider the following elementary row
+  operations. <span class='mathjax-env mathjax-align*'>\begin{align*}
+  \begin {bNiceArray}{ccc|ccc} 1 &amp; 2 &amp; 3 &amp; 1 &amp; 0
+  &amp; 0 \\ 4 &amp; 5 &amp; 6 &amp; 0 &amp; 1 &amp; 0 \\ 7 &amp; 8
+  &amp; 9 &amp; 0 &amp; 0 &amp; 1 \end {bNiceArray} &amp;\rightarrow
+  \begin {bNiceArray}{ccc|ccc} 1 &amp; 2 &amp; 3 &amp; 1 &amp; 0
+  &amp; 0 \\ 8 &amp; 10 &amp; 12 &amp; 0 &amp; 2 &amp; 0 \\ 7 &amp; 8
+  &amp; 9 &amp; 0 &amp; 0 &amp; 1 \end {bNiceArray} \\
+  &amp;\rightarrow \begin {bNiceArray}{ccc|ccc} 1 &amp; 2 &amp; 3
+  &amp; 1 &amp; 0 &amp; 0 \\ 1 &amp; 2 &amp; 3 &amp; 0 &amp; 2 &amp;
+  -1 \\ 7 &amp; 8 &amp; 9 &amp; 0 &amp; 0 &amp; 1 \end {bNiceArray}
+  \\ &amp;\rightarrow \begin {bNiceArray}{ccc|ccc} 1 &amp; 2 &amp; 3
+  &amp; 1 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; -1 &amp; 2 &amp;
+  -1 \\ 7 &amp; 8 &amp; 9 &amp; 0 &amp; 0 &amp; 1 \end {bNiceArray}
+  \end{align*}</span></p><!-- l. 431 -->
+
+  <p class='noindent'>It is evident that the main diagonal will
+  contain a zero after the transformation. Therefore, the matrix is
+  not invertible.</p>
+</div>
+
+<div class='tcolorbox probstyle' id='tcolobox-14'>
+  <div class='tcolorbox-title'>
+    <!-- l. 445 -->
+
+    <p class='noindent'>Exercise&nbsp;0.1.14</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 436 -->
+
+    <p class='noindent'>Find the inverse of the following matrix
+    <span class='mathjax-inline'>\(A\)</span>. <span class=
+    'mathjax-block'>\[ A = \begin {bmatrix} 1 &amp; 0 &amp; 0 \\ 2
+    &amp; 1 &amp; 1 \\ 0 &amp; 1 &amp; 2 \end {bmatrix} \]</span></p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-13'>
+  <!-- l. 447 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 447 -->
+
+  <p class='noindent'>First and foremost, the augmented matrix can be
+  constructed. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} \begin
+  {bNiceArray}{ccc|ccc} 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\
+  2 &amp; 1 &amp; 1 &amp; 0 &amp; 1 &amp; 0 \\ 0 &amp; 1 &amp; 2
+  &amp; 0 &amp; 0 &amp; 1 \end {bNiceArray} &amp;\rightarrow \begin
+  {bNiceArray}{ccc|ccc} 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\
+  0 &amp; 1 &amp; 2 &amp; 0 &amp; 0 &amp; 1 \\ 2 &amp; 1 &amp; 1
+  &amp; 0 &amp; 1 &amp; 0 \end {bNiceArray} \\ &amp;\rightarrow
+  \begin {bNiceArray}{ccc|ccc} 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0
+  &amp; 0 \\ 0 &amp; 1 &amp; 2 &amp; 0 &amp; 0 &amp; 1 \\ 0 &amp; 0
+  &amp; -1 &amp; -2 &amp; 1 &amp; -1 \end {bNiceArray} \\
+  &amp;\rightarrow \begin {bNiceArray}{ccc|ccc} 1 &amp; 0 &amp; 0
+  &amp; 1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 2 &amp; 0 &amp; 0 &amp;
+  1 \\ 0 &amp; 0 &amp; 1 &amp; 2 &amp; -1 &amp; 1 \end {bNiceArray}
+  \end{align*}</span></p><!-- l. 473 -->
+
+  <p class='noindent'>Continuing, the left partition can be
+  transformed into an identity matrix with elementary row operations.
+  <span class='mathjax-block'>\[ \begin {bNiceArray}{ccc|ccc} 1 &amp;
+  0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 2 &amp; 0
+  &amp; 0 &amp; 1 \\ 0 &amp; 0 &amp; 1 &amp; 2 &amp; -1 &amp; 1 \end
+  {bNiceArray} \rightarrow \begin {bNiceArray}{ccc|ccc} 1 &amp; 0
+  &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 &amp; -4 &amp;
+  2 &amp; -1 \\ 0 &amp; 0 &amp; 1 &amp; 2 &amp; -1 &amp; 1 \end
+  {bNiceArray} \]</span> Therefore, the inverse of <span class=
+  'mathjax-inline'>\(A\)</span> is the following. <span class=
+  'mathjax-block'>\[ A^{-1} = \begin {bmatrix} 1 &amp; 0 &amp; 0 \\
+  -4 &amp; 2 &amp; -1 \\ 2 &amp; -1 &amp; 1 \end {bmatrix}
+  \]</span></p>
+</div><!-- l. 499 -->
+
+<p class='noindent'>We could actually multiply to see if we get
+<span class='mathjax-inline'>\(I_3\)</span>. <span class=
+'mathjax-block'>\[ \begin {bmatrix} 1 &amp; 0 &amp; 0 \\ 2 &amp; 1
+&amp; 1 \\ 0 &amp; 1 &amp; 2 \end {bmatrix} \begin {bmatrix} 1 &amp;
+0 &amp; 0 \\ -4 &amp; 2 &amp; -1 \\ 2 &amp; -1 &amp; 1 \end {bmatrix}
+= \begin {bmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp;
+0 &amp; 1 \end {bmatrix} \]</span> Indeed it is the inverse! In the
+next section of the note, we will discuss LU decomposition before
+completing our note on linear systems.</p>

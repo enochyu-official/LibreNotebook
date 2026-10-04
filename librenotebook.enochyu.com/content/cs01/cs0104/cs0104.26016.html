@@ -1,0 +1,142 @@
+<h3 class='sectionHead' id='mathematical-interpretations'><span class='titlemark'>0.1    </span>   <a id='x1-10000.1'></a>Mathematical Interpretations</h3>
+<!-- l. 7 --><p class='noindent'>If you have not already read the first note on math for ML, please do so as
+this section of the note does not include explanations for mathematical
+concepts, but their interpretation here with neural networks.
+</p><!-- l. 12 --><p class='noindent'>Starting off, let’s start with some conventions with parameters for the
+following neural net with two inputs, two hidden layers with four neurons
+respectively, and a single output.
+</p>
+<figure class='figure'> 
+
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+<!-- l. 18 --><p class='noindent' id='a-visualization-of-a-neural-network-with-layers-of-2-8-8-and-1'><img alt='[Picture]' src='/svg/CS0104.260160x.svg' /> <a id='x1-1001r1'></a>
+</p>
+<figcaption class='caption'><span class='id'><span class='pplb8t-'>Figure 1: </span></span><span class='content'><span class='pplr8t-'>A visualization of a neural network with layers of 2, 8, 8, and 1</span>
+</span></figcaption><!-- tex4ht:label?: x1-1001r1  -->
+                                                                 
+                                                                 
+</figure>
+<!-- l. 64 --><p class='noindent'>As you can see in the diagram above, the input of the <span class='mathjax-inline'>\(i^\text {th}\)</span> training example is
+represented with the notation <span class='mathjax-inline'>\(x_n^{(i)}\)</span> for integer <span class='mathjax-inline'>\(n\)</span> as <span class='mathjax-inline'>\(1\)</span> through the total number of
+inputs. Similarly, we usually count the first hidden layer as the first layer,
+and the activations are represented as <span class='mathjax-inline'>\(a_n^{[l]}\)</span> were <span class='mathjax-inline'>\(l\)</span> represents the layer and <span class='mathjax-inline'>\(n\)</span>
+again as the integer from <span class='mathjax-inline'>\(1\)</span> through the total number of neurons in the
+layer. Finally, we use <span class='mathjax-inline'>\(\hat {y}^{(i)}\)</span> to represent the prediction for the <span class='mathjax-inline'>\(i^\text {th}\)</span> training
+example.
+</p><!-- l. 73 --><p class='noindent'>Following the convention, we could write a single neuron as the following.
+Note that you might be familiar with <span class='mathjax-inline'>\(\sigma \)</span> instead of <span class='mathjax-inline'>\(g\)</span>, but here let’s use <span class='mathjax-inline'>\(g\)</span> for
+activation function as <span class='mathjax-inline'>\(\sigma \)</span> usually represents sigmoid.
+</p>
+<div class='tcolorbox theostyle' id='tcolobox-1'>    <a id='x1-1003x0.1'></a> 
+<div class='tcolorbox-title'>
+<!-- l. 92 --><p class='noindent'>Theorem 0.1.1: Formula for a Neuron</p></div> 
+<div class='tcolorbox-content'><!-- l. 81 --><p class='noindent'>For <span class='mathjax-inline'>\(z_i^{[l]}\)</span> defined as the following, the activation of a neuron can be
+represented as the following. <span class='mathjax-env mathjax-align*'>\begin{align*} z_i^{[l]} &amp;= \sum _{j} w_{ij}^{[l]} a_j^{[l - 1]} + b_i^{[l]} \\ a_i^{[l]} &amp;= g \left ( z_i^{[l]} \right ) = g \left ( \sum _{j} w_{ij}^{[l]} a_j^{[l - 1]} + b_i^{[l]} \right ) \end{align*}</span>
+</p>
+ 
+</div> 
+</div>
+<!-- l. 94 --><p class='noindent'>One reason why linear algebra is so important in machine learning is
+because we could represent the entire layer with simple matrix operations.
+Consider the following example for the second layer. <span class='mathjax-block'>\[ \begin {bmatrix} w_{11}^{[2]} &amp; w_{12}^{[2]} &amp; w_{13}^{[2]} &amp; w_{14}^{[2]} \\[0.7em] w_{21}^{[2]} &amp; w_{22}^{[2]} &amp; w_{23}^{[2]} &amp; w_{24}^{[2]} \\[0.7em] w_{31}^{[2]} &amp; w_{32}^{[2]} &amp; w_{33}^{[2]} &amp; w_{34}^{[2]} \\[0.7em] w_{41}^{[2]} &amp; w_{42}^{[2]} &amp; w_{43}^{[2]} &amp; w_{44}^{[2]} \end {bmatrix} \begin {bmatrix} a_1^{[1]} \\[0.7em] a_2^{[1]} \\[0.7em] a_3^{[1]} \\[0.7em] a_4^{[1]} \end {bmatrix} + \begin {bmatrix} b_1^{[2]} \\[0.7em] b_2^{[2]} \\[0.7em] b_3^{[2]} \\[0.7em] b_4^{[2]} \end {bmatrix} = \begin {bmatrix} a_1^{[2]} \\[0.7em] a_2^{[2]} \\[0.7em] a_3^{[2]} \\[0.7em] a_4^{[2]} \end {bmatrix} \]</span> Similarly, we could
+write different notations for updates.
+</p>
+<div class='tcolorbox theostyle' id='tcolobox-2'>    <a id='x1-1005x0.1'></a> 
+<div class='tcolorbox-title'>
+<!-- l. 141 --><p class='noindent'>Theorem 0.1.2: Adjusting Parameters with Gradient
+Descent</p></div> 
+<div class='tcolorbox-content'><!-- l. 134 --><p class='noindent'>Let <span class='mathjax-inline'>\(l_i\)</span>, <span class='mathjax-inline'>\(b_i\)</span>, <span class='mathjax-inline'>\(J\)</span>, and <span class='mathjax-inline'>\(\eta \)</span> represent weight, bias, cost function, and learning rate
+respectively. The new weight and bias can be represented with the
+following formula. <span class='mathjax-env mathjax-align*'>\begin{align*} w_2 &amp;= w_1 - \eta \frac {\partial J}{\partial w_1} \\ b_2 &amp;= b_1 - \eta \frac {\partial J}{\partial b_1} \end{align*}</span>
+</p>
+ 
+</div> 
+</div>
+<!-- l. 143 --><p class='noindent'>As you can see above, we normally use the cost function <span class='mathjax-inline'>\(J\)</span> than the loss
+                                                                 
+                                                                 
+function <span class='mathjax-inline'>\(L\)</span> as the cost function captures the entire loss while the loss function
+only represent the loss per example. Now that we discussed the basic
+notations and mathematical formulas for the concepts that we discussed,
+let’s take a look at math in backpropagation.
+
+</p>
+<h4 class='subsectionHead' id='deriving-equations-and-backpropagation'><span class='titlemark'>0.1.1    </span>   <a id='x1-20000.1.1'></a>Deriving Equations and Backpropagation</h4>
+<!-- l. 152 --><p class='noindent'>Personally it took me a while to fully understand backprop to the state where
+I would be able to build a vanilla neural net from scratch. Here, I would like
+to share more in-depth understanding of backpropagation across numerous
+layers.
+</p><!-- l. 157 --><p class='noindent'>To be honest, it took me few days to understand it since I decided to study
+mainly because I didn’t understand the delta rule. After reading this note, I
+highly recommend please try and write your own network without
+assistance from LLMs. I though I understood backprop, which in reality was
+only the last layer. That understanding is probably all you need to build the
+first thing that we will create in the next section. However, I was stuck when
+trying to do backprop across numerous layers. To discuss this, I thought it
+would be helpful for us to actually rebuild or derive main equations
+involved in a neural network and backprop, so let’s start with that. If you
+haven’t already, please read the first note if you are unfamiliar with
+derivatives of multivariable functions as I won’t be going over them
+here.
+</p><!-- l. 171 --><p class='noindent'>Before we derive generalized equations, let’s start with a simple neural net
+that has two hidden layers, 2 inputs, 3 neurons in each hidden layer, and two
+outputs. That way, we can track the indices for matrices.
+</p>
+<figure class='figure'> 
+
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+<!-- l. 178 --><p class='noindent' id='a-visualization-of-a-neural-network-with-layers-of-2-3-3-and-2'><img alt='[Picture]' src='/svg/CS0104.260161x.svg' /> <a id='x1-2001r2'></a>
+</p>
+<figcaption class='caption'><span class='id'><span class='pplb8t-'>Figure 2: </span></span><span class='content'><span class='pplr8t-'>A visualization of a neural network with layers of 2, 3, 3, and 2</span>
+</span></figcaption><!-- tex4ht:label?: x1-2001r2  -->
+                                                                 
+                                                                 
+</figure>
+<!-- l. 231 --><p class='noindent'>For simplicity, let’s use MSE for our loss function, but we will be generalizing
+it later. Since <span class='mathjax-inline'>\(L_1 = \frac {1}{2} (\hat {y}_1 - y_1)^2\)</span> and <span class='mathjax-inline'>\(L_2 = \frac {1}{2} (\hat {y}_2 - y_2)^2\)</span>, the following equation is obtained. <span class='mathjax-block'>\[ L = \sum _{k = 1}^2 \frac {1}{2} (\hat {y}_k - y_k)^2 \]</span> Moreover, the
+preactivation output of the second hidden layer can be written as following. <span class='mathjax-block'>\[ \begin {bmatrix} z_1^{[2]} \\[0.7em] z_2^{[2]} \\[0.7em] z_3^{[2]} \end {bmatrix} = \begin {bmatrix} w_{11}^{[2]} &amp; w_{12}^{[2]} &amp; w_{13}^{[2]} \\[0.7em] w_{21}^{[2]} &amp; w_{22}^{[2]} &amp; w_{23}^{[2]} \\[0.7em] w_{31}^{[2]} &amp; w_{32}^{[2]} &amp; w_{33}^{[2]} \end {bmatrix} \begin {bmatrix} a_1^{[1]} \\[0.7em] a_2^{[1]} \\[0.7em] a_3^{[1]} \end {bmatrix} + \begin {bmatrix} b_1^{[2]} \\[0.7em] b_2^{[2]} \\[0.7em] b_3^{[2]} \end {bmatrix} \]</span>
+From the matrix multiplication above, we can write a single output as the
+following. <span class='mathjax-env mathjax-align*'>\begin{align*} z_2^{[2]} &amp;= w_{21}^{[2]} a_1^{[1]} + w_{22}^{[2]} a_2^{[1]} + w_{23}^{[2]} a_3^{[1]} + b_2^{[2]} \\ &amp;= \sum _{j = 1}^3 w_{2j}^{[2]} a_j^{[1]} + b_2^{[2]} \end{align*}</span>
+</p><!-- l. 273 --><p class='noindent'>Now keep in mind the indices! The <span class='mathjax-inline'>\(2\)</span> in <span class='mathjax-inline'>\(w_{2j}\)</span> and <span class='mathjax-inline'>\(b_2\)</span> is the same <span class='mathjax-inline'>\(2\)</span> as <span class='mathjax-inline'>\(z_2\)</span>. Generalizing for
+our cases, we can write the preactivation outputs as the following. <span class='mathjax-block'>\[ z_i^{[2]} = \sum _{j = 1}^3 w_{ij}^{[2]} a_j^{[1]} + b_i^{[2]} \]</span> Nice,
+now that we have the forward pass for our examples, let’s generalize
+all equations that we have now. For MSE, we could write it as the
+following. <span class='mathjax-block'>\[ L = \sum _k \frac {1}{2} (\hat {y}_k - y_k)^2 \]</span> For individual preactivation output, we could write it as the
+following equation where <span class='mathjax-inline'>\(n\)</span> represents the number of neurons in layer <span class='mathjax-inline'>\(l-1\)</span>. <span class='mathjax-block'>\[ z_i^{[l]} = \sum _{j = 1}^n w_{ij}^{[l]} a_j^{[l-1]} + b_i^{[l]} \]</span>
+Now with the equations in mind, let’s get into a more confusing but
+fun part with loss and gradient. This part is important! We are not
+computing the loss of individual neurons. We will be computing
+<span class='pplri8t-x-x-109'>gradients </span>instead. Loss will typically be calculated once with the final
+outputs.
+</p><!-- l. 300 --><p class='noindent'>Let’s start with the last layer. Remember! This is the last layer. To make it
+more special, let’s use <span class='mathjax-inline'>\(l_f\)</span> to denote the final layer. <span class='mathjax-block'>\[ \frac {\partial L}{\partial w_{ij}^{[l_f]}} = \frac {\partial L}{\partial a_{i}^{[l_f]}} \frac {\partial a_i^{[l_f]}}{\partial z_i^{[l_f]}} \frac {\partial z_i^{[l_f]}}{\partial w_{ij}^{[l_f]}} \]</span> In this chain rule here, we
+don’t add other gradients because it is the last layer. The weights for the
+output layer does not go through other paths, but straight to the loss. That’s
+why we don’t add gradients. This would be different for different layers.
+Using the definition, MSE, and activation function <span class='mathjax-inline'>\(g\)</span>, the following equation is
+obtained. <span class='mathjax-block'>\[ \frac {\partial L}{\partial w_{ij}^{[l_f]}} = \left ( a_i^{[l_f]} - y_i \right ) g'\left ( z_i^{[l_f]} \right ) a_j^{[l_f - 1]} = \delta _i^{[l_f]} a_j^{[l_f - 1]} \]</span> Notice that <span class='mathjax-inline'>\(\delta _i^{[l_f]}\)</span> will be different depending on the loss function that
+we use. To address that and to make our lives easier for hidden layers, we
+define <span class='mathjax-inline'>\(\delta _i^{[l]}\)</span> as the following. <span class='mathjax-block'>\[ \delta _i^{[l]} = \frac {\partial L}{\partial z_i^{[l]}} = \frac {\partial L}{\partial a_i^{[l]}} \frac {\partial a_i^{[l]}}{\partial z_i^{[l]}} \]</span> Again, because the path from <span class='mathjax-inline'>\(z_i\)</span> to <span class='mathjax-inline'>\(a_i\)</span> does not require
+additional paths, we do not add other gradients. Now here comes the <span class='pplb8t-x-x-109'>delta
+rule</span>. Let’s start deriving them together. Consider the following equation.
+<span class='mathjax-env mathjax-align*'>\begin{align*} \frac {\partial L}{\partial a_i^{[l]}} &amp;= \sum _j \left ( \frac {\partial L}{\partial z_j^{[l+1]}} \frac {\partial z_j^{[l+1]}}{\partial a_i^{[l]}} \right ) \\ &amp;= \sum _j \delta _j^{[l+1]} w_{ji}^{[l]} = \sum _j w_{ji}^{[l]} \delta _j^{[l+1]} \end{align*}</span>
+</p><!-- l. 340 --><p class='noindent'>Substituting back to the definition of <span class='mathjax-inline'>\(\delta _i^{[l]}\)</span>, the following equation is obtained by
+the <span class='pplb8t-x-x-109'>delta rule</span>. <span class='mathjax-block'>\[ \delta _i^{[l]} = g'\left (z_i^{[l]}\right ) \sum _j w_{ji}^{[l]} \delta _j^{[l+1]} \]</span> However, writing all that for each gradient is quite tedious.
+                                                                 
+                                                                 
+Therefore, we get our general formula shown below, which will be used to
+build our vanilla MLP. <span class='mathjax-block'>\[ \frac {\partial L}{\partial w_{ij}^{[l]}} = \delta _i^{[l]} a_j^{[l-1]} \]</span> That was for the weights. Good news is that bias
+is more simple! Consider the following equation. <span class='mathjax-block'>\[ \frac {\partial L}{\partial b_i^{[l]}} = \frac {\partial L}{\partial a_i^{[l]}} \frac {\partial a_i^{[l]}}{\partial z_i^{[l]}} \frac {\partial z_i^{[l]}}{\partial b_i^{[l]}} = \delta _i^{[l]} \frac {\partial z_i^{[l]}}{\partial b_i^{[l]}} = \delta _i^{[l]} \]</span> Now with that
+formulas and learning rate <span class='mathjax-inline'>\(\eta \)</span>, we can update the weights and biases
+as shown in Theorem <a href='#x1-1005x0.1'>0.1.2<!-- tex4ht:ref: theo:Adjusting Parameters with Gradient Descent  --></a>. There are more advanced concepts like
+Jacobian matrix for ease in representing, but this is pretty much it
+with backprop. Calculating the gradients and updating based on the
+loss.
+</p>
+

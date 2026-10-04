@@ -1,0 +1,190 @@
+<h3 class='sectionHead' id='algebra'><span class=
+'titlemark'>0.1</span> <a id='x1-10000.1'></a>Algebra</h3>
+<!-- l. 7 -->
+
+<p class='noindent'>Continuing from the review on definitions and
+notations, let’s discuss some foundational knowledge in algebra that
+we learn from competition math. I intend to keep this section short
+because many of the topics reappear in olympiad style problems, and I
+think we can discuss the generalization of the topics in latter
+notes. In this section particular, let’s discuss polynoimal
+expansion.</p><!-- l. 14 -->
+
+<p class='noindent'>Before discussing binomial theorem, here is one
+notation to keep in mind. I think many of us initially learn the
+notation for combination as <span class=
+'mathjax-inline'>\({}_nC_k\)</span>. However in our notes, let’s use
+the standard notation <span class='mathjax-inline'>\(\binom
+{n}{k}\)</span> as they are used for olympiad and higher level math.
+Below is an important theorem to keep in mind for our future
+proof.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-1'>
+  <a id='x1-1002x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 26 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.1:&nbsp;Pascal’s
+    Identity</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 22 -->
+
+    <p class='noindent'>For positive integers <span class=
+    'mathjax-inline'>\(n &gt; k\)</span>, the following equations
+    hold. <span class='mathjax-block'>\[ \binom {n}{k} = \binom
+    {n-1}{k} + \binom {n-1}{k-1} \]</span></p>
+  </div>
+</div><!-- l. 28 -->
+
+<p class='noindent'>There are few ways to prove this identity with
+easiest being drawing Pascal’s triangle in my opinion. However
+besides the visual proof, here are two very famous proofs. In our
+first proof, we will be approaching this problem with combinatoric
+ideas.</p>
+
+<div class='mdframed' id='mdframed-1'>
+  <!-- l. 34 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 34 -->
+
+  <p class='noindent'>Assume that we are selecting <span class=
+  'mathjax-inline'>\(k\)</span> leaders from <span class=
+  'mathjax-inline'>\(n\)</span> people. You being one of the people,
+  there are two possibilities. In the first case, you are the leader
+  and the number of cases of choosing the rest of the leaders is
+  <span class='mathjax-inline'>\(\binom {n-1}{k-1}\)</span>. In the
+  second case, you are not a leader and there are <span class=
+  'mathjax-inline'>\(\binom {n-1}{k}\)</span> number of cases of
+  choosing the remaining leaders. Therefore, <span class=
+  'mathjax-inline'>\(\binom {n}{k} = \binom {n-1}{k} + \binom
+  {n-1}{k-1}\)</span>.</p>
+</div><!-- l. 43 -->
+
+<p class='noindent'>This was the first proof using combinatoric idea,
+and here is a proof with a more algebraic approach.</p>
+
+<div class='mdframed' id='mdframed-2'>
+  <!-- l. 47 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 47 -->
+
+  <p class='noindent'>Consider the following equations. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} \binom {n}{k} &amp;=
+  \frac {n!}{k! (n-k)!} = \frac {(n-1)! (n-k) + (n-1)! k}{k! (n-k)!}
+  \\ &amp;= \frac {(n-1)!}{k! (n-k-1)!} + \frac {(n-1)!}{(k-1)!
+  (n-k)!} = \binom {n-1}{k} + \binom {n-1}{k-1}
+  \end{align*}</span></p><!-- l. 55 -->
+
+  <p class='noindent'>Therefore, the identity holds.</p>
+</div><!-- l. 58 -->
+
+<p class='noindent'>Personally, I prefer the first proof than the
+second one because it feels more intuitive and second proof feels
+like a fallback just in case I cannot think of combinatoric approach
+to an algebra problem, but I think it depends on you!</p>
+<!-- l. 63 -->
+
+<p class='noindent'>Okay, with this in mind, let’s discuss Binomial
+Theorem. I wanted to discuss this because for some reason, it quite
+appears a lot in unexpected problems and places like inequality and
+algebraic combinatorics.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-2'>
+  <a id='x1-1004x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 74 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.2:&nbsp;Binomial Theorem</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 69 -->
+
+    <p class='noindent'>For nonnegative integer <span class=
+    'mathjax-inline'>\(n\)</span>, the expansion of the term
+    <span class='mathjax-inline'>\((x + y)^n\)</span> can be
+    represented as the following. <span class='mathjax-block'>\[ (x +
+    y)^n = \sum _{k=0}^n \binom {n}{k} x^k y^{n-k} \]</span></p>
+  </div>
+</div><!-- l. 76 -->
+
+<p class='noindent'>Again there are few different ways to prove this,
+and let’s prove this using two different ways.</p>
+
+<div class='mdframed' id='mdframed-3'>
+  <!-- l. 80 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 80 -->
+
+  <p class='noindent'>Consider the term <span class=
+  'mathjax-inline'>\(x^k y^{n-k}\)</span> for some appropriate
+  integer <span class='mathjax-inline'>\(k\)</span>. Notice that the
+  number of such combination equals number of different ways of
+  choosing <span class='mathjax-inline'>\(k\)</span> number of
+  <span class='mathjax-inline'>\((x + y)\)</span> in <span class=
+  'mathjax-inline'>\((x + y)^n\)</span>. Therefore for all
+  <span class='mathjax-inline'>\(x^k y^{n-k}\)</span>, their
+  coefficient is <span class='mathjax-inline'>\(\binom
+  {n}{k}\)</span>. In other words, <span class='mathjax-inline'>\((x
+  + y)^n = \sum _{k=0}^n \binom {n}{k} x^k y^{n-k}\)</span>.</p>
+</div><!-- l. 87 -->
+
+<p class='noindent'>Continuing with this combinatoric approach, here
+is another one using induction.</p>
+
+<div class='mdframed' id='mdframed-4'>
+  <!-- l. 91 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 91 -->
+
+  <p class='noindent'>First, notice that <span class=
+  'mathjax-inline'>\(x + y = \binom {1}{0} x + \binom {1}{1}
+  y\)</span>. Therefore, it suffices to show that the equation holds
+  for <span class='mathjax-inline'>\(n + 1\)</span> assuming that is
+  holds for <span class='mathjax-inline'>\(n\)</span>. Consider the
+  following equations. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} (x + y)^n (x + y)
+  &amp;= \left ( \sum _{k=0}^n \binom {n}{k} x^k y^{n-k} \right ) (x
+  + y) \\ &amp;= \sum _{k=0}^n \left ( \binom {n}{k} x^{k+1} y^{n-k}
+  + \binom {n}{k} x^k y^{n-k+1} \right ) \end{align*}</span></p>
+  <!-- l. 101 -->
+
+  <p class='noindent'>Rewriting the terms, the following equation
+  holds by Pascal’s Identity. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} (x + y)^n (x + y)
+  &amp;=\ \textcolor {Red}{\binom {n}{0} xy^n} + \binom {n}{0}
+  y^{n+1} \\ &amp;\ \,+ \textcolor {Blue}{\binom {n}{1} x^2y^{n-1}} +
+  \textcolor {Red}{\binom {n}{1} xy^n} \\ &amp;\ \,+ \binom {n}{2}
+  x^3y^{n-2} + \textcolor {Blue}{\binom {n}{2} x^2y^{n-1}} \\
+  &amp;\qquad \vdots \\ &amp;=\ \binom {n}{n} x^{n+1} + \binom {n}{n}
+  x^ny \\ &amp;= \binom {n}{0} y^{n+1} + \binom {n}{n} x^{n+1} + \sum
+  _{k=1}^{n} \binom {n+1}{k} x^k y^{n+1-k} \\ &amp;= \sum
+  _{k=0}^{n+1} \binom {n+1}{k} x^k y^{n+1-k} \end{align*}</span></p>
+  <!-- l. 116 -->
+
+  <p class='noindent'>Therefore, the theorem holds.</p>
+</div><!-- l. 119 -->
+
+<p class='noindent'>For this theorem too, I personally prefer the
+first method because I think it is more intuitive and the second
+method of using induction can works as a fallback. However, both
+proofs are both great, and I think the choice depends on you!</p>
+<!-- l. 124 -->
+
+<p class='noindent'>This was a very short review of algebra that we
+learn from competition math. Unlike geometry and number theory that
+requires strong background understandings of topics from competition
+math, I think algebra is one of those fields that are very different
+when it comes to olympiad-style proof-based problems because there
+are so many new topics that were not covered in competition math.
+Although this section was short, we will discuss much in-depth in
+future notes! For now, let’s review some key properties from
+geometry.</p>

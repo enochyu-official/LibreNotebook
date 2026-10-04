@@ -1,0 +1,246 @@
+<h3 class='sectionHead' id='introduction-to-llms'><span class=
+'titlemark'>0.1</span> <a id='x1-10000.1'></a>Introduction to
+LLMs</h3><!-- l. 7 -->
+
+<p class='noindent'>You probably have heard of Large Language Models
+(LLMs) and even have your favorite ones. You may have also noticed
+that if you and your friend ask a same question to a LLM, you get
+different response, or at least outputs that are not identical from
+word to word. That is because LLMs are generative models. As always,
+let’s get started by getting used to few vocabs.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-1'>
+  <div class='tcolorbox-title'>
+    <!-- l. 18 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.1</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 16 -->
+
+    <p class='noindent'><span class='pplb8t-x-x-109'>Generative
+    models</span> are models that predicts and estimates the values
+    on a probability distribution.</p>
+  </div>
+</div><!-- l. 20 -->
+
+<p class='noindent'>A generative model is also capable of taking in
+sequential data for a more context-rich prediction. An example of
+generative models would be an autoregressive model.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-2'>
+  <div class='tcolorbox-title'>
+    <!-- l. 28 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.2</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 25 -->
+
+    <p class='noindent'>An <span class=
+    'pplb8t-x-x-109'>autoregressive model</span> is a generative
+    model that predicts the future values in a sequence given the
+    past input sequence.</p>
+  </div>
+</div><!-- l. 30 -->
+
+<p class='noindent'>For instance, when given the sequence of integers
+<span class='mathjax-inline'>\(0, 1, 1, 2, 3, 5, 8\)</span>, an
+autoregressive model is likely to generate <span class=
+'mathjax-inline'>\(13\)</span> by using previously learned pattern
+and the input. In other words, it is simply a model that predicts the
+term <span class='mathjax-inline'>\(P(x_n \mid x_1, \ldots
+x_{n-1})\)</span>.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-3'>
+  <div class='tcolorbox-title'>
+    <!-- l. 40 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.3</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 37 -->
+
+    <p class='noindent'>A <span class='pplb8t-x-x-109'>language
+    model</span> is a model that utilize human languages and predicts
+    the next tokens given the previous inputs.</p>
+  </div>
+</div><!-- l. 42 -->
+
+<p class='noindent'>An interesting fact about such models is that
+they sometimes exhibit <span class='pplb8t-x-x-109'>emergent
+behavior</span> where they actually “learn” and exhibit capabilities
+that were not explicitly present in the training data.</p>
+
+<h4 class='subsectionHead' id='tokenization'><span class=
+'titlemark'>0.1.1</span> <a id='x1-20000.1.1'></a>Tokenization</h4>
+<!-- l. 49 -->
+
+<p class='noindent'>We know that at the end, language models are huge
+machines that predict the next numerical values. Then how do such
+models generate outputs in human language? This is where <span class=
+'pplb8t-x-x-109'>tokenization</span> kicks in.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-4'>
+  <div class='tcolorbox-title'>
+    <!-- l. 58 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.4</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 55 -->
+
+    <p class='noindent'><span class=
+    'pplb8t-x-x-109'>Tokenization</span> is a process of breaking
+    down inputs into smaller units called <span class=
+    'pplb8t-x-x-109'>tokens</span> which are often represented as
+    numeric values.</p>
+  </div>
+</div><!-- l. 60 -->
+
+<p class='noindent'>To tokenize inputs, a tool called <span class=
+'pplb8t-x-x-109'>tokenizer</span> is used with <span class=
+'pplb8t-x-x-109'>Byte Pair Encoding (BPE) algorithm</span>.
+Intuitively, what we could do is assign numbers to each alphabets
+like <span class='mathjax-inline'>\(1\)</span> for <span class=
+'mathjax-inline'>\(a\)</span>, <span class=
+'mathjax-inline'>\(2\)</span> for <span class=
+'mathjax-inline'>\(b\)</span>, and so on. However, this would be very
+inefficient considering the frequency of each letter and scalability.
+Instead, what we can do with the BPE algorithm is create a
+byte-efficient list of merged chunks (that are not necessarily a
+single letter) based on frequency. Here is an example from the
+<a href='https://platform.openai.com/tokenizer'>OpenAI Tokenizer for
+GPT-5.x &amp; O1/3</a>.</p><!-- l. 72 -->
+
+<p class='noindent'>Consider the following sentence: <span class=
+'mathjax-block'>\[ \text {Hippopotomonstrosesquippedaliophobia means
+fear of long words.} \]</span> When tokenized, this <span class=
+'mathjax-inline'>\(62\)</span> characters sentence turns into
+<span class='mathjax-inline'>\(17\)</span> tokens as following.
+<span class='mathjax-env mathjax-align*'>\begin{align*} &amp;\text
+{[`H', `ipp', `opot', `omon', `st', `ros', `es', `qu', `ipped',
+`ali', `ophobia',} \\ &amp;\qquad \qquad \qquad \qquad \qquad \text
+{` means', ` fear', ` of', ` long', ` words', `.']}
+\end{align*}</span></p><!-- l. 85 -->
+
+<p class='noindent'>The token IDs of the tokens above are the
+following numbers. <span class=
+'mathjax-env mathjax-align*'>\begin{align*} \text {[39, 3012, 101543,
+43960, 302, } &amp;\text {2199, 268, 351, 8193, 3010, 141868,} \\
+&amp;\text {4748, 11747, 328, 1701, 6391, 13]}
+\end{align*}</span></p><!-- l. 91 -->
+
+<p class='noindent'>Now, to help the models “understand” the tokens
+and take the IDs as input, we generally turn them into vectors
+through the process of <span class='pplb8t-x-x-109'>One-Hot Encoding
+(OHE)</span>, though the process may differ in modern Deep Learning
+for efficiency.</p><!-- l. 96 -->
+
+<p class='noindent'>With OHE, the token ID <span class=
+'mathjax-inline'>\(i\)</span> can be translated to a vector with
+<span class='mathjax-inline'>\(1\)</span> in index <span class=
+'mathjax-inline'>\(i\)</span> and <span class=
+'mathjax-inline'>\(0\)</span> in other slots. However, notice that
+OHE itself is not highly effective. To make the tokenizer more
+“meaningful” and “effective”, we could use the process of embeddings.
+<span class='pplb8t-x-x-109'>Learned embedding vectors</span> uses
+somewhat low dimensional vectors (usually a few thousand dimensions)
+to make the vectors “meaningful”. For example, in learned embedding
+vector, the difference between the vectors that represent king and
+queen will be similar to the difference between the vectors that
+represent man and woman. Modern models use <span class=
+'pplb8t-x-x-109'>relative positional embeddings</span> to effectively
+distinguish the position of the words. (Let’s save this topic for
+latter notes on transformers.)</p>
+
+<h4 class='subsectionHead' id='language-model-output'><span class=
+'titlemark'>0.1.2</span> <a id='x1-30000.1.2'></a>Language Model
+Output</h4><!-- l. 112 -->
+
+<p class='noindent'>As you probably have guessed, language models do
+not simply output the texts that we see. An autoregressive
+transformer language model will output a sequence of
+multi-dimensional vectors with probability distribution for the next
+token based on the sequence of multi-dimension input vectors.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-5'>
+  <div class='tcolorbox-title'>
+    <!-- l. 121 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.5</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 119 -->
+
+    <p class='noindent'><span class='pplb8t-x-x-109'>Logits</span>
+    are the <span class='pplb8t-x-x-109'>scores</span> of the next
+    possible token represented by individual vectors in the output
+    sequence.</p>
+  </div>
+</div><!-- l. 123 -->
+
+<p class='noindent'>Note that logits are <span class=
+'pplri8t-x-x-109'>raw</span> scores. To convert them to probability
+distribution, we use something called <span class=
+'pplb8t-x-x-109'>softmax</span>, in which we will discuss further in
+notes about neural networks.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-6'>
+  <div class='tcolorbox-title'>
+    <!-- l. 132 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.6</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 129 -->
+
+    <p class='noindent'><span class='pplb8t-x-x-109'>Decoding</span>
+    is the process selecting the next token to convert raw and
+    abstract model output into a human language with <span class=
+    'pplb8t-x-x-109'>detokenization</span>.</p>
+  </div>
+</div><!-- l. 134 -->
+
+<p class='noindent'>There are different strategies in decoding, but
+the two main methods are <span class='pplb8t-x-x-109'>greedy
+decoding</span> and <span class='pplb8t-x-x-109'>sampling</span>. In
+greedy decoding, you select the token with the highest probability.
+Meaning, the temperature (we will cover this is neural nets notes)
+does not influence the selection. Unlike greedy decoding, temperature
+does influence the result from sampling. In sampling, you randomly
+select the next token with accounting the individual probability. To
+put it simply, imagine you have a biased die with thousands of sides.
+You roll the die with the bias in each side, and the next token is
+selected by the result.</p><!-- l. 146 -->
+
+<p class='noindent'>Model outputs are random and highly organized.
+Take a look at the following example. In the first case, say the
+model input is “I love” and the expected model output is “I love
+potatoes”. In the second case, the model input is “Veni, vidi,” and
+the expected output is “Veni, vidi, vici”. When the model returns an
+output, which case do you think the model has the higher probability
+of returning the expected output? To answer this question, we must
+understand that models are composed of billions of parameters that
+are trained with countless data. The model likely learned lots of
+texts that includes “I love dogs”, “I love coffee”, and more.
+However, for a model dedicated for English, it is highly unlikely
+that it learned another phrase that starts with “Veni, vidi,” other
+than “Veni, vidi, vici”, the famous line from Julius Caesar. The
+model probably assigned lots of logits and converted them to
+probability distribution with softmax. While the first case have
+somewhat flat distribution, the second case will likely assign “vici”
+with high probability like <span class=
+'mathjax-inline'>\(0.98\)</span> or <span class=
+'mathjax-inline'>\(0.99\)</span>. Therefore, the second model has the
+higher probability of returning the expected output.</p>
+<!-- l. 168 -->
+
+<p class='noindent'>Now that we have some intuitions on model
+outputs, let’s discuss about post-training.</p>

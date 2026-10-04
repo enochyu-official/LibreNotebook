@@ -1,0 +1,78 @@
+<h3 class='sectionHead' id='linear-algebra'><span class='titlemark'>0.1    </span>   <a id='x1-10000.1'></a>Linear Algebra</h3>
+<!-- l. 7 --><p class='noindent'>Linear algebra is a foundational building block of ML as majority of the
+components are written in very high dimensional arrays and tensors.
+Without exaggeration, training and using a model can be considered as
+performing billions of linear algebra operations. Therefore, it is encouraged
+to get familiar with the notations as they will be used throughout the
+future notes. That being said, because many of the contents were
+introduced in detail in the linear algebra part of LibreNotebook, I will
+keep it brief here for topics that were not introduced in the previous
+part.
+
+</p>
+<h4 class='subsectionHead' id='foundations'><span class='titlemark'>0.1.1    </span>   <a id='x1-20000.1.1'></a>Foundations</h4>
+<!-- l. 20 --><p class='noindent'>Many mathematicians might not like the definition below, but I think it is
+worth considering different perspectives of how we can see vectors and
+matrices.
+</p>
+<div class='tcolorbox defstyle' id='tcolobox-1'>     
+<div class='tcolorbox-title'>
+<!-- l. 28 --><p class='noindent'>Definition 0.1.1</p></div> 
+<div class='tcolorbox-content'><!-- l. 25 --><p class='noindent'>A 1-dimensional vector is simply called <span class='pplb8t-x-x-109'>vector</span>. A 2D vector is
+called <span class='pplb8t-x-x-109'>matrix</span>. For vectors with 3+ dimensions, the term <span class='pplb8t-x-x-109'>tensor </span>is
+used. </p> 
+</div> 
+</div>
+<!-- l. 30 --><p class='noindent'>Now scalars are not considered vectors because it is only defined with
+                                                                 
+                                                                 
+magnitude. Geometrically speaking, the dimensions here can be interpreted
+as the dimension that we usually say in science. For example, a matrix can be
+plotted in a 2D space with <span class='mathjax-inline'>\(x\)</span> and <span class='mathjax-inline'>\(y\)</span> components. Similarly, a 3D tensor can be
+drawn in 3-dimensional plane with <span class='mathjax-inline'>\(x\)</span>, <span class='mathjax-inline'>\(y\)</span>, and <span class='mathjax-inline'>\(z\)</span> coordinates. Consider the
+following example.
+</p>
+<figure class='figure'> 
+
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+<!-- l. 41 --><p class='noindent'><img alt='[Picture]' src='/svg/CS0101.260080x.svg' />
+                                                                 
+                                                                 
+</p>
+</figure>
+<!-- l. 77 --><p class='noindent'>Continuing, we can see an operation that vectors can perform that we have
+not discussed in the notes for linear algebra.
+</p>
+<div class='tcolorbox defstyle' id='tcolobox-2'>     
+<div class='tcolorbox-title'>
+<!-- l. 83 --><p class='noindent'>Definition 0.1.2</p></div> 
+<div class='tcolorbox-content'><!-- l. 81 --><p class='noindent'>A  <span class='pplb8t-x-x-109'>dot  product  </span>of  two  vectors  is  the  sum  of  products  of  the
+corresponding elements. </p> 
+</div> 
+</div>
+<!-- l. 85 --><p class='noindent'>Dot product will be quite important when we discuss attention and
+transformers because it can tell us how “related” two vectors are.
+Indeed, consider the vectors <span class='mathjax-inline'>\(A\)</span> and <span class='mathjax-inline'>\(B\)</span> with the angle between the two
+vectors as <span class='mathjax-inline'>\(\theta \)</span>. The following equation holds. <span class='mathjax-block'>\[ A \cdot B = ||A|| ||B|| \cos \theta \]</span> Here, <span class='mathjax-inline'>\(||V||\)</span> for <span class='mathjax-inline'>\(V \in \mathbb {R}^n\)</span> represents the
+magnitude of the vector, i.e. <span class='mathjax-inline'>\(\sqrt {\sum _{k=1}^n V_k^2}\)</span>. Let’s take a look at a quick example.
+<span class='mathjax-env mathjax-align*'>\begin{align*} \langle 1, 0 \rangle \cdot \langle 1, \sqrt {3} \rangle &amp;= 1 \cdot 1 + 0 \cdot \sqrt {3} = 1 \\ &amp;= 1 \cdot 2 \cdot \cos 60^\circ = 1 \end{align*}</span>
+</p><!-- l. 100 --><p class='noindent'>One thing to keep in mind is that we have a special term for the sign
+<span class='mathjax-inline'>\(||V||\)</span>.
+</p>
+<div class='tcolorbox defstyle' id='tcolobox-3'>     
+<div class='tcolorbox-title'>
+<!-- l. 106 --><p class='noindent'>Definition 0.1.3</p></div> 
+<div class='tcolorbox-content'><!-- l. 104 --><p class='noindent'>The  <span class='pplb8t-x-x-109'>vector  norm  </span>is  the  non-negative  value  that  represents  the
+magnitude of a vector. </p> 
+</div> 
+</div>
+<!-- l. 108 --><p class='noindent'>With that in mind, let’s move on to a more abstract and advanced topics in
+linear algebra that are constantly used in machine learning.
+
+</p>
+<h4 class='subsectionHead' id='continue'><span class='titlemark'>0.1.2    </span>   <a id='x1-30000.1.2'></a>CONTINUE</h4>
+                                                                 
+                                                                 

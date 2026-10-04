@@ -1,0 +1,141 @@
+<h2 class='chapterHead' id='vectors-and-geometry'><span class='titlemark'>Note 1</span><br />  <a id='x1-10001'></a>Vectors and Geometry</h2>
+<!-- l. 7 --><p class='noindent'>On my other notes on linear algebra, we discussed vectors and vector spaces
+in detail. However, I wish to discuss some parts again as linear algebra and
+multivariable calculus have different perspectives on how we view them. In
+this note, let’s discuss more on the geometric interpretation and less on
+abstractness of vector spaces.
+
+</p>
+<h3 class='sectionHead' id='basic-terms-and-intuitions'><span class='titlemark'>1.1    </span>   <a id='x1-20001.1'></a>Basic Terms and Intuitions</h3>
+<!-- l. 16 --><p class='noindent'>First, why should we even bother higher dimension for multivariable
+calculus? As the name suggests, multivariable calculus studies calculus over
+many variables. With generalization from the single variable calculus
+concepts, it is natural to consider planes and spaces of higher dimension. For
+instance, say we have a function <span class='mathjax-inline'>\(f(x, y) = x + y\)</span>. We cannot graph this in the normal 2
+dimensional Cartesian plane as we have two inputs and an output while the
+plane only has the space for two. As we have discussed in the notes
+for linear algebra, we can graph such functions in a 3 dimensional
+space.
+</p><!-- l. 27 --><p class='noindent'>The standard and conventional orientation of the 3D Cartesian Coordinate
+System is <span class='pplb8t-x-x-109'>the Right-hand Rule</span>. The orientation of the axis below follows the
+right-hand rule.
+</p>
+<figure class='figure'> 
+
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+<!-- l. 34 --><p class='noindent'><img alt='[Picture]' src='/svg/MATH0301.260690x.svg' />
+                                                                 
+                                                                 
+</p>
+</figure>
+<!-- l. 45 --><p class='noindent'>One way to memorize this is to have your curled right hand face up. Then,
+the direction where your hand is pointing is the direction of the <span class='mathjax-inline'>\(x\)</span>-axis and the
+direction of your thumb is the direction of the <span class='mathjax-inline'>\(z\)</span>-axis. This is a very common
+explanation; however, to be honest it is quite hard to remember for me.
+Another explanation that really helped me is to think of a clock at 3 P.M. The
+hour hand is the <span class='mathjax-inline'>\(x\)</span>-axis and the minute hand is the <span class='mathjax-inline'>\(y\)</span>-axis. Then, if you draw a
+line from the center of the clock pointing at you, that would be the
+<span class='mathjax-inline'>\(z\)</span>-axis.
+</p><!-- l. 55 --><p class='noindent'>Besides having the name <span class='pplb8t-x-x-109'>3-dimensional Cartesian coordinate system</span>, it is
+often called as <span class='pplb8t-x-x-109'>rectangular coordinate system for 3-space</span>. When depicting a
+specific point, we will use the ordered triple <span class='mathjax-inline'>\((x, y, z)\)</span>.
+</p><!-- l. 60 --><p class='noindent'>Some fun facts that we can notice from the notation is that we can represent <span class='mathjax-inline'>\(x\)</span>,
+<span class='mathjax-inline'>\(y\)</span>, and <span class='mathjax-inline'>\(z\)</span> axis as <span class='mathjax-inline'>\(\{ (x, 0, 0) \mid x \in \mathbb {R} \}\)</span>, <span class='mathjax-inline'>\(\{ (0, y, 0) \mid y \in \mathbb {R} \}\)</span>, and <span class='mathjax-inline'>\(\{ (0, 0, z) \mid z \in \mathbb {R} \}\)</span> respectively assuming that we only consider real
+numbers.
+</p><!-- l. 66 --><p class='noindent'>An extension of the idea above are planes perpendicular to an axis. We
+can see that the <span class='mathjax-inline'>\(xy\)</span>-plane, <span class='mathjax-inline'>\(yz\)</span>-plane, and <span class='mathjax-inline'>\(zx\)</span>-plane can be represented as the
+following.
+</p>
+<div class='minipage'><div class='center'>
+<!-- l. 71 --><p class='noindent'>
+</p><!-- l. 72 --><p class='noindent'><span class='mathjax-inline'>\(xy\)</span><span class='pplb8t-x-x-109'>-plane</span><br />
+<span class='mathjax-inline'>\(\{ (x, y, 0) \mid x, y \in \mathbb {R} \}\)</span></p></div>
+<figure class='figure'> 
+  <img alt='[Picture]' src='/svg/MATH0301.260691x.svg' />
+</figure>                    </div>                         <div class='minipage'><div class='center'>
+<!-- l. 94 --><p class='noindent'>
+</p><!-- l. 95 --><p class='noindent'><span class='mathjax-inline'>\(yz\)</span><span class='pplb8t-x-x-109'>-plane</span><br />
+<span class='mathjax-inline'>\(\{ (0, y, z) \mid y, z \in \mathbb {R} \}\)</span></p></div>
+<figure class='figure'> 
+    <img alt='[Picture]' src='/svg/MATH0301.260692x.svg' />
+</figure>                  </div>
+                                                                 
+                                                                 
+<div class='minipage'><div class='center'>
+<!-- l. 117 --><p class='noindent'>
+</p><!-- l. 118 --><p class='noindent'><span class='mathjax-inline'>\(zx\)</span><span class='pplb8t-x-x-109'>-plane</span><br />
+<span class='mathjax-inline'>\(\{ (x, 0, z) \mid x, z \in \mathbb {R} \}\)</span></p></div>
+<figure class='figure'> 
+  <img alt='[Picture]' src='/svg/MATH0301.260693x.svg' />
+</figure>                    </div>
+<!-- l. 139 --><p class='noindent'>We can also notice that depending on what we have in the place for <span class='mathjax-inline'>\(0\)</span>, we can
+have the planes <span class='mathjax-inline'>\(x = a\)</span>, <span class='mathjax-inline'>\(y = b\)</span>, and <span class='mathjax-inline'>\(z = c\)</span>.
+</p><!-- l. 142 --><p class='noindent'>One other extension that we can have from 2D plane is the distance formula
+between two points.
+</p>
+<div class='tcolorbox theostyle' id='tcolobox-1'>    <a id='x1-2002x1.1'></a> 
+<div class='tcolorbox-title'>
+<!-- l. 153 --><p class='noindent'>Theorem 1.1.1: Distance Formula</p></div> 
+<div class='tcolorbox-content'><!-- l. 146 --><p class='noindent'>The  distance  between  two  points  <span class='mathjax-inline'>\((x_1, y_1, z_1)\)</span>  and  <span class='mathjax-inline'>\((x_2, y_2, z_2)\)</span>  on  a  3D  plane  can  be
+represented as the following equation. <span class='mathjax-block'>\[ d = \sqrt { (x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2 } \]</span> </p> 
+</div> 
+</div><div class='mdframed' id='mdframed-1'>
+<!-- l. 155 --><p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span>
+</p><!-- l. 155 --><p class='noindent'>First, construct a right triangle with the points <span class='mathjax-inline'>\(A(x_1, y_1, z_1)\)</span>, <span class='mathjax-inline'>\(B(x_2, y_2, z_2)\)</span>, and <span class='mathjax-inline'>\(C(x_2, y_2, z_1)\)</span>. Notice that the length
+of <span class='mathjax-inline'>\(BC = |z_2 - z_1|\)</span> and the length of the segment <span class='mathjax-inline'>\(AC = \sqrt {(x_2 - x_1)^2 + (y_2 - y_1)^2}\)</span>. Using the Pythagorean theorem,
+<span class='mathjax-env mathjax-align*'>\begin{align*} d &amp;= \sqrt { \left ( \sqrt {(x_2 - x_1)^2 + (y_2 - y_1)^2} \right )^2 + (z_2 - z_1)^2 } \\ &amp;= \sqrt { (x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2 } \end{align*}</span>
+</p><!-- l. 167 --><p class='noindent'>holds and the distance between the two points can be written as <span class='mathjax-inline'>\(\sqrt { (x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2 }\)</span>.</p>
+</div>
+
+<!-- l. 171 --><p class='noindent'>Using this, we can define a sphere just as we do for circles.
+
+</p>
+                                                                 
+                                                                 
+<h4 class='subsectionHead' id='geometric-intuition-in-3dimensions'><span class='titlemark'>1.1.1    </span>   <a id='x1-30001.1.1'></a>Geometric Intuition in 3-Dimensions</h4>
+<!-- l. 175 --><p class='noindent'>Consider equations of the following form with constants <span class='mathjax-inline'>\(G, H, I, J\)</span>. <span class='mathjax-block'>\[ x^2 + y^2 + z^2 + Gx + Hy + Iz + J = 0 \]</span> Just as we use
+completing squares for circles, we can rewrite the equation above as the
+following form with constants <span class='mathjax-inline'>\(a, b, c, K\)</span>. <span class='mathjax-block'>\[ (x - a)^2 + (y - b)^2 + (z - c)^2 = K \]</span> Square rooting both sides, we obtain <span class='mathjax-block'>\[ \sqrt {(x - a)^2 + (y - b)^2 + (z - c)^2} = \sqrt {K} \]</span> which
+is equivalent of saying the locus of points <span class='mathjax-inline'>\((x, y, z)\)</span> that is in the distance <span class='mathjax-inline'>\(\sqrt {K}\)</span> from <span class='mathjax-inline'>\((a, b, c)\)</span> by
+Theorem <a href='#x1-2002x1.1'>1.1.1<!-- tex4ht:ref: theo:Distance Formula  --></a>. Naturally, we can notice that if <span class='mathjax-inline'>\(K &gt; 0\)</span>, such sphere exists. If <span class='mathjax-inline'>\(K = 0\)</span>, the
+equation has one solution and the graph is a single point. If <span class='mathjax-inline'>\(K &lt; 0\)</span>, there
+exists no such graph. Graphing a square with the center <span class='mathjax-inline'>\((x_0, y_0, z_0)\)</span> and radius
+<span class='mathjax-inline'>\(r\)</span>, we can obtain the following by plotting the locus of <span class='mathjax-inline'>\((x, y, z)\)</span> that satisfy
+<span class='mathjax-inline'>\((x - x_0)^2 + (y - y_0)^2 + (z - z_0)^2 = r^2\)</span>.
+</p>
+<figure class='figure'> 
+
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+<!-- l. 200 --><p class='noindent'><img alt='[Picture]' src='/svg/MATH0301.260694x.svg' />
+                                                                 
+                                                                 
+</p>
+</figure>
+<!-- l. 221 --><p class='noindent'>Now that we can graph spheres, how about equations with two variables?
+When you think about it, it is actually pretty simple since it is the same as
+graphing in 2 dimensional plane and stretching it with respect to the
+remaining axis. Such equations are known as <span class='pplb8t-x-x-109'>cylindrical surface</span>.
+</p>
+<figure class='figure'> 
+
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+<!-- l. 229 --><p class='noindent'><img alt='[Picture]' src='/svg/MATH0301.260695x.svg' />
+                                                                 
+                                                                 
+</p>
+</figure>
+<!-- l. 239 --><p class='noindent'>The graph above is <span class='mathjax-inline'>\(z = x^2\)</span>. This is the same as graphing the quadratic function in
+<span class='mathjax-inline'>\(xz\)</span>-plane and making its copy across the <span class='mathjax-inline'>\(y\)</span>-axis.
+</p><!-- l. 243 --><p class='noindent'>Continuing with this intuition, we can implement the ideas with
+vectors.
+</p>
+ 

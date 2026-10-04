@@ -1,0 +1,1416 @@
+<h3 class='sectionHead' id='functions-and-references'><span class=
+'titlemark'>0.1</span> <a id='x1-10000.1'></a>Functions and
+References</h3><!-- l. 7 -->
+
+<p class='noindent'>Up until now, we had everything in our
+<span class='obeylines-h'><code class='verb'>main</code></span>
+function. However, you may have noticed that dumping everything in
+there is not efficient nor scalable. This is where functions kick
+in.</p>
+
+<h4 class='subsectionHead' id='functions'><span class=
+'titlemark'>0.1.1</span> <a id='x1-20000.1.1'></a>Functions</h4>
+<!-- l. 13 -->
+
+<p class='noindent'>As always, let’s start with definition.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-1'>
+  <div class='tcolorbox-title'>
+    <!-- l. 18 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.1</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 16 -->
+
+    <p class='noindent'>A reusable code block dedicated for a certain
+    task is called a <span class='pplb8t-x-x-109'>function</span>
+    [<span class='pplb8t-x-x-109'>CS02-5</span>].</p>
+  </div>
+</div><!-- l. 20 -->
+
+<p class='noindent'>Functions are specially useful as we can use it
+multiple times just by calling them instead of copy and pasting every
+time we need them. Functions in C++ generally have the following
+format.</p>
+
+<div class='tcolorbox basicboxstyle' id='tcolobox-2'>
+  <div class='tcolorbox-title'></div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 25 -->
+    <pre class='lstlisting' id='listing-1'>
+<span class='label'><a id='x1-2002r1'></a><span class=
+'pplr8t-x-x-60'>1</span></span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>outputDataType</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>functionName(parameters) {</span> 
+</span><span class='label'><a id='x1-2003r2'></a><span class=
+'pplr8t-x-x-60'>2</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>code</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>block</span> 
+</span><span class='label'><a id='x1-2004r3'></a><span class=
+'pplr8t-x-x-60'>3</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>return</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>outputValue;</span> 
+</span><span class='label'><a id='x1-2005r4'></a><span class=
+'pplr8t-x-x-60'>4</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>}</span></span>
+</pre>
+  </div>
+</div><!-- l. 33 -->
+
+<p class='noindent'>Looking at a bare <span class=
+'obeylines-h'><code class='verb'>main</code></span> function, we can
+see that we have <span class='obeylines-h'><code class=
+'verb'>int</code></span> since the <span class=
+'obeylines-h'><code class='verb'>main</code></span> function returns
+an integer value like <span class='mathjax-inline'>\(0\)</span>.
+Since no arguments are taken in a bare <span class=
+'obeylines-h'><code class='verb'>main</code></span> function, we have
+empty parenthesis. There are some functions that do not return any
+value. In that case, we would be using <span class=
+'obeylines-h'><code class='verb'>void</code></span>. Moreover to use
+a function, we need to call it. Below is a quick example.</p>
+
+<div class='tcolorbox cppboxstyle' id='tcolobox-3'>
+  <a id='x1-2019x0.1.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 56 -->
+
+    <p class='noindent'>Code&nbsp;0.1.2:&nbsp;CS0201.26052-01</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 42 -->
+    <pre class='lstlisting' id='listing-2'>
+<span class='label'><a id='x1-2007r1'></a><span class=
+'pplr8t-x-x-60'>1</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>#</span></span><span style=
+'color:#004099'><span class=
+'pcrb8t-'>include</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>&lt;iostream&gt;</span> 
+</span><span class='label'><a id='x1-2008r2'></a><span class=
+'pplr8t-x-x-60'>2</span></span> 
+<span class='label'><a id='x1-2009r3'></a><span class=
+'pplr8t-x-x-60'>3</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>void</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>helloWorld() {</span> 
+</span><span class='label'><a id='x1-2010r4'></a><span class=
+'pplr8t-x-x-60'>4</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cout</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>Hello</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>,</span></span><span style=
+'color:#A31515'> <span class=
+'pcrr8t-'>World!\n"</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-2011r5'></a><span class=
+'pplr8t-x-x-60'>5</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>}</span></span> 
+<span class='label'><a id='x1-2012r6'></a><span class=
+'pplr8t-x-x-60'>6</span></span> 
+<span class='label'><a id='x1-2013r7'></a><span class=
+'pplr8t-x-x-60'>7</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>int</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>main() {</span> 
+</span><span class='label'><a id='x1-2014r8'></a><span class=
+'pplr8t-x-x-60'>8</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>helloWorld</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>()</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-2015r9'></a><span class=
+'pplr8t-x-x-60'>9</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>helloWorld</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>()</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-2016r10'></a><span class=
+'pplr8t-x-x-60'>10</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>helloWorld</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>()</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-2017r11'></a><span class=
+'pplr8t-x-x-60'>11</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>return</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>0;</span> 
+</span><span class='label'><a id='x1-2018r12'></a><span class=
+'pplr8t-x-x-60'>12</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>}</span></span>
+</pre>
+  </div>
+</div><!-- l. 58 -->
+
+<p class='noindent'>In the example above, we have our <span class=
+'obeylines-h'><code class='verb'>helloWorld</code></span> function
+that prints the text “Hello, World!” to the console. The type is
+<span class='obeylines-h'><code class='verb'>void</code></span> since
+it does not return any values. By calling the function three times in
+<span class='obeylines-h'><code class='verb'>main</code></span>, we
+don’t have to manually write long texts every time!</p>
+
+<div class='tcolorbox outputboxstyle' id='tcolobox-4'>
+  <div class='tcolorbox-title'>
+    <!-- l. 70 -->
+
+    <p class='noindent'>Output&nbsp;0.1.3</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 65 -->
+    <pre class='lstlisting' id='listing-3'>
+<span class='label'><a id='x1-2021r1'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>Hello</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>,</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>World!</span> 
+</span><span class='label'><a id='x1-2022r2'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>Hello</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>,</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>World!</span> 
+</span><span class='label'><a id='x1-2023r3'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>Hello</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>,</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>World!</span></span>
+</pre>
+  </div>
+</div><!-- l. 72 -->
+
+<p class='noindent'>Below is a more practical use of simple functions
+for basic mathematical operations.</p>
+
+<div class='tcolorbox cppboxstyle' id='tcolobox-5'>
+  <a id='x1-2059x0.1.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 112 -->
+
+    <p class='noindent'>Code&nbsp;0.1.4:&nbsp;CS0201.26052-02</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 76 -->
+    <pre class='lstlisting' id='listing-4'>
+<span class='label'><a id='x1-2025r1'></a><span class=
+'pplr8t-x-x-60'>1</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>#</span></span><span style=
+'color:#004099'><span class=
+'pcrb8t-'>include</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>&lt;iostream&gt;</span> 
+</span><span class='label'><a id='x1-2026r2'></a><span class=
+'pplr8t-x-x-60'>2</span></span> 
+<span class='label'><a id='x1-2027r3'></a><span class=
+'pplr8t-x-x-60'>3</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>int</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>add(</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>int</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>a,</span> </span><span style=
+'color:#004099'><span class='pcrb8t-'>int</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>b) {</span> 
+</span><span class='label'><a id='x1-2028r4'></a><span class=
+'pplr8t-x-x-60'>4</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>return</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>a + b;</span> 
+</span><span class='label'><a id='x1-2029r5'></a><span class=
+'pplr8t-x-x-60'>5</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>}</span></span> 
+<span class='label'><a id='x1-2030r6'></a><span class=
+'pplr8t-x-x-60'>6</span></span> 
+<span class='label'><a id='x1-2031r7'></a><span class=
+'pplr8t-x-x-60'>7</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>int</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>subtract(</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>int</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>a,</span> </span><span style=
+'color:#004099'><span class='pcrb8t-'>int</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>b) {</span> 
+</span><span class='label'><a id='x1-2032r8'></a><span class=
+'pplr8t-x-x-60'>8</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>return</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>a - b;</span> 
+</span><span class='label'><a id='x1-2033r9'></a><span class=
+'pplr8t-x-x-60'>9</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>}</span></span> 
+<span class='label'><a id='x1-2034r10'></a><span class=
+'pplr8t-x-x-60'>10</span></span> 
+<span class='label'><a id='x1-2035r11'></a><span class=
+'pplr8t-x-x-60'>11</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>int</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>multiply(</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>int</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>a,</span> </span><span style=
+'color:#004099'><span class='pcrb8t-'>int</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>b) {</span> 
+</span><span class='label'><a id='x1-2036r12'></a><span class=
+'pplr8t-x-x-60'>12</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>return</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>a * b;</span> 
+</span><span class='label'><a id='x1-2037r13'></a><span class=
+'pplr8t-x-x-60'>13</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>}</span></span> 
+<span class='label'><a id='x1-2038r14'></a><span class=
+'pplr8t-x-x-60'>14</span></span> 
+<span class='label'><a id='x1-2039r15'></a><span class=
+'pplr8t-x-x-60'>15</span></span><span style=
+'color:#004099'><span class=
+'pcrb8t-'>double</span></span><span style='color:#000000'> <span class='pcrr8t-'>divide(</span></span><span style='color:#004099'><span class='pcrb8t-'>double</span></span><span style='color:#000000'> <span class='pcrr8t-'>a,</span> </span><span style='color:#004099'><span class='pcrb8t-'>double</span></span><span style='color:#000000'> <span class='pcrr8t-'>b) {</span> 
+</span><span class='label'><a id='x1-2040r16'></a><span class=
+'pplr8t-x-x-60'>16</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>return</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>a / b;</span> 
+</span><span class='label'><a id='x1-2041r17'></a><span class=
+'pplr8t-x-x-60'>17</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>}</span></span> 
+<span class='label'><a id='x1-2042r18'></a><span class=
+'pplr8t-x-x-60'>18</span></span> 
+<span class='label'><a id='x1-2043r19'></a><span class=
+'pplr8t-x-x-60'>19</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>int</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>mod(</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>int</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>a,</span> </span><span style=
+'color:#004099'><span class='pcrb8t-'>int</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>b) {</span> 
+</span><span class='label'><a id='x1-2044r20'></a><span class=
+'pplr8t-x-x-60'>20</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>return</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>a % b;</span> 
+</span><span class='label'><a id='x1-2045r21'></a><span class=
+'pplr8t-x-x-60'>21</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>}</span></span> 
+<span class='label'><a id='x1-2046r22'></a><span class=
+'pplr8t-x-x-60'>22</span></span> 
+<span class='label'><a id='x1-2047r23'></a><span class=
+'pplr8t-x-x-60'>23</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>int</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>main() {</span> 
+</span><span class='label'><a id='x1-2048r24'></a><span class=
+'pplr8t-x-x-60'>24</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cout</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>1</span></span><span style=
+'color:#A31515'> <span class=
+'pcrr8t-'>+ 2 = "</span></span><span style=
+'color:#000000'> </span><span class='pcrr8t-'>   </span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>&lt;&lt;</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>add(1, 2)</span> </span><span class=
+'pcrr8t-'>     </span><span style='color:#000000'><span class=
+'pcrr8t-'>&lt;&lt;</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>std::endl;</span> 
+</span><span class='label'><a id='x1-2049r25'></a><span class=
+'pplr8t-x-x-60'>25</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cout</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>3</span></span><span style=
+'color:#A31515'> <span class=
+'pcrr8t-'>- 4 = "</span></span><span style=
+'color:#000000'> </span><span class='pcrr8t-'>   </span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>&lt;&lt;</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>subtract(3, 4) &lt;&lt; std::endl;</span> 
+</span><span class='label'><a id='x1-2050r26'></a><span class=
+'pplr8t-x-x-60'>26</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cout</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>5</span></span><span style=
+'color:#A31515'> <span class=
+'pcrr8t-'>* 6 = "</span></span><span style=
+'color:#000000'> </span><span class='pcrr8t-'>   </span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>&lt;&lt;</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>multiply(5, 6) &lt;&lt; std::endl;</span> 
+</span><span class='label'><a id='x1-2051r27'></a><span class=
+'pplr8t-x-x-60'>27</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cout</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>7</span></span><span style=
+'color:#A31515'> <span class=
+'pcrr8t-'>/ 8 = "</span></span><span style=
+'color:#000000'> </span><span class='pcrr8t-'>   </span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>&lt;&lt;</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>divide(7, 8)</span> </span><span class=
+'pcrr8t-'>  </span><span style='color:#000000'><span class=
+'pcrr8t-'>&lt;&lt;</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>std::endl;</span> 
+</span><span class='label'><a id='x1-2052r28'></a><span class=
+'pplr8t-x-x-60'>28</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cout</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>10</span></span><span style=
+'color:#A31515'> <span class=
+'pcrr8t-'>mod 9 = "</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt; mod(10, 9)</span> </span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>&lt;&lt;</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>std::endl;</span> 
+</span><span class='label'><a id='x1-2053r29'></a><span class=
+'pplr8t-x-x-60'>29</span></span> 
+<span class='label'><a id='x1-2054r30'></a><span class=
+'pplr8t-x-x-60'>30</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cout</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>((1</span></span><span style=
+'color:#A31515'> <span class='pcrr8t-'>+ 2) * 4) mod 10 = "</span> 
+</span><span class='label'><a id='x1-2055r31'></a><span class=
+'pplr8t-x-x-60'>31</span></span><span class=
+'pcrr8t-'>              </span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>&lt;&lt;</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>mod(multiply(add(1, 2), 4), 10) &lt;&lt; std::endl;</span> 
+</span><span class='label'><a id='x1-2056r32'></a><span class=
+'pplr8t-x-x-60'>32</span></span> 
+<span class='label'><a id='x1-2057r33'></a><span class=
+'pplr8t-x-x-60'>33</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>return</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>0;</span> 
+</span><span class='label'><a id='x1-2058r34'></a><span class=
+'pplr8t-x-x-60'>34</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>}</span></span>
+</pre>
+  </div>
+</div><!-- l. 114 -->
+
+<p class='noindent'>Each function will take in the values
+<span class='mathjax-inline'>\(a\)</span> and <span class=
+'mathjax-inline'>\(b\)</span> to perform the dedicated task. After
+declaring the functions, we can call them in the <span class=
+'obeylines-h'><code class='verb'>main</code></span> function to
+display them. Many times it is better to make the functions declare a
+value rather than print directly to the console for reusability. As
+shown in the last example, we can call a function as an input of
+different function.</p>
+
+<div class='tcolorbox outputboxstyle' id='tcolobox-6'>
+  <div class='tcolorbox-title'>
+    <!-- l. 130 -->
+
+    <p class='noindent'>Output&nbsp;0.1.5</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 122 -->
+    <pre class='lstlisting' id='listing-5'>
+<span class='label'><a id='x1-2061r1'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>1</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>+ 2 = 3</span> 
+</span><span class='label'><a id='x1-2062r2'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>3</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>- 4 = -1</span> 
+</span><span class='label'><a id='x1-2063r3'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>5</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>* 6 = 30</span> 
+</span><span class='label'><a id='x1-2064r4'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>7</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>/ 8 = 0.875</span> 
+</span><span class='label'><a id='x1-2065r5'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>10</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>mod 9 = 1</span> 
+</span><span class='label'><a id='x1-2066r6'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>((1</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>+ 2) * 4) mod 10 = 2</span></span>
+</pre>
+  </div>
+</div><!-- l. 132 -->
+
+<p class='noindent'>Another very important technique that allows us
+to break down hard problems into simpler problems is recursion.</p>
+
+<h5 class='subsubsectionHead' id='recursion'><a id=
+'x1-3000'></a>Recursion</h5><!-- l. 137 -->
+
+<p class='noindent'>As always, let’s get started with definition.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-7'>
+  <div class='tcolorbox-title'>
+    <!-- l. 142 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.6</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 140 -->
+
+    <p class='noindent'>A technique of calling a function in the
+    function itself is <span class=
+    'pplb8t-x-x-109'>recursion</span>.</p>
+  </div>
+</div><!-- l. 144 -->
+
+<p class='noindent'>The technique is rather straight forward when we
+look at some examples.</p>
+
+<div class='tcolorbox probstyle' id='tcolobox-8'>
+  <div class='tcolorbox-title'>
+    <!-- l. 150 -->
+
+    <p class='noindent'>Exercise&nbsp;0.1.7</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 148 -->
+
+    <p class='noindent'>Write a code that returns the sum of integers
+    from <span class='mathjax-inline'>\(1\)</span> to <span class=
+    'mathjax-inline'>\(n\)</span> inclusive were <span class=
+    'mathjax-inline'>\(n\)</span> is any input.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-1'>
+  <!-- l. 152 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 152 -->
+
+  <p class='noindent'>There are few ways of solving this problem.
+  First, we can use a simple for loop. Consider the following
+  program.</p>
+
+  <div class='tcolorbox cppboxstyleSolution' id='tcolobox-9'>
+    <a id='x1-3020x'></a><a id='x1-3020xdoc'></a>
+
+    <div class='tcolorbox-title'>
+      <!-- l. 174 -->
+
+      <p class='noindent'>Code&nbsp;0.1.8:&nbsp;CS0201.26052-03</p>
+    </div>
+
+    <div class='tcolorbox-content'>
+      <!-- l. 156 -->
+      <pre class='lstlisting' id='listing-6'>
+<span class='label'><a id='x1-3004r1'></a><span class=
+'pplr8t-x-x-60'>1</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>#</span></span><span style=
+'color:#004099'><span class=
+'pcrb8t-'>include</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>&lt;iostream&gt;</span> 
+</span><span class='label'><a id='x1-3005r2'></a><span class=
+'pplr8t-x-x-60'>2</span></span> 
+<span class='label'><a id='x1-3006r3'></a><span class=
+'pplr8t-x-x-60'>3</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>int</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>main() {</span> 
+</span><span class='label'><a id='x1-3007r4'></a><span class=
+'pplr8t-x-x-60'>4</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>int</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>n;</span> 
+</span><span class='label'><a id='x1-3008r5'></a><span class=
+'pplr8t-x-x-60'>5</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>int</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>sum = 0;</span> 
+</span><span class='label'><a id='x1-3009r6'></a><span class=
+'pplr8t-x-x-60'>6</span></span> 
+<span class='label'><a id='x1-3010r7'></a><span class=
+'pplr8t-x-x-60'>7</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cout</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>Enter</span></span><span style=
+'color:#A31515'> <span class='pcrr8t-'>n: "</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-3011r8'></a><span class=
+'pplr8t-x-x-60'>8</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cin</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&gt;&gt; n;</span> 
+</span><span class='label'><a id='x1-3012r9'></a><span class=
+'pplr8t-x-x-60'>9</span></span> 
+<span class='label'><a id='x1-3013r10'></a><span class=
+'pplr8t-x-x-60'>10</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>for</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>(</span></span><span style='color:#004099'><span class=
+'pcrb8t-'>int</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>i = 1; i &lt;= n; i++) {</span> 
+</span><span class='label'><a id='x1-3014r11'></a><span class=
+'pplr8t-x-x-60'>11</span></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>sum</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>+= i;</span> 
+</span><span class='label'><a id='x1-3015r12'></a><span class=
+'pplr8t-x-x-60'>12</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>}</span></span> 
+<span class='label'><a id='x1-3016r13'></a><span class=
+'pplr8t-x-x-60'>13</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cout</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>Sum</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>:</span></span><span style=
+'color:#A31515'> <span class='pcrr8t-'>"</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt; sum &lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>\</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>n</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-3017r14'></a><span class=
+'pplr8t-x-x-60'>14</span></span> 
+<span class='label'><a id='x1-3018r15'></a><span class=
+'pplr8t-x-x-60'>15</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>return</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>0;</span> 
+</span><span class='label'><a id='x1-3019r16'></a><span class=
+'pplr8t-x-x-60'>16</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>}</span></span>
+</pre>
+    </div>
+  </div><!-- l. 176 -->
+
+  <p class='noindent'>In the code above, we use a simple loop without
+  compound assignment operator to find the sum from <span class=
+  'mathjax-inline'>\(1\)</span> to any positive input <span class=
+  'mathjax-inline'>\(n\)</span>.</p>
+
+  <div class='tcolorbox outputboxstyleSolution' id='tcolobox-10'>
+    <div class='tcolorbox-title'>
+      <!-- l. 184 -->
+
+      <p class='noindent'>Output&nbsp;0.1.9</p>
+    </div>
+
+    <div class='tcolorbox-content'>
+      <!-- l. 180 -->
+      <pre class='lstlisting' id='listing-7'>
+<span class='label'><a id='x1-3022r1'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>Enter</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>n: 3</span> 
+</span><span class='label'><a id='x1-3023r2'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>Sum</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>:</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>6</span></span>
+</pre>
+    </div>
+  </div><!-- l. 186 -->
+
+  <p class='noindent'>Below is another output.</p>
+
+  <div class='tcolorbox outputboxstyleSolution' id='tcolobox-11'>
+    <div class='tcolorbox-title'>
+      <!-- l. 193 -->
+
+      <p class='noindent'>Output&nbsp;0.1.10</p>
+    </div>
+
+    <div class='tcolorbox-content'>
+      <!-- l. 189 -->
+      <pre class='lstlisting' id='listing-8'>
+<span class='label'><a id='x1-3025r1'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>Enter</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>n: 10</span> 
+</span><span class='label'><a id='x1-3026r2'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>Sum</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>:</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>55</span></span>
+</pre>
+    </div>
+  </div><!-- l. 195 -->
+
+  <p class='noindent'>Although this method works for simple example
+  like this, we can also use recursion.</p>
+
+  <div class='tcolorbox cppboxstyleSolution' id='tcolobox-12'>
+    <a id='x1-3048x'></a><a id='x1-3048xdoc'></a>
+
+    <div class='tcolorbox-title'>
+      <!-- l. 221 -->
+
+      <p class='noindent'>Code&nbsp;0.1.11:&nbsp;CS0201.26052-04</p>
+    </div>
+
+    <div class='tcolorbox-content'>
+      <!-- l. 199 -->
+      <pre class='lstlisting' id='listing-9'>
+<span class='label'><a id='x1-3028r1'></a><span class=
+'pplr8t-x-x-60'>1</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>#</span></span><span style=
+'color:#004099'><span class=
+'pcrb8t-'>include</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>&lt;iostream&gt;</span> 
+</span><span class='label'><a id='x1-3029r2'></a><span class=
+'pplr8t-x-x-60'>2</span></span> 
+<span class='label'><a id='x1-3030r3'></a><span class=
+'pplr8t-x-x-60'>3</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>int</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>sum(</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>int</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>n) {</span> 
+</span><span class='label'><a id='x1-3031r4'></a><span class=
+'pplr8t-x-x-60'>4</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>if</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>(n &gt; 0) {</span> 
+</span><span class='label'><a id='x1-3032r5'></a><span class=
+'pplr8t-x-x-60'>5</span></span><span class=
+'pcrr8t-'>        </span><span style='color:#004099'><span class=
+'pcrb8t-'>return</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>n + sum(n-1);</span> 
+</span><span class='label'><a id='x1-3033r6'></a><span class=
+'pplr8t-x-x-60'>6</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>}</span></span><span style=
+'color:#000000'> </span><span style='color:#004099'><span class=
+'pcrb8t-'>else</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>{</span> 
+</span><span class='label'><a id='x1-3034r7'></a><span class=
+'pplr8t-x-x-60'>7</span></span><span class=
+'pcrr8t-'>        </span><span style='color:#004099'><span class=
+'pcrb8t-'>return</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>0;</span> 
+</span><span class='label'><a id='x1-3035r8'></a><span class=
+'pplr8t-x-x-60'>8</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>}</span></span> 
+<span class='label'><a id='x1-3036r9'></a><span class=
+'pplr8t-x-x-60'>9</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>}</span></span> 
+<span class='label'><a id='x1-3037r10'></a><span class=
+'pplr8t-x-x-60'>10</span></span> 
+<span class='label'><a id='x1-3038r11'></a><span class=
+'pplr8t-x-x-60'>11</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>int</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>main() {</span> 
+</span><span class='label'><a id='x1-3039r12'></a><span class=
+'pplr8t-x-x-60'>12</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>int</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>n;</span> 
+</span><span class='label'><a id='x1-3040r13'></a><span class=
+'pplr8t-x-x-60'>13</span></span> 
+<span class='label'><a id='x1-3041r14'></a><span class=
+'pplr8t-x-x-60'>14</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cout</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>Enter</span></span><span style=
+'color:#A31515'> <span class='pcrr8t-'>n: "</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-3042r15'></a><span class=
+'pplr8t-x-x-60'>15</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cin</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&gt;&gt; n;</span> 
+</span><span class='label'><a id='x1-3043r16'></a><span class=
+'pplr8t-x-x-60'>16</span></span> 
+<span class='label'><a id='x1-3044r17'></a><span class=
+'pplr8t-x-x-60'>17</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cout</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>Sum</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>:</span></span><span style=
+'color:#A31515'> <span class='pcrr8t-'>"</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt; sum(n) &lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>\</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>n</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-3045r18'></a><span class=
+'pplr8t-x-x-60'>18</span></span> 
+<span class='label'><a id='x1-3046r19'></a><span class=
+'pplr8t-x-x-60'>19</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>return</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>0;</span> 
+</span><span class='label'><a id='x1-3047r20'></a><span class=
+'pplr8t-x-x-60'>20</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>}</span></span>
+</pre>
+    </div>
+  </div><!-- l. 223 -->
+
+  <p class='noindent'>In the code above, we have a function
+  <span class='obeylines-h'><code class='verb'>sum</code></span> that
+  returns <span class='obeylines-h'><code class=
+  'verb'>n&nbsp;+</code></span><br class='newline'>
+  <span class='obeylines-h'><code class=
+  'verb'>sum(n-1)</code></span>. We also need <span class=
+  'obeylines-h'><code class='verb'>return&nbsp;0</code></span> as our
+  base case. If <span class='mathjax-inline'>\(n = 5\)</span>, then
+  it will return <span class='obeylines-h'><code class=
+  'verb'>5&nbsp;+&nbsp;sum(4)</code></span> which continues as
+  <span class='obeylines-h'><code class=
+  'verb'>5&nbsp;+&nbsp;4&nbsp;+&nbsp;sum(3)</code></span> until we
+  have <span class='mathjax-inline'>\(5 + 4 + 3 + 2 + 1 + 0\)</span>.
+  With recursion, we broke down a hard problem of adding a range of
+  numbers to a simple problem of adding two numbers.</p>
+
+  <div class='tcolorbox outputboxstyleSolution' id='tcolobox-13'>
+    <div class='tcolorbox-title'>
+      <!-- l. 235 -->
+
+      <p class='noindent'>Output&nbsp;0.1.12</p>
+    </div>
+
+    <div class='tcolorbox-content'>
+      <!-- l. 231 -->
+      <pre class='lstlisting' id='listing-10'>
+<span class='label'><a id='x1-3050r1'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>Enter</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>n: 3</span> 
+</span><span class='label'><a id='x1-3051r2'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>Sum</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>:</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>6</span></span>
+</pre>
+    </div>
+  </div><!-- l. 237 -->
+
+  <p class='noindent'>Below is another output.</p>
+
+  <div class='tcolorbox outputboxstyleSolution' id='tcolobox-14'>
+    <div class='tcolorbox-title'>
+      <!-- l. 244 -->
+
+      <p class='noindent'>Output&nbsp;0.1.13</p>
+    </div>
+
+    <div class='tcolorbox-content'>
+      <!-- l. 240 -->
+      <pre class='lstlisting' id='listing-11'>
+<span class='label'><a id='x1-3053r1'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>Enter</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>n: 10</span> 
+</span><span class='label'><a id='x1-3054r2'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>Sum</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>:</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>55</span></span>
+</pre>
+    </div>
+  </div><!-- l. 246 -->
+
+  <p class='noindent'>As shown above, both methods work.</p>
+</div><!-- l. 249 -->
+
+<p class='noindent'>For a simple problem like the exercise above, the
+could be a more simple solution than recursion. However, the
+technique will come very handy when the problem gets harder. Now with
+the ideas of functions in mind, we can continue with another
+important topic of references.</p>
+
+<h4 class='subsectionHead' id='references'><span class=
+'titlemark'>0.1.2</span> <a id='x1-40000.1.2'></a>References</h4>
+<!-- l. 257 -->
+
+<p class='noindent'>One of the primary goals of writing codes for
+competitive programming is efficiency. Indeed most, if not all, codes
+written for competitions are not maintained as the main purpose is to
+solve problems efficiently [<span class=
+'pplb8t-x-x-109'>CS02-3</span>]. Moreover, it is important that your
+program is fast enough to execute under the time limit. One way to
+achieve this is by preventing making of copies, and this is where
+reference comes in.</p><!-- l. 265 -->
+
+<p class='noindent'>References and pointers serves different
+purposes, although they look similar. Indeed, references are using
+pointers behind the scenes. However there are much more topics to
+discuss for pointers, and let’s focus on references for now for the
+purpose of this note.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-15'>
+  <div class='tcolorbox-title'>
+    <!-- l. 273 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.14</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 271 -->
+
+    <p class='noindent'>A <span class=
+    'pplb8t-x-x-109'>reference</span> is an alias of an existing
+    object that allows indirect access to the object.</p>
+  </div>
+</div><!-- l. 275 -->
+
+<p class='noindent'>Let’s take a look at a quick example.</p>
+
+<div class='tcolorbox cppboxstyle' id='tcolobox-16'>
+  <a id='x1-4018x0.1.2'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 295 -->
+
+    <p class='noindent'>Code&nbsp;0.1.15:&nbsp;CS0201.26052-05</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 278 -->
+    <pre class='lstlisting' id='listing-12'>
+<span class='label'><a id='x1-4003r1'></a><span class=
+'pplr8t-x-x-60'>1</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>#</span></span><span style=
+'color:#004099'><span class=
+'pcrb8t-'>include</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>&lt;iostream&gt;</span> 
+</span><span class='label'><a id='x1-4004r2'></a><span class=
+'pplr8t-x-x-60'>2</span></span> 
+<span class='label'><a id='x1-4005r3'></a><span class=
+'pplr8t-x-x-60'>3</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>int</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>main() {</span> 
+</span><span class='label'><a id='x1-4006r4'></a><span class=
+'pplr8t-x-x-60'>4</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>int</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>a = 5;</span> 
+</span><span class='label'><a id='x1-4007r5'></a><span class=
+'pplr8t-x-x-60'>5</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>int</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>&amp;</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>ref = a;</span> </span><span style='color:#646464'><span class='pcrro8t-'>//</span></span><span style='color:#646464'> <span class='pcrro8t-'>reference to a</span> 
+</span><span class='label'><a id='x1-4008r6'></a><span class=
+'pplr8t-x-x-60'>6</span></span> 
+<span class='label'><a id='x1-4009r7'></a><span class=
+'pplr8t-x-x-60'>7</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cout</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>ref</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>:</span></span><span style=
+'color:#A31515'> <span class='pcrr8t-'>"</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt; ref &lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>\</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>n</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-4010r8'></a><span class=
+'pplr8t-x-x-60'>8</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cout</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>a</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>:</span></span><span style=
+'color:#A31515'> </span><span class='pcrr8t-'>  </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt; a</span> </span><span class=
+'pcrr8t-'>  </span><span style='color:#000000'><span class=
+'pcrr8t-'>&lt;&lt;</span></span><span style=
+'color:#000000'> </span><span style='color:#A31515'><span class=
+'pcrr8t-'>"</span></span><span style='color:#A31515'><span class=
+'pcrr8t-'>\</span></span><span style='color:#A31515'><span class=
+'pcrr8t-'>n</span></span><span style='color:#A31515'><span class=
+'pcrr8t-'>"</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-4011r9'></a><span class=
+'pplr8t-x-x-60'>9</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>ref</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>++;</span></span> 
+<span class='label'><a id='x1-4012r10'></a><span class=
+'pplr8t-x-x-60'>10</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cout</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>After</span></span><span style=
+'color:#A31515'> <span class=
+'pcrr8t-'>adding 1 to ref\n"</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-4013r11'></a><span class=
+'pplr8t-x-x-60'>11</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cout</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>ref</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>:</span></span><span style=
+'color:#A31515'> <span class='pcrr8t-'>"</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt; ref &lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>\</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>n</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-4014r12'></a><span class=
+'pplr8t-x-x-60'>12</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cout</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>a</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>:</span></span><span style=
+'color:#A31515'> </span><span class='pcrr8t-'>  </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt; a</span> </span><span class=
+'pcrr8t-'>  </span><span style='color:#000000'><span class=
+'pcrr8t-'>&lt;&lt;</span></span><span style=
+'color:#000000'> </span><span style='color:#A31515'><span class=
+'pcrr8t-'>"</span></span><span style='color:#A31515'><span class=
+'pcrr8t-'>\</span></span><span style='color:#A31515'><span class=
+'pcrr8t-'>n</span></span><span style='color:#A31515'><span class=
+'pcrr8t-'>"</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-4015r13'></a><span class=
+'pplr8t-x-x-60'>13</span></span> 
+<span class='label'><a id='x1-4016r14'></a><span class=
+'pplr8t-x-x-60'>14</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>return</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>0;</span> 
+</span><span class='label'><a id='x1-4017r15'></a><span class=
+'pplr8t-x-x-60'>15</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>}</span></span>
+</pre>
+  </div>
+</div><!-- l. 297 -->
+
+<p class='noindent'>When declaring a reference, we use the ampersand
+&amp;. Technically <span class='obeylines-h'><code class=
+'verb'>int&amp;&nbsp;ref</code></span> and <span class=
+'obeylines-h'><code class='verb'>int&nbsp;&amp;ref</code></span> does
+the same thing, but let’s use the first one to be consistent. Here,
+<span class='obeylines-h'><code class='verb'>ref</code></span> is our
+reference to <span class='obeylines-h'><code class=
+'verb'>a</code></span>. Unlike declaring <span class=
+'obeylines-h'><code class=
+'verb'>int&nbsp;ref&nbsp;=&nbsp;a;</code></span>, which creates a
+copy of <span class='obeylines-h'><code class='verb'>a</code></span>,
+reference become an alias of <span class='obeylines-h'><code class=
+'verb'>a</code></span> that we can use to edit <span class=
+'obeylines-h'><code class='verb'>a</code></span>. Below is the output
+from running the code.</p>
+
+<div class='tcolorbox outputboxstyle' id='tcolobox-17'>
+  <div class='tcolorbox-title'>
+    <!-- l. 313 -->
+
+    <p class='noindent'>Output&nbsp;0.1.16</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 306 -->
+    <pre class='lstlisting' id='listing-13'>
+<span class='label'><a id='x1-4020r1'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>ref</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>:</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>5</span> 
+</span><span class='label'><a id='x1-4021r2'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>a</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>:</span></span><span style=
+'color:#000000'> </span><span class='pcrr8t-'>  </span><span style=
+'color:#000000'><span class='pcrr8t-'>5</span></span> 
+<span class='label'><a id='x1-4022r3'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>After</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>adding 1 to ref</span> 
+</span><span class='label'><a id='x1-4023r4'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>ref</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>:</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>6</span> 
+</span><span class='label'><a id='x1-4024r5'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>a</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>:</span></span><span style=
+'color:#000000'> </span><span class='pcrr8t-'>  </span><span style=
+'color:#000000'><span class='pcrr8t-'>6</span></span>
+</pre>
+  </div>
+</div><!-- l. 315 -->
+
+<p class='noindent'>As you can see above, incrementing <span class=
+'obeylines-h'><code class='verb'>ref</code></span> also increments
+<span class='obeylines-h'><code class='verb'>a</code></span> as they
+refer to the same object. One of the most common application of
+reference is passing arguments in functions [<span class=
+'pplb8t-x-x-109'>CS02-5</span>]. Consider the example below.</p>
+
+<div class='tcolorbox cppboxstyle' id='tcolobox-18'>
+  <a id='x1-4046x0.1.2'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 343 -->
+
+    <p class='noindent'>Code&nbsp;0.1.17:&nbsp;CS0201.26052-06</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 321 -->
+    <pre class='lstlisting' id='listing-14'>
+<span class='label'><a id='x1-4026r1'></a><span class=
+'pplr8t-x-x-60'>1</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>#</span></span><span style=
+'color:#004099'><span class=
+'pcrb8t-'>include</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>&lt;iostream&gt;</span> 
+</span><span class='label'><a id='x1-4027r2'></a><span class=
+'pplr8t-x-x-60'>2</span></span> 
+<span class='label'><a id='x1-4028r3'></a><span class=
+'pplr8t-x-x-60'>3</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>void</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>increment1(</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>int</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>a) {</span> 
+</span><span class='label'><a id='x1-4029r4'></a><span class=
+'pplr8t-x-x-60'>4</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>a</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>++;</span></span> 
+<span class='label'><a id='x1-4030r5'></a><span class=
+'pplr8t-x-x-60'>5</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cout</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt; a &lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>\</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>n</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-4031r6'></a><span class=
+'pplr8t-x-x-60'>6</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>}</span></span> 
+<span class='label'><a id='x1-4032r7'></a><span class=
+'pplr8t-x-x-60'>7</span></span> 
+<span class='label'><a id='x1-4033r8'></a><span class=
+'pplr8t-x-x-60'>8</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>void</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>increment2(</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>int</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>&amp;</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>a) {</span> 
+</span><span class='label'><a id='x1-4034r9'></a><span class=
+'pplr8t-x-x-60'>9</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>a</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>++;</span></span> 
+<span class='label'><a id='x1-4035r10'></a><span class=
+'pplr8t-x-x-60'>10</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cout</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt; a &lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>\</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>n</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-4036r11'></a><span class=
+'pplr8t-x-x-60'>11</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>}</span></span> 
+<span class='label'><a id='x1-4037r12'></a><span class=
+'pplr8t-x-x-60'>12</span></span> 
+<span class='label'><a id='x1-4038r13'></a><span class=
+'pplr8t-x-x-60'>13</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>int</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>main() {</span> 
+</span><span class='label'><a id='x1-4039r14'></a><span class=
+'pplr8t-x-x-60'>14</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>int</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>x = 5;</span> 
+</span><span class='label'><a id='x1-4040r15'></a><span class=
+'pplr8t-x-x-60'>15</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>increment1</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>(</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>x</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>)</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-4041r16'></a><span class=
+'pplr8t-x-x-60'>16</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>x</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>= 5;</span> 
+</span><span class='label'><a id='x1-4042r17'></a><span class=
+'pplr8t-x-x-60'>17</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>increment2</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>(</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>x</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>)</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-4043r18'></a><span class=
+'pplr8t-x-x-60'>18</span></span> 
+<span class='label'><a id='x1-4044r19'></a><span class=
+'pplr8t-x-x-60'>19</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>return</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>0;</span> 
+</span><span class='label'><a id='x1-4045r20'></a><span class=
+'pplr8t-x-x-60'>20</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>}</span></span>
+</pre>
+  </div>
+</div><!-- l. 345 -->
+
+<p class='noindent'>In the example above, the difference in
+performance between the two functions are trivial. However, the first
+function creates a local copy of <span class=
+'mathjax-inline'>\(x\)</span> while the second one doesn’t. Passing
+arguments by reference can be especially helpful when we are dealing
+with large objects. Indeed, copying large objects won’t be as
+efficient as just indirectly adjusting the original value.</p>
+
+<div class='tcolorbox outputboxstyle' id='tcolobox-19'>
+  <div class='tcolorbox-title'>
+    <!-- l. 357 -->
+
+    <p class='noindent'>Output&nbsp;0.1.18</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 353 -->
+    <pre class='lstlisting' id='listing-15'>
+<span class='label'><a id='x1-4048r1'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>5</span></span> 
+<span class='label'><a id='x1-4049r2'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>6</span></span>
+</pre>
+  </div>
+</div><!-- l. 359 -->
+
+<p class='noindent'>Another use case of reference in arguments is
+that we can directly change the value. Let’s tweak our code above to
+further elaborate on the point above.</p>
+
+<div class='tcolorbox cppboxstyle' id='tcolobox-20'>
+  <a id='x1-4072x0.1.2'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 387 -->
+
+    <p class='noindent'>Code&nbsp;0.1.19:&nbsp;CS0201.26052-07</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 364 -->
+    <pre class='lstlisting' id='listing-16'>
+<span class='label'><a id='x1-4051r1'></a><span class=
+'pplr8t-x-x-60'>1</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>#</span></span><span style=
+'color:#004099'><span class=
+'pcrb8t-'>include</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>&lt;iostream&gt;</span> 
+</span><span class='label'><a id='x1-4052r2'></a><span class=
+'pplr8t-x-x-60'>2</span></span> 
+<span class='label'><a id='x1-4053r3'></a><span class=
+'pplr8t-x-x-60'>3</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>void</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>increment1(</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>int</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>a) {</span> 
+</span><span class='label'><a id='x1-4054r4'></a><span class=
+'pplr8t-x-x-60'>4</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>a</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>++;</span></span> 
+<span class='label'><a id='x1-4055r5'></a><span class=
+'pplr8t-x-x-60'>5</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>}</span></span> 
+<span class='label'><a id='x1-4056r6'></a><span class=
+'pplr8t-x-x-60'>6</span></span> 
+<span class='label'><a id='x1-4057r7'></a><span class=
+'pplr8t-x-x-60'>7</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>void</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>increment2(</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>int</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>&amp;</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>a) {</span> 
+</span><span class='label'><a id='x1-4058r8'></a><span class=
+'pplr8t-x-x-60'>8</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>a</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>++;</span></span> 
+<span class='label'><a id='x1-4059r9'></a><span class=
+'pplr8t-x-x-60'>9</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>}</span></span> 
+<span class='label'><a id='x1-4060r10'></a><span class=
+'pplr8t-x-x-60'>10</span></span> 
+<span class='label'><a id='x1-4061r11'></a><span class=
+'pplr8t-x-x-60'>11</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>int</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>main() {</span> 
+</span><span class='label'><a id='x1-4062r12'></a><span class=
+'pplr8t-x-x-60'>12</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>int</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>x = 5;</span> 
+</span><span class='label'><a id='x1-4063r13'></a><span class=
+'pplr8t-x-x-60'>13</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>increment1</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>(</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>x</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>)</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-4064r14'></a><span class=
+'pplr8t-x-x-60'>14</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cout</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt; x &lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>\</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>n</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-4065r15'></a><span class=
+'pplr8t-x-x-60'>15</span></span> 
+<span class='label'><a id='x1-4066r16'></a><span class=
+'pplr8t-x-x-60'>16</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>x</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>= 5;</span> 
+</span><span class='label'><a id='x1-4067r17'></a><span class=
+'pplr8t-x-x-60'>17</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>increment2</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>(</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>x</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>)</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-4068r18'></a><span class=
+'pplr8t-x-x-60'>18</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cout</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt; x &lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>\</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>n</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-4069r19'></a><span class=
+'pplr8t-x-x-60'>19</span></span> 
+<span class='label'><a id='x1-4070r20'></a><span class=
+'pplr8t-x-x-60'>20</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>return</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>0;</span> 
+</span><span class='label'><a id='x1-4071r21'></a><span class=
+'pplr8t-x-x-60'>21</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>}</span></span>
+</pre>
+  </div>
+</div><!-- l. 389 -->
+
+<p class='noindent'>This time, we have <span class=
+'obeylines-h'><code class='verb'>cout</code></span> in the
+<span class='obeylines-h'><code class='verb'>main</code></span>
+function. As mentioned previously, the first function creates a local
+copy and adjust the copy. Meaning, the original values does not
+change. However, the second function changes the original value.
+Therefore, the values <span class='mathjax-inline'>\(5\)</span> and
+<span class='mathjax-inline'>\(6\)</span> must be the outputs.</p>
+
+<div class='tcolorbox outputboxstyle' id='tcolobox-21'>
+  <div class='tcolorbox-title'>
+    <!-- l. 400 -->
+
+    <p class='noindent'>Output&nbsp;0.1.20</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 396 -->
+    <pre class='lstlisting' id='listing-17'>
+<span class='label'><a id='x1-4074r1'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>5</span></span> 
+<span class='label'><a id='x1-4075r2'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>6</span></span>
+</pre>
+  </div>
+</div><!-- l. 402 -->
+
+<p class='noindent'>References are frequently used for efficiency and
+cleaner code. Before getting into exciting data structures and
+algorithms, let’s discuss arrays and vectors.</p>

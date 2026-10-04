@@ -1,0 +1,83 @@
+<h2 class='chapterHead' id='a-sequence-and-series'><span class=
+'titlemark'>Note&nbsp;1</span><br>
+<a id='x1-10001'></a>[A] Sequence and Series</h2>
+
+<h3 class='sectionHead' id='telescoping-sums'><span class=
+'titlemark'>1.1</span> <a id='x1-20001.1'></a>Telescoping Sums</h3>
+<!-- l. 10 -->
+
+<p class='noindent'>We discussed telescoping briefly in the notes for
+inequality. In this part of the note, let’s discuss how telescoping
+is used in sequence and series. As a quick refresher, let’s solve a
+practice problem.</p>
+
+<div class='tcolorbox probstyle' id='tcolobox-1'>
+  <a id='x1-2002x1.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 24 -->
+
+    <p class='noindent'>Exercise&nbsp;1.1.1:&nbsp;USAMTS Year 11
+    Round 4 Problem 3 (<span class='mathjax-inline'>\(\bullet
+    \circ \circ \)</span>)</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 17 -->
+
+    <p class='noindent'>Find <span class=
+    'mathjax-inline'>\(S\)</span> defined as the following.
+    <span class='mathjax-block'>\[ S = \sqrt { 1 + \frac {1}{1^2} +
+    \frac {1}{2^2} } + \sqrt { 1 + \frac {1}{2^2} + \frac {1}{3^2} }
+    + \cdots + \sqrt { 1 + \frac {1}{1999^2} + \frac {1}{2000^2} }
+    \]</span></p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-1'>
+  <!-- l. 26 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 26 -->
+
+  <p class='noindent'>First, let’s rewrite the sum <span class=
+  'mathjax-inline'>\(S\)</span> using the sum notation. <span class=
+  'mathjax-block'>\[ S = \sum _{i=1}^{1999} \sqrt { 1 + \frac
+  {1}{i^2} + \frac {1}{(i + 1)^2} } \]</span> Now we see the terms
+  <span class='mathjax-inline'>\(1 + \frac {1}{i^2} + \frac {1}{(i +
+  1)^2}\)</span> inside a square root. To get rid of the annoying
+  square root, we can try writing the terms in a perfect square.
+  Consider the following equation. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} &amp;\quad \ \left ( 1
+  + \frac {1}{n} + \frac {1}{n + 1} \right )^2 \\ &amp;= 1 + \frac
+  {1}{n^2} + \frac {1}{(n + 1)^2} + 2 \left ( \frac {1}{n} + \frac
+  {1}{n + 1} + \frac {1}{n(n + 1)} \right ) \end{align*}</span></p>
+  <!-- l. 42 -->
+
+  <p class='noindent'>Notice that because <span class=
+  'mathjax-inline'>\(\frac {1}{n} - \frac {1}{n+1} = \frac
+  {1}{n(n+1)}\)</span>, it would be much preferable to have
+  <span class='mathjax-inline'>\(\frac {1}{n} - \frac {1}{n} - \frac
+  {1}{n(n+1)}\)</span> instead of <span class=
+  'mathjax-inline'>\(\frac {1}{n} + \frac {1}{n + 1} + \frac {1}{n(n
+  + 1)}\)</span>. Therefore, the following equations are obtained.
+  <span class='mathjax-env mathjax-align*'>\begin{align*} &amp;\quad
+  \ \left ( 1 + \frac {1}{n} - \frac {1}{n + 1} \right )^2 \\ &amp;=
+  1 + \frac {1}{n^2} + \frac {1}{(n + 1)^2} + 2 \left ( \frac {1}{n}
+  - \frac {1}{n + 1} - \frac {1}{n(n + 1)} \right ) \\ &amp;= 1 +
+  \frac {1}{n^2} + \frac {1}{(n + 1)^2} \end{align*}</span></p>
+  <!-- l. 53 -->
+
+  <p class='noindent'>Substituting the equation to the series, we
+  obtain the following equations. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} S &amp;= \sum
+  _{i=1}^{1999} \sqrt {1 + \frac {1}{i^2} + \frac {1}{(i + 1)^2}} =
+  \sum _{i=1}^{1999} \sqrt {\left ( \frac {1}{i} - \frac {1}{i + 1} +
+  1 \right )^2} \\ &amp;= \sum _{i=1}^{1999} \left ( \frac {1}{i} -
+  \frac {1}{i + 1} + 1 \right ) = 1999 + \frac {1}{1} - \frac
+  {1}{2000} \\ &amp;= \frac {2000^2 - 1}{2000} = \frac
+  {3999999}{2000} \end{align*}</span></p><!-- l. 68 -->
+
+  <p class='noindent'>Thus, <span class='mathjax-inline'>\(S = \frac
+  {3999999}{2000}\)</span>.</p>
+</div>

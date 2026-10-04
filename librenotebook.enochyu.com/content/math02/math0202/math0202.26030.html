@@ -1,0 +1,397 @@
+<h3 class='sectionHead' id='fundamental-properties'><span class=
+'titlemark'>0.1</span> <a id='x1-10000.1'></a>Fundamental
+Properties</h3><!-- l. 7 -->
+
+<p class='noindent'>First, when are two matrices “equal” to each
+other? Consider the following definition for a formal
+explanation.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-1'>
+  <a id='x1-1005x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 26 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.1</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 11 -->
+
+    <p class='noindent'>Two matrices <span class=
+    'mathjax-inline'>\(A\)</span> and <span class=
+    'mathjax-inline'>\(B\)</span> with orders <span class=
+    'mathjax-inline'>\(m \times n\)</span> and <span class=
+    'mathjax-inline'>\(p \times q\)</span> respectively are said to
+    be equal to each other if they retain the same order and
+    corresponding elements, i.e. they satisfy the following
+    properties.</p>
+
+    <dl class='enumerate-enumitem'>
+      <dt class='enumerate-enumitem'>1.</dt>
+
+      <dd class='enumerate-enumitem'><span class='mathjax-inline'>\(m
+      = p\)</span></dd>
+
+      <dt class='enumerate-enumitem'>2.</dt>
+
+      <dd class='enumerate-enumitem'><span class='mathjax-inline'>\(n
+      = q\)</span></dd>
+
+      <dt class='enumerate-enumitem'>3.</dt>
+
+      <dd class='enumerate-enumitem'>For elements <span class=
+      'mathjax-inline'>\(a_{ij}\)</span> in <span class=
+      'mathjax-inline'>\(A\)</span> and <span class=
+      'mathjax-inline'>\(b_{ij}\)</span> in <span class=
+      'mathjax-inline'>\(B\)</span>, the following equation
+      satisfies. <span class='mathjax-block'>\[ a_{ij} = b_{ij} \,
+      \forall \, i \in [1, m] \text { and } j \in [1, n]
+      \]</span></dd>
+    </dl>
+  </div>
+</div><!-- l. 28 -->
+
+<p class='noindent'>Although this is very trivial and intuitive, it
+is always nice to formally define concepts!</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-2'>
+  <a id='x1-1007x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 35 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.2</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 32 -->
+
+    <p class='noindent'>For matrices <span class=
+    'mathjax-inline'>\(A\)</span> and <span class=
+    'mathjax-inline'>\(B\)</span> with same order, the element in the
+    <span class='mathjax-inline'>\((i, j)\)</span>-entry of their sum
+    <span class='mathjax-inline'>\(A + B\)</span> is equivalent to
+    the sum of elements in the <span class='mathjax-inline'>\((i,
+    j)\)</span>-entry of <span class='mathjax-inline'>\(A\)</span>
+    and <span class='mathjax-inline'>\(B\)</span>.</p>
+  </div>
+</div><!-- l. 37 -->
+
+<p class='noindent'>Note that the orders of matrices being added must
+be identical. We do not consider additions with matrices of different
+orders. Below is an example of addition. <span class=
+'mathjax-block'>\[ \begin {bmatrix} 1 &amp; 3 &amp; 5 \\ 2 &amp; \pi
+&amp; 4 \end {bmatrix} + \begin {bmatrix} -2 &amp; 1 &amp; 3 \\ 3
+&amp; \pi &amp; -4 \end {bmatrix} = \begin {bmatrix} -1 &amp; 4 &amp;
+8 \\ 5 &amp; 2\pi &amp; 0 \end {bmatrix} \]</span> Similarly, we
+could see that subtractions are defined in similar way. Subtracting
+the matrices above, we get the following results. <span class=
+'mathjax-block'>\[ \begin {bmatrix} 1 &amp; 3 &amp; 5 \\ 2 &amp; \pi
+&amp; 4 \end {bmatrix} - \begin {bmatrix} -2 &amp; 1 &amp; 3 \\ 3
+&amp; \pi &amp; -4 \end {bmatrix} = \begin {bmatrix} 3 &amp; 2 &amp;
+2 \\ -1 &amp; 0 &amp; 8 \end {bmatrix} \]</span> Now, as we look at
+the additions and subtractions of matrices, you probably wondered
+about the application of additive properties. Intuitively, the
+fundamental properties of addition can be applied to matrices
+addition.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-3'>
+  <a id='x1-1009x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 81 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.3</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 80 -->
+
+    <p class='noindent'>For matrices <span class=
+    'mathjax-inline'>\(A\)</span> and <span class=
+    'mathjax-inline'>\(B\)</span> with order <span class=
+    'mathjax-inline'>\(m \times n\)</span>, <span class=
+    'mathjax-inline'>\(A + B = B + A\)</span>.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-1'>
+  <!-- l. 83 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 83 -->
+
+  <p class='noindent'>Let <span class='mathjax-inline'>\(A =
+  [a_{ij}]_{m \times n}\)</span> and <span class='mathjax-inline'>\(B
+  = [b_{ij}]_{m \times n}\)</span>. By definition, the sum
+  <span class='mathjax-inline'>\(A + B = [a_{ij} + b_{ij}]\)</span>.
+  Because addition is commutative, the following equation holds.
+  <span class='mathjax-block'>\[ A + B = [a_{ij} + b_{ij}] = [b_{ij}
+  + a_{ij}] = B + A \]</span> Thus, the commutative property of
+  matrix addition holds.</p>
+</div><!-- l. 95 -->
+
+<p class='noindent'>In addition to the commutative property, the
+associative property is also applicable.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-4'>
+  <a id='x1-1011x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 101 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.4</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 99 -->
+
+    <p class='noindent'>For matrices <span class=
+    'mathjax-inline'>\(A\)</span>, <span class=
+    'mathjax-inline'>\(B\)</span>, and <span class=
+    'mathjax-inline'>\(C\)</span> with order <span class=
+    'mathjax-inline'>\(m \times n\)</span>, <span class=
+    'mathjax-inline'>\(A + (B + C) = (A + B) + C\)</span>.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-2'>
+  <!-- l. 103 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 103 -->
+
+  <p class='noindent'>Let <span class='mathjax-inline'>\(A =
+  [a_{ij}]_{m \times n}\)</span>, <span class='mathjax-inline'>\(B =
+  [b_{ij}]_{m \times n}\)</span>, and <span class=
+  'mathjax-inline'>\(C = [c_{ij}]_{m \times n}\)</span>. Consider the
+  following equation. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} A + (B + C) &amp;=
+  [a_{ij}] + [b_{ij} + c_{ij}] = [a_{ij} + (b_{ij} + c_{ij})] =
+  [a_{ij} + b_{ij} + c_{ij}] \\ &amp;= [(a_{ij} + b_{ij}) + c_{ij}] =
+  [a_{ij} + b_{ij}] + [c_{ij}] \\ &amp;= (A + B) + C
+  \end{align*}</span></p><!-- l. 114 -->
+
+  <p class='noindent'>Thus, the associative property of addition
+  applies to the matrix addition.</p>
+</div><!-- l. 118 -->
+
+<p class='noindent'>One obvious property in addition is that when you
+add <span class='mathjax-inline'>\(0\)</span> to a number, you get
+the number itself. The same applies in matrix addition.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-5'>
+  <a id='x1-1013x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 125 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.5</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 122 -->
+
+    <p class='noindent'>The sum of matrices <span class=
+    'mathjax-inline'>\(A_{m \times n}\)</span> and <span class=
+    'mathjax-inline'>\(0_{m \times n}\)</span> yields the matrix
+    <span class='mathjax-inline'>\(A\)</span>, i.e. the zero matrix
+    is the identity elements of matrix addition.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-3'>
+  <!-- l. 127 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 127 -->
+
+  <p class='noindent'>Let <span class='mathjax-inline'>\(A =
+  [a_{ij}]_{m \times n}\)</span>. By definition, the sum <span class=
+  'mathjax-inline'>\(A + 0 = [a_{ij} + 0] = [a_{ij}] = A\)</span>.
+  Therefore, the zero matrix is the identity element of matrix
+  addition.</p>
+</div><!-- l. 132 -->
+
+<p class='noindent'>Now what if we want to add the same matrix
+multiple times? Fortunately, we already resolved the issue. For
+instance, we write <span class='mathjax-inline'>\(x + x + x\)</span>
+as <span class='mathjax-inline'>\(3x\)</span>. We can multiply
+matrices with scalars.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-6'>
+  <a id='x1-1015x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 139 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.6</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 137 -->
+
+    <p class='noindent'>For a complex number <span class=
+    'mathjax-inline'>\(\lambda \)</span> and <span class=
+    'mathjax-inline'>\(A = [a_{ij}]\)</span>, <span class=
+    'mathjax-inline'>\(\lambda A = [\lambda a_{ij}]\)</span>.</p>
+  </div>
+</div><!-- l. 141 -->
+
+<p class='noindent'>Let’s take a look at an example.</p>
+
+<div class='tcolorbox probstyle' id='tcolobox-7'>
+  <div class='tcolorbox-title'>
+    <!-- l. 158 -->
+
+    <p class='noindent'>Exercise&nbsp;0.1.7</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 144 -->
+
+    <p class='noindent'>Compute <span class='mathjax-inline'>\(2A -
+    3B\)</span> for <span class='mathjax-inline'>\(A\)</span> and
+    <span class='mathjax-inline'>\(B\)</span> defined as the
+    following. <span class='mathjax-block'>\[ A = \begin {bmatrix} 2
+    &amp; 3 &amp; -1 \\ 1 &amp; 7 &amp; 3 \end {bmatrix}, \quad B =
+    \begin {bmatrix} -2 &amp; 1 &amp; 0 \\ 5 &amp; 3 &amp; 8 \end
+    {bmatrix} \]</span></p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-4'>
+  <!-- l. 160 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 160 -->
+
+  <p class='noindent'>Before subtracting, we could perform scalar
+  multiplication first. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} 2A - 3B &amp;= 2\begin
+  {bmatrix} 2 &amp; 3 &amp; -1 \\ 1 &amp; 7 &amp; 3 \end {bmatrix} -
+  3\begin {bmatrix} -2 &amp; 1 &amp; 0 \\ 5 &amp; 3 &amp; 8 \end
+  {bmatrix} \\ &amp;= \begin {bmatrix} 4 &amp; 6 &amp; -2 \\ 2 &amp;
+  14 &amp; 6 \end {bmatrix} - \begin {bmatrix} -6 &amp; 3 &amp; 0 \\
+  15 &amp; 9 &amp; 24 \end {bmatrix} \end{align*}</span></p>
+  <!-- l. 184 -->
+
+  <p class='noindent'>From here we could subtract two matrices.
+  Therefore, <span class='mathjax-inline'>\(2A - 3B\)</span> can be
+  represented as following. <span class='mathjax-block'>\[ 2A - 3B =
+  \begin {bmatrix} 10 &amp; 3 &amp; -2 \\ -13 &amp; 5 &amp; -18 \end
+  {bmatrix} \]</span></p>
+</div><!-- l. 195 -->
+
+<p class='noindent'>With the scalar multiplication in mind, we can
+expand the application of foundational concepts here with
+matrices.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-8'>
+  <a id='x1-1021x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 207 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.8</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 199 -->
+
+    <p class='noindent'>For <span class='mathjax-inline'>\(A =
+    [a_{ij}]_{m \times n}\)</span>, <span class='mathjax-inline'>\(B
+    = [b_{ij}]_{m \times n}\)</span>, and <span class=
+    'mathjax-inline'>\(\lambda _1, \lambda _2 \in \mathbb
+    {C}\)</span>, the following properties hold.</p>
+
+    <dl class='enumerate-enumitem'>
+      <dt class='enumerate-enumitem'>1.</dt>
+
+      <dd class='enumerate-enumitem'><span class=
+      'mathjax-inline'>\(\lambda _1 (A \pm B) = \lambda _1 A \pm
+      \lambda _1 B\)</span></dd>
+
+      <dt class='enumerate-enumitem'>2.</dt>
+
+      <dd class='enumerate-enumitem'><span class=
+      'mathjax-inline'>\((\lambda _1 \pm \lambda _2) A = \lambda _1 A
+      \pm \lambda _2 A\)</span></dd>
+
+      <dt class='enumerate-enumitem'>3.</dt>
+
+      <dd class='enumerate-enumitem'><span class=
+      'mathjax-inline'>\(\lambda _1 (\lambda _2 A) = (\lambda _1
+      \lambda _2) A\)</span></dd>
+    </dl>
+  </div>
+</div><!-- l. 209 -->
+
+<p class='noindent'>Let’s prove them! Below is the proof for the
+first property.</p>
+
+<div class='mdframed' id='mdframed-5'>
+  <!-- l. 212 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 212 -->
+
+  <p class='noindent'>Consider the following equation. <span class=
+  'mathjax-block'>\[ \lambda _1 (A \pm B) = \lambda _1 ([a_{ij}] \pm
+  [b_{ij}]) = \lambda _1 ([a_{ij} \pm b_{ij}]) \]</span> Note that
+  individual elements are multiplied in scalar multiplication.
+  Moreover, because <span class='mathjax-inline'>\(\lambda _1 (a_{ij}
+  \pm b_{ij}) = \lambda _1 a_{ij} \pm \lambda _1 b_{ij}\)</span>, the
+  following equation holds. <span class='mathjax-block'>\[ \lambda _1
+  ([a_{ij} \pm b_{ij}]) = [\lambda _1 a_{ij} \pm \lambda _1 b_{ij}] =
+  [\lambda _1 a_{ij}] \pm [\lambda _1 b_{ij}] = \lambda _1 A \pm
+  \lambda _1 B \]</span> Therefore, <span class=
+  'mathjax-inline'>\(\lambda _1 (A \pm B) = \lambda _1 A \pm \lambda
+  _1 B\)</span>.</p>
+</div><!-- l. 230 -->
+
+<p class='noindent'>Now let’s prove the second property.</p>
+
+<div class='mdframed' id='mdframed-6'>
+  <!-- l. 233 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 233 -->
+
+  <p class='noindent'>By definition of scalar multiplication,
+  <span class='mathjax-inline'>\((\lambda _1 \pm \lambda _2)
+  A\)</span> can be represented as the following. <span class=
+  'mathjax-block'>\[ (\lambda _1 \pm \lambda _2) A = (\lambda _1 \pm
+  \lambda _2) [a_{ij}] = [(\lambda _1 \pm \lambda _2) a_{ij}]
+  \]</span> Using the distributive property, the following equation
+  holds. <span class='mathjax-block'>\[ [(\lambda _1 \pm \lambda _2)
+  a_{ij}] = [\lambda _1 a_{ij} \pm \lambda _2 a_{ij}] = [\lambda _1
+  a_{ij}] \pm [\lambda _2 a_{ij}] = \lambda _1 A \pm \lambda _2 A
+  \]</span> Thus, the equation <span class=
+  'mathjax-inline'>\((\lambda _1 \pm \lambda _2) A = \lambda _1 A \pm
+  \lambda _2 A\)</span> holds.</p>
+</div><!-- l. 251 -->
+
+<p class='noindent'>Finally, here is the proof to the third
+property.</p>
+
+<div class='mdframed' id='mdframed-7'>
+  <!-- l. 254 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 254 -->
+
+  <p class='noindent'>Consider the following equation. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} \lambda _1 (\lambda _2
+  [a_{ij}]) &amp;= \lambda _1 [\lambda _2 a_{ij}] = [\lambda _1
+  \lambda _2 a_{ij}] = [(\lambda _1 \lambda _2) a_{ij}] \\ &amp;=
+  (\lambda _1 \lambda _2) [a_{ij}] = (\lambda _1 \lambda _2) A
+  \end{align*}</span></p><!-- l. 263 -->
+
+  <p class='noindent'>Therefore, the property holds.</p>
+</div><!-- l. 266 -->
+
+<p class='noindent'>We have discussed fundamental properties so far.
+In the next section of the note, let’s discuss what matrix
+multiplication with intuitions and computations.</p>

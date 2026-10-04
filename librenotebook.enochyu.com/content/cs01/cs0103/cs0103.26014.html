@@ -1,0 +1,230 @@
+<h3 class='sectionHead' id='improving-large-language-models'>
+<span class='titlemark'>0.1</span> <a id='x1-10000.1'></a>Improving
+Large Language Models</h3><!-- l. 7 -->
+
+<p class='noindent'>Up until now, we have discussed fundamental terms
+and very high-level overview of pre-training phase. This section
+discusses very high-level introduction to how a raw autocomplete
+model transitions to a model that we use in daily life.</p>
+
+<h4 class='subsectionHead' id='introduction-to-posttraining'>
+<span class='titlemark'>0.1.1</span> <a id=
+'x1-20000.1.1'></a>Introduction to Post-Training</h4><!-- l. 14 -->
+
+<p class='noindent'>One of the most important phase of training that
+makes the chatbots chatbots are post-training. When a base model is
+developed through pre-training phase, it is simply an autocomplete
+model. Whereas, an aligned model is capable of generating
+conversation-like responses. For instance, if the input is “Why are
+dogs so cute?”, the base model will generate responses like “What are
+cats doing?”, which does not feel like a conversation. Whereas, an
+aligned model will generate responses like “People find dogs cute
+because humans developed a biological phenomena called baby
+schema.”</p><!-- l. 25 -->
+
+<p class='noindent'>The post-training process contains two primary
+phases: Supervised Fine-Tuning (SFT) and Reinforcement Learning from
+Human Feedback (RLHF) On the high-level, SFT is the process where
+human provides prompt and response samples. The model then learns
+from the samples to provide a chatbot-like experience. After the
+phase, the model can be reinforced through RLHF. There are multiple
+ways of doing this, but a common method is making another “reward
+model” to judge and provide feedback on a model’s response. Instead
+of a human manually judging and rewarding every responses, reward
+model will predict how a human expert will reward (usually an integer
+from 0 to 5) a response to more effectively align the model. The
+specific process is quite out of scope for this note, and will be
+introduced in the following notes.</p><!-- l. 39 -->
+
+<p class='noindent'>Most of the “learning” happens in pre-training.
+However, alignment is necessary to improve HHH, or helpfulness,
+honesty, and harmlessness. And yes, SFT and RLHF are popular, but
+they are not the only methods. Few other examples contain <a href=
+'https://arxiv.org/abs/2305.11206'>LIMA</a>, <a href=
+'https://arxiv.org/abs/2212.08073'>RLAIF</a>, <a href=
+'https://arxiv.org/abs/2305.18290'>DPO</a>, <a href=
+'https://arxiv.org/abs/1707.06347'>PPO</a>, and <a href=
+'https://arxiv.org/abs/2312.01552'>URIAL</a>.</p>
+
+<h4 class='subsectionHead' id='reasoning'><span class=
+'titlemark'>0.1.2</span> <a id='x1-30000.1.2'></a>Reasoning</h4>
+<!-- l. 51 -->
+
+<p class='noindent'>As you probably have noticed, LLMs are
+predictions models. In other words, they do not “reason” like how us
+humans reason. Language models will predict the next likely token
+that will provide a plausible response to a reasoning task. One way
+to test if the models can actually reason is by using benchmarks. One
+of the foundational datasets, which is considered outdated now, is
+<a href='https://huggingface.co/datasets/openai/gsm8k'>GSM8K</a> by
+OpenAI. This dataset is used to evaluate if a model can reason grade
+school level math. The modern, highly challenging, benchmark includes
+<a href='https://epoch.ai/frontiermath'>FrontierMath</a>. As you have
+noticed, benchmarking and reasoning is a giant hurdle for many LLMs.
+Modern engineers classify reasoning as another section in
+post-training to improve a model’s logic.</p><!-- l. 66 -->
+
+<p class='noindent'>One of the most effective way to improve LLM
+reasoning is to use <span class='pplb8t-x-x-109'>prompting
+strategies</span>.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-1'>
+  <div class='tcolorbox-title'>
+    <!-- l. 77 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.1</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 70 -->
+
+    <p class='noindent'>One technique is <span class=
+    'pplb8t-x-x-109'>K-shot prompting</span> where you provide
+    <span class='mathjax-inline'>\(k\)</span> examples for the model
+    to follow a template. Zero-shot prompting will be when
+    <span class='mathjax-inline'>\(k = 0\)</span>, where you provide
+    no examples, but instructions. The second prompting strategy is
+    <a href='https://arxiv.org/abs/2201.11903'><span class=
+    'pplb8t-x-x-109'>Chain-of-Thought (CoT) prompting</span></a>.
+    This strategy explicitly tells a model to break a complex
+    reasoning tasks into intermediate steps.</p>
+  </div>
+</div><!-- l. 79 -->
+
+<p class='noindent'>Let’s take a look at an example on how K-shot
+prompting and CoT prompting work together.</p>
+
+<div class='tcolorbox basicboxstyle' id='tcolobox-2'>
+  <div class='tcolorbox-title'></div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 83 -->
+
+    <p class='noindent'><span class=
+    'pplb8t-x-x-109'>Instruction:</span></p><!-- l. 86 -->
+
+    <p class='noindent'>Consider the following examples to provide a
+    response to the final equation. Provide a step by step
+    explanation for your answer as demonstrated in the samples.</p>
+    <!-- l. 91 -->
+
+    <p class='noindent'><span class='pplb8t-x-x-109'>Example
+    1:</span></p><!-- l. 94 -->
+
+    <p class='noindent'>Q: Henry the dog loves tomatoes. He
+    originally had <span class='mathjax-inline'>\(5\)</span>
+    tomatoes. Henry ate <span class='mathjax-inline'>\(3\)</span> of
+    them, and sneaked into the owner’s yard to secretly bring
+    <span class='mathjax-inline'>\(4\)</span> more. How many tomatoes
+    does Henry have now?</p><!-- l. 99 -->
+
+    <p class='noindent'>A: Henry started with <span class=
+    'mathjax-inline'>\(5\)</span>, but ate <span class=
+    'mathjax-inline'>\(3\)</span>. Therefore, he has <span class=
+    'mathjax-inline'>\(5 - 3 = 2\)</span> tomatoes left. Because he
+    brought 4 more from the owner’s yard, he now has <span class=
+    'mathjax-inline'>\(2 + 4 = 6\)</span> tomatoes. Henry has
+    <span class='mathjax-inline'>\(6\)</span> tomatoes now.</p>
+    <!-- l. 105 -->
+
+    <p class='noindent'><span class='pplb8t-x-x-109'>Example
+    2:</span> Q: Bob the yak loves burgers. One day, his lizard
+    friend Sofia told him that she can bring three boxes of burgers
+    than contain 2 burgers each. Bob instantly pleaded Sofia, and he
+    received the boxes. Out of hunger, he ate three burgers. How many
+    burgers does he have now?</p><!-- l. 114 -->
+
+    <p class='noindent'>A: It is assumed that Bob does not have any
+    burgers before the interaction with Sofia. With Sofia’s virtue,
+    Bob now has <span class='mathjax-inline'>\(2 \cdot 3 = 6\)</span>
+    burgers. Because he ate three burgers from six in total, Bob now
+    has <span class='mathjax-inline'>\(6 - 3 = 3\)</span> burgers
+    left.</p><!-- l. 120 -->
+
+    <p class='noindent'><span class=
+    'pplb8t-x-x-109'>Question:</span></p><!-- l. 123 -->
+
+    <p class='noindent'>Charlotte the cat has five close friends. She
+    wishes to split her <span class='mathjax-inline'>\(120 \text {
+    kg}\)</span> tuna equally with her friends. After the allocation,
+    Charlotte ate <span class='mathjax-inline'>\(4 \text {
+    kg}\)</span> of tuna. How much tuna in kg does Charlotte have
+    left?</p>
+  </div>
+</div>
+
+<div class='tcolorbox outputboxstyle' id='tcolobox-3'>
+  <div class='tcolorbox-title'>
+    <!-- l. 135 -->
+
+    <p class='noindent'>Output&nbsp;0.1.2</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 130 -->
+
+    <p class='noindent'>Charlotte initially has <span class=
+    'mathjax-inline'>\(120 \text { kg}\)</span> of tuna. Because she
+    split it with her friends, she has <span class=
+    'mathjax-inline'>\(\frac {120}{5 + 1} = 20 \text { kg}\)</span>
+    of tuna after the allocation. Since Charlotte ate <span class=
+    'mathjax-inline'>\(4 \text { kg}\)</span> of tuna from
+    <span class='mathjax-inline'>\(20 \text { kg}\)</span>, she now
+    has <span class='mathjax-inline'>\(20 - 4 = 16 \text {
+    kg}\)</span> of tuna.</p>
+  </div>
+</div><!-- l. 137 -->
+
+<p class='noindent'>As demonstrated, CoT has the potential to
+increase reasoning of LLMs. However, it is important to note that
+although performance may significantly ameliorate, numerous potential
+consequences follow. For instance, because the model includes the
+intermediate steps, the token generation considerably increases,
+which will increase the cost. Moreover, when model starts to
+hallucinate in the middle of the reasoning, the entire output from
+the hallucination will no longer be useful. Furthermore, models
+sometimes “lie”. What I mean to lie is that some models tend to
+provide a “plausible CoT” without actually providing one. This is
+more related to AI safety, and let’s save that for final notes.</p>
+<!-- l. 150 -->
+
+<p class='noindent'>Another technique that could improve reasoning
+and performance is <span class=
+'pplb8t-x-x-109'>self-consistency</span>.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-4'>
+  <div class='tcolorbox-title'>
+    <!-- l. 157 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.3</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 154 -->
+
+    <p class='noindent'><span class=
+    'pplb8t-x-x-109'>Self-consistency</span> is a technique where a
+    model generates numerous possible outputs to an input, and
+    aggregate the outputs for the final output.</p>
+  </div>
+</div><!-- l. 159 -->
+
+<p class='noindent'>The primary motivation of the technique is that
+just as mathematical problems have numerous paths to an answer, we
+could derive an “accurate” output with different reasoning. However,
+like any other techniques, there are limitations. One somewhat
+self-evident caveat is that this requires much greater computation.
+Because the technique requires multiple reasoning and aggregation for
+the final, the amount of computation drastically increase. One other
+issue is that this self-consistency only works on closed-solution
+prompts. I mean different people and different outputs can have
+differing opinions. Although this technique is not fully outdated,
+modern ML engineers use more effective and efficient techniques.</p>
+<!-- l. 171 -->
+
+<p class='noindent'>The field of reinforcement learning is one of the
+most rapidly developed field in ML. For instance, unlike RLHF, the
+emerging method Reinforcement Learning with Verifiable Rewards (RLVR)
+allows models to align themselves with minimum human contributions.
+In the next note, we will discuss about neural network from
+scratch!</p>

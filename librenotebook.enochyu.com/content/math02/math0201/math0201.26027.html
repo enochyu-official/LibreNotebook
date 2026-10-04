@@ -1,0 +1,1459 @@
+<h3 class='sectionHead' id='subspaces'><span class=
+'titlemark'>0.1</span> <a id='x1-10000.1'></a>Subspaces</h3>
+<!-- l. 7 -->
+
+<p class='noindent'>In the previous section, we discussed that all
+ten axioms must be satisfied for a set to be a vector space. However,
+testing and proving that a set satisfies all ten axioms, to be
+honest, is quite tedious. The good news is that we only need to prove
+three conditions to show that a set is a vector space thanks to
+<span class='pplb8t-x-x-109'>subspaces</span>!</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-1'>
+  <div class='tcolorbox-title'>
+    <!-- l. 17 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.1</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 14 -->
+
+    <p class='noindent'>A <span class=
+    'pplb8t-x-x-109'>subspace</span> of a vector space <span class=
+    'mathjax-inline'>\(V\)</span> is a subset of <span class=
+    'mathjax-inline'>\(V\)</span> that uses the same definition of
+    vector addition and scalar multiplication from <span class=
+    'mathjax-inline'>\(V\)</span>.</p>
+  </div>
+</div><!-- l. 19 -->
+
+<p class='noindent'>Now for a set to be a subspace, it must satisfy
+the following conditions.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-2'>
+  <a id='x1-1005x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 33 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.2</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 23 -->
+
+    <p class='noindent'>A non-empty subset <span class=
+    'mathjax-inline'>\(S\)</span> of a vector space <span class=
+    'mathjax-inline'>\(V\)</span> is a subspace of <span class=
+    'mathjax-inline'>\(V\)</span> if and only if the following
+    conditions are satisfied.</p>
+
+    <dl class='enumerate-enumitem'>
+      <dt class='enumerate-enumitem'>1.</dt>
+
+      <dd class='enumerate-enumitem'><span class=
+      'pplb8t-x-x-109'>Closure for Addition:</span> <span class=
+      'mathjax-inline'>\(\forall u, v \in S, u + v \in
+      S\)</span></dd>
+
+      <dt class='enumerate-enumitem'>2.</dt>
+
+      <dd class='enumerate-enumitem'><span class=
+      'pplb8t-x-x-109'>Closure for Scalar Multiplication:</span>
+      <span class='mathjax-inline'>\(\forall u \in S\)</span> and
+      scalars <span class='mathjax-inline'>\(\alpha \)</span>,
+      <span class='mathjax-inline'>\(\alpha u \in S\)</span></dd>
+    </dl>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-1'>
+  <!-- l. 35 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 35 -->
+
+  <p class='noindent'>Notice that it suffices to show that
+  <span class='mathjax-inline'>\(S\)</span> is a vector space, or
+  adhere to the then axioms for a vector space. Moreover, A1 and S1
+  are assumed to be true by the initial condition.</p><!-- l. 39 -->
+
+  <p class='noindent'>By the second condition, <span class=
+  'mathjax-inline'>\(\mathbf {0} = 0 u \in S\)</span> and
+  <span class='mathjax-inline'>\(-u = (-1) u \in S\)</span>.
+  Therefore, A4 and A5 are satisfied. For A2 and A3, <span class=
+  'mathjax-inline'>\(u, v, w \in V\)</span> is true for <span class=
+  'mathjax-inline'>\(u, v, w \in S\)</span> by definition. Moreover,
+  because <span class='mathjax-inline'>\(V\)</span> is a vector
+  space, A2 and A3 hold. Similarly, because <span class=
+  'mathjax-inline'>\(V\)</span> is a vector space that satisfies S1,
+  S2, S3, S4, and S5, its subset <span class=
+  'mathjax-inline'>\(S\)</span> also satisfies the conditions.
+  Therefore, if the two closure conditions are met and <span class=
+  'mathjax-inline'>\(S\)</span> is a subset of <span class=
+  'mathjax-inline'>\(V\)</span>, then <span class=
+  'mathjax-inline'>\(S\)</span> is a subspace of <span class=
+  'mathjax-inline'>\(V\)</span>.</p>
+</div><!-- l. 49 -->
+
+<p class='noindent'>Now the good thing is that subspaces are vector
+spaces, so it suffices to show that a set is a subspace of a known
+vector space with the two conditions shown above to show that it is a
+vector space. Let’s take a look at an example.</p>
+
+<div class='tcolorbox probstyle' id='tcolobox-3'>
+  <div class='tcolorbox-title'>
+    <!-- l. 57 -->
+
+    <p class='noindent'>Exercise&nbsp;0.1.3</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 55 -->
+
+    <p class='noindent'>Determine whether <span class=
+    'mathjax-inline'>\(S = \{ (x, y, z) \in \mathbb {R}^3 \mid y = 0
+    \}\)</span> is a vector space.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-2'>
+  <!-- l. 59 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 59 -->
+
+  <p class='noindent'>Notice that <span class=
+  'mathjax-inline'>\(S\)</span> is a non-empty subset of <span class=
+  'mathjax-inline'>\(\mathbb {R}^3\)</span>, which is a known vector
+  space. Therefore, it suffices to show that <span class=
+  'mathjax-inline'>\(u = (x_1, 0, z_1), v = (x_2, 0, z_2) \in
+  S\)</span> and scalars <span class='mathjax-inline'>\(\alpha
+  \)</span> satisfy the closure conditions for addition and scalar
+  multiplication.</p><!-- l. 64 -->
+
+  <p class='noindent'>Notice that <span class='mathjax-inline'>\(u +
+  v = (x_1 + x_2, 0, z_1 + z_2) \in S\)</span>. Moreover,
+  <span class='mathjax-inline'>\(\alpha u = (\alpha x_1, 0, \alpha
+  z_1) \in S\)</span>. Therefore, <span class=
+  'mathjax-inline'>\(S\)</span> is a vector space, more specifically
+  a subset of <span class='mathjax-inline'>\(\mathbb
+  {R}^3\)</span>.</p>
+</div><!-- l. 69 -->
+
+<p class='noindent'>As you can see from the solution above, subspaces
+really made our lives easier. However, to make it even better, we can
+boil it down to a single condition.</p>
+
+<div class='tcolorbox corstyle' id='tcolobox-4'>
+  <a id='x1-1008x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 81 -->
+
+    <p class='noindent'>Corollary&nbsp;0.1.4</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 74 -->
+
+    <p class='noindent'>For scalars <span class=
+    'mathjax-inline'>\(\alpha \)</span> and <span class=
+    'mathjax-inline'>\(\beta \)</span> and <span class=
+    'mathjax-inline'>\(u, v \in S\)</span> where <span class=
+    'mathjax-inline'>\(S\)</span> is a non-empty subset of a vector
+    space <span class='mathjax-inline'>\(V\)</span> that has the same
+    operations for vector addition and scalar multiplication,
+    <span class='mathjax-inline'>\(S\)</span> is a subspace if and
+    only if the following condition is satisfied. <span class=
+    'mathjax-block'>\[ \alpha u + \beta v \in S \]</span></p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-3'>
+  <!-- l. 83 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 83 -->
+
+  <p class='noindent'>First and foremost, the first half of the
+  statement can be proven. If <span class='mathjax-inline'>\(\alpha u
+  + \beta v \in S\)</span>, then <span class='mathjax-inline'>\(u + v
+  \in S\)</span> where <span class='mathjax-inline'>\(\alpha = \beta
+  = 1\)</span> since <span class='mathjax-inline'>\(\alpha \)</span>
+  and <span class='mathjax-inline'>\(\beta \)</span> are all scalars.
+  Similarly, <span class='mathjax-inline'>\(\alpha u + \beta v \in
+  S\)</span> implies that <span class='mathjax-inline'>\(\alpha u \in
+  S\)</span> where <span class='mathjax-inline'>\(\beta = 0\)</span>.
+  By Theorem <a href='#x1-1005x0.1'>0.1.2
+  <!-- tex4ht:ref: theo:Conditions of a Subspace  --></a>,
+  <span class='mathjax-inline'>\(S\)</span> is a subspace of
+  <span class='mathjax-inline'>\(V\)</span>.</p><!-- l. 90 -->
+
+  <p class='noindent'>Continuing with the second half of the
+  statement, if <span class='mathjax-inline'>\(S\)</span> is a subset
+  of <span class='mathjax-inline'>\(V\)</span>, then <span class=
+  'mathjax-inline'>\(\alpha u, \beta v \in S\)</span>. Therefore,
+  <span class='mathjax-inline'>\(\alpha u + \beta v \in S\)</span>,
+  proving the corollary.</p>
+</div><!-- l. 95 -->
+
+<p class='noindent'>More examples on this can be found in the
+practice problems below. Now let’s get into the topics of
+<span class='pplb8t-x-x-109'>linear combination</span> and the
+<span class='pplb8t-x-x-109'>span</span> of a set.</p>
+
+<h4 class='subsectionHead' id='linear-combinations-and-span'>
+<span class='titlemark'>0.1.1</span> <a id='x1-20000.1.1'></a>Linear
+Combinations and Span</h4><!-- l. 101 -->
+
+<p class='noindent'>As always, let’s start with definitions.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-5'>
+  <div class='tcolorbox-title'>
+    <!-- l. 110 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.5</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 104 -->
+
+    <p class='noindent'>For scalars <span class=
+    'mathjax-inline'>\(\alpha _i\)</span> and <span class=
+    'mathjax-inline'>\(v_i\)</span> in a vector space <span class=
+    'mathjax-inline'>\(V\)</span>, the vector <span class=
+    'mathjax-inline'>\(u\)</span> defined as the following is a
+    <span class='pplb8t-x-x-109'>linear combination of the
+    vectors</span> <span class='mathjax-inline'>\(v_i\)</span>.
+    <span class='mathjax-block'>\[ u = \sum _{k = 1}^n \alpha _k v_k
+    \]</span></p>
+  </div>
+</div><!-- l. 112 -->
+
+<p class='noindent'>For instance, <span class='mathjax-inline'>\([1,
+2, 3]\)</span> is a linear combination of <span class=
+'mathjax-inline'>\([2, -2, 1]\)</span>, <span class=
+'mathjax-inline'>\([1, 0, 2]\)</span>, and <span class=
+'mathjax-inline'>\([1, -1, 1]\)</span> as it can be represented as
+the following. <span class='mathjax-block'>\[ \begin {bmatrix} 1
+&amp; 2 &amp; 3 \end {bmatrix} = \begin {bmatrix} 2 &amp; -2 &amp; 1
+\end {bmatrix} + 3\begin {bmatrix} 1 &amp; 0 &amp; 2 \end {bmatrix} -
+4\begin {bmatrix} 1 &amp; -1 &amp; 1 \end {bmatrix} \]</span> Now we
+have a special term for the collection of such vectors.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-6'>
+  <div class='tcolorbox-title'>
+    <!-- l. 143 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.6</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 135 -->
+
+    <p class='noindent'>The <span class='pplb8t-x-x-109'>span of the
+    set of vectors</span> <span class='mathjax-inline'>\(\{ v_1,
+    \ldots v_n \}\)</span> is the set of all possible linear
+    combinations of the vectors. <span class='mathjax-block'>\[ \Span
+    \{v_1, \ldots , v_n\} = \left \{ \sum _{k = 1}^n \alpha _k v_k \;
+    \middle |\; \alpha _k \in \mathbb {R} \right \} \]</span></p>
+  </div>
+</div><!-- l. 145 -->
+
+<p class='noindent'>With the definition, we could notice an important
+theorem.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-7'>
+  <a id='x1-2004x0.1.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 150 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.7</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 148 -->
+
+    <p class='noindent'>For a vector space <span class=
+    'mathjax-inline'>\(V\)</span> and its subset <span class=
+    'mathjax-inline'>\(S = \{ v_1, \ldots , v_n \}\)</span>,
+    <span class='mathjax-inline'>\(\Span (S)\)</span> is a subspace
+    of <span class='mathjax-inline'>\(V\)</span>.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-4'>
+  <!-- l. 152 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 152 -->
+
+  <p class='noindent'>First and foremost, notice that <span class=
+  'mathjax-inline'>\(\mathbf {0} \in \Span (S)\)</span> since all the
+  scalars in linear combination can equal zero. Moreover, let
+  <span class='mathjax-inline'>\(u = \sum _{k = 1}^n \alpha _k
+  v_k\)</span> and <span class='mathjax-inline'>\(v = \sum _{k = 1}^n
+  \alpha _k v_k\)</span> for any scalars <span class=
+  'mathjax-inline'>\(\alpha _k\)</span> and <span class=
+  'mathjax-inline'>\(\beta _k\)</span>. By definition, <span class=
+  'mathjax-inline'>\(\alpha u + \beta v \in \Span (S)\)</span> is
+  true. Therefore, by Corollary <a href='#x1-1008x0.1'>0.1.4
+  <!-- tex4ht:ref: cor:The Condition for a Subspace  --></a>,
+  <span class='mathjax-inline'>\(\Span (S)\)</span> is a subspace of
+  <span class='mathjax-inline'>\(V\)</span>.</p>
+</div><!-- l. 161 -->
+
+<p class='noindent'>Side note here is that there are spans of
+infinite sets and they adhere to the theorem above. Continuing with
+the definition of the span of a set and its relation with subspace,
+we can show the two following theorems.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-8'>
+  <a id='x1-2008x0.1.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 173 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.8</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 167 -->
+
+    <p class='noindent'>Consider the following statements for a
+    vector space <span class='mathjax-inline'>\(V\)</span> and its
+    subspace <span class='mathjax-inline'>\(W\)</span> and non-empty
+    subset <span class='mathjax-inline'>\(S\)</span> such that
+    <span class='mathjax-inline'>\(S \subset W\)</span>.</p>
+
+    <dl class='enumerate-enumitem'>
+      <dt class='enumerate-enumitem'>1.</dt>
+
+      <dd class='enumerate-enumitem'><span class=
+      'mathjax-inline'>\(\Span (S) \subset W\)</span></dd>
+
+      <dt class='enumerate-enumitem'>2.</dt>
+
+      <dd class='enumerate-enumitem'>The intersection of all
+      subspaces containing <span class='mathjax-inline'>\(S\)</span>
+      is <span class='mathjax-inline'>\(\Span (S)\)</span>.</dd>
+    </dl>
+  </div>
+</div><!-- l. 175 -->
+
+<p class='noindent'>Let’s start by proving the first statement.</p>
+
+<div class='mdframed' id='mdframed-5'>
+  <!-- l. 178 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 178 -->
+
+  <p class='noindent'>Let <span class='mathjax-inline'>\(u = \sum _{k
+  = 1}^n \alpha _k v_k \in \Span (S)\)</span>. By definition,
+  <span class='mathjax-inline'>\(v_k \in W\)</span> for integer
+  <span class='mathjax-inline'>\(k \in [1, n]\)</span>. Moreover,
+  <span class='mathjax-inline'>\(u \in W\)</span> by Corollary
+  <a href='#x1-1008x0.1'>0.1.4
+  <!-- tex4ht:ref: cor:The Condition for a Subspace  --></a> and
+  <span class='mathjax-inline'>\(\Span (S) \subset W\)</span>.</p>
+</div><!-- l. 184 -->
+
+<p class='noindent'>Below is the proof for the second one.</p>
+
+<div class='mdframed' id='mdframed-6'>
+  <!-- l. 187 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 187 -->
+
+  <p class='noindent'>First and foremost, notice that by the previous
+  statement, it was shown that <span class='mathjax-inline'>\(\Span
+  (S)\)</span> is included in all subspaces that contains
+  <span class='mathjax-inline'>\(S\)</span>. Let <span class=
+  'mathjax-inline'>\(A\)</span> be the intersection of all subspaces
+  that contain <span class='mathjax-inline'>\(S\)</span>. Therefore,
+  <span class='mathjax-inline'>\(\Span (S) \subset A\)</span>.
+  Moreover, by Theorem <a href='#x1-2004x0.1.1'>0.1.7 
+  <!-- tex4ht:ref: theo:Span and Subspace I  --></a> <span class=
+  'mathjax-inline'>\(\Span (S)\)</span> is a subspace of <span class=
+  'mathjax-inline'>\(V\)</span> that contains <span class=
+  'mathjax-inline'>\(S\)</span>. Thus, <span class=
+  'mathjax-inline'>\(A \subset \Span (S)\)</span>. Because
+  <span class='mathjax-inline'>\(\Span (S) \subset A\)</span> and
+  <span class='mathjax-inline'>\(A \subset \Span (S)\)</span>,
+  <span class='mathjax-inline'>\(\Span (S) = A\)</span>.</p>
+</div><!-- l. 196 -->
+
+<p class='noindent'>Next, let’s conclude our discussion on linear
+combination and span of a set of vectors by proving the following
+statements.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-9'>
+  <a id='x1-2014x0.1.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 217 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.9</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 200 -->
+
+    <p class='noindent'>For a vector space <span class=
+    'mathjax-inline'>\(V\)</span> and its subsets <span class=
+    'mathjax-inline'>\(S, T \subset V\)</span>, consider the
+    following statements.</p>
+
+    <dl class='enumerate-enumitem'>
+      <dt class='enumerate-enumitem'>1.</dt>
+
+      <dd class='enumerate-enumitem'>If <span class=
+      'mathjax-inline'>\(T \subset S\)</span>, then <span class=
+      'mathjax-inline'>\(\Span (T) \subset \Span (S)\)</span>.</dd>
+
+      <dt class='enumerate-enumitem'>2.</dt>
+
+      <dd class='enumerate-enumitem'><span class=
+      'mathjax-inline'>\(\Span (\Span (S)) = \Span (S)\)</span>.</dd>
+
+      <dt class='enumerate-enumitem'>3.</dt>
+
+      <dd class='enumerate-enumitem'>If <span class=
+      'mathjax-inline'>\(T \subset \Span (S)\)</span>, then
+      <span class='mathjax-inline'>\(\Span (T) \subset \Span
+      (S)\)</span>.</dd>
+
+      <dt class='enumerate-enumitem'>4.</dt>
+
+      <dd class='enumerate-enumitem'>For nonzero vectors <span class=
+      'mathjax-inline'>\(v_1, \ldots , v_n \in V\)</span>, scalar
+      <span class='mathjax-inline'>\(\lambda \in \mathbb
+      {R}\)</span>, and <span class='mathjax-inline'>\(1 \leq j, k
+      \leq n\)</span> such that <span class=
+      'mathjax-inline'>\(\lambda \neq 0\)</span> and <span class=
+      'mathjax-inline'>\(j \neq k\)</span>, the following equations
+      hold. <span class='mathjax-env mathjax-align*'>\begin{align*}
+      \Span \{ v_1, \ldots , v_k, \ldots , v_n \} &amp;= \Span \{
+      v_1, \ldots , v_k + \lambda v_j, \ldots , v_n \} \\ \Span \{
+      v_1, \ldots , v_k, \ldots , v_n \} &amp;= \Span \{ v_1, \ldots
+      , \lambda v_k, \ldots , v_n \} \end{align*}</span></dd>
+    </dl>
+  </div>
+</div><!-- l. 219 -->
+
+<p class='noindent'>There’s a lot to prove, but let’s do them one by
+one starting with the first one.</p>
+
+<div class='mdframed' id='mdframed-7'>
+  <!-- l. 223 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 223 -->
+
+  <p class='noindent'>Notice that since all <span class=
+  'mathjax-inline'>\(t_k \in T\)</span> satisfy <span class=
+  'mathjax-inline'>\(t_k \in S\)</span>, all <span class=
+  'mathjax-inline'>\(\sum _{k=1}^n c_k t_k \in \Span (T)\)</span> for
+  some appropriate <span class='mathjax-inline'>\(n\)</span> and
+  constant <span class='mathjax-inline'>\(c_k\)</span> also satisfy
+  <span class='mathjax-inline'>\(\sum _{k=1}^n c_k t_k \in \Span
+  (S)\)</span>. Therefore, <span class='mathjax-inline'>\(\Span (T)
+  \subset \Span (S)\)</span>.</p>
+</div><!-- l. 229 -->
+
+<p class='noindent'>Below is the proof for the second statement,
+which is a corollary of the first statement.</p>
+
+<div class='mdframed' id='mdframed-8'>
+  <!-- l. 233 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 233 -->
+
+  <p class='noindent'>First and foremost, notice that <span class=
+  'mathjax-inline'>\(S \subset \Span (S)\)</span>. By the first
+  statement, <span class='mathjax-inline'>\(\Span (S) \subset \Span
+  (\Span (S))\)</span> holds. Moreover, notice that because
+  <span class='mathjax-inline'>\(\Span (S)\)</span> contains all
+  linear combinations of <span class='mathjax-inline'>\(S\)</span>,
+  making more linear combinations of the linear combinations of
+  <span class='mathjax-inline'>\(S\)</span> will not add more
+  elements. Therefore, <span class='mathjax-inline'>\(\Span (\Span
+  (S)) \subset \Span (S)\)</span> and <span class=
+  'mathjax-inline'>\(\Span (\Span (S)) = \Span (S)\)</span>.</p>
+</div><!-- l. 241 -->
+
+<p class='noindent'>An interesting fact about this property is that
+this applies for any subset <span class=
+'mathjax-inline'>\(S\)</span>, finite or infinite. This is because
+even if <span class='mathjax-inline'>\(\Span (S)\)</span> is
+infinite, it only uses finite number of vectors to create each linear
+combination. Continuing, let’s prove the third statement.</p>
+
+<div class='mdframed' id='mdframed-9'>
+  <!-- l. 247 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 247 -->
+
+  <p class='noindent'>Notice that by the first statement,
+  <span class='mathjax-inline'>\(\Span (T) \subset \Span (\Span
+  (S))\)</span>. Continuing with the second statement shows that
+  <span class='mathjax-inline'>\(\Span (T) \subset \Span
+  (S)\)</span>.</p>
+</div><!-- l. 252 -->
+
+<p class='noindent'>Finally, here is the proof for the last
+statement.</p>
+
+<div class='mdframed' id='mdframed-10'>
+  <!-- l. 255 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 255 -->
+
+  <p class='noindent'>First, it is self-evident that <span class=
+  'mathjax-inline'>\(\Span \{ v_1, \ldots , v_k + \lambda v_j, \ldots
+  , v_n \} \subset \Span \{ v_1, \ldots , v_k, \ldots ,
+  v_n \}\)</span> since all linear combination of the set of vectors
+  on the left can be represented as the linear combination of the set
+  of vectors on the right. Moreover notice that <span class=
+  'mathjax-inline'>\(v_k\)</span> can be represented as <span class=
+  'mathjax-inline'>\(v_k = (v_k + \lambda v_j) - \lambda v_j\)</span>
+  even if <span class='mathjax-inline'>\(k = j\)</span>. Therefore,
+  <span class='mathjax-inline'>\(v_k \in \Span \{ v_1, \ldots , v_k +
+  \lambda v_j, \ldots , v_n \}\)</span> and <span class=
+  'mathjax-inline'>\(\Span \{ v_1, \ldots , v_k, \ldots , v_n \}
+  \subset \Span \{ v_1, \ldots , v_k + \lambda v_j, \ldots
+  , v_n \}\)</span> by statement 3. Therefore, the equations in the
+  statement hold.</p>
+</div><!-- l. 267 -->
+
+<p class='noindent'>With the ideas of linear combinations and the
+span of a set of vectors in mind, let’s discuss about linear
+independence.</p>
+
+<h4 class='subsectionHead' id='linear-independence'><span class=
+'titlemark'>0.1.2</span> <a id='x1-30000.1.2'></a>Linear
+Independence</h4><!-- l. 272 -->
+
+<p class='noindent'>One of the most important reasons why we use
+Linear Algebra is due to efficiency. As you could have guessed, most
+vector spaces have infinitely many vectors. Of course, there must be
+an efficient way of representing the vector space instead of manually
+listing. Determining such representative vectors involves numerous
+factors, and that’s what we will discuss with linear independence,
+basis, and dimension.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-10'>
+  <div class='tcolorbox-title'>
+    <!-- l. 291 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.10</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 281 -->
+
+    <p class='noindent'>Consider the linear combination of
+    <span class='mathjax-inline'>\(V = \{ v_1, \ldots , v_n
+    \}\)</span> in a vector space and scalars <span class=
+    'mathjax-inline'>\(c_1, \ldots , c_n\)</span> that satisfy the
+    following equation. <span class='mathjax-block'>\[ \sum _{k =
+    1}^n c_k v_k = \mathbf {0} \]</span> The set of vectors
+    <span class='mathjax-inline'>\(V\)</span> is <span class=
+    'pplb8t-x-x-109'>linearly dependent</span> if there exists
+    scalars <span class='mathjax-inline'>\(c_1, \ldots , c_k\)</span>
+    that are not all equal to zero. The set of vectors is
+    <span class='pplb8t-x-x-109'>linearly independent</span> if all
+    scalars are zero in the equation.</p>
+  </div>
+</div><!-- l. 293 -->
+
+<p class='noindent'>Let’s take a look at a quick example.</p>
+
+<div class='tcolorbox probstyle' id='tcolobox-11'>
+  <div class='tcolorbox-title'>
+    <!-- l. 298 -->
+
+    <p class='noindent'>Exercise&nbsp;0.1.11</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 296 -->
+
+    <p class='noindent'>Determine whether <span class=
+    'mathjax-inline'>\(V = \{ \langle 1, 1 \rangle , \langle 2,
+    3\rangle \in \mathbb {R}^2 \}\)</span> is linearly
+    independent.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-11'>
+  <!-- l. 300 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 300 -->
+
+  <p class='noindent'>By definition, for the set to be linearly
+  independent, all scalars <span class=
+  'mathjax-inline'>\(c_1\)</span> and <span class=
+  'mathjax-inline'>\(c_2\)</span> must be zero for the following
+  equation to hold. <span class='mathjax-block'>\[ c_1 \langle 1, 1
+  \rangle + c_2 \langle 2, 3 \rangle = \langle 0, 0 \rangle \]</span>
+  Writing in system of linear equations, the equation above can be
+  written as the following. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} c_1 + 2c_2 &amp;= 0 \\
+  c_1 + 3c_2 &amp;= 0 \end{align*}</span></p><!-- l. 312 -->
+
+  <p class='noindent'>Solving the equation, <span class=
+  'mathjax-inline'>\(c_1 = c_2 = 0\)</span> and no other set of
+  scalars can lead to the equation. Therefore, the set of vectors is
+  linearly independent.</p>
+</div><!-- l. 317 -->
+
+<p class='noindent'>One interesting observation that we can make is
+that for <span class='mathjax-inline'>\(n \in \mathbb {Z}\)</span>,
+if the set of vectors in <span class='mathjax-inline'>\(\mathbb
+{R}^n\)</span> contains more than <span class=
+'mathjax-inline'>\(n\)</span> elements, then the set is linearly
+dependent. We will discuss more on this later when we discuss matrix
+and its application in linear systems, but for such cases, we have
+more variables than linear equations, which implies that there exists
+infinitely many solutions. Therefore, such a set of vectors must be
+linearly dependent. Continuing, below is a theorem that we can deduce
+from the definition.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-12'>
+  <a id='x1-3004x0.1.2'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 331 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.12</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 328 -->
+
+    <p class='noindent'>A set with a finite number of nonzero vectors
+    is linearly dependent if and only if a vector in the ordering of
+    the set can be represented as a linear combination of vectors
+    preceding it.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-12'>
+  <!-- l. 333 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 333 -->
+
+  <p class='noindent'>First and foremost, the first half of the
+  theorem can be shown. Consider the set of vectors <span class=
+  'mathjax-inline'>\(\{ v_1, \ldots , v_{j-1}, v_j, \ldots , v_n
+  \}\)</span>. Assume for scalars <span class=
+  'mathjax-inline'>\(c_k\)</span>, the following equation is true.
+  <span class='mathjax-block'>\[ v_j = \sum _{k = 1}^{j-1} c_k v_k
+  \]</span> Therefore, <span class='mathjax-inline'>\(\mathbf {0} =
+  \sum _{k = 1}^{j-1} c_k v_k - v_j\)</span>. Letting <span class=
+  'mathjax-inline'>\(c_k = 0\)</span> for integer <span class=
+  'mathjax-inline'>\(k \in (j, n]\)</span>, the following equation
+  holds. <span class='mathjax-block'>\[ \sum _{k = 1}^{j-1} c_k v_k -
+  v_j + \sum _{k = j+1}^{n} c_k v_k = \mathbf {0} \]</span> Because
+  at least one scalar is nonzero, the set of vectors <span class=
+  'mathjax-inline'>\(\{ v_1, \ldots , v_n \}\)</span> is linearly
+  dependent.</p><!-- l. 350 -->
+
+  <p class='noindent'>Continuing, let the set of vectors <span class=
+  'mathjax-inline'>\(\{ v_1, \ldots , v_n \}\)</span> be linearly
+  dependent. For the corresponding scalars <span class=
+  'mathjax-inline'>\(c_k\)</span>, let <span class=
+  'mathjax-inline'>\(c_j\)</span> be the last scalar that is nonzero.
+  Thus, the following equation holds. <span class='mathjax-block'>\[
+  \sum _{k = 1}^{j} c_k v_k + \sum _{k = j+1}^{n} 0 v_k = \mathbf {0}
+  \]</span> Rearranging the equation, <span class=
+  'mathjax-inline'>\(v_k = -\sum _{k = 1}^{j-1} \frac {c_k}{v_j}
+  v_k\)</span>, which is a linear combination. Because the converse
+  holds, the theorem is true.</p>
+</div><!-- l. 363 -->
+
+<p class='noindent'>From this theorem, we can deduce a corollary.</p>
+
+<div class='tcolorbox corstyle' id='tcolobox-13'>
+  <div class='tcolorbox-title'>
+    <!-- l. 369 -->
+
+    <p class='noindent'>Corollary&nbsp;0.1.13</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 366 -->
+
+    <p class='noindent'>For a vector space <span class=
+    'mathjax-inline'>\(V = \Span (S)\)</span> and linearly dependent
+    set <span class='mathjax-inline'>\(S = \{ v_1, \ldots , v_n \}
+    \subset V\)</span>, then there exists a set <span class=
+    'mathjax-inline'>\(T \subset S\)</span> such that <span class=
+    'mathjax-inline'>\(|T| = n - 1\)</span> and <span class=
+    'mathjax-inline'>\(V = \Span (T)\)</span>.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-13'>
+  <!-- l. 371 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 371 -->
+
+  <p class='noindent'>By Theorem <a href='#x1-3004x0.1.2'>0.1.12
+  <!-- tex4ht:ref: theo:Finite Set of Vectors and Linear Dependence  --></a>,
+  there exists element <span class='mathjax-inline'>\(v_j \in
+  S\)</span> such that <span class='mathjax-inline'>\(v_j\)</span> is
+  the linear combination of the previous elements as listed in
+  <span class='mathjax-inline'>\(S\)</span>.</p><!-- l. 375 -->
+
+  <p class='noindent'>Let <span class='mathjax-inline'>\(T = \{ v_1,
+  \ldots , v_{j-1}, v_{j+1}, \ldots , v_n \}\)</span>. Consider the
+  following equations for scalars <span class=
+  'mathjax-inline'>\(d_k\)</span> and <span class=
+  'mathjax-inline'>\(c_k\)</span>. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} V &amp;= \sum _{k =
+  1}^n d_k v_k = \sum _{k = 1}^{j-1} d_k v_k + d_j v_j + \sum _{k =
+  j+1}^n d_k v_k \\ &amp;= \sum _{k = 1}^{j-1} d_k v_k + d_j \left (
+  \sum _{k = 1}^{j-1} c_k v_k \right ) + \sum _{k = j+1}^n d_k v_k \\
+  &amp;= \sum _{k = 1}^{j-1} (d_j c_k + d_k) v_k + \sum _{k = j+1}^n
+  d_k v_k = \Span (T) \end{align*}</span></p><!-- l. 389 -->
+
+  <p class='noindent'>Therefore, the corollary holds.</p>
+</div><!-- l. 392 -->
+
+<p class='noindent'>Continuing from the corollary, the following
+theorems could be asserted.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-14'>
+  <a id='x1-3012x0.1.2'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 413 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.14</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 396 -->
+
+    <p class='noindent'>Consider the following statements for set
+    <span class='mathjax-inline'>\(S\)</span>.</p>
+
+    <dl class='enumerate-enumitem'>
+      <dt class='enumerate-enumitem'>1.</dt>
+
+      <dd class='enumerate-enumitem'>If <span class=
+      'mathjax-inline'>\(S\)</span> contains a zero vector, then it
+      is linearly dependent.</dd>
+
+      <dt class='enumerate-enumitem'>2.</dt>
+
+      <dd class='enumerate-enumitem'>If <span class=
+      'mathjax-inline'>\(|S| = 1\)</span>, then it is linearly
+      dependent if and only if its element is the zero vector.</dd>
+
+      <dt class='enumerate-enumitem'>3.</dt>
+
+      <dd class='enumerate-enumitem'>If <span class=
+      'mathjax-inline'>\(|S| = 2\)</span>, then it is linearly
+      dependent if and only if a vector is a scalar multiple of the
+      other.</dd>
+
+      <dt class='enumerate-enumitem'>4.</dt>
+
+      <dd class='enumerate-enumitem'>If <span class=
+      'mathjax-inline'>\(S\)</span> is linearly dependent, then every
+      set that contains <span class='mathjax-inline'>\(S\)</span> is
+      linearly dependent.</dd>
+
+      <dt class='enumerate-enumitem'>5.</dt>
+
+      <dd class='enumerate-enumitem'>If <span class=
+      'mathjax-inline'>\(S\)</span> is linearly independent, then all
+      its subsets are linearly independent.</dd>
+    </dl>
+  </div>
+</div><!-- l. 415 -->
+
+<p class='noindent'>There’s quite a bit to prove! Let’s start with
+the first one.</p>
+
+<div class='mdframed' id='mdframed-14'>
+  <!-- l. 418 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 418 -->
+
+  <p class='noindent'>Let <span class='mathjax-inline'>\(S = \{
+  \mathbf {0}, v_1, \ldots , v_n \}\)</span>. Notice that
+  <span class='mathjax-inline'>\(\alpha (\mathbf {0}) + \sum _{k =
+  1}^n 0 v_k = \mathbf {0}\)</span> for any scalar <span class=
+  'mathjax-inline'>\(\alpha \)</span>. Therefore, <span class=
+  'mathjax-inline'>\(S\)</span> is linearly dependent.</p>
+</div><!-- l. 423 -->
+
+<p class='noindent'>Below is the proof for the second one.</p>
+
+<div class='mdframed' id='mdframed-15'>
+  <!-- l. 426 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 426 -->
+
+  <p class='noindent'>Let <span class='mathjax-inline'>\(S = \{ v
+  \}\)</span>. Notice that if <span class='mathjax-inline'>\(v \neq
+  \mathbf {0}\)</span>, it is not possible for a nonzero scalar
+  <span class='mathjax-inline'>\(\alpha \)</span> to make
+  <span class='mathjax-inline'>\(\alpha v = \mathbf {0}\)</span>.
+  Therefore, if <span class='mathjax-inline'>\(|S| = 1\)</span>, then
+  <span class='mathjax-inline'>\(v = \mathbf {0}\)</span>. For the
+  converse, if <span class='mathjax-inline'>\(v = \mathbf
+  {0}\)</span>, then any scalar <span class='mathjax-inline'>\(\alpha
+  \)</span> will let <span class='mathjax-inline'>\(\alpha v =
+  \mathbf {0}\)</span>. Therefore the statement holds.</p>
+</div><!-- l. 433 -->
+
+<p class='noindent'>Here is the proof for the third statement.</p>
+
+<div class='mdframed' id='mdframed-16'>
+  <!-- l. 436 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 436 -->
+
+  <p class='noindent'>Let <span class='mathjax-inline'>\(S = \{ v_1,
+  v_2 \}\)</span>. First, if <span class='mathjax-inline'>\(v_2 =
+  \alpha v_1\)</span> for any scalar <span class=
+  'mathjax-inline'>\(\alpha \)</span>, then <span class=
+  'mathjax-inline'>\(\mathbf {0} = \alpha v_1 - \alpha v_1 = \alpha
+  v_1 - v_2\)</span>. Therefore, <span class=
+  'mathjax-inline'>\(S\)</span> is linearly dependent. For the
+  converse, <span class='mathjax-inline'>\(c_1 v_1 + c_2 v_2 =
+  0\)</span> for scalars <span class='mathjax-inline'>\(c_1\)</span>
+  and <span class='mathjax-inline'>\(c_2\)</span>. Therefore,
+  assuming that the scalars are nonzero without loss of generality,
+  <span class='mathjax-inline'>\(v_2 = -\frac {c_1}{c_2}
+  v_1\)</span>. Thus, the statement is true.</p>
+</div><!-- l. 444 -->
+
+<p class='noindent'>Below is the proof for the fourth one.</p>
+
+<div class='mdframed' id='mdframed-17'>
+  <!-- l. 447 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 447 -->
+
+  <p class='noindent'>Let <span class='mathjax-inline'>\(S = \{ v_1,
+  \ldots , v_n \}\)</span> and <span class='mathjax-inline'>\(T = \{
+  u_1, \ldots , u_n, v_1, \ldots , v_n \}\)</span>. By definition,
+  there exists <span class='mathjax-inline'>\(c_k\)</span> that are
+  not all zero such that <span class='mathjax-inline'>\(\sum _{k =
+  1}^n c_k v_k = \mathbf {0}\)</span>. Because <span class=
+  'mathjax-inline'>\(\sum _{k = 1}^n 0 u_k + \sum _{k = 1}^n c_k v_k
+  = \mathbf {0}\)</span>, <span class='mathjax-inline'>\(T\)</span>
+  is also linearly dependent.</p>
+</div><!-- l. 454 -->
+
+<p class='noindent'>Finally, here is the proof for the last
+statement.</p>
+
+<div class='mdframed' id='mdframed-18'>
+  <!-- l. 457 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 457 -->
+
+  <p class='noindent'>Let <span class='mathjax-inline'>\(T \subset
+  S\)</span> where <span class='mathjax-inline'>\(S\)</span> is
+  linearly independent. Assume for the sake of contradiction that
+  there exists a subset <span class='mathjax-inline'>\(T\)</span>
+  that is linearly dependent. However, if <span class=
+  'mathjax-inline'>\(T\)</span> is linearly dependent, then
+  <span class='mathjax-inline'>\(S\)</span> is linearly dependent by
+  the previous property, which is a contradiction. Therefore, by
+  contradiction, if <span class='mathjax-inline'>\(S\)</span> is
+  linearly independent then all its subsets <span class=
+  'mathjax-inline'>\(T\)</span> are also linearly independent.</p>
+</div><!-- l. 465 -->
+
+<p class='noindent'>With this, we have concluded our discussion on
+linear dependence and independence. Before concluding this note,
+let’s discuss basis and dimension of a set of vectors.</p>
+
+<h4 class='subsectionHead' id='basis-and-dimension'><span class=
+'titlemark'>0.1.3</span> <a id='x1-40000.1.3'></a>Basis and
+Dimension</h4><!-- l. 471 -->
+
+<p class='noindent'>As always, let’s start with definition.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-15'>
+  <div class='tcolorbox-title'>
+    <!-- l. 476 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.15</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 474 -->
+
+    <p class='noindent'>For a vector space <span class=
+    'mathjax-inline'>\(V\)</span> and its subset <span class=
+    'mathjax-inline'>\(S\)</span>, if <span class=
+    'mathjax-inline'>\(\Span (S) = V\)</span>, then <span class=
+    'mathjax-inline'>\(S\)</span> is a spanning set for <span class=
+    'mathjax-inline'>\(V\)</span>.</p>
+  </div>
+</div><!-- l. 478 -->
+
+<p class='noindent'>When we say aloud, we say that <span class=
+'mathjax-inline'>\(S\)</span> spans <span class=
+'mathjax-inline'>\(V\)</span>. For instance, the set <span class=
+'mathjax-inline'>\(\{ \langle 1, 0 \rangle , \langle 0, 1 \rangle
+\}\)</span> spans <span class='mathjax-inline'>\(\mathbb
+{R}^2\)</span> since all vectors <span class=
+'mathjax-inline'>\(\langle a, b \rangle \in \mathbb {R}^2\)</span>
+can be represented as the sum <span class='mathjax-inline'>\(a
+\langle 1, 0 \rangle + b\langle 0, 1 \rangle \)</span>.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-16'>
+  <div class='tcolorbox-title'>
+    <!-- l. 487 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.16</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 485 -->
+
+    <p class='noindent'>A linearly independent subset that spans
+    <span class='mathjax-inline'>\(V\)</span> is a <span class=
+    'pplb8t-x-x-109'>basis</span> for <span class=
+    'mathjax-inline'>\(V\)</span>.</p>
+  </div>
+</div><!-- l. 489 -->
+
+<p class='noindent'>Continuing from the previous example, we can see
+that <span class='mathjax-inline'>\(\{ \langle 1, 0 \rangle , \langle
+0, 1 \rangle \}\)</span> not only spans <span class=
+'mathjax-inline'>\(\mathbb {R}^2\)</span>, but is also a basis for
+<span class='mathjax-inline'>\(\mathbb {R}^2\)</span> since it is
+linearly independent. As you can see, the same will apply if we
+generalize it to <span class='mathjax-inline'>\(\mathbb
+{R}^n\)</span>.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-17'>
+  <div class='tcolorbox-title'>
+    <!-- l. 499 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.17</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 496 -->
+
+    <p class='noindent'>The <span class='pplb8t-x-x-109'>standard
+    basis for</span> <span class='mathjax-inline'>\(\mathbb
+    {R}^n\)</span> is the set <span class='mathjax-inline'>\(S = \{
+    e_1, \ldots e_n \}\)</span> where <span class=
+    'mathjax-inline'>\(e_i\)</span> is an element of <span class=
+    'mathjax-inline'>\(\mathbb {R}^n\)</span> with <span class=
+    'mathjax-inline'>\(1\)</span> in its <span class=
+    'mathjax-inline'>\(i^\text {th}\)</span> entry and <span class=
+    'mathjax-inline'>\(0\)</span> elsewhere.</p>
+  </div>
+</div><!-- l. 501 -->
+
+<p class='noindent'>We could do the same for polynomials. First,
+notice that the set <span class='mathjax-inline'>\(\{ 1, x, x^2
+\}\)</span> spans <span class='mathjax-inline'>\(\mathbb
+{P}^2\)</span>. Moreover, the set is linearly independent. Therefore,
+<span class='mathjax-inline'>\(\{ 1, x, x^2 \}\)</span> is a basis
+for <span class='mathjax-inline'>\(\mathbb {P}^2\)</span>.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-18'>
+  <div class='tcolorbox-title'>
+    <!-- l. 509 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.18</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 507 -->
+
+    <p class='noindent'>The <span class='pplb8t-x-x-109'>standard
+    basis for</span> <span class='mathjax-inline'>\(\mathbb
+    {P}^n\)</span> is the set <span class='mathjax-inline'>\(S = \{
+    1, x, x^2, \ldots , x^n \}\)</span>.</p>
+  </div>
+</div><!-- l. 511 -->
+
+<p class='noindent'>From the two definitions above, we can notice
+that there are finite elements for the two standard bases for
+<span class='mathjax-inline'>\(\mathbb {R}^n\)</span> and
+<span class='mathjax-inline'>\(\mathbb {P}^n\)</span>. We call such
+vector spaces <span class=
+'pplb8t-x-x-109'>finite-dimensional</span>.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-19'>
+  <div class='tcolorbox-title'>
+    <!-- l. 520 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.19</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 517 -->
+
+    <p class='noindent'>A vector space with a basis of finite
+    elements is called <span class=
+    'pplb8t-x-x-109'>finite-dimensional</span>. Whereas, <span class=
+    'pplb8t-x-x-109'>infinite dimensional</span> vector spaces do not
+    contain a basis with finite elements.</p>
+  </div>
+</div><!-- l. 522 -->
+
+<p class='noindent'>An example of infinite dimensional vector space
+would be <span class='mathjax-inline'>\(\mathbb {P}\)</span> since
+the basis is required to be an infinite set. However, we will not be
+discussing infinite dimensional vector spaces. From the definitions
+above, we could establish a theorem.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-20'>
+  <a id='x1-4007x0.1.3'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 530 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.20</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 528 -->
+
+    <p class='noindent'>For a basis <span class=
+    'mathjax-inline'>\(S\)</span> of a vector space <span class=
+    'mathjax-inline'>\(V\)</span> such that <span class=
+    'mathjax-inline'>\(|S| = n\)</span>, any set in <span class=
+    'mathjax-inline'>\(V\)</span> with more than <span class=
+    'mathjax-inline'>\(n\)</span> elements is linearly dependent.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-19'>
+  <!-- l. 532 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 532 -->
+
+  <p class='noindent'>Let <span class='mathjax-inline'>\(S = \{ v_1,
+  \ldots , v_n \}\)</span> and <span class='mathjax-inline'>\(T = \{
+  u_1, \ldots , u_m \}\)</span> such that <span class=
+  'mathjax-inline'>\(S, T \in V\)</span> and <span class=
+  'mathjax-inline'>\(m &gt; n\)</span>. Notice that because
+  <span class='mathjax-inline'>\(\Span (S) = V\)</span> and
+  <span class='mathjax-inline'>\(T \in V\)</span>, there exists a set
+  of constants <span class='mathjax-inline'>\(a_{ij}\)</span> that
+  satisfies the following equation (note that we will be using this
+  indices in the next note when we discuss matrices.). <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} u_1 &amp;= \sum
+  _{j=1}^n a_{1j} v_j \\ u_2 &amp;= \sum _{j=1}^n a_{2j} v_j \\
+  &amp;\quad \vdots \\ u_m &amp;= \sum _{j=1}^n a_{mj} v_j
+  \end{align*}</span></p><!-- l. 543 -->
+
+  <p class='noindent'>Therefore, it suffices to show that there
+  exists constants <span class='mathjax-inline'>\(c_1, \ldots ,
+  c_m\)</span> such that not all are zero and that satisfies the
+  following equation. <span class='mathjax-block'>\[ \sum _{i=1}^m
+  \sum _{j=1}^n c_i a_{ij} v_j = \mathbf {0} \]</span> Continuing, it
+  suffices to show that the variables <span class=
+  'mathjax-inline'>\(c_i\)</span> and constants <span class=
+  'mathjax-inline'>\(a_{ij}\)</span> satisfy the following equations
+  where not all <span class='mathjax-inline'>\(c_i\)</span> are zero.
+  <span class='mathjax-env mathjax-align*'>\begin{align*} \sum
+  _{i=1}^m c_i a_{i1} &amp;= 0 \\ \sum _{i=1}^m c_i a_{i2} &amp;= 0
+  \\ &amp;\ \vdots \\ \sum _{i=1}^m c_i a_{in} &amp;= 0
+  \end{align*}</span></p><!-- l. 558 -->
+
+  <p class='noindent'>Notice that there are <span class=
+  'mathjax-inline'>\(m\)</span> variables and <span class=
+  'mathjax-inline'>\(n\)</span> equations. It is known that for a
+  linear system of equations, there exists an infinite number of
+  solutions if there are more variables than the equations (don’t
+  worry we will prove this in future notes.). Because <span class=
+  'mathjax-inline'>\(m &gt; n\)</span>, there exists <span class=
+  'mathjax-inline'>\(c_1, \ldots c_m\)</span> that are not all zero
+  and that satisfy the equations for linear dependence, the theorem
+  holds.</p>
+</div><!-- l. 566 -->
+
+<p class='noindent'>Continuing, we can derive three corollaries from
+the theorem.</p>
+
+<div class='tcolorbox corstyle' id='tcolobox-21'>
+  <div class='tcolorbox-title'>
+    <!-- l. 571 -->
+
+    <p class='noindent'>Corollary&nbsp;0.1.21</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 569 -->
+
+    <p class='noindent'>If a basis for the vector space <span class=
+    'mathjax-inline'>\(V\)</span> contains <span class=
+    'mathjax-inline'>\(n\)</span> elements, then any linearly
+    independent subsets of <span class='mathjax-inline'>\(V\)</span>
+    contain at most <span class='mathjax-inline'>\(n\)</span>
+    elements.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-20'>
+  <!-- l. 573 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 573 -->
+
+  <p class='noindent'>By definition, a basis of a vector space
+  <span class='mathjax-inline'>\(V\)</span> spans <span class=
+  'mathjax-inline'>\(V\)</span>. Because any linearly dependent
+  subsets of <span class='mathjax-inline'>\(V\)</span> contain more
+  than <span class='mathjax-inline'>\(n\)</span> elements by Theorem
+  <a href='#x1-4007x0.1.3'>0.1.20
+  <!-- tex4ht:ref: theo:Basis and Linear Dependence  --></a>, any
+  linearly independent subsets of <span class=
+  'mathjax-inline'>\(V\)</span> must not contain more than
+  <span class='mathjax-inline'>\(n\)</span> elements.</p>
+</div><!-- l. 579 -->
+
+<p class='noindent'>Below is the second corollary.</p>
+
+<div class='tcolorbox corstyle' id='tcolobox-22'>
+  <div class='tcolorbox-title'>
+    <!-- l. 584 -->
+
+    <p class='noindent'>Corollary&nbsp;0.1.22</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 582 -->
+
+    <p class='noindent'>If <span class='mathjax-inline'>\(V\)</span>
+    is a finite vector space, every basis of <span class=
+    'mathjax-inline'>\(V\)</span> will contain the same number of
+    elements.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-21'>
+  <!-- l. 586 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 586 -->
+
+  <p class='noindent'>Let <span class='mathjax-inline'>\(S\)</span>
+  and <span class='mathjax-inline'>\(T\)</span> be bases of
+  <span class='mathjax-inline'>\(V\)</span> with <span class=
+  'mathjax-inline'>\(p\)</span> and <span class=
+  'mathjax-inline'>\(q\)</span> elements respectively. By definition,
+  the bases of a vector space are linearly independent. By the
+  previous corollary, it is evident that <span class=
+  'mathjax-inline'>\(q \leq p\)</span> and <span class=
+  'mathjax-inline'>\(p \leq q\)</span> are true. Therefore,
+  <span class='mathjax-inline'>\(p = q\)</span> and the corollary
+  holds.</p>
+</div><!-- l. 592 -->
+
+<p class='noindent'>Now before continuing with our third corollary,
+let’s first define what the dimension of a vector space is.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-23'>
+  <div class='tcolorbox-title'>
+    <!-- l. 599 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.23</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 596 -->
+
+    <p class='noindent'>For a finite dimensional vector space
+    <span class='mathjax-inline'>\(V\)</span>, the number of elements
+    in any basis of <span class='mathjax-inline'>\(V\)</span> is
+    called the <span class='pplb8t-x-x-109'>dimension</span> of
+    <span class='mathjax-inline'>\(V\)</span>, denoted as
+    <span class='mathjax-inline'>\(\dim (V)\)</span>.</p>
+  </div>
+</div><!-- l. 601 -->
+
+<p class='noindent'>For instance, recall the standard basis of
+<span class='mathjax-inline'>\(\mathbb {R}^n\)</span>. From the
+number of elements in the basis, we can write that <span class=
+'mathjax-inline'>\(\dim (\mathbb {R}^n) = n\)</span>. Similarly, we
+can also notice that <span class='mathjax-inline'>\(\dim (\mathbb
+{P}^n) = n + 1\)</span>. Now let’s continue with our third
+corollary.</p>
+
+<div class='tcolorbox corstyle' id='tcolobox-24'>
+  <div class='tcolorbox-title'>
+    <!-- l. 609 -->
+
+    <p class='noindent'>Corollary&nbsp;0.1.24</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 607 -->
+
+    <p class='noindent'>Every set <span class=
+    'mathjax-inline'>\(S\)</span> in an <span class=
+    'mathjax-inline'>\(n\)</span>-dimensional vector space such that
+    <span class='mathjax-inline'>\(|S| = n + 1\)</span> is linearly
+    dependent.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-22'>
+  <!-- l. 611 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 611 -->
+
+  <p class='noindent'>By definition, a basis of an <span class=
+  'mathjax-inline'>\(n\)</span>-dimensional vector space <span class=
+  'mathjax-inline'>\(V\)</span> contains <span class=
+  'mathjax-inline'>\(n\)</span> elements. By Theorem <a href=
+  '#x1-4007x0.1.3'>0.1.20
+  <!-- tex4ht:ref: theo:Basis and Linear Dependence  --></a>, since
+  <span class='mathjax-inline'>\(n + 1 &gt; n\)</span>, <span class=
+  'mathjax-inline'>\(S\)</span> must be linearly dependent.</p>
+</div><!-- l. 616 -->
+
+<p class='noindent'>One fun fact to note is that for the vector space
+<span class='mathjax-inline'>\(\{0\}\)</span>, we say <span class=
+'mathjax-inline'>\(\dim (\{0\}) = 0\)</span> by convention. Moreover,
+consider the following theorem.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-25'>
+  <a id='x1-4013x0.1.3'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 624 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.25</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 621 -->
+
+    <p class='noindent'>For a basis <span class='mathjax-inline'>\(S
+    = \{ v_1, \ldots , v_n \}\)</span> of a vector space <span class=
+    'mathjax-inline'>\(V\)</span>, any vector <span class=
+    'mathjax-inline'>\(u \in V\)</span> can be written as a unique
+    linear combination of <span class=
+    'mathjax-inline'>\(S\)</span>.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-23'>
+  <!-- l. 626 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 626 -->
+
+  <p class='noindent'>For the sake of contradiction, assume that
+  <span class='mathjax-inline'>\(u\)</span> can be written as
+  <span class='mathjax-inline'>\(u = \sum _{k=1}^n c_k v_k = \sum
+  _{k=1}^n d_k v_k\)</span> where <span class='mathjax-inline'>\(c_k
+  \neq d_k\)</span> for some choice of <span class=
+  'mathjax-inline'>\(k\)</span>. Therefore, the following equations
+  can be obtained. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} \sum _{k=1}^n c_k v_k
+  &amp;= \sum _{k=1}^n d_k v_k \\ \sum _{k=1}^n (c_k - d_k) v_k
+  &amp;= 0 \end{align*}</span></p><!-- l. 634 -->
+
+  <p class='noindent'>Note that by definition, <span class=
+  'mathjax-inline'>\(S\)</span> is linearly independent and
+  <span class='mathjax-inline'>\(c_k - d_k = 0\)</span> for all
+  integer <span class='mathjax-inline'>\(k \in [1, n]\)</span>.
+  Because it contradicts with the assumption that <span class=
+  'mathjax-inline'>\(c_k \neq d_k\)</span> for some choice of
+  <span class='mathjax-inline'>\(k\)</span>, the theorem holds.</p>
+</div><!-- l. 640 -->
+
+<p class='noindent'>Now with the theorem in mind, because we know
+that the linear combination of a basis to represent a vector is
+unique, we can establish the following definition.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-26'>
+  <div class='tcolorbox-title'>
+    <!-- l. 649 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.26</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 645 -->
+
+    <p class='noindent'>For a basis <span class='mathjax-inline'>\(S
+    = \{ v_1, \ldots , v_n \}\)</span> of a vector space <span class=
+    'mathjax-inline'>\(V\)</span> and any vector <span class=
+    'mathjax-inline'>\(u = \sum _{k=1}^n c_k v_k \in V\)</span>, the
+    <span class='pplb8t-x-x-109'>coordinates of</span> <span class=
+    'mathjax-inline'>\(u\)</span> <span class='pplb8t-x-x-109'>with
+    respect to</span> <span class='mathjax-inline'>\(S\)</span>,
+    denoted as <span class='mathjax-inline'>\((u)_S\)</span> is the
+    list of coefficients <span class='mathjax-inline'>\(c_1, \ldots ,
+    c_n\)</span>.</p>
+  </div>
+</div><!-- l. 651 -->
+
+<p class='noindent'>We often represent the coordinates with
+<span class='mathjax-inline'>\(n\)</span>-tuple. To see that, let’s
+take a look at the following example.</p>
+
+<div class='tcolorbox probstyle' id='tcolobox-27'>
+  <div class='tcolorbox-title'>
+    <!-- l. 657 -->
+
+    <p class='noindent'>Exercise&nbsp;0.1.27</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 655 -->
+
+    <p class='noindent'>Find the coordinate of <span class=
+    'mathjax-inline'>\(f(x) = x^2 + 2x + 3\)</span> with respect to
+    the basis <span class='mathjax-inline'>\(S = \{ x^2, 2x^2 + 1, x
+    \}\)</span> in the vector space <span class=
+    'mathjax-inline'>\(\mathbb {P}^2\)</span>.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-24'>
+  <!-- l. 659 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 659 -->
+
+  <p class='noindent'>Consider the following equation. <span class=
+  'mathjax-block'>\[ f(x) = 3 \left ( 2x^2 + 1 \right ) - 5 \left (
+  x^2 \right ) + 2(x) \]</span> Therefore, the coordinate of
+  <span class='mathjax-inline'>\(f(x)\)</span> can be represented as
+  the following <span class='mathjax-inline'>\(3\)</span>-tuple.
+  <span class='mathjax-block'>\[ \begin {bmatrix} -5 \\ 3 \\ 2 \end
+  {bmatrix}_S \]</span></p>
+</div><!-- l. 675 -->
+
+<p class='noindent'>Lastly, let’s conclude our discussion on basis
+and dimension with a theorem.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-28'>
+  <a id='x1-4019x0.1.3'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 689 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.28</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 679 -->
+
+    <p class='noindent'>Consider the following statements for a
+    vector space <span class='mathjax-inline'>\(V\)</span> and its
+    subset <span class='mathjax-inline'>\(S \subset V\)</span>.</p>
+
+    <dl class='enumerate-enumitem'>
+      <dt class='enumerate-enumitem'>1.</dt>
+
+      <dd class='enumerate-enumitem'>There exists a basis for
+      <span class='mathjax-inline'>\(V\)</span> that is a subset of
+      <span class='mathjax-inline'>\(S\)</span> if <span class=
+      'mathjax-inline'>\(\Span (S) = V\)</span>.</dd>
+
+      <dt class='enumerate-enumitem'>2.</dt>
+
+      <dd class='enumerate-enumitem'>There exists a basis for
+      <span class='mathjax-inline'>\(V\)</span> that includes all
+      elements in <span class='mathjax-inline'>\(S\)</span> if
+      <span class='mathjax-inline'>\(S\)</span> is linearly
+      independent.</dd>
+    </dl>
+  </div>
+</div><!-- l. 691 -->
+
+<p class='noindent'>Let’s start by proving the first statement.</p>
+
+<div class='mdframed' id='mdframed-25'>
+  <!-- l. 694 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 694 -->
+
+  <p class='noindent'>Notice that by definition, a basis of a vector
+  space <span class='mathjax-inline'>\(V\)</span> is a linearly
+  independent set that spans <span class=
+  'mathjax-inline'>\(V\)</span>. Therefore, it suffices to show that
+  there exists a linearly independent set that spans <span class=
+  'mathjax-inline'>\(V\)</span> that is also a subset of <span class=
+  'mathjax-inline'>\(S\)</span>.</p><!-- l. 699 -->
+
+  <p class='noindent'>By Theorem <a href='#x1-3004x0.1.2'>0.1.12
+  <!-- tex4ht:ref: theo:Finite Set of Vectors and Linear Dependence  --></a>,
+  a subset of <span class='mathjax-inline'>\(S\)</span> is linearly
+  dependent if any only if a vector can be represented as the linear
+  combination of the preceding vectors. Let <span class=
+  'mathjax-inline'>\(T\)</span> be a subset of <span class=
+  'mathjax-inline'>\(S\)</span> without the vectors that can be
+  represented as the linear combination of the preceding vectors.
+  Notice that <span class='mathjax-inline'>\(T\)</span> spans
+  <span class='mathjax-inline'>\(V\)</span> as the vector removed can
+  be represented as the linear combination of the other vectors.
+  Moreover, because <span class='mathjax-inline'>\(T\)</span> is
+  linearly independent, there exists a basis for <span class=
+  'mathjax-inline'>\(V\)</span> that is a subset of <span class=
+  'mathjax-inline'>\(S\)</span>.</p>
+</div><!-- l. 709 -->
+
+<p class='noindent'>Below is the proof for the second statement.</p>
+
+<div class='mdframed' id='mdframed-26'>
+  <!-- l. 712 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 712 -->
+
+  <p class='noindent'>Let <span class='mathjax-inline'>\(T\)</span>
+  be a basis for <span class='mathjax-inline'>\(V\)</span> and
+  <span class='mathjax-inline'>\(A \coloneqq S \cup T\)</span>. By
+  definition, <span class='mathjax-inline'>\(\Span (A) = V\)</span>.
+  Construct <span class='mathjax-inline'>\(B \in A\)</span> by
+  removing all vectors that can be represented as a linear
+  combination of the preceding vectors. Notice that no elements from
+  <span class='mathjax-inline'>\(S\)</span> will be removed as
+  <span class='mathjax-inline'>\(S\)</span> is linearly independent.
+  By construction, <span class='mathjax-inline'>\(B\)</span> spans
+  <span class='mathjax-inline'>\(V\)</span> and is also linearly
+  independent. Because <span class='mathjax-inline'>\(S \subset
+  B\)</span>, the statement holds.</p>
+</div><!-- l. 720 -->
+
+<p class='noindent'>We discussed fundamental topics of vector spaces.
+Of course there are a lot more to discuss in vector spaces; however,
+to do so, we need some understanding of matrices. So let’s pause our
+discussions on vector spaces for now, and move on to matrices and
+their applications in linear system of equations before looking at
+their implications in vector spaces.</p>

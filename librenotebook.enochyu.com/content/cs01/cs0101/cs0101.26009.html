@@ -1,0 +1,205 @@
+<h3 class='sectionHead' id='probability-theory'><span class=
+'titlemark'>0.1</span> <a id='x1-10000.1'></a>Probability Theory</h3>
+<!-- l. 7 -->
+
+<p class='noindent'>Ultimately, ML models are prediction engines. In
+other words, it is very crucial to understand fundamental probability
+theory. Therefore, let’s get started with basic terminologies and
+concepts.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-1'>
+  <div class='tcolorbox-title'>
+    <!-- l. 14 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.1</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 12 -->
+
+    <p class='noindent'><span class='pplb8t-x-x-109'>Probability
+    distribution</span> is a process of describing probability and
+    possible cases.</p>
+  </div>
+</div><!-- l. 16 -->
+
+<p class='noindent'>For example, using functions or tables to
+represents probability of getting a certain rolling sum after rolling
+a fair standard die two times is using probability distribution.</p>
+<!-- l. 20 -->
+
+<p class='noindent'>Few symbols to keep in mind are <span class=
+'mathjax-inline'>\(~\)</span> is used to represent the following of
+the probability distribution, and <span class=
+'mathjax-inline'>\(\propto \)</span> is used to illustrate direct
+proportionality.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-2'>
+  <div class='tcolorbox-title'>
+    <!-- l. 29 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.2</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 25 -->
+
+    <p class='noindent'><span class='pplb8t-x-x-109'>Sample
+    space</span>, denoted as <span class='mathjax-inline'>\(\Omega
+    \)</span>, is a set of possible outcomes. <span class=
+    'pplb8t-x-x-109'>Probability measure</span> is a function that
+    maps such outcome events to probability in <span class=
+    'mathjax-inline'>\([0, 1]\)</span>. <span class=
+    'pplb8t-x-x-109'>Random Variables</span> are functions that map
+    the outcomes to certain numbers.</p>
+  </div>
+</div><!-- l. 31 -->
+
+<p class='noindent'>Notice that the sum of all measures in a sample
+space is <span class='mathjax-inline'>\(1\)</span>. Now sometimes,
+probabilities depend on the previous events.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-3'>
+  <div class='tcolorbox-title'>
+    <!-- l. 39 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.3</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 35 -->
+
+    <p class='noindent'>If <span class='mathjax-inline'>\(A\)</span>
+    is the event that occurs after <span class=
+    'mathjax-inline'>\(B\)</span>, the probability of <span class=
+    'mathjax-inline'>\(A\)</span> occurring after <span class=
+    'mathjax-inline'>\(B\)</span> is known as the <span class=
+    'pplb8t-x-x-109'>posterior probability</span>, denoted as
+    <span class='mathjax-inline'>\(P(A \mid B)\)</span>. Moreover,
+    <span class='mathjax-inline'>\(P(A)\)</span> is the <span class=
+    'pplb8t-x-x-109'>prior</span> probability.</p>
+  </div>
+</div><!-- l. 41 -->
+
+<p class='noindent'>For instance, if <span class=
+'mathjax-inline'>\(A\)</span> is the event where you see a snail
+outside and <span class='mathjax-inline'>\(B\)</span> is the event of
+raining, then the probability <span class='mathjax-inline'>\(P(A \mid
+B)\)</span> is the probability of you seeing a snail outside given
+that it is raining. With this in mind, we can observe the following
+important theorem that will come very handy when we discuss language
+models.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-4'>
+  <a id='x1-1005x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 54 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.4:&nbsp;The Chain Rule of
+    Probability</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 50 -->
+
+    <p class='noindent'>The chain rule of probability states the
+    following equation. <span class='mathjax-block'>\[ P(A, B) = P(A
+    \mid B) P(B) \]</span></p>
+  </div>
+</div><!-- l. 56 -->
+
+<p class='noindent'>The equation above is read as the probability of
+<span class='mathjax-inline'>\(A\)</span> and <span class=
+'mathjax-inline'>\(B\)</span> is equal to the probability of
+<span class='mathjax-inline'>\(A\)</span> given <span class=
+'mathjax-inline'>\(B\)</span> multiplied by the probability of
+<span class='mathjax-inline'>\(B\)</span>. The direct corollary of
+the chain rule is Bayes’ Theorem.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-5'>
+  <a id='x1-1007x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 69 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.5:&nbsp;Bayes’ Theorem</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 64 -->
+
+    <p class='noindent'>Conditional probabilities can be found with
+    Bayes’ Theorem defined with the equation below for <span class=
+    'mathjax-inline'>\(P(B) \neq 0\)</span>. <span class=
+    'mathjax-block'>\[ P(A \mid B) = \frac {P(B \mid A) P(A)}{P(B)}
+    \]</span></p>
+  </div>
+</div><!-- l. 71 -->
+
+<p class='noindent'>As you may have guessed, we can scale the chain
+rule above with generalization. Consider the following generalized
+version of the chain rule.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-6'>
+  <a id='x1-1009x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 88 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.6:&nbsp;Generalized Chain
+    Rule</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 78 -->
+
+    <p class='noindent'>The chain rule of probability states the
+    following. <span class=
+    'mathjax-env mathjax-align*'>\begin{align*} P(x_1, x_2, \ldots ,
+    x_n) &amp;= P(x_1) P(x_2 \mid x_1) P(x_3 \mid x_1, x_2) \\
+    &amp;\qquad \qquad \qquad \cdots P(x_n \mid x_1, x_2, \ldots ,
+    x_{n-1}) \\ &amp;= \prod _{i = 1}^{n} P \left ( x_i \; \middle
+    |\; \bigcap _{k = 1}^{i - 1} x_{k} \right )
+    \end{align*}</span></p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-1'>
+  <!-- l. 90 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 90 -->
+
+  <p class='noindent'>Deriving this generalization from the chain
+  rule with two variables is rather simple. We can use the definition
+  multiple times to multiply and telescope. Here is what I mean.
+  (Note that mathematicians like to use the standard set notations
+  while ML engineers likes to use a more “colloquial notation”. For
+  the purpose of these notes, let’s use the notations that ML
+  engineers use.)</p><!-- l. 98 -->
+
+  <p class='noindent'>Consider the following equations by the
+  definition of conditional probability. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} P(x_1) &amp;= P(x_1) \\
+  P(x_2 \mid x_1) &amp;= \frac {P(x_1, x_2)}{P(x_1)} \\ P(x_3 \mid
+  x_1, x_2) &amp;= \frac {P(x_1, x_2, x_3)}{P(x_1, x_2)} \\ &amp;\
+  \vdots \\ P(x_n \mid x_1, \ldots , x_{n-1}) &amp;= \frac {P(x_1,
+  \ldots , x_n)}{P(x_1, \ldots , x_{n-1})} \end{align*}</span></p>
+  <!-- l. 108 -->
+
+  <p class='noindent'>Multiplying the equations, the following
+  equation is obtained. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} P(x_1) P(x_2 &amp;\mid
+  x_1) P(x_3 \mid x_1, x_2) P(x_n \mid x_1, \ldots , x_{n-1}) \\
+  &amp;= P(x_1) \cdot \frac {P(x_1, x_2)}{P(x_1)} \cdot \frac {P(x_1,
+  x_2, x_3)}{P(x_1, x_2)} \cdots \frac {P(x_1, \ldots , x_n)}{P(x_1,
+  \ldots , x_{n-1})} \end{align*}</span></p><!-- l. 116 -->
+
+  <p class='noindent'>Telescoping the right hand side, we get our
+  final equation. <span class='mathjax-block'>\[ P(x_1, \ldots , x_n)
+  = P(x_1) P(x_2 \mid x_1) P(x_3 \mid x_1, x_2) P(x_n \mid x_1,
+  \ldots , x_{n-1}) \]</span> Alternatively, we could try going
+  backward from the final equation from the definition, but I found
+  this proof a little more satisfying.</p>
+</div>

@@ -1,0 +1,476 @@
+<h2 class='chapterHead' id='a-functional-equations'><span class=
+'titlemark'>Note&nbsp;1</span><br>
+<a id='x1-10001'></a>[A] Functional Equations</h2><!-- l. 7 -->
+
+<p class='noindent'>Personally I think one of the most difficult
+sections in olympiad algebra is functional equations. Unlike other
+sections that involves application of background knowledge,
+functional equation problems tend to prioritize ingenuity and
+creativity. This could be a good news if you are cramming for an
+exam, but I think it is important to solve many problems to find
+different patterns in problems involving functional equations.</p>
+
+<h3 class='sectionHead' id='foundations'><span class=
+'titlemark'>1.1</span> <a id='x1-20001.1'></a>Foundations</h3>
+<!-- l. 17 -->
+
+<p class='noindent'>Before we get into what a functional equation is,
+let’s briefly review the terms related to functions as they appear
+quite a lot.</p>
+
+<div class='minipage'>
+  <div class='center'>
+    <!-- l. 21 -->
+
+    <p class='noindent'></p><!-- l. 22 -->
+
+    <p class='noindent'><span class='pplb8t-x-x-109'>Injective
+    Function</span> <span class=
+    'mathjax-env mathjax-align*'>\begin{align*} &amp;\text {If }
+    f(x_1) = f(x_2), \\ &amp;\text {then } x_1 = x_2
+    \end{align*}</span></p>
+  </div>
+</div>
+
+<div class='minipage'>
+  <div class='center'>
+    <!-- l. 31 -->
+
+    <p class='noindent'></p><!-- l. 32 -->
+
+    <p class='noindent'><img alt='[Picture]' src=
+    '/svg/MATH0104.260610x.svg'></p>
+  </div>
+</div>
+
+<div class='minipage'>
+  <div class='center'>
+    <!-- l. 67 -->
+
+    <p class='noindent'></p><!-- l. 68 -->
+
+    <p class='noindent'><span class='pplb8t-x-x-109'>Surjective
+    Function</span> <span class=
+    'mathjax-env mathjax-align*'>\begin{align*} &amp;\forall \, y_i
+    \in Y,\ \exists \, x_j \in X \\ &amp;\quad s.t.\ f(x_j) = y_i
+    \end{align*}</span></p>
+  </div>
+</div>
+
+<div class='minipage'>
+  <div class='center'>
+    <!-- l. 77 -->
+
+    <p class='noindent'></p><!-- l. 78 -->
+
+    <p class='noindent'><img alt='[Picture]' src=
+    '/svg/MATH0104.260611x.svg'></p>
+  </div>
+</div>
+
+<div class='minipage'>
+  <div class='center'>
+    <!-- l. 115 -->
+
+    <p class='noindent'></p><!-- l. 116 -->
+
+    <p class='noindent'><span class='pplb8t-x-x-109'>Bijective
+    Function</span> <span class=
+    'mathjax-env mathjax-align*'>\begin{align*} &amp;\forall \, y_i
+    \in Y,\ \exists !\, x_j \in X \\ &amp;\quad s.t.\ f(x_j) = y_i
+    \end{align*}</span></p>
+  </div>
+</div>
+
+<div class='minipage'>
+  <div class='center'>
+    <!-- l. 125 -->
+
+    <p class='noindent'></p><!-- l. 126 -->
+
+    <p class='noindent'><img alt='[Picture]' src=
+    '/svg/MATH0104.260612x.svg'></p>
+  </div>
+</div><!-- l. 162 -->
+
+<p class='noindent'>While we will be using the terms above, it is
+worth noting other famous terms describing the same functions.</p>
+
+<div class='mdframed' id='mdframed-1'>
+  <!-- l. 166 -->
+
+  <p class='noindent'>Some people use the term <span class=
+  'pplb8t-x-x-109'>one-to-one</span> for injective, <span class=
+  'pplb8t-x-x-109'>onto</span> for surjective, and <span class=
+  'pplb8t-x-x-109'>one-to-one onto</span> for bijective
+  functions.</p>
+</div><!-- l. 171 -->
+
+<p class='noindent'>As mentioned, we don’t really need other strong
+backgrounds for functional equations, though there are plenty of
+techniques to study. However, the terms injective, surjective, and
+bijective really cannot be stressed enough.</p>
+
+<div class='mdframed' id='mdframed-2'>
+  <!-- l. 177 -->
+
+  <p class='noindent'>A function <span class=
+  'mathjax-inline'>\(f\)</span> has an inverse if and only if it is
+  bijective.</p>
+</div><!-- l. 180 -->
+
+<p class='noindent'>This seemingly obvious statement can come very
+handy. To show it, you can consider the diagrams above. If the
+function is only injective, then we have inputs with no corresponding
+output. If <span class='mathjax-inline'>\(f\)</span> is surjective
+only, then there are inputs with two outputs, which is not a function
+anymore. Another very interesting property to note is strictly
+increasing and decreasing functions.</p>
+
+<div class='mdframed' id='mdframed-3'>
+  <!-- l. 188 -->
+
+  <p class='noindent'>A strictly increasing or decreasing function is
+  always injective.</p>
+</div><!-- l. 191 -->
+
+<p class='noindent'>First, note that a strictly increasing function
+<span class='mathjax-inline'>\(f\)</span> have the property where if
+<span class='mathjax-inline'>\(x &lt; y\)</span> then <span class=
+'mathjax-inline'>\(f(x) &lt; f(y)\)</span>. This satisfies the
+definition of injective function because <span class=
+'mathjax-inline'>\(f\)</span> is <span class=
+'pplri8t-x-x-109'>strictly</span> increasing. The case for strictly
+decreasing is proven in analogous way. With these in mind, let’s get
+started with functional equations!</p><!-- l. 197 -->
+
+<p class='noindent'>A functional equation as the name suggest is
+simply an equation where the variable is a function. To see what it
+means, let’s solve practice problems. Really, there is nothing more
+to it and we now just need to keep practicing pattern recognition and
+thinking creatively. However before starting, there is an important
+note to keep in mind.</p>
+
+<div class='mdframed' id='mdframed-4'>
+  <!-- l. 205 -->
+
+  <p class='noindent'>The phrase <span class='pplb8t-x-x-109'>if and
+  only if</span> cannot be stressed enough! If you think you’ve found
+  all the solutions, chances are you probably haven’t. Many points
+  are taken off because of the lack of the proof for the <span class=
+  'pplb8t-x-x-109'>if and only if</span> condition, and it is always
+  nice to suspect your assumption that you have found all the
+  solutions.</p>
+</div><!-- l. 213 -->
+
+<p class='noindent'>For our first problem, let’s solve a classic
+problem that involves injection, surjection, and bijection.</p>
+
+<div class='tcolorbox probstyle' id='tcolobox-1'>
+  <div class='tcolorbox-title'>
+    <!-- l. 219 -->
+
+    <p class='noindent'>Exercise&nbsp;1.1.1:&nbsp;Classic Problem
+    (<span class='mathjax-inline'>\(\bullet \circ \circ
+    \)</span>)</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 217 -->
+
+    <p class='noindent'>Find all functions <span class=
+    'mathjax-inline'>\(f\)</span> such that <span class=
+    'mathjax-inline'>\(f(f(x) + f(y)) = x + y\)</span> for all
+    <span class='mathjax-inline'>\(x, y \in \mathbb {Z}\)</span>
+    [<span class='pplb8t-x-x-109'>MATH01-5</span>].</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-5'>
+  <!-- l. 221 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 221 -->
+
+  <p class='noindent'>Unlike the traditional approach of substituting
+  different values to <span class='mathjax-inline'>\(x\)</span> and
+  <span class='mathjax-inline'>\(y\)</span>, let’s start by
+  substituting <span class='mathjax-inline'>\(y = 1\)</span>.
+  Substituting, <span class='mathjax-inline'>\(f(f(x) + f(1)) = x + 1
+  = f(f(x + 1) + f(0))\)</span>. To find injectivity, surjectivity,
+  or bijectivity of the function <span class=
+  'mathjax-inline'>\(f\)</span>, assume <span class=
+  'mathjax-inline'>\(f(a) = f(b)\)</span>. Then, <span class=
+  'mathjax-inline'>\(f(f(a) + f(y)) = f(f(b) + f(y))\)</span> and by
+  definition, <span class='mathjax-inline'>\(f(a) = f(b)\)</span>
+  leads to <span class='mathjax-inline'>\(a = b\)</span>. In other
+  words, <span class='mathjax-inline'>\(f\)</span> is injective.</p>
+  <!-- l. 229 -->
+
+  <p class='noindent'>Returning to our previous equation <span class=
+  'mathjax-inline'>\(f(f(x) + f(1)) = f(f(x + 1) + f(0))\)</span>, we
+  could see that <span class='mathjax-inline'>\(f(x) + f(1) = f(x +
+  1) + f(0)\)</span> since <span class='mathjax-inline'>\(f\)</span>
+  is injective. Rearranging, <span class='mathjax-inline'>\(f(x + 1)
+  - f(x) = f(1) - f(0)\)</span> and <span class=
+  'mathjax-inline'>\(f(x)\)</span> is arithmetic sequence. Therefore
+  let <span class='mathjax-inline'>\(f(x) = ax + b\)</span>.
+  Substituting to our given equation, <span class=
+  'mathjax-inline'>\(f(ax + b + ay + b) = a (ax + b + ay + b) + b = x
+  + y\)</span>. Solving the equation, <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} a (ax + b + ay + b) + b
+  &amp;= x + y \\ \left ( a^2 - 1 \right ) x + \left ( a^2 - 1 \right
+  ) y + 2ab + b &amp;= 0 \end{align*}</span></p><!-- l. 240 -->
+
+  <p class='noindent'>holds for all <span class='mathjax-inline'>\(x,
+  y \in \mathbb {R}\)</span>. Thus <span class='mathjax-inline'>\(a =
+  \pm 1\)</span> and <span class='mathjax-inline'>\(b = 0\)</span>.
+  Therefore, <span class='mathjax-inline'>\(f(x) = \pm x\)</span> are
+  all solutions.</p>
+</div><!-- l. 244 -->
+
+<p class='noindent'>Continuing from this problem, we have a harder
+problem that requires smart substitutions.</p>
+
+<div class='tcolorbox probstyle' id='tcolobox-2'>
+  <a id='x1-2003x1.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 255 -->
+
+    <p class='noindent'>Exercise&nbsp;1.1.2:&nbsp;2008 IMO Problem 4
+    (<span class='mathjax-inline'>\(\bullet \bullet \bullet
+    \)</span>)</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 248 -->
+
+    <p class='noindent'>Find all functions <span class=
+    'mathjax-inline'>\(f: (0, \infty ) \mapsto (0, \infty )\)</span>
+    that satisfy the following equation for all positive reals
+    <span class='mathjax-inline'>\(a, b, c, d\)</span> where
+    <span class='mathjax-inline'>\(ab = cd\)</span>. <span class=
+    'mathjax-block'>\[ \frac { f(a)^2 + f(b)^2 }{f(c^2) + f(d^2)} =
+    \frac {a^2 + b^2}{c^2 + d^2} \]</span></p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-6'>
+  <!-- l. 257 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 257 -->
+
+  <p class='noindent'>First, let’s start with what we can observe
+  from the problem. The first thing that we can see is that we have
+  squares everywhere. The second thing to note is that substituting
+  <span class='mathjax-inline'>\(a = b = c = d = 1\)</span> gives us
+  <span class='mathjax-inline'>\(f(x) = 1\)</span>. We can also
+  notice that if we substitute <span class='mathjax-inline'>\((n, n,
+  n, n)\)</span> we get <span class='mathjax-inline'>\(f(n)^2 =
+  f(n^2)\)</span>.</p><!-- l. 263 -->
+
+  <p class='noindent'>With the observations in mind, what we can try
+  is getting rid of the square by substituting <span class=
+  'mathjax-inline'>\((\sqrt {x}, \sqrt {x}, 1, x)\)</span>. This will
+  lead us to following equations. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} \frac { f(\sqrt {x})^2
+  + f(\sqrt {x})^2 }{ 1 + f(x^2) } &amp;= \frac {x + x}{1 + x^2} \\
+  \frac { 2f(x) }{ 1 + f(x)^2 } &amp;= \frac {2x}{1 + x^2} \\ 2f(x)
+  (1 + x^2) &amp;= 2x(1 + f(x)^2) \end{align*}</span></p>
+  <!-- l. 274 -->
+
+  <p class='noindent'>Continuing, we can rearrange the equations to
+  solve for <span class='mathjax-inline'>\(f\)</span>. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} xf(x)^2 - (1 + x^2)f(x)
+  + x &amp;= 0 \\ (xf(x) - 1) (f(x) - x) &amp;= 0 \\ \therefore f(x)
+  = x \text { or } f(x) &amp;= \frac {1}{x} \end{align*}</span></p>
+  <!-- l. 281 -->
+
+  <p class='noindent'>Now we can see that if a function <span class=
+  'mathjax-inline'>\(f\)</span> satisfy the equation given by the
+  problem, then <span class='mathjax-inline'>\(f(x) = x\)</span> or
+  <span class='mathjax-inline'>\(f(x) = \frac {1}{x}\)</span>.
+  Moreover, if <span class='mathjax-inline'>\(f(x) = x)\)</span> or
+  <span class='mathjax-inline'>\(f(x) = \frac {1}{x}\)</span>, then
+  <span class='mathjax-inline'>\(f\)</span> satisfies the original
+  equation as we can see from direct substitution.</p><!-- l. 286 -->
+
+  <p class='noindent'>If we end our solution here thinking that we
+  have solved the problem, we will lose points for not showing that
+  <span class='mathjax-inline'>\(x\)</span> and <span class=
+  'mathjax-inline'>\(\frac {1}{x}\)</span> are the only solutions.
+  Although we showed the if and only if condition, we have not showed
+  that <span class='mathjax-inline'>\(f\)</span> is not a piece-wise
+  function.</p>
+
+  <div class='newtheorem'>
+    <!-- l. 291 -->
+
+    <p class='noindent'><span class='head'><span class=
+    'pplb8t-x-x-109'>Lemma.</span></span> <span class=
+    'mathjax-inline'>\(f(x) = x\)</span> <span class=
+    'pplri8t-x-x-109'>and</span> <span class='mathjax-inline'>\(f(x)
+    = \frac {1}{x}\)</span> <span class='pplri8t-x-x-109'>are the
+    only solutions to the equation.</span></p>
+  </div><!-- l. 294 -->
+
+  <p class='noindent'></p>
+
+  <dl class='trivlist'>
+    <dd class='trivlist'>
+      <!-- l. 295 -->
+
+      <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span>
+      For the sake of contradiction, let <span class=
+      'mathjax-inline'>\(f(\alpha ) \neq \alpha \)</span> and
+      <span class='mathjax-inline'>\(f(\beta ) \neq \frac {1}{\beta
+      }\)</span> for <span class='mathjax-inline'>\(\alpha , \beta
+      \neq 1\)</span>. By our previous conclusions, we can see that
+      it implies <span class='mathjax-inline'>\(f(\alpha ) = \frac
+      {1}{\alpha }\)</span> and <span class=
+      'mathjax-inline'>\(f(\beta ) = \beta \)</span>.</p>
+      <!-- l. 301 -->
+
+      <p class='noindent'>Substitute <span class=
+      'mathjax-inline'>\((\sqrt {\alpha }, \sqrt {\beta }, 1, \sqrt
+      {\alpha \beta })\)</span> to eliminate the squares and use both
+      <span class='mathjax-inline'>\(\alpha \)</span> and
+      <span class='mathjax-inline'>\(\beta \)</span>. <span class=
+      'mathjax-env mathjax-align*'>\begin{align*} \frac { f(\sqrt
+      {\alpha })^2 + f(\sqrt {\beta })^2 } { f(1) + f(\alpha \beta )
+      } &amp;= \frac {\alpha + \beta }{1 + \alpha \beta } \\ \frac {
+      \frac {1}{\alpha } + \beta }{ 1 + f(\alpha \beta ) } &amp;=
+      \frac {\alpha + \beta }{1 + \alpha \beta }
+      \end{align*}</span></p><!-- l. 310 -->
+
+      <p class='noindent'>Notice that <span class=
+      'mathjax-inline'>\(f(\alpha \beta )\)</span> is either
+      <span class='mathjax-inline'>\(\alpha \beta \)</span> or
+      <span class='mathjax-inline'>\(\frac {1}{\alpha \beta
+      }\)</span>. Therefore, let <span class=
+      'mathjax-inline'>\(f(\alpha \beta ) = \alpha \beta \)</span>.
+      Solving the equation, the following equations are obtained.
+      <span class='mathjax-env mathjax-align*'>\begin{align*} \frac {
+      \frac {1}{\alpha } + \beta }{ 1 + f(\alpha \beta ) } &amp;=
+      \frac {\alpha + \beta }{1 + \alpha \beta } \\ \frac { \frac
+      {1}{\alpha } + \beta }{ 1 + \alpha \beta } &amp;= \frac {\alpha
+      + \beta }{1 + \alpha \beta } \\ \frac {1}{\alpha } &amp;=
+      \alpha \end{align*}</span></p><!-- l. 321 -->
+
+      <p class='noindent'>This contradicts with the fact that
+      <span class='mathjax-inline'>\(\alpha \neq 1\)</span>.
+      Continuing, let <span class='mathjax-inline'>\(f(\alpha \beta )
+      = \frac {1}{\alpha \beta }\)</span>. <span class=
+      'mathjax-env mathjax-align*'>\begin{align*} \frac { \frac
+      {1}{\alpha } + \beta }{ 1 + f(\alpha \beta ) } \displaybreak
+      &amp;= \frac {\alpha + \beta }{1 + \alpha \beta } \\ \frac {
+      \frac {1}{\alpha } + \beta }{ 1 + \frac {1}{\alpha \beta } }
+      &amp;= \frac {\alpha + \beta }{1 + \alpha \beta } \\ \frac
+      {\beta + \alpha \beta ^2}{\alpha \beta + 1} &amp;= \frac
+      {\alpha + \beta }{1 + \alpha \beta } \\ \alpha \beta ^2 &amp;=
+      \alpha \\ \beta ^2 &amp;= 1 \end{align*}</span></p>
+      <!-- l. 334 -->
+
+      <p class='noindent'>This also contradicts with <span class=
+      'mathjax-inline'>\(\beta \neq 1\)</span>. Therefore, there
+      exists no <span class='mathjax-inline'>\(\alpha , \beta \neq
+      1\)</span> such that <span class='mathjax-inline'>\(f(\alpha )
+      \neq \alpha \)</span> and <span class=
+      'mathjax-inline'>\(f(\beta ) \neq \frac {1}{\beta }\)</span>.
+      □</p>
+    </dd>
+  </dl><!-- l. 339 -->
+
+  <p class='noindent'>Hence, <span class='mathjax-inline'>\(f(x) =
+  x\)</span> and <span class='mathjax-inline'>\(f(x) = \frac
+  {1}{x}\)</span> are the only solutions.</p>
+</div><!-- l. 342 -->
+
+<p class='noindent'>As you probably have noticed from the solution,
+while vast amount of knowledge in different functions may come handy,
+ingenuity and clever substitution would do most of the work when
+solving problems. Here is another problem on using clever
+substitutions.</p>
+
+<div class='tcolorbox probstyle' id='tcolobox-3'>
+  <a id='x1-2005x1.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 355 -->
+
+    <p class='noindent'>Exercise&nbsp;1.1.3:&nbsp;2020 Baltic Way
+    Problem 4 (<span class='mathjax-inline'>\(\bullet \circ
+    \circ \)</span>)</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 350 -->
+
+    <p class='noindent'>Find all functions <span class=
+    'mathjax-inline'>\(f: \mathbb {R} \rightarrow \mathbb
+    {R}\)</span> that satisfy the following for all <span class=
+    'mathjax-inline'>\(x, y \in \mathbb {R}\)</span>. <span class=
+    'mathjax-block'>\[ f(f(x) + x + y) = f(x + y) + yf(y)
+    \]</span></p>
+  </div>
+</div>
+
+<p>(<a href='https://youtu.be/STy74sON1Ho'>Video Solution</a>)</p>
+
+<div class='mdframed' id='mdframed-7'>
+  <!-- l. 358 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 358 -->
+
+  <p class='noindent'>First, let’s start by doing typical
+  substitutions. Substituting <span class='mathjax-inline'>\(x = y =
+  0\)</span> gives <span class='mathjax-inline'>\(f(f(0)) =
+  f(0)\)</span> and <span class='mathjax-inline'>\(x = -y\)</span>
+  gives <span class='mathjax-inline'>\(f(f(x)) = f(0) -
+  xf(-x)\)</span>. Also, trying <span class='mathjax-inline'>\(y =
+  0\)</span> gives <span class='mathjax-inline'>\(f(f(x) + x) =
+  f(x)\)</span>. Looking at the last observation, we could assume
+  that <span class='mathjax-inline'>\(f(x) = 0\)</span>. Moreover our
+  first observation also suggests that <span class=
+  'mathjax-inline'>\(f(0) = 0\)</span>. With the observations, let’s
+  first investigate the value of <span class=
+  'mathjax-inline'>\(f(0)\)</span>.</p><!-- l. 366 -->
+
+  <p class='noindent'>Consider the following equation by the last
+  observation with <span class='mathjax-inline'>\(y = f(x) +
+  x\)</span>. <span class='mathjax-env mathjax-align*'>\begin{align*}
+  f(x) &amp;= f(y) = f(f(y) + y) = f(f(x) + f(x) + x) \\ &amp;= f(x +
+  f(x)) + f(x) f(f(x)) = f(x) + f(x) f(f(x)) \end{align*}</span></p>
+  <!-- l. 376 -->
+
+  <p class='noindent'>Therefore, <span class='mathjax-inline'>\(f(x)
+  f(f(x)) = 0\)</span> and <span class='mathjax-inline'>\(f(0)
+  f(f(0)) = 0\)</span>. Note that because <span class=
+  'mathjax-inline'>\(f(f(0)) = f(0)\)</span>, <span class=
+  'mathjax-inline'>\(f(0)^2 = 0\)</span> and <span class=
+  'mathjax-inline'>\(f(0) = 0\)</span> holds. Indeed <span class=
+  'mathjax-inline'>\(f(0) = 0\)</span>!</p><!-- l. 380 -->
+
+  <p class='noindent'>Continuing, substitute <span class=
+  'mathjax-inline'>\(x = 0\)</span> to the given equation.
+  <span class='mathjax-block'>\[ f(f(0) + 0 + y) = f(y) = f(0 + y) +
+  y f(y) \]</span> In other words, <span class='mathjax-inline'>\(y
+  f(y) = 0\)</span> holds for all <span class='mathjax-inline'>\(y
+  \in \mathbb {R}\)</span>. Specially, <span class=
+  'mathjax-inline'>\(f(y) = 0\)</span> for all <span class=
+  'mathjax-inline'>\(y \neq 0\)</span> and we have found that
+  <span class='mathjax-inline'>\(f(0) = 0\)</span>. Therefore,
+  <span class='mathjax-inline'>\(f(x) = 0\)</span> for all
+  <span class='mathjax-inline'>\(x \in \mathbb {R}\)</span> is the
+  only solution.</p>
+</div><!-- l. 392 -->
+
+<p class='noindent'>In this problem, using the observation carefully
+and letting <span class='mathjax-inline'>\(y = f(x) + x\)</span> was
+the key part of the solution. There are many topics to discuss even
+if it requires less prerequisite knowledge to actually solve the
+problem. With the intuition discussed in this note, let’s discuss few
+important topics and patterns that are widely used.</p>

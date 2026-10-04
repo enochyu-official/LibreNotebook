@@ -1,0 +1,233 @@
+<h2 class='chapterHead' id='a-polynomials'><span class=
+'titlemark'>Note&nbsp;1</span><br>
+<a id='x1-10001'></a>[A] Polynomials</h2>
+
+<h3 class='sectionHead' id='foundations'><span class=
+'titlemark'>1.1</span> <a id='x1-20001.1'></a>Foundations</h3>
+<!-- l. 10 -->
+
+<p class='noindent'>Before we get into the world of polynomials in
+olympiad algebra, let’s discuss some notations that we will be using
+throughout the notes and key theorems as a review. Please feel free
+to skip over to the next section if you are already familiar with the
+topics below.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-1'>
+  <div class='tcolorbox-title'>
+    <!-- l. 20 -->
+
+    <p class='noindent'>Definition&nbsp;1.1.1</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 17 -->
+
+    <p class='noindent'>A <span class=
+    'pplb8t-x-x-109'>monomial</span> is a single term composed with
+    variables raised to powers of whole numbers and a coefficient.
+    <span class='pplb8t-x-x-109'>Polynomial</span>, denoted as
+    <span class='mathjax-inline'>\(P(x)\)</span>, is a sum of
+    finitely many monomials.</p>
+  </div>
+</div><!-- l. 22 -->
+
+<p class='noindent'>Some examples of monomial includes <span class=
+'mathjax-inline'>\(x, 3a^2, 9, (5-2i)x^3y^2\)</span> while
+<span class='mathjax-inline'>\(x^{-2}, a + b, \sin {x}\)</span> are
+not monomials. Polynomials are typically written with the following
+sum notation. <span class='mathjax-block'>\[ P(x) = \sum _{i=0}^n a_i
+x^i = a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0 \]</span> With
+this in mind, we can define some notations that occasionally
+appear.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-2'>
+  <div class='tcolorbox-title'>
+    <!-- l. 55 -->
+
+    <p class='noindent'>Definition&nbsp;1.1.2</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 34 -->
+
+    <p class='noindent'>Below are common set notations for
+    polynomials where <span class='mathjax-inline'>\(n\)</span> is a
+    non-negative integer. <span class=
+    'mathjax-env mathjax-align*'>\begin{align*} \mathbb {Z}[x]
+    &amp;\coloneqq \left \{ \sum _{i=0}^n a_i x^i \mid a_i \in
+    \mathbb {Z} \right \} \\ \mathbb {Q}[x] &amp;\coloneqq \left \{
+    \sum _{i=0}^n a_i x^i \mid a_i \in \mathbb {Q} \right \} \\
+    \mathbb {R}[x] &amp;\coloneqq \left \{ \sum _{i=0}^n a_i x^i \mid
+    a_i \in \mathbb {R} \right \} \\ \mathbb {C}[x] &amp;\coloneqq
+    \left \{ \sum _{i=0}^n a_i x^i \mid a_i \in \mathbb {C} \right \}
+    \end{align*}</span></p>
+  </div>
+</div><!-- l. 57 -->
+
+<p class='noindent'>Continuing with the notations, let’s discuss some
+key theorems that cannot be omitted when discussing polynomials.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-3'>
+  <a id='x1-2004x1.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 65 -->
+
+    <p class='noindent'>Theorem&nbsp;1.1.3:&nbsp;Fundamental Theorem
+    of Algebra</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 63 -->
+
+    <p class='noindent'>Any nonconstant polynomial <span class=
+    'mathjax-inline'>\(P(x) \in \mathbb {C}[x]\)</span> has at least
+    one complex root [<span class=
+    'pplb8t-x-x-109'>MATH01-3</span>].</p>
+  </div>
+</div><!-- l. 67 -->
+
+<p class='noindent'>There are multiple proofs for this beautiful
+theorem, but I think they are out of scope for the notes. Trust me,
+the theorem is true, and maybe I will include a rigorous proof of the
+statement in other parts of LibreNotebook. Now this theorem can lead
+us to another very beautiful proven assumption that we can use when
+solving problems.</p>
+
+<div class='tcolorbox corstyle' id='tcolobox-4'>
+  <div class='tcolorbox-title'>
+    <!-- l. 76 -->
+
+    <p class='noindent'>Corollary&nbsp;1.1.4</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 74 -->
+
+    <p class='noindent'>All polynomials <span class=
+    'mathjax-inline'>\(P(x) \in \mathbb {C}[x]\)</span> with
+    <span class='mathjax-inline'>\(\deg (P) = n &gt; 1\)</span> can
+    be factored into <span class='mathjax-inline'>\(n\)</span> linear
+    factors with multiplicity.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-1'>
+  <!-- l. 78 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 78 -->
+
+  <p class='noindent'>Notice that by FTA, <span class=
+  'mathjax-inline'>\(P_n(x)\)</span> can be represented as
+  <span class='mathjax-inline'>\(P_n(x) = a (x - z_1)
+  P_{n-1}(x)\)</span> where <span class=
+  'mathjax-inline'>\(P_k(x)\)</span> is a polynomial with degree
+  <span class='mathjax-inline'>\(k\)</span>. Continuing recursively
+  until <span class='mathjax-inline'>\(n = 1\)</span>, <span class=
+  'mathjax-inline'>\(P_n(x)\)</span> can be written as the following.
+  <span class='mathjax-env mathjax-align*'>\begin{align*} P_n(x)
+  &amp;= a (x - z_1) (x - z_2) \cdots (x - z_{n-1}) P_1 (x) \\ &amp;=
+  a (x - z_1) (x - z_2) \cdots (x - z_{n-1}) (x - z_n)
+  \end{align*}</span></p><!-- l. 87 -->
+
+  <p class='noindent'>Therefore, any polynomial with degree
+  <span class='mathjax-inline'>\(n &gt; 1\)</span> can be factored
+  into exactly <span class='mathjax-inline'>\(n\)</span> linear
+  factors with multiplicity.</p>
+</div><!-- l. 91 -->
+
+<p class='noindent'>The corollary also implies that there exists
+<span class='mathjax-inline'>\(n\)</span> roots counting
+multiplicity. Another key property to remember is remainder theorem
+and factor theorem. They are pretty self-evident, so I will omit the
+proof here, but below is the simple statement.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-5'>
+  <div class='tcolorbox-title'>
+    <!-- l. 100 -->
+
+    <p class='noindent'>Theorem&nbsp;1.1.5</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 97 -->
+
+    <p class='noindent'>For any polynomial <span class=
+    'mathjax-inline'>\(P\)</span>, if the polynomial is divided by
+    <span class='mathjax-inline'>\(x - a\)</span>, then the remainder
+    is <span class='mathjax-inline'>\(P(a)\)</span>. Moreover if
+    <span class='mathjax-inline'>\(P(a) = 0\)</span>, then
+    <span class='mathjax-inline'>\((x - a)\)</span> is a factor of
+    <span class='mathjax-inline'>\(P\)</span>.</p>
+  </div>
+</div><!-- l. 102 -->
+
+<p class='noindent'>The theorem above is basically stating that
+polynomials can be written as the following. <span class=
+'mathjax-block'>\[ P(x) = (x - a) Q(x) + P(a) \]</span> This is
+pretty self evident as we get <span class='mathjax-inline'>\(P(a) =
+P(a)\)</span> if we substitute <span class='mathjax-inline'>\(x =
+a\)</span> and <span class='mathjax-inline'>\(Q(x)\)</span> is the
+quotient polynomial.</p><!-- l. 110 -->
+
+<p class='noindent'>Before we finish our review, here is the final
+theorem.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-6'>
+  <a id='x1-2008x1.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 116 -->
+
+    <p class='noindent'>Theorem&nbsp;1.1.6:&nbsp;Rational Root
+    Theorem</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 113 -->
+
+    <p class='noindent'>Every rational root <span class=
+    'mathjax-inline'>\(\frac {p}{q}\)</span> in lowest terms of a
+    polynomial <span class='mathjax-inline'>\(P(x) = \sum _{i=0}^n
+    a_i x^i\)</span> with <span class='mathjax-inline'>\(a_0, a_n
+    \neq 0\)</span> satisfies the following conditions: <span class=
+    'mathjax-inline'>\(p \mid a_0\)</span> and <span class=
+    'mathjax-inline'>\(q \mid a_n\)</span>.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-2'>
+  <!-- l. 118 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 118 -->
+
+  <p class='noindent'>First and foremost, notice that if <span class=
+  'mathjax-inline'>\(\frac {p}{q}\)</span> is a solution to
+  <span class='mathjax-inline'>\(P(x) = 0\)</span>, then the
+  following equations hold. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} P \left ( \frac {p}{q}
+  \right ) = \sum _{i=0}^n a_i \left ( \frac {p}{q} \right )^i &amp;=
+  0 \\ a_0 q^n + a_1 p q^{n-1} + a_2 p^2 q^{n-2} + \cdots + a_n p^n
+  &amp;= 0 \end{align*}</span></p><!-- l. 127 -->
+
+  <p class='noindent'>Therefore, the following equations can be
+  derived. <span class='mathjax-env mathjax-align*'>\begin{align*} q
+  \left ( a_0 q^{n-1} + a_1 p q^{n-2} + a_2 p^2 q^{n-3} + \cdots +
+  a_{n-1} p^{n-1} \right ) &amp;= -a_n p^n \\ p \left ( a_1 q^{n-1} +
+  a_2 p q^{n-2} + a_3 p^2 q^{n-3} + \cdots + a_n p^{n - 1} \right )
+  &amp;= -a_0 q^n \end{align*}</span></p><!-- l. 138 -->
+
+  <p class='noindent'>Because <span class=
+  'mathjax-inline'>\(p\)</span> and <span class=
+  'mathjax-inline'>\(q\)</span> are coprime, the first equation
+  reveals that <span class='mathjax-inline'>\(q \mid a_n\)</span> and
+  the second equation shows that <span class='mathjax-inline'>\(p
+  \mid a_0\)</span>.</p>
+</div><!-- l. 142 -->
+
+<p class='noindent'>This theorem sometimes comes handy if we had to
+blindly guess a solution to further factorize as it narrows down our
+choices. Now with the reminders, let’s discuss the topic that we all
+may have heard of: Roots of Unity.</p>

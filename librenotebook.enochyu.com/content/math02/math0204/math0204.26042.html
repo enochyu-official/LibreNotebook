@@ -1,0 +1,1285 @@
+<h3 class='sectionHead' id='eigenvalues-and-eigenvectors'>
+<span class='titlemark'>0.1</span> <a id='x1-10000.1'></a>Eigenvalues
+and Eigenvectors</h3><!-- l. 7 -->
+
+<p class='noindent'>As always, let’s start with definitions.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-1'>
+  <div class='tcolorbox-title'>
+    <!-- l. 14 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.1</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 10 -->
+
+    <p class='noindent'>For a linear transformation <span class=
+    'mathjax-inline'>\(T: V \to V\)</span> with a nonzero vector
+    <span class='mathjax-inline'>\(v \in V\)</span> and some scalar
+    <span class='mathjax-inline'>\(\lambda \)</span>,if <span class=
+    'mathjax-inline'>\(Tv = \lambda v\)</span>, then <span class=
+    'mathjax-inline'>\(v\)</span> is an <span class=
+    'pplb8t-x-x-109'>eigenvector</span> of <span class=
+    'mathjax-inline'>\(T\)</span> and <span class=
+    'mathjax-inline'>\(\lambda \)</span> is an <span class=
+    'pplb8t-x-x-109'>eigenvalue</span> of <span class=
+    'mathjax-inline'>\(T\)</span>.</p>
+  </div>
+</div><!-- l. 16 -->
+
+<p class='noindent'>From here, it is important to note that while
+<span class='mathjax-inline'>\(v\)</span> must be a nonzero vector,
+<span class='mathjax-inline'>\(\lambda \)</span> could equal zero.
+Let’s take a look at an example.</p>
+
+<div class='tcolorbox probstyle' id='tcolobox-2'>
+  <div class='tcolorbox-title'>
+    <!-- l. 24 -->
+
+    <p class='noindent'>Exercise&nbsp;0.1.2</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 21 -->
+
+    <p class='noindent'>Let <span class='mathjax-inline'>\(T: \mathbb
+    {R}^2 \to \mathbb {R}^2\)</span> be a linear transformation
+    defined as <span class='mathjax-inline'>\(T(a, b) = (a, -
+    b)\)</span>. Find an eigenvector and eigenvalue of <span class=
+    'mathjax-inline'>\(T\)</span>.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-1'>
+  <!-- l. 26 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 26 -->
+
+  <p class='noindent'>Consider the following equation. <span class=
+  'mathjax-block'>\[ T(0, 1) = (0, -1) = -1 \cdot (0, 1) \]</span>
+  Therefore, <span class='mathjax-inline'>\((0, 1)\)</span> is an
+  eigenvector of <span class='mathjax-inline'>\(T\)</span> and
+  <span class='mathjax-inline'>\(-1\)</span> is the corresponding
+  eigenvalue of <span class='mathjax-inline'>\(T\)</span>.</p>
+</div><!-- l. 34 -->
+
+<p class='noindent'>Below is another example for a linear
+transformation <span class='mathjax-inline'>\(T: \mathbb {R}^2 \to
+\mathbb {R}^2\)</span>.</p>
+
+<div class='tcolorbox probstyle' id='tcolobox-3'>
+  <div class='tcolorbox-title'>
+    <!-- l. 40 -->
+
+    <p class='noindent'>Exercise&nbsp;0.1.3</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 38 -->
+
+    <p class='noindent'>Find, if any, eigenvectors and eigenvalues of
+    <span class='mathjax-inline'>\(T: \mathbb {R}^2 \to \mathbb
+    {R}^2\)</span> defined as <span class='mathjax-inline'>\(T(a, b)
+    = (b, -a)\)</span>.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-2'>
+  <!-- l. 42 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 42 -->
+
+  <p class='noindent'>For some scalar <span class=
+  'mathjax-inline'>\(\lambda \)</span>, consider the following
+  equation. <span class='mathjax-block'>\[ T(a, b) = (b, -a) =
+  \lambda (a, b) = (\lambda a, \lambda b) \]</span> In other words
+  <span class='mathjax-inline'>\(b = \lambda a\)</span> and
+  <span class='mathjax-inline'>\(-a = \lambda b\)</span>.
+  Substituting, <span class='mathjax-inline'>\(-a = \lambda ^2
+  a\)</span> and <span class='mathjax-inline'>\((\lambda ^2 + 1) a =
+  0\)</span>. Because <span class='mathjax-inline'>\(\lambda \in
+  \mathbb {R}\)</span>, <span class='mathjax-inline'>\(a = 0\)</span>
+  and <span class='mathjax-inline'>\(b = 0\)</span>. However, because
+  eigenvectors are nonzero vectors by definition, <span class=
+  'mathjax-inline'>\(T\)</span> has not real eigenvalues and
+  eigenvectors.</p>
+</div><!-- l. 53 -->
+
+<p class='noindent'>Now eigenvectors and eigenvalues are important
+because they make our lives easier for investigating matrix
+representation of a linear transformation. Consider the following
+theorem.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-4'>
+  <a id='x1-1005x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 62 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.4</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 58 -->
+
+    <p class='noindent'>For a linear transformation <span class=
+    'mathjax-inline'>\(T: V \to V\)</span> for a finite dimensional
+    vector space <span class='mathjax-inline'>\(V\)</span>, there
+    exists a basis whose matrix representation is a diagonal matrix
+    if and only if there exists a basis composed of only eigenvectors
+    of <span class='mathjax-inline'>\(T\)</span>.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-3'>
+  <!-- l. 64 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 64 -->
+
+  <p class='noindent'>First, let <span class='mathjax-inline'>\(B =
+  \{ v_1, \ldots , v_n \}\)</span> be a basis for <span class=
+  'mathjax-inline'>\(V\)</span> and let the matrix representation of
+  <span class='mathjax-inline'>\(T\)</span> be a diagonal matrix
+  <span class='mathjax-inline'>\(A\)</span> whose diagonal entries
+  are <span class='mathjax-inline'>\(\lambda _1, \ldots , \lambda
+  _n\)</span>. Thus <span class='mathjax-block'>\[ (Tv_j)_B = \begin
+  {bmatrix} 0 \\ \vdots \\ \lambda _j \\ \vdots \\ 0 \end {bmatrix}
+  \]</span> hold by construction and <span class=
+  'mathjax-inline'>\(Tv_j = \lambda _j v_j\)</span>. In other words,
+  <span class='mathjax-inline'>\(v_j\)</span> and <span class=
+  'mathjax-inline'>\(\lambda _j\)</span> are an eigenvector and an
+  eigenvalue of <span class='mathjax-inline'>\(T\)</span> and there
+  exists a basis composed of only eigenvectors of <span class=
+  'mathjax-inline'>\(T\)</span>.</p><!-- l. 81 -->
+
+  <p class='noindent'>Continuing, let <span class=
+  'mathjax-inline'>\(B = \{ v_1, \ldots , v_n \}\)</span> be a basis
+  for <span class='mathjax-inline'>\(V\)</span> whose elements are
+  all eigenvectors of <span class='mathjax-inline'>\(T\)</span>.
+  Therefore, <span class='mathjax-inline'>\(Tv_j = \lambda
+  v_j\)</span> and the following equation holds. <span class=
+  'mathjax-block'>\[ (Tv_j)_B = \begin {bmatrix} 0 \\ \vdots \\
+  \lambda _j \\ \vdots \\ 0 \end {bmatrix} \]</span> Therefore, there
+  exists a basis whose matrix representation is a diagonal
+  matrix.</p>
+</div><!-- l. 98 -->
+
+<p class='noindent'>With this theorem and connecting vector spaces
+with matrix again, we can redefine eigenvectors and eigenvalues with
+different interpretations.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-5'>
+  <div class='tcolorbox-title'>
+    <!-- l. 107 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.5</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 103 -->
+
+    <p class='noindent'>For a square matrix <span class=
+    'mathjax-inline'>\(A_{n \times n}\)</span> and a nonzero
+    <span class='mathjax-inline'>\(n\)</span>-tuple <span class=
+    'mathjax-inline'>\(x \in \mathbb {R}^n\)</span>, if there exists
+    a scalar <span class='mathjax-inline'>\(\lambda \)</span> such
+    that <span class='mathjax-inline'>\(Ax = \lambda x\)</span>, then
+    <span class='mathjax-inline'>\(x\)</span> is an <span class=
+    'pplb8t-x-x-109'>eigenvector</span> and <span class=
+    'mathjax-inline'>\(\lambda \)</span> is an <span class=
+    'pplb8t-x-x-109'>eigenvalue</span> of <span class=
+    'mathjax-inline'>\(A\)</span>.</p>
+  </div>
+</div><!-- l. 109 -->
+
+<p class='noindent'>When you think about this definition, we can see
+that both definitions imply the same thing as the <span class=
+'mathjax-inline'>\(A\)</span> is the matrix representation of a
+linear transformation and <span class='mathjax-inline'>\(x\)</span>
+is a vector in the corresponding vector space. Let’s take a look at a
+quick example.</p>
+
+<div class='tcolorbox probstyle' id='tcolobox-6'>
+  <div class='tcolorbox-title'>
+    <!-- l. 124 -->
+
+    <p class='noindent'>Exercise&nbsp;0.1.6</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 115 -->
+
+    <p class='noindent'>Find an eigenvector and eigenvalue of matrix
+    <span class='mathjax-inline'>\(A\)</span> defined as the
+    following. <span class='mathjax-block'>\[ A = \begin {bmatrix} 1
+    &amp; 0 \\ 0 &amp; -1 \end {bmatrix} \]</span></p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-4'>
+  <!-- l. 126 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 126 -->
+
+  <p class='noindent'>Consider the following equation. <span class=
+  'mathjax-block'>\[ \begin {bmatrix} 1 &amp; 0 \\ 0 &amp; -1 \end
+  {bmatrix} \begin {bmatrix} 0 \\ 1 \end {bmatrix} = \begin {bmatrix}
+  0 \\ -1 \end {bmatrix} = -1 \cdot \begin {bmatrix} 0 \\ 1 \end
+  {bmatrix} \]</span> Thus, <span class=
+  'mathjax-inline'>\(-1\)</span> is an eigenvalue and <span class=
+  'mathjax-inline'>\([0 1]\)</span> is an eigenvector.</p>
+</div><!-- l. 151 -->
+
+<p class='noindent'>If this example looks familiar, this is actually
+the same question as the first example from this section. Continuing,
+below are two interesting theorems on eigenvectors and
+eigenvalues.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-7'>
+  <a id='x1-1009x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 160 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.7</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 156 -->
+
+    <p class='noindent'>For a linear transformation <span class=
+    'mathjax-inline'>\(T: V \to V\)</span>, <span class=
+    'mathjax-inline'>\(v \in V\)</span> is an eigenvector with the
+    corresponding eigenvalue <span class='mathjax-inline'>\(\lambda
+    \)</span> if and only if <span class=
+    'mathjax-inline'>\((v)_B\)</span> is an eigenvector with the
+    corresponding eigenvalue <span class='mathjax-inline'>\(\lambda
+    \)</span> for <span class='mathjax-inline'>\(A_B^B\)</span>, the
+    matrix representation of <span class=
+    'mathjax-inline'>\(T\)</span> for any basis <span class=
+    'mathjax-inline'>\(B\)</span>.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-5'>
+  <!-- l. 162 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 162 -->
+
+  <p class='noindent'>Notice that <span class='mathjax-inline'>\(Tv =
+  \lambda v\)</span> if and only if <span class=
+  'mathjax-inline'>\(A_B^B (v)_B = (Tv)_B = (\lambda v)_B = \lambda
+  (v)_B\)</span>. Thus, the theorem holds.</p>
+</div><!-- l. 166 -->
+
+<p class='noindent'>This theorem will come in handy as we can either
+find all eigenvectors and corresponding eigenvalues of the
+transformation or its matrix representation. Continuing, below is
+another theorem.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-8'>
+  <a id='x1-1011x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 173 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.8</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 171 -->
+
+    <p class='noindent'>For a linear transformation <span class=
+    'mathjax-inline'>\(T: V \to V\)</span> and eigenvalue
+    <span class='mathjax-inline'>\(\lambda \)</span>, <span class=
+    'mathjax-inline'>\(S_\lambda = \{ v \in V | Tv = \lambda v
+    \}\)</span> is a subspace of <span class=
+    'mathjax-inline'>\(V\)</span>.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-6'>
+  <!-- l. 175 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 175 -->
+
+  <p class='noindent'>First, notice that because <span class=
+  'mathjax-inline'>\(S_\lambda \subset V\)</span>, it suffices to
+  show that the set is closed under vector addition and scalar
+  multiplication. Consider the following equations for <span class=
+  'mathjax-inline'>\(u, v \in S_\lambda \)</span> and some scalars
+  <span class='mathjax-inline'>\(\alpha \)</span> and <span class=
+  'mathjax-inline'>\(\beta \)</span>. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} T(\alpha u + \beta v)
+  &amp;= \alpha Tu + \beta Tv = \alpha \lambda u + \beta \lambda v \\
+  &amp;= \lambda (\alpha u + \beta v) \end{align*}</span></p>
+  <!-- l. 185 -->
+
+  <p class='noindent'>In other words, <span class=
+  'mathjax-inline'>\(\alpha u + \beta v \in S_\lambda \)</span> and
+  the theorem holds.</p>
+</div><!-- l. 189 -->
+
+<p class='noindent'>As you may have guessed, we can establish a new
+definition from the theorem above.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-9'>
+  <div class='tcolorbox-title'>
+    <!-- l. 196 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.9</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 193 -->
+
+    <p class='noindent'>For a transformation <span class=
+    'mathjax-inline'>\(T: V \to V\)</span> and its eigenvalue
+    <span class='mathjax-inline'>\(\lambda \)</span>, <span class=
+    'mathjax-inline'>\(S_\lambda = \{ v \in V | Tv = \lambda v
+    \}\)</span> defined as the <span class=
+    'pplb8t-x-x-109'>eigenspace</span> of <span class=
+    'mathjax-inline'>\(T\)</span> for the eigenvalue <span class=
+    'mathjax-inline'>\(\lambda \)</span>.</p>
+  </div>
+</div><!-- l. 198 -->
+
+<p class='noindent'>Just as we redefined eigenvectors and eigenvalues
+with matrices, we could do the same for eigenspace. Now that we
+discussed what eigenvectors and eigenvalues are, let’s discuss how to
+find one.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-10'>
+  <a id='x1-1014x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 205 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.10</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 203 -->
+
+    <p class='noindent'>For a square matrix <span class=
+    'mathjax-inline'>\(A_{n \times n}\)</span>, <span class=
+    'mathjax-inline'>\(\lambda \)</span> is its eigenvalue if and
+    only if <span class='mathjax-inline'>\(\det (A - \lambda I_n) =
+    0\)</span>.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-7'>
+  <!-- l. 207 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 207 -->
+
+  <p class='noindent'>First notice that by definition, <span class=
+  'mathjax-inline'>\(\lambda \)</span> is an eigenvalue of
+  <span class='mathjax-inline'>\(A\)</span> if and only if
+  <span class='mathjax-inline'>\(Ax = \lambda x\)</span> holds for
+  some nonzero vector <span class='mathjax-inline'>\(x\)</span>.
+  Continuing, <span class='mathjax-inline'>\(Ax = \lambda x\)</span>
+  holds if and only if <span class='mathjax-inline'>\(Ax = \lambda
+  I_n x\)</span> and <span class='mathjax-inline'>\((A - \lambda
+  I_n)x = 0\)</span>. In other words, the columns of the matrix
+  <span class='mathjax-inline'>\(A - \lambda I_n\)</span> are
+  linearly dependent and invertible. Therefore by Theorem
+  <span class='pplb8t-x-x-109'>??</span>, the theorem holds.</p>
+</div><!-- l. 216 -->
+
+<p class='noindent'>Being one of the most important theorems in
+linear algebra, we can establish another definition from the
+theorem.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-11'>
+  <div class='tcolorbox-title'>
+    <!-- l. 222 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.11</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 220 -->
+
+    <p class='noindent'>The <span class=
+    'pplb8t-x-x-109'>characteristic equation</span> of a square
+    matrix <span class='mathjax-inline'>\(A\)</span> is defined as
+    <span class='mathjax-inline'>\(\det (A - \lambda I_n) =
+    0\)</span> for scalar variable <span class=
+    'mathjax-inline'>\(\lambda \)</span>.</p>
+  </div>
+</div><!-- l. 224 -->
+
+<p class='noindent'>An important thing to note from this definition
+is that <span class='mathjax-inline'>\(\det (A - \lambda
+I_n)\)</span> is a polynomial in <span class=
+'mathjax-inline'>\(\lambda \)</span> with degree <span class=
+'mathjax-inline'>\(n\)</span>. Moreover, the real roots of the
+polynomial can be interpreted as eigenvalues of <span class=
+'mathjax-inline'>\(A\)</span>. Let’s take a look at an example of how
+the characteristic equation can be used to find all eigenvalues of a
+matrix.</p>
+
+<div class='tcolorbox probstyle' id='tcolobox-12'>
+  <div class='tcolorbox-title'>
+    <!-- l. 237 -->
+
+    <p class='noindent'>Exercise&nbsp;0.1.12</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 232 -->
+
+    <p class='noindent'>Find all eigenvalues and the corresponding
+    eigenspaces of matrix <span class='mathjax-inline'>\(A = \begin
+    {bmatrix} 1 &amp; 0 \\ 0 &amp; -1 \end {bmatrix}\)</span>.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-8'>
+  <!-- l. 239 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 239 -->
+
+  <p class='noindent'>To find all eigenvalues of <span class=
+  'mathjax-inline'>\(A\)</span>, it suffices to find all solutions
+  for the characteristic equation of <span class=
+  'mathjax-inline'>\(A\)</span> by Theorem <a href=
+  '#x1-1014x0.1'>0.1.10
+  <!-- tex4ht:ref: theo:Eigenvalue and Determinants  --></a>.
+  <span class='mathjax-block'>\[ A - \lambda I_2 = \begin {bmatrix} 1
+  - \lambda &amp; 0 \\ 0 &amp; -1 - \lambda \end {bmatrix} \]</span>
+  Therefore, <span class='mathjax-inline'>\(\det (A - \lambda I_2) =
+  (1 - \lambda )(-1 - \lambda )\)</span> and <span class=
+  'mathjax-inline'>\(\lambda = 1\)</span> or <span class=
+  'mathjax-inline'>\(\lambda = -1\)</span> are the solutions to the
+  characteristic equation.</p><!-- l. 253 -->
+
+  <p class='noindent'>Continuing, the corresponding eigenspaces could
+  be found. For <span class='mathjax-inline'>\(\lambda = 1\)</span>,
+  the eigenspace is defined as <span class='mathjax-inline'>\(S_1 =
+  \{ x | Ax = x \}\)</span>. Solving for the equation <span class=
+  'mathjax-inline'>\((A - I)x = 0\)</span>, the following equations
+  hold. <span class='mathjax-env mathjax-align*'>\begin{align*}
+  \begin {bmatrix} 0 &amp; 0 \\ 0 &amp; -2 \end {bmatrix} \begin
+  {bmatrix} x_1 \\ x_2 \end {bmatrix} &amp;= 0 \\ -2x_2 &amp;= 0
+  \end{align*}</span></p><!-- l. 268 -->
+
+  <p class='noindent'>Therefore, the eigenspace for the eigenvalue
+  <span class='mathjax-inline'>\(1\)</span> can be represented as the
+  following <span class='mathjax-block'>\[ S_1 = \Span \left \{
+  \begin {bmatrix} 1 \\ 0 \end {bmatrix} \right \} \]</span>
+  Similarly, <span class='mathjax-inline'>\(S_{-1} = \{ x | Ax = -x
+  \}\)</span> and <span class='mathjax-inline'>\((A + I)x =
+  0\)</span> could be solved. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} \begin {bmatrix} 2
+  &amp; 0 \\ 0 &amp; 0 \end {bmatrix} \begin {bmatrix} x_1 \\ x_2
+  \end {bmatrix} &amp;= 0 \\ 2x_1 &amp;= 0 \end{align*}</span></p>
+  <!-- l. 293 -->
+
+  <p class='noindent'>Therefore, <span class='mathjax-block'>\[
+  S_{-1} = \Span \left \{ \begin {bmatrix} 0 \\ 1 \end {bmatrix}
+  \right \} \]</span> and the corresponding eigenspaces for all
+  eigenvalues of <span class='mathjax-inline'>\(A\)</span> are
+  found.</p>
+</div><!-- l. 307 -->
+
+<p class='noindent'>We got a nice matrix here, but it’s worth noting
+that <span class='mathjax-inline'>\(\lambda \)</span> need not be
+real. As demonstrated from the simple example above, solving the
+characteristic equation will lead to all eigenvalues for a matrix. I
+will leave more complex and interesting examples in the practice
+problems below. In the next part of the section, we will discuss the
+properties of eigenvalues and eigenvectors.</p>
+
+<h4 class='subsectionHead' id='properties-of-eigenvalues'>
+<span class='titlemark'>0.1.1</span> <a id=
+'x1-20000.1.1'></a>Properties of Eigenvalues</h4><!-- l. 316 -->
+
+<p class='noindent'>Eigenvalues and eigenvectors have interesting
+properties and relationship with vector spaces. Consider the
+following theorem.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-13'>
+  <a id='x1-2002x0.1.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 322 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.13</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 320 -->
+
+    <p class='noindent'>For two square matrices <span class=
+    'mathjax-inline'>\(A\)</span> and <span class=
+    'mathjax-inline'>\(B\)</span> such that <span class=
+    'mathjax-inline'>\(A \cong B\)</span>, the characteristic
+    equation and eigenvalues for each matrix are equal.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-9'>
+  <!-- l. 324 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 324 -->
+
+  <p class='noindent'>By definition of similar matrices, there exists
+  some invertible matrix <span class='mathjax-inline'>\(P\)</span>
+  such that <span class='mathjax-inline'>\(B = P^{-1} A P\)</span>.
+  Therefore, the following equations hold. <span class=
+  'mathjax-block'>\[ P^{-1} (A - \lambda I) P = P^{-1} A P - P^{-1}
+  \lambda I P = B - \lambda I \]</span> Therefore, <span class=
+  'mathjax-inline'>\(\det (B - \lambda I) = \det (P^{-1} (A - \lambda
+  I) P) = \det (A - \lambda I)\)</span> and the characteristic
+  equations are the same. In other words, the eigenvalues for
+  <span class='mathjax-inline'>\(A\)</span> and <span class=
+  'mathjax-inline'>\(B\)</span> are equal and the theorem holds.</p>
+</div><!-- l. 338 -->
+
+<p class='noindent'>Below is another theorem on the eigenvalues of
+triangular matrices.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-14'>
+  <a id='x1-2004x0.1.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 343 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.14</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 341 -->
+
+    <p class='noindent'>The eigenvalues of triangular (upper or
+    lower) matrices are the diagonal elements.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-10'>
+  <!-- l. 345 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 345 -->
+
+  <p class='noindent'>By definition, notice that for a triangular
+  matrix <span class='mathjax-inline'>\(A\)</span>, <span class=
+  'mathjax-inline'>\(A - \lambda I\)</span> is also triangular.
+  Therefore by Theorem <span class='pplb8t-x-x-109'>??</span>,
+  <span class='mathjax-block'>\[ \det (A - \lambda I) = \prod
+  _{k=1}^n (\lambda _k - \lambda ) \]</span> and <span class=
+  'mathjax-inline'>\(\det (A - \lambda I_n) = 0\)</span> if and only
+  if <span class='mathjax-inline'>\(\lambda = \lambda _k\)</span>.
+  Because <span class='mathjax-inline'>\(\lambda _k\)</span> are the
+  diagonal elements of <span class='mathjax-inline'>\(A\)</span>, the
+  theorem holds.</p>
+</div><!-- l. 357 -->
+
+<p class='noindent'>Continuing, below is another theorem on the
+relationship between eigenvalues and invertibility.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-15'>
+  <a id='x1-2006x0.1.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 363 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.15</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 361 -->
+
+    <p class='noindent'>A square matrix <span class=
+    'mathjax-inline'>\(A\)</span> contains a zero eigenvalue if and
+    only if it is not invertible.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-11'>
+  <!-- l. 365 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 365 -->
+
+  <p class='noindent'>A square matrix <span class=
+  'mathjax-inline'>\(A\)</span> contains a zero eigenvalue if and
+  only if <span class='mathjax-inline'>\(\det (A - 0 I) = 0\)</span>
+  and <span class='mathjax-inline'>\(\det (A) = 0\)</span>. Because
+  <span class='mathjax-inline'>\(A\)</span> is invertible if and only
+  if <span class='mathjax-inline'>\(\det (A) \neq 0\)</span> by
+  Theorem <span class='pplb8t-x-x-109'>??</span>, the theorem
+  holds.</p>
+</div><!-- l. 371 -->
+
+<p class='noindent'>If you think this theorem is nice, below is
+another theorem on invertibility and eigenvalues.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-16'>
+  <a id='x1-2008x0.1.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 378 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.16</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 375 -->
+
+    <p class='noindent'>For an invertible matrix <span class=
+    'mathjax-inline'>\(A\)</span> with eigenvector <span class=
+    'mathjax-inline'>\(x\)</span> and its corresponding eigenvalue
+    <span class='mathjax-inline'>\(\lambda \)</span>, <span class=
+    'mathjax-inline'>\(x\)</span> is also an eigenvalue of
+    <span class='mathjax-inline'>\(A^{-1}\)</span> with corresponding
+    eigenvalue <span class='mathjax-inline'>\(\frac {1}{\lambda
+    }\)</span>.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-12'>
+  <!-- l. 380 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 380 -->
+
+  <p class='noindent'>By definition, <span class=
+  'mathjax-inline'>\(Ax = \lambda x\)</span> and <span class=
+  'mathjax-inline'>\(x = A^{-1} \lambda x\)</span>. Continuing,
+  <span class='mathjax-inline'>\(A^{-1} x = \frac {1}{\lambda } \cdot
+  x\)</span>. Therefore, <span class='mathjax-inline'>\(x\)</span> is
+  also an eigenvector of <span class=
+  'mathjax-inline'>\(A^{-1}\)</span> with the corresponding
+  eigenvalue <span class='mathjax-inline'>\(\frac {1}{\lambda
+  }\)</span>.</p>
+</div><!-- l. 386 -->
+
+<p class='noindent'>Continuing, below is a theorem on the
+relationship between eigenvalues and linear independence.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-17'>
+  <a id='x1-2010x0.1.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 394 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.17</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 390 -->
+
+    <p class='noindent'>If <span class='mathjax-inline'>\(x_1, \ldots
+    , x_k\)</span> are eigenvectors of a square matrix <span class=
+    'mathjax-inline'>\(A\)</span> and the corresponding eigenvalues
+    <span class='mathjax-inline'>\(\lambda _1, \ldots , \lambda
+    _k\)</span> are all distinct, then <span class=
+    'mathjax-inline'>\(\{ x_1, \ldots , x_k \}\)</span> is linearly
+    independent.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-13'>
+  <!-- l. 396 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 396 -->
+
+  <p class='noindent'>First, notice that <span class=
+  'mathjax-inline'>\(\{ x_1 \}\)</span> is linearly independent.
+  Therefore, it suffices to show that if the theorem holds for
+  <span class='mathjax-inline'>\(k - 1 &gt; 0\)</span>, then the
+  statement holds for <span class='mathjax-inline'>\(k\)</span>.
+  Assume <span class='mathjax-inline'>\(\{ x_1, \ldots , x_{k-1}
+  \}\)</span> is a linearly independent set of eigenvectors with
+  distinct corresponding eigenvalues <span class=
+  'mathjax-inline'>\(\lambda _1, \ldots , \lambda _{k-1}\)</span>.
+  Consider the following equations for some scalars <span class=
+  'mathjax-inline'>\(c_i\)</span>. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} \sum _{i=1}^k c_i x_i
+  &amp;= 0 \\ \sum _{i=1}^k c_i A x_i &amp;= 0 \\ \sum _{i=1}^k c_i
+  \lambda _i x_i &amp;= 0 \\ \sum _{i=1}^{k-1} c_i \lambda _k x_i
+  &amp;= 0 \end{align*}</span></p><!-- l. 408 -->
+
+  <p class='noindent'>Subtracting the last two equations,
+  <span class='mathjax-inline'>\(\sum _{i=1}^{k-1} c_i (\lambda _i -
+  \lambda _k) x_i = 0\)</span> is obtained. Because <span class=
+  'mathjax-inline'>\(\{ x_1, \ldots , x_{k-1} \}\)</span> is linearly
+  independent, <span class='mathjax-inline'>\(c_i (\lambda _i -
+  \lambda _k) = 0\)</span> for all integer <span class=
+  'mathjax-inline'>\(i \in [1, k)\)</span>. Continuing, because
+  <span class='mathjax-inline'>\(\lambda _i - \lambda _k \neq
+  0\)</span> by construction, <span class='mathjax-inline'>\(c_i =
+  0\)</span> for all integer <span class='mathjax-inline'>\(i \in [1,
+  k)\)</span> and <span class='mathjax-inline'>\(c_k = 0\)</span>
+  since <span class='mathjax-inline'>\(x_k \neq 0\)</span>. Thus
+  <span class='mathjax-inline'>\(\{ x_1, \ldots , x_k \}\)</span> is
+  linearly independent and the theorem holds by induction.</p>
+</div><!-- l. 418 -->
+
+<p class='noindent'>Naturally, we can consider the dimension of an
+eigenspace.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-18'>
+  <a id='x1-2012x0.1.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 426 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.18</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 421 -->
+
+    <p class='noindent'>For a matrix <span class=
+    'mathjax-inline'>\(A_{n \times n}\)</span> with an eigenvalue
+    <span class='mathjax-inline'>\(\lambda \)</span>, the following
+    equation holds. <span class='mathjax-block'>\[ \dim (S_\lambda )
+    = n - \Rank (A - \lambda I) \]</span></p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-14'>
+  <!-- l. 428 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 428 -->
+
+  <p class='noindent'>By definition, the eigenspace for <span class=
+  'mathjax-inline'>\(\lambda \)</span> is the set of all vectors
+  <span class='mathjax-inline'>\(v\)</span> that satisfy <span class=
+  'mathjax-inline'>\(Av = \lambda v\)</span>. Because <span class=
+  'mathjax-inline'>\((A - \lambda ) v = 0\)</span>, <span class=
+  'mathjax-inline'>\(S_\lambda \)</span> can be interpreted as
+  <span class='mathjax-inline'>\(\ker (A - \lambda I)\)</span>.
+  Moreover by Theorem <span class='pplb8t-x-x-109'>??</span>, the
+  following equation holds. <span class='mathjax-block'>\[ \Rank (A -
+  \lambda I) + \Null (A - \lambda I) = n \]</span> Because
+  <span class='mathjax-inline'>\(\dim (\ker (A - \lambda I)) = \Null
+  (A - \lambda I)\)</span> holds by definition, <span class=
+  'mathjax-inline'>\(\dim (S_\lambda ) = n - \Rank (A - \lambda
+  I)\)</span>.</p>
+</div><!-- l. 440 -->
+
+<p class='noindent'>We could really go on forever with interesting
+theorems, but before we conclude this part of the note, I would like
+to discuss two more theorems.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-19'>
+  <a id='x1-2016x0.1.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 453 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.19</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 445 -->
+
+    <p class='noindent'>Consider the following statements for a
+    matrix <span class='mathjax-inline'>\(A\)</span> with an
+    eigenvector <span class='mathjax-inline'>\(x\)</span> with its
+    corresponding eigenvalue <span class='mathjax-inline'>\(\lambda
+    \)</span>.</p>
+
+    <dl class='enumerate-enumitem'>
+      <dt class='enumerate-enumitem'>1.</dt>
+
+      <dd class='enumerate-enumitem'>For an arbitrary scalar
+      <span class='mathjax-inline'>\(k\)</span>, <span class=
+      'mathjax-inline'>\(x\)</span> is also an eigenvector of
+      <span class='mathjax-inline'>\(kA\)</span> with corresponding
+      eigenvalue <span class='mathjax-inline'>\(k \lambda
+      \)</span>.</dd>
+
+      <dt class='enumerate-enumitem'>2.</dt>
+
+      <dd class='enumerate-enumitem'>For some <span class=
+      'mathjax-inline'>\(n \in \mathbb {N}\)</span>, <span class=
+      'mathjax-inline'>\(x\)</span> is also an eigenvector of
+      <span class='mathjax-inline'>\(A^n\)</span> with corresponding
+      eigenvalue <span class='mathjax-inline'>\(\lambda
+      ^n\)</span>.</dd>
+    </dl>
+  </div>
+</div><!-- l. 455 -->
+
+<p class='noindent'>Let’s start by proving the first statement.</p>
+
+<div class='mdframed' id='mdframed-15'>
+  <!-- l. 458 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 458 -->
+
+  <p class='noindent'>Consider the following equation. <span class=
+  'mathjax-block'>\[ (kA)x = k(Ax) = k \lambda x = (k \lambda ) x
+  \]</span> Therefore, <span class='mathjax-inline'>\(x\)</span> is
+  an eigenvector of <span class='mathjax-inline'>\(kA\)</span> and
+  its corresponding eigenvalue is <span class='mathjax-inline'>\(k
+  \lambda \)</span>.</p>
+</div><!-- l. 466 -->
+
+<p class='noindent'>Below is the proof for the second statement.</p>
+
+<div class='mdframed' id='mdframed-16'>
+  <!-- l. 469 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 469 -->
+
+  <p class='noindent'>Assume that if the statement holds for
+  <span class='mathjax-inline'>\(n - 1\)</span>, then the statement
+  holds for <span class='mathjax-inline'>\(n &gt; 1\)</span>.
+  Consider the following equations. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} A^n x &amp;= A \left (
+  A^{n-1} x \right ) = A \left ( \lambda ^{n-1} x \right ) = \lambda
+  ^{n-1} Ax \\ &amp;= \lambda ^{n-1} \lambda x = \lambda ^n x
+  \end{align*}</span></p><!-- l. 479 -->
+
+  <p class='noindent'>Because <span class='mathjax-inline'>\(Ax =
+  \lambda x\)</span>, the statement holds by induction.</p>
+</div><!-- l. 482 -->
+
+<p class='noindent'>Before we move on to the final content with the
+last theorem for this part, below is a definition for the
+theorem.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-20'>
+  <div class='tcolorbox-title'>
+    <!-- l. 488 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.20</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 486 -->
+
+    <p class='noindent'>The <span class='pplb8t-x-x-109'>trace</span>
+    of a matrix <span class='mathjax-inline'>\(A = [a_{ij}]\)</span>,
+    denoted as <span class='mathjax-inline'>\(\Tr (A)\)</span>, is
+    the sum of the diagonal elements of <span class=
+    'mathjax-inline'>\(A\)</span>.</p>
+  </div>
+</div><!-- l. 490 -->
+
+<p class='noindent'>With the definition, we can continue with the
+theorem.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-21'>
+  <a id='x1-2021x0.1.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 499 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.21</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 493 -->
+
+    <p class='noindent'>For a square matrix <span class=
+    'mathjax-inline'>\(A_{n \times n}\)</span> with eigenvalues
+    <span class='mathjax-inline'>\(\lambda _1, \ldots , \lambda
+    _n\)</span>, the following equations hold.</p>
+
+    <dl class='enumerate-enumitem'>
+      <dt class='enumerate-enumitem'>1.</dt>
+
+      <dd class='enumerate-enumitem'><span class=
+      'mathjax-inline'>\(\Tr (A) = \sum _{k=1}^n \lambda
+      _k\)</span></dd>
+
+      <dt class='enumerate-enumitem'>2.</dt>
+
+      <dd class='enumerate-enumitem'><span class=
+      'mathjax-inline'>\(\det (A) = \prod _{k=1}^n \lambda
+      _k\)</span></dd>
+    </dl>
+  </div>
+</div><!-- l. 501 -->
+
+<p class='noindent'>Let’s start by proving the first equation.</p>
+
+<div class='mdframed' id='mdframed-17'>
+  <!-- l. 504 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 504 -->
+
+  <p class='noindent'>By the Fundamental Theorem of Algebra, the
+  following equation holds. <span class='mathjax-block'>\[ \det (A -
+  \lambda I) = \prod _{k=1}^n (\lambda _k - \lambda ) = 0 \]</span>
+  Therefore, all eigenvalues are the diagonal elements and by the
+  definition of trace of <span class='mathjax-inline'>\(A\)</span>,
+  the sum of all eigenvalues are the trace of <span class=
+  'mathjax-inline'>\(A\)</span>.</p>
+</div><!-- l. 515 -->
+
+<p class='noindent'>Continuing, below is the proof for the second
+equation.</p>
+
+<div class='mdframed' id='mdframed-18'>
+  <!-- l. 518 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 518 -->
+
+  <p class='noindent'>Substituting <span class=
+  'mathjax-inline'>\(\lambda = 0\)</span> into the equation
+  <span class='mathjax-block'>\[ \det (A - \lambda I) = \prod
+  _{k=1}^n (\lambda _k - \lambda ), \]</span> <span class=
+  'mathjax-inline'>\(\det (A) = \prod _{k=1}^n \lambda _k\)</span>
+  and the equation holds.</p>
+</div><!-- l. 526 -->
+
+<p class='noindent'>It is important to note that the second equation
+counts multiplicity. In other words, even if <span class=
+'mathjax-inline'>\(\lambda _p = \lambda _q\)</span>, you still count
+both. Wow! I can’t believe that we are already almost done with the
+notes! For the final concept of my notes on linear algebra, we will
+discuss diagonalization.</p>
+
+<h4 class='subsectionHead' id='diagonalization'><span class=
+'titlemark'>0.1.2</span> <a id=
+'x1-30000.1.2'></a>Diagonalization</h4><!-- l. 534 -->
+
+<p class='noindent'>Diagonalization in linear algebra is a technique
+that I think really makes our lives easier in calculations. To get
+into it, let’s get started with definition and theorems.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-22'>
+  <div class='tcolorbox-title'>
+    <!-- l. 541 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.22</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 539 -->
+
+    <p class='noindent'>A square matrix that is similar to a diagonal
+    matrix is known to be <span class=
+    'pplb8t-x-x-109'>diagonalizable</span>.</p>
+  </div>
+</div><!-- l. 543 -->
+
+<p class='noindent'>Now we cannot always use a brute force method to
+see if two matrices are similar. Fortunately, the following theorem
+will help in checking whether a square matrix is diagonalizable.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-23'>
+  <a id='x1-3003x0.1.2'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 550 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.23</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 548 -->
+
+    <p class='noindent'>A square matrix <span class=
+    'mathjax-inline'>\(A_{n \times n}\)</span> is diagonalizable if
+    and only if it retains a set of <span class=
+    'mathjax-inline'>\(n\)</span> eigenvectors that is linearly
+    independent.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-19'>
+  <!-- l. 552 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 552 -->
+
+  <p class='noindent'>First and foremost, notice that <span class=
+  'mathjax-inline'>\(A\)</span> and a diagonal matrix <span class=
+  'mathjax-inline'>\(D\)</span> of the same order with entries
+  <span class='mathjax-inline'>\(\lambda _i\)</span> are similar if
+  and only if there exists an invertible matrix <span class=
+  'mathjax-inline'>\(P\)</span> such that <span class=
+  'mathjax-inline'>\(P^{-1} A P = D\)</span> or <span class=
+  'mathjax-inline'>\(AP = PD\)</span>. Let <span class=
+  'mathjax-inline'>\(x_j\)</span> and <span class=
+  'mathjax-inline'>\(e_j\)</span> be the <span class=
+  'mathjax-inline'>\(j^\text {th}\)</span> column of <span class=
+  'mathjax-inline'>\(P\)</span> and <span class=
+  'mathjax-inline'>\(I\)</span> respectively. Then, the following
+  equations hold. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} A x_j &amp;= A Pe_j =
+  PDe_j = P \lambda _j e_j \\ &amp;= \lambda _j P e_j = \lambda _j
+  x_j \end{align*}</span></p><!-- l. 565 -->
+
+  <p class='noindent'>Thus, <span class=
+  'mathjax-inline'>\(x_j\)</span> and <span class=
+  'mathjax-inline'>\(\lambda _j\)</span> are an eigenvector and the
+  corresponding eigenvalue of <span class=
+  'mathjax-inline'>\(A\)</span>. By definition, because <span class=
+  'mathjax-inline'>\(M\)</span> is invertible, <span class=
+  'mathjax-inline'>\(x_j\)</span> are all linearly independent and
+  <span class='mathjax-inline'>\(A\)</span> has <span class=
+  'mathjax-inline'>\(n\)</span> linearly independent eigenvectors. In
+  other words, if <span class='mathjax-inline'>\(A\)</span> is
+  diagonalizable, then <span class='mathjax-inline'>\(A\)</span> has
+  <span class='mathjax-inline'>\(n\)</span> linearly independent
+  eigenvectors.</p><!-- l. 571 -->
+
+  <p class='noindent'>Continuing, the converse can be proven. Let
+  <span class='mathjax-inline'>\(A\)</span> have <span class=
+  'mathjax-inline'>\(n\)</span> linearly independent eigenvectors
+  denoted as <span class='mathjax-inline'>\(x_j\)</span> with
+  corresponding eigenvalues <span class='mathjax-inline'>\(\lambda
+  _j\)</span>. Construct matrices <span class=
+  'mathjax-inline'>\(P\)</span> and <span class=
+  'mathjax-inline'>\(D\)</span> such that the <span class=
+  'mathjax-inline'>\(j^\text {th}\)</span> column of <span class=
+  'mathjax-inline'>\(P\)</span> is <span class=
+  'mathjax-inline'>\(x_j\)</span> and the diagonal element of
+  <span class='mathjax-inline'>\(D\)</span> is <span class=
+  'mathjax-inline'>\(\lambda _j\)</span>. If <span class=
+  'mathjax-inline'>\(e_j\)</span> is the <span class=
+  'mathjax-inline'>\(j^\text {th}\)</span> column of <span class=
+  'mathjax-inline'>\(I\)</span>, then the <span class=
+  'mathjax-inline'>\(j^\text {th}\)</span> column of <span class=
+  'mathjax-inline'>\(AP\)</span> can be written as the following.
+  <span class='mathjax-block'>\[ APe_j = A x_j = \lambda _j x_j
+  \]</span> Similarly, the <span class='mathjax-inline'>\(j^\text
+  {th}\)</span> column of <span class='mathjax-inline'>\(PD\)</span>
+  can be written as <span class='mathjax-inline'>\(PDe_j = M \lambda
+  _j e_j = \lambda _j Me_j = \lambda _j x_j\)</span> and <span class=
+  'mathjax-inline'>\(AP = PD\)</span> holds. Moreover, because
+  <span class='mathjax-inline'>\(P\)</span> is invertible by
+  construction, <span class='mathjax-inline'>\(P^{-1} A P =
+  D\)</span> and <span class='mathjax-inline'>\(A\)</span> is
+  diagonalizable.</p>
+</div><!-- l. 586 -->
+
+<p class='noindent'>Continuing from the theorem, we can establish the
+following corollary.</p>
+
+<div class='tcolorbox corstyle' id='tcolobox-24'>
+  <a id='x1-3005x0.1.2'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 591 -->
+
+    <p class='noindent'>Corollary&nbsp;0.1.24</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 589 -->
+
+    <p class='noindent'>A matrix <span class='mathjax-inline'>\(A_{n
+    \times n}\)</span> with <span class='mathjax-inline'>\(n\)</span>
+    distinct real eigenvalues is diagonalizable.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-20'>
+  <!-- l. 593 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 593 -->
+
+  <p class='noindent'>First and foremost, notice that by Theorem
+  <a href='#x1-2010x0.1.1'>0.1.17
+  <!-- tex4ht:ref: theo:Eigenvalues and Linear Independence  --></a>,
+  the set of corresponding eigenvectors <span class=
+  'mathjax-inline'>\(\{ x_1, \ldots , x_n \}\)</span> of <span class=
+  'mathjax-inline'>\(A\)</span> is linearly independent. Thus by
+  Theorem <a href='#x1-3003x0.1.2'>0.1.23
+  <!-- tex4ht:ref: theo:Diagonalizability and Eigenvectors  --></a>,
+  the corollary holds.</p>
+</div><!-- l. 600 -->
+
+<p class='noindent'>This theorem also naturally leads to the question
+if a square matrix can be similar to more than one diagonal matrix.
+The answer to that question can be found with the theorem below.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-25'>
+  <a id='x1-3007x0.1.2'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 608 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.25</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 605 -->
+
+    <p class='noindent'>If a square matrix is similar to both
+    diagonal matrices <span class='mathjax-inline'>\(D_1\)</span> and
+    <span class='mathjax-inline'>\(D_2\)</span>, then the diagonal
+    entries of <span class='mathjax-inline'>\(D_1\)</span> and
+    <span class='mathjax-inline'>\(D_2\)</span> are the same with
+    possibly different orderings.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-21'>
+  <!-- l. 610 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 610 -->
+
+  <p class='noindent'>First and foremost, notice that by Theorem
+  <a href='#x1-2002x0.1.1'>0.1.13
+  <!-- tex4ht:ref: theo:Similar Matrices and Eigenvalues  --></a>,
+  because <span class='mathjax-inline'>\(A\)</span> and <span class=
+  'mathjax-inline'>\(D_1\)</span> are similar, they have the same
+  characteristic equation. Similarly, because <span class=
+  'mathjax-inline'>\(A\)</span> and <span class=
+  'mathjax-inline'>\(D_2\)</span> are similar, they also have the
+  same characteristic equation and the characteristic equations of
+  <span class='mathjax-inline'>\(D_1\)</span> and <span class=
+  'mathjax-inline'>\(D_2\)</span> are equal. <span class=
+  'mathjax-block'>\[ \det (D_1 - \lambda I) = \det (D_2 - \lambda I)
+  = 0 \]</span> By construction, notice that <span class=
+  'mathjax-inline'>\(D_1 - \lambda I\)</span> and <span class=
+  'mathjax-inline'>\(D_2 - \lambda I\)</span> are diagonal matrices.
+  Thus by Corollary <span class='pplb8t-x-x-109'>??</span>, the
+  determinant is the product of all <span class=
+  'mathjax-inline'>\((\lambda - \lambda _k\)</span> for integer
+  <span class='mathjax-inline'>\(k \in [1, n]\)</span> where
+  <span class='mathjax-inline'>\(\lambda _k\)</span> are the diagonal
+  entries for <span class='mathjax-inline'>\(D_1\)</span>. Because
+  multiplication is commutative, the diagonal entries for
+  <span class='mathjax-inline'>\(D_1\)</span> and <span class=
+  'mathjax-inline'>\(D_2\)</span> are the same.</p>
+</div><!-- l. 626 -->
+
+<p class='noindent'>Naturally, we can see that if <span class=
+'mathjax-inline'>\(A \cong D_1\)</span> and <span class=
+'mathjax-inline'>\(A \cong D_2\)</span>, then <span class=
+'mathjax-inline'>\(D_1 \cong A\)</span> and <span class=
+'mathjax-inline'>\(D_1 \cong D_2\)</span>. In other words, if
+<span class='mathjax-inline'>\(A\)</span> is similar to multiple
+diagonal matrices, then the diagonal matrices are similar to each
+other.</p><!-- l. 631 -->
+
+<p class='noindent'>Now that we discussed when a matrix is
+diagonalizable, let’s discuss how to diagonalize and its
+applications.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-26'>
+  <div class='tcolorbox-title'>
+    <!-- l. 637 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.26</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 635 -->
+
+    <p class='noindent'><span class=
+    'pplb8t-x-x-109'>Diagonalization</span> is the process of writing
+    a diagonalizable matrix <span class='mathjax-inline'>\(A\)</span>
+    in the form of <span class='mathjax-inline'>\(A = P D
+    P^{-1}\)</span>.</p>
+  </div>
+</div><!-- l. 639 -->
+
+<p class='noindent'>Diagonalization is particularly useful as it
+makes calculations easier. Before concluding our notes, below is the
+final theorem!</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-27'>
+  <a id='x1-3010x0.1.2'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 649 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.27</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 643 -->
+
+    <p class='noindent'>Let <span class='mathjax-inline'>\(A_{n
+    \times n}\)</span> be a matrix with real and distinct eigenvalues
+    <span class='mathjax-inline'>\(\lambda _1, \ldots , \lambda
+    _k\)</span>. The matrix <span class='mathjax-inline'>\(A\)</span>
+    is diagonalizable if and only if the following equation holds.
+    <span class='mathjax-block'>\[ \sum _{i=1}^k \dim (S_{\lambda
+    _i}) = n \]</span></p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-22'>
+  <!-- l. 651 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 651 -->
+
+  <p class='noindent'>First, the statement if <span class=
+  'mathjax-inline'>\(\sum _{i=1}^k \dim (S_{\lambda _i}) =
+  n\)</span>, then <span class='mathjax-inline'>\(A\)</span> is
+  diagonalizable can be proven. Let <span class=
+  'mathjax-inline'>\(B_i\)</span> be a basis for eigenspace
+  <span class='mathjax-inline'>\(S_{\lambda _i}\)</span>. By
+  definition, vectors <span class='mathjax-inline'>\(v\)</span> in
+  eigenspace <span class='mathjax-inline'>\(S_{\lambda _i}\)</span>
+  satisfy <span class='mathjax-inline'>\(Av = \lambda _i v\)</span>.
+  Because <span class='mathjax-inline'>\(\lambda _i\)</span> are all
+  distinct, no eigenspace shares the same eigenvector and thus no
+  basis of two different eigenspaces shares a vector. In other words,
+  <span class='mathjax-inline'>\(B\)</span> contains <span class=
+  'mathjax-inline'>\(n\)</span> distinct eigenvectors of <span class=
+  'mathjax-inline'>\(A\)</span>. Let <span class=
+  'mathjax-inline'>\(v_i \in S_{\lambda _i}\)</span> be some linear
+  combination of vectors in <span class=
+  'mathjax-inline'>\(B_i\)</span>. Notice that if <span class=
+  'mathjax-inline'>\(\sum _{i=1}^k v_i = 0\)</span>, then the
+  coefficients must be zero since <span class='mathjax-inline'>\(\{
+  v_1, \ldots , v_k \}\)</span> is linearly independent by Theorem
+  <a href='#x1-2010x0.1.1'>0.1.17
+  <!-- tex4ht:ref: theo:Eigenvalues and Linear Independence  --></a>.
+  In other words, all coefficients for the linear combination of
+  <span class='mathjax-inline'>\(B_i\)</span> that forms <span class=
+  'mathjax-inline'>\(v_i\)</span> must be zero for <span class=
+  'mathjax-inline'>\(\sum _{i=1}^k v_i = 0\)</span> to hold. Thus,
+  <span class='mathjax-inline'>\(B\)</span> is linearly independent
+  and <span class='mathjax-inline'>\(A\)</span> is diagonalizable by
+  Theorem <a href='#x1-3003x0.1.2'>0.1.23
+  <!-- tex4ht:ref: theo:Diagonalizability and Eigenvectors  --></a>.</p><!-- l. 667 -->
+
+  <p class='noindent'>Continuing, the converse can be proven. Assume
+  that <span class='mathjax-inline'>\(\sum _{i=1}^k \dim (S_{\lambda
+  _i}) &gt; n\)</span>. Continuing from the previous
+  definition, <span class='mathjax-inline'>\(B \subset \mathbb
+  {R}^n\)</span> and the inequality <span class=
+  'mathjax-inline'>\(\sum _{i=1}^k \dim (S_{\lambda _i}) &gt;
+  n\)</span> leads to contradiction. Moreover, if <span class=
+  'mathjax-inline'>\(\sum _{i=1}^k \dim (S_{\lambda _i}) &lt;
+  n\)</span> then <span class='mathjax-inline'>\(A\)</span> has no
+  set that contains <span class='mathjax-inline'>\(n\)</span>
+  linearly independent eigenvectors. Thus, <span class=
+  'mathjax-inline'>\(A\)</span> is not diagonalizable if <span class=
+  'mathjax-inline'>\(\sum _{i=1}^k \dim (S_{\lambda _i}) 
+  \neq n\)</span>.</p>
+</div><!-- l. 677 -->
+
+<p class='noindent'>This is it for eigenvalues and eigenvectors! This
+note was a particularly long one, but I think it also means that the
+relationships between matrices and vector spaces are one of the most
+essential understandings for linear algebra. Below are a few practice
+problems on the topics that we discussed.</p>

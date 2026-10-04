@@ -1,0 +1,149 @@
+<h2 class='chapterHead' id='vectors-and-vector-spaces'><span class='titlemark'>Note 1</span><br />  <a id='x1-10001'></a>Vectors and Vector Spaces</h2>
+<!-- l. 7 --><p class='noindent'>If you have backgrounds on physics or computer science, you are probably
+familiar with what vectors are. In physics classes, we learn that vectors are
+quantities with magnitude and direction. In computer science, vectors are
+introduced as lists or arrays of data. Both definitions capture different
+aspects of what vectors are. Throughout the notes, we will implement both
+understandings. In this note, we will discuss fundamental terms for vectors
+and vector spaces before implementing matrices in vector spaces. Also, most
+of the heavy abstractions are done in modern algebra, so it will be an
+introduction.
+
+</p>
+<h3 class='sectionHead' id='basic-terms-and-notations'><span class='titlemark'>1.1    </span>   <a id='x1-20001.1'></a>Basic Terms and Notations</h3>
+<!-- l. 20 --><p class='noindent'>First, let’s get started by building from common notations and definitions.
+</p>
+<div class='tcolorbox defstyle' id='tcolobox-1'>     
+<div class='tcolorbox-title'>
+<!-- l. 27 --><p class='noindent'>Definition 1.1.1</p></div> 
+<div class='tcolorbox-content'><!-- l. 24 --><p class='noindent'><span class='mathjax-inline'>\(\mathbb {R}\)</span> and <span class='mathjax-inline'>\(\mathbb {C}\)</span> denote the set of real and complex numbers respectively.
+Epsilon symbols <span class='mathjax-inline'>\(\in \)</span> and <span class='mathjax-inline'>\(\notin \)</span> are used to denote whether an element is
+in the set or not. </p> 
+</div> 
+</div>
+<!-- l. 29 --><p class='noindent'>Examples of using such notations would be <span class='mathjax-inline'>\(\pi \in \mathbb {C}\)</span> and <span class='mathjax-inline'>\(i \notin \mathbb {R}\)</span>.
+</p>
+<div class='tcolorbox defstyle' id='tcolobox-2'>     
+<div class='tcolorbox-title'>
+                                                                 
+                                                                 
+<!-- l. 71 --><p class='noindent'>Definition 1.1.2</p></div> 
+<div class='tcolorbox-content'><!-- l. 33 --><p class='noindent'>A <span class='pplb8t-x-x-109'>vector space </span><span class='mathjax-inline'>\(\mathbb {V}\)</span> is a set of elements and scalars with addition
+properties and scalar multiplication that adheres to the following ten
+properties, or <span class='pplb8t-x-x-109'>axioms for a vector space</span>. Moreover, the elements of <span class='mathjax-inline'>\(\mathbb {V}\)</span>
+are known as <span class='pplb8t-x-x-109'>vectors</span>.
+          </p><dl class='enumerate-enumitem'><dt class='enumerate-enumitem'>
+          </dt><dd class='enumerate-enumitem'>
+          </dd><dt class='enumerate-enumitem'>
+          </dt><dd class='enumerate-enumitem'> Vector Addition
+          </dd><dt class='enumerate-enumitem'>
+  A1.  </dt><dd class='enumerate-enumitem'> <span class='pplb8t-x-x-109'>Closure: </span><span class='mathjax-inline'>\(\forall \, u, v \in \mathbb {V}\)</span>, <span class='mathjax-inline'>\(u \oplus v \in \mathbb {V}\)</span>.
+          </dd><dt class='enumerate-enumitem'>
+  A2.  </dt><dd class='enumerate-enumitem'> <span class='pplb8t-x-x-109'>Commutativity: </span><span class='mathjax-inline'>\(\forall \, u, v \in \mathbb {V}\)</span>, <span class='mathjax-inline'>\(u \oplus v = v \oplus u\)</span>.
+          </dd><dt class='enumerate-enumitem'>
+  A3.  </dt><dd class='enumerate-enumitem'> <span class='pplb8t-x-x-109'>Associativity: </span><span class='mathjax-inline'>\(\forall \, u, v, w \in \mathbb {V}\)</span>, <span class='mathjax-inline'>\(u \oplus (v \oplus w) = (u \oplus v) \oplus w\)</span>.
+          </dd><dt class='enumerate-enumitem'>
+  A4.  </dt><dd class='enumerate-enumitem'> <span class='pplb8t-x-x-109'>Additive Identity Element: </span><span class='mathjax-inline'>\(\exists \, 0 \in \mathbb {V}\)</span> such that <span class='mathjax-inline'>\(\forall \, u \in \mathbb {V}, u \oplus 0 = u\)</span>, also known as the
+          <span class='pplb8t-x-x-109'>zero vector</span>.
+          </dd><dt class='enumerate-enumitem'>
+  A5.  </dt><dd class='enumerate-enumitem'> <span class='pplb8t-x-x-109'>Additive Inverses: </span><span class='mathjax-inline'>\(\forall \, u \in \mathbb {V}, \exists \, -u \in \mathbb {V}\)</span> such that <span class='mathjax-inline'>\(u \oplus (-u) = 0\)</span>.
+          </dd><dt class='enumerate-enumitem'>
+          </dt><dd class='enumerate-enumitem'>
+          </dd><dt class='enumerate-enumitem'>
+          </dt><dd class='enumerate-enumitem'> Scalar Multiplication
+          </dd><dt class='enumerate-enumitem'>
+   S1.  </dt><dd class='enumerate-enumitem'> <span class='pplb8t-x-x-109'>Closure: </span><span class='mathjax-inline'>\(\forall \, u \in \mathbb {V}\)</span> and scalars <span class='mathjax-inline'>\(\alpha \)</span>, <span class='mathjax-inline'>\(\alpha \odot u \in \mathbb {V}\)</span>.
+          </dd><dt class='enumerate-enumitem'>
+   S2.  </dt><dd class='enumerate-enumitem'> <span class='pplb8t-x-x-109'>Associativity: </span><span class='mathjax-inline'>\(\forall \, u \in \mathbb {V}\)</span> and scalars <span class='mathjax-inline'>\(\alpha , \beta \)</span>, <span class='mathjax-inline'>\(\alpha \odot (\beta \odot u) = (\alpha \cdot \beta ) \odot u\)</span>.
+          </dd><dt class='enumerate-enumitem'>
+   S3.  </dt><dd class='enumerate-enumitem'> <span class='pplb8t-x-x-109'>Identity Element: </span><span class='mathjax-inline'>\(\forall \, u \in \mathbb {V}\)</span>, <span class='mathjax-inline'>\(1 \odot u = u\)</span>.
+          </dd><dt class='enumerate-enumitem'>
+   S4.  </dt><dd class='enumerate-enumitem'> <span class='pplb8t-x-x-109'>Distributivity I: </span><span class='mathjax-inline'>\(\forall \, u \in \mathbb {V}\)</span> and scalars <span class='mathjax-inline'>\(\alpha , \beta \)</span>, <span class='mathjax-inline'>\((\alpha + \beta ) \odot u = \alpha \odot u \oplus \beta \odot u\)</span>.
+          </dd><dt class='enumerate-enumitem'>
+   S5.  </dt><dd class='enumerate-enumitem'> <span class='pplb8t-x-x-109'>Distributivity II: </span><span class='mathjax-inline'>\(\forall \, u, v \in \mathbb {V}\)</span> and scalars <span class='mathjax-inline'>\(\alpha \)</span>, <span class='mathjax-inline'>\(\alpha \odot (u \oplus v) = \alpha \odot u \oplus \alpha \odot v\)</span>.</dd></dl>
+ 
+</div> 
+</div>
+                                                                 
+                                                                 
+<!-- l. 73 --><p class='noindent'>Side note here is that for this section of the note, we will be using the binary
+operation symbols <span class='mathjax-inline'>\(\oplus \)</span> and <span class='mathjax-inline'>\(\odot \)</span> to denote vector addition and scalar multiplication.
+However, from the next section, we will be using more standard notations
+like <span class='mathjax-inline'>\(v + u\)</span> and <span class='mathjax-inline'>\(\lambda v\)</span> for vector addition and scalar multiplication. The reason I decided
+to use this is that this is the way I first learned and it helped me to emphasize
+axioms for vector spaces.
+</p>
+<div class='tcolorbox defstyle' id='tcolobox-3'>     
+<div class='tcolorbox-title'>
+<!-- l. 86 --><p class='noindent'>Definition 1.1.3</p></div> 
+<div class='tcolorbox-content'><!-- l. 82 --><p class='noindent'>An <span class='mathjax-inline'>\(n\)</span><span class='pplb8t-x-x-109'>-tuple </span>is an ordered array, or list, of <span class='mathjax-inline'>\(n\)</span> real numbers. For an
+<span class='mathjax-inline'>\(n\)</span>-tuple, its dimension is said to be <span class='mathjax-inline'>\(n\)</span>-dimensional and the set of such
+real tuples is <span class='mathjax-inline'>\(n\)</span><span class='pplb8t-x-x-109'>-space</span>, denoted as <span class='mathjax-inline'>\(\mathbb {R}^n\)</span>. </p> 
+</div> 
+</div>
+<!-- l. 88 --><p class='noindent'>For instance, the following <span class='mathjax-inline'>\(4\)</span>-tuple is in <span class='mathjax-inline'>\(4\)</span>-space. <span class='mathjax-block'>\[ \begin {bmatrix} 1 &amp; 2 &amp; 3 &amp; 4 \end {bmatrix} \in \mathbb {R}^4 \]</span> With tuples in mind, let’s take
+a look at how we can represent <span class='mathjax-inline'>\(2\)</span>-tuples, <span class='mathjax-inline'>\(3\)</span>-tuples, and vectors in <span class='mathjax-inline'>\(\mathbb {R}^2\)</span> and <span class='mathjax-inline'>\(\mathbb {R}^3\)</span>. The
+vector space <span class='mathjax-inline'>\(\mathbb {R}^2\)</span> can simply be conceived as <span class='mathjax-inline'>\(2\)</span>-dimensional space, or plane. Also,
+in linear algebra, we generally don’t move the tail of a vector from the origin
+as we do in introductory physics classes.
+</p>
+<figure class='figure'> 
+
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+<!-- l. 105 --><p class='noindent'><img alt='[Picture]' src='/svg/MATH0201.260250x.svg' />
+                                                                 
+                                                                 
+</p>
+</figure>
+<!-- l. 134 --><p class='noindent'>From the graph above, there are two vectors <span class='mathjax-inline'>\(\hat {i}\)</span> and <span class='mathjax-inline'>\(\hat {j}\)</span>. They are called “<span class='mathjax-inline'>\(i\)</span> hat” and
+“<span class='mathjax-inline'>\(j\)</span> hat” respectively.
+</p>
+<div class='tcolorbox defstyle' id='tcolobox-4'>     
+<div class='tcolorbox-title'>
+<!-- l. 140 --><p class='noindent'>Definition 1.1.4</p></div> 
+<div class='tcolorbox-content'><!-- l. 138 --><p class='noindent'><span class='pplb8t-x-x-109'>Unit Vectors </span>are vectors with magnitude <span class='mathjax-inline'>\(1\)</span> that are used to specify
+direction. </p> 
+</div> 
+</div>
+<!-- l. 142 --><p class='noindent'>Here, <span class='mathjax-inline'>\(\hat {i}\)</span> and <span class='mathjax-inline'>\(\hat {j}\)</span> denote the unit vectors, and they are the standard symbol. If you
+wondered if unit vectors are used to construct vectors, you are right!
+In our examples above, we can write each vector as the following.
+<span class='mathjax-env mathjax-align*'>\begin{align*} a &amp;= \langle 2, 1 \rangle = 2 \hat {i} + \hat {j} \\ b &amp;= \langle 1, 3 \rangle = 1 \hat {i} + 3 \hat {j} \\ c &amp;= \langle -2, -3 \rangle = -2 \hat {i} - 3 \hat {j} \end{align*}</span>
+</p><!-- l. 151 --><p class='noindent'>Now, let’s take a look at vector space <span class='mathjax-inline'>\(\mathbb {R}^3\)</span>. There are two ways of graphing
+<span class='mathjax-inline'>\(3\)</span>-dimensional space: right-handed system and left-handed system. However,
+we will be using right-hand system throughout the notes.
+</p>
+<figure class='figure'> 
+
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+<!-- l. 159 --><p class='noindent'><img alt='[Picture]' src='/svg/MATH0201.260251x.svg' />
+                                                                 
+                                                                 
+</p>
+</figure>
+<!-- l. 205 --><p class='noindent'>Here, <span class='mathjax-inline'>\(\hat {i}\)</span>, <span class='mathjax-inline'>\(\hat {j}\)</span>, and <span class='mathjax-inline'>\(\hat {k}\)</span> are the unit vectors. Going back to the definition of vector
+spaces, we can write the following equations for <span class='mathjax-inline'>\(u = \langle x_1, y_1, z_1 \rangle , v = \langle x_2, y_2, z_2 \rangle \in \mathbb {R}^3\)</span> and <span class='mathjax-inline'>\(\alpha \in \mathbb {R}\)</span>. <span class='mathjax-env mathjax-align*'>\begin{align*} u \oplus v &amp;= \langle x_1, y_1, z_1 \rangle + \langle x_2, y_2, z_2 \rangle = \langle x_1 + x_2, y_1 + y_2, z_1 + z_2 \rangle \\ \alpha \odot u &amp;= \alpha \odot \langle x_1, y_1, z_1 \rangle = \langle \alpha x_1, \alpha y_1, \alpha z_1 \rangle \end{align*}</span>
+</p><!-- l. 218 --><p class='noindent'>Continuing, we can also distinguish vector spaces with different scalars with
+the following terms.
+</p>
+<div class='tcolorbox defstyle' id='tcolobox-5'>     
+<div class='tcolorbox-title'>
+<!-- l. 228 --><p class='noindent'>Definition 1.1.5</p></div> 
+<div class='tcolorbox-content'><!-- l. 222 --><p class='noindent'>If  the  set  of  scalars  is  in  <span class='mathjax-inline'>\(\mathbb {R}\)</span>,  then  the  vector  space  is  known  as  a
+<span class='pplb8t-x-x-109'>vector space over </span><span class='mathjax-inline'>\(\mathbb {R}\)</span>, or a <span class='pplb8t-x-x-109'>real vector space</span>. Similarly, if the scalars
+are in <span class='mathjax-inline'>\(\mathbb {C}\)</span>, then the vector space is denoted as a <span class='pplb8t-x-x-109'>vector space over </span><span class='mathjax-inline'>\(\mathbb {C}\)</span>,
+or a <span class='pplb8t-x-x-109'>complex vector space</span>. </p> 
+</div> 
+</div>
+<!-- l. 230 --><p class='noindent'>One thing to note is that there is a concept called <span class='pplb8t-x-x-109'>scalar fields</span>; however, we
+will not go too deep into such fields. Before we move on to different concepts
+in vector spaces, I wanted to discuss about tuples and dimensions.
+</p><!-- l. 235 --><p class='noindent'>Now that we saw some geometrical interpretation of vector spaces, let’s
+discuss more information with some problems.
+</p>

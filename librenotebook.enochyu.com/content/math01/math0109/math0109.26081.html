@@ -1,0 +1,329 @@
+<!-- l. 5 -->
+
+<p class='noindent'></p>
+
+<h2 class='chapterHead' id='prerequisites'><span class=
+'titlemark'>Note&nbsp;1</span><br>
+<a id='x1-10001'></a>Prerequisites</h2><!-- l. 7 -->
+
+<p class='noindent'>Before getting into actual contents, I wanted to
+briefly review some of the topics that we learn in competitions
+because many of the olympiad topics builds from similar intuitions.
+This note includes basic definitions and notations that would be used
+throughout the notes and some concepts that must be covered before
+expanding them later in the notes.</p>
+
+<h3 class='sectionHead' id='definitions-and-notations'><span class=
+'titlemark'>1.1</span> <a id='x1-20001.1'></a>Definitions and
+Notations</h3><!-- l. 16 -->
+
+<p class='noindent'>Let’s first get started with definitions for
+different means.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-1'>
+  <div class='tcolorbox-title'>
+    <!-- l. 26 -->
+
+    <p class='noindent'>Definition&nbsp;1.1.1</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 19 -->
+
+    <p class='noindent'><span class='pplb8t-x-x-109'>Generalized
+    mean</span>, also known as power mean, is a family of means
+    <span class='mathjax-inline'>\(M_p\)</span> that is generalized
+    and defined for <span class='mathjax-inline'>\(a_i \geq
+    0\)</span> as the following [<span class=
+    'pplb8t-x-x-109'>MATH01-4</span>]. <span class='mathjax-block'>\[
+    M_p \coloneqq \left ( \frac {\sum _{k=1}^n a_k^p}{n} \right
+    )^\frac {1}{p} \]</span></p>
+  </div>
+</div><!-- l. 28 -->
+
+<p class='noindent'>For weighted means, we can do the same as we
+would normally do with <span class='mathjax-inline'>\(w_i \geq
+0\)</span>. <span class='mathjax-block'>\[ M_w^p \coloneqq \left (
+\frac { \sum _{k=1}^n w_k a_k^p }{ \sum _{k=1}^n w_k } \right )^\frac
+{1}{p} \]</span> Note that the definition above is for generalized
+mean. Meaning, depending on the values of <span class=
+'mathjax-inline'>\(p\)</span>, we can derive some of more familiar
+means.</p>
+
+<div class='center'>
+  <!-- l. 40 -->
+
+  <p class='noindent'></p>
+
+  <div class='tabular'>
+    <table class='tabular' id='TBL-1'>
+      <colgroup id='TBL-1-1g'>
+        <col id='TBL-1-1'>
+      </colgroup>
+
+      <colgroup id='TBL-1-2g'>
+        <col id='TBL-1-2'>
+      </colgroup>
+
+      <tr>
+        <td colspan='2'><span class=
+        'mathjax-inline'>\(M_p\)</span></td>
+
+        <td class='td11' id='TBL--1-2' style=
+        'white-space:normal; text-align:left;'>
+          <!-- l. 43 -->
+
+          <p class='noindent'>Definition</p>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan='2'><span class='mathjax-inline'>\(M_{-\infty
+        }\)</span></td>
+
+        <td class='td11' id='TBL--2-2' style=
+        'white-space:normal; text-align:left;'>
+          <!-- l. 45 -->
+
+          <p class='noindent'>Minimum</p>
+        </td>
+      </tr>
+
+      <tr id='TBL--3-' style='vertical-align:baseline;'>
+        <td class='td11' id='TBL--3-1' style=
+        'white-space:normal; text-align:left;'>
+          <!-- l. 46 -->
+
+          <p class='noindent'><span class=
+          'mathjax-inline'>\(M_{-1}\)</span></p>
+        </td>
+
+        <td class='td11' id='TBL--3-2' style=
+        'white-space:normal; text-align:left;'>
+          <!-- l. 46 -->
+
+          <p class='noindent'>Harmonic Mean</p>
+        </td>
+      </tr>
+
+      <tr id='TBL--4-' style='vertical-align:baseline;'>
+        <td class='td11' id='TBL--4-1' style=
+        'white-space:normal; text-align:left;'>
+          <!-- l. 47 -->
+
+          <p class='noindent'><span class=
+          'mathjax-inline'>\(M_0\)</span></p>
+        </td>
+
+        <td class='td11' id='TBL--4-2' style=
+        'white-space:normal; text-align:left;'>
+          <!-- l. 47 -->
+
+          <p class='noindent'>Geometric Mean</p>
+        </td>
+      </tr>
+
+      <tr id='TBL--5-' style='vertical-align:baseline;'>
+        <td class='td11' id='TBL--5-1' style=
+        'white-space:normal; text-align:left;'>
+          <!-- l. 48 -->
+
+          <p class='noindent'><span class=
+          'mathjax-inline'>\(M_1\)</span></p>
+        </td>
+
+        <td class='td11' id='TBL--5-2' style=
+        'white-space:normal; text-align:left;'>
+          <!-- l. 48 -->
+
+          <p class='noindent'>Arithmetic Mean</p>
+        </td>
+      </tr>
+
+      <tr id='TBL--6-' style='vertical-align:baseline;'>
+        <td class='td11' id='TBL--6-1' style=
+        'white-space:normal; text-align:left;'>
+          <!-- l. 49 -->
+
+          <p class='noindent'><span class=
+          'mathjax-inline'>\(M_2\)</span></p>
+        </td>
+
+        <td class='td11' id='TBL--6-2' style=
+        'white-space:normal; text-align:left;'>
+          <!-- l. 49 -->
+
+          <p class='noindent'>Quadratic Mean</p>
+        </td>
+      </tr>
+
+      <tr id='TBL--7-' style='vertical-align:baseline;'>
+        <td class='td11' id='TBL--7-1' style=
+        'white-space:normal; text-align:left;'>
+          <!-- l. 50 -->
+
+          <p class='noindent'><span class='mathjax-inline'>\(M_\infty
+          \)</span></p>
+        </td>
+
+        <td class='td11' id='TBL--7-2' style=
+        'white-space:normal; text-align:left;'>
+          <!-- l. 50 -->
+
+          <p class='noindent'>Maximum</p>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div><!-- l. 55 -->
+
+<p class='noindent'>First, let’s substitute <span class=
+'mathjax-inline'>\(p = 1\)</span> to begin with arithmetic mean.
+<span class='mathjax-block'>\[ M_1 = \left ( \frac { \sum _{k=1}^n
+a_k }{n} \right ) \]</span> This is <span class=
+'pplb8t-x-x-109'>arithmetic mean</span>, the mean that we are all
+familiar with! Using the weighted generalized mean, we can get the
+formula for weighted arithmetic mean. <span class='mathjax-block'>\[
+M_w^1 = \left ( \frac { \sum _{k=1}^n w_k a_k }{ \sum _{k=1}^n w_k }
+\right ) \]</span> Similarly, we can obtain <span class=
+'pplb8t-x-x-109'>quadratic mean</span> by substituting <span class=
+'mathjax-inline'>\(p = 2\)</span>. <span class='mathjax-block'>\[ M_2
+= \sqrt { \frac {\sum _{k=1}^n a_k^2}{n} } \]</span> Deriving
+geometric mean is quite different because <span class=
+'mathjax-inline'>\(p = 0\)</span> gives us <span class=
+'mathjax-inline'>\(\frac {1}{0}\)</span> in the exponent, which is
+undefined. Therefore by convention, we define <span class=
+'pplb8t-x-x-109'>geometric mean</span> with <span class=
+'mathjax-inline'>\(M_0 (a_1, \dots , a_n) \equiv \lim _{p \to 0} M_p
+(a_1, \dots , a_n)\)</span>. Substituting, we obtain the following
+equations. <span class='mathjax-env mathjax-align*'>\begin{align*}
+M_0 &amp;= \lim _{p \to 0} \left ( \frac {\sum _{k=1}^n
+a_k^p}{n} \right )^\frac {1}{p} \\ \ln (M_0) &amp;= \ln \left ( \lim
+_{p \to 0} \left ( \frac {\sum _{k=1}^n a_k^p}{n} \right )^\frac
+{1}{p} \right ) = \lim _{p \to 0} \frac { \ln \left ( \frac {1}{n}
+\sum _{k=1}^n a_k^p \right ) }{p} \end{align*}</span></p>
+<!-- l. 92 -->
+
+<p class='noindent'>Therefore using L’Hôpital’s rule, <span class=
+'mathjax-block'>\[ \ln (M_0) = \lim _{p \to 0} \frac { \frac {1}{n}
+\sum _{k=1}^n a_k^p \ln (a_k) }{ \frac {1}{n} \sum _{k=1}^n a_k^p } =
+\frac {1}{n} \sum _{k=1}^n \ln (a_k) = \ln \left ( \prod _{k=1}^n a_k
+\right )^\frac {1}{n} \]</span> is obtained. Rewriting the equation,
+the familiar version of the geometric mean formula is obtained.
+<span class='mathjax-block'>\[ M_0 = \left ( \prod _{k=1}^n a_k
+\right )^\frac {1}{n} = \prod _{k=1}^n a_k^\frac {1}{n} = \sqrt
+[n]{a_1 a_2 \cdots a_{n-1} a_n} \]</span> Continuing, we can obtain
+<span class='pplb8t-x-x-109'>harmonic mean</span> with <span class=
+'mathjax-inline'>\(p = -1\)</span>. <span class='mathjax-block'>\[
+M_{-1} = \left ( \frac {\sum _{k=1}^n a_k^{-1}}{n} \right )^\frac
+{1}{-1} = \frac {n}{ \sum _{k=1}^n \frac {1}{a_k} } \]</span> Lastly
+for unbounded <span class='mathjax-inline'>\(p\)</span>, we define
+<span class='mathjax-inline'>\(M_{-\infty }\)</span> and <span class=
+'mathjax-inline'>\(M_\infty \)</span> as the following by convention.
+<span class='mathjax-env mathjax-align*'>\begin{align*} M_{-\infty }
+(a_1, \dots , a_n) &amp;\equiv \lim _{p \to -\infty } M_p (a_1, \dots
+, a_n) = \min (a_1, \dots , a_n) \\ M_{\infty }(a_1, \dots , a_n)
+&amp;\equiv \lim _{p \to \infty } M_p (a_1, \dots , a_n) = \max (a_1,
+\dots , a_n) \end{align*}</span></p><!-- l. 124 -->
+
+<p class='noindent'>Continuing, here is another very important
+definition for sequences.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-2'>
+  <div class='tcolorbox-title'>
+    <!-- l. 134 -->
+
+    <p class='noindent'>Definition&nbsp;1.1.2</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 128 -->
+
+    <p class='noindent'>Let <span class='mathjax-inline'>\(a = (a_1,
+    \ldots , a_n)\)</span> and <span class='mathjax-inline'>\(b =
+    (b_1, \ldots , b_n)\)</span> be sequences such that <span class=
+    'mathjax-inline'>\(a_1 \geq \cdots \geq a_n\)</span> and
+    <span class='mathjax-inline'>\(b_1 \geq \cdots \geq b_n\)</span>.
+    Sequence <span class='mathjax-inline'>\(a\)</span> <span class=
+    'pplb8t-x-x-109'>majorizes</span> <span class=
+    'mathjax-inline'>\(b\)</span>, denoted as <span class=
+    'mathjax-inline'>\(a \succ b\)</span>, if <span class=
+    'mathjax-inline'>\(a_1 + \cdots + a_n = b_1 + \cdots +
+    b_n\)</span> and <span class='mathjax-inline'>\(\sum _{i = 1}^m
+    a_i \geq \sum _{i = 1}^m b_i\)</span> holds for each <span class=
+    'mathjax-inline'>\(m = 1, \ldots , n\)</span>.</p>
+  </div>
+</div><!-- l. 136 -->
+
+<p class='noindent'>We will see more on majorization when we discuss
+inequalities. Continuing, let’s discuss some common notations.</p>
+<!-- l. 139 -->
+
+<p class='noindent'>Below are very common sum notations that will be
+used throughout the notes. They are very common in olympiads, and is
+worth noting even if you are not seriously studying for
+olympiads.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-3'>
+  <div class='tcolorbox-title'>
+    <!-- l. 153 -->
+
+    <p class='noindent'>Definition&nbsp;1.1.3</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 144 -->
+
+    <p class='noindent'>For a function <span class=
+    'mathjax-inline'>\(f(x_1, x_2, \ldots , x_n)\)</span>,
+    <span class='mathjax-inline'>\(\sum _\text {cyc}\)</span> is
+    defined as the following. <span class=
+    'mathjax-env mathjax-align*'>\begin{align*} &amp;\sum _\text
+    {cyc} f(x_1, x_2, \ldots , x_n) \coloneqq f(x_1, x_2, \ldots ,
+    x_n) \\[-0.8em] &amp;\qquad \qquad + \, f(x_2, x_3, \ldots , x_n,
+    x_1) + \cdots + f(x_n, x_1, x_2, \ldots , x_{n-1})
+    \end{align*}</span></p>
+  </div>
+</div><!-- l. 155 -->
+
+<p class='noindent'>You will most likely see this notation with three
+variables, and we can also specify with variables we are going to
+cycle. <span class='mathjax-block'>\[ \sum _{x,y,z} \frac {xw}{yz} =
+\frac {xw}{yz} + \frac {yw}{zx} + \frac {zw}{xy} \]</span> As we have
+for cyclic sum, we also have notation for symmetric sums.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-4'>
+  <div class='tcolorbox-title'>
+    <!-- l. 173 -->
+
+    <p class='noindent'>Definition&nbsp;1.1.4</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 164 -->
+
+    <p class='noindent'>Let <span class='mathjax-inline'>\(f(x_1,
+    x_2, \ldots , x_n)\)</span> be a function and <span class=
+    'mathjax-inline'>\(S_n\)</span> be the symmetric group of degree
+    <span class='mathjax-inline'>\(n\)</span>, i.e. a set of all sets
+    that are permutation of numbers <span class=
+    'mathjax-inline'>\(1\)</span> through <span class=
+    'mathjax-inline'>\(n\)</span>. Then, <span class=
+    'mathjax-inline'>\(\sum _\text {sym}\)</span> is defined as the
+    following. <span class='mathjax-block'>\[ \sum _\text {sym}
+    f(x_1, x_2, \ldots , x_n) \coloneqq \sum _{\sigma \in S_n}
+    f(x_{\sigma (1)}, x_{\sigma (2)}, \ldots , x_{\sigma (n)})
+    \]</span></p>
+  </div>
+</div><!-- l. 175 -->
+
+<p class='noindent'>Notice that permutation of variables does not
+affect the value for a symmetric function <span class=
+'mathjax-inline'>\(f(s_1, s_2, \ldots , s_n)\)</span>. Therefore,
+<span class='mathjax-block'>\[ \sum _\text {sym} f(s_1, s_2, \ldots ,
+s_n) = n! f(s_1, s_2, \ldots , s_n) \]</span> holds for such
+functions.</p><!-- l. 183 -->
+
+<p class='noindent'>These are the introduction to basic definition
+and notations! For our next section, let’s review some of the topics
+that we learn from competitions.</p>

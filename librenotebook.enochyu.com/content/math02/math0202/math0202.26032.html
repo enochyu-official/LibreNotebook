@@ -1,0 +1,715 @@
+<h3 class='sectionHead' id='additional-fundamental-topics'>
+<span class='titlemark'>0.1</span> <a id='x1-10000.1'></a>Additional
+Fundamental Topics</h3><!-- l. 7 -->
+
+<p class='noindent'>This section discusses frequently appearing
+concepts in matrices that they have their own names!</p>
+
+<h4 class='subsectionHead' id='transpose'><span class=
+'titlemark'>0.1.1</span> <a id='x1-20000.1.1'></a>Transpose</h4>
+<!-- l. 12 -->
+
+<p class='noindent'>Let’s begin with transpose of a matrix.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-1'>
+  <div class='tcolorbox-title'>
+    <!-- l. 21 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.1</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 15 -->
+
+    <p class='noindent'>The <span class=
+    'pplb8t-x-x-109'>transpose</span> of a matrix <span class=
+    'mathjax-inline'>\(A\)</span> is defined by a matrix that has
+    switched rows and columns of <span class=
+    'mathjax-inline'>\(A\)</span>, i.e. each element is defined as
+    following. <span class='mathjax-block'>\[ (A^\intercal )_{ij} =
+    A_{ji} \]</span></p>
+  </div>
+</div><!-- l. 23 -->
+
+<p class='noindent'>Let’s take a look at an example. You could think
+of it as holding the left top and bottom right of a matrix and
+rotating to see its back. For matrix <span class=
+'mathjax-inline'>\(A\)</span> defined as the following, <span class=
+'mathjax-block'>\[ A = \begin {bmatrix} 1 &amp; 2 &amp; 3 &amp; 4 \\
+5 &amp; 6 &amp; 7 &amp; 8 \end {bmatrix} \]</span> its transpose, or
+<span class='mathjax-inline'>\(A\)</span> transpose is defined as the
+following. <span class='mathjax-block'>\[ A^\intercal = \begin
+{bmatrix} 1 &amp; 5 \\ 2 &amp; 6 \\ 3 &amp; 7 \\ 4 &amp; 8 \end
+{bmatrix} \]</span> As you can see, if <span class=
+'mathjax-inline'>\(A\)</span> has the order <span class=
+'mathjax-inline'>\(m \times n\)</span>, its transpose will have the
+order <span class='mathjax-inline'>\(n \times m\)</span>. Another
+observation that we can make is that a transpose of a row matrix is a
+column matrix and vice versa. Here is a quick example. Assume matrix
+<span class='mathjax-inline'>\(A\)</span> defined as the following.
+<span class='mathjax-block'>\[ A = \begin {bmatrix} 1 &amp; 2 &amp; 3
+\end {bmatrix} \]</span> The transpose of <span class=
+'mathjax-inline'>\(A\)</span> can be represented as the following.
+<span class='mathjax-block'>\[ A^\intercal = \begin {bmatrix} 1 \\ 2
+\\ 3 \end {bmatrix} \]</span> Notice that the transpose of transpose
+of <span class='mathjax-inline'>\(A\)</span> is simply <span class=
+'mathjax-inline'>\(A\)</span>. <span class='mathjax-block'>\[
+(A^\intercal )^\intercal = \begin {bmatrix} 1 &amp; 2 &amp; 3 \end
+{bmatrix} = A \]</span> Before formally stating our observations,
+here are few definitions to note.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-2'>
+  <div class='tcolorbox-title'>
+    <!-- l. 80 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.2</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 75 -->
+
+    <p class='noindent'>A positive integral powers of <span class=
+    'mathjax-inline'>\(A\)</span>, or multiplying the matrix
+    <span class='mathjax-inline'>\(n\)</span> times can be
+    represented as <span class='mathjax-inline'>\(A^n\)</span>.
+    <span class='mathjax-inline'>\(A^0\)</span> is defined to be the
+    identity matrix <span class='mathjax-inline'>\(I_n\)</span> with
+    corresponding order <span class='mathjax-inline'>\(n\)</span>. A
+    square matrix is <span class='pplb8t-x-x-109'>nilpotent</span> if
+    there exists <span class='mathjax-inline'>\(n \in \mathbb
+    {Z}\)</span> such that <span class='mathjax-inline'>\(A^n =
+    0\)</span>.</p>
+  </div>
+</div><!-- l. 82 -->
+
+<p class='noindent'>Other definitions from transpose is symmetry and
+skew-symmetry.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-3'>
+  <div class='tcolorbox-title'>
+    <!-- l. 88 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.3</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 85 -->
+
+    <p class='noindent'>For matrix <span class=
+    'mathjax-inline'>\(A\)</span> and its transpose <span class=
+    'mathjax-inline'>\(A^\intercal \)</span>, matrix <span class=
+    'mathjax-inline'>\(A\)</span> is <span class=
+    'pplb8t-x-x-109'>symmetric</span> if <span class=
+    'mathjax-inline'>\(A^\intercal = A\)</span> and <span class=
+    'pplb8t-x-x-109'>skew-symmetric</span> if <span class=
+    'mathjax-inline'>\(A^\intercal = -A\)</span>.</p>
+  </div>
+</div><!-- l. 90 -->
+
+<p class='noindent'>An example of a symmetric matrix is the identity
+matrix. For more general example, matrix <span class=
+'mathjax-inline'>\(A\)</span> and <span class=
+'mathjax-inline'>\(B\)</span> below are symmetric and skew-symmetric
+respectively. <span class='mathjax-block'>\[ A = \begin {bmatrix} a
+&amp; b &amp; c \\ b &amp; d &amp; e \\ c &amp; e &amp; f \end
+{bmatrix}, \quad B = \begin {bmatrix} 0 &amp; a &amp; b \\ -a &amp; 0
+&amp; c \\ -b &amp; -c &amp; 0 \end {bmatrix} \]</span> Notice that
+all symmetric and skew-symmetric matrices are square matrices.
+Moreover, the diagonal elements must be zero for a square matrix to
+be skew-symmetric.</p><!-- l. 112 -->
+
+<p class='noindent'>Now let’s discuss the properties of transpose of
+a matrix.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-4'>
+  <a id='x1-2010x0.1.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 125 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.4</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 115 -->
+
+    <p class='noindent'>For matrix <span class=
+    'mathjax-inline'>\(A\)</span>, <span class=
+    'mathjax-inline'>\(B\)</span>, scalar <span class=
+    'mathjax-inline'>\(\lambda \)</span> and positive integer
+    <span class='mathjax-inline'>\(n\)</span>, the following
+    equations are true assuming that the addition and multiplication
+    conditions are satisfied.</p>
+
+    <dl class='enumerate-enumitem'>
+      <dt class='enumerate-enumitem'>1.</dt>
+
+      <dd class='enumerate-enumitem'><span class=
+      'mathjax-inline'>\((A^\intercal )^\intercal = A\)</span></dd>
+
+      <dt class='enumerate-enumitem'>2.</dt>
+
+      <dd class='enumerate-enumitem'><span class=
+      'mathjax-inline'>\((A + B)^\intercal = A^\intercal +
+      B^\intercal \)</span></dd>
+
+      <dt class='enumerate-enumitem'>3.</dt>
+
+      <dd class='enumerate-enumitem'><span class=
+      'mathjax-inline'>\((\lambda A)^\intercal = \lambda A^\intercal
+      \)</span></dd>
+
+      <dt class='enumerate-enumitem'>4.</dt>
+
+      <dd class='enumerate-enumitem'><span class=
+      'mathjax-inline'>\((AB)^\intercal = B^\intercal A^\intercal
+      \)</span></dd>
+
+      <dt class='enumerate-enumitem'>5.</dt>
+
+      <dd class='enumerate-enumitem'><span class=
+      'mathjax-inline'>\((A^n)^\intercal = (A^\intercal
+      )^n\)</span></dd>
+    </dl>
+  </div>
+</div><!-- l. 127 -->
+
+<p class='noindent'>There are lots of properties to prove, but let’s
+do them one by one. Below is the proof for the first property.</p>
+
+<div class='mdframed' id='mdframed-1'>
+  <!-- l. 131 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 131 -->
+
+  <p class='noindent'>Let <span class='mathjax-inline'>\(A =
+  [a_{ij}]_{m \times n}\)</span>. By definition, its transpose
+  <span class='mathjax-inline'>\(A^\intercal \coloneqq [a_{ji}]_{n
+  \times m}\)</span>. Continuing, <span class=
+  'mathjax-inline'>\(\left ( [a_{ji}]_{n \times m} \right )^\intercal
+  = [a_{ij}]_{m \times n} = A\)</span>. Therefore, <span class=
+  'mathjax-inline'>\((A^\intercal )^\intercal = A\)</span>.</p>
+</div><!-- l. 137 -->
+
+<p class='noindent'>Below is the proof for the second property.</p>
+
+<div class='mdframed' id='mdframed-2'>
+  <!-- l. 140 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 140 -->
+
+  <p class='noindent'>Let <span class='mathjax-inline'>\(A =
+  [a_{ij}]_{m \times n}\)</span> and <span class='mathjax-inline'>\(B
+  = [b_{ij}]_{m \times n}\)</span>. Consider the following equation.
+  <span class='mathjax-env mathjax-align*'>\begin{align*} (A +
+  B)^\intercal &amp;= \left ( [a_{ij}]_{m \times n} + [b_{ij}]_{m
+  \times n} \right )^\intercal = \left ( [a_{ij} + b_{ij}]_{m \times
+  n} \right )^\intercal \\ &amp;= [a_{ji} + b_{ji}]_{n \times m} =
+  [a_{ji}]_{n \times m} + [b_{ji}]_{n \times m} \\ &amp;= A^\intercal
+  + B^\intercal \end{align*}</span></p><!-- l. 154 -->
+
+  <p class='noindent'>Thus, the property holds.</p>
+</div><!-- l. 157 -->
+
+<p class='noindent'>Let’s continue our proof for <span class=
+'mathjax-inline'>\((\lambda A)^\intercal = \lambda A^\intercal
+\)</span>.</p>
+
+<div class='mdframed' id='mdframed-3'>
+  <!-- l. 161 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 161 -->
+
+  <p class='noindent'>Let <span class='mathjax-inline'>\(A =
+  [a_{ij}]_{m \times n}\)</span>. Because <span class=
+  'mathjax-inline'>\((\lambda A)^\intercal = [\lambda a_{ij}]_{m
+  \times n}^\intercal = [\lambda a_{ji}]_{n \times m} = \lambda
+  [a_{ji}]_{n \times m} = \lambda A^\intercal \)</span>, the property
+  holds.</p>
+</div><!-- l. 169 -->
+
+<p class='noindent'>We have two more left! Here is the proof for the
+fourth property.</p>
+
+<div class='mdframed' id='mdframed-4'>
+  <!-- l. 172 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 172 -->
+
+  <p class='noindent'>Let <span class='mathjax-inline'>\(A =
+  [a_{ij}]_{m \times n}\)</span> and <span class='mathjax-inline'>\(B
+  = [b_{ij}]_{n \times p}\)</span>. The following equation is
+  satisfied by definitions of matrix multiplication and transpose.
+  <span class='mathjax-env mathjax-align*'>\begin{align*}
+  (AB)^\intercal &amp;= \left ( [a_{ij}]_{m \times n} [b_{ij}]_{n
+  \times p} \right )^\intercal = \left ( \left [ \sum _{k = 1}^{n}
+  a_{ik} b_{kj} \right ]_{m \times p} \right )^\intercal \\ &amp;=
+  \left [ \sum _{k = 1}^{n} a_{jk} b_{ki} \right ]_{p \times m}
+  \end{align*}</span></p><!-- l. 185 -->
+
+  <p class='noindent'>Continuing from the right hand side, the
+  following equation is obtained. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} B^\intercal A^\intercal
+  &amp;= \left [ b_{ij}^\intercal \right ]_{p \times n} \left [
+  a_{ij}^\intercal \right ]_{n \times m} = \left [ \sum _{k = 1}^{n}
+  b_{ik}^\intercal a_{kj}^\intercal \right ]_{p \times m} \\ &amp;=
+  \left [ \sum _{k = 1}^{n} b_{ki} a_{jk} \right ]_{p \times m} =
+  \left [ \sum _{k = 1}^{n} a_{jk} b_{ki} \right ]_{p \times m}
+  \end{align*}</span></p><!-- l. 197 -->
+
+  <p class='noindent'>Because both the left-hand side and the
+  right-hand side of the equation lead to the same matrix, the
+  property holds.</p>
+</div><!-- l. 201 -->
+
+<p class='noindent'>Finally, below is the proof for the corollary of
+the fourth property.</p>
+
+<div class='mdframed' id='mdframed-5'>
+  <!-- l. 204 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 204 -->
+
+  <p class='noindent'>First, notice that by the fourth property, the
+  following equation holds. <span class='mathjax-block'>\[ \left (
+  A^2 \right )^\intercal = A^\intercal A^\intercal = \left (
+  A^\intercal \right )^2 \]</span> Therefore, it suffices to show
+  that <span class='mathjax-inline'>\((A^n)^\intercal = (A^\intercal
+  )^n\)</span> holds for <span class='mathjax-inline'>\(n = k +
+  1\)</span> if it is true for <span class='mathjax-inline'>\(n =
+  k\)</span>. Assume <span class='mathjax-inline'>\((A^k)^\intercal =
+  (A^\intercal )^k\)</span>. By the fourth property, the following
+  equation is obtained. <span class='mathjax-block'>\[ \left (
+  A^{k+1} \right )^\intercal = (A^k A)^\intercal = A^\intercal
+  (A^k)^\intercal = A^\intercal (A^\intercal )^k = (A^\intercal )^{k
+  + 1} \]</span> By induction, the property holds for <span class=
+  'mathjax-inline'>\(k \geq 2\)</span>. For <span class=
+  'mathjax-inline'>\(k = 1\)</span>, it is self evident that the
+  property holds true. Therefore, the property holds for all positive
+  integers <span class='mathjax-inline'>\(n\)</span>.</p>
+</div><!-- l. 227 -->
+
+<p class='noindent'>For the next part of the section, we will discuss
+partitions.</p>
+
+<h4 class='subsectionHead' id='partitions'><span class=
+'titlemark'>0.1.2</span> <a id='x1-30000.1.2'></a>Partitions</h4>
+<!-- l. 231 -->
+
+<p class='noindent'>As always, let’s start with key definitions.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-5'>
+  <div class='tcolorbox-title'>
+    <!-- l. 236 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.5</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 234 -->
+
+    <p class='noindent'>As the name suggests a <span class=
+    'pplb8t-x-x-109'>submatrix</span> is a matrix of <span class=
+    'mathjax-inline'>\(A\)</span> that is obtained by omitting
+    certain rows or columns.</p>
+  </div>
+</div><!-- l. 238 -->
+
+<p class='noindent'>Consider matrix <span class=
+'mathjax-inline'>\(A\)</span> defined as the following. <span class=
+'mathjax-block'>\[ A = \begin {bmatrix} 1 &amp; 2 &amp; 3 \\ 4 &amp;
+5 &amp; 6 \\ 7 &amp; 8 &amp; 9 \end {bmatrix} \]</span> Below are a
+few example of submatrices of <span class=
+'mathjax-inline'>\(A\)</span>. <span class=
+'mathjax-env mathjax-align*'>\begin{align*} A = \begin {bmatrix}
+\tikzmarknode {a11}{1} &amp; \tikzmarknode {a12}{2} &amp;
+\tikzmarknode {a13}{3} \\ \tikzmarknode {a21}{4} &amp; \tikzmarknode
+{a22}{5} &amp; \tikzmarknode {a23}{6} \\ \tikzmarknode {a31}{7} &amp;
+\tikzmarknode {a32}{8} &amp; \tikzmarknode {a33}{9} \end {bmatrix}
+\begin {tikzpicture}[ overlay, remember picture, arrow/.style = {-,
+very thick, opacity=0.7} ] \draw [arrow, Red] (a21.west) --
+(a23.east); \end {tikzpicture} &amp;\rightarrow \begin {bmatrix} 1
+&amp; 2 &amp; 3 \\ 7 &amp; 8 &amp; 9 \end {bmatrix} \\ A = \begin
+{bmatrix} \tikzmarknode {a11}{1} &amp; \tikzmarknode {a12}{2} &amp;
+\tikzmarknode {a13}{3} \\ \tikzmarknode {a21}{4} &amp; \tikzmarknode
+{a22}{5} &amp; \tikzmarknode {a23}{6} \\ \tikzmarknode {a31}{7} &amp;
+\tikzmarknode {a32}{8} &amp; \tikzmarknode {a33}{9} \end {bmatrix}
+\begin {tikzpicture}[ overlay, remember picture, arrow/.style = {-,
+very thick, opacity=0.7} ] \draw [arrow, Red] (a11.west) --
+(a13.east); \draw [arrow, Red] (a31.west) -- (a33.east); \draw
+[arrow, Red] (a12.north) -- (a32.south); \end {tikzpicture}
+&amp;\rightarrow \begin {bmatrix} 4 &amp; 6 \end {bmatrix}
+\end{align*}</span></p>
+
+<div class='tcolorbox defstyle' id='tcolobox-6'>
+  <div class='tcolorbox-title'>
+    <!-- l. 304 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.6</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 302 -->
+
+    <p class='noindent'>We say the matrix is <span class=
+    'pplb8t-x-x-109'>partitioned</span> if horizontal and vertical
+    lines are used to divide the matrix into submatrices.</p>
+  </div>
+</div><!-- l. 306 -->
+
+<p class='noindent'>Here are a few examples of different partitions
+of <span class='mathjax-inline'>\(A\)</span>. <span class=
+'mathjax-block'>\[ \begin {bNiceArray}{ccc}[margin] 1 &amp; 2 &amp; 3
+\\ 4 &amp; 5 &amp; 6 \\ \hline 7 &amp; 8 &amp; 9 \end {bNiceArray},
+\quad \begin {bNiceArray}{c|cc}[margin] 1 &amp; \textcolor {Red}{2}
+&amp; \textcolor {Red}{3} \\ 4 &amp; \textcolor {Red}{5} &amp;
+\textcolor {Red}{6} \\ \hline 7 &amp; 8 &amp; 9 \end {bNiceArray},
+\quad \begin {bNiceArray}{c|c|c}[margin] 1 &amp; 2 &amp; 3 \\ \hline
+4 &amp; 5 &amp; 6 \\ 7 &amp; 8 &amp; 9 \end {bNiceArray} \]</span>
+From different partitions, we can obtain different <span class=
+'pplb8t-x-x-109'>blocks</span>.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-7'>
+  <div class='tcolorbox-title'>
+    <!-- l. 334 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.7</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 332 -->
+
+    <p class='noindent'>A <span class='pplb8t-x-x-109'>block</span>
+    of a partition of <span class='mathjax-inline'>\(A\)</span> is a
+    submatrix of <span class='mathjax-inline'>\(A\)</span> divided by
+    the horizontal and vertical partition lines.</p>
+  </div>
+</div><!-- l. 336 -->
+
+<p class='noindent'>The highlighted portion of the second partition
+above is an example of a block. Now, why should we even care about
+partitions and blocks? Partitions of a matrix are important because
+it could be a very useful tool in computationally heavy matrix
+multiplication. Let’s take a look at a generalized example
+<span class='mathjax-inline'>\(AB\)</span>. <span class=
+'mathjax-block'>\[ AB = \begin {bmatrix} a_{11} &amp; a_{12} &amp;
+a_{13} &amp; a_{14} \\ a_{21} &amp; a_{22} &amp; a_{23} &amp; a_{24}
+\\ a_{31} &amp; a_{32} &amp; a_{33} &amp; a_{34} \\ a_{41} &amp;
+a_{42} &amp; a_{43} &amp; a_{44} \end {bmatrix} \begin {bmatrix}
+b_{11} &amp; b_{12} &amp; b_{13} \\ b_{21} &amp; b_{22} &amp; b_{23}
+\\ b_{31} &amp; b_{32} &amp; b_{33} \\ b_{41} &amp; b_{42} &amp;
+b_{43} \end {bmatrix} \]</span> At least for me, this multiplication
+looks very painful. Fortunately, using partitions, we can turn this
+monster into a baby monster. <span class=
+'mathjax-env mathjax-align*'>\begin{align*} AB &amp;= \begin
+{bNiceArray}{cc|cc}[margin] a_{11} &amp; a_{12} &amp; a_{13} &amp;
+a_{14} \\ a_{21} &amp; a_{22} &amp; a_{23} &amp; a_{24} \\ a_{31}
+&amp; a_{32} &amp; a_{33} &amp; a_{34} \\ a_{41} &amp; a_{42} &amp;
+a_{43} &amp; a_{44} \end {bNiceArray} \begin
+{bNiceArray}{ccc}[margin] b_{11} &amp; b_{12} &amp; b_{13} \\ b_{21}
+&amp; b_{22} &amp; b_{23} \\ \hline b_{31} &amp; b_{32} &amp; b_{33}
+\\ b_{41} &amp; b_{42} &amp; b_{43} \end {bNiceArray} \\
+&amp;= \begin {bmatrix} a_{11} &amp; a_{12} \\ a_{21}
+&amp; a_{22} \\ a_{31} &amp; a_{32} \\ a_{41} &amp; a_{42} \end
+{bmatrix} \begin {bmatrix} b_{11} &amp; b_{12} &amp; b_{13} \\ b_{21}
+&amp; b_{22} &amp; b_{23} \end {bmatrix} + \begin {bmatrix} a_{13}
+&amp; a_{14} \\ a_{23} &amp; a_{24} \\ a_{33} &amp; a_{34} \\ a_{43}
+&amp; a_{44} \end {bmatrix} \begin {bmatrix} b_{31} &amp; b_{32}
+&amp; b_{33} \\ b_{41} &amp; b_{42} &amp; b_{43} \end {bmatrix} \\
+&amp;= \begin {bmatrix} \scriptscriptstyle a_{11}b_{11} +
+a_{12}b_{21} &amp; \scriptscriptstyle a_{11}b_{12} + a_{12}b_{22}
+&amp; \scriptscriptstyle a_{11}b_{13} + a_{12}b_{23} \\
+\scriptscriptstyle a_{21}b_{11} + a_{22}b_{21} &amp;
+\scriptscriptstyle a_{21}b_{12} + a_{22}b_{22} &amp;
+\scriptscriptstyle a_{21}b_{13} + a_{22}b_{23} \\ \scriptscriptstyle
+a_{31}b_{11} + a_{32}b_{21} &amp; \scriptscriptstyle a_{31}b_{12} +
+a_{32}b_{22} &amp; \scriptscriptstyle a_{31}b_{13} + a_{32}b_{23} \\
+\scriptscriptstyle a_{41}b_{11} + a_{42}b_{21} &amp;
+\scriptscriptstyle a_{41}b_{12} + a_{42}b_{22} &amp;
+\scriptscriptstyle a_{41}b_{13} + a_{42}b_{23} \end {bmatrix} \\
+&amp;\qquad \qquad \qquad \qquad + \begin {bmatrix}
+\scriptscriptstyle a_{13}b_{31} + a_{14}b_{41} &amp;
+\scriptscriptstyle a_{13}b_{32} + a_{14}b_{42} &amp;
+\scriptscriptstyle a_{13}b_{33} + a_{14}b_{43} \\ \scriptscriptstyle
+a_{23}b_{31} + a_{24}b_{41} &amp; \scriptscriptstyle a_{23}b_{32} +
+a_{24}b_{42} &amp; \scriptscriptstyle a_{23}b_{33} + a_{24}b_{43} \\
+\scriptscriptstyle a_{33}b_{31} + a_{34}b_{41} &amp;
+\scriptscriptstyle a_{33}b_{32} + a_{34}b_{42} &amp;
+\scriptscriptstyle a_{33}b_{33} + a_{34}b_{43} \\ \scriptscriptstyle
+a_{43}b_{31} + a_{44}b_{41} &amp; \scriptscriptstyle a_{43}b_{32} +
+a_{44}b_{42} &amp; \scriptscriptstyle a_{43}b_{33} + a_{44}b_{43}
+\end {bmatrix} \\ &amp;= \begin {bmatrix} \scriptscriptstyle
+a_{11}b_{11} + a_{12}b_{21} + a_{13}b_{31} + a_{14}b_{41} &amp;
+\scriptscriptstyle a_{11}b_{12} + a_{12}b_{22} + a_{13}b_{32} +
+a_{14}b_{42} &amp; \scriptscriptstyle a_{11}b_{13} + a_{12}b_{23} +
+a_{13}b_{33} + a_{14}b_{43} \\ \scriptscriptstyle a_{21}b_{11} +
+a_{22}b_{21} + a_{23}b_{31} + a_{24}b_{41} &amp; \scriptscriptstyle
+a_{21}b_{12} + a_{22}b_{22} + a_{23}b_{32} + a_{24}b_{42} &amp;
+\scriptscriptstyle a_{21}b_{13} + a_{22}b_{23} + a_{23}b_{33} +
+a_{24}b_{43} \\ \scriptscriptstyle a_{31}b_{11} + a_{32}b_{21} +
+a_{33}b_{31} + a_{34}b_{41} &amp; \scriptscriptstyle a_{31}b_{12} +
+a_{32}b_{22} + a_{33}b_{32} + a_{34}b_{42} &amp; \scriptscriptstyle
+a_{31}b_{13} + a_{32}b_{23} + a_{33}b_{33} + a_{34}b_{43} \\
+\scriptscriptstyle a_{41}b_{11} + a_{42}b_{21} + a_{43}b_{31} +
+a_{44}b_{41} &amp; \scriptscriptstyle a_{41}b_{12} + a_{42}b_{22} +
+a_{43}b_{32} + a_{44}b_{42} &amp; \scriptscriptstyle a_{41}b_{13} +
+a_{42}b_{23} + a_{43}b_{33} + a_{44}b_{43} \end {bmatrix}
+\end{align*}</span></p><!-- l. 456 -->
+
+<p class='noindent'>Well, this looks good to me! If the matrices
+being multiplied have higher dimension, partitioning such matrices
+could help in computation and reducing mistakes. Now that we have
+seen partitions of matrices, we could derive special forms from the
+ideas.</p>
+
+<h4 class='subsectionHead' id='special-forms-of-matrix'><span class=
+'titlemark'>0.1.3</span> <a id='x1-40000.1.3'></a>Special Forms of
+Matrix</h4><!-- l. 463 -->
+
+<p class='noindent'>As always, let’s build from definitions.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-8'>
+  <div class='tcolorbox-title'>
+    <!-- l. 470 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.8</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 466 -->
+
+    <p class='noindent'>A <span class='pplb8t-x-x-109'>symmetrically
+    partitioned matrix</span> refers to a partitioned matrix such
+    that its arrangements of the blocks are diagonally symmetric. The
+    <span class='pplb8t-x-x-109'>diagonal blocks</span> are the
+    blocks that pass through the diagonal symmetry.</p>
+  </div>
+</div><!-- l. 472 -->
+
+<p class='noindent'>We could also define matrices with diagonal
+blocks that are not necessarily symmetrically partitioned.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-9'>
+  <div class='tcolorbox-title'>
+    <!-- l. 478 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.9</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 476 -->
+
+    <p class='noindent'>A <span class='pplb8t-x-x-109'>block diagonal
+    matrix</span> is a matrix with square diagonal blocks and zero on
+    the other entries.</p>
+  </div>
+</div><!-- l. 480 -->
+
+<p class='noindent'>Below is the general form for square matrices
+<span class='mathjax-inline'>\(A_i\)</span>. <span class=
+'mathjax-block'>\[ A = \begin {bmatrix} A_1 &amp; 0 &amp; \cdots
+&amp; 0 \\ 0 &amp; A_2 &amp; \cdots &amp; 0 \\ \vdots &amp; \vdots
+&amp; \ddots &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; A_n \\ \end {bmatrix}
+\]</span> Continuing, we could define rows and columns based on its
+elements.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-10'>
+  <div class='tcolorbox-title'>
+    <!-- l. 495 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.10</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 493 -->
+
+    <p class='noindent'><span class='pplb8t-x-x-109'>Zero rows</span>
+    and <span class='pplb8t-x-x-109'>zero columns</span> are rows and
+    columns composed of zeros respectively.</p>
+  </div>
+</div><!-- l. 497 -->
+
+<p class='noindent'>For instance for matrix defined as the following,
+<span class='mathjax-block'>\[ \begin {bmatrix} 1 &amp; 2 &amp; 0
+&amp; 3 \\ 0 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 1
+\end {bmatrix} \]</span> the zero row is the second row and the zero
+column is the third column.</p><!-- l. 508 -->
+
+<p class='noindent'>This definition is quite straightforward, and now
+that we have basic terms in mind, let’s discuss two forms from the
+definitions above.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-11'>
+  <div class='tcolorbox-title'>
+    <!-- l. 545 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.11</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 513 -->
+
+    <p class='noindent'>Matrix in <span class='pplb8t-x-x-109'>row
+    echelon form (REF)</span> satisfies the conditions below.</p>
+
+    <ul class='itemize1'>
+      <li class='itemize'>All nonzero leading entry is <span class=
+      'mathjax-inline'>\(1\)</span>. (Side note here is that some
+      textbooks and lectures do not require the leading entry to be
+      <span class='mathjax-inline'>\(1\)</span>, but I actually would
+      like to keep it this way as this is how I initially learned
+      it.)</li>
+
+      <li class='itemize'>All nonzero leading entries in a nonzero
+      row in a later row are to the right of nonzero leading entries
+      in previous rows.</li>
+
+      <li class='itemize'>If there are both nonzero and zero rows,
+      all zero rows must appear after the nonzero rows above.</li>
+    </ul><!-- l. 529 -->
+
+    <p class='noindent'>The leading entry of matrices in REF is known
+    as a <span class='pplb8t-x-x-109'>pivot</span>. Similarly,
+    matrices in <span class='pplb8t-x-x-109'>reduced row echelon form
+    (RREF)</span> are matrices that satisfy the following
+    conditions.</p>
+
+    <ul class='itemize1'>
+      <li class='itemize'>All nonzero leading entries in a nonzero
+      row is <span class='mathjax-inline'>\(1\)</span>.</li>
+
+      <li class='itemize'>If there are both nonzero and zero rows,
+      all zero rows must appear after the nonzero rows above.</li>
+
+      <li class='itemize'>All leading <span class=
+      'mathjax-inline'>\(1\)</span>s in the succeeding rows appear in
+      a column after the columns with previous leading <span class=
+      'mathjax-inline'>\(1\)</span>s.</li>
+
+      <li class='itemize'>The leading <span class=
+      'mathjax-inline'>\(1\)</span> must be the only nonzero element
+      present in each column if there exists such <span class=
+      'mathjax-inline'>\(1\)</span>.</li>
+    </ul>
+  </div>
+</div><!-- l. 547 -->
+
+<p class='noindent'>Below are examples of a matrices in REF and RREF
+respectively. <span class='mathjax-block'>\[ \begin {bmatrix} 1 &amp;
+2 &amp; 3 &amp; 4 \\ 0 &amp; 0 &amp; 1 &amp; 2 \\ 0 &amp; 0 &amp; 0
+&amp; 1 \\ 0 &amp; 0 &amp; 0 &amp; 0 \end {bmatrix}, \quad \begin
+{bmatrix} 1 &amp; 0 &amp; 2 &amp; 0 \\ 0 &amp; 1 &amp; 2 &amp; 0 \\ 0
+&amp; 0 &amp; 0 &amp; 1 \\ 0 &amp; 0 &amp; 0 &amp; 0 \end {bmatrix}
+\]</span> Matrices that follow these forms will be very useful when
+solving linear systems of equations, but we will save that for the
+latter notes. Now let’s discuss about triangular matrices.</p>
+<!-- l. 567 -->
+
+<p class='noindent'>Triangular matrices are a special type of square
+matrices that is determined by elements below the main diagonal. If
+all its elements below the main diagonal are zeros, we call it an
+<span class='pplb8t-x-x-109'>upper triangular</span> matrix.
+Similarly, if all elements above the main diagonal are zeros, we call
+them <span class='pplb8t-x-x-109'>lower triangular</span> matrices.
+For more formal statement, consider the following definition.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-12'>
+  <div class='tcolorbox-title'>
+    <!-- l. 579 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.12</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 576 -->
+
+    <p class='noindent'>A square matrix <span class=
+    'mathjax-inline'>\(A = [a_{ij}]\)</span> is <span class=
+    'pplb8t-x-x-109'>upper triangular</span> if <span class=
+    'mathjax-inline'>\(a_{ij} = 0 \, \forall \, i &gt; j\)</span>.
+    Similarly, the matrix is <span class='pplb8t-x-x-109'>lower
+    triangular</span> if <span class='mathjax-inline'>\(a_{ij} = 0 \,
+    \forall \, i &lt; j\)</span>.</p>
+  </div>
+</div><!-- l. 581 -->
+
+<p class='noindent'>Let’s take a look at an example. The left and
+right matrices below are upper triangular and lower triangular
+matrices respectively. <span class='mathjax-block'>\[ \begin
+{bmatrix} 1 &amp; 2 &amp; 3 &amp; 4 \\ 0 &amp; 2 &amp; 3 &amp; 4 \\ 0
+&amp; 0 &amp; 3 &amp; 4 \\ 0 &amp; 0 &amp; 0 &amp; 4 \end {bmatrix},
+\quad \begin {bmatrix} 1 &amp; 0 &amp; 0 &amp; 0 \\ 2 &amp; 1 &amp; 0
+&amp; 0 \\ 3 &amp; 2 &amp; 1 &amp; 0 \\ 0 &amp; 3 &amp; 2 &amp; 0
+\end {bmatrix} \]</span> Now that we have definitions of triangular
+matrices in mind, we can discuss a theorem from such matrices.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-13'>
+  <a id='x1-4007x0.1.3'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 605 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.13</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 602 -->
+
+    <p class='noindent'>The product of two lower triangular matrices
+    is a lower triangular matrix, and the product of two upper
+    triangular matrices is an upper triangular matrix.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-6'>
+  <!-- l. 607 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 607 -->
+
+  <p class='noindent'>Let <span class='mathjax-inline'>\(A =
+  [a_{ij}]_{n \times n}\)</span> and <span class='mathjax-inline'>\(B
+  = [b_{ij}]_{n \times n}\)</span> be lower triangular matrices.
+  Consider the following equation for their product matrix
+  <span class='mathjax-inline'>\(C = [c_{ij}]_{n \times n}\)</span>.
+  <span class='mathjax-block'>\[ C = \left [ \sum _{k = 1}^{n} a_{ik}
+  b_{kj} \right ] = \left [ \sum _{k = 1}^{j-1} a_{ik} b_{kj} + \sum
+  _{k = j}^{n} a_{ik} b_{kj} \right ] \]</span> From the expression,
+  it suffices to show that <span class='mathjax-inline'>\(\sum _{k =
+  1}^{j-1} a_{ik} b_{kj} + \sum _{k = j}^{n} a_{ik} b_{kj} 
+  = 0\)</span> for <span class='mathjax-inline'>\(i &lt; j\)</span>.
+  Notice that by definition, <span class='mathjax-inline'>\(b_{kj} =
+  0\)</span> for all <span class='mathjax-inline'>\(k = 1\)</span> to
+  <span class='mathjax-inline'>\(k = j-1\)</span>. Similarly,
+  <span class='mathjax-inline'>\(a_{ik} = 0\)</span> for all integer
+  <span class='mathjax-inline'>\(k \in [j, n]\)</span>. Therefore,
+  <span class='mathjax-inline'>\(c_{ij} = 0\)</span> for all
+  <span class='mathjax-inline'>\(i &lt; j\)</span>, proving the first
+  half of the theorem.</p><!-- l. 625 -->
+
+  <p class='noindent'>Similarly, let <span class=
+  'mathjax-inline'>\(A' = [a'_{ij}]_{n \times n}\)</span> and
+  <span class='mathjax-inline'>\(B' = [b'_{ij}]_{n \times n}\)</span>
+  be upper triangular matrices. The product matrix <span class=
+  'mathjax-inline'>\(C'= [c'_{ij}]_{n \times n}\)</span> can be
+  represented as following. <span class='mathjax-block'>\[ C' = \left
+  [ \sum _{k = 1}^{n} a'_{ik} b'_{kj} \right ] = \left [ \sum _{k =
+  1}^{j-1} a'_{ik} b'_{kj} + \sum _{k = j}^{n} a'_{ik} b'_{kj} \right
+  ] \]</span> By definition, it is evident that <span class=
+  'mathjax-inline'>\(a'_{ik} = 0\)</span> for integer <span class=
+  'mathjax-inline'>\(k \in [1, j-1]\)</span> and <span class=
+  'mathjax-inline'>\(b'_{kj} = 0\)</span> for integer <span class=
+  'mathjax-inline'>\(k \in [j, n]\)</span>. Therefore, for
+  <span class='mathjax-inline'>\(i &gt; j\)</span>, <span class=
+  'mathjax-inline'>\(c'_{ij} = 0\)</span> and the theorem is
+  true.</p>
+</div><!-- l. 641 -->
+
+<p class='noindent'>This is it for different topics on fundamentals
+of matrices! I know this note is quite long, but let’s conclude our
+notes with the discussion on determinants.</p>

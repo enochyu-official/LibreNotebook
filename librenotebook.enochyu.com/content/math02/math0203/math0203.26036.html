@@ -1,0 +1,334 @@
+<h3 class='sectionHead' id='gaussian-elimination'><span class=
+'titlemark'>0.1</span> <a id='x1-10000.1'></a>Gaussian
+Elimination</h3><!-- l. 7 -->
+
+<p class='noindent'>When you solve a linear system, you probably
+multiply constants and add or subtract equations to cancel variables.
+That is exactly what we will be doing in Gaussian Elimination, but
+with matrices. First, define how we solve a linear system in a more
+rigorous way.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-1'>
+  <div class='tcolorbox-title'>
+    <!-- l. 23 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.1</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 13 -->
+
+    <p class='noindent'>For a system of linear equations, performing
+    the following operations will result in a linear system with an
+    identical solution.</p>
+
+    <dl class='enumerate-enumitem'>
+      <dt class='enumerate-enumitem'>1.</dt>
+
+      <dd class='enumerate-enumitem'>Change the order of linear
+      equations in which they are listed</dd>
+
+      <dt class='enumerate-enumitem'>2.</dt>
+
+      <dd class='enumerate-enumitem'>Multiply a nonzero constant, or
+      nonzero scalars, to an equation</dd>
+
+      <dt class='enumerate-enumitem'>3.</dt>
+
+      <dd class='enumerate-enumitem'>Add equations from the system to
+      form a new equation</dd>
+    </dl>
+  </div>
+</div><!-- l. 25 -->
+
+<p class='noindent'>Now before we connect this idea with matrices,
+let’s define a matrix that we will use with the property of a linear
+system above.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-2'>
+  <div class='tcolorbox-title'>
+    <!-- l. 31 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.2</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 29 -->
+
+    <p class='noindent'>An <span class='pplb8t-x-x-109'>augmented
+    matrix</span> for a linear system <span class=
+    'mathjax-inline'>\(Ax = b\)</span> is a partitioned matrix in the
+    form <span class='mathjax-inline'>\([A \mid b]\)</span>.</p>
+  </div>
+</div><!-- l. 33 -->
+
+<p class='noindent'>Consider the following system for an example.
+<span class='mathjax-env mathjax-align*'>\begin{align*} x + 2y + 3z
+&amp;= 4 \\ 2x + 3y + 4z &amp;= 5 \\ 3x + 4y + 5z &amp;= 6
+\end{align*}</span></p><!-- l. 39 -->
+
+<p class='noindent'>In the linear system above, the augmented matrix
+will be the following matrix. <span class='mathjax-block'>\[ \begin
+{bNiceArray}{ccc|c} 1 &amp; 2 &amp; 3 &amp; 4 \\ 2 &amp; 3 &amp; 4
+&amp; 5 \\ 3 &amp; 4 &amp; 5 &amp; 6 \end {bNiceArray} \]</span> Now
+that we have an augmented matrix in mind, let’s take a look at how
+the three properties that we discussed apply to matrices.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-3'>
+  <div class='tcolorbox-title'>
+    <!-- l. 65 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.3</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 52 -->
+
+    <p class='noindent'>For an augmented matrix for a linear system,
+    performing the following operations will result in a linear
+    system with an identical solution as the initial system.</p>
+
+    <dl class='enumerate-enumitem'>
+      <dt class='enumerate-enumitem'><span class=
+      'mathjax-inline'>\(R_1\)</span>.</dt>
+
+      <dd class='enumerate-enumitem'>Rearrangement of the rows in the
+      augmented matrix</dd>
+
+      <dt class='enumerate-enumitem'><span class=
+      'mathjax-inline'>\(R_2\)</span>.</dt>
+
+      <dd class='enumerate-enumitem'>Multiply a nonzero scalar to a
+      row in the augmented matrix</dd>
+
+      <dt class='enumerate-enumitem'><span class=
+      'mathjax-inline'>\(R_3\)</span>.</dt>
+
+      <dd class='enumerate-enumitem'>Add a row multiplied by a scalar
+      with another to replace a row with new row</dd>
+    </dl><!-- l. 64 -->
+
+    <p class='noindent'>Such operations are referred to as
+    <span class='pplb8t-x-x-109'>elementary row
+    operations</span>.</p>
+  </div>
+</div><!-- l. 67 -->
+
+<p class='noindent'>If you compare the operations one by one, you can
+notice that the two sets of properties refer to the same property.
+Now with the set of properties of augmented matrices in mind, here
+are the steps for the Gaussian Elimination algorithm.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-4'>
+  <a id='x1-1012x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 86 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.4</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 73 -->
+
+    <p class='noindent'>Execute the following steps in order for
+    Gaussian Elimination.</p>
+
+    <dl class='enumerate-enumitem'>
+      <dt class='enumerate-enumitem'>1.</dt>
+
+      <dd class='enumerate-enumitem'>Construct the augmented
+      matrix.</dd>
+
+      <dt class='enumerate-enumitem'>2.</dt>
+
+      <dd class='enumerate-enumitem'>Utilize the elementary row
+      operations to transform the augmented matrix into REF.</dd>
+
+      <dt class='enumerate-enumitem'>3.</dt>
+
+      <dd class='enumerate-enumitem'>Convert the augmented matrix in
+      REF into equations of a transformed linear system, referred to
+      as the <span class='pplb8t-x-x-109'>derived set</span>.</dd>
+
+      <dt class='enumerate-enumitem'>4.</dt>
+
+      <dd class='enumerate-enumitem'>Back substitute to solve the
+      system.</dd>
+    </dl>
+  </div>
+</div><!-- l. 88 -->
+
+<p class='noindent'>Let’s take a look at a few examples.</p>
+
+<div class='tcolorbox probstyle' id='tcolobox-5'>
+  <div class='tcolorbox-title'>
+    <!-- l. 97 -->
+
+    <p class='noindent'>Exercise&nbsp;0.1.5</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 91 -->
+
+    <p class='noindent'>Find solution(s) to the following system of
+    linear equations if any. <span class=
+    'mathjax-env mathjax-align*'>\begin{align*} x + 2y + z &amp;= 1
+    \\ 3x - y + z &amp;= 6 \\ x + y - z &amp;= -2
+    \end{align*}</span></p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-1'>
+  <!-- l. 99 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 99 -->
+
+  <p class='noindent'>First, the augmented matrix can be found from
+  the system. Consider the matrix below. <span class=
+  'mathjax-block'>\[ \begin {bNiceArray}{ccc|c} 1 &amp; 2 &amp; 1
+  &amp; 1 \\ 3 &amp; -1 &amp; 1 &amp; 6 \\ 1 &amp; 1 &amp; -1 &amp;
+  -2 \end {bNiceArray} \]</span> Using the elementary row operations,
+  the augmented matrix can be transformed as the following.
+  <span class='mathjax-block'>\[ \begin {bNiceArray}{ccc|c} 1 &amp; 2
+  &amp; 1 &amp; 1 \\ 3 &amp; -1 &amp; 1 &amp; 6 \\ 1 &amp; 1 &amp; -1
+  &amp; -2 \end {bNiceArray} \rightarrow \begin {bNiceArray}{ccc|c} 1
+  &amp; 2 &amp; 1 &amp; 1 \\ 0 &amp; -4 &amp; 4 &amp; 12 \\ 1 &amp; 1
+  &amp; -1 &amp; -2 \end {bNiceArray} \rightarrow \begin
+  {bNiceArray}{ccc|c} 1 &amp; 2 &amp; 1 &amp; 1 \\ 0 &amp; -4 &amp; 4
+  &amp; 12 \\ 0 &amp; -1 &amp; -2 &amp; -3 \end {bNiceArray} \] \[
+  \rightarrow \begin {bNiceArray}{ccc|c} 1 &amp; 2 &amp; 1 &amp; 1 \\
+  0 &amp; -1 &amp; 1 &amp; 3 \\ 0 &amp; 1 &amp; 2 &amp; 3 \end
+  {bNiceArray} \rightarrow \begin {bNiceArray}{ccc|c} 1 &amp; 2 &amp;
+  1 &amp; 1 \\ 0 &amp; -1 &amp; 1 &amp; 3 \\ 0 &amp; 0 &amp; 3 &amp;
+  6 \end {bNiceArray} \rightarrow \begin {bNiceArray}{ccc|c} 1 &amp;
+  2 &amp; 1 &amp; 1 \\ 0 &amp; 1 &amp; -1 &amp; -3 \\ 0 &amp; 0 &amp;
+  1 &amp; 2 \end {bNiceArray} \]</span> Because the augmented matrix
+  is now in REF, the transformed linear system can be rewritten.
+  <span class='mathjax-env mathjax-align*'>\begin{align*} x + 2y + z
+  &amp;= 1 \\ y - z &amp;= -3 \\ z &amp;= 2 \end{align*}</span></p>
+  <!-- l. 156 -->
+
+  <p class='noindent'>Back substituting, it is evident that
+  <span class='mathjax-inline'>\(z = 2\)</span> and <span class=
+  'mathjax-inline'>\(y = -1\)</span>. Moreover, <span class=
+  'mathjax-inline'>\(x = 1 + 2 - 2 = 1\)</span>. Therefore, the
+  triple <span class='mathjax-inline'>\((1, -1, 2)\)</span> is the
+  solution to the linear system.</p>
+</div><!-- l. 161 -->
+
+<p class='noindent'>Try substituting to the original system! You can
+notice that the solution is valid. Below is the second example of
+using Gaussian Elimination.</p>
+
+<div class='tcolorbox probstyle' id='tcolobox-6'>
+  <div class='tcolorbox-title'>
+    <!-- l. 172 -->
+
+    <p class='noindent'>Exercise&nbsp;0.1.6</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 166 -->
+
+    <p class='noindent'>Find solution(s) to the following system of
+    linear equations if any. <span class=
+    'mathjax-env mathjax-align*'>\begin{align*} x + 2y + 3z &amp;= 4
+    \\ y + 3z &amp;= 5 \\ x + y &amp;= 1 \end{align*}</span></p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-2'>
+  <!-- l. 174 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 174 -->
+
+  <p class='noindent'>First and foremost, the augmented matrix can be
+  found. <span class='mathjax-block'>\[ \begin {bNiceArray}{ccc|c} 1
+  &amp; 2 &amp; 3 &amp; 4 \\ 0 &amp; 1 &amp; 3 &amp; 5 \\ 1 &amp; 1
+  &amp; 0 &amp; 1 \end {bNiceArray} \rightarrow \begin
+  {bNiceArray}{ccc|c} 1 &amp; 2 &amp; 3 &amp; 4 \\ 0 &amp; 1 &amp; 3
+  &amp; 5 \\ 0 &amp; -1 &amp; -3 &amp; -3 \end {bNiceArray}
+  \rightarrow \begin {bNiceArray}{ccc|c} 1 &amp; 2 &amp; 3 &amp; 4 \\
+  0 &amp; 1 &amp; 3 &amp; 5 \\ 0 &amp; 0 &amp; 0 &amp; 2 \end
+  {bNiceArray} \]</span> Writing the transformed augmented matrix
+  into a system of linear equations, the following system is
+  obtained. <span class='mathjax-env mathjax-align*'>\begin{align*} x
+  + 2y + 3z &amp;= 4 \\ y + 3z &amp;= 5 \\ 0 &amp;= 2
+  \end{align*}</span></p><!-- l. 201 -->
+
+  <p class='noindent'>Notice that <span class='mathjax-inline'>\(0 =
+  2\)</span> can never be true. Therefore, no solution exists.</p>
+</div><!-- l. 204 -->
+
+<p class='noindent'>We could double check our answer without using
+matrices. Notice that <span class='mathjax-inline'>\(3z - x =
+4\)</span> and <span class='mathjax-inline'>\(x = 3z - 4\)</span>.
+Similarly, <span class='mathjax-inline'>\(y = 5 - 3z\)</span>.
+Substituting to the first equation, <span class='mathjax-inline'>\(3z
+- 4 + 10 - 6z + 3z = 4\)</span>, or <span class='mathjax-inline'>\(6
+= 4\)</span>, which is not true. Therefore, our results align! Below
+is the third example of using the algorithm.</p>
+
+<div class='tcolorbox probstyle' id='tcolobox-7'>
+  <div class='tcolorbox-title'>
+    <!-- l. 217 -->
+
+    <p class='noindent'>Exercise&nbsp;0.1.7</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 211 -->
+
+    <p class='noindent'>Find solution(s) to the following system of
+    linear equations if any. <span class=
+    'mathjax-env mathjax-align*'>\begin{align*} x - y - 2z &amp;= 3
+    \\ 2x + y - 7z &amp;= 3 \\ x + y - 4z &amp;= 1
+    \end{align*}</span></p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-3'>
+  <!-- l. 219 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 219 -->
+
+  <p class='noindent'>Consider the following augmented matrix.
+  <span class='mathjax-block'>\[ \begin {bNiceArray}{ccc|c} 1 &amp;
+  -1 &amp; -2 &amp; 3 \\ 2 &amp; 1 &amp; -7 &amp; 3 \\ 1 &amp; 1
+  &amp; -4 &amp; 1 \end {bNiceArray} \]</span> Utilizing Gaussian
+  Elimination, the augmented matrix can be transformed as following.
+  <span class='mathjax-env mathjax-align*'>\begin{align*} \begin
+  {bNiceArray}{ccc|c} 1 &amp; -1 &amp; -2 &amp; 3 \\ 2 &amp; 1 &amp;
+  -7 &amp; 3 \\ 1 &amp; 1 &amp; -4 &amp; 1 \end {bNiceArray}
+  &amp;\rightarrow \begin {bNiceArray}{ccc|c} 1 &amp; -1 &amp; -2
+  &amp; 3 \\ 2 &amp; 1 &amp; -7 &amp; 3 \\ 0 &amp; 2 &amp; -2 &amp;
+  -2 \end {bNiceArray} \rightarrow \begin {bNiceArray}{ccc|c} 1 &amp;
+  -1 &amp; -2 &amp; 3 \\ 0 &amp; 1 &amp; -1 &amp; -1 \\ 2 &amp; 1
+  &amp; -7 &amp; 3 \end {bNiceArray} \\ &amp;\rightarrow \begin
+  {bNiceArray}{ccc|c} 1 &amp; -1 &amp; -2 &amp; 3 \\ 0 &amp; 1 &amp;
+  -1 &amp; -1 \\ 0 &amp; 3 &amp; -3 &amp; -3 \end {bNiceArray}
+  \rightarrow \begin {bNiceArray}{ccc|c} 1 &amp; -1 &amp; -2 &amp; 3
+  \\ 0 &amp; 1 &amp; -1 &amp; -1 \\ 0 &amp; 0 &amp; 0 &amp; 0 \end
+  {bNiceArray} \end{align*}</span></p><!-- l. 260 -->
+
+  <p class='noindent'>Rewriting the system, the following equations
+  are obtained. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} x - y - 2z &amp;= 3 \\
+  y - z &amp;= -1 \end{align*}</span></p><!-- l. 265 -->
+
+  <p class='noindent'>Notice that <span class='mathjax-inline'>\(y =
+  z - 1\)</span> and <span class='mathjax-inline'>\(x = y + 2z + 3 =
+  z - 1 + 2z + 3 = 3z + 2\)</span>. Because there exists infinitely
+  many <span class='mathjax-inline'>\(z\)</span>, the system has
+  infinitely many solutions.</p>
+</div><!-- l. 270 -->
+
+<p class='noindent'>When writing such solutions, it could be written
+as the following. <span class='mathjax-block'>\[ x = \begin {bmatrix}
+3z + 2 \\ z - 1 \\ z \end {bmatrix} \]</span> For the next section,
+let’s discuss the inverse of a matrix and its application in linear
+systems.</p>

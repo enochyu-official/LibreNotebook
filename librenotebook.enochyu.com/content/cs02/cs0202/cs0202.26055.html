@@ -1,0 +1,109 @@
+<h2 class='chapterHead' id='foundations'><span class='titlemark'>Note 1</span><br />  <a id='x1-10001'></a>Foundations</h2>
+<!-- l. 7 --><p class='noindent'>Before getting into different techniques and methods, let’s discuss
+fundamental topics including time complexity and basic DSA.
+
+</p>
+<h3 class='sectionHead' id='time-complexity'><span class='titlemark'>1.1    </span>   <a id='x1-20001.1'></a>Time Complexity</h3>
+<!-- l. 12 --><p class='noindent'>One of the primary goal of competitive programming and an effective
+program is efficiency. Indeed most, if not all, programming competitions
+have time limits, which varies for each language. Some problems can be
+solved with brute force approach while others need an elegant solution to fit
+in the given time frame.
+</p>
+<div class='tcolorbox defstyle' id='tcolobox-1'>     
+<div class='tcolorbox-title'>
+<!-- l. 21 --><p class='noindent'>Definition 1.1.1</p></div> 
+<div class='tcolorbox-content'><!-- l. 19 --><p class='noindent'>The  <span class='pplb8t-x-x-109'>Time  Complexity  </span>of  a  program  denotes  the  number  of
+operations an algorithm executes [<span class='pplb8t-x-x-109'>CS02-5</span>]. </p> 
+</div> 
+</div>
+<!-- l. 23 --><p class='noindent'>Please note that the definition above is very basic, and not formal. A
+more formal definition involves theoretical computer science, and
+maybe I can include more on the formal definition and P = NP in other
+notes.
+</p><!-- l. 28 --><p class='noindent'>The approximate number of the operations for the worst-case is represented
+using the <span class='pplb8t-x-x-109'>big O notation</span>. The lower the complexity, the efficient the program
+is.
+</p><!-- l. 32 --><p class='noindent'>The six major complexities are Constant <span class='mathjax-inline'>\(\mathcal {O}(1)\)</span>, Linear <span class='mathjax-inline'>\(\mathcal {O}(n)\)</span>, Logarithmic <span class='mathjax-inline'>\(\mathcal {O}(n \log n)\)</span>, Quadratic <span class='mathjax-inline'>\(\mathcal {O}(n^2)\)</span>,
+Exponential <span class='mathjax-inline'>\(\mathcal {O}(2^n)\)</span>, and Factorial <span class='mathjax-inline'>\(\mathcal {O}(n!)\)</span> [<span class='pplb8t-x-x-109'>CS02-8</span>]. We will evaluate the time complexities
+of algorithms as we walk through them, but here are some simple examples
+                                                                 
+                                                                 
+using input/output and loops.
+</p><!-- l. 39 --><p class='noindent'>A simple hello world example have constant time complexity since it only
+prints once. One the other hand, the following snippet
+</p>
+<div class='tcolorbox basicboxstyle' id='tcolobox-2'>     
+<div class='tcolorbox-title'>
+</div> 
+<div class='tcolorbox-content'><!-- l. 43 -->
+<pre class='lstlisting' id='listing-1'><span class='label'><a id='x1-2002r1'></a><span class='pplr8t-x-x-60'>1</span></span><span style='color:#004099'><span class='pcrb8t-'>for</span></span><span style='color:#000000'> <span class='pcrr8t-'>(</span></span><span style='color:#004099'><span class='pcrb8t-'>int</span></span><span style='color:#000000'> <span class='pcrr8t-'>i = 0; i &lt; 5*n; i++) {</span> 
+</span><span class='label'><a id='x1-2003r2'></a><span class='pplr8t-x-x-60'>2</span></span><span class='pcrro8t-'>    </span><span style='color:#646464'><span class='pcrro8t-'>//</span></span><span style='color:#646464'> <span class='pcrro8t-'>constant time code</span> 
+</span><span class='label'><a id='x1-2004r3'></a><span class='pplr8t-x-x-60'>3</span></span><span style='color:#000000'><span class='pcrr8t-'>}</span></span></pre>
+ 
+</div> 
+</div>
+<!-- l. 50 --><p class='noindent'>is <span class='mathjax-inline'>\(\mathcal {O}(n)\)</span> [<span class='pplb8t-x-x-109'>CS02-2</span>]. When we start nesting them, it gets horrible. For instance, the
+following snippet is <span class='mathjax-inline'>\(\mathcal {O}(nm)\)</span>.
+</p>
+<div class='tcolorbox basicboxstyle' id='tcolobox-3'>     
+<div class='tcolorbox-title'>
+</div> 
+<div class='tcolorbox-content'><!-- l. 55 -->
+<pre class='lstlisting' id='listing-2'><span class='label'><a id='x1-2005r1'></a><span class='pplr8t-x-x-60'>1</span></span><span style='color:#004099'><span class='pcrb8t-'>for</span></span><span style='color:#000000'> <span class='pcrr8t-'>(</span></span><span style='color:#004099'><span class='pcrb8t-'>int</span></span><span style='color:#000000'> <span class='pcrr8t-'>i = 0; i &lt; n; i++) {</span> 
+</span><span class='label'><a id='x1-2006r2'></a><span class='pplr8t-x-x-60'>2</span></span><span class='pcrr8t-'>    </span><span style='color:#004099'><span class='pcrb8t-'>for</span></span><span style='color:#000000'> <span class='pcrr8t-'>(</span></span><span style='color:#004099'><span class='pcrb8t-'>int</span></span><span style='color:#000000'> <span class='pcrr8t-'>j = 0; i &lt; m; j++) {</span> 
+</span><span class='label'><a id='x1-2007r3'></a><span class='pplr8t-x-x-60'>3</span></span><span class='pcrro8t-'>        </span><span style='color:#646464'><span class='pcrro8t-'>//</span></span><span style='color:#646464'> <span class='pcrro8t-'>constant time code</span> 
+</span><span class='label'><a id='x1-2008r4'></a><span class='pplr8t-x-x-60'>4</span></span><span class='pcrr8t-'>    </span><span style='color:#000000'><span class='pcrr8t-'>}</span></span> 
+<span class='label'><a id='x1-2009r5'></a><span class='pplr8t-x-x-60'>5</span></span><span style='color:#000000'><span class='pcrr8t-'>}</span></span></pre>
+ 
+</div> 
+</div>
+<!-- l. 64 --><p class='noindent'>Naturally, we can see that we get quadratic time if we nest code as the
+following.
+</p>
+<div class='tcolorbox basicboxstyle' id='tcolobox-4'>     
+<div class='tcolorbox-title'>
+</div> 
+<div class='tcolorbox-content'><!-- l. 68 -->
+<pre class='lstlisting' id='listing-3'><span class='label'><a id='x1-2010r1'></a><span class='pplr8t-x-x-60'>1</span></span><span style='color:#004099'><span class='pcrb8t-'>for</span></span><span style='color:#000000'> <span class='pcrr8t-'>(</span></span><span style='color:#004099'><span class='pcrb8t-'>int</span></span><span style='color:#000000'> <span class='pcrr8t-'>i = 0; i &lt; n; i++) {</span> 
+</span><span class='label'><a id='x1-2011r2'></a><span class='pplr8t-x-x-60'>2</span></span><span class='pcrr8t-'>    </span><span style='color:#004099'><span class='pcrb8t-'>for</span></span><span style='color:#000000'> <span class='pcrr8t-'>(</span></span><span style='color:#004099'><span class='pcrb8t-'>int</span></span><span style='color:#000000'> <span class='pcrr8t-'>j = 0; i &lt; n; j++) {</span> 
+</span><span class='label'><a id='x1-2012r3'></a><span class='pplr8t-x-x-60'>3</span></span><span class='pcrro8t-'>        </span><span style='color:#646464'><span class='pcrro8t-'>//</span></span><span style='color:#646464'> <span class='pcrro8t-'>constant time code</span> 
+</span><span class='label'><a id='x1-2013r4'></a><span class='pplr8t-x-x-60'>4</span></span><span class='pcrr8t-'>    </span><span style='color:#000000'><span class='pcrr8t-'>}</span></span> 
+<span class='label'><a id='x1-2014r5'></a><span class='pplr8t-x-x-60'>5</span></span><span style='color:#000000'><span class='pcrr8t-'>}</span></span> 
+<span class='label'><a id='x1-2015r6'></a><span class='pplr8t-x-x-60'>6</span></span><span style='color:#004099'><span class='pcrb8t-'>for</span></span><span style='color:#000000'> <span class='pcrr8t-'>(</span></span><span style='color:#004099'><span class='pcrb8t-'>int</span></span><span style='color:#000000'> <span class='pcrr8t-'>i = 0; i &lt; 10000*n; i++) {</span> 
+</span><span class='label'><a id='x1-2016r7'></a><span class='pplr8t-x-x-60'>7</span></span><span class='pcrro8t-'>    </span><span style='color:#646464'><span class='pcrro8t-'>//</span></span><span style='color:#646464'> <span class='pcrro8t-'>constant time code</span> 
+</span><span class='label'><a id='x1-2017r8'></a><span class='pplr8t-x-x-60'>8</span></span><span style='color:#000000'><span class='pcrr8t-'>}</span></span></pre>
+ 
+</div> 
+</div>
+<!-- l. 80 --><p class='noindent'>The snippet above is <span class='mathjax-inline'>\(\mathcal {O}(nn) = \mathcal {O}(n^2)\)</span>. Note that the time complexity is not linear since the
+big O is only interested in the worst case.
+</p><!-- l. 84 --><p class='noindent'>One more thing to note is the order of growth. Consider the graph below
+[<span class='pplb8t-x-x-109'>CS02-8</span>].
+</p>
+                                                                 
+                                                                 
+<figure class='figure'> 
+
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+<!-- l. 89 --><p class='noindent'><img alt='[Picture]' src='/svg/CS0202.260550x.svg' />
+                                                                 
+                                                                 
+</p>
+</figure>
+<!-- l. 159 --><p class='noindent'>From the graph above, we can see that some functions grow faster than the
+other. For instance, the constant time has the lowest growth rate since it is
+not growing at all. Next, we can see that <span class='mathjax-inline'>\(\log {n}\)</span> grows slower than <span class='mathjax-inline'>\(n\)</span>, which
+grows slower than <span class='mathjax-inline'>\(n \log {n}\)</span> [<span class='pplb8t-x-x-109'>CS02-5</span>]. Generally speaking, anything below <span class='mathjax-inline'>\(\mathcal (n)\)</span>
+is good while we really want to avoid anything beyond the linear
+time.
+</p><!-- l. 167 --><p class='noindent'>Now big O is important since it is used to compare two algorithms that
+perform the same task. With <span class='pplb8t-x-x-109'>asymptotic analysis</span>, we can evaluate and
+compare algorithms without the inconsistency of inputs and machines
+[<span class='pplb8t-x-x-109'>CS02-5</span>]. This was a short introduction to computing time complexities and
+big O notation. In the next section, we will be discussing fundamental data
+structures.
+</p>

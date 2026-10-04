@@ -1,0 +1,501 @@
+<h3 class='sectionHead' id='modules-and-libraries'><span class=
+'titlemark'>0.1</span> <a id='x1-10000.1'></a>Modules and
+Libraries</h3><!-- l. 7 -->
+
+<p class='noindent'>First, what are modules and libraries?</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-1'>
+  <div class='tcolorbox-title'>
+    <!-- l. 14 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.1</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 10 -->
+
+    <p class='noindent'><span class='pplb8t-x-x-109'>Modules</span>
+    in Python are files that consists of definitions and statements
+    for organization and reusability. <span class=
+    'pplb8t-x-x-109'>Libraries</span> are collection of modules and
+    pre-written packages that can later be imported and
+    distributed.</p>
+  </div>
+</div><!-- l. 16 -->
+
+<p class='noindent'>One of the reason why Python is so popular in ML
+and data science is because of the extensive libraries. Having the
+pre-written libraries specifically for ML and tensors like PyTorch
+simply makes our lives easier.</p>
+
+<h4 class='subsectionHead' id='numpy'><span class=
+'titlemark'>0.1.1</span> <a id='x1-20000.1.1'></a>NumPy</h4>
+<!-- l. 23 -->
+
+<p class='noindent'>NumPy is a Python package that helps handle
+multidimensional arrays. Let’s get started by importing NumPy to our
+code. We could import it as whatever alias we want, but <span class=
+'obeylines-h'><code class='verb'>np</code></span> is the standard for
+ML, so let’s stick with that.</p>
+
+<div class='mdframed' id='mdframed-1'>
+  <!-- l. 29 -->
+  <pre class='lstlisting' id='listing-1'>
+<span class='label'><a id='x1-2001r1'></a><span class=
+'pplr8t-x-x-60'>1</span></span><span style=
+'color:#004099'><span class=
+'pcrb8t-'>import</span></span><span style='color:#000000'> <span class='pcrr8t-'>numpy</span> </span><span style='color:#004099'><span class='pcrb8t-'>as</span></span><span style='color:#000000'> </span><span style='color:#004099'><span class='pcrb8t-'>np</span></span>
+</pre><!-- l. 32 -->
+</div><!-- l. 36 -->
+
+<p class='noindent'>Assuming that you have read the previous note or
+have strong foundations in linear algebra, we can implement the
+mathematical properties in Python with NumPy. Below is an example of
+how we can define vectors in different dimensions. Note that
+<span class='obeylines-h'><code class='verb'>.ndim</code></span> can
+be used to find the dimension of a vector.</p>
+
+<div class='mdframed' id='mdframed-2'>
+  <!-- l. 43 -->
+  <pre class='lstlisting' id='listing-3'>
+<span class='label'><a id='x1-2002r1'></a><span class=
+'pplr8t-x-x-60'>1</span></span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>arr_1d</span></span><span style='color:#000000'> <span class='pcrr8t-'>=</span> </span><span style='color:#004099'><span class='pcrb8t-'>np</span></span><span style='color:#000000'><span class='pcrr8t-'>.</span></span><span style='color:#000000'><span class='pcrr8t-'>array</span></span><span style='color:#000000'><span class='pcrr8t-'>([1,</span></span><span style='color:#000000'> <span class='pcrr8t-'>2, 3])</span> 
+</span><span class='label'><a id='x1-2003r2'></a><span class=
+'pplr8t-x-x-60'>2</span></span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>arr_2d</span></span><span style='color:#000000'> <span class='pcrr8t-'>=</span> </span><span style='color:#004099'><span class='pcrb8t-'>np</span></span><span style='color:#000000'><span class='pcrr8t-'>.</span></span><span style='color:#000000'><span class='pcrr8t-'>array</span></span><span style='color:#000000'><span class='pcrr8t-'>([[1,</span></span><span style='color:#000000'> <span class='pcrr8t-'>2, 3],</span> 
+</span><span class='label'><a id='x1-2004r3'></a><span class=
+'pplr8t-x-x-60'>3</span></span><span class=
+'pcrr8t-'>                   </span><span style=
+'color:#000000'><span class='pcrr8t-'>[4,</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>5, 6]])</span> 
+</span><span class='label'><a id='x1-2005r4'></a><span class=
+'pplr8t-x-x-60'>4</span></span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>arr_3d</span></span><span style='color:#000000'> <span class='pcrr8t-'>=</span> </span><span style='color:#004099'><span class='pcrb8t-'>np</span></span><span style='color:#000000'><span class='pcrr8t-'>.</span></span><span style='color:#000000'><span class='pcrr8t-'>array</span></span><span style='color:#000000'><span class='pcrr8t-'>([[[1,</span></span><span style='color:#000000'> <span class='pcrr8t-'>2], [3, 4]],</span> 
+</span><span class='label'><a id='x1-2006r5'></a><span class=
+'pplr8t-x-x-60'>5</span></span><span class=
+'pcrr8t-'>                   </span><span style=
+'color:#000000'><span class='pcrr8t-'>[[5,</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>6], [7, 8]],</span> 
+</span><span class='label'><a id='x1-2007r6'></a><span class=
+'pplr8t-x-x-60'>6</span></span><span class=
+'pcrr8t-'>                   </span><span style=
+'color:#000000'><span class='pcrr8t-'>[[9,</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>10], [11, 12]]])</span> 
+</span><span class='label'><a id='x1-2008r7'></a><span class=
+'pplr8t-x-x-60'>7</span></span> 
+<span class='label'><a id='x1-2009r8'></a><span class=
+'pplr8t-x-x-60'>8</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>print</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>(</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>f</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class=
+'pcrr8t-'>Dimension</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>:</span></span><span style=
+'color:#A31515'> <span class=
+'pcrr8t-'>{arr_1d.ndim}, Shape: {arr_1d.shape}"</span></span><span style='color:#000000'><span class='pcrr8t-'>)</span></span> 
+<span class='label'><a id='x1-2010r9'></a><span class=
+'pplr8t-x-x-60'>9</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>print</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>(</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>f</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class=
+'pcrr8t-'>Dimension</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>:</span></span><span style=
+'color:#A31515'> <span class=
+'pcrr8t-'>{arr_2d.ndim}, Shape: {arr_2d.shape}"</span></span><span style='color:#000000'><span class='pcrr8t-'>)</span></span> 
+<span class='label'><a id='x1-2011r10'></a><span class=
+'pplr8t-x-x-60'>10</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>print</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>(</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>f</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class=
+'pcrr8t-'>Dimension</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>:</span></span><span style=
+'color:#A31515'> <span class=
+'pcrr8t-'>{arr_3d.ndim}, Shape: {arr_3d.shape}"</span></span><span style='color:#000000'><span class='pcrr8t-'>)</span></span>
+</pre><!-- l. 56 -->
+  <pre class='lstlisting' id='listing-4'>
+<span class='label'><a id='x1-2012r1'></a></span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>Dimension</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>:</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>1, Shape: (3,)</span> 
+</span><span class='label'><a id='x1-2013r2'></a></span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>Dimension</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>:</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>2, Shape: (2, 3)</span> 
+</span><span class='label'><a id='x1-2014r3'></a></span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>Dimension</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>:</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>3, Shape: (3, 2, 2)</span></span>
+</pre>
+</div><!-- l. 63 -->
+
+<p class='noindent'>A simple way to understand multidimensional array
+in NumPy is stacking previous layers. For instance, <span class=
+'obeylines-h'><code class='verb'>arr_2d</code></span> has the shape
+<span class='mathjax-inline'>\((2, 3)\)</span>. We can think of it as
+stacking two 1D array with three elements. Similarly, <span class=
+'obeylines-h'><code class='verb'>arr_3d</code></span> has the shape
+<span class='mathjax-inline'>\((3, 2, 2)\)</span>. We could think of
+it as stacking three layers of 2D arrays that consists of two 1D
+arrays. It is quite hard to visualize higher dimensional arrays, so
+let’s take a look at different things that NumPy can do.</p>
+<!-- l. 72 -->
+
+<p class='noindent'>Below is an example where we utilize arange,
+reshape, dtype, and slicing techniques in NumPy. Let’s create an
+array first.</p>
+
+<div class='mdframed' id='mdframed-3'>
+  <!-- l. 76 -->
+  <pre class='lstlisting' id='listing-5'>
+<span class='label'><a id='x1-2015r1'></a><span class=
+'pplr8t-x-x-60'>1</span></span><span style=
+'color:#646464'><span class='pcrro8t-'>#</span></span><span style=
+'color:#646464'> <span class=
+'pcrro8t-'>Making an array with numbers 0-17 and</span> 
+</span><span class='label'><a id='x1-2016r2'></a><span class=
+'pplr8t-x-x-60'>2</span></span><span style=
+'color:#646464'><span class='pcrro8t-'>#</span></span><span style=
+'color:#646464'> <span class=
+'pcrro8t-'>rerranging it to shape (3, 3, 2)</span> 
+</span><span class='label'><a id='x1-2017r3'></a><span class=
+'pplr8t-x-x-60'>3</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>a</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>=</span> </span><span style=
+'color:#004099'><span class='pcrb8t-'>np</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>.</span></span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>arange</span></span><span style='color:#000000'><span class='pcrr8t-'>(18)</span></span><span style='color:#000000'><span class='pcrr8t-'>.</span></span><span style='color:#000000'><span class='pcrr8t-'>reshape</span></span><span style='color:#000000'><span class='pcrr8t-'>(3,</span></span><span style='color:#000000'> <span class='pcrr8t-'>3, 2)</span> 
+</span><span class='label'><a id='x1-2018r4'></a><span class=
+'pplr8t-x-x-60'>4</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>a</span></span>
+</pre><!-- l. 83 -->
+  <pre class='lstlisting' id='listing-6'>
+<span class='label'><a id='x1-2019r1'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>array</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>([[[</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>0,</span> </span><span class=
+'pcrr8t-'> </span><span style='color:#000000'><span class=
+'pcrr8t-'>1],</span></span> 
+<span class='label'><a id='x1-2020r2'></a></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>[</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>2,</span> </span><span class='pcrr8t-'> </span><span style=
+'color:#000000'><span class='pcrr8t-'>3],</span></span> 
+<span class='label'><a id='x1-2021r3'></a></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>[</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>4,</span> </span><span class='pcrr8t-'> </span><span style=
+'color:#000000'><span class='pcrr8t-'>5]],</span></span> 
+<span class='label'><a id='x1-2022r4'></a></span> 
+<span class='label'><a id='x1-2023r5'></a></span><span class=
+'pcrr8t-'>       </span><span style='color:#000000'><span class=
+'pcrr8t-'>[[</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>6,</span> </span><span class='pcrr8t-'> </span><span style=
+'color:#000000'><span class='pcrr8t-'>7],</span></span> 
+<span class='label'><a id='x1-2024r6'></a></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>[</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>8,</span> </span><span class='pcrr8t-'> </span><span style=
+'color:#000000'><span class='pcrr8t-'>9],</span></span> 
+<span class='label'><a id='x1-2025r7'></a></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>[10,</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>11]],</span> 
+</span><span class='label'><a id='x1-2026r8'></a></span> 
+<span class='label'><a id='x1-2027r9'></a></span><span class=
+'pcrr8t-'>       </span><span style='color:#000000'><span class=
+'pcrr8t-'>[[12,</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>13],</span> 
+</span><span class='label'><a id='x1-2028r10'></a></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>[14,</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>15],</span> 
+</span><span class='label'><a id='x1-2029r11'></a></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>[16,</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>17]]])</span></span>
+</pre>
+</div><!-- l. 98 -->
+
+<p class='noindent'>We can also find the data type with the attribute
+<span class='obeylines-h'><code class=
+'verb'>.dtype</code></span>.</p>
+
+<div class='mdframed' id='mdframed-4'>
+  <!-- l. 101 -->
+  <pre class='lstlisting' id='listing-7'>
+<span class='label'><a id='x1-2030r1'></a><span class=
+'pplr8t-x-x-60'>1</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>a</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>.</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>dtype</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>.</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>name</span></span>
+</pre><!-- l. 105 -->
+  <pre class='lstlisting' id='listing-8'>
+<span class='label'><a id='x1-2031r1'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>’</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>int64</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>’</span></span>
+</pre>
+</div><!-- l. 110 -->
+
+<p class='noindent'>This means that the individual elements in array
+<span class='obeylines-h'><code class='verb'>a</code></span> are 8
+bytes integers. Just as we index and slice 1D array, we could do the
+same with NumPy. Consider the following example for a matrix.</p>
+
+<div class='mdframed' id='mdframed-5'>
+  <!-- l. 116 -->
+  <pre class='lstlisting' id='listing-9'>
+<span class='label'><a id='x1-2032r1'></a><span class=
+'pplr8t-x-x-60'>1</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>a</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>=</span> </span><span style=
+'color:#004099'><span class='pcrb8t-'>np</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>.</span></span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>arange</span></span><span style='color:#000000'><span class='pcrr8t-'>(9)</span></span><span style='color:#000000'><span class='pcrr8t-'>.</span></span><span style='color:#000000'><span class='pcrr8t-'>reshape</span></span><span style='color:#000000'><span class='pcrr8t-'>(3,</span></span><span style='color:#000000'> <span class='pcrr8t-'>3)</span> 
+</span><span class='label'><a id='x1-2033r2'></a><span class=
+'pplr8t-x-x-60'>2</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>print</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>(</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>f</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>{</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>a</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>}\</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>n</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>)</span></span> 
+<span class='label'><a id='x1-2034r3'></a><span class=
+'pplr8t-x-x-60'>3</span></span> 
+<span class='label'><a id='x1-2035r4'></a><span class=
+'pplr8t-x-x-60'>4</span></span><span style=
+'color:#646464'><span class='pcrro8t-'>#</span></span><span style=
+'color:#646464'> <span class=
+'pcrro8t-'>First row, second column element</span> 
+</span><span class='label'><a id='x1-2036r5'></a><span class=
+'pplr8t-x-x-60'>5</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>print</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>(</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>a</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>[0,</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>1])</span> 
+</span><span class='label'><a id='x1-2037r6'></a><span class=
+'pplr8t-x-x-60'>6</span></span><span style=
+'color:#646464'><span class='pcrro8t-'>#</span></span><span style=
+'color:#646464'> <span class='pcrro8t-'>Entire second row</span> 
+</span><span class='label'><a id='x1-2038r7'></a><span class=
+'pplr8t-x-x-60'>7</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>print</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>(</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>a</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>[1,</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>:])</span> 
+</span><span class='label'><a id='x1-2039r8'></a><span class=
+'pplr8t-x-x-60'>8</span></span><span style=
+'color:#646464'><span class='pcrro8t-'>#</span></span><span style=
+'color:#646464'> <span class='pcrro8t-'>Entire third column</span> 
+</span><span class='label'><a id='x1-2040r9'></a><span class=
+'pplr8t-x-x-60'>9</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>print</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>(</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>a</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>[:,</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>2])</span></span>
+</pre><!-- l. 128 -->
+  <pre class='lstlisting' id='listing-10'>
+<span class='label'><a id='x1-2041r1'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>[[0</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>1 2]</span> 
+</span><span class='label'><a id='x1-2042r2'></a></span><span class=
+'pcrr8t-'> </span><span style='color:#000000'><span class=
+'pcrr8t-'>[3</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>4 5]</span> 
+</span><span class='label'><a id='x1-2043r3'></a></span><span class=
+'pcrr8t-'> </span><span style='color:#000000'><span class=
+'pcrr8t-'>[6</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>7 8]]</span> 
+</span><span class='label'><a id='x1-2044r4'></a></span> 
+<span class='label'><a id='x1-2045r5'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>1</span></span> 
+<span class='label'><a id='x1-2046r6'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>[3</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>4 5]</span> 
+</span><span class='label'><a id='x1-2047r7'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>[2</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>5 8]</span></span>
+</pre>
+</div><!-- l. 139 -->
+
+<p class='noindent'>This was the basic introduction to NumPy. Please
+check out the <a href=
+'https://numpy.org/doc/stable/'>documentation</a> for further
+information.</p>
+
+<h4 class='subsectionHead' id='matplotlib'><span class=
+'titlemark'>0.1.2</span> <a id='x1-30000.1.2'></a>Matplotlib</h4>
+<!-- l. 145 -->
+
+<p class='noindent'>Do you want to visualize something with Python?
+Matplotlib is here for your need! Matplotlib is a Python library for
+visualization. Let’s first import the library to take a look at an
+example.</p>
+
+<div class='mdframed' id='mdframed-6'>
+  <!-- l. 150 -->
+  <pre class='lstlisting' id='listing-11'>
+<span class='label'><a id='x1-3001r1'></a><span class=
+'pplr8t-x-x-60'>1</span></span><span style=
+'color:#004099'><span class=
+'pcrb8t-'>import</span></span><span style='color:#000000'> <span class='pcrr8t-'>matplotlib.pyplot</span> </span><span style='color:#004099'><span class='pcrb8t-'>as</span></span><span style='color:#000000'> </span><span style='color:#004099'><span class='pcrb8t-'>plt</span></span> 
+<span class='label'><a id='x1-3002r2'></a><span class=
+'pplr8t-x-x-60'>2</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>%</span></span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>matplotlib</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>inline</span></span>
+</pre><!-- l. 154 -->
+</div><!-- l. 158 -->
+
+<p class='noindent'>If you are using Jupyter Notebook like the
+examples in these notes, it is highly recommended to keep
+<span class='obeylines-h'><code class=
+'verb'>%matplotlib&nbsp;inline</code></span> to make our lives easier
+by plotting directly in the notebook without an external window.
+Although Matplotlib is an essential library for visualizing model
+performance and analyzing, let’s stick with basic plotting for now as
+I believe more information would be an overkill for this note.</p>
+<!-- l. 166 -->
+
+<p class='noindent'>For this brief introduction, let’s plot Sigmoid
+function, which we will discuss in later notes.</p>
+
+<div class='mdframed' id='mdframed-7'>
+  <!-- l. 170 -->
+  <pre class='lstlisting' id='listing-13'>
+<span class='label'><a id='x1-3003r1'></a><span class=
+'pplr8t-x-x-60'>1</span></span><span style=
+'color:#646464'><span class='pcrro8t-'>#</span></span><span style=
+'color:#646464'> <span class=
+'pcrro8t-'>Define domain and the function</span> 
+</span><span class='label'><a id='x1-3004r2'></a><span class=
+'pplr8t-x-x-60'>2</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>x</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>=</span> </span><span style=
+'color:#004099'><span class='pcrb8t-'>np</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>.</span></span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>linspace</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>(-10,</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>10, 100)</span> 
+</span><span class='label'><a id='x1-3005r3'></a><span class=
+'pplr8t-x-x-60'>3</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>y</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>= 1 / (1 +</span> </span><span style=
+'color:#004099'><span class='pcrb8t-'>np</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>.</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>exp</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>(-</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>x</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>)</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>)</span></span> 
+<span class='label'><a id='x1-3006r4'></a><span class=
+'pplr8t-x-x-60'>4</span></span> 
+<span class='label'><a id='x1-3007r5'></a><span class=
+'pplr8t-x-x-60'>5</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>plt</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>.</span></span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>figure</span></span><span style='color:#000000'><span class='pcrr8t-'>()</span></span> 
+<span class='label'><a id='x1-3008r6'></a><span class=
+'pplr8t-x-x-60'>6</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>plt</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>.</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>plot</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>(</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>x</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>,</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>y, label=</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>’</span></span><span style=
+'color:#A31515'><span class=
+'pcrr8t-'>Sigmoid</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>’</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>)</span></span> 
+<span class='label'><a id='x1-3009r7'></a><span class=
+'pplr8t-x-x-60'>7</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>plt</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>.</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>grid</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>(</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>True</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>)</span></span> 
+<span class='label'><a id='x1-3010r8'></a><span class=
+'pplr8t-x-x-60'>8</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>plt</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>.</span></span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>xlabel</span></span><span style='color:#000000'><span class='pcrr8t-'>(</span></span><span style='color:#A31515'><span class='pcrr8t-'>’</span></span><span style='color:#A31515'><span class='pcrr8t-'>x</span></span><span style='color:#A31515'><span class='pcrr8t-'>’</span></span><span style='color:#000000'><span class='pcrr8t-'>)</span></span> 
+<span class='label'><a id='x1-3011r9'></a><span class=
+'pplr8t-x-x-60'>9</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>plt</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>.</span></span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>ylabel</span></span><span style='color:#000000'><span class='pcrr8t-'>(</span></span><span style='color:#A31515'><span class='pcrr8t-'>’</span></span><span style='color:#A31515'><span class='pcrr8t-'>sigmoid</span></span><span style='color:#A31515'><span class='pcrr8t-'>(</span></span><span style='color:#A31515'><span class='pcrr8t-'>x</span></span><span style='color:#A31515'><span class='pcrr8t-'>)</span></span><span style='color:#A31515'><span class='pcrr8t-'>’</span></span><span style='color:#000000'><span class='pcrr8t-'>)</span></span> 
+<span class='label'><a id='x1-3012r10'></a><span class=
+'pplr8t-x-x-60'>10</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>plt</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>.</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>title</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>(</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>’</span></span><span style=
+'color:#A31515'><span class=
+'pcrr8t-'>Sigmoid</span></span><span style=
+'color:#A31515'> <span class=
+'pcrr8t-'>Function’</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>)</span></span> 
+<span class='label'><a id='x1-3013r11'></a><span class=
+'pplr8t-x-x-60'>11</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>plt</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>.</span></span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>legend</span></span><span style='color:#000000'><span class='pcrr8t-'>()</span></span> 
+<span class='label'><a id='x1-3014r12'></a><span class=
+'pplr8t-x-x-60'>12</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>plt</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>.</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>show</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>()</span></span>
+</pre><!-- l. 185 -->
+
+  <p class='noindent'><img alt='PIC' height='31' src=
+  '../img/CS0102.26011-1.png' width='31'></p>
+</div><!-- l. 188 -->
+
+<p class='noindent'>I know this intro was quite brief, but we will
+continue using amazing features in Matplotlib! For more information,
+please visit the official <a href=
+'https://matplotlib.org/stable/tutorials/index'>tutorial
+page</a>.</p><!-- l. 193 -->
+
+<p class='noindent'>In the next note, we will discuss foundational
+terms and concepts in ML. It will also include a high level
+introduction to large language model (LLM). Understanding the high
+level overview of how LLMs operate under the hood really helped me
+grasp the intuition. Without further ado, let’s get started!</p>

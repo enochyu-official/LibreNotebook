@@ -1,0 +1,960 @@
+<h3 class='sectionHead' id='simulation-and-complete-search'>
+<span class='titlemark'>0.1</span> <a id='x1-10000.1'></a>Simulation
+and Complete Search</h3><!-- l. 7 -->
+
+<p class='noindent'>The first topics that I wish to discuss are
+simulation and brute forcing. Surprisingly, many problems can be
+solved just by simulating the environment described in the problem
+and brute forcing all cases [<span class=
+'pplb8t-x-x-109'>CS02-7</span>]. Meaning, we do not necessarily
+require a complex algorithms to solve the problems and it suffices to
+know that basic of the language that we are using, which we already
+did in our previous note.</p><!-- l. 15 -->
+
+<p class='noindent'>Because there isn’t a definite concept,
+definition, and theorems for these concept, let’s see what they are
+through example problems.</p>
+
+<h4 class='subsectionHead' id='simulation'><span class=
+'titlemark'>0.1.1</span> <a id='x1-20000.1.1'></a>Simulation</h4>
+<!-- l. 20 -->
+
+<p class='noindent'>For our first simulation problem, let’s solve
+2018 USACO First Bronze Problem 1.</p>
+
+<div class='tcolorbox probstyle' id='tcolobox-1'>
+  <a id='x1-2002x0.1.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 35 -->
+
+    <p class='noindent'>Exercise&nbsp;0.1.1:&nbsp;2018 USACO First
+    Bronze Problem 1</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 26 -->
+
+    <p class='noindent'>(<a href=
+    'https://usaco.org/index.php?page=viewproblem2&amp;cpid=855'>Problem
+    Statement</a>)</p><!-- l. 28 -->
+
+    <p class='noindent'>Say there are three buckets with capacity
+    <span class='mathjax-inline'>\(c_1\)</span>, <span class=
+    'mathjax-inline'>\(c_2\)</span>, and <span class=
+    'mathjax-inline'>\(c_3\)</span> respectively. The buckets are
+    initially filled with <span class=
+    'mathjax-inline'>\(m_1\)</span>, <span class=
+    'mathjax-inline'>\(m_2\)</span>, and <span class=
+    'mathjax-inline'>\(m_3\)</span> amount of milk. A farmer wants to
+    pour milk from bucket <span class='mathjax-inline'>\(1\)</span>
+    to <span class='mathjax-inline'>\(2\)</span>, <span class=
+    'mathjax-inline'>\(2\)</span> to <span class=
+    'mathjax-inline'>\(3\)</span>, <span class=
+    'mathjax-inline'>\(3\)</span> to <span class=
+    'mathjax-inline'>\(1\)</span>, <span class=
+    'mathjax-inline'>\(1\)</span> to <span class=
+    'mathjax-inline'>\(2\)</span>, and so on for hundred times where
+    each pour ends if the bucket being poured is empty or the bucket
+    receiving the milk is full. How much milk is left in each bucket
+    after the <span class='mathjax-inline'>\(100^\text {th}\)</span>
+    pour?</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-1'>
+  <!-- l. 37 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 37 -->
+
+  <p class='noindent'>To solve this problem, we can literally
+  simulate the process of pouring and receiving milk. Notice that in
+  each pour, we stop if and only if a bucket is empty or a bucket is
+  full. Then, we iterate the same process. Due to this nature, we can
+  define a function that takes in the amount of milk in two buckets
+  and the capacity of the bucket receiving to update the amount of
+  milk in each bucket after the pour.</p>
+
+  <div class='tcolorbox basicboxstyleSolution' id='tcolobox-2'>
+    <div class='tcolorbox-title'></div>
+
+    <div class='tcolorbox-content'>
+      <!-- l. 46 -->
+      <pre class='lstlisting' id='listing-1'>
+<span class='label'><a id='x1-2003r1'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>void</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>mix(int&amp; a, int&amp; b, int&amp; x) {</span> 
+</span><span class='label'><a id='x1-2004r2'></a></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>if</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>(a + b &lt;= x) {</span> 
+</span><span class='label'><a id='x1-2005r3'></a></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>b</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>= a + b;</span> 
+</span><span class='label'><a id='x1-2006r4'></a></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>a</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>= 0;</span> 
+</span><span class='label'><a id='x1-2007r5'></a></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>}</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>else {</span> 
+</span><span class='label'><a id='x1-2008r6'></a></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>a</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>= a + b - x;</span> 
+</span><span class='label'><a id='x1-2009r7'></a></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>b</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>= x;</span> 
+</span><span class='label'><a id='x1-2010r8'></a></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>}</span></span> 
+<span class='label'><a id='x1-2011r9'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>}</span></span>
+</pre>
+    </div>
+  </div><!-- l. 59 -->
+
+  <p class='noindent'>Here, <span class='mathjax-inline'>\(a\)</span>
+  and <span class='mathjax-inline'>\(b\)</span> are the amount of
+  milk in two buckets and <span class='mathjax-inline'>\(x\)</span>
+  is the capacity of the bucket with <span class=
+  'mathjax-inline'>\(b\)</span> amount of milk. If the bucket
+  receiving has the capacity to receive all milk, i.e. <span class=
+  'mathjax-inline'>\(a + b \leq x\)</span>, then our new <span class=
+  'mathjax-inline'>\(b\)</span> will be <span class=
+  'mathjax-inline'>\(a + b\)</span> while the bucket with originally
+  <span class='mathjax-inline'>\(a\)</span> amount of milk is empty.
+  Notice that we want to update <span class=
+  'mathjax-inline'>\(b\)</span> first before fixing <span class=
+  'mathjax-inline'>\(a\)</span> to zero.</p><!-- l. 66 -->
+
+  <p class='noindent'>The other case is when we cannot pour all milk
+  when mixing, i.e. <span class='mathjax-inline'>\(a + b &gt;
+  x\)</span>. In that case, our new <span class=
+  'mathjax-inline'>\(a\)</span> will be <span class=
+  'mathjax-inline'>\(a + b - x\)</span> and <span class=
+  'mathjax-inline'>\(b = x\)</span>. Also notice that we want to
+  update <span class='mathjax-inline'>\(a\)</span> first since we
+  don’t want <span class='mathjax-inline'>\(a = a\)</span>. Applying
+  this function <span class='mathjax-inline'>\(100\)</span> times, we
+  can successfully simulate the environment in the problem.</p>
+
+  <div class='tcolorbox cppboxstyleSolution' id='tcolobox-3'>
+    <a id='x1-2045x0.1.1'></a>
+
+    <div class='tcolorbox-title'>
+      <!-- l. 107 -->
+
+      <p class='noindent'>Code&nbsp;0.1.2:&nbsp;CS0202.26057-01</p>
+    </div>
+
+    <div class='tcolorbox-content'>
+      <!-- l. 73 -->
+      <pre class='lstlisting' id='listing-2'>
+<span class='label'><a id='x1-2013r1'></a><span class=
+'pplr8t-x-x-60'>1</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>#</span></span><span style=
+'color:#004099'><span class=
+'pcrb8t-'>include</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>&lt;cstdio&gt;</span> 
+</span><span class='label'><a id='x1-2014r2'></a><span class=
+'pplr8t-x-x-60'>2</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>#</span></span><span style=
+'color:#004099'><span class=
+'pcrb8t-'>include</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>&lt;iostream&gt;</span> 
+</span><span class='label'><a id='x1-2015r3'></a><span class=
+'pplr8t-x-x-60'>3</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>using</span></span><span style=
+'color:#000000'> </span><span style='color:#004099'><span class=
+'pcrb8t-'>namespace</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>std;</span> 
+</span><span class='label'><a id='x1-2016r4'></a><span class=
+'pplr8t-x-x-60'>4</span></span> 
+<span class='label'><a id='x1-2017r5'></a><span class=
+'pplr8t-x-x-60'>5</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>void</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>mix(</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>int</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>&amp;</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>a,</span> </span><span style=
+'color:#004099'><span class='pcrb8t-'>int</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>&amp;</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>b,</span> </span><span style=
+'color:#004099'><span class='pcrb8t-'>int</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>&amp;</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>x) {</span> 
+</span><span class='label'><a id='x1-2018r6'></a><span class=
+'pplr8t-x-x-60'>6</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>if</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>(a + b &lt;= x) {</span> 
+</span><span class='label'><a id='x1-2019r7'></a><span class=
+'pplr8t-x-x-60'>7</span></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>b</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>= a + b;</span> 
+</span><span class='label'><a id='x1-2020r8'></a><span class=
+'pplr8t-x-x-60'>8</span></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>a</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>= 0;</span> 
+</span><span class='label'><a id='x1-2021r9'></a><span class=
+'pplr8t-x-x-60'>9</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>}</span></span><span style=
+'color:#000000'> </span><span style='color:#004099'><span class=
+'pcrb8t-'>else</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>{</span> 
+</span><span class='label'><a id='x1-2022r10'></a><span class=
+'pplr8t-x-x-60'>10</span></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>a</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>= a + b - x;</span> 
+</span><span class='label'><a id='x1-2023r11'></a><span class=
+'pplr8t-x-x-60'>11</span></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>b</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>= x;</span> 
+</span><span class='label'><a id='x1-2024r12'></a><span class=
+'pplr8t-x-x-60'>12</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>}</span></span> 
+<span class='label'><a id='x1-2025r13'></a><span class=
+'pplr8t-x-x-60'>13</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>}</span></span> 
+<span class='label'><a id='x1-2026r14'></a><span class=
+'pplr8t-x-x-60'>14</span></span> 
+<span class='label'><a id='x1-2027r15'></a><span class=
+'pplr8t-x-x-60'>15</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>int</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>main() {</span> 
+</span><span class='label'><a id='x1-2028r16'></a><span class=
+'pplr8t-x-x-60'>16</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>freopen</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>(</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class=
+'pcrr8t-'>mixmilk</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>.</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>in</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>,</span></span><span style=
+'color:#000000'> </span><span style='color:#A31515'><span class=
+'pcrr8t-'>"</span></span><span style='color:#A31515'><span class=
+'pcrr8t-'>r</span></span><span style='color:#A31515'><span class=
+'pcrr8t-'>"</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>,</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>stdin);</span> 
+</span><span class='label'><a id='x1-2029r17'></a><span class=
+'pplr8t-x-x-60'>17</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>freopen</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>(</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class=
+'pcrr8t-'>mixmilk</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>.</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>out</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>,</span></span><span style=
+'color:#000000'> </span><span style='color:#A31515'><span class=
+'pcrr8t-'>"</span></span><span style='color:#A31515'><span class=
+'pcrr8t-'>w</span></span><span style='color:#A31515'><span class=
+'pcrr8t-'>"</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>,</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>stdout);</span> 
+</span><span class='label'><a id='x1-2030r18'></a><span class=
+'pplr8t-x-x-60'>18</span></span> 
+<span class='label'><a id='x1-2031r19'></a><span class=
+'pplr8t-x-x-60'>19</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>int</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>c1, c2, c3, m1, m2, m3;</span> 
+</span><span class='label'><a id='x1-2032r20'></a><span class=
+'pplr8t-x-x-60'>20</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>cin</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&gt;&gt; c1 &gt;&gt; m1 &gt;&gt; c2 &gt;&gt; m2 &gt;&gt; c3 &gt;&gt; m3;</span> 
+</span><span class='label'><a id='x1-2033r21'></a><span class=
+'pplr8t-x-x-60'>21</span></span> 
+<span class='label'><a id='x1-2034r22'></a><span class=
+'pplr8t-x-x-60'>22</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>for</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>(</span></span><span style='color:#004099'><span class=
+'pcrb8t-'>int</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>i = 0; i &lt; 33; i++) {</span> 
+</span><span class='label'><a id='x1-2035r23'></a><span class=
+'pplr8t-x-x-60'>23</span></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>mix</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>(</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>m1</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>,</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>m2, c2);</span> 
+</span><span class='label'><a id='x1-2036r24'></a><span class=
+'pplr8t-x-x-60'>24</span></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>mix</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>(</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>m2</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>,</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>m3, c3);</span> 
+</span><span class='label'><a id='x1-2037r25'></a><span class=
+'pplr8t-x-x-60'>25</span></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>mix</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>(</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>m3</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>,</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>m1, c1);</span> 
+</span><span class='label'><a id='x1-2038r26'></a><span class=
+'pplr8t-x-x-60'>26</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>}</span></span> 
+<span class='label'><a id='x1-2039r27'></a><span class=
+'pplr8t-x-x-60'>27</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>mix</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>(</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>m1</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>,</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>m2, c2);</span> 
+</span><span class='label'><a id='x1-2040r28'></a><span class=
+'pplr8t-x-x-60'>28</span></span> 
+<span class='label'><a id='x1-2041r29'></a><span class=
+'pplr8t-x-x-60'>29</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>cout</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt; m1 &lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>\</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>n</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt; m2 &lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>\</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>n</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt; m3 &lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>\</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>n</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-2042r30'></a><span class=
+'pplr8t-x-x-60'>30</span></span> 
+<span class='label'><a id='x1-2043r31'></a><span class=
+'pplr8t-x-x-60'>31</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>return</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>0;</span> 
+</span><span class='label'><a id='x1-2044r32'></a><span class=
+'pplr8t-x-x-60'>32</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>}</span></span>
+</pre>
+    </div>
+  </div><!-- l. 109 -->
+
+  <p class='noindent'>This solves the problem!</p>
+</div><!-- l. 112 -->
+
+<p class='noindent'>As you can see from the example above, we
+simulate the environment described to solve the problem. Below is
+another example for simulation.</p>
+
+<div class='tcolorbox probstyle' id='tcolobox-4'>
+  <a id='x1-2047x0.1.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 126 -->
+
+    <p class='noindent'>Exercise&nbsp;0.1.3:&nbsp;2017 USACO Open
+    Bronze Problem 1</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 119 -->
+
+    <p class='noindent'>(<a href=
+    'https://usaco.org/index.php?page=viewproblem2&amp;cpid=735'>Problem
+    Statement</a>)</p><!-- l. 121 -->
+
+    <p class='noindent'>A farmer and a cow is in a number line with
+    position <span class='mathjax-inline'>\(x, y &gt; 0\)</span>
+    respectively. The farmer will move in zig zag from <span class=
+    'mathjax-inline'>\(x\)</span> and doubling the distance from
+    <span class='mathjax-inline'>\(x\)</span> in each move. For
+    instance, the farmer moves from <span class=
+    'mathjax-inline'>\(x\)</span> to <span class=
+    'mathjax-inline'>\(x+1\)</span> to <span class=
+    'mathjax-inline'>\(x-2\)</span> to <span class=
+    'mathjax-inline'>\(x+4\)</span> and so on. What is the total
+    distance that the farmer moves until reaching the cow?</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-2'>
+  <!-- l. 128 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 128 -->
+
+  <p class='noindent'>To solve this problem, we can simulate the
+  situation where the farmer is moving. However before doing that,
+  let’s shift the position of the initial position of the farmer and
+  the cow by <span class='mathjax-inline'>\(x\)</span> to make our
+  lives easier.</p>
+
+  <div class='tcolorbox basicboxstyleSolution' id='tcolobox-5'>
+    <div class='tcolorbox-title'></div>
+
+    <div class='tcolorbox-content'>
+      <!-- l. 134 -->
+      <pre class='lstlisting' id='listing-3'>
+<span class='label'><a id='x1-2048r1'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>int</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>z = y - x;</span></span>
+</pre>
+    </div>
+  </div>With this, the position of the farmer is <span class=
+  'mathjax-inline'>\(0\)</span> and the cow is <span class=
+  'mathjax-inline'>\(z\)</span>. Note that this is possible because
+  the distance between them remains unchanged. From here, we can
+  separate the cases into two case: <span class='mathjax-inline'>\(z
+  &lt; 0\)</span> and <span class='mathjax-inline'>\(z &gt;
+  0\)</span>. <span class='mathjax-inline'>\(z\)</span> can be
+  negative since it is possible that <span class='mathjax-inline'>\(y
+  &lt; x\)</span>. <!-- l. 144 -->
+
+  <p class='noindent'>For integer <span class='mathjax-inline'>\(n
+  \geq 0\)</span>, we can see that the farmer won’t reach
+  <span class='mathjax-inline'>\(2^{2n}\)</span> for some
+  <span class='mathjax-inline'>\(n\)</span> if <span class=
+  'mathjax-inline'>\(z &gt; 0\)</span> and the farmer will not reach
+  <span class='mathjax-inline'>\(2^{2n+1}\)</span> for some
+  <span class='mathjax-inline'>\(n\)</span> if <span class=
+  'mathjax-inline'>\(z &lt; 0\)</span>. Using this, we can know that
+  the distance that the farmer will move if <span class=
+  'mathjax-inline'>\(z &gt; 0\)</span> can be represented as the
+  following where <span class='mathjax-inline'>\(n\)</span> is the
+  minimum value that the farmer will stop moving. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} &amp;\quad \ 1 + (1 +
+  2) + (2 + 4) + \cdots + \left ( 2^{2n-2} + 2^{2n-1} \right ) +
+  \left ( 2^{2n-1} + z \right ) \\ &amp;= 2 \left ( 1 + 2 + 4 +
+  \cdots + 2^{2n-1} \right ) + z = 2 \left ( 2^{2n} - 1 \right ) + z
+  \end{align*}</span></p><!-- l. 157 -->
+
+  <p class='noindent'>Similarly using geometric sequence, we can
+  apply the same idea for <span class='mathjax-inline'>\(z &lt;
+  0\)</span>. <span class='mathjax-env mathjax-align*'>\begin{align*}
+  &amp;\quad \ 1 + (1 + 2) + (2 + 4) + (4 + 8) \cdots +
+  \left ( 2^{2n-1} + 2^{2n} \right ) + \left ( 2^{2n} + z \right ) \\
+  &amp;= 2 \left ( 1 + 2 + 4 + \cdots + 2^{2n} \right ) + z = 2 \left
+  ( 2^{2n+1} - 1 \right ) + z \end{align*}</span></p><!-- l. 167 -->
+
+  <p class='noindent'>Applying it with C++, we can use the while loop
+  to find when to stop and conditions to determine which value to
+  output.</p>
+
+  <div class='tcolorbox cppboxstyleSolution' id='tcolobox-6'>
+    <a id='x1-2078x0.1.1'></a>
+
+    <div class='tcolorbox-title'>
+      <!-- l. 201 -->
+
+      <p class='noindent'>Code&nbsp;0.1.4:&nbsp;CS0202.26057-02</p>
+    </div>
+
+    <div class='tcolorbox-content'>
+      <!-- l. 171 -->
+      <pre class='lstlisting' id='listing-4'>
+<span class='label'><a id='x1-2050r1'></a><span class=
+'pplr8t-x-x-60'>1</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>#</span></span><span style=
+'color:#004099'><span class=
+'pcrb8t-'>include</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>&lt;cstdio&gt;</span> 
+</span><span class='label'><a id='x1-2051r2'></a><span class=
+'pplr8t-x-x-60'>2</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>#</span></span><span style=
+'color:#004099'><span class=
+'pcrb8t-'>include</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>&lt;iostream&gt;</span> 
+</span><span class='label'><a id='x1-2052r3'></a><span class=
+'pplr8t-x-x-60'>3</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>#</span></span><span style=
+'color:#004099'><span class=
+'pcrb8t-'>include</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>&lt;cmath&gt;</span> 
+</span><span class='label'><a id='x1-2053r4'></a><span class=
+'pplr8t-x-x-60'>4</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>using</span></span><span style=
+'color:#000000'> </span><span style='color:#004099'><span class=
+'pcrb8t-'>namespace</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>std;</span> 
+</span><span class='label'><a id='x1-2054r5'></a><span class=
+'pplr8t-x-x-60'>5</span></span> 
+<span class='label'><a id='x1-2055r6'></a><span class=
+'pplr8t-x-x-60'>6</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>int</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>main() {</span> 
+</span><span class='label'><a id='x1-2056r7'></a><span class=
+'pplr8t-x-x-60'>7</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>freopen</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>(</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class=
+'pcrr8t-'>lostcow</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>.</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>in</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>,</span></span><span style=
+'color:#000000'> </span><span style='color:#A31515'><span class=
+'pcrr8t-'>"</span></span><span style='color:#A31515'><span class=
+'pcrr8t-'>r</span></span><span style='color:#A31515'><span class=
+'pcrr8t-'>"</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>,</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>stdin);</span> 
+</span><span class='label'><a id='x1-2057r8'></a><span class=
+'pplr8t-x-x-60'>8</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>freopen</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>(</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class=
+'pcrr8t-'>lostcow</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>.</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>out</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>,</span></span><span style=
+'color:#000000'> </span><span style='color:#A31515'><span class=
+'pcrr8t-'>"</span></span><span style='color:#A31515'><span class=
+'pcrr8t-'>w</span></span><span style='color:#A31515'><span class=
+'pcrr8t-'>"</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>,</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>stdout);</span> 
+</span><span class='label'><a id='x1-2058r9'></a><span class=
+'pplr8t-x-x-60'>9</span></span> 
+<span class='label'><a id='x1-2059r10'></a><span class=
+'pplr8t-x-x-60'>10</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>int</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>x, y;</span> 
+</span><span class='label'><a id='x1-2060r11'></a><span class=
+'pplr8t-x-x-60'>11</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>cin</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&gt;&gt; x &gt;&gt; y;</span> 
+</span><span class='label'><a id='x1-2061r12'></a><span class=
+'pplr8t-x-x-60'>12</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>int</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>z = y - x;</span> 
+</span><span class='label'><a id='x1-2062r13'></a><span class=
+'pplr8t-x-x-60'>13</span></span> 
+<span class='label'><a id='x1-2063r14'></a><span class=
+'pplr8t-x-x-60'>14</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>int</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>n = 0;</span> 
+</span><span class='label'><a id='x1-2064r15'></a><span class=
+'pplr8t-x-x-60'>15</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>if</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>(z &gt; 0) {</span> 
+</span><span class='label'><a id='x1-2065r16'></a><span class=
+'pplr8t-x-x-60'>16</span></span><span class=
+'pcrr8t-'>        </span><span style='color:#004099'><span class=
+'pcrb8t-'>while</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>(pow(2,2*n) &lt; z) {</span> 
+</span><span class='label'><a id='x1-2066r17'></a><span class=
+'pplr8t-x-x-60'>17</span></span><span class=
+'pcrr8t-'>            </span><span style='color:#000000'><span class=
+'pcrr8t-'>n</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>++;</span></span> 
+<span class='label'><a id='x1-2067r18'></a><span class=
+'pplr8t-x-x-60'>18</span></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>}</span></span> 
+<span class='label'><a id='x1-2068r19'></a><span class=
+'pplr8t-x-x-60'>19</span></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>cout</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt; 2*(pow(2,2*n) - 1) + z &lt;&lt;</span> </span><span style='color:#A31515'><span class='pcrr8t-'>"</span></span><span style='color:#A31515'><span class='pcrr8t-'>\</span></span><span style='color:#A31515'><span class='pcrr8t-'>n</span></span><span style='color:#A31515'><span class='pcrr8t-'>"</span></span><span style='color:#000000'><span class='pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-2069r20'></a><span class=
+'pplr8t-x-x-60'>20</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>}</span></span><span style=
+'color:#000000'> </span><span style='color:#004099'><span class=
+'pcrb8t-'>else</span></span><span style=
+'color:#000000'> </span><span style='color:#004099'><span class=
+'pcrb8t-'>if</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>(z &lt; 0) {</span> 
+</span><span class='label'><a id='x1-2070r21'></a><span class=
+'pplr8t-x-x-60'>21</span></span><span class=
+'pcrr8t-'>        </span><span style='color:#004099'><span class=
+'pcrb8t-'>while</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>(pow(2,2*n+1) &lt; -z) {</span> 
+</span><span class='label'><a id='x1-2071r22'></a><span class=
+'pplr8t-x-x-60'>22</span></span><span class=
+'pcrr8t-'>            </span><span style='color:#000000'><span class=
+'pcrr8t-'>n</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>++;</span></span> 
+<span class='label'><a id='x1-2072r23'></a><span class=
+'pplr8t-x-x-60'>23</span></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>}</span></span> 
+<span class='label'><a id='x1-2073r24'></a><span class=
+'pplr8t-x-x-60'>24</span></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>cout</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt; 2*(pow(2,2*n + 1) - 1) - z &lt;&lt;</span> </span><span style='color:#A31515'><span class='pcrr8t-'>"</span></span><span style='color:#A31515'><span class='pcrr8t-'>\</span></span><span style='color:#A31515'><span class='pcrr8t-'>n</span></span><span style='color:#A31515'><span class='pcrr8t-'>"</span></span><span style='color:#000000'><span class='pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-2074r25'></a><span class=
+'pplr8t-x-x-60'>25</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>}</span></span> 
+<span class='label'><a id='x1-2075r26'></a><span class=
+'pplr8t-x-x-60'>26</span></span> 
+<span class='label'><a id='x1-2076r27'></a><span class=
+'pplr8t-x-x-60'>27</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>return</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>0;</span> 
+</span><span class='label'><a id='x1-2077r28'></a><span class=
+'pplr8t-x-x-60'>28</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>}</span></span>
+</pre>
+    </div>
+  </div><!-- l. 203 -->
+
+  <p class='noindent'>This solves the problem!</p>
+</div><!-- l. 206 -->
+
+<p class='noindent'>Before wrapping up our discussion on simulation,
+let’s solve one last problem.</p>
+
+<div class='tcolorbox probstyle' id='tcolobox-7'>
+  <a id='x1-2080x0.1.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 223 -->
+
+    <p class='noindent'>Exercise&nbsp;0.1.5:&nbsp;2016 USACO Third
+    Bronze Problem 2</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 212 -->
+
+    <p class='noindent'>(<a href=
+    'https://usaco.org/index.php?page=viewproblem2&amp;cpid=616'>Problem
+    Statement</a>)</p><!-- l. 214 -->
+
+    <p class='noindent'>A farmer has a circular barn with
+    <span class='mathjax-inline'>\(n\)</span> rooms numbered
+    <span class='mathjax-inline'>\(1\)</span> through <span class=
+    'mathjax-inline'>\(n\)</span> clockwise. Each room is connected
+    with internal doors with the adjacent rooms and have a door to
+    enter the room from the outside. The farmer wishes to place
+    <span class='mathjax-inline'>\(r_i\)</span> cows in the
+    <span class='mathjax-inline'>\(i^\text {th}\)</span> room and the
+    farmer will open a single door to a room where cows will enter
+    the room and find their places in clockwise and in organized
+    manner. If the farmer opened a door such that the collective
+    number of distance that all cows moved, i.e. the number of moves
+    between the rooms, is minimum, then what is that minimum
+    distance?</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-3'>
+  <!-- l. 225 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 225 -->
+
+  <p class='noindent'>After understanding the problem, we can
+  simulate the process where the farmer opened the first room. Then,
+  the total distance can be represented as <span class=
+  'mathjax-inline'>\((n-1) r_n + (n-2) r_{n-1} + \cdots + 2 r_3 +
+  r_2\)</span> since all cows must move to certain location
+  somehow.</p><!-- l. 230 -->
+
+  <p class='noindent'>First, we can store the inputs in a vector.</p>
+
+  <div class='tcolorbox cppboxstyleSolution' id='tcolobox-8'>
+    <a id='x1-2088x0.1.1'></a>
+
+    <div class='tcolorbox-title'>
+      <!-- l. 241 -->
+
+      <p class='noindent'>Code&nbsp;0.1.6:&nbsp;CS0202.26057-03</p>
+    </div>
+
+    <div class='tcolorbox-content'>
+      <!-- l. 233 -->
+      <pre class='lstlisting' id='listing-5'>
+<span class='label'><a id='x1-2082r1'></a><span class=
+'pplr8t-x-x-60'>1</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>int</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>n;</span> 
+</span><span class='label'><a id='x1-2083r2'></a><span class=
+'pplr8t-x-x-60'>2</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>cin</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>&gt;&gt; n;</span> 
+</span><span class='label'><a id='x1-2084r3'></a><span class=
+'pplr8t-x-x-60'>3</span></span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>vector</span></span><span style='color:#000000'><span class='pcrr8t-'>&lt;</span></span><span style='color:#004099'><span class='pcrb8t-'>int</span></span><span style='color:#000000'><span class='pcrr8t-'>&gt;</span></span><span style='color:#000000'> <span class='pcrr8t-'>config(n);</span> 
+</span><span class='label'><a id='x1-2085r4'></a><span class=
+'pplr8t-x-x-60'>4</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>for</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>(</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>int</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>i = 0; i &lt; n; i++) {</span> 
+</span><span class='label'><a id='x1-2086r5'></a><span class=
+'pplr8t-x-x-60'>5</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>cin</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&gt;&gt; config[i];</span> 
+</span><span class='label'><a id='x1-2087r6'></a><span class=
+'pplr8t-x-x-60'>6</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>}</span></span>
+</pre>
+    </div>
+  </div><!-- l. 243 -->
+
+  <p class='noindent'>Now we want to simulate the process of cows
+  entering the room and finding the spot. Moreover, we want to
+  simulate all possible cases to actually find the maximum value.</p>
+
+  <div class='tcolorbox basicboxstyleSolution' id='tcolobox-9'>
+    <div class='tcolorbox-title'></div>
+
+    <div class='tcolorbox-content'>
+      <!-- l. 248 -->
+      <pre class='lstlisting' id='listing-6'>
+<span class='label'><a id='x1-2089r1'></a><span class=
+'pplr8t-x-x-60'>1</span></span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>vector</span></span><span style='color:#000000'><span class='pcrr8t-'>&lt;</span></span><span style='color:#004099'><span class='pcrb8t-'>int</span></span><span style='color:#000000'><span class='pcrr8t-'>&gt;</span></span><span style='color:#000000'> <span class='pcrr8t-'>SUM(n);</span> 
+</span><span class='label'><a id='x1-2090r2'></a><span class=
+'pplr8t-x-x-60'>2</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>for</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>(</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>int</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>i = 0; i &lt; n; i++) {</span> 
+</span><span class='label'><a id='x1-2091r3'></a><span class=
+'pplr8t-x-x-60'>3</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>SUM</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>[</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>i</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>]</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>= 0;</span> 
+</span><span class='label'><a id='x1-2092r4'></a><span class=
+'pplr8t-x-x-60'>4</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>for</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>(</span></span><span style='color:#004099'><span class=
+'pcrb8t-'>int</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>j = 1; j &lt; n; j++) {</span> 
+</span><span class='label'><a id='x1-2093r5'></a><span class=
+'pplr8t-x-x-60'>5</span></span><span class=
+'pcrr8t-'>        </span><span style='color:#004099'><span class=
+'pcrb8t-'>if</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>(j + i &lt; n) {</span> 
+</span><span class='label'><a id='x1-2094r6'></a><span class=
+'pplr8t-x-x-60'>6</span></span><span class=
+'pcrr8t-'>            </span><span style='color:#000000'><span class=
+'pcrr8t-'>SUM</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>[</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>i</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>]</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>+= j * config[j+i];</span> 
+</span><span class='label'><a id='x1-2095r7'></a><span class=
+'pplr8t-x-x-60'>7</span></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>}</span></span><span style=
+'color:#000000'> </span><span style='color:#004099'><span class=
+'pcrb8t-'>else</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>{</span> 
+</span><span class='label'><a id='x1-2096r8'></a><span class=
+'pplr8t-x-x-60'>8</span></span><span class=
+'pcrr8t-'>            </span><span style='color:#000000'><span class=
+'pcrr8t-'>SUM</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>[</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>i</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>]</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>+= j * config[j+i-n];</span> 
+</span><span class='label'><a id='x1-2097r9'></a><span class=
+'pplr8t-x-x-60'>9</span></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>}</span></span> 
+<span class='label'><a id='x1-2098r10'></a><span class=
+'pplr8t-x-x-60'>10</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>}</span></span> 
+<span class='label'><a id='x1-2099r11'></a><span class=
+'pplr8t-x-x-60'>11</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>}</span></span>
+</pre>
+    </div>
+  </div><!-- l. 263 -->
+
+  <p class='noindent'>Lastly, we can complete our solution by
+  printing the minimum value from our <span class=
+  'obeylines-h'><code class='verb'>SUM</code></span> vector.</p>
+
+  <div class='tcolorbox basicboxstyleSolution' id='tcolobox-10'>
+    <div class='tcolorbox-title'></div>
+
+    <div class='tcolorbox-content'>
+      <!-- l. 267 -->
+      <pre class='lstlisting' id='listing-7'>
+<span class='label'><a id='x1-2100r1'></a><span class=
+'pplr8t-x-x-60'>1</span></span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>vector</span></span><span style='color:#000000'><span class='pcrr8t-'>&lt;</span></span><span style='color:#004099'><span class='pcrb8t-'>int</span></span><span style='color:#000000'><span class='pcrr8t-'>&gt;</span></span><span style='color:#000000'> <span class='pcrr8t-'>SUM(n);</span> 
+</span><span class='label'><a id='x1-2101r2'></a><span class=
+'pplr8t-x-x-60'>2</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>for</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>(</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>int</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>i = 0; i &lt; n; i++) {</span> 
+</span><span class='label'><a id='x1-2102r3'></a><span class=
+'pplr8t-x-x-60'>3</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>SUM</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>[</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>i</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>]</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>= 0;</span> 
+</span><span class='label'><a id='x1-2103r4'></a><span class=
+'pplr8t-x-x-60'>4</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>for</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>(</span></span><span style='color:#004099'><span class=
+'pcrb8t-'>int</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>j = 1; j &lt; n; j++) {</span> 
+</span><span class='label'><a id='x1-2104r5'></a><span class=
+'pplr8t-x-x-60'>5</span></span><span class=
+'pcrr8t-'>        </span><span style='color:#004099'><span class=
+'pcrb8t-'>if</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>(j + i &lt; n) {</span> 
+</span><span class='label'><a id='x1-2105r6'></a><span class=
+'pplr8t-x-x-60'>6</span></span><span class=
+'pcrr8t-'>            </span><span style='color:#000000'><span class=
+'pcrr8t-'>SUM</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>[</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>i</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>]</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>+= j * config[j+i];</span> 
+</span><span class='label'><a id='x1-2106r7'></a><span class=
+'pplr8t-x-x-60'>7</span></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>}</span></span><span style=
+'color:#000000'> </span><span style='color:#004099'><span class=
+'pcrb8t-'>else</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>{</span> 
+</span><span class='label'><a id='x1-2107r8'></a><span class=
+'pplr8t-x-x-60'>8</span></span><span class=
+'pcrr8t-'>            </span><span style='color:#000000'><span class=
+'pcrr8t-'>SUM</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>[</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>i</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>]</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>+= j * config[j+i-n];</span> 
+</span><span class='label'><a id='x1-2108r9'></a><span class=
+'pplr8t-x-x-60'>9</span></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>}</span></span> 
+<span class='label'><a id='x1-2109r10'></a><span class=
+'pplr8t-x-x-60'>10</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>}</span></span> 
+<span class='label'><a id='x1-2110r11'></a><span class=
+'pplr8t-x-x-60'>11</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>}</span></span>
+</pre>
+    </div>
+  </div><!-- l. 282 -->
+
+  <p class='noindent'>As you can see, the nested for loops will go
+  through each case where <span class='obeylines-h'><code class=
+  'verb'>i</code></span> represents the door that the farmer opens.
+  Then, with the nested for loop, we add the count using the math
+  formula shown above to compute the total distance moved by the cow.
+  With the distances stored, we can now find the minimum value.</p>
+
+  <div class='tcolorbox basicboxstyleSolution' id='tcolobox-11'>
+    <div class='tcolorbox-title'></div>
+
+    <div class='tcolorbox-content'>
+      <!-- l. 290 -->
+      <pre class='lstlisting' id='listing-8'>
+<span class='label'><a id='x1-2111r1'></a><span class=
+'pplr8t-x-x-60'>1</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>int</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>min = SUM[0];</span> 
+</span><span class='label'><a id='x1-2112r2'></a><span class=
+'pplr8t-x-x-60'>2</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>for</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>(</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>int</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>i = 0; i &lt; n; i++) {</span> 
+</span><span class='label'><a id='x1-2113r3'></a><span class=
+'pplr8t-x-x-60'>3</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>if</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>(min &gt;= SUM[i]) {</span> 
+</span><span class='label'><a id='x1-2114r4'></a><span class=
+'pplr8t-x-x-60'>4</span></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>min</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>= SUM[i];</span> 
+</span><span class='label'><a id='x1-2115r5'></a><span class=
+'pplr8t-x-x-60'>5</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>}</span></span> 
+<span class='label'><a id='x1-2116r6'></a><span class=
+'pplr8t-x-x-60'>6</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>}</span></span> 
+<span class='label'><a id='x1-2117r7'></a><span class=
+'pplr8t-x-x-60'>7</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>cout</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt; min &lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>\</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>n</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>;</span></span>
+</pre>
+    </div>
+  </div><!-- l. 301 -->
+
+  <p class='noindent'>This solves the problem!</p>
+</div><!-- l. 304 -->
+
+<p class='noindent'>Continuing, let’s discuss complete search, or
+brute forcing all cases.</p>
+
+<h4 class='subsectionHead' id='complete-search'><span class=
+'titlemark'>0.1.2</span> <a id='x1-30000.1.2'></a>Complete
+Search</h4>

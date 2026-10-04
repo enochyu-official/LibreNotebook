@@ -1,0 +1,1648 @@
+<h3 class='sectionHead' id='conditionals-and-loops'><span class=
+'titlemark'>0.1</span> <a id='x1-10000.1'></a>Conditionals and
+Loops</h3><!-- l. 7 -->
+
+<p class='noindent'>Before getting started with loops, let’s briefly
+go over increments. For our counter <span class=
+'mathjax-inline'>\(i\)</span>, we can <span class=
+'pplb8t-x-x-109'>increment</span> or <span class=
+'pplb8t-x-x-109'>decrement</span> the value, or increase or decrease,
+by <span class='mathjax-inline'>\(1\)</span> with <span class=
+'obeylines-h'><code class='verb'>i++</code></span> and <span class=
+'obeylines-h'><code class='verb'>i--</code></span>.</p><!-- l. 12 -->
+
+<p class='noindent'>For instance if we do the following,</p>
+
+<div class='tcolorbox basicboxstyle' id='tcolobox-1'>
+  <div class='tcolorbox-title'></div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 15 -->
+    <pre class='lstlisting' id='listing-1'>
+<span class='label'><a id='x1-1001r1'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>i</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>= 5</span> 
+</span><span class='label'><a id='x1-1002r2'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>i</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>++</span></span>
+</pre>
+  </div>
+</div><!-- l. 21 -->
+
+<p class='noindent'>then it is equivalent of the following
+statements.</p>
+
+<div class='tcolorbox basicboxstyle' id='tcolobox-2'>
+  <div class='tcolorbox-title'></div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 24 -->
+    <pre class='lstlisting' id='listing-2'>
+<span class='label'><a id='x1-1003r1'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>i</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>= 5</span> 
+</span><span class='label'><a id='x1-1004r2'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>i</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>= i + 1</span> 
+</span><span class='label'><a id='x1-1005r3'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>i</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>= 6</span></span>
+</pre>
+  </div>
+</div><!-- l. 31 -->
+
+<p class='noindent'>Similarly, <span class='obeylines-h'><code class=
+'verb'>i--</code></span> is identical to saying <span class=
+'obeylines-h'><code class=
+'verb'>i&nbsp;=&nbsp;i&nbsp;-&nbsp;1</code></span>. There is also
+<span class='obeylines-h'><code class='verb'>++i</code></span> and
+<span class='obeylines-h'><code class='verb'>--i</code></span>, which
+first increments or decrements the value before defining, but it is
+just better to adjust index and use <span class=
+'obeylines-h'><code class='verb'>i++</code></span> and <span class=
+'obeylines-h'><code class='verb'>i--</code></span> to avoid confusion
+unless there is a specific reason to use them.</p>
+
+<h4 class='subsectionHead' id='conditionals'><span class=
+'titlemark'>0.1.1</span> <a id='x1-20000.1.1'></a>Conditionals</h4>
+<!-- l. 39 -->
+
+<p class='noindent'>One more thing to note before we move on is
+logical operations. Unlike how we would usually write in math, we
+cannot use <span class='mathjax-inline'>\(=\)</span> and <span class=
+'mathjax-inline'>\(\neq \)</span> for equal to and not equal to. We
+also won’t be able to use comparisons <span class=
+'mathjax-inline'>\(\geq \)</span> and <span class=
+'mathjax-inline'>\(\leq \)</span>. Instead, we would be using
+<span class='obeylines-h'><code class='verb'>==</code></span> for
+equal to, <span class='obeylines-h'><code class=
+'verb'>!=</code></span> for not equal to, <span class=
+'obeylines-h'><code class='verb'>&lt;=</code></span> for less than or
+equal to, and <span class='obeylines-h'><code class=
+'verb'>&gt;=</code></span> for greater than or equal to. This is
+crucial when we have to compare two values in different statements.
+With these in mind, let’s get started with if statements!</p>
+
+<h5 class='subsubsectionHead' id='ifelse-statements'><a id=
+'x1-3000'></a>If-Else Statements</h5><!-- l. 50 -->
+
+<p class='noindent'>What if you want to display different statements
+depending on the user input? Fortunately, we could achieve that
+through if-else statements without manual human inspections. If,
+else, if-else statements have the following forms.</p>
+
+<div class='tcolorbox basicboxstyle' id='tcolobox-3'>
+  <div class='tcolorbox-title'></div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 56 -->
+    <pre class='lstlisting' id='listing-3'>
+<span class='label'><a id='x1-3001r1'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>if</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>(condition) {</span> 
+</span><span class='label'><a id='x1-3002r2'></a></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>body</span></span> 
+<span class='label'><a id='x1-3003r3'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>}</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>else if (condition) {</span> 
+</span><span class='label'><a id='x1-3004r4'></a></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>body</span></span> 
+<span class='label'><a id='x1-3005r5'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>}</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>else {</span> 
+</span><span class='label'><a id='x1-3006r6'></a></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>body</span></span> 
+<span class='label'><a id='x1-3007r7'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>}</span></span>
+</pre>
+  </div>
+</div><!-- l. 67 -->
+
+<p class='noindent'>Let’s take a look at a quick example.</p>
+
+<div class='tcolorbox cppboxstyle' id='tcolobox-4'>
+  <a id='x1-3027x'></a><a id='x1-3027xdoc'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 90 -->
+
+    <p class='noindent'>Code&nbsp;0.1.1:&nbsp;CS0201.26051-01</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 70 -->
+    <pre class='lstlisting' id='listing-4'>
+<span class='label'><a id='x1-3009r1'></a><span class=
+'pplr8t-x-x-60'>1</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>#</span></span><span style=
+'color:#004099'><span class=
+'pcrb8t-'>include</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>&lt;iostream&gt;</span> 
+</span><span class='label'><a id='x1-3010r2'></a><span class=
+'pplr8t-x-x-60'>2</span></span> 
+<span class='label'><a id='x1-3011r3'></a><span class=
+'pplr8t-x-x-60'>3</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>int</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>main() {</span> 
+</span><span class='label'><a id='x1-3012r4'></a><span class=
+'pplr8t-x-x-60'>4</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>int</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>a;</span> 
+</span><span class='label'><a id='x1-3013r5'></a><span class=
+'pplr8t-x-x-60'>5</span></span> 
+<span class='label'><a id='x1-3014r6'></a><span class=
+'pplr8t-x-x-60'>6</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cout</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>Enter</span></span><span style=
+'color:#A31515'> <span class=
+'pcrr8t-'>a number: "</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-3015r7'></a><span class=
+'pplr8t-x-x-60'>7</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cin</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&gt;&gt; a;</span> 
+</span><span class='label'><a id='x1-3016r8'></a><span class=
+'pplr8t-x-x-60'>8</span></span> 
+<span class='label'><a id='x1-3017r9'></a><span class=
+'pplr8t-x-x-60'>9</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>if</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>(a &gt; 10) {</span> 
+</span><span class='label'><a id='x1-3018r10'></a><span class=
+'pplr8t-x-x-60'>10</span></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cout</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>Your</span></span><span style=
+'color:#A31515'> <span class=
+'pcrr8t-'>number is greater than ten!\n"</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-3019r11'></a><span class=
+'pplr8t-x-x-60'>11</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>}</span></span><span style=
+'color:#000000'> </span><span style='color:#004099'><span class=
+'pcrb8t-'>else</span></span><span style=
+'color:#000000'> </span><span style='color:#004099'><span class=
+'pcrb8t-'>if</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>(a == 10) {</span> 
+</span><span class='label'><a id='x1-3020r12'></a><span class=
+'pplr8t-x-x-60'>12</span></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cout</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>Your</span></span><span style=
+'color:#A31515'> <span class=
+'pcrr8t-'>number is ten!\n"</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-3021r13'></a><span class=
+'pplr8t-x-x-60'>13</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>}</span></span><span style=
+'color:#000000'> </span><span style='color:#004099'><span class=
+'pcrb8t-'>else</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>{</span> 
+</span><span class='label'><a id='x1-3022r14'></a><span class=
+'pplr8t-x-x-60'>14</span></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cout</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>Your</span></span><span style=
+'color:#A31515'> <span class=
+'pcrr8t-'>number is smaller than ten!\n"</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-3023r15'></a><span class=
+'pplr8t-x-x-60'>15</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>}</span></span> 
+<span class='label'><a id='x1-3024r16'></a><span class=
+'pplr8t-x-x-60'>16</span></span> 
+<span class='label'><a id='x1-3025r17'></a><span class=
+'pplr8t-x-x-60'>17</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>return</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>0;</span> 
+</span><span class='label'><a id='x1-3026r18'></a><span class=
+'pplr8t-x-x-60'>18</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>}</span></span>
+</pre>
+  </div>
+</div><!-- l. 92 -->
+
+<p class='noindent'>In this short example, we compare an input from
+the user with <span class='mathjax-inline'>\(10\)</span>. As you can
+see, we must use <span class='obeylines-h'><code class=
+'verb'>a&nbsp;==&nbsp;10</code></span>, not <span class=
+'obeylines-h'><code class='verb'>a&nbsp;=&nbsp;10</code></span>, as
+it would be declaring <span class='mathjax-inline'>\(a\)</span> as
+ten. We can see that our program works as expected!</p>
+
+<div class='tcolorbox outputboxstyle' id='tcolobox-5'>
+  <div class='tcolorbox-title'>
+    <!-- l. 111 -->
+
+    <p class='noindent'>Output&nbsp;0.1.2</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 98 -->
+    <pre class='lstlisting' id='listing-5'>
+<span class='label'><a id='x1-3029r1'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>$</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>./program</span> 
+</span><span class='label'><a id='x1-3030r2'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>Enter</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>a number: -1</span> 
+</span><span class='label'><a id='x1-3031r3'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>Your</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>number is smaller than ten!</span> 
+</span><span class='label'><a id='x1-3032r4'></a></span> 
+<span class='label'><a id='x1-3033r5'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>$</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>./program</span> 
+</span><span class='label'><a id='x1-3034r6'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>Enter</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>a number: 10</span> 
+</span><span class='label'><a id='x1-3035r7'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>Your</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>number is ten!</span> 
+</span><span class='label'><a id='x1-3036r8'></a></span> 
+<span class='label'><a id='x1-3037r9'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>$</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>./program</span> 
+</span><span class='label'><a id='x1-3038r10'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>Enter</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>a number: 11</span> 
+</span><span class='label'><a id='x1-3039r11'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>Your</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>number is greater than ten!</span></span>
+</pre>
+  </div>
+</div><!-- l. 113 -->
+
+<p class='noindent'>Instead of comparing numbers, we could also use
+statements for comparing strings.</p>
+
+<div class='tcolorbox cppboxstyle' id='tcolobox-6'>
+  <a id='x1-3060x'></a><a id='x1-3060xdoc'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 138 -->
+
+    <p class='noindent'>Code&nbsp;0.1.3:&nbsp;CS0201.26051-02</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 117 -->
+    <pre class='lstlisting' id='listing-6'>
+<span class='label'><a id='x1-3041r1'></a><span class=
+'pplr8t-x-x-60'>1</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>#</span></span><span style=
+'color:#004099'><span class=
+'pcrb8t-'>include</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>&lt;iostream&gt;</span> 
+</span><span class='label'><a id='x1-3042r2'></a><span class=
+'pplr8t-x-x-60'>2</span></span> 
+<span class='label'><a id='x1-3043r3'></a><span class=
+'pplr8t-x-x-60'>3</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>int</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>main() {</span> 
+</span><span class='label'><a id='x1-3044r4'></a><span class=
+'pplr8t-x-x-60'>4</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>string</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>password =</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class=
+'pcrr8t-'>password</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-3045r5'></a><span class=
+'pplr8t-x-x-60'>5</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>string</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>input;</span> 
+</span><span class='label'><a id='x1-3046r6'></a><span class=
+'pplr8t-x-x-60'>6</span></span> 
+<span class='label'><a id='x1-3047r7'></a><span class=
+'pplr8t-x-x-60'>7</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cout</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>Enter</span></span><span style=
+'color:#A31515'> <span class=
+'pcrr8t-'>your password: "</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-3048r8'></a><span class=
+'pplr8t-x-x-60'>8</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cin</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&gt;&gt; input;</span> 
+</span><span class='label'><a id='x1-3049r9'></a><span class=
+'pplr8t-x-x-60'>9</span></span> 
+<span class='label'><a id='x1-3050r10'></a><span class=
+'pplr8t-x-x-60'>10</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>bool</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>correct = (input == password);</span> 
+</span><span class='label'><a id='x1-3051r11'></a><span class=
+'pplr8t-x-x-60'>11</span></span> 
+<span class='label'><a id='x1-3052r12'></a><span class=
+'pplr8t-x-x-60'>12</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>if</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>(correct) {</span> 
+</span><span class='label'><a id='x1-3053r13'></a><span class=
+'pplr8t-x-x-60'>13</span></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cout</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class=
+'pcrr8t-'>Correct</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>!\</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>n</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-3054r14'></a><span class=
+'pplr8t-x-x-60'>14</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>}</span></span><span style=
+'color:#000000'> </span><span style='color:#004099'><span class=
+'pcrb8t-'>else</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>{</span> 
+</span><span class='label'><a id='x1-3055r15'></a><span class=
+'pplr8t-x-x-60'>15</span></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cout</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class=
+'pcrr8t-'>Incorrect</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>!\</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>n</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-3056r16'></a><span class=
+'pplr8t-x-x-60'>16</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>}</span></span> 
+<span class='label'><a id='x1-3057r17'></a><span class=
+'pplr8t-x-x-60'>17</span></span> 
+<span class='label'><a id='x1-3058r18'></a><span class=
+'pplr8t-x-x-60'>18</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>return</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>0;</span> 
+</span><span class='label'><a id='x1-3059r19'></a><span class=
+'pplr8t-x-x-60'>19</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>}</span></span>
+</pre>
+  </div>
+</div><!-- l. 140 -->
+
+<p class='noindent'>As you can see from the example above we can take
+in the boolean value. An alternative way would be directly putting
+<span class='obeylines-h'><code class=
+'verb'>input&nbsp;==&nbsp;password</code></span> in the condition for
+if without defining a new variable.</p>
+
+<div class='tcolorbox outputboxstyle' id='tcolobox-7'>
+  <div class='tcolorbox-title'>
+    <!-- l. 155 -->
+
+    <p class='noindent'>Output&nbsp;0.1.4</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 146 -->
+    <pre class='lstlisting' id='listing-7'>
+<span class='label'><a id='x1-3062r1'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>$</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>./program</span> 
+</span><span class='label'><a id='x1-3063r2'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>Enter</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>your password: password</span> 
+</span><span class='label'><a id='x1-3064r3'></a></span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>Correct</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>!</span></span> 
+<span class='label'><a id='x1-3065r4'></a></span> 
+<span class='label'><a id='x1-3066r5'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>$</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>./program</span> 
+</span><span class='label'><a id='x1-3067r6'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>Enter</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>your password: Password</span> 
+</span><span class='label'><a id='x1-3068r7'></a></span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>Incorrect</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>!</span></span>
+</pre>
+  </div>
+</div><!-- l. 157 -->
+
+<p class='noindent'>If you have fixed options, and you don’t want to
+type every syntax for if-else statements, we can use <span class=
+'pplb8t-x-x-109'>switch</span> statements.</p>
+
+<h5 class='subsubsectionHead' id='switch-statements'><a id=
+'x1-4000'></a>Switch Statements</h5><!-- l. 163 -->
+
+<p class='noindent'>Switch statements have the following
+structure.</p>
+
+<div class='tcolorbox basicboxstyle' id='tcolobox-8'>
+  <div class='tcolorbox-title'></div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 166 -->
+    <pre class='lstlisting' id='listing-8'>
+<span class='label'><a id='x1-4001r1'></a></span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>switch</span></span><span style='color:#000000'> <span class='pcrr8t-'>(expression) {</span> 
+</span><span class='label'><a id='x1-4002r2'></a></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>case</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>case1:</span> 
+</span><span class='label'><a id='x1-4003r3'></a></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>block</span></span> 
+<span class='label'><a id='x1-4004r4'></a></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>case</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>case2:</span> 
+</span><span class='label'><a id='x1-4005r5'></a></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>block</span></span> 
+<span class='label'><a id='x1-4006r6'></a></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>break</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-4007r7'></a></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>default</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>:</span></span> 
+<span class='label'><a id='x1-4008r8'></a></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>block</span></span> 
+<span class='label'><a id='x1-4009r9'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>}</span></span>
+</pre>
+  </div>
+</div><!-- l. 179 -->
+
+<p class='noindent'>Here, <span class='obeylines-h'><code class=
+'verb'>break</code></span> and <span class='obeylines-h'><code class=
+'verb'>default</code></span> are optional, but nice to have. Consider
+the following example for more intuitive explanation.</p>
+
+<div class='tcolorbox cppboxstyle' id='tcolobox-9'>
+  <a id='x1-4039x'></a><a id='x1-4039xdoc'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 213 -->
+
+    <p class='noindent'>Code&nbsp;0.1.5:&nbsp;CS0201.26051-03</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 183 -->
+    <pre class='lstlisting' id='listing-9'>
+<span class='label'><a id='x1-4011r1'></a><span class=
+'pplr8t-x-x-60'>1</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>#</span></span><span style=
+'color:#004099'><span class=
+'pcrb8t-'>include</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>&lt;iostream&gt;</span> 
+</span><span class='label'><a id='x1-4012r2'></a><span class=
+'pplr8t-x-x-60'>2</span></span> 
+<span class='label'><a id='x1-4013r3'></a><span class=
+'pplr8t-x-x-60'>3</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>int</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>main() {</span> 
+</span><span class='label'><a id='x1-4014r4'></a><span class=
+'pplr8t-x-x-60'>4</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>char</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>input;</span> 
+</span><span class='label'><a id='x1-4015r5'></a><span class=
+'pplr8t-x-x-60'>5</span></span> 
+<span class='label'><a id='x1-4016r6'></a><span class=
+'pplr8t-x-x-60'>6</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cout</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class=
+'pcrr8t-'>Choices</span></span><span style=
+'color:#A31515'> <span class='pcrr8t-'>for Breakfast:\n"</span> 
+</span><span class='label'><a id='x1-4017r7'></a><span class=
+'pplr8t-x-x-60'>7</span></span><span class=
+'pcrr8t-'>              </span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>&lt;&lt;</span></span><span style=
+'color:#000000'> </span><span style='color:#A31515'><span class=
+'pcrr8t-'>"</span></span><span style=
+'color:#A31515'> </span><span class='pcrr8t-'> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>A</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>.</span></span><span style=
+'color:#A31515'> <span class='pcrr8t-'>Two Bananas\n"</span> 
+</span><span class='label'><a id='x1-4018r8'></a><span class=
+'pplr8t-x-x-60'>8</span></span><span class=
+'pcrr8t-'>              </span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>&lt;&lt;</span></span><span style=
+'color:#000000'> </span><span style='color:#A31515'><span class=
+'pcrr8t-'>"</span></span><span style=
+'color:#A31515'> </span><span class='pcrr8t-'> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>B</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>.</span></span><span style=
+'color:#A31515'> <span class='pcrr8t-'>Three Bananas\n"</span> 
+</span><span class='label'><a id='x1-4019r9'></a><span class=
+'pplr8t-x-x-60'>9</span></span><span class=
+'pcrr8t-'>              </span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>&lt;&lt;</span></span><span style=
+'color:#000000'> </span><span style='color:#A31515'><span class=
+'pcrr8t-'>"</span></span><span style=
+'color:#A31515'> </span><span class='pcrr8t-'> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>C</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>.</span></span><span style=
+'color:#A31515'> <span class='pcrr8t-'>Four Bananas\n"</span> 
+</span><span class='label'><a id='x1-4020r10'></a><span class=
+'pplr8t-x-x-60'>10</span></span><span class=
+'pcrr8t-'>              </span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>&lt;&lt;</span></span><span style=
+'color:#000000'> </span><span style='color:#A31515'><span class=
+'pcrr8t-'>"</span></span><span style='color:#A31515'><span class=
+'pcrr8t-'>What</span></span><span style='color:#A31515'> <span class=
+'pcrr8t-'>would you like for breakfast today?\n"</span></span><span style='color:#000000'><span class='pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-4021r11'></a><span class=
+'pplr8t-x-x-60'>11</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cin</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&gt;&gt; input;</span> 
+</span><span class='label'><a id='x1-4022r12'></a><span class=
+'pplr8t-x-x-60'>12</span></span> 
+<span class='label'><a id='x1-4023r13'></a><span class=
+'pplr8t-x-x-60'>13</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>switch</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>(input) {</span> 
+</span><span class='label'><a id='x1-4024r14'></a><span class=
+'pplr8t-x-x-60'>14</span></span><span class=
+'pcrr8t-'>        </span><span style='color:#004099'><span class=
+'pcrb8t-'>case</span></span><span style=
+'color:#000000'> </span><span style='color:#A31515'><span class=
+'pcrr8t-'>’</span></span><span style='color:#A31515'><span class=
+'pcrr8t-'>A</span></span><span style='color:#A31515'><span class=
+'pcrr8t-'>’</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>:</span></span> 
+<span class='label'><a id='x1-4025r15'></a><span class=
+'pplr8t-x-x-60'>15</span></span><span class=
+'pcrr8t-'>            </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cout</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>You</span></span><span style=
+'color:#A31515'> <span class=
+'pcrr8t-'>chose two bananas!\n"</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-4026r16'></a><span class=
+'pplr8t-x-x-60'>16</span></span><span class=
+'pcrr8t-'>            </span><span style='color:#004099'><span class=
+'pcrb8t-'>break</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-4027r17'></a><span class=
+'pplr8t-x-x-60'>17</span></span><span class=
+'pcrr8t-'>        </span><span style='color:#004099'><span class=
+'pcrb8t-'>case</span></span><span style=
+'color:#000000'> </span><span style='color:#A31515'><span class=
+'pcrr8t-'>’</span></span><span style='color:#A31515'><span class=
+'pcrr8t-'>B</span></span><span style='color:#A31515'><span class=
+'pcrr8t-'>’</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>:</span></span> 
+<span class='label'><a id='x1-4028r18'></a><span class=
+'pplr8t-x-x-60'>18</span></span><span class=
+'pcrr8t-'>            </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cout</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>You</span></span><span style=
+'color:#A31515'> <span class=
+'pcrr8t-'>chose three bananas!\n"</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-4029r19'></a><span class=
+'pplr8t-x-x-60'>19</span></span><span class=
+'pcrr8t-'>            </span><span style='color:#004099'><span class=
+'pcrb8t-'>break</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-4030r20'></a><span class=
+'pplr8t-x-x-60'>20</span></span><span class=
+'pcrr8t-'>        </span><span style='color:#004099'><span class=
+'pcrb8t-'>case</span></span><span style=
+'color:#000000'> </span><span style='color:#A31515'><span class=
+'pcrr8t-'>’</span></span><span style='color:#A31515'><span class=
+'pcrr8t-'>C</span></span><span style='color:#A31515'><span class=
+'pcrr8t-'>’</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>:</span></span> 
+<span class='label'><a id='x1-4031r21'></a><span class=
+'pplr8t-x-x-60'>21</span></span><span class=
+'pcrr8t-'>            </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cout</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>You</span></span><span style=
+'color:#A31515'> <span class=
+'pcrr8t-'>chose four bananas!\n"</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-4032r22'></a><span class=
+'pplr8t-x-x-60'>22</span></span><span class=
+'pcrr8t-'>            </span><span style='color:#004099'><span class=
+'pcrb8t-'>break</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-4033r23'></a><span class=
+'pplr8t-x-x-60'>23</span></span><span class=
+'pcrr8t-'>        </span><span style='color:#004099'><span class=
+'pcrb8t-'>default</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>:</span></span> 
+<span class='label'><a id='x1-4034r24'></a><span class=
+'pplr8t-x-x-60'>24</span></span><span class=
+'pcrr8t-'>            </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cout</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class=
+'pcrr8t-'>Please</span></span><span style='color:#A31515'> <span class='pcrr8t-'>choose from the options\n"</span></span><span style='color:#000000'><span class='pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-4035r25'></a><span class=
+'pplr8t-x-x-60'>25</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>}</span></span> 
+<span class='label'><a id='x1-4036r26'></a><span class=
+'pplr8t-x-x-60'>26</span></span> 
+<span class='label'><a id='x1-4037r27'></a><span class=
+'pplr8t-x-x-60'>27</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>return</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>0;</span> 
+</span><span class='label'><a id='x1-4038r28'></a><span class=
+'pplr8t-x-x-60'>28</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>}</span></span>
+</pre>
+  </div>
+</div><!-- l. 215 -->
+
+<p class='noindent'>Here, the program would go through all the
+options to see if there are any matching cases. If not, it will
+execute <span class='obeylines-h'><code class=
+'verb'>default</code></span> as the fallback. If you also want to
+exit from the switch statement after finding the right case, we can
+do so with the <span class='obeylines-h'><code class=
+'verb'>break</code></span> keyword.</p>
+
+<div class='tcolorbox outputboxstyle' id='tcolobox-10'>
+  <div class='tcolorbox-title'>
+    <!-- l. 241 -->
+
+    <p class='noindent'>Output&nbsp;0.1.6</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 222 -->
+    <pre class='lstlisting' id='listing-10'>
+<span class='label'><a id='x1-4041r1'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>$</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>./program</span> 
+</span><span class='label'><a id='x1-4042r2'></a></span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>Choices</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>for Breakfast:</span> 
+</span><span class='label'><a id='x1-4043r3'></a></span><span class=
+'pcrr8t-'>  </span><span style='color:#000000'><span class=
+'pcrr8t-'>A</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>.</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>Two Bananas</span> 
+</span><span class='label'><a id='x1-4044r4'></a></span><span class=
+'pcrr8t-'>  </span><span style='color:#000000'><span class=
+'pcrr8t-'>B</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>.</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>Three Bananas</span> 
+</span><span class='label'><a id='x1-4045r5'></a></span><span class=
+'pcrr8t-'>  </span><span style='color:#000000'><span class=
+'pcrr8t-'>C</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>.</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>Four Bananas</span> 
+</span><span class='label'><a id='x1-4046r6'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>What</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>would you like for breakfast today?</span> 
+</span><span class='label'><a id='x1-4047r7'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>B</span></span> 
+<span class='label'><a id='x1-4048r8'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>You</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>chose three bananas!</span> 
+</span><span class='label'><a id='x1-4049r9'></a></span> 
+<span class='label'><a id='x1-4050r10'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>$</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>./program</span> 
+</span><span class='label'><a id='x1-4051r11'></a></span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>Choices</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>for Breakfast:</span> 
+</span><span class='label'><a id='x1-4052r12'></a></span><span class=
+'pcrr8t-'>  </span><span style='color:#000000'><span class=
+'pcrr8t-'>A</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>.</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>Two Bananas</span> 
+</span><span class='label'><a id='x1-4053r13'></a></span><span class=
+'pcrr8t-'>  </span><span style='color:#000000'><span class=
+'pcrr8t-'>B</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>.</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>Three Bananas</span> 
+</span><span class='label'><a id='x1-4054r14'></a></span><span class=
+'pcrr8t-'>  </span><span style='color:#000000'><span class=
+'pcrr8t-'>C</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>.</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>Four Bananas</span> 
+</span><span class='label'><a id='x1-4055r15'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>What</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>would you like for breakfast today?</span> 
+</span><span class='label'><a id='x1-4056r16'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>D</span></span> 
+<span class='label'><a id='x1-4057r17'></a></span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>Please</span></span><span style='color:#000000'> <span class='pcrr8t-'>choose from the options</span></span>
+</pre>
+  </div>
+</div><!-- l. 243 -->
+
+<p class='noindent'>With the basic ideas of conditions in mind, let’s
+discuss different loops for C++.</p>
+
+<h4 class='subsectionHead' id='loops'><span class=
+'titlemark'>0.1.2</span> <a id='x1-50000.1.2'></a>Loops</h4>
+<!-- l. 248 -->
+
+<p class='noindent'>There are many different fundamental loops that
+we can use in C++. First, let’s start with for loops.</p>
+
+<h5 class='subsubsectionHead' id='for-loops'><a id='x1-6000'></a>For
+Loops</h5><!-- l. 253 -->
+
+<p class='noindent'>For loops retain the following structure.</p>
+
+<div class='tcolorbox basicboxstyle' id='tcolobox-11'>
+  <div class='tcolorbox-title'></div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 256 -->
+    <pre class='lstlisting' id='listing-11'>
+<span class='label'><a id='x1-6001r1'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>for</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>(start; condition; update) {</span> 
+</span><span class='label'><a id='x1-6002r2'></a></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>body</span></span> 
+<span class='label'><a id='x1-6003r3'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>}</span></span>
+</pre>
+  </div>
+</div><!-- l. 263 -->
+
+<p class='noindent'>The introduction of loops really made our lives
+easier. One of the reason why we write program is to avoid repetitive
+tasks and work more efficiently. Say we want to print “I ate six
+bananas” five times on the screen. Without loops, we may have to use
+<span class='obeylines-h'><code class='verb'>cout</code></span> five
+times, which is ridiculous if the number increase to hundreds and
+thousands. Instead, we can use a for loop.</p>
+
+<div class='tcolorbox cppboxstyle' id='tcolobox-12'>
+  <a id='x1-6014x'></a><a id='x1-6014xdoc'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 282 -->
+
+    <p class='noindent'>Code&nbsp;0.1.7:&nbsp;CS0201.26051-04</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 271 -->
+    <pre class='lstlisting' id='listing-12'>
+<span class='label'><a id='x1-6005r1'></a><span class=
+'pplr8t-x-x-60'>1</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>#</span></span><span style=
+'color:#004099'><span class=
+'pcrb8t-'>include</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>&lt;iostream&gt;</span> 
+</span><span class='label'><a id='x1-6006r2'></a><span class=
+'pplr8t-x-x-60'>2</span></span> 
+<span class='label'><a id='x1-6007r3'></a><span class=
+'pplr8t-x-x-60'>3</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>int</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>main() {</span> 
+</span><span class='label'><a id='x1-6008r4'></a><span class=
+'pplr8t-x-x-60'>4</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>for</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>(</span></span><span style='color:#004099'><span class=
+'pcrb8t-'>int</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>i = 0; i &lt; 5; i++) {</span> 
+</span><span class='label'><a id='x1-6009r5'></a><span class=
+'pplr8t-x-x-60'>5</span></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cout</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>I</span></span><span style=
+'color:#A31515'> <span class=
+'pcrr8t-'>ate six bananas\n"</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-6010r6'></a><span class=
+'pplr8t-x-x-60'>6</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>}</span></span> 
+<span class='label'><a id='x1-6011r7'></a><span class=
+'pplr8t-x-x-60'>7</span></span> 
+<span class='label'><a id='x1-6012r8'></a><span class=
+'pplr8t-x-x-60'>8</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>return</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>0;</span> 
+</span><span class='label'><a id='x1-6013r9'></a><span class=
+'pplr8t-x-x-60'>9</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>}</span></span>
+</pre>
+  </div>
+</div><!-- l. 284 -->
+
+<p class='noindent'>When we compile and run, it is telling the
+computer to print “I ate six bananas” if <span class=
+'mathjax-inline'>\(i &lt; 5\)</span> starting from <span class=
+'mathjax-inline'>\(i = 0\)</span> where it increments by <span class=
+'mathjax-inline'>\(1\)</span> after each pass. As expected, we will
+get the following result.</p>
+
+<div class='tcolorbox outputboxstyle' id='tcolobox-13'>
+  <div class='tcolorbox-title'>
+    <!-- l. 297 -->
+
+    <p class='noindent'>Output&nbsp;0.1.8</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 290 -->
+    <pre class='lstlisting' id='listing-13'>
+<span class='label'><a id='x1-6016r1'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>I</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>ate six bananas</span> 
+</span><span class='label'><a id='x1-6017r2'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>I</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>ate six bananas</span> 
+</span><span class='label'><a id='x1-6018r3'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>I</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>ate six bananas</span> 
+</span><span class='label'><a id='x1-6019r4'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>I</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>ate six bananas</span> 
+</span><span class='label'><a id='x1-6020r5'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>I</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>ate six bananas</span></span>
+</pre>
+  </div>
+</div><!-- l. 299 -->
+
+<p class='noindent'>A more practical use of for loops would be
+this.</p>
+
+<div class='tcolorbox cppboxstyle' id='tcolobox-14'>
+  <a id='x1-6031x'></a><a id='x1-6031xdoc'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 313 -->
+
+    <p class='noindent'>Code&nbsp;0.1.9:&nbsp;CS0201.26051-05</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 302 -->
+    <pre class='lstlisting' id='listing-14'>
+<span class='label'><a id='x1-6022r1'></a><span class=
+'pplr8t-x-x-60'>1</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>#</span></span><span style=
+'color:#004099'><span class=
+'pcrb8t-'>include</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>&lt;iostream&gt;</span> 
+</span><span class='label'><a id='x1-6023r2'></a><span class=
+'pplr8t-x-x-60'>2</span></span> 
+<span class='label'><a id='x1-6024r3'></a><span class=
+'pplr8t-x-x-60'>3</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>int</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>main() {</span> 
+</span><span class='label'><a id='x1-6025r4'></a><span class=
+'pplr8t-x-x-60'>4</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>for</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>(</span></span><span style='color:#004099'><span class=
+'pcrb8t-'>int</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>i = 2; i &lt;= 6; i++) {</span> 
+</span><span class='label'><a id='x1-6026r5'></a><span class=
+'pplr8t-x-x-60'>5</span></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cout</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>I</span></span><span style=
+'color:#A31515'> <span class=
+'pcrr8t-'>ate "</span></span><span style='color:#000000'> <span class='pcrr8t-'>&lt;&lt; i &lt;&lt;</span> </span><span style='color:#A31515'><span class='pcrr8t-'>"</span></span><span style='color:#A31515'> <span class='pcrr8t-'>bananas\n"</span></span><span style='color:#000000'><span class='pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-6027r6'></a><span class=
+'pplr8t-x-x-60'>6</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>}</span></span> 
+<span class='label'><a id='x1-6028r7'></a><span class=
+'pplr8t-x-x-60'>7</span></span> 
+<span class='label'><a id='x1-6029r8'></a><span class=
+'pplr8t-x-x-60'>8</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>return</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>0;</span> 
+</span><span class='label'><a id='x1-6030r9'></a><span class=
+'pplr8t-x-x-60'>9</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>}</span></span>
+</pre>
+  </div>
+</div><!-- l. 315 -->
+
+<p class='noindent'>Instead of manually changing the numbers, the
+loop will display the following.</p>
+
+<div class='tcolorbox outputboxstyle' id='tcolobox-15'>
+  <div class='tcolorbox-title'>
+    <!-- l. 326 -->
+
+    <p class='noindent'>Output&nbsp;0.1.10</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 319 -->
+    <pre class='lstlisting' id='listing-15'>
+<span class='label'><a id='x1-6033r1'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>I</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>ate 2 bananas</span> 
+</span><span class='label'><a id='x1-6034r2'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>I</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>ate 3 bananas</span> 
+</span><span class='label'><a id='x1-6035r3'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>I</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>ate 4 bananas</span> 
+</span><span class='label'><a id='x1-6036r4'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>I</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>ate 5 bananas</span> 
+</span><span class='label'><a id='x1-6037r5'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>I</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>ate 6 bananas</span></span>
+</pre>
+  </div>
+</div><!-- l. 328 -->
+
+<p class='noindent'>With this, it is natural to consider for loops
+inside a for loop. This is called <span class='pplb8t-x-x-109'>nested
+loop</span> made with for loops. Consider the following example that
+generates all possible combinations of my breakfast assuming there
+exists three distinct bananas and two distinct apple where I must eat
+exactly one banana and exactly one apple.</p>
+
+<div class='tcolorbox cppboxstyle' id='tcolobox-16'>
+  <a id='x1-6051x'></a><a id='x1-6051xdoc'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 350 -->
+
+    <p class='noindent'>Code&nbsp;0.1.11:&nbsp;CS0201.26051-06</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 336 -->
+    <pre class='lstlisting' id='listing-16'>
+<span class='label'><a id='x1-6039r1'></a><span class=
+'pplr8t-x-x-60'>1</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>#</span></span><span style=
+'color:#004099'><span class=
+'pcrb8t-'>include</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>&lt;iostream&gt;</span> 
+</span><span class='label'><a id='x1-6040r2'></a><span class=
+'pplr8t-x-x-60'>2</span></span> 
+<span class='label'><a id='x1-6041r3'></a><span class=
+'pplr8t-x-x-60'>3</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>int</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>main() {</span> 
+</span><span class='label'><a id='x1-6042r4'></a><span class=
+'pplr8t-x-x-60'>4</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>for</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>(</span></span><span style='color:#004099'><span class=
+'pcrb8t-'>int</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>i = 0; i &lt; 3; i++) {</span> 
+</span><span class='label'><a id='x1-6043r5'></a><span class=
+'pplr8t-x-x-60'>5</span></span><span class=
+'pcrr8t-'>        </span><span style='color:#004099'><span class=
+'pcrb8t-'>for</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>(</span></span><span style='color:#004099'><span class=
+'pcrb8t-'>int</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>j = 0; j &lt; 2; j++) {</span> 
+</span><span class='label'><a id='x1-6044r6'></a><span class=
+'pplr8t-x-x-60'>6</span></span><span class=
+'pcrr8t-'>            </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cout</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class=
+'pcrr8t-'>Banana</span></span><span style='color:#A31515'> <span class='pcrr8t-'>"</span></span><span style='color:#000000'> <span class='pcrr8t-'>&lt;&lt; i+1 &lt;&lt;</span> </span><span style='color:#A31515'><span class='pcrr8t-'>"</span></span><span style='color:#A31515'> <span class='pcrr8t-'>and "</span> 
+</span><span class='label'><a id='x1-6045r7'></a><span class=
+'pplr8t-x-x-60'>7</span></span><span class=
+'pcrr8t-'>                      </span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>&lt;&lt;</span></span><span style=
+'color:#000000'> </span><span style='color:#A31515'><span class=
+'pcrr8t-'>"</span></span><span style='color:#A31515'><span class=
+'pcrr8t-'>Apple</span></span><span style=
+'color:#A31515'> <span class='pcrr8t-'>"</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt; j+1 &lt;&lt; std::endl;</span> 
+</span><span class='label'><a id='x1-6046r8'></a><span class=
+'pplr8t-x-x-60'>8</span></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>}</span></span> 
+<span class='label'><a id='x1-6047r9'></a><span class=
+'pplr8t-x-x-60'>9</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>}</span></span> 
+<span class='label'><a id='x1-6048r10'></a><span class=
+'pplr8t-x-x-60'>10</span></span> 
+<span class='label'><a id='x1-6049r11'></a><span class=
+'pplr8t-x-x-60'>11</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>return</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>0;</span> 
+</span><span class='label'><a id='x1-6050r12'></a><span class=
+'pplr8t-x-x-60'>12</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>}</span></span>
+</pre>
+  </div>
+</div><!-- l. 352 -->
+
+<p class='noindent'>This will run the inner loop when <span class=
+'mathjax-inline'>\(i = 0\)</span>, <span class='mathjax-inline'>\(i =
+1\)</span>, and <span class='mathjax-inline'>\(i = 3\)</span>. We
+also have to start from <span class='mathjax-inline'>\(i = 1\)</span>
+and <span class='mathjax-inline'>\(j = 1\)</span> or add the
+displayed number by <span class='mathjax-inline'>\(1\)</span>, or
+else we will get Banana <span class='mathjax-inline'>\(0\)</span> and
+Apple <span class='mathjax-inline'>\(0\)</span>. Compiling and
+running, we can notice that we get <span class='mathjax-inline'>\(3
+\cdot 2 = 6\)</span> distinct combinations.</p>
+
+<div class='tcolorbox outputboxstyle' id='tcolobox-17'>
+  <div class='tcolorbox-title'>
+    <!-- l. 367 -->
+
+    <p class='noindent'>Output&nbsp;0.1.12</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 359 -->
+    <pre class='lstlisting' id='listing-17'>
+<span class='label'><a id='x1-6053r1'></a></span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>Banana</span></span><span style='color:#000000'> <span class='pcrr8t-'>1 and Apple 1</span> 
+</span><span class='label'><a id='x1-6054r2'></a></span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>Banana</span></span><span style='color:#000000'> <span class='pcrr8t-'>1 and Apple 2</span> 
+</span><span class='label'><a id='x1-6055r3'></a></span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>Banana</span></span><span style='color:#000000'> <span class='pcrr8t-'>2 and Apple 1</span> 
+</span><span class='label'><a id='x1-6056r4'></a></span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>Banana</span></span><span style='color:#000000'> <span class='pcrr8t-'>2 and Apple 2</span> 
+</span><span class='label'><a id='x1-6057r5'></a></span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>Banana</span></span><span style='color:#000000'> <span class='pcrr8t-'>3 and Apple 1</span> 
+</span><span class='label'><a id='x1-6058r6'></a></span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>Banana</span></span><span style='color:#000000'> <span class='pcrr8t-'>3 and Apple 2</span></span>
+</pre>
+  </div>
+</div><!-- l. 369 -->
+
+<p class='noindent'>Moving on from for loops, let’s discuss while
+loops.</p>
+
+<h5 class='subsubsectionHead' id='while-loops'><a id=
+'x1-7000'></a>While Loops</h5><!-- l. 373 -->
+
+<p class='noindent'>While loops have the following form.</p>
+
+<div class='tcolorbox basicboxstyle' id='tcolobox-18'>
+  <div class='tcolorbox-title'></div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 376 -->
+    <pre class='lstlisting' id='listing-18'>
+<span class='label'><a id='x1-7001r1'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>while</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>(condition) {</span> 
+</span><span class='label'><a id='x1-7002r2'></a></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>body</span></span> 
+<span class='label'><a id='x1-7003r3'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>}</span></span>
+</pre>
+  </div>
+</div><!-- l. 383 -->
+
+<p class='noindent'>There are many things that we can do with while
+loops. Below are two simple examples.</p>
+
+<div class='tcolorbox cppboxstyle' id='tcolobox-19'>
+  <a id='x1-7018x'></a><a id='x1-7018xdoc'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 402 -->
+
+    <p class='noindent'>Code&nbsp;0.1.13:&nbsp;CS0201.26051-07</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 387 -->
+    <pre class='lstlisting' id='listing-19'>
+<span class='label'><a id='x1-7005r1'></a><span class=
+'pplr8t-x-x-60'>1</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>#</span></span><span style=
+'color:#004099'><span class=
+'pcrb8t-'>include</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>&lt;iostream&gt;</span> 
+</span><span class='label'><a id='x1-7006r2'></a><span class=
+'pplr8t-x-x-60'>2</span></span> 
+<span class='label'><a id='x1-7007r3'></a><span class=
+'pplr8t-x-x-60'>3</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>int</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>main() {</span> 
+</span><span class='label'><a id='x1-7008r4'></a><span class=
+'pplr8t-x-x-60'>4</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>int</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>i = 10;</span> 
+</span><span class='label'><a id='x1-7009r5'></a><span class=
+'pplr8t-x-x-60'>5</span></span> 
+<span class='label'><a id='x1-7010r6'></a><span class=
+'pplr8t-x-x-60'>6</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>while</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>(i &gt; 0) {</span> 
+</span><span class='label'><a id='x1-7011r7'></a><span class=
+'pplr8t-x-x-60'>7</span></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cout</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt; i &lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'> <span class='pcrr8t-'>"</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-7012r8'></a><span class=
+'pplr8t-x-x-60'>8</span></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>i</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>--;</span></span> 
+<span class='label'><a id='x1-7013r9'></a><span class=
+'pplr8t-x-x-60'>9</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>}</span></span> 
+<span class='label'><a id='x1-7014r10'></a><span class=
+'pplr8t-x-x-60'>10</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cout</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt; std::endl;</span> 
+</span><span class='label'><a id='x1-7015r11'></a><span class=
+'pplr8t-x-x-60'>11</span></span> 
+<span class='label'><a id='x1-7016r12'></a><span class=
+'pplr8t-x-x-60'>12</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>return</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>0;</span> 
+</span><span class='label'><a id='x1-7017r13'></a><span class=
+'pplr8t-x-x-60'>13</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>}</span></span>
+</pre>
+  </div>
+</div><!-- l. 404 -->
+
+<p class='noindent'>The code block inside the while loop will iterate
+until <span class='mathjax-inline'>\(i\)</span> reaches <span class=
+'mathjax-inline'>\(1\)</span>.</p>
+
+<div class='tcolorbox outputboxstyle' id='tcolobox-20'>
+  <div class='tcolorbox-title'>
+    <!-- l. 411 -->
+
+    <p class='noindent'>Output&nbsp;0.1.14</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 408 -->
+    <pre class='lstlisting' id='listing-20'>
+<span class='label'><a id='x1-7020r1'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>10</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>9 8 7 6 5 4 3 2 1</span></span>
+</pre>
+  </div>
+</div><!-- l. 413 -->
+
+<p class='noindent'>Unlike the first example, the second example uses
+boolean for the condition.</p>
+
+<div class='tcolorbox cppboxstyle' id='tcolobox-21'>
+  <a id='x1-7043x'></a><a id='x1-7043xdoc'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 440 -->
+
+    <p class='noindent'>Code&nbsp;0.1.15:&nbsp;CS0201.26051-08</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 417 -->
+    <pre class='lstlisting' id='listing-21'>
+<span class='label'><a id='x1-7022r1'></a><span class=
+'pplr8t-x-x-60'>1</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>#</span></span><span style=
+'color:#004099'><span class=
+'pcrb8t-'>include</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>&lt;iostream&gt;</span> 
+</span><span class='label'><a id='x1-7023r2'></a><span class=
+'pplr8t-x-x-60'>2</span></span> 
+<span class='label'><a id='x1-7024r3'></a><span class=
+'pplr8t-x-x-60'>3</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>int</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>main() {</span> 
+</span><span class='label'><a id='x1-7025r4'></a><span class=
+'pplr8t-x-x-60'>4</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>int</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>birthdayYear = 9999;</span> 
+</span><span class='label'><a id='x1-7026r5'></a><span class=
+'pplr8t-x-x-60'>5</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>int</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>input;</span> 
+</span><span class='label'><a id='x1-7027r6'></a><span class=
+'pplr8t-x-x-60'>6</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>bool</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>wrong =</span> </span><span style=
+'color:#004099'><span class='pcrb8t-'>true</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-7028r7'></a><span class=
+'pplr8t-x-x-60'>7</span></span> 
+<span class='label'><a id='x1-7029r8'></a><span class=
+'pplr8t-x-x-60'>8</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>while</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>(wrong) {</span> 
+</span><span class='label'><a id='x1-7030r9'></a><span class=
+'pplr8t-x-x-60'>9</span></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cout</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>Guess</span></span><span style=
+'color:#A31515'> <span class=
+'pcrr8t-'>which year I was born in!\n"</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-7031r10'></a><span class=
+'pplr8t-x-x-60'>10</span></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cin</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&gt;&gt; input;</span> 
+</span><span class='label'><a id='x1-7032r11'></a><span class=
+'pplr8t-x-x-60'>11</span></span> 
+<span class='label'><a id='x1-7033r12'></a><span class=
+'pplr8t-x-x-60'>12</span></span><span class=
+'pcrr8t-'>        </span><span style='color:#004099'><span class=
+'pcrb8t-'>if</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>(input == birthdayYear) {</span> 
+</span><span class='label'><a id='x1-7034r13'></a><span class=
+'pplr8t-x-x-60'>13</span></span><span class=
+'pcrr8t-'>            </span><span style='color:#000000'><span class=
+'pcrr8t-'>wrong</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>=</span> </span><span style=
+'color:#004099'><span class='pcrb8t-'>false</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-7035r14'></a><span class=
+'pplr8t-x-x-60'>14</span></span><span class=
+'pcrr8t-'>            </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cout</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class=
+'pcrr8t-'>Correct</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>!\</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>n</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-7036r15'></a><span class=
+'pplr8t-x-x-60'>15</span></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>}</span></span><span style=
+'color:#000000'> </span><span style='color:#004099'><span class=
+'pcrb8t-'>else</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>{</span> 
+</span><span class='label'><a id='x1-7037r16'></a><span class=
+'pplr8t-x-x-60'>16</span></span><span class=
+'pcrr8t-'>            </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cout</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>:(\</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>n</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-7038r17'></a><span class=
+'pplr8t-x-x-60'>17</span></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>}</span></span> 
+<span class='label'><a id='x1-7039r18'></a><span class=
+'pplr8t-x-x-60'>18</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>}</span></span> 
+<span class='label'><a id='x1-7040r19'></a><span class=
+'pplr8t-x-x-60'>19</span></span> 
+<span class='label'><a id='x1-7041r20'></a><span class=
+'pplr8t-x-x-60'>20</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>return</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>0;</span> 
+</span><span class='label'><a id='x1-7042r21'></a><span class=
+'pplr8t-x-x-60'>21</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>}</span></span>
+</pre>
+  </div>
+</div><!-- l. 442 -->
+
+<p class='noindent'>This program will ask the user the same question
+with feedback until the boolean value <span class=
+'obeylines-h'><code class='verb'>wrong</code></span> is false, or the
+answer is correct. Notice that it is important to put <span class=
+'obeylines-h'><code class=
+'verb'>std::cout&nbsp;&lt;&lt;&nbsp;":(\n";</code></span> in
+<span class='obeylines-h'><code class='verb'>else</code></span> to
+prevent it showing when the answer is correct.</p>
+
+<div class='tcolorbox outputboxstyle' id='tcolobox-22'>
+  <div class='tcolorbox-title'>
+    <!-- l. 460 -->
+
+    <p class='noindent'>Output&nbsp;0.1.16</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 449 -->
+    <pre class='lstlisting' id='listing-22'>
+<span class='label'><a id='x1-7045r1'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>Guess</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>which year I was born in!</span> 
+</span><span class='label'><a id='x1-7046r2'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>1234</span></span> 
+<span class='label'><a id='x1-7047r3'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>:(</span></span> 
+<span class='label'><a id='x1-7048r4'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>Guess</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>which year I was born in!</span> 
+</span><span class='label'><a id='x1-7049r5'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>5678</span></span> 
+<span class='label'><a id='x1-7050r6'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>:(</span></span> 
+<span class='label'><a id='x1-7051r7'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>Guess</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>which year I was born in!</span> 
+</span><span class='label'><a id='x1-7052r8'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>9999</span></span> 
+<span class='label'><a id='x1-7053r9'></a></span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>Correct</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>!</span></span>
+</pre>
+  </div>
+</div><!-- l. 462 -->
+
+<p class='noindent'>Lastly, below is an introduction to another
+loop.</p>
+
+<h5 class='subsubsectionHead' id='dowhile-loops'><a id=
+'x1-8000'></a>Do/While Loops</h5><!-- l. 466 -->
+
+<p class='noindent'>Do/While loop is a variation of while loop that
+always run the first time [<span class=
+'pplb8t-x-x-109'>CS02-4</span>]. Unlike the traditional while loop
+that always check the condition first before running, do/while loop
+run the first time, then check if next run is eligible even if the
+first pass does not meet the condition. Below is the general
+structure of do/while loops.</p>
+
+<div class='tcolorbox basicboxstyle' id='tcolobox-23'>
+  <div class='tcolorbox-title'></div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 474 -->
+    <pre class='lstlisting' id='listing-23'>
+<span class='label'><a id='x1-8001r1'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>do</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>{</span> 
+</span><span class='label'><a id='x1-8002r2'></a></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>block</span></span> 
+<span class='label'><a id='x1-8003r3'></a></span><span style=
+'color:#000000'><span class='pcrr8t-'>}</span></span><span style=
+'color:#000000'> <span class=
+'pcrr8t-'>while (condition);</span></span>
+</pre>
+  </div>
+</div><!-- l. 481 -->
+
+<p class='noindent'>Consider the following example.</p>
+
+<div class='tcolorbox cppboxstyle' id='tcolobox-24'>
+  <a id='x1-8016x'></a><a id='x1-8016xdoc'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 497 -->
+
+    <p class='noindent'>Code&nbsp;0.1.17:&nbsp;CS0201.26051-09</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 484 -->
+    <pre class='lstlisting' id='listing-24'>
+<span class='label'><a id='x1-8005r1'></a><span class=
+'pplr8t-x-x-60'>1</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>#</span></span><span style=
+'color:#004099'><span class=
+'pcrb8t-'>include</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>&lt;iostream&gt;</span> 
+</span><span class='label'><a id='x1-8006r2'></a><span class=
+'pplr8t-x-x-60'>2</span></span> 
+<span class='label'><a id='x1-8007r3'></a><span class=
+'pplr8t-x-x-60'>3</span></span><span style=
+'color:#004099'><span class='pcrb8t-'>int</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>main() {</span> 
+</span><span class='label'><a id='x1-8008r4'></a><span class=
+'pplr8t-x-x-60'>4</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>bool</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>correct =</span> </span><span style=
+'color:#004099'><span class='pcrb8t-'>false</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-8009r5'></a><span class=
+'pplr8t-x-x-60'>5</span></span> 
+<span class='label'><a id='x1-8010r6'></a><span class=
+'pplr8t-x-x-60'>6</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>do</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>{</span> 
+</span><span class='label'><a id='x1-8011r7'></a><span class=
+'pplr8t-x-x-60'>7</span></span><span class=
+'pcrr8t-'>        </span><span style='color:#000000'><span class=
+'pcrr8t-'>std</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>::</span></span><span style='color:#000000'><span class=
+'pcrr8t-'>cout</span></span><span style='color:#000000'> <span class=
+'pcrr8t-'>&lt;&lt;</span> </span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#A31515'><span class=
+'pcrr8t-'>Correct</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>!\</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>n</span></span><span style=
+'color:#A31515'><span class='pcrr8t-'>"</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>;</span></span> 
+<span class='label'><a id='x1-8012r8'></a><span class=
+'pplr8t-x-x-60'>8</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#000000'><span class=
+'pcrr8t-'>}</span></span><span style=
+'color:#000000'> </span><span style='color:#004099'><span class=
+'pcrb8t-'>while</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>(correct);</span> 
+</span><span class='label'><a id='x1-8013r9'></a><span class=
+'pplr8t-x-x-60'>9</span></span> 
+<span class='label'><a id='x1-8014r10'></a><span class=
+'pplr8t-x-x-60'>10</span></span><span class=
+'pcrr8t-'>    </span><span style='color:#004099'><span class=
+'pcrb8t-'>return</span></span><span style=
+'color:#000000'> <span class='pcrr8t-'>0;</span> 
+</span><span class='label'><a id='x1-8015r11'></a><span class=
+'pplr8t-x-x-60'>11</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>}</span></span>
+</pre>
+  </div>
+</div><!-- l. 499 -->
+
+<p class='noindent'>With the traditional while loop, no outputs are
+expected. However, do/while loop will give a different result.</p>
+
+<div class='tcolorbox outputboxstyle' id='tcolobox-25'>
+  <div class='tcolorbox-title'>
+    <!-- l. 506 -->
+
+    <p class='noindent'>Output&nbsp;0.1.18</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 503 -->
+    <pre class='lstlisting' id='listing-25'>
+<span class='label'><a id='x1-8018r1'></a></span><span style=
+'color:#000000'><span class=
+'pcrr8t-'>Correct</span></span><span style=
+'color:#000000'><span class='pcrr8t-'>!</span></span>
+</pre>
+  </div>
+</div><!-- l. 508 -->
+
+<p class='noindent'>Notice that even if the condition is false for
+the first pass, the block still runs anyhow.</p><!-- l. 511 -->
+
+<p class='noindent'>This is it for the basics of conditionals and
+loops! Before discussing fundamental algorithms, let’s discuss more
+essential topics on functions and references.</p>

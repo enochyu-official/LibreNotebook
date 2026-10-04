@@ -1,0 +1,200 @@
+<!-- l. 5 -->
+
+<p class='noindent'></p>
+
+<h2 class='chapterHead' id='matrices'><span class=
+'titlemark'>Note&nbsp;1</span><br>
+<a id='x1-10001'></a>Matrices</h2><!-- l. 7 -->
+
+<p class='noindent'>Matrices are one of the fundamental components
+that build linear algebra. This note discusses the fundamental
+concepts and properties of matrices.</p>
+
+<h3 class='sectionHead' id='basic-terms-and-notations'><span class=
+'titlemark'>1.1</span> <a id='x1-20001.1'></a>Basic Terms and
+Notations</h3><!-- l. 13 -->
+
+<p class='noindent'>As always, let’s get started with the
+definition.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-1'>
+  <div class='tcolorbox-title'>
+    <!-- l. 20 -->
+
+    <p class='noindent'>Definition&nbsp;1.1.1</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 16 -->
+
+    <p class='noindent'>A <span class='pplb8t-x-x-109'>matrix</span>
+    is a 2-dimensional array composed of entries called <span class=
+    'pplb8t-x-x-109'>elements</span>. A matrix is said to have
+    <span class='pplb8t-x-x-109'>order</span> “<span class=
+    'mathjax-inline'>\(m\)</span> by <span class=
+    'mathjax-inline'>\(n\)</span>” and written as <span class=
+    'mathjax-inline'>\(m \times n\)</span> if there are <span class=
+    'mathjax-inline'>\(m\)</span> rows and <span class=
+    'mathjax-inline'>\(n\)</span> columns.</p>
+  </div>
+</div><!-- l. 22 -->
+
+<p class='noindent'>Technically, the elements of a matrix can be
+anything including functions. However, the majority of the matrices
+discussed in linear algebra will have numeric elements. Let’s take a
+look at some examples. <span class='mathjax-block'>\[ A= \begin
+{bNiceMatrix}[last-row,last-col] 1 &amp; 2 &amp; 3 &amp; 4 &amp;
+\Vbrace [horizontal-label]{3}{3 \text { rows}} \\ -1 &amp; -2 &amp;
+-3 &amp; -4 \\ 0 &amp; -1 &amp; 0 &amp; 1 \\ \Hbrace {4}{4 \text {
+columns}} &amp; \end {bNiceMatrix} \qquad \quad ,\qquad B = \begin
+{bNiceMatrix}[last-row,last-col] \pi &amp; \Vbrace
+[horizontal-label]{4}{4 \text { rows}} \\ e \\ 0 \\ 1 \\ \Hbrace
+{1}{1 \text { column}} \end {bNiceMatrix} \]</span> Here, matrix
+<span class='mathjax-inline'>\(A\)</span> has order <span class=
+'mathjax-inline'>\(3 \times 4\)</span> and matrix <span class=
+'mathjax-inline'>\(B\)</span> has order <span class=
+'mathjax-inline'>\(4 \times 1\)</span>. The form of a matrix that has
+order <span class='mathjax-inline'>\(m \times n\)</span> can be
+generalized as the following. <span class='mathjax-block'>\[ A=
+\begin {bNiceMatrix}[last-row,last-col] a_{1,1} &amp; a_{1,2} &amp;
+a_{1,3} &amp; \cdots &amp; a_{1,n} &amp; \Vbrace
+[horizontal-label]{5}{n \text { rows}} \\ a_{2,1} &amp; a_{2,2} &amp;
+a_{2,3} &amp; \cdots &amp; a_{2,n} \\ a_{3,1} &amp; a_{3,2} &amp;
+a_{3,3} &amp; \cdots &amp; a_{3,n} \\ \vdots &amp; \vdots &amp;
+\vdots &amp; \ddots &amp; \vdots \\ a_{m,1} &amp; a_{m,2} &amp;
+a_{m,3} &amp; \cdots &amp; a_{m,n} \\ \Hbrace {5}{m \text { columns}}
+&amp; \end {bNiceMatrix} \]</span> It is also worth noting that
+matrix <span class='mathjax-inline'>\(A\)</span> is often represented
+as <span class='mathjax-inline'>\([a_{ij}]\)</span> and the elements
+as <span class='mathjax-inline'>\(a_{ij}\)</span> like <span class=
+'mathjax-inline'>\(a_{12}\)</span> for <span class=
+'mathjax-inline'>\(a_{1, 2}\)</span>.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-2'>
+  <div class='tcolorbox-title'>
+    <!-- l. 67 -->
+
+    <p class='noindent'>Definition&nbsp;1.1.2</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 65 -->
+
+    <p class='noindent'>An element <span class=
+    'mathjax-inline'>\(a_{ij}\)</span> is said to have row index of
+    <span class='mathjax-inline'>\(i\)</span> and column index of
+    <span class='mathjax-inline'>\(j\)</span>.</p>
+  </div>
+</div><!-- l. 69 -->
+
+<p class='noindent'>As you probably have guessed, we assign special
+names to some matrices depending on <span class=
+'mathjax-inline'>\(m\)</span> and <span class=
+'mathjax-inline'>\(n\)</span>.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-3'>
+  <div class='tcolorbox-title'>
+    <!-- l. 78 -->
+
+    <p class='noindent'>Definition&nbsp;1.1.3</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 73 -->
+
+    <p class='noindent'><span class='pplb8t-x-x-109'>Square
+    matrices</span> are matrices with an equal number of rows and
+    columns. The elements with the same row and column index are
+    called <span class='pplb8t-x-x-109'>diagonal elements</span> of
+    the matrix. The collection of such elements is called
+    <span class='pplb8t-x-x-109'>main diagonal</span>, or
+    <span class='pplb8t-x-x-109'>principal diagonal</span>.</p>
+  </div>
+</div><!-- l. 80 -->
+
+<p class='noindent'>What if either <span class=
+'mathjax-inline'>\(m\)</span> or <span class=
+'mathjax-inline'>\(n\)</span> is equal to <span class=
+'mathjax-inline'>\(1\)</span>? Yes, we do have special terms for
+them.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-4'>
+  <div class='tcolorbox-title'>
+    <!-- l. 86 -->
+
+    <p class='noindent'>Definition&nbsp;1.1.4</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 84 -->
+
+    <p class='noindent'><span class='pplb8t-x-x-109'>Row
+    matrices</span> are matrices that are composed of only one row. A
+    <span class='pplb8t-x-x-109'>column matrix</span> is an array
+    composed of one column.</p>
+  </div>
+</div><!-- l. 88 -->
+
+<p class='noindent'>If you have a machine learning background, you
+likely have heard of the term “high dimensional arrays or vectors.”
+Here, the term “dimension” works the same way.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-5'>
+  <div class='tcolorbox-title'>
+    <!-- l. 97 -->
+
+    <p class='noindent'>Definition&nbsp;1.1.5</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 93 -->
+
+    <p class='noindent'>The <span class=
+    'pplb8t-x-x-109'>dimension</span> of a row or column matrix is
+    the number of <span class='pplb8t-x-x-109'>components</span>, or
+    the elements. An <span class='mathjax-inline'>\(\mathbf
+    {n}\)</span><span class='pplb8t-x-x-109'>-tuple</span> is an
+    <span class='mathjax-inline'>\(n\)</span>-dimensional row or
+    column vector.</p>
+  </div>
+</div><!-- l. 99 -->
+
+<p class='noindent'>Let’s take a look at an example from the previous
+matrix <span class='mathjax-inline'>\(B\)</span> reproduced
+below.</p>
+
+<div class='minipage'>
+  <div class='mathjax-block'>
+    \[ B = \begin {bNiceMatrix}[last-row,last-col] \pi &amp; \Vbrace
+    [horizontal-label]{4}{4 \text { rows}} \\ e \\ 0 \\ 1 \\ \Hbrace
+    {1}{1 \text { column}} \end {bNiceMatrix} \]
+  </div>
+</div>
+
+<div class='minipage'>
+  Here, matrix <span class='mathjax-inline'>\(B\)</span> is a
+  4-dimensional matrix with four components. This column matrix can
+  also be called as <span class='mathjax-inline'>\(4\)</span>-tuple.
+</div><!-- l. 120 -->
+
+<p class='noindent'>We could also define matrices by their
+elements.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-6'>
+  <div class='tcolorbox-title'>
+    <!-- l. 124 -->
+
+    <p class='noindent'>Definition&nbsp;1.1.6</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 123 -->
+
+    <p class='noindent'>A <span class='pplb8t-x-x-109'>zero
+    matrix</span> is a matrix with all its elements as <span class=
+    'mathjax-inline'>\(0\)</span>.</p>
+  </div>
+</div><!-- l. 126 -->
+
+<p class='noindent'>With the fundamental terms in mind, let’s discuss
+the properties of matrices.</p>

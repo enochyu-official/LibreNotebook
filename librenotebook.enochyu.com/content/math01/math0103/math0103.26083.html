@@ -1,0 +1,76 @@
+<h3 class='sectionHead' id='points-and-circles-of-a-triangle'><span class='titlemark'>0.1    </span>   <a id='x1-10000.1'></a>Points and Circles of a Triangle</h3>
+<!-- l. 7 --><p class='noindent'>There are so many important points circles and circles in triangles. Knowing
+relationship between them can significantly help in solving many problems.
+Before we get into the first content, let’s clear up some symbols. To be honest,
+I just don’t think it would be efficient to define each points, so I will just
+mention them here. We will be using <span class='mathjax-inline'>\(O\)</span> for circumcenter, <span class='mathjax-inline'>\(I\)</span> for incenter, <span class='mathjax-inline'>\(H\)</span>
+for orthocenter, <span class='mathjax-inline'>\(G\)</span> for centroid, and <span class='mathjax-inline'>\(I_A, I_B, I_C\)</span> for excenters unless otherwise
+stated. With that in mind, let’s get started with Euler line and related
+theorem!
+
+</p>
+<h4 class='subsectionHead' id='servoirs-theorem-and-euler-line'><span class='titlemark'>0.1.1    </span>   <a id='x1-20000.1.1'></a>Servoir’s Theorem and Euler Line</h4>
+<!-- l. 19 --><p class='noindent'>As a warm-up, let’s start with Servoir’s Theorem and Euler Line. Fun fact,
+when you search Servoir’s Theorem online, you won’t probably get the
+theorem that we will discuss. I am not sure if we have an English name for
+this theorem or if it is even named, but this is actually very useful and
+Koreans call this Servoir’s Theorem.
+</p>
+<div class='tcolorbox theostyle' id='tcolobox-1'>    <a id='x1-2002x0.1.1'></a> 
+<div class='tcolorbox-title'>
+<!-- l. 28 --><p class='noindent'>Theorem 0.1.1: Servoir’s Theorem</p></div> 
+<div class='tcolorbox-content'><!-- l. 27 --><p class='noindent'>For triangle <span class='mathjax-inline'>\(ABC\)</span> and midpoint <span class='mathjax-inline'>\(M\)</span> on side <span class='mathjax-inline'>\(BC\)</span>, <span class='mathjax-inline'>\(AH = 2OM\)</span>. </p> 
+</div> 
+</div><div class='mdframed' id='mdframed-1'>
+<!-- l. 30 --><p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span>
+</p><!-- l. 30 --><p class='noindent'>First, consider the following diagram.
+</p>
+                                                                 
+                                                                 
+<figure class='figure'> 
+
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+<!-- l. 34 --><p class='noindent'><img alt='[Picture]' src='/svg/MATH0103.260830x.svg' />
+                                                                 
+                                                                 
+</p>
+</figure>
+<!-- l. 83 --><p class='noindent'>From the diagram above, it is evident that lines <span class='mathjax-inline'>\(\overline {AH}\)</span> and <span class='mathjax-inline'>\(\overline {DC}\)</span> are parallel. Similarly, <span class='mathjax-inline'>\(\overline {CH}\)</span>
+and <span class='mathjax-inline'>\(\overline {AD}\)</span> are parallel. Therefore, quadrilateral <span class='mathjax-inline'>\(AHCD\)</span> is a parallelogram and
+<span class='mathjax-inline'>\(AH = CD = 2OM\)</span>.</p>
+</div>
+
+<!-- l. 89 --><p class='noindent'>Continuing from the diagram above, we could also consider <span class='mathjax-inline'>\(G\)</span> of <span class='mathjax-inline'>\(\triangle {ABC}\)</span>.
+</p>
+<figure class='figure'> 
+
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+<!-- l. 94 --><p class='noindent'><img alt='[Picture]' src='/svg/MATH0103.260831x.svg' />
+                                                                 
+                                                                 
+</p>
+</figure>
+<!-- l. 149 --><p class='noindent'>Consider triangles <span class='mathjax-inline'>\(AHG\)</span> and <span class='mathjax-inline'>\(MOG\)</span>. Notice that <span class='mathjax-inline'>\(\angle (HAG) = \angle (OMG)\)</span> since <span class='mathjax-inline'>\(\overline {AH} \parallel \overline {OM}\)</span>. Moreover by Servoir’s Theorem, <span class='mathjax-inline'>\(AH : OM = 2 : 1\)</span>
+holds and <span class='mathjax-inline'>\(AG : GM = 2 : 1\)</span> is true by definition. Therefore, <span class='mathjax-inline'>\(\triangle {AHG}\)</span> and <span class='mathjax-inline'>\(\triangle {MOG}\)</span> are similar and <span class='mathjax-inline'>\(\angle (AGH) = \angle (MGO)\)</span>.
+In other words, <span class='mathjax-inline'>\(H, G, O\)</span> are collinear, and we have a special name for the
+line!
+</p>
+<div class='tcolorbox defstyle' id='tcolobox-2'>     
+<div class='tcolorbox-title'>
+<!-- l. 160 --><p class='noindent'>Definition 0.1.2</p></div> 
+<div class='tcolorbox-content'><!-- l. 158 --><p class='noindent'>The <span class='pplb8t-x-x-109'>Euler Line </span>of a triangle <span class='mathjax-inline'>\(ABC\)</span> is the line that contains <span class='mathjax-inline'>\(H, G, O\)</span>. </p> 
+</div> 
+</div>
+<!-- l. 162 --><p class='noindent'>As you can see, Euler line exists for all triangle except equilateral
+triangle. The fact that <span class='mathjax-inline'>\(H, G, O\)</span> is collinear will come very handy when solving
+problems!
+
+</p>
+<h4 class='subsectionHead' id='ninepoint-circle'><span class='titlemark'>0.1.2    </span>   <a id='x1-30000.1.2'></a>Nine-Point Circle</h4>
+ 

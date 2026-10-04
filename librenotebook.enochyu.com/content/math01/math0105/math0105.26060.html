@@ -1,0 +1,248 @@
+<h3 class='sectionHead' id='roots-of-unity'><span class=
+'titlemark'>0.1</span> <a id='x1-10000.1'></a>Roots of Unity</h3>
+
+<div class='tcolorbox theostyle' id='tcolobox-1'>
+  <a id='x1-1002x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 14 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.1:&nbsp;De Moivre’s
+    Theorem</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 9 -->
+
+    <p class='noindent'>For any real <span class=
+    'mathjax-inline'>\(x\)</span> and integer <span class=
+    'mathjax-inline'>\(n\)</span>, the following equation holds.
+    <span class='mathjax-block'>\[ (\cos \theta + i\sin \theta )^n =
+    \cos n\theta + i\sin n\theta \]</span></p>
+  </div>
+</div>
+
+<div class='tcolorbox probstyle' id='tcolobox-2'>
+  <a id='x1-1004x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 26 -->
+
+    <p class='noindent'>Exercise&nbsp;0.1.2:&nbsp;1976 USAMO Problem
+    5 (<span class='mathjax-inline'>\(\bullet \bullet \circ
+    \)</span>)</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 19 -->
+
+    <p class='noindent'>For polynomials <span class=
+    'mathjax-inline'>\(P(x)\)</span>, <span class=
+    'mathjax-inline'>\(Q(x)\)</span>, <span class=
+    'mathjax-inline'>\(R(x)\)</span>, and <span class=
+    'mathjax-inline'>\(S(x)\)</span> that satisfy the following
+    equation, <span class='mathjax-block'>\[ P(x^5) + xQ(x^5) + x^2
+    R(x^5) = (x^4 + x^3 + x^2 + x + 1) S(x), \]</span> show that
+    <span class='mathjax-inline'>\(x - 1\)</span> is a factor of
+    <span class='mathjax-inline'>\(P(x)\)</span>.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-1'>
+  <!-- l. 28 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 28 -->
+
+  <p class='noindent'>Looking at the equation, we can see
+  <span class='mathjax-inline'>\(x^4 + x^3 + x^2 + x + 1\)</span> and
+  <span class='mathjax-inline'>\(x^5\)</span>. This should remind the
+  equation <span class='mathjax-inline'>\(x^5 - 1 = (x - 1) (x^4 +
+  x^3 + x^2 + x + 1)\)</span>. In other words, we should be reminded
+  of the fifth roots of unity where we define <span class=
+  'mathjax-inline'>\(\omega _5 = 1\)</span> and <span class=
+  'mathjax-inline'>\(\omega _1 + \omega _2 + \cdots + \omega _5 =
+  0\)</span>.</p><!-- l. 34 -->
+
+  <p class='noindent'>The next thing that we want to try is
+  substituting <span class='mathjax-inline'>\(\omega _1, \cdots ,
+  \omega _4\)</span> since we know that the equation always hold.
+  <span class='mathjax-env mathjax-align*'>\begin{align*} P(1) +
+  \omega _1 Q(1) + \omega _1^2 R(1) &amp;= 0 \\ P(1) + \omega _2 Q(1)
+  + \omega _2^2 R(1) &amp;= 0 \\ P(1) + \omega _3 Q(1) + \omega _3^2
+  R(1) &amp;= 0 \\ P(1) + \omega _4 Q(1) + \omega _4^2 R(1) &amp;= 0
+  \end{align*}</span></p><!-- l. 42 -->
+
+  <p class='noindent'>Now we see that only <span class=
+  'mathjax-inline'>\(P(1)\)</span> has equal coefficient across all
+  four equations. We also have defined <span class=
+  'mathjax-inline'>\(\omega _1, \cdots \omega _5\)</span> to be the
+  fifth root of unity. Meaning, if we multiply the equations
+  appropriately, we would be able to cancel out <span class=
+  'mathjax-inline'>\(Q(1)\)</span> and <span class=
+  'mathjax-inline'>\(R(1)\)</span>. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} \omega _1 P(1) + \omega
+  _1^2 Q(1) + \omega _1^3 R(1) &amp;= 0 \\ \omega _2 P(1) + \omega
+  _2^2 Q(1) + \omega _2^3 R(1) &amp;= 0 \\ \omega _3 P(1) + \omega
+  _3^2 Q(1) + \omega _3^3 R(1) &amp;= 0 \\ \omega _4 P(1) + \omega
+  _4^2 Q(1) + \omega _4^3 R(1) &amp;= 0 \end{align*}</span></p>
+  <!-- l. 52 -->
+
+  <p class='noindent'>Subtracting the four equations from the
+  original equations, we obtain the following equations. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} &amp;\qquad \quad P(1)
+  + \omega _1 Q(1) + \omega _1^2 R(1) \\ &amp;-\left ( \omega _1 P(1)
+  + \omega _1^2 Q(1) + \omega _1^3 R(1) \right ) \\ &amp;+ \quad \ \
+  \ P(1) + \omega _2 Q(1) + \omega _2^2 R(1) \\ &amp;-\left ( \omega
+  _2 P(1) + \omega _2^2 Q(1) + \omega _2^3 R(1) \right ) \\ &amp;+
+  \quad \ \ \ P(1) + \omega _3 Q(1) + \omega _3^2 R(1) \\ &amp;-\left
+  ( \omega _3 P(1) + \omega _3^2 Q(1) + \omega _3^3 R(1) \right ) \\
+  &amp;+ \quad \ \ \ P(1) + \omega _4 Q(1) + \omega _4^2 R(1) \\
+  &amp;-\left ( \omega _4 P(1) + \omega _4^2 Q(1) + \omega _4^3 R(1)
+  \right ) = 0 \end{align*}</span></p><!-- l. 72 -->
+
+  <p class='noindent'>Solving the equation, we get <span class=
+  'mathjax-inline'>\(5 P(1) = 0\)</span> and <span class=
+  'mathjax-inline'>\(x - 1\)</span> is a factor of <span class=
+  'mathjax-inline'>\(P(x)\)</span>.</p>
+</div>
+
+<h4 class='subsectionHead' id='roots-of-unity-filter'><span class=
+'titlemark'>0.1.1</span> <a id='x1-20000.1.1'></a>Roots of Unity
+Filter</h4>
+
+<div class='mathjax-block'>
+  \[ a_0 + a_n + a_{2n} + \cdots = \frac {f(\omega ) + f\left (\omega
+  ^2\right ) + \cdots + f\left (\omega ^n\right ) }{n} \]
+</div>
+
+<div class='tcolorbox probstyle' id='tcolobox-3'>
+  <div class='tcolorbox-title'>
+    <!-- l. 97 -->
+
+    <p class='noindent'>Exercise&nbsp;0.1.3</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 91 -->
+
+    <p class='noindent'>In Enoch’s dreamland, there are <span class=
+    'mathjax-inline'>\(999\)</span> mysterious boxes each labeled
+    uniquely from <span class='mathjax-inline'>\(1\)</span> to
+    <span class='mathjax-inline'>\(999\)</span>. If Enoch chooses the
+    box(es) randomly and the sum of the number of chosen box(es) is
+    divisible by <span class='mathjax-inline'>\(3\)</span>, then he
+    earns a dollar from the owner of the boxes. However, he is not
+    granted money if he chooses the same combination next time. What
+    is the maximum amount of money Enoch can earn?</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-2'>
+  <!-- l. 99 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 99 -->
+
+  <p class='noindent'>This problem is basically asking for the number
+  of ways to choose numbers randomly from <span class=
+  'mathjax-inline'>\(1\)</span> through <span class=
+  'mathjax-inline'>\(999\)</span> such that their sum is divisible by
+  <span class='mathjax-inline'>\(3\)</span>. In other words, how many
+  subsets of the set <span class='mathjax-inline'>\(\{1, 2, \ldots ,
+  999\}\)</span> have the sum of their elements divisible by
+  three?</p><!-- l. 105 -->
+
+  <p class='noindent'>When a large sequence appears, it is reasonable
+  to generate functions. For the function that we are generating, we
+  will associate the subsets with the its coefficients. This allows
+  an algebraic approach towards the combinatorial problem.</p>
+  <!-- l. 110 -->
+
+  <p class='noindent'>Consider the following function. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} f(x) &amp;= \prod
+  _{i=1}^{999} \left ( 1 + x^i \right ) = (1 + x) \left ( 1 + x^2
+  \right ) \left ( 1 + x^3 \right ) \cdots \left ( 1 + x^{999} \right
+  ) \end{align*}</span></p><!-- l. 117 -->
+
+  <p class='noindent'>Notice that each number in the subset
+  corresponds to the exponents of <span class=
+  'mathjax-inline'>\(x\)</span>. Consider the following samples to
+  see how they are related. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} &amp;\text {Exponent:
+  $3$} \Rightarrow \text {Coefficient: $2$} \\ &amp;\left .\begin
+  {aligned} 3 &amp;= 3 &amp;&amp;\Rightarrow \{ 3 \} \\ 3 &amp;= 1 +
+  2 &amp;&amp;\Rightarrow \{ 1, 2 \} \end {aligned}\right \} \quad
+  \text {2 Cases} \end{align*}</span></p>
+
+  <div class='mathjax-env mathjax-align*'>
+    \begin{align*} &amp;\text {Exponent: $6$} \Rightarrow \text
+    {Coefficient: $4$} \\ &amp;\left .\begin {aligned} 6 &amp;= 6
+    &amp;&amp;\Rightarrow \{ 6 \} \\ 6 &amp;= 1 + 5
+    &amp;&amp;\Rightarrow \{ 1, 5 \} \\ 6 &amp;= 2 + 4
+    &amp;&amp;\Rightarrow \{ 2, 4 \} \\ 6 &amp;= 1 + 2 + 3
+    &amp;&amp;\Rightarrow \{ 1, 2, 3 \} \\ \end {aligned}\right \}
+    \quad \text {4 Cases} \end{align*}
+  </div><!-- l. 137 -->
+
+  <p class='noindent'>The process of investigating the subsets with
+  sum <span class='mathjax-inline'>\(n\)</span> perfectly mirrors the
+  behavior of terms of <span class='mathjax-inline'>\(x^n\)</span>
+  and its coefficients. Therefore, the sum of coefficients of
+  <span class='mathjax-inline'>\(x^{3k}\)</span> where <span class=
+  'mathjax-inline'>\(k \in \mathbb {N}_0\)</span> is the number of
+  subsets whose sum of the elements are divisible by <span class=
+  'mathjax-inline'>\(3\)</span>.</p><!-- l. 143 -->
+
+  <p class='noindent'>Continuing, we can rewrite the function
+  <span class='mathjax-inline'>\(f\)</span>. <span class=
+  'mathjax-block'>\[ f(x) = a_0 + a_1x^1 + a_2x^2 + \cdots +
+  a_{499500}x^{499500} \]</span> Using the third roots of unity with
+  <span class='mathjax-inline'>\(\omega _1, \omega _2, \omega
+  _3\)</span>, <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} f(\omega _1) &amp;= a_0
+  + a_1\omega _1 + \cdots + a_{499500}\omega _1^{499500} \\ f(\omega
+  _2) &amp;= a_0 + a_1\omega _2 + \cdots + a_{499500}\omega
+  _2^{499500} \\ f(\omega _3) &amp;= a_0 + a_1\omega _3 + \cdots +
+  a_{499500}\omega _3^{499500} \\[0.5em] f(\omega _1) + f(\omega _2)
+  + f(\omega _3) &amp;= 3a_0 + 3a_1(\omega _1 + \omega _2 + \omega
+  _3) + \cdots \\ &amp;\qquad + \, a_{499500} \left ( \omega
+  _1^{499500} + \omega _2^{499500} + \omega _3^{499500} \right ) \\
+  &amp;= 3a_0 + 3a_3 + 3a_6 + \cdots + 3a_{499500}
+  \end{align*}</span></p><!-- l. 163 -->
+
+  <p class='noindent'>holds since <span class='mathjax-inline'>\(e^{
+  i \frac {0\pi }{3} }, e^{ i \frac {2\pi }{3} }, e^{ i \frac {4\pi
+  }{3} }\)</span> will continue to repeat. Therefore, it suffices to
+  find the values of <span class='mathjax-inline'>\(\frac {f(\omega
+  _1) + f(\omega _2) + f(\omega _3)}{3}\)</span>. Using the period
+  again, we can obtain the following. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} \frac { f(\omega _1) +
+  f(\omega _2) + f(\omega _3) }{3} &amp;= \frac { \left ( \left ( 1 +
+  \omega _1 \right ) \left ( 1 + \omega _1^2 \right ) \left ( 1 +
+  \omega _1^3 \right ) \right )^{333}}{3} \\ &amp;\qquad +\, \frac {
+  \left ( \left ( 1 + \omega _2 \right ) \left ( 1 + \omega _2^2
+  \right ) \left ( 1 + \omega _2^3 \right ) \right )^{333}}{3} \\
+  &amp;\qquad +\, \frac { \left ( \left ( 1 + \omega _3 \right )
+  \left ( 1 + \omega _3^2 \right ) \left ( 1 + \omega _3^3 \right )
+  \right )^{333}}{3} \end{align*}</span></p><!-- l. 185 -->
+
+  <p class='noindent'>Without loss of generality, assume that
+  <span class='mathjax-inline'>\(\omega _1 = e^{ i \frac {0\pi }{3}
+  }\)</span>, <span class='mathjax-inline'>\(\omega _2 = e^{ i \frac
+  {2\pi }{3} }\)</span>, and <span class='mathjax-inline'>\(\omega _3
+  = e^{ i \frac {4\pi }{3} }\)</span>. Except the term <span class=
+  'mathjax-inline'>\(\left ( 1 + \omega _1 \right ) \left ( 1 +
+  \omega _1^2 \right ) \left ( 1 + \omega _1^3 \right )\)</span>, the
+  other expressions could be rewritten as <span class=
+  'mathjax-inline'>\((1 + \omega _1)(1 + \omega _2)(1 + \omega
+  _3)\)</span>. Moreover since <span class='mathjax-inline'>\(1 +
+  \omega _i\)</span> is the root of <span class='mathjax-inline'>\((x
+  - 1)^3 = 1\)</span>, <span class='mathjax-block'>\[ (1 + \omega
+  _1)(1 + \omega _2)(1 + \omega _3) = 2. \]</span> by Vieta’s
+  formula. Continuing, <span class='mathjax-block'>\[ \frac {f(\omega
+  _1) + f(\omega _2) + f(\omega _3)}{3} = \frac {2^{999} + 2^{333} +
+  2^{333}}{3} = \frac {2^{334} + 2^{999}}{3} \]</span> Therefore,
+  Enoch can earn <span class='mathjax-inline'>\(\frac {2^{334} +
+  2^{999}}{3}\)</span> dollars in total.</p>
+</div>

@@ -1,0 +1,233 @@
+<h2 class='chapterHead' id='n-diophantine-equations'><span class=
+'titlemark'>Note&nbsp;1</span><br>
+<a id='x1-10001'></a>[N] Diophantine Equations</h2><!-- l. 7 -->
+
+<p class='noindent'>Diophantine equation refers to equations with
+integer coefficient whose interests are integer solutions. For
+instance, equations like <span class='mathjax-inline'>\(ax + by =
+c\)</span>, <span class='mathjax-inline'>\(x^2 - ny^2 = 1\)</span>,
+and <span class='mathjax-inline'>\(x^n + y^n = z^n\)</span> whose
+interests lie only on integer solutions are Diophantine equations.
+Diophantine equation has very wide range in difficulties starting
+from finding Pythagorean triples to famous theorems like Fermat’s
+Last Theorem. In this note, we will discuss foundational topics on
+Diophantine equations to common techniques like proof by infinite
+descent and Vieta jumping.</p>
+
+<h3 class='sectionHead' id='primitive-pythagorean-triples'>
+<span class='titlemark'>1.1</span> <a id='x1-20001.1'></a>Primitive
+Pythagorean Triples</h3><!-- l. 19 -->
+
+<p class='noindent'>Problems on Pythagorean triples are probably one
+of the first problems that most of us solve in number theory, and yet
+remains as one of the dominant theorem. Maybe this is slightly biased
+towards Korean MO, but Pythagorean triples are very common and worth
+noting. As always, let’s start with foundational properties.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-1'>
+  <a id='x1-2002x1.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 33 -->
+
+    <p class='noindent'>Theorem&nbsp;1.1.1</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 27 -->
+
+    <p class='noindent'>For a primitive Pythagorean triple
+    <span class='mathjax-inline'>\((a, b, c)\)</span>, there exists a
+    pair of positive integers <span class='mathjax-inline'>\(m &gt;
+    n\)</span> such that the following equations hold. <span class=
+    'mathjax-block'>\[ \{ a, b \} = \{ m^2 - n^2, 2mn \}, \quad c =
+    m^2 + n^2 \]</span></p>
+  </div>
+</div><!-- l. 35 -->
+
+<p class='noindent'>Before we prove this theorem, let’s clarify few
+terms. A primitive Pythagorean triple <span class=
+'mathjax-inline'>\((a, b, c)\)</span> means triples <span class=
+'mathjax-inline'>\((a, b, c)\)</span> such that <span class=
+'mathjax-inline'>\((a, b) = (b, c) = (c, a) = 1\)</span>.
+Also, we cannot definitively say that <span class=
+'mathjax-inline'>\(a = m^2 - n^2\)</span> and <span class=
+'mathjax-inline'>\(b = 2mn\)</span> because it depends on which term
+is odd and even. Indeed, we have opposite parities for <span class=
+'mathjax-inline'>\(a\)</span> and <span class=
+'mathjax-inline'>\(b\)</span>. I mean we can technically say
+<span class='mathjax-inline'>\(a = m^2 - n^2\)</span> and
+<span class='mathjax-inline'>\(b = 2mn\)</span> without loss of
+generality, but let’s keep our theorem this way to highlight the
+parity. Now here is the famous proof!</p>
+
+<div class='mdframed' id='mdframed-1'>
+  <!-- l. 45 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 45 -->
+
+  <p class='noindent'>Without loss of generality, let <span class=
+  'mathjax-inline'>\(2 \nmid a\)</span>. By construction, the
+  following congruences hold. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} a^2 \equiv 1 \pmod
+  {4}&amp;, \quad b^2 \equiv 0 \pmod {4} \\ c^2 \equiv a^2 + b^2
+  &amp;\equiv 1 \pmod {4} \end{align*}</span></p><!-- l. 51 -->
+
+  <p class='noindent'>Therefore, <span class=
+  'mathjax-inline'>\(c\)</span> is odd. Let <span class=
+  'mathjax-inline'>\(a = 2a' + 1\)</span> and <span class=
+  'mathjax-inline'>\(c = 2c' + 1\)</span>. Then, the following
+  congruences hold. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} (2a' + 1)^2 + b^2
+  &amp;\equiv (2c' + 1) \\ 4a'^2 + 4a' + 1 + b^2 &amp;\equiv 4c'^2 +
+  4c' + 1 \pmod {8} \\ b^2 \equiv 4c'^2 + 4c' - 4a'^2 - 4a'
+  &amp;\equiv 4 (c'^2 + c' - a'^2 - a') \equiv 0 \pmod {8}
+  \end{align*}</span></p><!-- l. 59 -->
+
+  <p class='noindent'>Thus <span class='mathjax-inline'>\(4 \mid
+  b\)</span>. Continuing, the following equation holds by definition.
+  <span class='mathjax-block'>\[ (c + a)(c - a) = b^2 \]</span> Let
+  <span class='mathjax-inline'>\(d = (c + a, c - a)\)</span>. Note
+  that <span class='mathjax-inline'>\(2 \mid d\)</span> since
+  <span class='mathjax-inline'>\(2 \nmid a, c\)</span>. Moreover,
+  <span class='mathjax-inline'>\(d \mid (c + a) + (c - a) =
+  2c\)</span> and <span class='mathjax-inline'>\(d \mid (c + a) - (c
+  - a) = 2a\)</span>. Because <span class='mathjax-inline'>\((a, c) =
+  1\)</span>, <span class='mathjax-inline'>\(d = 2\)</span>. In other
+  words, <span class='mathjax-inline'>\(c + a = 2m^2\)</span> and
+  <span class='mathjax-inline'>\(c - a = 2n^2\)</span> for some
+  coprime positive integers <span class='mathjax-inline'>\(m,
+  n\)</span>. Substituting, <span class='mathjax-inline'>\(b =
+  2mn\)</span>. Thus, there exists a pair of positive integers
+  <span class='mathjax-inline'>\(m &gt; n\)</span> such that
+  <span class='mathjax-inline'>\(\{ a, b \} = \{ m^2 - n^2, 2mn
+  \}\)</span> and <span class='mathjax-inline'>\(c = m^2 +
+  n^2\)</span>.</p>
+</div><!-- l. 73 -->
+
+<p class='noindent'>Honestly, this is pretty much it for the section.
+There isn’t lots of topics to cover for primitive Pythagorean triple,
+but its applications are very worth noting. We will discuss more on
+the application of the theorem as we discuss infinite descent, but
+before we conclude this section, let’s solve a practice problem to
+see how it is used in problems.</p>
+
+<div class='mdframed' id='mdframed-2'>
+  <!-- l. 81 -->
+
+  <p class='noindent'>When using this theorem, it is very important
+  to consider the condition stated that <span class=
+  'mathjax-inline'>\((a, b) = (b, c) = (c, a) = 1\)</span>. Moreover,
+  it is important to consider the parity of <span class=
+  'mathjax-inline'>\(a\)</span> and <span class=
+  'mathjax-inline'>\(b\)</span> before assigning respective values
+  <span class='mathjax-inline'>\(m^2 - n^2\)</span> and <span class=
+  'mathjax-inline'>\(2mn\)</span>. Lastly, but most importantly,
+  remember that <span class='mathjax-inline'>\((m, n) = 1\)</span>
+  and they are opposite parity! The last condition is very easy to
+  miss (at least for me) and used very often when we apply this
+  theorem recursively.</p>
+</div><!-- l. 90 -->
+
+<p class='noindent'>Below is an application that seems obvious, but
+is actually way difficult than it looks. For some reasons, I got lost
+very easily when learning applications of the theorem and any topics
+in NT, and I keeping the conditions of given and new variables in
+mind really helped me.</p>
+
+<div class='tcolorbox probstyle' id='tcolobox-2'>
+  <a id='x1-2004x1.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 100 -->
+
+    <p class='noindent'>Exercise&nbsp;1.1.2:&nbsp;2020 Korean MO
+    Problem 4</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 97 -->
+
+    <p class='noindent'>Find a pair of positive coprime integers
+    <span class='mathjax-inline'>\((a, b)\)</span> other than
+    <span class='mathjax-inline'>\((41, 12)\)</span> such that
+    <span class='mathjax-inline'>\(a^2 - 5b^2\)</span> and
+    <span class='mathjax-inline'>\(a^2 + 5b^2\)</span> are both
+    perfect squares.</p>
+  </div>
+</div>
+
+<p>This solution is largely based on <a href=
+'https://youtu.be/4eetdspSRYw?si=U1hylcoUzUwPA66a'>a solution by
+WinnersKMO</a>.</p>
+
+<div class='mdframed' id='mdframed-3'>
+  <!-- l. 104 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 104 -->
+
+  <p class='noindent'>First, let <span class='mathjax-inline'>\((x,
+  y)\)</span> be another coprime pair such that <span class=
+  'mathjax-inline'>\(x^2 - 5y^2 = m^2\)</span> and <span class=
+  'mathjax-inline'>\(x^2 + 5y^2 = n^2\)</span> for some integers
+  <span class='mathjax-inline'>\(m\)</span> and <span class=
+  'mathjax-inline'>\(n\)</span>. Rearranging the equation,
+  <span class='mathjax-inline'>\(2x^2 = m^2 + n^2\)</span> and
+  <span class='mathjax-inline'>\(10y^2 = n^2 - m^2\)</span> hold.
+  Starting with the first equation, the following equation is
+  obtained. <span class='mathjax-block'>\[ x^2 = \frac {m^2 + n^2}{2}
+  = \left ( \frac {m + n}{2} \right )^2 + \left ( \frac {m - n}{2}
+  \right )^2 \]</span> From the equation, assume that <span class=
+  'mathjax-inline'>\(x\)</span>, <span class='mathjax-inline'>\(\frac
+  {m + n}{2}\)</span>, and <span class='mathjax-inline'>\(\frac {m -
+  n}{2}\)</span> are pairwise coprime. Note that we are allowed to
+  set this condition since we just need to find any <span class=
+  'mathjax-inline'>\(x\)</span> and <span class=
+  'mathjax-inline'>\(y\)</span>. By Theorem <a href=
+  '#x1-2002x1.1'>1.1.1
+  <!-- tex4ht:ref: theo:Euclid's Formula  --></a>, there exists
+  coprime integers <span class='mathjax-inline'>\(u, v\)</span> with
+  opposite parity such that <span class='mathjax-inline'>\(x = u^2 +
+  v^2\)</span>, <span class='mathjax-inline'>\(\frac {m - n}{2} = u^2
+  - v^2\)</span>, and <span class='mathjax-inline'>\(\frac {m + n}{2}
+  = 2uv\)</span>. Again, we are allowed to set parities since we are
+  finding any <span class='mathjax-inline'>\(x\)</span> and
+  <span class='mathjax-inline'>\(y\)</span>.</p><!-- l. 123 -->
+
+  <p class='noindent'>Continuing, the second equation can be
+  modified. <span class='mathjax-env mathjax-align*'>\begin{align*}
+  10y^2 &amp;= 4 \cdot \frac {n + m}{2} \cdot \frac {n - m}{2} \\
+  \frac {5}{2} y^2 &amp;= (u^2 - v^2) 2uv \\ \therefore 5 \left (
+  \frac {y}{2} \right )^2 &amp;= (u + v)(u - v) uv
+  \end{align*}</span></p><!-- l. 133 -->
+
+  <p class='noindent'>By construction, <span class=
+  'mathjax-inline'>\(u, v\)</span> are coprime to each other and
+  <span class='mathjax-inline'>\((u + v)(u - v)\)</span> and
+  <span class='mathjax-inline'>\(uv\)</span> are also coprime. Let
+  <span class='mathjax-inline'>\(u = 41^2\)</span> and <span class=
+  'mathjax-inline'>\(v = 5 \cdot 12^2\)</span>. Notice that the
+  conditions that we have set while defining the variables are met.
+  Moreover as given by the problem, it is evident that <span class=
+  'mathjax-inline'>\((41^2 + 5 \cdot 12^2)(41^2 - 5 \cdot
+  12^2)\)</span> are perfect squares, returning an integer
+  <span class='mathjax-inline'>\(y\)</span>. Hence, the following
+  equations are obtained. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} 5 \left ( \frac {y}{2}
+  \right )^2 &amp;= (41^2 + 5 \cdot 12^2)(41^2 - 5 \cdot 12^2) \cdot
+  41^2 \cdot 5 \cdot 12^2 \\ \left ( \frac {y}{2} \right )^2 &amp;=
+  (41^2 + 5 \cdot 12^2)(41^2 - 5 \cdot 12^2) \cdot 41^2 \cdot 12^2 \\
+  \therefore y &amp;= 2 \cdot 12 \cdot 41 \cdot \sqrt {(41^2 + 5
+  \cdot 12^2)(41^2 - 5 \cdot 12^2)} = 1494696 \end{align*}</span></p>
+  <!-- l. 152 -->
+
+  <p class='noindent'>Moreover, <span class='mathjax-inline'>\(x =
+  u^2 + v^2 = \left (41^2\right )^2 + \left (5 \cdot 12^2\right )^2 =
+  3344161\)</span>. Therefore, <span class=
+  'mathjax-inline'>\((3344161, 1494696)\)</span> is another pair.</p>
+</div><!-- l. 157 -->
+
+<p class='noindent'>With this in mind, let’s discuss Pell’s equation,
+another fundamental topic from Diophantine equations.</p>

@@ -1,0 +1,155 @@
+<h3 class='sectionHead' id='solutions-for-note-4'><span class=
+'titlemark'>0.1</span> <a id='x1-10000.1'></a>Solutions for Note
+4</h3><!-- l. 7 -->
+
+<p class='noindent'></p>
+
+<dl class='enumerate-enumitem'>
+  <dt class='enumerate-enumitem'>1.</dt>
+
+  <dd class='enumerate-enumitem'>
+    For transformation <span class='mathjax-inline'>\(T( \langle a, b
+    \rangle ) = a + b\)</span>, consider the following equations for
+    some scalars <span class='mathjax-inline'>\(\alpha \)</span> and
+    <span class='mathjax-inline'>\(\beta \)</span>. <span class=
+    'mathjax-env mathjax-align*'>\begin{align*} T ( \alpha \langle
+    a_1, b_1 \rangle + \beta \langle a_2, b_2 \rangle ) &amp;= T (
+    \langle \alpha a_1, \alpha b_1 \rangle + \langle \beta a_2, \beta
+    b_2 \rangle ) \\ &amp;= \alpha a_1 + \alpha b_1 + \beta a_2 +
+    \beta b_2 \\ &amp;= \alpha (a_1 + b_1) + \beta (a_2 + b_2) \\
+    &amp;= \alpha T ( \langle a_1, b_1 \rangle ) + \beta T ( \langle
+    a_2, b_2 \rangle ) \end{align*}</span> <!-- l. 20 -->
+
+    <p class='noindent'>Therefore by the definition of linear
+    transformation, <span class='mathjax-inline'>\(T\)</span> is
+    linear.</p><!-- l. 22 -->
+
+    <p class='noindent'>For <span class='mathjax-inline'>\(T( \langle
+    a, b \rangle ) = ab\)</span>, consider the following for
+    arbitrary scalars <span class='mathjax-inline'>\(\alpha \)</span>
+    and <span class='mathjax-inline'>\(\beta \)</span>. <span class=
+    'mathjax-env mathjax-align*'>\begin{align*} T ( \alpha \langle
+    a_1, b_1 \rangle + \beta \langle a_2, b_2 \rangle ) &amp;= T (
+    \langle \alpha a_1, \alpha b_1 \rangle + \langle \beta a_2, \beta
+    b_2 \rangle ) \\ &amp;= T ( \langle \alpha a_1 + \beta b_2,
+    \alpha b_1 + \beta b_2 \rangle ) \\ &amp;= (\alpha a_1 + \beta
+    b_2)(\alpha b_1 + \beta b_2) \end{align*}</span></p>
+    <!-- l. 33 -->
+
+    <p class='noindent'>Moreover, <span class='mathjax-block'>\[
+    \alpha T ( \langle a_1, b_1 \rangle ) + \beta T ( \langle a_2,
+    b_2 \rangle ) = \alpha a_1 b_1 + \beta a_2 b_2 \]</span> holds.
+    Because <span class='mathjax-inline'>\((\alpha a_1 + \beta
+    b_2)(\alpha b_1 + \beta b_2) \neq \alpha a_1 b_1 + \beta a_2
+    b_2\)</span> in general, the transformation is not linear.</p>
+  </dd>
+
+  <dt class='enumerate-enumitem'>2.</dt>
+
+  <dd class='enumerate-enumitem'>By definition, if <span class=
+  'mathjax-inline'>\(\lambda \)</span> is an eigenvalue of
+  <span class='mathjax-inline'>\(AB\)</span>, then there exists some
+  nonzero vector <span class='mathjax-inline'>\(v\)</span> such that
+  <span class='mathjax-inline'>\(AB v = \lambda v\)</span>. First,
+  let <span class='mathjax-inline'>\(\lambda \neq 0\)</span>. Notice
+  that <span class='mathjax-inline'>\(u = Bv \neq \mathbf
+  {0}\)</span>. Therefore, <span class='mathjax-inline'>\(BA u = BA
+  (Bv) = B (ABv) = B (\lambda v) = \lambda (Bv) = \lambda u\)</span>
+  and <span class='mathjax-inline'>\(\lambda \)</span> is also an
+  eigenvalue of <span class='mathjax-inline'>\(BA\)</span>.
+  Continuing if <span class='mathjax-inline'>\(\lambda = 0\)</span>,
+  then <span class='mathjax-inline'>\(\det (AB) = \det (A) \det (B) =
+  0 = \det (B) \det (A) = \det (BA)\)</span>. In other words, if
+  <span class='mathjax-inline'>\(AB\)</span> is singular then
+  <span class='mathjax-inline'>\(BA\)</span> is also singular and
+  contains the eigenvalue <span class='mathjax-inline'>\(\lambda
+  \)</span>. Therefore, <span class='mathjax-inline'>\(\lambda
+  \)</span> is an eigenvalue of <span class=
+  'mathjax-inline'>\(AB\)</span> if and only if it is an eigenvalue
+  of <span class='mathjax-inline'>\(BA\)</span>.</dd>
+
+  <dt class='enumerate-enumitem'>3.</dt>
+
+  <dd class='enumerate-enumitem'>First, to find bases for the kernel
+  of the matrix, the following equation must be solved. <span class=
+  'mathjax-block'>\[ \begin {bmatrix} 1 &amp; 1 &amp; 1 \\ 0 &amp; 1
+  &amp; 0 \end {bmatrix} \begin {bmatrix} x \\ y \\ z \end {bmatrix}
+  = \begin {bmatrix} 0 \\ 0 \end {bmatrix} \]</span> Solving the
+  system, <span class='mathjax-inline'>\(y = 0\)</span> and
+  <span class='mathjax-inline'>\(x = -z\)</span>. Therefore the basis
+  for the kernel is <span class='mathjax-inline'>\(\left \{ \begin
+  {bmatrix} -1 \\ 0 \\ 1 \end {bmatrix} \right \}\)</span>.
+  Continuing, the basis for the image can be found. Consider the
+  following equation. <span class='mathjax-block'>\[ \begin {bmatrix}
+  1 &amp; 1 &amp; 1 \\ 0 &amp; 1 &amp; 0 \end {bmatrix} \begin
+  {bmatrix} x \\ y \\ z \end {bmatrix} = \begin {bmatrix} x + y + z
+  \\ y \end {bmatrix} = x \begin {bmatrix} 1 \\ 0 \end {bmatrix} + y
+  \begin {bmatrix} 1 \\ 1 \end {bmatrix} + z \begin {bmatrix} 1 \\ 0
+  \end {bmatrix} \]</span> Therefore, <span class='mathjax-block'>\[
+  \left \{ \begin {bmatrix} 1 \\ 0 \end {bmatrix}, \begin {bmatrix} 1
+  \\ 1 \end {bmatrix} \right \} \]</span> is a basis of the image of
+  the given matrix.</dd>
+
+  <dt class='enumerate-enumitem'>4.</dt>
+
+  <dd class='enumerate-enumitem'>By definition, <span class=
+  'mathjax-inline'>\(A \cong B\)</span> if and only if there exists
+  an invertible matrix <span class='mathjax-inline'>\(P\)</span> such
+  that <span class='mathjax-inline'>\(A = P^{-1}BP\)</span>.
+  Continuing, <span class='mathjax-inline'>\(A = P^{-1}BP\)</span> if
+  and only if <span class='mathjax-inline'>\(A^\intercal =
+  (P^{-1}BP)^\intercal = P^\intercal B^\intercal (P^{-1})^\intercal =
+  P^\intercal B^\intercal (P^\intercal )^{-1}\)</span>. In other
+  words, <span class='mathjax-inline'>\(A \cong B\)</span> if and
+  only if <span class='mathjax-inline'>\(A^\intercal \cong
+  B^\intercal \)</span>.</dd>
+
+  <dt class='enumerate-enumitem'>5.</dt>
+
+  <dd class='enumerate-enumitem'>
+    To find the eigenvalues for the given matrix say <span class=
+    'mathjax-inline'>\(A\)</span>, it suffices to solve <span class=
+    'mathjax-inline'>\(\det (A - \lambda I) = 0\)</span> where
+    <span class='mathjax-inline'>\(\lambda \)</span> is an
+    eigenvalue. <span class='mathjax-block'>\[ \det \left ( \begin
+    {bmatrix} 1 - \lambda &amp; 2 &amp; 3 \\ 0 &amp; 1 - \lambda
+    &amp; 0 \\ 0 &amp; 1 &amp; 2 - \lambda \end {bmatrix} \right ) =
+    0 \]</span> Continuing with the expansion along the first column,
+    <span class='mathjax-env mathjax-align*'>\begin{align*}
+    &amp;\quad \ \det \left ( \begin {bmatrix} 1 - \lambda &amp; 2
+    &amp; 3 \\ 0 &amp; 1 - \lambda &amp; 0 \\ 0 &amp; 1 &amp; 2 -
+    \lambda \end {bmatrix} \right ) \\ &amp;= (1 - \lambda ) \det
+    \left ( \begin {bmatrix} 1 - \lambda &amp; 0 \\ 1 &amp; 2 -
+    \lambda \end {bmatrix} \right ) \\ &amp;= (1 - \lambda )(1 -
+    \lambda )(2 - \lambda ) \end{align*}</span> <!-- l. 170 -->
+
+    <p class='noindent'>Therefore, the eigenvalues are <span class=
+    'mathjax-inline'>\(1\)</span> and <span class=
+    'mathjax-inline'>\(2\)</span>. For eigenvalue <span class=
+    'mathjax-inline'>\(1\)</span>, it suffices to solve the equation
+    <span class='mathjax-inline'>\(Av = v\)</span> or <span class=
+    'mathjax-inline'>\((A - I)v = 0\)</span>. Consider the following
+    system. <span class='mathjax-block'>\[ \begin {bmatrix} 0 &amp; 2
+    &amp; 3 \\ 0 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 1 \end {bmatrix}
+    \begin {bmatrix} x \\ y \\ z \end {bmatrix} = \begin {bmatrix} 0
+    \\ 0 \\ 0 \end {bmatrix} \]</span> Therefore, <span class=
+    'mathjax-inline'>\(2y + 3z = 0\)</span> and <span class=
+    'mathjax-inline'>\(y + z = 0\)</span>. In other words,
+    <span class='mathjax-inline'>\(y = z = 0\)</span>. Thus,
+    <span class='mathjax-inline'>\(S_1 = \Span \left \{ \begin
+    {bmatrix} 1 \\ 0 \\ 0 \end {bmatrix} \right \}\)</span> holds for
+    <span class='mathjax-inline'>\(\lambda = 1\)</span>. Continuing
+    with <span class='mathjax-inline'>\(\lambda = 2\)</span>, it
+    suffices to solve <span class='mathjax-inline'>\(Av = 2v\)</span>
+    or <span class='mathjax-inline'>\((A - 2I) v = 0\)</span>.
+    <span class='mathjax-block'>\[ \begin {bmatrix} -1 &amp; 2 &amp;
+    3 \\ 0 &amp; -1 &amp; 0 \\ 0 &amp; 1 &amp; 0 \end {bmatrix}
+    \begin {bmatrix} x \\ y \\ z \end {bmatrix} = \begin {bmatrix} 0
+    \\ 0 \\ 0 \end {bmatrix} \]</span> Solving the system,
+    <span class='mathjax-inline'>\(y = 0\)</span> and <span class=
+    'mathjax-inline'>\(x = 3z\)</span>. Thus, <span class=
+    'mathjax-inline'>\(S_2 = \Span \left \{ \begin {bmatrix} 3 \\ 0
+    \\ 1 \end {bmatrix} \right \}\)</span> holds for <span class=
+    'mathjax-inline'>\(\lambda = 2\)</span>.</p>
+  </dd>
+</dl>

@@ -1,0 +1,9 @@
+name = "librenotebook-view-counter-db"
+compatibility_date = "2026-10-04"
+main = "src/index.ts"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "librenotebook-view-counter-db"
+database_id = "397d6198-d51b-4907-81a7-5e9e076498a9"
+

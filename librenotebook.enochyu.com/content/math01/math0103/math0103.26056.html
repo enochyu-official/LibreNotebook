@@ -1,0 +1,353 @@
+<h2 class='chapterHead' id='g-euclidean-geometry'><span class='titlemark'>Note 1</span><br />  <a id='x1-10001'></a>[G] Euclidean Geometry</h2>
+<!-- l. 7 --><p class='noindent'>Euclidean geometry in my opinion is the hardest section in olympiads
+despite being so widely used beyond olympiads and competitions. Many
+problems are solved by angle chasing, finding similar triangles, and only
+with elementary concepts. However, it is very difficult to utilize such
+concepts unless you have really good eyes, draws perfectly, or in the best
+condition. In this note, we will discuss more in-depth about the topics that
+many of us are familiar with geometry in competitions and gaining better
+eyes for euclidean geometry.
+
+</p>
+<h3 class='sectionHead' id='power-of-a-point'><span class='titlemark'>1.1    </span>   <a id='x1-20001.1'></a>Power of a Point</h3>
+<!-- l. 19 --><p class='noindent'>You might already be very familiar with this topic if you have math
+competition background. However, I wanted to revisit this topic as it is
+surprisingly common topic in math olympiad. However, the difference could
+be finding patterns and more advanced topics from power of a point. With
+that in mind, let’s review some of the topics.
+
+</p>
+<h4 class='subsectionHead' id='definitions-and-theorems'><span class='titlemark'>1.1.1    </span>   <a id='x1-30001.1.1'></a>Definitions and Theorems</h4>
+<!-- l. 28 --><p class='noindent'>As always, let’s get started with the definition.
+</p>
+<div class='tcolorbox defstyle' id='tcolobox-1'>     
+<div class='tcolorbox-title'>
+                                                                 
+                                                                 
+<!-- l. 34 --><p class='noindent'>Definition 1.1.1</p></div> 
+<div class='tcolorbox-content'><!-- l. 31 --><p class='noindent'>The <span class='pplb8t-x-x-109'>power of a point </span>of <span class='mathjax-inline'>\(P\)</span> with respect to a circle <span class='mathjax-inline'>\(\omega \)</span> represented as <span class='mathjax-inline'>\(P_\omega (P) = PO^2 - r^2\)</span>
+where <span class='mathjax-inline'>\(O\)</span> and <span class='mathjax-inline'>\(r\)</span> the center and radius of <span class='mathjax-inline'>\(\omega \)</span> respectively. </p> 
+</div> 
+</div>
+<!-- l. 36 --><p class='noindent'>The power of a point is a numeric value that describes the relationship
+between the circle and the point. Before reviewing the relationship, let’s first
+derive the formula in the definition. The theorem below is the heart of all
+concepts in this section.
+</p>
+<div class='tcolorbox theostyle' id='tcolobox-2'>    <a id='x1-3003x1.1.1'></a> 
+<div class='tcolorbox-title'>
+<!-- l. 46 --><p class='noindent'>Theorem 1.1.2: Power  of  a  Point
+Theorem</p></div> 
+<div class='tcolorbox-content'><!-- l. 42 --><p class='noindent'>Let <span class='mathjax-inline'>\(P\)</span> be a point and <span class='mathjax-inline'>\(\omega \)</span> be a circle on the same space. If lines <span class='mathjax-inline'>\(l_1\)</span> and <span class='mathjax-inline'>\(l_2\)</span>
+that passes through <span class='mathjax-inline'>\(P\)</span> meets <span class='mathjax-inline'>\(\omega \)</span> at <span class='mathjax-inline'>\(A\)</span>, <span class='mathjax-inline'>\(B\)</span> and <span class='mathjax-inline'>\(C\)</span>, <span class='mathjax-inline'>\(D\)</span> (not necessarily distinct)
+respectively, then <span class='mathjax-inline'>\(PA \cdot PB = PC \cdot PD\)</span>. </p> 
+</div> 
+</div>
+<!-- l. 48 --><p class='noindent'>If you read the other notes, you may have noticed that I try my best to
+include proofs for all theorems included. However, let’s skip the proof for
+now for the purpose of this note.
+</p><!-- l. 52 --><p class='noindent'>From the theorem above, we can deduce that <span class='mathjax-inline'>\(PX \cdot PY\)</span>, where <span class='mathjax-inline'>\(X\)</span> and <span class='mathjax-inline'>\(Y\)</span> are points on <span class='mathjax-inline'>\(\omega \)</span>
+such that <span class='mathjax-inline'>\(P, X, Y\)</span> are collinear, is always consistent. With that in mind, consider the
+following diagram.
+</p>
+<figure class='figure'> 
+
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+<!-- l. 59 --><p class='noindent'><img alt='[Picture]' src='/svg/MATH0103.260560x.svg' />
+                                                                 
+                                                                 
+</p>
+</figure>
+<!-- l. 80 --><p class='noindent'>By the theorem, <span class='mathjax-inline'>\(P_\omega (P) = PX \cdot PY = PB \cdot PB\)</span>. Moreover by the definition of a line tangent to a circle, <span class='mathjax-inline'>\(PB \perp BO\)</span> and <span class='mathjax-inline'>\(PO^2 = PB^2 + r^2\)</span>
+by Pythagorean Theorem. Therefore, <span class='mathjax-inline'>\(P_\omega (P) = PO^2 - r^2\)</span>.</p>
+<div class='mdframed' id='mdframed-1'>
+<!-- l. 86 --><p class='noindent'>With the definition, we can derive trivial relationship between the power of a
+point and the location of the point. If <span class='mathjax-inline'>\(P_\omega (P) &lt; 0\)</span>, then <span class='mathjax-inline'>\(P\)</span> is inside <span class='mathjax-inline'>\(\omega \)</span>. If <span class='mathjax-inline'>\(P_\omega (P) = 0\)</span>, then <span class='mathjax-inline'>\(P\)</span> is on <span class='mathjax-inline'>\(\omega \)</span> and <span class='mathjax-inline'>\(P\)</span> is
+outside <span class='mathjax-inline'>\(\omega \)</span> if and only if <span class='mathjax-inline'>\(P_\omega (P) &gt; 0\)</span>.</p>
+</div>
+<!-- l. 93 --><p class='noindent'>Continuing from the definition, we can derive another priceless definition
+that is one of the foundational concept in olympiad geometry.
+</p>
+<div class='tcolorbox defstyle' id='tcolobox-3'>     
+<div class='tcolorbox-title'>
+<!-- l. 101 --><p class='noindent'>Definition 1.1.3</p></div> 
+<div class='tcolorbox-content'><!-- l. 98 --><p class='noindent'>The <span class='pplb8t-x-x-109'>radical axis </span>of two circles <span class='mathjax-inline'>\(\omega _1\)</span> and <span class='mathjax-inline'>\(\omega _2\)</span> with different center is the
+locus of <span class='mathjax-inline'>\(P\)</span> such that <span class='mathjax-inline'>\(P_{\omega _1}(P) = P_{\omega _2}(P)\)</span>. </p> 
+</div> 
+</div>
+<!-- l. 103 --><p class='noindent'>Another way of thinking about this is that a point <span class='mathjax-inline'>\(P\)</span> is on the radical axis if
+and only if <span class='mathjax-inline'>\(O_1P^2 - r_1^2 = O_2P^2 - r_2^2\)</span> by definition.
+</p>
+<figure class='figure'> 
+
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+<!-- l. 109 --><p class='noindent'><img alt='[Picture]' src='/svg/MATH0103.260561x.svg' />
+                                                                 
+                                                                 
+</p>
+</figure>
+<!-- l. 124 --><p class='noindent'>Continuing, there is another very properties of radical axis.
+</p>
+<div class='tcolorbox theostyle' id='tcolobox-4'>    <a id='x1-3008x1.1.1'></a> 
+<div class='tcolorbox-title'>
+<!-- l. 135 --><p class='noindent'>Theorem 1.1.4: Properties  of  Radical
+Axis</p></div> 
+<div class='tcolorbox-content'>          <dl class='enumerate-enumitem'><dt class='enumerate-enumitem'>
+     1.  </dt><dd class='enumerate-enumitem'>The radical axis is always a straight line.
+          </dd><dt class='enumerate-enumitem'>
+     2.  </dt><dd class='enumerate-enumitem'>The radical axis of <span class='mathjax-inline'>\(\omega _1\)</span> and <span class='mathjax-inline'>\(\omega _2\)</span> is always perpendicular to the line
+          that pass through two origins of <span class='mathjax-inline'>\(\omega _1\)</span> and <span class='mathjax-inline'>\(\omega _2\)</span>.</dd></dl>
+ 
+</div> 
+</div>
+<!-- l. 137 --><p class='noindent'>Let’s first prove the first property.</p>
+<div class='mdframed' id='mdframed-2'>
+<!-- l. 140 --><p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span>
+</p><!-- l. 140 --><p class='noindent'>Let <span class='mathjax-inline'>\(\omega _1\)</span> be a circle defined as <span class='mathjax-inline'>\((x - a_1)^2 + (y - b_1)^2 = r_1^2\)</span>. Similarly, let <span class='mathjax-inline'>\(\omega _2\)</span> be a circle <span class='mathjax-inline'>\((x - a_2)^2 + (y - b_2)^2 = r_1^2\)</span>. Let <span class='mathjax-inline'>\(P(x, y)\)</span> be any points such
+that <span class='mathjax-inline'>\(P_{\omega _1}(P) = P_{\omega _2}(P)\)</span>. Substituting, the following equation holds by definition. <span class='mathjax-block'>\[ (x - a_1)^2 + (y - b_1)^2 - r_1^2 = (x - a_2)^2 + (y - b_2)^2 - r_2^2 \]</span> Expanding
+and rearranging the equation, <span class='mathjax-env mathjax-align*'>\begin{align*} &amp;\quad \ x^2 - 2a_1 x + a_1^2 + y^2 - 2b_1 y + b_1^2 - r_1^2 \\ &amp;= x^2 - 2a_2 x + a_2^2 + y^2 - 2b_2 y + b_2^2 - r_2^2 \\ &amp;(2a_2 - 2a_1) x + (2b_2 - 2b_1) y + C = 0 \end{align*}</span>
+</p><!-- l. 154 --><p class='noindent'>holds where <span class='mathjax-inline'>\(C\)</span> is the constant values. Notice that the locus of all <span class='mathjax-inline'>\((x, y)\)</span> that satisfies
+the equation above is a linear function. Thus, the radical axis is always
+linear.</p>
+</div>
+
+<!-- l. 159 --><p class='noindent'>Continuing, we can prove the second property. There are few ways of
+proving this, but let’s take an algebraic approach with our equation
+above.</p>
+<div class='mdframed' id='mdframed-3'>
+<!-- l. 164 --><p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span>
+</p><!-- l. 164 --><p class='noindent'>Continuing with the equation <span class='mathjax-block'>\[ (2a_2 - 2a_1) x + (2b_2 - 2b_1) y + C = 0 \]</span> from the previous proof, it is evident that the
+slope of the line is <span class='mathjax-inline'>\(-\frac {2a_2 - 2a_1}{2b_2 - 2b_1}\)</span>. Continuing, the slope of the line that passes through the
+                                                                 
+                                                                 
+two centers of <span class='mathjax-inline'>\(\omega _1\)</span> and <span class='mathjax-inline'>\(\omega _2\)</span> is <span class='mathjax-inline'>\(\frac {b_2 - b_1}{a_2 - a_1}\)</span>. Because <span class='mathjax-inline'>\(-\frac {2a_2 - 2a_1}{2b_2 - 2b_1} \cdot \frac {b_2 - b_1}{a_2 - a_1} = -1\)</span>, the two lines are perpendicular to each
+other.</p>
+</div>
+
+<!-- l. 176 --><p class='noindent'>Before we move on to further theorems, lemmas, definitions, and problems,
+here are five special forms that makes our lives easier when graphing to
+solve problems.
+</p>
+<div class='minipage'><figure class='figure'> 
+
+<!-- l. 183 --><p class='noindent'><img alt='[Picture]' src='/svg/MATH0103.260562x.svg' />
+</p>
+</figure>                               </div>        <div class='minipage'><figure class='figure'> 
+
+<!-- l. 202 --><p class='noindent'><img alt='[Picture]' src='/svg/MATH0103.260563x.svg' />
+</p>
+</figure>                                                                                              </div>
+                                                                 
+                                                                 
+<div class='minipage'><figure class='figure'> 
+
+<!-- l. 220 --><p class='noindent'><img alt='[Picture]' src='/svg/MATH0103.260564x.svg' />
+</p>
+</figure>                               </div>        <div class='minipage'><figure class='figure'> 
+
+<!-- l. 245 --><p class='noindent'><img alt='[Picture]' src='/svg/MATH0103.260565x.svg' />
+</p>
+</figure>                                                                                              </div>
+<div class='minipage'><figure class='figure'> 
+
+<!-- l. 262 --><p class='noindent'><img alt='[Picture]' src='/svg/MATH0103.260566x.svg' />
+</p>
+</figure>                               </div>        <div class='minipage'>As you can see from the diagrams
+above,
+the fact that the radical axis passes
+through the intersection(s) of <span class='mathjax-inline'>\(\omega _1\)</span> and
+<span class='mathjax-inline'>\(\omega _2\)</span>  will  come  very  handy  when  we
+solve problems. Also, because this
+knowledge   is   considered   trivial
+and  it  is  part  of  the  definition,
+I  believe  the  graders  won’t  take
+points  off  for  not  proving  why
+the radical axis passes through the
+intersection(s).                                  </div>
+                                                                 
+                                                                 
+<!-- l. 285 --><p class='noindent'>Also for the third diagram, one tip when drawing is that you can find the
+radical axis by drawing two lines, or segments, that are <span class='pplri8t-x-x-109'>tangent </span>to both
+circles. Then, the radical axis is the line that connects the centers of the two
+segments. Before moving on to common patterns and theorems, here is one
+more definition to keep in mind.
+</p>
+<div class='tcolorbox defstyle' id='tcolobox-5'>     
+<div class='tcolorbox-title'>
+<!-- l. 295 --><p class='noindent'>Definition 1.1.5</p></div> 
+<div class='tcolorbox-content'><!-- l. 293 --><p class='noindent'><span class='pplb8t-x-x-109'>Coaxial circles </span>are circles that share the common pairwise radical
+axis. </p> 
+</div> 
+</div>
+<!-- l. 297 --><p class='noindent'>Below is an example of three coaxial circles.
+</p>
+<figure class='figure'> 
+
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+<!-- l. 301 --><p class='noindent'><img alt='[Picture]' src='/svg/MATH0103.260567x.svg' />
+                                                                 
+                                                                 
+</p>
+</figure>
+<!-- l. 322 --><p class='noindent'>The three circles <span class='mathjax-inline'>\(\omega _1, \omega _2, \omega _3\)</span> are coaxial because the radical axis for <span class='mathjax-inline'>\(\omega _1, \omega _2\)</span>, for <span class='mathjax-inline'>\(\omega _2, \omega _3\)</span>, and for <span class='mathjax-inline'>\(\omega _3, \omega _1\)</span>
+are all equal. It is also worth noting that three circles in this case all
+passes through two common intersections. Coaxial circles are not
+limited to three circles, but most problems would be on three circles for
+olympiads.
+</p><!-- l. 329 --><p class='noindent'>With the definition in mind, we can observe some key properties of coaxial
+circles.
+</p>
+<div class='tcolorbox theostyle' id='tcolobox-6'>    <a id='x1-3011x1.1.1'></a> 
+<div class='tcolorbox-title'>
+<!-- l. 335 --><p class='noindent'>Theorem 1.1.6</p></div> 
+<div class='tcolorbox-content'><!-- l. 333 --><p class='noindent'>The centers of coaxial circles <span class='mathjax-inline'>\(\omega _1, \omega _2, \omega _3\)</span> are collinear. </p> 
+</div> 
+</div><div class='mdframed' id='mdframed-4'>
+<!-- l. 337 --><p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span>
+</p><!-- l. 337 --><p class='noindent'>Let the centers of <span class='mathjax-inline'>\(\omega _1, \omega _2, \omega _3\)</span> be <span class='mathjax-inline'>\(O_1, O_2, O_3\)</span> and the radical axis be <span class='mathjax-inline'>\(l\)</span>. By definition, the radical axis of
+<span class='mathjax-inline'>\(\omega _1\)</span> and <span class='mathjax-inline'>\(\omega _2\)</span> is <span class='mathjax-inline'>\(l\)</span> and <span class='mathjax-inline'>\(O_1O_2 \perp l\)</span>. Similarly, <span class='mathjax-inline'>\(O_1O_3 \perp l\)</span> since <span class='mathjax-inline'>\(l\)</span> is the radical axis of <span class='mathjax-inline'>\(\omega _1\)</span> and <span class='mathjax-inline'>\(\omega _3\)</span>. Because there exists
+exactly one line perpendicular to <span class='mathjax-inline'>\(l\)</span> that passes through <span class='mathjax-inline'>\(O_1\)</span>, <span class='mathjax-inline'>\(O_1O_2\)</span> and <span class='mathjax-inline'>\(O_1O_3\)</span> lines are the
+same line and <span class='mathjax-inline'>\(O_1,O_2,O_3\)</span> are collinear.</p>
+</div>
+
+<!-- l. 346 --><p class='noindent'>This theorem can look somewhat trivial. However, finding such conditions
+and looking for coaxial circles can come very handy.</p>
+<div class='mdframed' id='mdframed-5'>
+<!-- l. 350 --><p class='noindent'>Never underestimate! Facts like <span class='mathjax-inline'>\(OA = OB\)</span> for a circle with center <span class='mathjax-inline'>\(O\)</span> and <span class='mathjax-inline'>\(P_\omega (A) = P_\omega (B)\)</span> can be the key
+to the solution. Whenever you see three circles, circles defined by reflection,
+collinearity of their centers, and/or the intersection of three circles, we
+should be reminded of coaxial circles and suspect it as the key at least
+once.</p>
+</div>
+                                                                 
+                                                                 
+<!-- l. 358 --><p class='noindent'>Continuing, we can see the relationship between the three radical axes with
+three distinct circles. One thing to keep in mind if you are taking Korean
+Mathematical Olympiad, then the following theorem is known as Monge’s
+Theorem in addition to one that is related to homothety. However let’s call
+this Radical Axis Concurrence Theorem since I think that is more
+universal.
+</p>
+<div class='tcolorbox theostyle' id='tcolobox-7'>    <a id='x1-3013x1.1.1'></a> 
+<div class='tcolorbox-title'>
+<!-- l. 370 --><p class='noindent'>Theorem 1.1.7: Radical Axis Concurrence
+Theorem</p></div> 
+<div class='tcolorbox-content'><!-- l. 368 --><p class='noindent'>Given three distinct circles, the pairwise radical axes of the circles
+are concurrent. </p> 
+</div> 
+</div><div class='mdframed' id='mdframed-6'>
+<!-- l. 372 --><p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span>
+</p><!-- l. 372 --><p class='noindent'>Let <span class='mathjax-inline'>\(\omega _1, \omega _2, \omega _3\)</span> be three distinct circles with the centers <span class='mathjax-inline'>\(O_1, O_2, O_3\)</span>. Let <span class='mathjax-inline'>\(l_1, l_2, l_3\)</span> be the radical axes of the
+pairs <span class='mathjax-inline'>\(O_1, O_2\)</span> and <span class='mathjax-inline'>\(O_2, O_3\)</span> and <span class='mathjax-inline'>\(O_3, O_1\)</span> respectively. Let <span class='mathjax-inline'>\(K\)</span> be the intersection of <span class='mathjax-inline'>\(l_1\)</span> and <span class='mathjax-inline'>\(l_2\)</span>. By definition, <span class='mathjax-inline'>\(P_{\omega _1}(K) = P_{\omega _2}(K)\)</span>
+and <span class='mathjax-inline'>\(P_{\omega _2}(K) = P_{\omega _3}(K)\)</span>. Therefore, <span class='mathjax-inline'>\(P_{\omega _1}(K) = P_{\omega _3}(K)\)</span> and <span class='mathjax-inline'>\(K \in l_3\)</span>. Therefore, <span class='mathjax-inline'>\(l_1, l_2, l_3\)</span> are concurrent.</p>
+</div>
+
+<!-- l. 382 --><p class='noindent'>This is it! Continuing from the theorem, we can define the following
+term.
+</p>
+<div class='tcolorbox defstyle' id='tcolobox-8'>     
+<div class='tcolorbox-title'>
+<!-- l. 388 --><p class='noindent'>Definition 1.1.8</p></div> 
+<div class='tcolorbox-content'><!-- l. 386 --><p class='noindent'>The <span class='pplb8t-x-x-109'>radical center </span>of three distinct circles is the concurrent point
+of pairwise radical axes. </p> 
+</div> 
+</div>
+<!-- l. 390 --><p class='noindent'>Last, but not least, here is a very powerful theorem on coaxial circles.
+Honestly, this theorem made me suspect power of a point every time I see
+more than two circles on a problem.
+</p>
+<div class='tcolorbox theostyle' id='tcolobox-9'>     
+<div class='tcolorbox-title'>
+                                                                 
+                                                                 
+<!-- l. 405 --><p class='noindent'>Theorem 1.1.9</p></div> 
+<div class='tcolorbox-content'><!-- l. 395 --><p class='noindent'>Let <span class='mathjax-inline'>\(\omega _1\)</span> and <span class='mathjax-inline'>\(\omega _2\)</span> be two distinct circles and <span class='mathjax-inline'>\(A, B, C\)</span> be three distinct points. If <span class='mathjax-block'>\[ \frac {P_{\omega _1}(A)}{P_{\omega _2}(A)} = \frac {P_{\omega _1}(B)}{P_{\omega _2}(B)} = \frac {P_{\omega _1}(C)}{P_{\omega _2}(C)} \]</span>
+holds, then either the circumcircle of <span class='mathjax-inline'>\(\triangle {ABC}\)</span>, <span class='mathjax-inline'>\(\omega _1\)</span>, and <span class='mathjax-inline'>\(\omega _2\)</span> are coaxial circles or
+<span class='mathjax-inline'>\(A, B, C\)</span> is the radical axis of <span class='mathjax-inline'>\(\omega _1\)</span> and <span class='mathjax-inline'>\(\omega _2\)</span>. </p> 
+</div> 
+</div><div class='mdframed' id='mdframed-7'>
+<!-- l. 407 --><p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span>
+</p><!-- l. 407 --><p class='noindent'>First, notice that for any circles <span class='mathjax-inline'>\(x^2 + y^2 + ax + by + c = 0\)</span> and a point <span class='mathjax-inline'>\(A(x_1, y_1)\)</span>, <span class='mathjax-inline'>\(P_\omega (A) = (x_1 - p)^2 + (y_2 - q)^2 - r^2 = x_1^2 + y_1^2 + ax_1 + by_1 + c\)</span>. Moreover, if <span class='mathjax-inline'>\(\frac {P_{\omega _1}(A)}{P_{\omega _2}(A)} = \frac {P_{\omega _1}(B)}{P_{\omega _2}(B)} = \frac {P_{\omega _1}(C)}{P_{\omega _2}(C)} = k\)</span>, then <span class='mathjax-inline'>\(P_{\omega _1}(X) - k P_{\omega _2}(X) = 0\)</span> for
+<span class='mathjax-inline'>\(X = A, B, C\)</span>.
+</p><!-- l. 415 --><p class='noindent'>Let <span class='mathjax-inline'>\(\omega _1\)</span> be defined as <span class='mathjax-inline'>\(x^2 + y^2 + a_1x + b_1y + c_1 = 0\)</span> and <span class='mathjax-inline'>\(\omega _2\)</span> as <span class='mathjax-inline'>\(x^2 + y^2 + a_2x + b_2y + c_2 = 0\)</span>. Rewriting the expression <span class='mathjax-inline'>\(P_{\omega _1}(X) - k P_{\omega _2}(X)\)</span>, the following
+equations are obtained. <span class='mathjax-env mathjax-align*'>\begin{align*} P_{\omega _1}(X) - k P_{\omega _2}(X) &amp;= x^2 + y^2 + a_1x + b_1y + c_1 \\ &amp;\qquad \qquad \qquad \,- k(x^2 + y^2 + a_2x + b_2y + c_2) \\ &amp;= (1 - k) x^2 + (1 - k) y^2 + (a_1 - ka_2) x \\ &amp;\qquad \qquad \qquad \,+ (b_1 - kb_2) y + (c_1 - kc_2) \end{align*}</span>
+</p><!-- l. 426 --><p class='noindent'>Define <span class='mathjax-inline'>\(\omega _3\)</span> as <span class='mathjax-inline'>\((1 - k) x^2 + (1 - k) y^2 + (a_1 - ka_2) x + (b_1 - kb_2) y + (c_1 - kc_2) = 0\)</span> for <span class='mathjax-inline'>\(k \neq 1\)</span>. Then, <span class='mathjax-inline'>\(A, B, C \in \omega _3\)</span> and <span class='mathjax-inline'>\(\omega _3\)</span> is the circumcircle of <span class='mathjax-inline'>\(\triangle {ABC}\)</span>. Moreover by construction,
+the power of any point <span class='mathjax-inline'>\(X\)</span> satisfy the following equation. <span class='mathjax-block'>\[ P_{\omega _3}(X) = \frac {P_{\omega _1}(X) - k P_{\omega _2}(X)}{1 - k} \]</span> Therefore, if <span class='mathjax-inline'>\(X\)</span> lies on
+the radical axis of <span class='mathjax-inline'>\(\omega _3\)</span> and <span class='mathjax-inline'>\(\omega _1\)</span>, i.e. <span class='mathjax-inline'>\(P_{\omega _3}(X) = P_{\omega _1}(X)\)</span>, then <span class='mathjax-inline'>\((1 - k) P_{\omega _1}(X) = P_{\omega _1}(X) - k P_{\omega _2}(X)\)</span> and <span class='mathjax-inline'>\(P_{\omega _1}(X) = P_{\omega _2}(X)\)</span>. In other words, <span class='mathjax-inline'>\(P_{\omega _3}(X) = P_{\omega _1}(X)\)</span> if and only if <span class='mathjax-inline'>\(P_{\omega _1}(X) = P_{\omega _2}(X)\)</span> and <span class='mathjax-inline'>\(\omega _1, \omega _2, \omega _3\)</span>
+are coaxial circles.
+</p><!-- l. 443 --><p class='noindent'>If <span class='mathjax-inline'>\(k = 1\)</span>, then <span class='mathjax-inline'>\(P_{\omega _1}(A) = P_{\omega _2}(A)\)</span>, <span class='mathjax-inline'>\(P_{\omega _1}(B) = P_{\omega _2}(B)\)</span>, and <span class='mathjax-inline'>\(P_{\omega _1}(C) = P_{\omega _2}(C)\)</span> holds and <span class='mathjax-inline'>\(A, B, C\)</span> lies on the radical axis of <span class='mathjax-inline'>\(\omega _1\)</span> and <span class='mathjax-inline'>\(\omega _2\)</span>. Because radical
+axis is a straight line, <span class='mathjax-inline'>\(A, B, C\)</span> are collinear and the points form the radical
+axis.</p>
+</div>
+
+<!-- l. 450 --><p class='noindent'>With the definition and theorems in mind, let’s solve some practice problems
+to see how they are hidden.
+
+</p>
+<h4 class='subsectionHead' id='brain-teasers'><span class='titlemark'>1.1.2    </span>   <a id='x1-40001.1.2'></a>Brain Teasers</h4>
+<!-- l. 455 --><p class='noindent'>The first problem is quite nostalgic and elegant problem that I wished to
+share.
+</p>
+<div class='tcolorbox probstyle' id='tcolobox-10'>    <a id='x1-4002x1.1.2'></a> 
+<div class='tcolorbox-title'>
+<!-- l. 467 --><p class='noindent'>Exercise 1.1.10: 2025 Korean MO Problem 5
+                                                                 
+                                                                 
+(<span class='mathjax-inline'>\(\bullet \circ \circ \)</span>)</p></div> 
+<div class='tcolorbox-content'><!-- l. 461 --><p class='noindent'>Let <span class='mathjax-inline'>\(D\)</span> be a point on the segment <span class='mathjax-inline'>\(BC\)</span> of triangle <span class='mathjax-inline'>\(ABC\)</span> such that <span class='mathjax-inline'>\(\overline {AD} = \overline {BD} = \frac {1}{2} \overline {CD}\)</span>. Let <span class='mathjax-inline'>\(P (\neq A, D)\)</span> be
+a point on segment <span class='mathjax-inline'>\(AD\)</span>, <span class='mathjax-inline'>\(M\)</span> be the midpoint of <span class='mathjax-inline'>\(PD\)</span>, and <span class='mathjax-inline'>\(J\)</span> be the incenter
+of triangle <span class='mathjax-inline'>\(MDC\)</span>. If the circumcircles of <span class='mathjax-inline'>\(\triangle {MJC}\)</span> and <span class='mathjax-inline'>\(\triangle {ABP}\)</span> intersect at two distinct
+points <span class='mathjax-inline'>\(Q\)</span> and <span class='mathjax-inline'>\(R\)</span>, show that <span class='mathjax-inline'>\(D, Q, R\)</span> are collinear. </p> 
+</div> 
+</div><p>                                                 (<a href='https://youtu.be/BwEyAtgzZEE'>Video
+Solution</a>)</p><div class='mdframed' id='mdframed-8'>
+<!-- l. 470 --><p class='noindent'><span class='pplb8t-x-x-109'>Solution.</span>
+</p><!-- l. 470 --><p class='noindent'>First, let’s draw the diagram. </p><figure class='figure'> 
+
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+<!-- l. 473 --><p class='noindent'><img alt='[Picture]' src='/svg/MATH0103.260568x.svg' />
+                                                                 
+                                                                 
+</p>
+</figure>
+<!-- l. 519 --><p class='noindent'>Notice that because <span class='mathjax-inline'>\(Q\)</span> and <span class='mathjax-inline'>\(R\)</span> both lies of the circles <span class='mathjax-inline'>\(\omega _1\)</span> (left) and <span class='mathjax-inline'>\(\omega _2\)</span> (right), it suffices
+to show that <span class='mathjax-inline'>\(D\)</span> lies on the radical axis of <span class='mathjax-inline'>\(\omega _1\)</span> and <span class='mathjax-inline'>\(\omega _2\)</span>. In other words, we must show
+that <span class='mathjax-inline'>\(P_{\omega _1} (D) = P_{\omega _2} (D)\)</span>. Consider the following equation. <span class='mathjax-block'>\[ P_{\omega _1} (D) = \overline {AD} \cdot \overline {PD} = \overline {BD} \cdot (2 \cdot \overline {MD}) = 2 \overline {BD} \cdot \overline {MD} = \overline {DC} \cdot \overline {MD} \]</span> Therefore, it suffices to show that
+<span class='mathjax-inline'>\(P_{\omega _2} (D) = \overline {DC} \cdot \overline {MD}\)</span>.
+</p><!-- l. 534 --><p class='noindent'>To find <span class='mathjax-inline'>\(P_{\omega _2}\)</span>, we can use another classic pattern that we can see from the problem.
+We see the point <span class='mathjax-inline'>\(D\)</span>, the incenter <span class='mathjax-inline'>\(J\)</span> and the circumcircle of <span class='mathjax-inline'>\(\triangle {MJC}\)</span>. Naturally trying to
+implement incenter/excenter lemma here, we can draw and find excenter of <span class='mathjax-inline'>\(\triangle {MDC}\)</span>
+at <span class='mathjax-inline'>\(D\)</span>.
+</p>
+<figure class='figure'> 
+
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+<!-- l. 542 --><p class='noindent'><img alt='[Picture]' src='/svg/MATH0103.260569x.svg' />
+                                                                 
+                                                                 
+</p>
+</figure>
+<!-- l. 595 --><p class='noindent'>Notice that <span class='mathjax-inline'>\(\angle {MDJ} = \angle {JDC}\)</span> by construction. Similarly, <span class='mathjax-inline'>\(\angle {MI_DJ} = \angle {MCJ} = \angle {JCD}\)</span>. Thus <span class='mathjax-inline'>\(\triangle {MDI_D}\)</span> and <span class='mathjax-inline'>\(\triangle {JDC}\)</span> are similar. Because <span class='mathjax-inline'>\(MD : JD = DI_D : DC\)</span>,
+<span class='mathjax-inline'>\(P_{\omega _2}(D) = DJ \cdot DI_D = MD \cdot DC\)</span>.</p>
+</div>
+<!-- l. 601 --><p class='noindent'>Never overestimate! I remember trying my best not to use power of a point
+during the exam because the morning problems were hard that day, and
+ended up wasting lots of time in the afternoon exam. I panicked, and learned
+a lesson.
+</p>
+ 

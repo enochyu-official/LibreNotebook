@@ -1,0 +1,141 @@
+<h2 class='chapterHead' id='g-projective-geometry'><span class='titlemark'>Note 1</span><br />  <a id='x1-10001'></a>[G] Projective Geometry</h2>
+<!-- l. 7 --><p class='noindent'>Projective geometry, unlike euclidean geometry, relies on the relationship
+between objects and their projections. Many foundational concepts
+including parallelism and transformation significantly differs too.
+Before we get into some important theorems and topics, lets discuss
+some of its foundational properties to get the gut feeling for future
+topics.
+</p><!-- l. 14 --><p class='noindent'>First, consider the two, not necessarily similar, triangles and a point
+<span class='mathjax-inline'>\(P\)</span>.
+</p>
+<figure class='figure'> 
+
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+<!-- l. 19 --><p class='noindent' id='_'><img alt='[Picture]' src='/svg/MATH0102.260230x.svg' /> <a id='x1-1001r1'></a>
+</p>
+<figcaption class='caption'><span class='id'><span class='pplb8t-'>Figure 1.1: </span></span><span class='content'>
+</span></figcaption><!-- tex4ht:label?: x111001r1  -->
+                                                                 
+                                                                 
+</figure>
+<!-- l. 57 --><p class='noindent'>From the diagram above, we can think of it as having a light source <span class='mathjax-inline'>\(P\)</span> that
+shines <span class='mathjax-inline'>\(\triangle {ABC}\)</span>. There, we get our outcome <span class='mathjax-inline'>\(\triangle {A'B'C'}\)</span>, and we say that <span class='mathjax-inline'>\(A', B', C'\)</span> are corresponding
+points of <span class='mathjax-inline'>\(A, B, C\)</span> respectively. Similarly, we could state that <span class='mathjax-inline'>\(\overline {A'B'}, \overline {B'C'}, \overline {C'A'}\)</span> are corresponding sides
+of <span class='mathjax-inline'>\(\overline {AB}, \overline {BC}, \overline {CA}\)</span> respectively. With this projection in mind, let’s discuss some fundamental
+theorems in projective geometry.
+
+</p>
+<h3 class='sectionHead' id='fundamental-theorems'><span class='titlemark'>1.1    </span>   <a id='x1-20001.1'></a>Fundamental Theorems</h3>
+<!-- l. 68 --><p class='noindent'>There are many foundational topics and theorems to discuss. Before we get
+into more advanced topics, let’s discuss key theorems like Desargues’
+Theorem and Pascal’s Theorem.
+
+</p>
+<h4 class='subsectionHead' id='desargues-theorem'><span class='titlemark'>1.1.1    </span>   <a id='x1-30001.1.1'></a>Desargues’ Theorem</h4>
+<!-- l. 74 --><p class='noindent'>Let’s first get started with Desargues’ Theorem!
+</p>
+<div class='tcolorbox theostyle' id='tcolobox-1'>    <a id='x1-3002x1.1.1'></a> 
+<div class='tcolorbox-title'>
+<!-- l. 81 --><p class='noindent'>Theorem 1.1.1: Desargues’ Theorem</p></div> 
+<div class='tcolorbox-content'><!-- l. 77 --><p class='noindent'>Two   triangles   are   axially   perspective   if   and   only   if   they
+are  centrally  perspective.  Two  triangles  are  considered  axially
+perspective if there exists the axis of perspectivity and they are
+centrally perspective if there exists the center of perspectivity. </p> 
+</div> 
+</div>
+<!-- l. 83 --><p class='noindent'>For simpler explanation, consider the diagram below, which is simply the
+extension of Figure <a href='#_'>1.1<!-- tex4ht:ref: fig:Desargues Theorem Figure 1  --></a>.
+                                                                 
+                                                                 
+</p>
+<figure class='figure'> 
+
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+<!-- l. 88 --><p class='noindent'><img alt='[Picture]' src='/svg/MATH0102.260231x.svg' />
+                                                                 
+                                                                 
+</p>
+</figure>
+<!-- l. 136 --><p class='noindent'>Point <span class='mathjax-inline'>\(P\)</span>, where <span class='mathjax-inline'>\(AA', BB', CC'\)</span> concur, is the center of perspectivity. Line <span class='mathjax-inline'>\(XZ\)</span>, where <span class='mathjax-inline'>\(X, Y, Z\)</span> are
+collinear, is the axis of perspectivity in the diagram above. If the pairs of
+corresponding lines are all parallel, it is said that the lines meet at
+a point of infinity. However, we normally don’t discuss about that
+case.
+</p><!-- l. 142 --><p class='noindent'>The theorem is stating that if there exists a point <span class='mathjax-inline'>\(P\)</span> such that <span class='mathjax-inline'>\(P = AA' \cap BB' \cap CC'\)</span>, then the
+points <span class='mathjax-inline'>\(X = AB \cap A'B'\)</span>, <span class='mathjax-inline'>\(Y = BC \cap B'C'\)</span>, and <span class='mathjax-inline'>\(Z = CA \cap C'A'\)</span> are collinear. With this in mind, let’s try to prove the
+theorem.</p>
+<div class='mdframed' id='mdframed-1'>
+<!-- l. 148 --><p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span>
+</p><!-- l. 148 --><p class='noindent'>The proof of the theorem involves the use of Menelaus’ theorem three times
+[<span class='pplb8t-x-x-109'>MATH01-1</span>]. First, let’s prove that two triangles are axially perspective if
+they are centrally perspective.
+</p><!-- l. 152 --><p class='noindent'>Assuming that <span class='mathjax-inline'>\(\triangle {ABC}\)</span> and <span class='mathjax-inline'>\(\triangle {A'B'C'}\)</span> are perspective from point <span class='mathjax-inline'>\(P\)</span>, Menelaus’ Theorem can be
+applied.
+</p>
+<div class='center'>
+<!-- l. 155 --><p class='noindent'>
+</p><!-- l. 156 --><p class='noindent'><img alt='[Picture]' src='/svg/MATH0102.260232x.svg' /></p></div>
+<!-- l. 207 --><p class='noindent'>Consider <span class='mathjax-inline'>\(\triangle {PA'B'}\)</span> with transverse line <span class='mathjax-inline'>\(XB\)</span>. Using Menelaus’ Theorem, the following
+                                                                 
+                                                                 
+equation could be derived. <span class='mathjax-block'>\[ \frac {XA'}{XB'} \cdot \frac {BB'}{BP} \cdot \frac {AP}{AA'} = 1 \]</span> </p>
+<div class='center'>
+<!-- l. 213 --><p class='noindent'>
+</p><!-- l. 214 --><p class='noindent'><img alt='[Picture]' src='/svg/MATH0102.260233x.svg' /></p></div>
+<!-- l. 265 --><p class='noindent'>Similarly, consider <span class='mathjax-inline'>\(\triangle {PB'C'}\)</span> and transverse line <span class='mathjax-inline'>\(ZC\)</span>. <span class='mathjax-block'>\[ \frac {ZB'}{ZC'} \cdot \frac {CC'}{CP} \cdot \frac {BP}{BB'} = 1 \]</span> </p>
+<div class='center'>
+<!-- l. 270 --><p class='noindent'>
+</p><!-- l. 271 --><p class='noindent'><img alt='[Picture]' src='/svg/MATH0102.260234x.svg' /></p></div>
+<!-- l. 323 --><p class='noindent'>With <span class='mathjax-inline'>\(\triangle {PC'A'}\)</span> and line <span class='mathjax-inline'>\(YC\)</span>, <span class='mathjax-env mathjax-align*'>\begin{align*} \frac {YA'}{YC'} \cdot \frac {CC'}{CP} \cdot \frac {AP}{AA'} &amp;= 1 \\ \frac {YC'}{YA'} \cdot \frac {CP}{CC'} \cdot \frac {AA'}{AP} &amp;= 1 \end{align*}</span>
+</p><!-- l. 332 --><p class='noindent'>Multiplying the equations, <span class='mathjax-env mathjax-align*'>\begin{align*} \left ( \frac {XA'}{XB'} \cdot \frac {BB'}{BP} \cdot \frac {AP}{AA'} \right ) \left ( \frac {ZB'}{ZC'} \cdot \frac {CC'}{CP} \cdot \frac {BP}{BB'} \right ) \left ( \frac {YC'}{YA'} \cdot \frac {CP}{CC'} \cdot \frac {AA'}{AP} \right ) &amp;= 1 \\ \frac {XA'}{XB'} \cdot \frac {ZB'}{ZC'} \cdot \frac {YC'}{YA'} &amp;= 1 \end{align*}</span>
+</p><!-- l. 345 --><p class='noindent'>is obtained. Continuing, consider the following diagrams.
+</p>
+                                                                 
+                                                                 
+<div class='center'>
+<!-- l. 347 --><p class='noindent'>
+</p><!-- l. 348 --><p class='noindent'><img alt='[Picture]' src='/svg/MATH0102.260235x.svg' /></p></div>
+<!-- l. 376 --><p class='noindent'>By converse of Menelaus’ Theorem, it is evident that <span class='mathjax-inline'>\(X\)</span>, <span class='mathjax-inline'>\(Y\)</span>, and <span class='mathjax-inline'>\(Z\)</span> are collinear.
+</p><!-- l. 379 --><p class='noindent'>Now that the first statement for if and only if condition is proven, the
+converse must also be proven. Consider the diagram below where the same
+construction method is used. Note that if <span class='mathjax-inline'>\(AA'\)</span>, <span class='mathjax-inline'>\(BB'\)</span>, and <span class='mathjax-inline'>\(CC'\)</span> concur is yet to be
+known.
+</p>
+<div class='center'>
+<!-- l. 384 --><p class='noindent'>
+</p><!-- l. 385 --><p class='noindent'><img alt='[Picture]' src='/svg/MATH0102.260236x.svg' /></p></div>
+<!-- l. 436 --><p class='noindent'>Notice that <span class='mathjax-inline'>\(\triangle {XBB'}\)</span> and <span class='mathjax-inline'>\(\triangle {YCC'}\)</span> are in perspective from point <span class='mathjax-inline'>\(Z\)</span>. Moreover, the first half of the
+proof manifests that <span class='mathjax-inline'>\(P\)</span>, <span class='mathjax-inline'>\(A\)</span>, and <span class='mathjax-inline'>\(A'\)</span> must be collinear. By construction, <span class='mathjax-inline'>\(P\)</span> is on line <span class='mathjax-inline'>\(BB'\)</span> and
+<span class='mathjax-inline'>\(CC'\)</span>. Moreover, it is also on the line <span class='mathjax-inline'>\(AA'\)</span>. Thus, <span class='mathjax-inline'>\(\triangle {ABC}\)</span> and <span class='mathjax-inline'>\(\triangle {A'B'C'}\)</span> are centrally perspective if they
+                                                                 
+                                                                 
+are axially perspective.</p>
+</div>
+
+<!-- l. 444 --><p class='noindent'>This is it for the proof! Before we move on to the next problem, let’s solve a
+quick example problem.
+</p>
+<div class='tcolorbox probstyle' id='tcolobox-2'>     
+<div class='tcolorbox-title'>
+<!-- l. 454 --><p class='noindent'>Exercise 1.1.2</p></div> 
+<div class='tcolorbox-content'><!-- l. 448 --><p class='noindent'><span class='mathjax-inline'>\(D\)</span>  is  a  point  on  <span class='mathjax-inline'>\(\overline {BC}\)</span>  in  <span class='mathjax-inline'>\(\triangle {ABC}\)</span>.  Let  <span class='mathjax-inline'>\(I_1\)</span>,  <span class='mathjax-inline'>\(I_2\)</span>  be  the  incenter  of  <span class='mathjax-inline'>\(\triangle {ABD}\)</span>  and  <span class='mathjax-inline'>\(\triangle {ACD}\)</span>  respectively.
+Moreover, let <span class='mathjax-inline'>\(I_3\)</span> and <span class='mathjax-inline'>\(I_4\)</span> be ex-centers in respect to <span class='mathjax-inline'>\(\angle {BAD}\)</span> and <span class='mathjax-inline'>\(\angle {CAD}\)</span> respectively.
+Show that <span class='mathjax-inline'>\(\overline {I_1 I_2}\)</span>, <span class='mathjax-inline'>\(\overline {I_3 I_4}\)</span>, and <span class='mathjax-inline'>\(\overline {BC}\)</span> intersect at one point. </p> 
+</div> 
+</div><p>
+(<a href='https://www.youtube.com/watch?v=adwiSgEAIG0'>Video Solution</a>)</p><div class='mdframed' id='mdframed-2'>
+<!-- l. 457 --><p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span>
+</p><!-- l. 457 --><p class='noindent'>First, because <span class='mathjax-inline'>\(I_1\)</span> and <span class='mathjax-inline'>\(I_2\)</span> are the angle bisectors of <span class='mathjax-inline'>\(\angle {ABD}\)</span> and <span class='mathjax-inline'>\(\angle {ACD}\)</span> respectively, <span class='mathjax-inline'>\(I = BI_1 \cap CI_2\)</span> is the
+incenter of <span class='mathjax-inline'>\(\triangle {ABC}\)</span>. Similarly, we know that <span class='mathjax-inline'>\(I' = BI_3 \cap CI_4\)</span> is the ex-center of <span class='mathjax-inline'>\(\triangle {ABC}\)</span> in respect that <span class='mathjax-inline'>\(\angle {BAC}\)</span>.
+Therefore <span class='mathjax-inline'>\(A\)</span>, <span class='mathjax-inline'>\(I\)</span>, and <span class='mathjax-inline'>\(I'\)</span> are collinear.
+</p><!-- l. 463 --><p class='noindent'>With similar idea, we could prove that <span class='mathjax-inline'>\(A, I_1, I_3\)</span> are collinear as well as <span class='mathjax-inline'>\(A, I_2, I_4\)</span>. In other
+words, <span class='mathjax-inline'>\(I_1I_3\)</span> and <span class='mathjax-inline'>\(I_2I_4\)</span> intersect at point <span class='mathjax-inline'>\(A\)</span>. Therefore, <span class='mathjax-inline'>\(BI_1 \cap CI_2\)</span>, <span class='mathjax-inline'>\(I_1I_3 \cap I_2I_4\)</span>, and <span class='mathjax-inline'>\(I_3B \cap I_4C\)</span> are collinear in <span class='mathjax-inline'>\(\triangle {I_1BI_3}\)</span> and <span class='mathjax-inline'>\(\triangle {I_2CI_4}\)</span>. By
+Desargues’ theorem, <span class='mathjax-inline'>\(\overline {I_1 I_2}\)</span>, <span class='mathjax-inline'>\(\overline {I_3 I_4}\)</span>, and <span class='mathjax-inline'>\(\overline {BC}\)</span> concurs.</p>
+</div>
+

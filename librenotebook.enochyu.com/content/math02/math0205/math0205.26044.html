@@ -1,0 +1,164 @@
+<!-- l. 5 -->
+
+<p class='noindent'></p>
+
+<h2 class='chapterHead' id='solutions'><span class=
+'titlemark'>Note&nbsp;1</span><br>
+<a id='x1-10001'></a>Solutions</h2><!-- l. 7 -->
+
+<p class='noindent'>Here are the solutions to the practice problems
+at the end of each note.</p>
+
+<h3 class='sectionHead' id='solutions-for-note-1'><span class=
+'titlemark'>1.1</span> <a id='x1-20001.1'></a>Solutions for Note
+1</h3><!-- l. 12 -->
+
+<p class='noindent'></p>
+
+<dl class='enumerate-enumitem'>
+  <dt class='enumerate-enumitem'>1.</dt>
+
+  <dd class='enumerate-enumitem'>It suffices to show that
+  <span class='mathjax-inline'>\(\alpha (x, y, z) + \beta (x', y',
+  z') \in S\)</span> for any scalars <span class=
+  'mathjax-inline'>\(\alpha \)</span> and <span class=
+  'mathjax-inline'>\(\beta \)</span>. With standard vector addition
+  and scalar multiplication, <span class='mathjax-inline'>\(\alpha
+  (x, y, z) + \beta (x', y', z') = (0, \alpha y + \beta y', \alpha z
+  + \beta z') \in S\)</span>. Thus, the set is a vector space.</dd>
+
+  <dt class='enumerate-enumitem'>2.</dt>
+
+  <dd class='enumerate-enumitem'>Let <span class=
+  'mathjax-inline'>\(f\)</span> and <span class=
+  'mathjax-inline'>\(g\)</span> be functions in <span class=
+  'mathjax-inline'>\(\mathbb {R}\)</span> such that <span class=
+  'mathjax-inline'>\(f'(0) = 0\)</span> and <span class=
+  'mathjax-inline'>\(g'(0) = 0\)</span>. Notice that <span class=
+  'mathjax-inline'>\((f + g)'(0) = f'(0) + g'(0) = 0\)</span> and
+  <span class='mathjax-inline'>\(f + g \in S\)</span>. Moreover, for
+  any scalars <span class='mathjax-inline'>\(\alpha \)</span>,
+  <span class='mathjax-inline'>\((\alpha f)'(0) = \alpha f'(0) =
+  0\)</span>. Thus <span class='mathjax-inline'>\(\alpha f \in
+  S\)</span> and <span class='mathjax-inline'>\(S\)</span> is a
+  vector space.</dd>
+
+  <dt class='enumerate-enumitem'>3.</dt>
+
+  <dd class='enumerate-enumitem'>First, for any scalars <span class=
+  'mathjax-inline'>\(\alpha \)</span>, notice that <span class=
+  'mathjax-inline'>\(\alpha (x_1, \ldots , x_n) = (\alpha x_1, \ldots
+  , \alpha x_n)\)</span>. If each coefficient is divided by
+  <span class='mathjax-inline'>\(\alpha \neq 0\)</span>, the scalar
+  multiplication holds. The case where <span class=
+  'mathjax-inline'>\(\alpha = 0\)</span> naturally holds. Continuing,
+  notice that <span class='mathjax-inline'>\((x_1, \ldots , x_n) +
+  (x_1', \ldots , x_n') = (x_1 + x_1', \ldots , x_n + x_n') \in
+  S\)</span> due to the property of addition. Thus, <span class=
+  'mathjax-inline'>\(S\)</span> is a vector space.</dd>
+
+  <dt class='enumerate-enumitem'>4.</dt>
+
+  <dd class='enumerate-enumitem'>Let <span class='mathjax-inline'>\(V
+  = W_1 \cap \cdots \cap W_n\)</span> where <span class=
+  'mathjax-inline'>\(W_i\)</span> for integer <span class=
+  'mathjax-inline'>\(i \in [1, n]\)</span> is a subspace of
+  <span class='mathjax-inline'>\(V\)</span>. For <span class=
+  'mathjax-inline'>\(u, v \in V\)</span>, notice that since
+  <span class='mathjax-inline'>\(u, v \in W_i\)</span> for all
+  <span class='mathjax-inline'>\(i\)</span> and <span class=
+  'mathjax-inline'>\(\alpha u + \beta v \in W_i\)</span> for any
+  scalars <span class='mathjax-inline'>\(\alpha \)</span> and
+  <span class='mathjax-inline'>\(\beta \)</span> by construction,
+  <span class='mathjax-inline'>\(\alpha u + \beta v \in V\)</span>
+  and the intersection of subspaces of a vector space is also a
+  subspace of the vector space.</dd>
+
+  <dt class='enumerate-enumitem'>5.</dt>
+
+  <dd class='enumerate-enumitem'>
+    First and foremost, it is evident that <span class=
+    'mathjax-inline'>\(e^{a_1 x}\)</span> is linearly independent
+    since <span class='mathjax-inline'>\(e^{a_1 x} &gt; 0\)</span>
+    for all <span class='mathjax-inline'>\(a_1\)</span> and
+    <span class='mathjax-inline'>\(x\)</span>. Therefore, it suffices
+    to show that if the set is linearly independent for <span class=
+    'mathjax-inline'>\(n - 1\)</span>, then it is linearly
+    independent for <span class='mathjax-inline'>\(n\)</span>.
+    Consider the following equations for some <span class=
+    'mathjax-inline'>\(c_k\)</span>. <span class=
+    'mathjax-env mathjax-align*'>\begin{align*} \sum _{k=1}^n c_k
+    e^{a_k x} &amp;= 0 \\ \sum _{k=1}^n c_k a_k e^{a_k x} &amp;= 0 \\
+    \sum _{k=1}^n c_k a_n e^{a_k x} &amp;= 0 \end{align*}</span> 
+    <!-- l. 53 -->
+
+    <p class='noindent'>Subtracting the third equation, which is
+    obtained by multiplying <span class=
+    'mathjax-inline'>\(a_n\)</span> in both sides, to the second
+    equation obtained by differentiating both sides, <span class=
+    'mathjax-block'>\[ \sum _{k=1}^n c_k (a_k - a_n) e^{a_k x} = \sum
+    _{k=1}^{n-1} c_k (a_k - a_n) e^{a_k x} = 0 \]</span> is obtained.
+    Because <span class='mathjax-inline'>\(a_k \neq a_n\)</span> for
+    integer <span class='mathjax-inline'>\(k \in [1, n-1]\)</span>
+    and <span class='mathjax-inline'>\(\{ e^{a_1 x}, \ldots ,
+    e^{a_{n-1} x} \}\)</span> is linearly independent
+    <span class='mathjax-inline'>\(c_1 = \cdots = c_{n-1} =
+    0\)</span>. In other words, <span class='mathjax-inline'>\(c_n
+    e^{a_n x} = 0\)</span> and <span class='mathjax-inline'>\(c_n =
+    0\)</span>. Therefore, <span class='mathjax-inline'>\(\{ e^{a_1
+    x}, \ldots , e^{a_n x} \}\)</span> is linearly independent by
+    induction.</p>
+  </dd>
+
+  <dt class='enumerate-enumitem'>6.</dt>
+
+  <dd class='enumerate-enumitem'>By definition, note that
+  <span class='mathjax-inline'>\(C = A + B\)</span>. Therefore, it
+  suffices to show that <span class='mathjax-inline'>\(A \cap B = \{
+  0 \}\)</span>. Notice that <span class=
+  'mathjax-inline'>\(A\)</span> and <span class=
+  'mathjax-inline'>\(B\)</span> can be written as <span class=
+  'mathjax-inline'>\(A = \Span \{ (1, 1, 1) \}\)</span> and
+  <span class='mathjax-inline'>\(B = \Span \{ (20, 15, 12)
+  \}\)</span>. Because <span class='mathjax-inline'>\(\lambda (1, 1,
+  1) = (20, 15, 12)\)</span> if and only if <span class=
+  'mathjax-inline'>\(\lambda = 0\)</span>, <span class=
+  'mathjax-inline'>\(A \cap B = \{ 0 \}\)</span> and <span class=
+  'mathjax-inline'>\(C = A \oplus B\)</span>.</dd>
+
+  <dt class='enumerate-enumitem'>7.</dt>
+
+  <dd class='enumerate-enumitem'>
+    Consider the following equations for some scalars <span class=
+    'mathjax-inline'>\(k_1, k_2, k_3\)</span>. <span class=
+    'mathjax-env mathjax-align*'>\begin{align*} k_1 (a + b) + k_2 (b
+    + c) + k_3 (c + a) &amp;= 0 \\ a (k_3 + k_1) + b (k_1 + k_2) + c
+    (k_2 + k_3) &amp;= 0 \end{align*}</span> <!-- l. 80 -->
+
+    <p class='noindent'>The linear combinations of <span class=
+    'mathjax-inline'>\(\{ a + b, b + c, c + a \}\)</span> equal zero
+    if and only if the linear combinations of <span class=
+    'mathjax-inline'>\(a\)</span>, <span class=
+    'mathjax-inline'>\(b\)</span>, and <span class=
+    'mathjax-inline'>\(c\)</span> equal zero. Moreover, from the
+    equation above, <span class='mathjax-inline'>\(k_1 = -k_2 = k_3 =
+    -k_1\)</span>. In other words, <span class='mathjax-inline'>\(k_1
+    = k_2 = k_3 = 0\)</span> and <span class='mathjax-inline'>\(\{ a
+    + b, b + c, c + a \}\)</span> is linearly independent.</p>
+  </dd>
+
+  <dt class='enumerate-enumitem'>8.</dt>
+
+  <dd class='enumerate-enumitem'>Let <span class=
+  'mathjax-inline'>\(f\)</span> and <span class=
+  'mathjax-inline'>\(g\)</span> be polynomials such that <span class=
+  'mathjax-inline'>\(f(0) = g(0) = 0\)</span>. Therefore,
+  <span class='mathjax-inline'>\((f + g)(0) = 0\)</span> and
+  <span class='mathjax-inline'>\(f + g\)</span> is in the set.
+  Moreover, <span class='mathjax-inline'>\((\alpha f)(0) = 0\)</span>
+  for any scalars <span class='mathjax-inline'>\(\alpha \)</span>.
+  Therefore, the set of all polynomials in <span class=
+  'mathjax-inline'>\(\mathbb {P}^3\)</span> that includes the origin
+  is a subspace of <span class='mathjax-inline'>\(\mathbb
+  {P}^3\)</span>.</dd>
+</dl>
