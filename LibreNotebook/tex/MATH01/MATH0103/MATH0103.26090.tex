@@ -17,7 +17,216 @@ with respect to the angle bisectors at $A$, $B$, and $C$.
 
 To better understand this topic, consider the following diagram.
 
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=1.2]
+    \coordinate (A) at (4, 4);
+    \coordinate (B) at (0, 0);
+    \coordinate (C) at (6, 0);
+    \coordinate (P) at (3,2);
+    \coordinate (Q) at (4.444444444444444,0.8888888888888894);
+    \coordinate (D) at (3,-2);
+    \coordinate (E) at (6.2,3.6);
+    \coordinate (F) at (2,3);
 
+    \draw[thick] (A) -- (B) -- (C) -- (A);
+    \draw[thick, BrickRed, dotted] (A) -- (P);
+    \draw[thick, BrickRed, dotted] (B) -- (P);
+    \draw[thick, BrickRed, dotted] (C) -- (P);
+    \draw[thick, RoyalPurple, dotted] (A) -- (Q);
+    \draw[thick, RoyalPurple, dotted] (B) -- (Q);
+    \draw[thick, RoyalPurple, dotted] (C) -- (Q);
+
+    \node[above] at (A) {\footnotesize $A$};
+    \node[left] at (B) {\footnotesize $B$};
+    \node[right] at (C) {\footnotesize $C$};
+    \draw[fill=BrickRed] (P) circle (0.05)
+        node[left] {\footnotesize $P$};
+    \draw[fill=RoyalPurple] (Q) circle (0.05)
+        node[below] {\footnotesize $Q$};
+
+    \pic[draw,"$\bullet$", angle radius=8mm, angle eccentricity=1.4]
+        {angle=B--A--P};
+    \pic[draw,"$\bullet$", angle radius=8mm, angle eccentricity=1.4]
+        {angle=Q--A--C};
+    \pic[draw,"$\circ$", angle radius=8mm, angle eccentricity=1.4]
+        {angle=P--B--A};
+    \pic[draw,"$\circ$", angle radius=8mm, angle eccentricity=1.4]
+        {angle=C--B--Q};
+    \pic[draw,"$\times$", angle radius=8mm, angle eccentricity=1.4]
+        {angle=Q--C--B};
+    \pic[draw,"$\times$", angle radius=8mm, angle eccentricity=1.4]
+        {angle=A--C--P};
+\end{tikzpicture}
+\end{figure}
+
+Note that the lines $AQ, BQ, CQ$ are the \textbf{isogonal lines} of
+$AP, BP, CP$ respectively. The point $Q$ is the isogonal conjugate
+of $P$ with respect to $\triangle{ABC}$. Now this point $Q$ is
+well-defined. To show that the isogonal conjugate is always a
+well-defined point, we can use many different methods, but here
+are two of my favorite ones.
+
+For the first proof, we will use Angle-Ceva Theorem. I honestly am
+not sure the standard term for the theorem because it is not
+widely known, but in Korea we call it as Angle-Ceva Theorem and
+I also saw some English forms like the angle form of Ceva' Theorem
+and trigonometric form of Ceva's Theorem.
+
+\begin{important}
+The theorem states that
+the following equation holds for some point $P$ in triangle $ABC$.
+\[
+\frac{\sin\angle{ABP}}{\sin\angle{PBC}} \cdot
+    \frac{\sin\angle{CAP}}{\sin\angle{PAB}} \cdot
+    \frac{\sin\angle{BCP}}{\sin\angle{PCA}}
+= 1
+\]
+\end{important}
+
+Note that by construction, the following equation holds.
+\begin{align*}
+    &\quad\ \frac{\sin\angle{CBQ}}{\sin\angle{QBA}} \cdot
+        \frac{\sin\angle{ACQ}}{\sin\angle{QCB}} \cdot
+        \frac{\sin\angle{BAQ}}{\sin\angle{QAC}} \\
+    &= \frac{\sin\angle{ABP}}{\sin\angle{PBC}} \cdot
+        \frac{\sin\angle{BCP}}{\sin\angle{PCA}} \cdot
+        \frac{\sin\angle{CAP}}{\sin\angle{PAB}}
+    = 1
+\end{align*}
+Therefore by reverse Angle-Ceva, $Q$ is well-defined.
+
+Another way of proving the existence is by using reflections.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=0.8]
+    \coordinate (A) at (4, 4);
+    \coordinate (B) at (0, 0);
+    \coordinate (C) at (6, 0);
+    \coordinate (P) at (3,2);
+    \coordinate (Q) at (4.444444444444444,0.8888888888888894);
+    \coordinate (D) at (3,-2);
+    \coordinate (E) at (6.2,3.6);
+    \coordinate (F) at (2,3);
+
+    \draw[thick] (A) -- (B) -- (C) -- (A);
+    \draw[thick, BrickRed, dotted] (A) -- (P);
+    \draw[thick, BrickRed, dotted] (B) -- (P);
+    \draw[thick, BrickRed, dotted] (C) -- (P);
+    \draw[thick, RoyalPurple, dotted] (A) -- (Q);
+    \draw[thick, RoyalPurple, dotted] (B) -- (Q);
+    \draw[thick, RoyalPurple, dotted] (C) -- (Q);
+    \draw[thick, dotted] (P) -- (D);
+    \draw[thick, dotted] (P) -- (E);
+    \draw[thick, dotted] (P) -- (F);
+    \draw[thick] (A) -- (F);
+    \draw[thick] (A) -- (E);
+    \draw[thick] (F) -- (E);
+
+    \node[above] at (A) {\footnotesize $A$};
+    \node[left] at (B) {\footnotesize $B$};
+    \node[right] at (C) {\footnotesize $C$};
+    \draw[fill=BrickRed] (P) circle (0.05)
+        node[left] {\footnotesize $P$};
+    \draw[fill=RoyalPurple] (Q) circle (0.05)
+        node[below] {\footnotesize $Q$};
+    \draw[fill=BrickRed] (D) circle (0.05)
+        node[right] {\footnotesize $D$};
+    \draw[fill=BrickRed] (E) circle (0.05)
+        node[right] {\footnotesize $E$};
+    \draw[fill=BrickRed] (F) circle (0.05)
+        node[left] {\footnotesize $F$};
+
+    \pic[draw,"$\bullet$", angle radius=8mm, angle eccentricity=1.4]
+        {angle=F--A--B};
+    \pic[draw,"$\bullet$", angle radius=6mm, angle eccentricity=1.4]
+        {angle=B--A--P};
+    \pic[draw,"$\circ$", angle radius=8mm, angle eccentricity=1.4]
+        {angle=P--A--Q};
+    \pic[draw,"$\bullet$", angle radius=6mm, angle eccentricity=1.4]
+        {angle=Q--A--C};
+    \pic[draw,"$\bullet + \circ$", angle radius=8mm,
+         angle eccentricity=1.6] {angle=C--A--E};
+\end{tikzpicture}
+\end{figure}
+
+Because we do not yet know if there exists point $Q$,
+let $l_A, l_B, l_C$ be the respective isogonal lines. Notice that
+by construction, because $AF = AP = AE$, $l_A$ is the perpendicular
+bisector of $FE$. Analogously, it is self-evident that $l_B$ and
+$l_C$ are perpendicular bisector of $FD$ and $ED$ respectively.
+In other words, the point of intersection of $l_A, l_B, l_C$
+is the center of the circumcircle of $\triangle{DEF}$ and the center
+of such circle and the points $D, E, F$ always exist. Thus,
+$Q$ is well-defined.
+
+I personally find this method more interesting because we can
+still prove it without prior knowledge. Continuing with the proofs,
+consider the following diagram for a special case.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=0.8]
+    \coordinate (A) at (2, 4);
+    \coordinate (B) at (0, 0);
+    \coordinate (C) at (6, 0);
+    \coordinate (H) at (2, 2);
+    \coordinate (O) at (3, 1);
+
+    \draw[thick] (A) -- (B) -- (C) -- (A);
+    \draw[thick, BrickRed, dotted] (A) -- (H);
+    \draw[thick, BrickRed, dotted] (B) -- (H);
+    \draw[thick, BrickRed, dotted] (C) -- (H);
+    \draw[thick, RoyalPurple, dotted] (A) -- (O);
+    \draw[thick, RoyalPurple, dotted] (B) -- (O);
+    \draw[thick, RoyalPurple, dotted] (C) -- (O);
+    \draw[thick, BrickRed] (A) -- (H);
+    \draw[thick, BrickRed, dotted] (A) -- (2, 0);
+    \draw[thick, RoyalPurple,] (A) -- (O);
+    \draw[thick, RoyalPurple, dotted] (A) -- (4, 2);
+
+    \fill[BrickRed, opacity=0.35]
+        (A) -- (B) -- (2, 0) -- (A) -- cycle;
+    \fill[RoyalPurple, opacity=0.35]
+        (A) -- (O) -- (4, 2) -- (A) -- cycle;
+
+    \node[above] at (A) {\footnotesize $A$};
+    \node[left] at (B) {\footnotesize $B$};
+    \node[right] at (C) {\footnotesize $C$};
+    \draw[fill=BrickRed] (H) circle (0.05)
+        node[left] {\footnotesize $H$};
+    \draw[fill=RoyalPurple] (O) circle (0.05)
+        node[below] {\footnotesize $O$};
+
+    \pic[draw,"$\bullet$", angle radius=8mm, angle eccentricity=1.4]
+        {angle=B--A--H};
+    \pic[draw,"$\bullet$", angle radius=8mm, angle eccentricity=1.4]
+        {angle=O--A--C};
+    \pic[draw,"$\circ$", angle radius=8mm, angle eccentricity=1.4]
+        {angle=H--B--A};
+    \pic[draw,"$\circ$", angle radius=8mm, angle eccentricity=1.4]
+        {angle=C--B--O};
+    \pic[draw,"$\times$", angle radius=8mm, angle eccentricity=1.4]
+        {angle=O--C--B};
+    \pic[draw,"$\times$", angle radius=8mm, angle eccentricity=1.4]
+        {angle=A--C--H};
+\end{tikzpicture}
+\end{figure}
+
+Notice that because $\angle{AEF} = \angle{ABC}$, $\angle{BAH} =
+\angle{OAC}$ by AA similarity. Similarly, the analogous argument
+applies to the other angles.
+
+\begin{important}
+Points $H$ and $O$ are isogonal conjugates.
+\end{important}
+
+The concept of isogonal conjugate appears surprisingly a lot when
+we discuss more advanced topics like harmonic range and spiral
+similarity. This is it for this section! Let's discuss homothety
+in the next section before getting into exciting topics like
+harmonic range and spiral similarity.
 
 \end{document}
 
