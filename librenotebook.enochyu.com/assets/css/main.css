@@ -40,6 +40,9 @@ body p {
   body {
     width: 90vw;
   }
+  #index {
+    width: 90vw !important;
+  }
 }
 
 p, h1, h2, h3, h4, a, span, ul, div {

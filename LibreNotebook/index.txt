@@ -156,7 +156,7 @@ Section III. Sections
 === | MATH0103.26090 | Isogonal Conjugate
 
 === | MATH0302.26091 | Vector-Valued Functions and Calculus
-0.0 | MATH0302.26092 | Different Parameterizations of Curves
+=== | MATH0302.26092 | Parameterizations of Curves
 ----------------------------------------------------------------------
 
 END OF INDEX

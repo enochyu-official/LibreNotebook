@@ -2,14 +2,128 @@
 
 \begin{document}
 
-\section{Different Parameterizations of Curves}
+\section{Parameterizations of Curves}
 
 As you could have noticed from the previous section, there are
 many different ways to represent a curve. In this section,
 we will discuss another method that uses the length of arc of
-a curve.
+a curve. But before doing that, let's get started with definitions.
 
+\begin{definition}{}{}
+A \textbf{parametrization} of a curve is a way of representing the
+curve in a continuous vector-valued function. A parametrization is
+\textbf{smooth} if its derivative is nonzero and continuous at the
+domain of the curve.
+\end{definition}
 
+Notice that a smooth parametrization of a curve is not unique
+because we can always scale the parameter with accordingly adjusted
+domain or construct with different orientations. Continuing from
+the definition, we can establish an important theorem.
+
+\begin{theorem}{}{}
+Given a curve $C$, let $\mathbf{r_1}$ be a smooth parametrization of
+$C$ with the domain $U$. If $s$ is a differentiable real-valued
+function with domain $V$ and range $U$ such that $s'$ is continuous
+and nonzero, then a smooth parametrization of $C$ can also be
+represented as $\mathbf{r_2} = \mathbf{r_1} \circ s$.
+\end{theorem}
+\begin{proof}
+Without loss of generality, assume $\mathbf{r_1}$ is a
+parameterization in 3-space defined as $\mathbf{r_1}(t) =
+\langle x(t), y(t), z(t) \rangle$. Because it is self-evident that
+$\mathbf{r_2}$ is a parametrization of $C$ by definition, it suffices
+to show that $\mathbf{r_2}$ is smooth. Consider the following
+equations.
+\begin{align*}
+    \mathbf{r_2}'(k)
+    &= \frac{d}{dk} \langle x(s(k)), y(s(k)), z(s(k)) \rangle \\
+    &= s'(k) \langle x'(s(k)), y'(s(k)), z'(s(k)) \rangle \\
+    &= s'(k) \mathbf{r_1}'(s(k))
+\end{align*}
+Notice that because $s'$ and $\mathbf{r_1}'$ are both nonzero and
+continuous function by construction, $\mathbf{r_2} = \mathbf{r_1}
+\circ s$ is a smooth parametrization of $C$.
+\end{proof}
+
+We actually have a special name for $s$. Such functions are known
+as a \textbf{smooth change in parameter}. With this concept in mind,
+we can find a special way of parametrizing a curve.
+
+Before continuing with the new method, we need to understand how
+arc lengths are defined in a curve.
+
+\begin{important}
+For a curve defined as $\mathbf{r}(t) = \langle x(t), y(t), z(t)
+\rangle$, the \textbf{arc length} $s$ of the curve in the interval
+$a \leq t \leq b$ is defined as the following.
+\[
+s
+= \int_a^b \sqrt{x'(t)^2 + y'(t)^2 + z'(t)^2} \,dt
+= \int_a^b \| \mathbf{r}'(t) \| \,dt
+\]
+\end{important}
+
+A way of understanding this equation is cutting the curve in the
+given interval into arbitrarily small pieces so that each piece
+becomes a linear segment. Then, it becomes obvious that we can
+simply use Pythagorean theorem to derive the formula just as we do
+for 2-space. Also, using the definition of a norm of a vector,
+we can rewrite the integral.
+
+Now with this idea in mind, we can construct arc length
+parametrization of a curve. The basic idea of this method is to
+define each point on the curve with the distance from a reference
+point $t_0 = f(0)$. Consider the following equation.
+\[
+s = \int_{t_0}^{f(s)} \| \mathbf{r_1}'(t) \| \,dt
+\]
+From here it is evident that we can define a new $t$-value with some
+distance $s$ since there are only two possible directions depending
+on the position of $f(s)$. Another fun fact that we can notice by
+letting $s = f^{-1}(u)$ for some independent values of $u$ is that
+\begin{align*}
+    f^{-1}(u)
+    &= \int_{t_0}^{f(f^{-1} (u))} \| \mathbf{r_1}'(t) \| \,dt
+    = \int_{t_0}^u \| \mathbf{r_1}'(t) \| \,dt \\
+    f^{-1}(t)
+    &= \int_{t_0}^t \| \mathbf{r_1}'(u) \| \,du
+\end{align*}
+holds and the following equation is also true by FTC.
+\[
+\left( f^{-1} \right)'(t) = \| \mathbf{r_1}'(t) \|
+\]
+This shows that because $f$ is differentiable and $f'$ is continuous
+and nonzero from the equation $f'(s) = \frac{1}{{f^{-1}}'(f(s))}$,
+$f$ is a smooth change of parameter.
+
+\begin{important}
+In other words, the arc length function of a curve with
+parametrization $\mathbf{r}$ can be represented as the following
+with the reference point $t_0$.
+\[
+f(t) = \int_{t_0}^t \| \mathbf{r}'(u) \| \,du
+\]
+\end{important}
+
+This is how we represent a curve with arc length! Before we conclude
+this section, here is an important theorem to consider.
+
+\begin{theorem}{}{}
+Given an arc length parametrization $\mathbf{r}(s)$ of a curve,
+$\| \mathbf{r}'(s) \| = 1$ always holds.
+\end{theorem}
+\begin{proof}
+Note that by definition,
+\[
+s = \int_0^s \| \mathbf{r}'(u) \| \,du
+\]
+and we obtain $1 = \| \mathbf{r}'(s) \|$ by differentiating with
+respect to $s$.
+\end{proof}
+
+This is it for this section and this note! In our next note, we will
+discuss about curvature.
 
 \end{document}
 
