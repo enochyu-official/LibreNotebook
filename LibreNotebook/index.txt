@@ -134,7 +134,7 @@ Section III. Sections
 === | MATH0301.26070 | Vectors
 
 0.7 | MATH0106.26071 | Telescoping Sums
-0.0 | MATH0106.26072 | Bounding and Monotonicity
+0.0 | MATH0106.26072 | Recurrence Relation
 0.0 | MATH0106.26073 | Symmetric and Cyclic Sums
 0.1 | MATH0106.26074 | Practice Problems
 0.0 | MATH0107.26075 | Foundations

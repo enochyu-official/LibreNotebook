@@ -870,27 +870,6 @@ for (i = 0; i < acc.length; i++) {
   </script>
 
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-svg.js"></script>
-
-  <script>
-    const today = new Date();
-
-    const year = today.getFullYear() - 2025;
-    const month = String(today.getMonth() + 1).padStart(2, "0");
-    const day = String(today.getDate()).padStart(2, "0");
-
-    document.getElementById("version").textContent =
-      `v${year}.${month}.${day}`;
-
-
-    const date = new Date();
-
-    document.getElementById("last-updated").textContent =
-      date.toLocaleDateString("en-GB", {
-        day: "numeric",
-        month: "long",
-        year: "numeric"
-    });
-  </script>
 </footer>
 
 

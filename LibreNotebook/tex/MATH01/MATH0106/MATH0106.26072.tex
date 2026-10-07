@@ -2,8 +2,112 @@
 
 \begin{document}
 
-\section{Bounding and Monotonicity}
+\section{Recurrence Relation}
 
+Another very popular type of problems in math olympiads and
+competition in general is recurrence relation. This section discusses
+different forms of recurrence relation and related problems. One more
+thing before we get started is that this section is largely based on
+a series of YouTube videos from WinnersKMO \cite{MATH01-5}.
+
+As you probably know, recurrence relation focuses on $n^\text{th}$
+term given its relation with preceding $k^\text{th}$ terms.
+One very famous example would be Fibonacci sequence whose terms
+are defined as $F_n = F_{n-1} + F_{n-2}$ where $F_0 = F_1 = 1$.
+The problems are relatively easy in my opinion until it gets
+incredibly hard, so let's get started with some easy cases.
+
+{\Large\textcolor{BrickRed}
+{\textbf{I. $\mathbf{a_n = a_{n-1} + f(n)}$}}}
+
+This default type has an effective way of solving because it always
+gets down to a single formula, which becomes quite evident when we
+telescope. Consider the following equations.
+\begin{align*}
+    a_n - a_{n-1} &= f(n) \\
+    a_{n-1} - a_{n-2} &= f(n-1) \\
+    &\vdots \\
+    a_2 - a_1 &= f(2)
+\end{align*}
+Adding the equations, the left-hand side telescopes and we obtain
+$a_n - a_1 = \sum_{k=2}^n f(k)$.
+
+\begin{important}
+Given a recurrence relation $a_n = a_{n-1} + f(n)$, each term can be
+represented with the following formula.
+\[
+a_n = \sum_{k=1}^n f(k) + a_1 - f(1)
+\]
+\end{important}
+
+There will be lots of formulas from now, but I honestly think there
+is no need to memorize them because if we just remember the idea to
+get to the formulas, then we can solve the problems. Here is an
+example problem before we move on to the next case.
+
+\begin{problem}{Enoch's Problem}{}
+Let $a_1, \ldots, a_k$ be a sequence such that $a_n = a_{n-1} +
+n^2 - 2n + 1$ for $n > 1$ and $a_1 = 2$. Find $a_{101}$.
+\end{problem}
+\begin{solution}
+This sequence has the form $a_n = a_{n-1} + f(n)$ where $f(n) = n^2
+- 2n + 1$. Telescoping, we obtain the following equations.
+\begin{align*}
+    a_{101}
+    &= \sum_{k=1}^{101} (k-1)^2 + 2 - 1
+    = \sum_{n=0}^{100} n^2 + 1 \\
+    &= \frac{100(100 + 1)(200 + 1)}{6} + 1
+    = 338351
+\end{align*}
+Therefore, $a_{101} = 338351$.
+\end{solution}
+
+Continuing with the first form, here is the second one.
+
+{\Large\textcolor{BrickRed}
+{\textbf{II. $\mathbf{a_n = a_{n-1} f(n)}$}}}
+
+This case is also very popular and can be solved using the same method
+as before.
+\begin{align*}
+    \frac{a_n}{a_{n-1}} &= f(n) \\
+    \frac{a_{n-1}}{a_{n-2}} &= f(n-1) \\
+    &\vdots \\
+    \frac{a_2}{a_1} &= f(2)
+\end{align*}
+Telescoping, we obtain $\frac{a_n}{a_1} = \prod_{k=2}^n f(k)$.
+
+\begin{important}
+The terms in a recurrence relation $a_n = a_{n-1} f(n)$ can be
+represented with the following formula.
+\[
+a_n = a_1 \prod_{k=2}^n f(k)
+\]
+\end{important}
+
+Here is another problem derived from the previous one.
+
+\begin{problem}{Enoch's Problem}{}
+Let $a_1, \ldots, a_k$ be a sequence such that $a_n = a_{n-1} (
+n^2 - 2n + 1)$ for $n > 1$ and $a_1 = 1$. Find $a_{101}$.
+\end{problem}
+\begin{solution}
+Notice that this sequence has the form $a_n = a_{n-1} f(n)$ where
+$f(n) = (n-1)^2$. Telescoping, we obtain the following equations.
+\[
+a_{101}
+= \prod_{k=2}^{101} (k-1)^2
+= \prod_{n=1}^{100} n^2
+= (100!)^2
+\]
+Therefore, $a_{101} = (100!)^2$.
+\end{solution}
+
+The first two cases were relatively simple. Continuing, we can
+continue with their variations.
+
+{\Large\textcolor{BrickRed}
+{\textbf{III. $\mathbf{a_n = k a_{n-1} + r}$}}}
 
 
 
