@@ -311,10 +311,80 @@ Letting $b_n = a_n - a_{n-1}$, it is now trivial.
 
 If the problem is not nice enough, which is the most likely case,
 we will get $p + q + r \neq 0$. This now becomes quite complicated.
+For this case, we can try dividing both sides by $p$. Notice that
+because $\frac{q}{p}$ and $\frac{r}{p}$ are constants, we can always
+find $\alpha$ and $\beta$ such that the following equation holds
+with Vieta's formula.
+\[
+a_{n+1} - (\alpha + \beta) a_n + \alpha\beta a_{n-1} = 0
+\]
+From here, we can again split the equation into two cases depending
+on the values of $\alpha$ and $\beta$.
 
+The first case is when $\alpha \neq \beta$. Rearranging the equation,
+we obtain the two distinct equations.
+\begin{align*}
+    a_{n+1} - \alpha a_n &= \beta (a_n - \alpha a_{n-1}) \\
+    a_{n+1} - \beta a_n &= \alpha (a_n - \beta a_{n-1})
+\end{align*}
+Because the equations from a geometric sequence, we can telescope
+to obtain the following.
+\begin{align*}
+    a_n - \alpha a_{n-1} &= \beta^{n-1} (a_2 - \alpha a_1) \\
+    a_n - \beta a_{n-1} &= \alpha^{n-1} (a_2 - \beta a_1) \\
+    \therefore
+    a_{n-1} = \frac{1}{\beta - \alpha} (
+        \beta^{n-1} &(a_2 - \alpha a_1) -
+        \alpha^{n-1} (a_2 - \beta a_1)
+    )
+\end{align*}
+From here it is not difficult to notice that
+$a_n = \frac{1}{\beta - \alpha} (\beta^n (a_2 - \alpha a_1) -
+\alpha^n (a_2 - \beta a_1))$ and it won't be too difficult to
+find $a_1$ and $a_2$ because they are usually given by the problem.
+
+The second case is when $\alpha = \beta$. This case is actually
+nicer because we can simply substitute the values to obtain the
+following.
+\begin{align*}
+    a_{n+1} - 2\alpha a_n + \alpha^2 a_{n-1} &= 0 \\
+    a_{n+1} - \alpha a_n &= \alpha (a_n - \alpha a_{n-1})
+\end{align*}
+Again, because this is a geometric sequence, we can telescope
+to obtain the following equation.
+\[
+a_{n+1} - \alpha a_n = \alpha^{n-1} (\alpha_2 - \alpha a_1)
+\]
+Continuing, we can divided both sides by $\alpha^{n+1}$ to telescope
+again and obtain the following.
+\begin{align*}
+    \frac{a_{n+1}}{\alpha^{n+1}} - \frac{a_n}{\alpha^n}
+    &= \frac{a_2 - \alpha a_1}{\alpha^2} \\
+    \therefore
+    \frac{a_n}{\alpha^n}
+    &= \frac{a_2 - \alpha a_1}{\alpha^2} \cdot (n - 1)
+        + \frac{a_1}{\alpha}
+\end{align*}
+Therefore, $a_n = \alpha^{n-2} (n-1) (a_2 - \alpha a_1) +
+\alpha^{n-1} a_1$.
+
+This is it for this case. Honestly, I don't think its worth
+memorizing the equation from this point but having the idea
+to split the middle term and telescoping would be enough!
+There are few more cases left, and let's continue with Case VII.
+
+{\Large\textcolor{BrickRed}
+{\textbf{VII. $\mathbf{a_n = p a_{n-1} + q b_{n-1},
+b_n = r a_{n-1} + s b_{n-1}}$}}}
+
+This is the case when we are introduced two independent variables.
 
 
 
 \end{document}
 
+x_{n+1}  = 6x_n + 5y_n
+y_{n+1}  =  x_n + 2y_n
+x_1 = 11, y_1 = 1
+x_n, y_n?
 
