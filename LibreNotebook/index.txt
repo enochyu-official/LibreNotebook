@@ -28,6 +28,7 @@ MATH0107       | [C] Combinatorics
 MATH0108       | [N] Diophantine Equations
 MATH0109       | Prerequisites
 MATH0110       | [N] Modular Arithmetic
+MATH0111       | [N] Miscellaneous Goodies
 MATH0100       | Solutions
 
 MATH0201       | Vectors and Vector Spaces
@@ -157,6 +158,7 @@ Section III. Sections
 
 === | MATH0302.26091 | Vector-Valued Functions and Calculus
 === | MATH0302.26092 | Parameterizations of Curves
+0.0 | MATH0111.26093 | p-adic Valuation & LTE Lemma
 ----------------------------------------------------------------------
 
 END OF INDEX

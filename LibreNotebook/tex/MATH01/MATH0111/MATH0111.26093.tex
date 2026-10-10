@@ -1,0 +1,68 @@
+\documentclass[../../../main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{[N] Miscellaneous Goodies}
+
+This note discusses some of the miscellaneous Number Theory topics
+that are not necessarily the major part in olympiad NT, but would be
+very useful when solving problems. At least for KMO, I am aware that
+it is generally required to prove many of the contents here during
+the write-ups, but some problems are virtually impossible to solve
+without previous knowledge on these topics!
+
+\section{\texorpdfstring{$p$}{p}-adic Valuation \& LTE Lemma}
+
+LTE Lemma, which stands for Lifting the Exponent Lemma, concerns about
+$p$-adic valuation of two integers. Before we get into the lemma,
+let's discuss about $p$-adic valuation.
+
+\begin{definition}{}{}
+The $\mathbf{p}$\textbf{-adic valuation} of an integer $n$ and prime
+$p$, denoted as $\nu_p (n)$, is the largest possible integer $a$ such
+that $p^a \mid n$.
+\end{definition}
+
+Some examples could be $\nu_2 (48) = 3$ and $\nu_3 (54) = 3$. It is
+worth noting that some sources write this as $V_p (n)$, so they most
+likely refer to the same thing.
+
+\begin{important}
+A very famous example would be Legendre's formula which states the
+following equation for positive $n$ and prime $p$.
+\vspace{-0.8\baselineskip}
+\[
+\nu_p (n!)
+= \sum_{k=1}^\infty \left\lfloor \frac{n}{p^k} \right\rfloor
+\]
+\end{important}
+
+This is actually the same as the classic competition style problems
+that asks you the number of $p$ in $n!$. I will skip the proof because
+I think it is pretty self-evident.
+
+Another very famous application is understanding why $\binom{n}{r}$ is
+an integer. Obviously combinatoric-wise, its definition makes it an
+integer, but algebraic-wise, it is pretty interesting considering the
+fact that $\binom{n}{r} = \frac{n!}{r! (n-r)!}$. To show this,
+it suffices to prove the following inequality for any prime $p$.
+\[
+\nu_p (n!) \geq \nu_p (r!) + \nu_p ((n-r)!)
+\]
+By Legendre's formula, the inequality converts as
+\[
+\sum_{k=1}^\infty \left\lfloor \frac{n}{p^k} \right\rfloor
+\geq \sum_{k=1}^\infty \left(
+    \left\lfloor \frac{r}{p^k} \right\rfloor +
+    \left\lfloor \frac{n-r}{p^k} \right\rfloor
+\right)
+\]
+and this is true because $\lfloor a + b \rfloor \geq \lfloor a \rfloor
++ \lfloor b \rfloor$. With this notation and concept in mind,
+lets get into LTE Lemma!
+
+
+
+\end{document}
+
+
