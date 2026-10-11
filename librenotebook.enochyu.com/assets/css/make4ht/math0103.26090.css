@@ -1,7 +1,10 @@
  
 /* start css.sty */
 .pplr8t-x-x-109{}
+.zplmr7y-x-x-109{}
+.zplmr7t-x-x-109{}
 .pplb8t-x-x-109{font-weight: bold;}
+.zplmr7m-x-x-90{font-size:81%;font-style: italic;}
 p{margin-top:0;margin-bottom:0}
 p.indent{text-indent:0;}
 p + p{margin-top:1em;}
@@ -206,5 +209,7 @@ pre.lstinputlisting{ font-family: monospace,monospace; white-space: pre-wrap; te
 #tcolobox-1 .tcolorbox-title{color: #FFFFFF; background-color: #4D0000;}
 #tcolobox-1 .tcolorbox-content{color: #000000; background-color: #FFFFE5; border: 1px solid #4D0000;}
 #tcolobox-1 > div{ padding-top:8.5358px; padding-bottom:8.5358px; padding-left:14.22635px; padding-right:14.22635px; }
+#mdframed-1{border:2.0pt solid #B80000; background-color: #FFFFF7; color:#B80000;}
+#mdframed-2{border:2.0pt solid #B80000; background-color: #FFFFF7; color:#B80000;}
 /* end css.sty */
 

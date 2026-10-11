@@ -10,7 +10,9 @@ mkdir "$CONTENT" "$CSS"
 
 # Preface
 make4ht -u -B temp -f html5+tidy tex/preface.tex "mathjax"
-tidy -indent -wrap 70 -utf8 -m temp/preface.html
+tidy -indent -wrap 70 -utf8 -m \
+     --show-body-only yes --force-output yes \
+  temp/preface.html
 mv temp/preface.html "$CONTENT"
 mv temp/preface.css "$CSS"
 
@@ -39,7 +41,8 @@ for dir in tex/*; do
         make4ht -u -B "$TMP_DIR" -f html5+tidy "$fileName".tex "mathjax"
         perl -0777 -pi -e "s#src\s*=\s*'([^']+\.svg)'#src='/svg/\$1'#g" \
           "$TMP_DIR/$fileName".html
-        tidy -indent -wrap 70 -utf8 -m --show-body-only yes \
+        tidy -indent -wrap 70 -utf8 -m \
+             --show-body-only yes --force-output yes \
           "$TMP_DIR/$fileName".html
 
         mv "$TMP_DIR/$fileName".html \

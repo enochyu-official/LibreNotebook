@@ -1,8 +1,195 @@
-<h3 class='sectionHead' id='different-parameterizations-of-curves'>
-<span class='titlemark'>0.1</span> <a id='x1-10000.1'></a>Different
-Parameterizations of Curves</h3><!-- l. 7 -->
+<h3 class='sectionHead' id='parameterizations-of-curves'><span class=
+'titlemark'>0.1</span> <a id='x1-10000.1'></a>Parameterizations of
+Curves</h3><!-- l. 7 -->
 
 <p class='noindent'>As you could have noticed from the previous
 section, there are many different ways to represent a curve. In this
 section, we will discuss another method that uses the length of arc
-of a curve.</p>
+of a curve. But before doing that, let’s get started with
+definitions.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-1'>
+  <div class='tcolorbox-title'>
+    <!-- l. 17 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.1</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 13 -->
+
+    <p class='noindent'>A <span class=
+    'pplb8t-x-x-109'>parametrization</span> of a curve is a way of
+    representing the curve in a continuous vector-valued function. A
+    parametrization is <span class='pplb8t-x-x-109'>smooth</span> if
+    its derivative is nonzero and continuous at the domain of the
+    curve.</p>
+  </div>
+</div><!-- l. 19 -->
+
+<p class='noindent'>Notice that a smooth parametrization of a curve
+is not unique because we can always scale the parameter with
+accordingly adjusted domain or construct with different orientations.
+Continuing from the definition, we can establish an important
+theorem.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-2'>
+  <div class='tcolorbox-title'>
+    <!-- l. 30 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.2</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 25 -->
+
+    <p class='noindent'>Given a curve <span class=
+    'mathjax-inline'>\(C\)</span>, let <span class=
+    'mathjax-inline'>\(\mathbf {r_1}\)</span> be a smooth
+    parametrization of <span class='mathjax-inline'>\(C\)</span> with
+    the domain <span class='mathjax-inline'>\(U\)</span>. If
+    <span class='mathjax-inline'>\(s\)</span> is a differentiable
+    real-valued function with domain <span class=
+    'mathjax-inline'>\(V\)</span> and range <span class=
+    'mathjax-inline'>\(U\)</span> such that <span class=
+    'mathjax-inline'>\(s'\)</span> is continuous and nonzero, then a
+    smooth parametrization of <span class=
+    'mathjax-inline'>\(C\)</span> can also be represented as
+    <span class='mathjax-inline'>\(\mathbf {r_2} = \mathbf {r_1}
+    \circ s\)</span>.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-1'>
+  <!-- l. 32 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 32 -->
+
+  <p class='noindent'>Without loss of generality, assume <span class=
+  'mathjax-inline'>\(\mathbf {r_1}\)</span> is a parameterization in
+  3-space defined as <span class='mathjax-inline'>\(\mathbf {r_1}(t)
+  = \langle x(t), y(t), z(t) \rangle \)</span>. Because it is
+  self-evident that <span class='mathjax-inline'>\(\mathbf
+  {r_2}\)</span> is a parametrization of <span class=
+  'mathjax-inline'>\(C\)</span> by definition, it suffices to show
+  that <span class='mathjax-inline'>\(\mathbf {r_2}\)</span> is
+  smooth. Consider the following equations. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} \mathbf {r_2}'(k)
+  &amp;= \frac {d}{dk} \langle x(s(k)), y(s(k)), z(s(k)) \rangle \\
+  &amp;= s'(k) \langle x'(s(k)), y'(s(k)), z'(s(k)) \rangle \\ &amp;=
+  s'(k) \mathbf {r_1}'(s(k)) \end{align*}</span></p><!-- l. 44 -->
+
+  <p class='noindent'>Notice that because <span class=
+  'mathjax-inline'>\(s'\)</span> and <span class=
+  'mathjax-inline'>\(\mathbf {r_1}'\)</span> are both nonzero and
+  continuous function by construction, <span class=
+  'mathjax-inline'>\(\mathbf {r_2} = \mathbf {r_1} \circ s\)</span>
+  is a smooth parametrization of <span class=
+  'mathjax-inline'>\(C\)</span>.</p>
+</div><!-- l. 49 -->
+
+<p class='noindent'>We actually have a special name for <span class=
+'mathjax-inline'>\(s\)</span>. Such functions are known as a
+<span class='pplb8t-x-x-109'>smooth change in parameter</span>. With
+this concept in mind, we can find a special way of parametrizing a
+curve.</p><!-- l. 53 -->
+
+<p class='noindent'>Before continuing with the new method, we need to
+understand how arc lengths are defined in a curve.</p>
+
+<div class='mdframed' id='mdframed-2'>
+  <!-- l. 57 -->
+
+  <p class='noindent'>For a curve defined as <span class=
+  'mathjax-inline'>\(\mathbf {r}(t) = \langle x(t), y(t), z(t)
+  \rangle \)</span>, the <span class='pplb8t-x-x-109'>arc
+  length</span> <span class='mathjax-inline'>\(s\)</span> of the
+  curve in the interval <span class='mathjax-inline'>\(a \leq t \leq
+  b\)</span> is defined as the following. <span class=
+  'mathjax-block'>\[ s = \int _a^b \sqrt {x'(t)^2 + y'(t)^2 +
+  z'(t)^2} \,dt = \int _a^b \| \mathbf {r}'(t) \| \,dt \]</span></p>
+</div><!-- l. 67 -->
+
+<p class='noindent'>A way of understanding this equation is cutting
+the curve in the given interval into arbitrarily small pieces so that
+each piece becomes a linear segment. Then, it becomes obvious that we
+can simply use Pythagorean theorem to derive the formula just as we
+do for 2-space. Also, using the definition of a norm of a vector, we
+can rewrite the integral.</p><!-- l. 74 -->
+
+<p class='noindent'>Now with this idea in mind, we can construct arc
+length parametrization of a curve. The basic idea of this method is
+to define each point on the curve with the distance from a reference
+point <span class='mathjax-inline'>\(t_0 = f(0)\)</span>. Consider
+the following equation. <span class='mathjax-block'>\[ s = \int
+_{t_0}^{f(s)} \| \mathbf {r_1}'(t) \| \,dt \]</span> From here it is
+evident that we can define a new <span class=
+'mathjax-inline'>\(t\)</span>-value with some distance <span class=
+'mathjax-inline'>\(s\)</span> since there are only two possible
+directions depending on the position of <span class=
+'mathjax-inline'>\(f(s)\)</span>. Another fun fact that we can notice
+by letting <span class='mathjax-inline'>\(s = f^{-1}(u)\)</span> for
+some independent values of <span class='mathjax-inline'>\(u\)</span>
+is that <span class='mathjax-env mathjax-align*'>\begin{align*}
+f^{-1}(u) &amp;= \int _{t_0}^{f(f^{-1} (u))} \| \mathbf {r_1}'(t) \|
+\,dt = \int _{t_0}^u \| \mathbf {r_1}'(t) \| \,dt \\ f^{-1}(t) &amp;=
+\int _{t_0}^t \| \mathbf {r_1}'(u) \| \,du \end{align*}</span></p>
+<!-- l. 92 -->
+
+<p class='noindent'>holds and the following equation is also true by
+FTC. <span class='mathjax-block'>\[ \left ( f^{-1} \right )'(t) = \|
+\mathbf {r_1}'(t) \| \]</span> This shows that because <span class=
+'mathjax-inline'>\(f\)</span> is differentiable and <span class=
+'mathjax-inline'>\(f'\)</span> is continuous and nonzero from the
+equation <span class='mathjax-inline'>\(f'(s) = \frac
+{1}{{f^{-1}}'(f(s))}\)</span>, <span class=
+'mathjax-inline'>\(f\)</span> is a smooth change of parameter.</p>
+
+<div class='mdframed' id='mdframed-3'>
+  <!-- l. 101 -->
+
+  <p class='noindent'>In other words, the arc length function of a
+  curve with parametrization <span class='mathjax-inline'>\(\mathbf
+  {r}\)</span> can be represented as the following with the reference
+  point <span class='mathjax-inline'>\(t_0\)</span>. <span class=
+  'mathjax-block'>\[ f(t) = \int _{t_0}^t \| \mathbf {r}'(u) \| \,du
+  \]</span></p>
+</div><!-- l. 109 -->
+
+<p class='noindent'>This is how we represent a curve with arc length!
+Before we conclude this section, here is an important theorem to
+consider.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-3'>
+  <div class='tcolorbox-title'>
+    <!-- l. 115 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.3</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 113 -->
+
+    <p class='noindent'>Given an arc length parametrization
+    <span class='mathjax-inline'>\(\mathbf {r}(s)\)</span> of a
+    curve, <span class='mathjax-inline'>\(\| \mathbf {r}'(s) \| =
+    1\)</span> always holds.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-4'>
+  <!-- l. 117 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 117 -->
+
+  <p class='noindent'>Note that by definition, <span class=
+  'mathjax-block'>\[ s = \int _0^s \| \mathbf {r}'(u) \| \,du
+  \]</span> and we obtain <span class='mathjax-inline'>\(1 = \|
+  \mathbf {r}'(s) \|\)</span> by differentiating with respect to
+  <span class='mathjax-inline'>\(s\)</span>.</p>
+</div><!-- l. 125 -->
+
+<p class='noindent'>This is it for this section and this note! In our
+next note, we will discuss about curvature.</p>

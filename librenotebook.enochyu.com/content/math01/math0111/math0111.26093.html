@@ -1,0 +1,90 @@
+<!-- l. 5 -->
+
+<p class='noindent'></p><!-- l. 5 -->
+
+<p class='noindent'>iscellaneous Goodies]</p>
+
+<h2 class='chapterHead' id='n-miscellaneous-goodies'><span class=
+'titlemark'>Note&nbsp;1</span><br>
+<a id='x1-10001'></a>[N] Miscellaneous Goodies</h2><!-- l. 7 -->
+
+<p class='noindent'>This note discusses some of the miscellaneous
+Number Theory topics that are not necessarily the major part in
+olympiad NT, but would be very useful when solving problems. At least
+for KMO, I am aware that it is generally required to prove many of
+the contents here during the write-ups, but some problems are
+virtually impossible to solve without previous knowledge on these
+topics!</p>
+
+<h3 class='sectionHead' id='padic-valuation-lte-lemma'><span class=
+'titlemark'>1.1</span> <a id='x1-20001.1'></a><span class=
+'mathjax-inline'>\(p\)</span>-adic Valuation &amp; LTE Lemma</h3>
+<!-- l. 16 -->
+
+<p class='noindent'>LTE Lemma, which stands for Lifting the Exponent
+Lemma, concerns about <span class='mathjax-inline'>\(p\)</span>-adic
+valuation of two integers. Before we get into the lemma, let’s
+discuss about <span class='mathjax-inline'>\(p\)</span>-adic
+valuation.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-1'>
+  <div class='tcolorbox-title'>
+    <!-- l. 24 -->
+
+    <p class='noindent'>Definition&nbsp;1.1.1</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 21 -->
+
+    <p class='noindent'>The <span class='mathjax-inline'>\(\mathbf
+    {p}\)</span><span class='pplb8t-x-x-109'>-adic valuation</span>
+    of an integer <span class='mathjax-inline'>\(n\)</span> and prime
+    <span class='mathjax-inline'>\(p\)</span>, denoted as
+    <span class='mathjax-inline'>\(\nu _p (n)\)</span>, is the
+    largest possible integer <span class=
+    'mathjax-inline'>\(a\)</span> such that <span class=
+    'mathjax-inline'>\(p^a \mid n\)</span>.</p>
+  </div>
+</div><!-- l. 26 -->
+
+<p class='noindent'>Some examples could be <span class=
+'mathjax-inline'>\(\nu _2 (48) = 3\)</span> and <span class=
+'mathjax-inline'>\(\nu _3 (54) = 3\)</span>. It is worth noting that
+some sources write this as <span class='mathjax-inline'>\(V_p
+(n)\)</span>, so they most likely refer to the same thing.</p>
+
+<div class='mdframed' id='mdframed-1'>
+  <!-- l. 31 -->
+
+  <p class='noindent'>A very famous example would be Legendre’s
+  formula which states the following equation for positive
+  <span class='mathjax-inline'>\(n\)</span> and prime <span class=
+  'mathjax-inline'>\(p\)</span>. <span class='mathjax-block'>\[ \nu
+  _p (n!) = \sum _{k=1}^\infty \left \lfloor \frac {n}{p^k} \right
+  \rfloor \]</span></p>
+</div><!-- l. 40 -->
+
+<p class='noindent'>This is actually the same as the classic
+competition style problems that asks you the number of <span class=
+'mathjax-inline'>\(p\)</span> in <span class=
+'mathjax-inline'>\(n!\)</span>. I will skip the proof because I think
+it is pretty self-evident.</p><!-- l. 44 -->
+
+<p class='noindent'>Another very famous application is understanding
+why <span class='mathjax-inline'>\(\binom {n}{r}\)</span> is an
+integer. Obviously combinatoric-wise, its definition makes it an
+integer, but algebraic-wise, it is pretty interesting considering the
+fact that <span class='mathjax-inline'>\(\binom {n}{r} = \frac
+{n!}{r! (n-r)!}\)</span>. To show this, it suffices to prove the
+following inequality for any prime <span class=
+'mathjax-inline'>\(p\)</span>. <span class='mathjax-block'>\[ \nu _p
+(n!) \geq \nu _p (r!) + \nu _p ((n-r)!) \]</span> By Legendre’s
+formula, the inequality converts as <span class='mathjax-block'>\[
+\sum _{k=1}^\infty \left \lfloor \frac {n}{p^k} \right \rfloor \geq
+\sum _{k=1}^\infty \left ( \left \lfloor \frac {r}{p^k} \right
+\rfloor + \left \lfloor \frac {n-r}{p^k} \right \rfloor \right )
+\]</span> and this is true because <span class=
+'mathjax-inline'>\(\lfloor a + b \rfloor \geq \lfloor a \rfloor +
+\lfloor b \rfloor \)</span>. With this notation and concept in mind,
+lets get into LTE Lemma!</p>
