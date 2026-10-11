@@ -22,11 +22,11 @@ body {
   max-width: none !important;
   padding: 0 !important;
   width: 100% !important;
+  line-height: 1.4;
+  font-family: 'Times New Roman', Times, serif;
 
 /*
   background-color: #FEFCF5;
-  font-family: 'Times New Roman', Times, serif;
-  line-height: 1.6;
   color: var(--text-dark);
   background-color: var(--bg-color);
 */
@@ -34,6 +34,7 @@ body {
 
 body p {
   text-align: justify;
+  font-size: 13pt;
 }
 
 @media (max-width: 912px) {

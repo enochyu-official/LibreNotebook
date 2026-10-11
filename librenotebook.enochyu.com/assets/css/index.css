@@ -44,12 +44,12 @@
 }
 
 
-#index-stat {
+.index-stat {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  gap: 5rem;
+  gap: 8rem;
   margin: 0 auto;
   font-size: 1.2rem;
   color: var(--accent-color1);
@@ -58,16 +58,16 @@
 }
 
 .index-stat-num {
-  font-size: 3rem;
+  font-size: 3.2rem;
   font-weight: bold;
 }
 
-#index-stat a {
+.index-stat a {
   color: var(--accent-color1);
-  font-size: 3rem;
+  font-size: 3.2rem;
   transition: transform 0.3s;
 }
-#index-stat a:hover {
+.index-stat a:hover {
   transform: translateY(-3px);
 }
 

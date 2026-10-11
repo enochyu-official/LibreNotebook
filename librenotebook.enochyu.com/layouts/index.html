@@ -24,7 +24,7 @@
 
       <h3><span class="bold">Author:</span> Enoch Yu</h3>
       <h3><span class="bold">License:</span> CC-BY-SA-4.0</h3>
-      <h3><span class="bold">Version:</span> v1.10.03
+      <h3><span class="bold">Version:</span> v1.10.11
         </h3>
       <h3><span class="bold">Last Updated:</span> 11 October 2026
         (Updated weekly)</h3>
@@ -32,12 +32,13 @@
     <hr>
     <p>
       The <a href="https://archive.enochyu.com/LibreNotebook.pdf">
-        PDF version of <em>LibreNotebook</em></a> is also available!
+        PDF version</a> of <em>LibreNotebook</em> is also available!
       <br><br>
       As the purpose and name suggests, contributions are appreciated!
       The source files are <a href="https://github.com/enochyu-official/LibreNotebook">hosted on GitHub</a>.
     </p>
-    <div id="index-stat">
+
+    <div class="index-stat">
       <div>
         <div class="index-stat-num" id="view-count">...</div>
         <div>Visits</div>
@@ -45,8 +46,8 @@
       <div>
         {{ $total := 0 }}
         {{ range slice
-          .Site.Data.math01 .Site.Data.math02 .Site.Data.math03
-          .Site.Data.cs01 .Site.Data.cs02
+          hugo.Data.math01 hugo.Data.math02 hugo.Data.math03
+          hugo.Data.cs01 hugo.Data.cs02
         }}
           {{ range . }}
             {{ with .items }}
@@ -64,6 +65,9 @@
         <div>GitHub Stars</div>
         {{ end }}
       </div>
+    </div>
+
+    <div class="index-stat">
       {{ with .Site.Params.social.youtube }}
       <a href="{{ . }}" target="_blank" rel="noopener"
          aria-label="YouTube">
@@ -77,7 +81,6 @@
       </a>
       {{ end }}
     </div>
-    <br>
     <hr><hr>
   </div>
 
