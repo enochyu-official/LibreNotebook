@@ -158,7 +158,7 @@ Section III. Sections
 
 === | MATH0302.26091 | Vector-Valued Functions and Calculus
 === | MATH0302.26092 | Parameterizations of Curves
-0.0 | MATH0111.26093 | p-adic Valuation & LTE Lemma
+0.3 | MATH0111.26093 | p-adic Valuation & LTE Lemma
 ----------------------------------------------------------------------
 
 END OF INDEX

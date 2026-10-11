@@ -85,6 +85,11 @@
     - title: Primitive Root Modulo $n$
       url: /math01/math0110/math0110.26085/
 
+- title: '[N] Miscellaneous Goodies'
+  items:
+    - title: $p$-adic Valuation & LTE Lemma
+      url: /math01/math0111/math0111.26093/
+
 - title: '[C] Combinatorics'
   items:
     - title: Foundations
