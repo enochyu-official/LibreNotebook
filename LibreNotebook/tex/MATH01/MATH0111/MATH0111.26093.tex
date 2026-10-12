@@ -27,9 +27,36 @@ Some examples could be $\nu_2 (48) = 3$ and $\nu_3 (54) = 3$. It is
 worth noting that some sources write this as $V_p (n)$, so they most
 likely refer to the same thing.
 
+Considering this notation as a function, we can notice that the
+following equation holds for all positive integers $m, n$ and some
+prime $p$.
+\[
+\nu_p (mn) = \nu_p (m) + \nu_p (n)
+\]
+This is pretty self evident because it simply counts the number of
+$p$ in $m$ and $n$. Another very interesting property is obtained
+when we add $m$ and $n$ instead of multiplying them.
+\[
+\nu_p (m + n) \geq \min(\nu_p(m), \nu_p(n))
+\]
+This could be pretty hard to see at first, but we can see it instantly
+if we factorize $m$ and $n$. Say $m = p^x a$ and $n = p^y b$ where
+$(p, a) = 1$ and $(p, b) = 1$. Without loss of generality, assume that
+$x \geq y$. Then, $m + n = p^y (p^{x-y} a + b)$ and the inequality
+holds. To see when the equality holds, we simply just have to make
+$p^{x-y} a + b$ not divisible by $p$. In other words, as long as
+$x \neq y$, the equality holds.
+
+This conclusion can lead to a more clean form. Given $m$ and $n$
+such that $\nu_p (m) < \nu_p (n)$, the following equation holds.
+\[
+\nu_p (m + n) = \nu_p (m)
+\]
+I think this is pretty self-evident continuing from our conclusion.
+
 \begin{important}
-A very famous example would be Legendre's formula which states the
-following equation for positive $n$ and prime $p$.
+Another very famous example would be Legendre's formula, which states
+the following equation for positive $n$ and prime $p$.
 \vspace{-0.8\baselineskip}
 \[
 \nu_p (n!)
