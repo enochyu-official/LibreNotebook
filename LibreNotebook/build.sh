@@ -65,4 +65,10 @@ jq -Rn '[inputs | split("\u001f") |
   {hash: .[0], commit: .[1], date: .[2], author: .[3], message: .[4]}]
 ' > librenotebook.enochyu.com/data/changelog.json
 
+cat > librenotebook.enochyu.com/content/changelog.md <<'CONTENT'
+---
+layout: "changelog"
+---
+CONTENT
+
 
