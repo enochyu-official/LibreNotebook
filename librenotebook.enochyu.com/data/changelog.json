@@ -1,5 +1,19 @@
 [
   {
+    "hash": "3acb1b98d53310c03c577ed76a6ba3f914e21a77",
+    "commit": "3acb1b9",
+    "date": "2026-10-14",
+    "author": "Enoch Yu",
+    "message": "Fix: Script; Add: Auto Deploy"
+  },
+  {
+    "hash": "c24e6c767e242546ca1e44191642a859e8fd7efc",
+    "commit": "c24e6c7",
+    "date": "2026-10-14",
+    "author": "Enoch Yu",
+    "message": "2026-10-14: Changelog and Accidental rm -r fix"
+  },
+  {
     "hash": "bf307e8e3cd73655bce14058bbf70aa02d411615",
     "commit": "bf307e8",
     "date": "2026-10-13",
