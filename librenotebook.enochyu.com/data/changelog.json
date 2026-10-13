@@ -1,0 +1,765 @@
+[
+  {
+    "hash": "bf307e8e3cd73655bce14058bbf70aa02d411615",
+    "commit": "bf307e8",
+    "date": "2026-10-13",
+    "author": "Enoch Yu",
+    "message": "2026-10-13: LTE"
+  },
+  {
+    "hash": "450f13a3530edc3eb8038f189f1d4391fa56d45f",
+    "commit": "450f13a",
+    "date": "2026-10-12",
+    "author": "Enoch Yu",
+    "message": "2026-10-12: p-adic little more"
+  },
+  {
+    "hash": "55befbb6dce9df5d5c65c195c5b2100a1a4aad1c",
+    "commit": "55befbb",
+    "date": "2026-10-11",
+    "author": "Enoch Yu",
+    "message": "2026-10-11: Update Web Finalize2"
+  },
+  {
+    "hash": "3b7a2118d2a2101895883888968e2066cf6356c6",
+    "commit": "3b7a211",
+    "date": "2026-10-11",
+    "author": "Enoch Yu",
+    "message": "2026-10-11: Update Web Finalize"
+  },
+  {
+    "hash": "19daf76cdcf18420e7ece66aba014866eff43531",
+    "commit": "19daf76",
+    "date": "2026-10-11",
+    "author": "Enoch Yu",
+    "message": "Testing6"
+  },
+  {
+    "hash": "32dc12dbdc9abe4f4bb8ce237ffbb1f00f3b2b83",
+    "commit": "32dc12d",
+    "date": "2026-10-11",
+    "author": "Enoch Yu",
+    "message": "Testing5"
+  },
+  {
+    "hash": "21e3af46d778732aedd32fe67d92d91c36a8f5ef",
+    "commit": "21e3af4",
+    "date": "2026-10-11",
+    "author": "Enoch Yu",
+    "message": "Testing4"
+  },
+  {
+    "hash": "43246a4102007000014877aff0d4c77cf9989fad",
+    "commit": "43246a4",
+    "date": "2026-10-11",
+    "author": "Enoch Yu",
+    "message": "Testing3"
+  },
+  {
+    "hash": "3016d015e94bb4bbbde04d9579b00f8519e5a458",
+    "commit": "3016d01",
+    "date": "2026-10-11",
+    "author": "Enoch Yu",
+    "message": "Testing2"
+  },
+  {
+    "hash": "894b3132436e33ce336e7dd0ed74ee0a31fa775f",
+    "commit": "894b313",
+    "date": "2026-10-11",
+    "author": "Enoch Yu",
+    "message": "Testing"
+  },
+  {
+    "hash": "2829b1046f89d97fade2e791d0a8cf45e4d16688",
+    "commit": "2829b10",
+    "date": "2026-10-11",
+    "author": "Enoch Yu",
+    "message": "2026-10-11: Update Web"
+  },
+  {
+    "hash": "52454b17c0ba22e8a20326adf27bb18666fc9135",
+    "commit": "52454b1",
+    "date": "2026-10-10",
+    "author": "Enoch Yu",
+    "message": "2026-10-10: LTE"
+  },
+  {
+    "hash": "4139857204175d810ec8fc61428081de1464768a",
+    "commit": "4139857",
+    "date": "2026-10-09",
+    "author": "Enoch Yu",
+    "message": "2026-10-09: Recurrence"
+  },
+  {
+    "hash": "868a38f192c96078cbd0fee17e60692a2138ee1d",
+    "commit": "868a38f",
+    "date": "2026-10-08",
+    "author": "Enoch Yu",
+    "message": "2026-10-08: Recurrence"
+  },
+  {
+    "hash": "9df3e43cc6f343d523c4673e6b812af1f41045e4",
+    "commit": "9df3e43",
+    "date": "2026-10-07",
+    "author": "Enoch Yu",
+    "message": "2026-10-07: Recurrence"
+  },
+  {
+    "hash": "230fe86ccdb6cde135913994cf4a33382ca05707",
+    "commit": "230fe86",
+    "date": "2026-10-06",
+    "author": "Enoch Yu",
+    "message": "2026-10-06: MVC"
+  },
+  {
+    "hash": "834b726deb06203344044d60dc2dd9a61e02b485",
+    "commit": "834b726",
+    "date": "2026-10-05",
+    "author": "Enoch Yu",
+    "message": "2026-10-05: Isogonal Conjugate"
+  },
+  {
+    "hash": "b48263ad1b3632464a96547c8732b681b741543b",
+    "commit": "b48263a",
+    "date": "2026-10-04",
+    "author": "Enoch Yu",
+    "message": "2026-10-04: WEB LAUNCH"
+  },
+  {
+    "hash": "a532bd3a767229e6b4f5ceaf6315cfedaca6c622",
+    "commit": "a532bd3",
+    "date": "2026-10-03",
+    "author": "Enoch Yu",
+    "message": "2026-10-03: web"
+  },
+  {
+    "hash": "3cf705f17b7b8eef7282d7e519b3682cb84892ef",
+    "commit": "3cf705f",
+    "date": "2026-10-02",
+    "author": "Enoch Yu",
+    "message": "2026-10-02: MVC"
+  },
+  {
+    "hash": "0dcebcaa063998a5dfe5b85fb4b49dd3c7a79e26",
+    "commit": "0dcebca",
+    "date": "2026-10-01",
+    "author": "Enoch Yu",
+    "message": "2026-10-01: Finalize Setup"
+  },
+  {
+    "hash": "d382be3ab94d9f7f831a35c248a250a952b03332",
+    "commit": "d382be3",
+    "date": "2026-10-01",
+    "author": "Enoch Yu",
+    "message": "Add script"
+  },
+  {
+    "hash": "28d564b202a0f2a76b3758da6efe73aae2fc60e7",
+    "commit": "28d564b",
+    "date": "2026-09-30",
+    "author": "Enoch Yu",
+    "message": "2026-09-30: WIP"
+  },
+  {
+    "hash": "998b86c6479867ed72020c375d65dc671a43662a",
+    "commit": "998b86c",
+    "date": "2026-09-29",
+    "author": "Enoch Yu",
+    "message": "2026-09-29: Finished index.html"
+  },
+  {
+    "hash": "78b67662188507ff3fdf3c9411bebeb92a7969fc",
+    "commit": "78b6766",
+    "date": "2026-09-28",
+    "author": "Enoch Yu",
+    "message": "2026-09-28: WIP"
+  },
+  {
+    "hash": "8b0aaee511023291919283d68713620ba61a8533",
+    "commit": "8b0aaee",
+    "date": "2026-09-27",
+    "author": "Enoch Yu",
+    "message": "2026-09-27: Faster compile time :))"
+  },
+  {
+    "hash": "eb172e484f375b63e38bcc57464f1ae6b026b51d",
+    "commit": "eb172e4",
+    "date": "2026-09-26",
+    "author": "Enoch Yu",
+    "message": "2026-09-26: Path Change; (MATH03) Alg, Geo"
+  },
+  {
+    "hash": "8914c00a5b98d9e72c111d8a710c50b76a6f3e09",
+    "commit": "8914c00",
+    "date": "2026-09-25",
+    "author": "Enoch Yu",
+    "message": "2026-09-25: (MATH03) haha"
+  },
+  {
+    "hash": "5c261f8969e60a7125d5498c309b39cbde5413a8",
+    "commit": "5c261f8",
+    "date": "2026-09-24",
+    "author": "Enoch Yu",
+    "message": "2026-09-24: (MATH01) Minor Updates"
+  },
+  {
+    "hash": "116df6404045248be1c079489ff84429d9c36504",
+    "commit": "116df64",
+    "date": "2026-09-23",
+    "author": "Enoch Yu",
+    "message": "2026-09-23: (MATH01) Euclidean Geo"
+  },
+  {
+    "hash": "7d272efb53febd8d2d041685daf5310db03fafc2",
+    "commit": "7d272ef",
+    "date": "2026-09-22",
+    "author": "Enoch Yu",
+    "message": "2026-09-22: (MATH01) Finish NT Intro, Servoir"
+  },
+  {
+    "hash": "b5c152cfaa2ab922e379fea9e4a6b3c783f131ad",
+    "commit": "b5c152c",
+    "date": "2026-09-21",
+    "author": "Enoch Yu",
+    "message": "2026-09-21: (MATH01) Intro, NT"
+  },
+  {
+    "hash": "c8f45f13699cf8f7a90fd8e63b17c9c7453f1f95",
+    "commit": "c8f45f1",
+    "date": "2026-09-20",
+    "author": "Enoch Yu",
+    "message": "2026-09-20: (MATH01) FE"
+  },
+  {
+    "hash": "bdf2d88ee36ec6c75b98301ee3129d1807754ff7",
+    "commit": "bdf2d88",
+    "date": "2026-09-19",
+    "author": "Enoch Yu",
+    "message": "2026-09-19: (MATH01) Cauchy"
+  },
+  {
+    "hash": "c4aa449d0a661cf43f749937deb34eee9a2922ca",
+    "commit": "c4aa449",
+    "date": "2026-09-18",
+    "author": "Enoch Yu",
+    "message": "2026-09-18: (MATH03) MVC DAY"
+  },
+  {
+    "hash": "f7b86b46856de3df70d43bd5b85973e3bf5d8dc8",
+    "commit": "f7b86b4",
+    "date": "2026-09-17",
+    "author": "Enoch Yu",
+    "message": "2026-09-17: (MATH03) Geometric Interp of the cross product"
+  },
+  {
+    "hash": "784f09e94b477d7948423457479f6114f7ac0de6",
+    "commit": "784f09e",
+    "date": "2026-09-16",
+    "author": "Enoch Yu",
+    "message": "2026-09-16: (MATH01) Vieta jumping"
+  },
+  {
+    "hash": "32d6be5a963f82a313acf7f340a712fb625c1a22",
+    "commit": "32d6be5",
+    "date": "2026-09-15",
+    "author": "Enoch Yu",
+    "message": "2026-09-15: (MATH01) Infinite Descent"
+  },
+  {
+    "hash": "200fc5e943dabd61e951bb710ed80f74b9c0e6c0",
+    "commit": "200fc5e",
+    "date": "2026-09-14",
+    "author": "Enoch Yu",
+    "message": "2026-09-14: (MATH01) Add Pythagorean Triples; (MATH03) Cross products"
+  },
+  {
+    "hash": "5d7fe1b4e290fa1247a177db3636b64c7ea95704",
+    "commit": "5d7fe1b",
+    "date": "2026-09-13",
+    "author": "Enoch Yu",
+    "message": "2026-09-13: Had the worst LaTeX problems"
+  },
+  {
+    "hash": "c2aa0aa92e2825a6e6e9e4c1f2caaf98b08cfa3a",
+    "commit": "c2aa0aa",
+    "date": "2026-09-12",
+    "author": "Enoch Yu",
+    "message": "2026-09-12: (MATH01) Final Import; (MATH03) Vectors; (CS02) Simulation"
+  },
+  {
+    "hash": "add8e636d0925f2a5a64a63affe200f16fc1cc2c",
+    "commit": "add8e63",
+    "date": "2026-09-11",
+    "author": "Enoch Yu",
+    "message": "2026-09-11: (MATH01) Import some handouts; (MATH03) Import notes in progress"
+  },
+  {
+    "hash": "e05583c797de193b4a6edada3fd2597bf2f12ed2",
+    "commit": "e05583c",
+    "date": "2026-09-10",
+    "author": "Enoch Yu",
+    "message": "2026-09-10: (MATH01) Import my previous works"
+  },
+  {
+    "hash": "cdf91165defa93451252c4c36482dd59f1eabe07",
+    "commit": "cdf9116",
+    "date": "2026-09-09",
+    "author": "Enoch Yu",
+    "message": "2026-09-09: (MATH01) Import some old files"
+  },
+  {
+    "hash": "c9d8b94631d82a3cf99e1a3126f63518cc836cda",
+    "commit": "c9d8b94",
+    "date": "2026-09-08",
+    "author": "Enoch Yu",
+    "message": "2026-09-08: (MATH01) move texts; (CS02) Add simulation problem"
+  },
+  {
+    "hash": "ffb913db8f3a87cfa5f7ff52c34214a428d113a2",
+    "commit": "ffb913d",
+    "date": "2026-09-07",
+    "author": "Enoch Yu",
+    "message": "2026-09-07: Finally got the time to reformat; (MATH01) Add coaxial circle theorem"
+  },
+  {
+    "hash": "cbf638cdc4d43a0d15bbb8025ec0a05f34150167",
+    "commit": "cbf638c",
+    "date": "2026-09-06",
+    "author": "Enoch Yu",
+    "message": "2026-09-06: (CS02) Almost fix, Update PDF"
+  },
+  {
+    "hash": "e48b33af755708a6b15a79ac7bd8dac729c6ce3f",
+    "commit": "e48b33a",
+    "date": "2026-09-05",
+    "author": "Enoch Yu",
+    "message": "2026-09-05: (MATH01) Add a problem; (CS02) Simulation"
+  },
+  {
+    "hash": "d1b85b0de4058205c4aa5a428b1c7833549e1462",
+    "commit": "d1b85b0",
+    "date": "2026-09-04",
+    "author": "Enoch Yu",
+    "message": "2026-09-04: (MATH01) Add power of a point; (CS02) Add a problem/solution"
+  },
+  {
+    "hash": "4c83a18a7fceb765b5b88e10b30540804f92f043",
+    "commit": "4c83a18",
+    "date": "2026-09-03",
+    "author": "Enoch Yu",
+    "message": "2026-09-03: Start power of a point"
+  },
+  {
+    "hash": "3b0f30988f3b4ed3fd541ffc5049758b42bfdefa",
+    "commit": "3b0f309",
+    "date": "2026-09-02",
+    "author": "Enoch Yu",
+    "message": "2026-09-02: MATH01 Telescope inequality; CS02 Time complexity"
+  },
+  {
+    "hash": "acef2dbbf42327d611bd85b493177858a1333999",
+    "commit": "acef2db",
+    "date": "2026-09-01",
+    "author": "Enoch Yu",
+    "message": "2026-09-01: Update TODOs for tmr"
+  },
+  {
+    "hash": "701ac78af7e6c54a12ac2ba19403ca8ffac8acd1",
+    "commit": "701ac78",
+    "date": "2026-08-31",
+    "author": "Enoch Yu",
+    "message": "2026-08-31: Solved practice problems for CS0201"
+  },
+  {
+    "hash": "155545bbec13c8273e98dd86c63e345961252543",
+    "commit": "155545b",
+    "date": "2026-08-30",
+    "author": "Enoch Yu",
+    "message": "2026-08-30: Function recursion, 6 practice problems for CS0201"
+  },
+  {
+    "hash": "e6e3f009d860e053d2bba1f8682ac3df496f8c1b",
+    "commit": "e6e3f00",
+    "date": "2026-08-29",
+    "author": "Enoch Yu",
+    "message": "2026-08-29: References, array, vectors"
+  },
+  {
+    "hash": "2d03bf6c11098fc156e16dceaeb81e9546baf5aa",
+    "commit": "2d03bf6",
+    "date": "2026-08-28",
+    "author": "Enoch Yu",
+    "message": "2026-08-28: C++ Functions and rename files"
+  },
+  {
+    "hash": "91fabd4351a1f7d5cacd79cc139ba8dc0798e847",
+    "commit": "91fabd4",
+    "date": "2026-08-26",
+    "author": "Enoch Yu",
+    "message": "2026-08-26: Add notes on C++ conditionals/loops for CP"
+  },
+  {
+    "hash": "833b321f54b98c6438d67c5249ab992a420b4f39",
+    "commit": "833b321",
+    "date": "2026-08-25",
+    "author": "Enoch Yu",
+    "message": "reorganize the structure and import some notes on CP"
+  },
+  {
+    "hash": "782dcad949c58d11aa35dfb3485a0a7cc4473711",
+    "commit": "782dcad",
+    "date": "2026-08-21",
+    "author": "Enoch Yu",
+    "message": "add update script"
+  },
+  {
+    "hash": "4238b6648360ab1f644ad58e88714b3437829d5c",
+    "commit": "4238b66",
+    "date": "2026-08-19",
+    "author": "Enoch Yu",
+    "message": "fix few errors from lin alg"
+  },
+  {
+    "hash": "3cbd48bbfe89836db4bb821180f3f6a7a5acb91f",
+    "commit": "3cbd48b",
+    "date": "2026-08-18",
+    "author": "Enoch Yu",
+    "message": "Forgot to update the pdf"
+  },
+  {
+    "hash": "2ec73ae51179f963e239d0f612a3afdbd1f94c1d",
+    "commit": "2ec73ae",
+    "date": "2026-08-17",
+    "author": "Enoch Yu",
+    "message": "Cleanup the merge"
+  },
+  {
+    "hash": "18578ef74dd92475110a2a56b89dcc49d88c6484",
+    "commit": "18578ef",
+    "date": "2026-08-17",
+    "author": "Enoch Yu",
+    "message": "merging with lin alg"
+  },
+  {
+    "hash": "8b9ebb693f11fe6c712227ce400eb02107bf71bc",
+    "commit": "8b9ebb6",
+    "date": "2026-08-17",
+    "author": "Enoch Yu",
+    "message": "Commit changes before the merge"
+  },
+  {
+    "hash": "47c6aed1d179e44bccefd9133bc88dbc5bfcd2ba",
+    "commit": "47c6aed",
+    "date": "2026-08-17",
+    "author": "Enoch Yu",
+    "message": "delete preamble before the merge"
+  },
+  {
+    "hash": "e7f98836ef6ae24747bda56acef5652412c5a259",
+    "commit": "e7f9883",
+    "date": "2026-08-17",
+    "author": "Enoch Yu",
+    "message": "Edition 1 - Final Draft"
+  },
+  {
+    "hash": "c07e1558848541694c133b6d8c60830da5d3739a",
+    "commit": "c07e155",
+    "date": "2026-08-17",
+    "author": "Enoch Yu",
+    "message": "2026-08-15"
+  },
+  {
+    "hash": "74dc4b8d8590bebb77b11fc7f52739c153cc8c39",
+    "commit": "74dc4b8",
+    "date": "2026-08-17",
+    "author": "Enoch Yu",
+    "message": "2026-08-11"
+  },
+  {
+    "hash": "f4c1a69b9f2bfa9a742b3b62e167a3e00ccf85b5",
+    "commit": "f4c1a69",
+    "date": "2026-08-17",
+    "author": "Enoch Yu",
+    "message": "2026-08-10"
+  },
+  {
+    "hash": "9f04abb0fb44b215c26541ccde921affa7a86e2e",
+    "commit": "9f04abb",
+    "date": "2026-08-17",
+    "author": "Enoch Yu",
+    "message": "2026-08-09"
+  },
+  {
+    "hash": "3ca9043137fb9132ca2e0aeadd594959be9f9afb",
+    "commit": "3ca9043",
+    "date": "2026-08-17",
+    "author": "Enoch Yu",
+    "message": "2026-08-08"
+  },
+  {
+    "hash": "b9641ceacae6dadfb7b46eaa62ed51582f5530a3",
+    "commit": "b9641ce",
+    "date": "2026-08-17",
+    "author": "Enoch Yu",
+    "message": "2026-08-07"
+  },
+  {
+    "hash": "d2cec78cfdd3e44c580d3c904fcd011d87c25711",
+    "commit": "d2cec78",
+    "date": "2026-08-17",
+    "author": "Enoch Yu",
+    "message": "2026-08-06"
+  },
+  {
+    "hash": "9ddd67cf76f629ce2d3f9facadadb0e87d249afe",
+    "commit": "9ddd67c",
+    "date": "2026-08-17",
+    "author": "Enoch Yu",
+    "message": "2026-08-05"
+  },
+  {
+    "hash": "2632f97b3c04b98585d0a8cc9e6482a52f0d3b04",
+    "commit": "2632f97",
+    "date": "2026-08-17",
+    "author": "Enoch Yu",
+    "message": "2026-08-04"
+  },
+  {
+    "hash": "f3ac4ad660f8c7e95c16dac6f3d8090ebc2b043f",
+    "commit": "f3ac4ad",
+    "date": "2026-08-17",
+    "author": "Enoch Yu",
+    "message": "2026-08-03"
+  },
+  {
+    "hash": "718e6489429c2c10511a63b02ec709199b2c6e76",
+    "commit": "718e648",
+    "date": "2026-08-17",
+    "author": "Enoch Yu",
+    "message": "2026-08-02"
+  },
+  {
+    "hash": "e9f5f3f28c142cb283c31b03029245bfa76adee9",
+    "commit": "e9f5f3f",
+    "date": "2026-08-17",
+    "author": "Enoch Yu",
+    "message": "2026-08-01"
+  },
+  {
+    "hash": "49a0b42b8f16fa3e0b8d8875c0306fda539de05b",
+    "commit": "49a0b42",
+    "date": "2026-08-17",
+    "author": "Enoch Yu",
+    "message": "2026-07-31"
+  },
+  {
+    "hash": "9c79cdb41142b52febe9b584323afb0887c73d68",
+    "commit": "9c79cdb",
+    "date": "2026-08-17",
+    "author": "Enoch Yu",
+    "message": "2026-07-30"
+  },
+  {
+    "hash": "4a85a2dcf0f60ddf87dacba41c03aabf2437fc69",
+    "commit": "4a85a2d",
+    "date": "2026-08-17",
+    "author": "Enoch Yu",
+    "message": "2026-07-29"
+  },
+  {
+    "hash": "c58222e800aa43b90e9062aa23f4ba7696af4c28",
+    "commit": "c58222e",
+    "date": "2026-08-17",
+    "author": "Enoch Yu",
+    "message": "2026-07-27"
+  },
+  {
+    "hash": "79c712ce96d34373d2001d8117a9878462bf919b",
+    "commit": "79c712c",
+    "date": "2026-08-17",
+    "author": "Enoch Yu",
+    "message": "2026-07-24"
+  },
+  {
+    "hash": "deeb7497ea3dca1973d6fb5beb56215d64460953",
+    "commit": "deeb749",
+    "date": "2026-08-17",
+    "author": "Enoch Yu",
+    "message": "2026-07-23"
+  },
+  {
+    "hash": "715d95b0a14ff08edf32cd69c931578e5bde62dc",
+    "commit": "715d95b",
+    "date": "2026-08-17",
+    "author": "Enoch Yu",
+    "message": "2026-07-22"
+  },
+  {
+    "hash": "97ebe8fd1c7a973165aae50d33803c441368f0d3",
+    "commit": "97ebe8f",
+    "date": "2026-08-17",
+    "author": "Enoch Yu",
+    "message": "2026-07-20"
+  },
+  {
+    "hash": "10f6763bc4d3134681ce36e476258c32cf4c0eb0",
+    "commit": "10f6763",
+    "date": "2026-08-17",
+    "author": "Enoch Yu",
+    "message": "2026-07-18"
+  },
+  {
+    "hash": "01d093f46019d264d0422294503f334ecd664c7f",
+    "commit": "01d093f",
+    "date": "2026-08-17",
+    "author": "Enoch Yu",
+    "message": "2026-07-16"
+  },
+  {
+    "hash": "c842e9d1f4365e6a149062ea8b6e6ddc915e15c8",
+    "commit": "c842e9d",
+    "date": "2026-08-17",
+    "author": "Enoch Yu",
+    "message": "2026-07-15"
+  },
+  {
+    "hash": "5a97c95b8f9b4cf53480fe7146e02bd0d37c6c71",
+    "commit": "5a97c95",
+    "date": "2026-08-17",
+    "author": "Enoch Yu",
+    "message": "2026-07-14"
+  },
+  {
+    "hash": "5d9bfb92f71efc8d300d6dfecf75ea362ab24e1c",
+    "commit": "5d9bfb9",
+    "date": "2026-08-17",
+    "author": "Enoch Yu",
+    "message": "2026-07-12"
+  },
+  {
+    "hash": "100f06ee1c023f6a0dfb18ae3a97bd0517f21b68",
+    "commit": "100f06e",
+    "date": "2026-08-17",
+    "author": "Enoch Yu",
+    "message": "2026-07-10"
+  },
+  {
+    "hash": "947f18a87ecb5e1dcff903d0b9ce0bc52ee1e37b",
+    "commit": "947f18a",
+    "date": "2026-08-17",
+    "author": "Enoch Yu",
+    "message": "2026-07-09"
+  },
+  {
+    "hash": "695bbf9964cc1cb6b152751c1b28f30825c5f8e0",
+    "commit": "695bbf9",
+    "date": "2026-08-17",
+    "author": "Enoch Yu",
+    "message": "2026-07-08"
+  },
+  {
+    "hash": "211238969993f14a72282017aaacb13377532ce5",
+    "commit": "2112389",
+    "date": "2026-08-17",
+    "author": "Enoch Yu",
+    "message": "2026-07-07"
+  },
+  {
+    "hash": "4acfebed861fe4935476d686344eaba0d5537fdf",
+    "commit": "4acfebe",
+    "date": "2026-08-17",
+    "author": "Enoch Yu",
+    "message": "2026-07-06"
+  },
+  {
+    "hash": "982849dbf405b541dc4fe438df31103dcc0df6a0",
+    "commit": "982849d",
+    "date": "2026-08-17",
+    "author": "Enoch Yu",
+    "message": "2026-07-02"
+  },
+  {
+    "hash": "74f0e6da9b23ad0be068a267d784243439719570",
+    "commit": "74f0e6d",
+    "date": "2026-08-17",
+    "author": "Enoch Yu",
+    "message": "2026-07-01"
+  },
+  {
+    "hash": "acba6a9f350748abdc8e81e2afe206766fff4a0a",
+    "commit": "acba6a9",
+    "date": "2026-08-17",
+    "author": "Enoch Yu",
+    "message": "2026-06-30"
+  },
+  {
+    "hash": "43625ebdeb39beff54dcaa977e7778da95193da2",
+    "commit": "43625eb",
+    "date": "2026-08-17",
+    "author": "Enoch Yu",
+    "message": "2026-06-29"
+  },
+  {
+    "hash": "d746ead89e5668b9f6da2bafd3b65d8e60174508",
+    "commit": "d746ead",
+    "date": "2026-08-17",
+    "author": "Enoch Yu",
+    "message": "2026-06-28"
+  },
+  {
+    "hash": "646cfa218027a9877eb29856d7b803111c96843d",
+    "commit": "646cfa2",
+    "date": "2026-08-17",
+    "author": "Enoch Yu",
+    "message": "2026-06-27"
+  },
+  {
+    "hash": "c6cba8d377f7025f0c43be5ef8d789d98232be4c",
+    "commit": "c6cba8d",
+    "date": "2026-08-17",
+    "author": "Enoch Yu",
+    "message": "2026-06-26"
+  },
+  {
+    "hash": "7595250ca6c7610c00f1738f40a41de8a016bc27",
+    "commit": "7595250",
+    "date": "2026-08-17",
+    "author": "Enoch Yu",
+    "message": "2026-06-24"
+  },
+  {
+    "hash": "f832c14fad42086bace96cd32b8866b93b76909d",
+    "commit": "f832c14",
+    "date": "2026-08-17",
+    "author": "Enoch Yu",
+    "message": "2026-06-23"
+  },
+  {
+    "hash": "f0a8ed1acfbe77abf2ed79d0a60ffd8949194d46",
+    "commit": "f0a8ed1",
+    "date": "2026-08-17",
+    "author": "Enoch Yu",
+    "message": "Initial Commit"
+  },
+  {
+    "hash": "b05168d9b663ef95f4c5c4e79275071f309b0409",
+    "commit": "b05168d",
+    "date": "2026-08-15",
+    "author": "Enoch Yu",
+    "message": "Import cleaned Desargues' Theorem"
+  },
+  {
+    "hash": "d9b909afa7c5c88083799d378e693a150db94c6c",
+    "commit": "d9b909a",
+    "date": "2026-08-14",
+    "author": "Enoch Yu",
+    "message": "Initial Push: Add readme, license, contributing, pdf"
+  },
+  {
+    "hash": "0d735dabbad2ed1b347ac56c1bedceba9ca97fcd",
+    "commit": "0d735da",
+    "date": "2026-08-13",
+    "author": "Enoch Yu",
+    "message": "Init (with a story)"
+  }
+]

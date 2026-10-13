@@ -16,6 +16,6 @@ author = "Enoch Yu"
     archive = "https://archive.enochyu.com/"
 
 [security]
-  allowContent = ['^text/html$']
+  allowContent = ['^text/html$', '^text/markdown$']
 
 

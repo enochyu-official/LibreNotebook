@@ -8,7 +8,7 @@ out
 
 # librenotebook.enochyu.com
 .hugo_build.lock
-.wrangler
+.wrangler/
 node_modules/
 
 

@@ -20,13 +20,13 @@
 
 
 
-<link rel="stylesheet" href="/css/main.min.32f9c956334352260f239399447c2f21424dd3d37846059a7f2b126567c55f90.css" integrity="sha256-MvnJVjNDUiYPI5OZRHwvIUJN09N4RgWafysSZWfFX5A=">
+<link rel="stylesheet" href="/css/main.min.5824b6c267fbd9815fcc1f3e8e046e17e96ef7aca5c4d769ebd602298dc8310d.css" integrity="sha256-WCS2wmf72YFfzB8&#43;jgRuF&#43;lu96ylxNdp69YCKY3IMQ0=">
 
 
   
     
       
-      <link rel="stylesheet" href="/css/make4ht/math0111.26093.min.b629da31c0fe79c3fd1b4a35ef5a2afd59d216a5cf5d3273c5d21b1262187ac3.css" integrity="sha256-tinaMcD&#43;ecP9G0o171oq/VnSFqXPXTJzxdIbEmIYesM=">
+      <link rel="stylesheet" href="/css/make4ht/math0111.26093.min.d673a8e6ffd5f2e5615f292465d5153ea12e5ebc6414706f4eb6c13d15c6ddf3.css" integrity="sha256-1nOo5v/V8uVhXykkZdUVPqEuXrxkFHBvTrbBPRXG3fM=">
     
   
 
@@ -723,7 +723,7 @@ topics!</p>
 
 <h3 class='sectionHead' id='padic-valuation-lte-lemma'><span class=
 'titlemark'>1.1</span> <a id='x1-20001.1'></a><span class=
-'mathjax-inline'>\(p\)</span>-adic Valuation &amp; LTE Lemma</h3>
+'mathjax-inline'>\(p\)</span>-adic Valuation &amp;LTE Lemma</h3>
 <!-- l. 16 -->
 
 <p class='noindent'>LTE Lemma, which stands for Lifting the Exponent
@@ -758,23 +758,60 @@ valuation.</p>
 'mathjax-inline'>\(\nu _3 (54) = 3\)</span>. It is worth noting that
 some sources write this as <span class='mathjax-inline'>\(V_p
 (n)\)</span>, so they most likely refer to the same thing.</p>
+<!-- l. 30 -->
+
+<p class='noindent'>Considering this notation as a function, we can
+notice that the following equation holds for all positive integers
+<span class='mathjax-inline'>\(m, n\)</span> and some prime
+<span class='mathjax-inline'>\(p\)</span>. <span class=
+'mathjax-block'>\[ \nu _p (mn) = \nu _p (m) + \nu _p (n) \]</span>
+This is pretty self evident because it simply counts the number of
+<span class='mathjax-inline'>\(p\)</span> in <span class=
+'mathjax-inline'>\(m\)</span> and <span class=
+'mathjax-inline'>\(n\)</span>. Another very interesting property is
+obtained when we add <span class='mathjax-inline'>\(m\)</span> and
+<span class='mathjax-inline'>\(n\)</span> instead of multiplying
+them. <span class='mathjax-block'>\[ \nu _p (m + n) \geq \min (\nu
+_p(m), \nu _p(n)) \]</span> This could be pretty hard to see at
+first, but we can see it instantly if we factorize <span class=
+'mathjax-inline'>\(m\)</span> and <span class=
+'mathjax-inline'>\(n\)</span>. Say <span class='mathjax-inline'>\(m =
+p^x a\)</span> and <span class='mathjax-inline'>\(n = p^y b\)</span>
+where <span class='mathjax-inline'>\((p, a) = 1\)</span> and
+<span class='mathjax-inline'>\((p, b) = 1\)</span>. Without loss of
+generality, assume that <span class='mathjax-inline'>\(x \geq
+y\)</span>. Then, <span class='mathjax-inline'>\(m + n = p^y (p^{x-y}
+a + b)\)</span> and the inequality holds. To see when the equality
+holds, we simply just have to make <span class=
+'mathjax-inline'>\(p^{x-y} a + b\)</span> not divisible by
+<span class='mathjax-inline'>\(p\)</span>. In other words, as long as
+<span class='mathjax-inline'>\(x \neq y\)</span>, the equality
+holds.</p><!-- l. 50 -->
+
+<p class='noindent'>This conclusion can lead to a more clean form.
+Given <span class='mathjax-inline'>\(m\)</span> and <span class=
+'mathjax-inline'>\(n\)</span> such that <span class=
+'mathjax-inline'>\(\nu _p (m) &lt; \nu _p (n)\)</span>, the following
+equation holds. <span class='mathjax-block'>\[ \nu _p (m + n) = \nu
+_p (m) \]</span> I think this is pretty self-evident continuing from
+our conclusion.</p>
 
 <div class='mdframed' id='mdframed-1'>
-  <!-- l. 31 -->
+  <!-- l. 58 -->
 
-  <p class='noindent'>A very famous example would be Legendre’s
-  formula which states the following equation for positive
+  <p class='noindent'>Another very famous example would be Legendre’s
+  formula, which states the following equation for positive
   <span class='mathjax-inline'>\(n\)</span> and prime <span class=
   'mathjax-inline'>\(p\)</span>. <span class='mathjax-block'>\[ \nu
   _p (n!) = \sum _{k=1}^\infty \left \lfloor \frac {n}{p^k} \right
   \rfloor \]</span></p>
-</div><!-- l. 40 -->
+</div><!-- l. 67 -->
 
 <p class='noindent'>This is actually the same as the classic
 competition style problems that asks you the number of <span class=
 'mathjax-inline'>\(p\)</span> in <span class=
 'mathjax-inline'>\(n!\)</span>. I will skip the proof because I think
-it is pretty self-evident.</p><!-- l. 44 -->
+it is pretty self-evident.</p><!-- l. 71 -->
 
 <p class='noindent'>Another very famous application is understanding
 why <span class='mathjax-inline'>\(\binom {n}{r}\)</span> is an
@@ -793,6 +830,214 @@ formula, the inequality converts as <span class='mathjax-block'>\[
 'mathjax-inline'>\(\lfloor a + b \rfloor \geq \lfloor a \rfloor +
 \lfloor b \rfloor \)</span>. With this notation and concept in mind,
 lets get into LTE Lemma!</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-2'>
+  <a id='x1-2003x1.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 114 -->
+
+    <p class='noindent'>Theorem&nbsp;1.1.2:&nbsp;Lifting the Exponent
+    Lemma</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 94 -->
+
+    <p class='noindent'>Let <span class='mathjax-inline'>\(p\)</span>
+    be a prime number and <span class='mathjax-inline'>\(x,
+    y\)</span> be integers such that <span class='mathjax-inline'>\(p
+    \mid x - y\)</span>, <span class='mathjax-inline'>\(p \nmid
+    x\)</span>, and <span class='mathjax-inline'>\(p \nmid
+    y\)</span>. Then, the respective equations hold for the three
+    cases.</p>
+
+    <dl class='enumerate-enumitem'>
+      <dt class='enumerate-enumitem'>I.</dt>
+
+      <dd class='enumerate-enumitem'><span class=
+      'mathjax-inline'>\(\mathbf {p &gt; 2}\)</span> <span class=
+      'mathjax-block'>\[ \nu _p (x^n - y^n) = \nu _p (x - y) + \nu _p
+      (n) \]</span></dd>
+
+      <dt class='enumerate-enumitem'>II.</dt>
+
+      <dd class='enumerate-enumitem'><span class=
+      'mathjax-inline'>\(\mathbf {p = 2}\)</span> <span class=
+      'pplb8t-x-x-109'>and</span> <span class=
+      'mathjax-inline'>\(\mathbf {2 \mid n}\)</span> <span class=
+      'mathjax-block'>\[ \nu _2 (x^n - y^n) = \nu _2 (x^2 - y^2) +
+      \nu _2 (n) - 1 \]</span></dd>
+
+      <dt class='enumerate-enumitem'>III.</dt>
+
+      <dd class='enumerate-enumitem'><span class=
+      'mathjax-inline'>\(\mathbf {p = 2}\)</span> <span class=
+      'pplb8t-x-x-109'>and</span> <span class=
+      'mathjax-inline'>\(\mathbf {2 \nmid n}\)</span> <span class=
+      'mathjax-block'>\[ \nu _2 (x^n - y^n) = \nu _2 (x - y)
+      \]</span></dd>
+    </dl>
+  </div>
+</div><!-- l. 116 -->
+
+<p class='noindent'>Before we prove this, an interesting extension
+that we can notice for odd <span class='mathjax-inline'>\(n\)</span>
+and <span class='mathjax-inline'>\(p &gt; 2\)</span> is that
+<span class='mathjax-inline'>\(\nu _p (x^n + y^n) = \nu _p (x + y) +
+\nu _p (n)\)</span>. This can be obtained by substituting
+<span class='mathjax-inline'>\(-y\)</span> for <span class=
+'mathjax-inline'>\(y\)</span>.</p>
+
+<div class='mdframed' id='mdframed-2'>
+  <!-- l. 121 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 121 -->
+
+  <p class='noindent'>To prove the lemma, first separate <span class=
+  'mathjax-inline'>\(p\)</span> into two cases where <span class=
+  'mathjax-inline'>\(p &gt; 2\)</span> and <span class=
+  'mathjax-inline'>\(p = 2\)</span>. The first case <span class=
+  'mathjax-inline'>\(p &gt; 2\)</span> can be proven with
+  induction.</p><!-- l. 124 -->
+
+  <p class='noindent'>First, consider the case when <span class=
+  'mathjax-inline'>\(\nu _p (n) = 0\)</span>. Notice that because
+  <span class='mathjax-inline'>\(x - y \equiv 0 \pmod {p}\)</span>,
+  <span class='mathjax-inline'>\(x \equiv y \pmod {p}\)</span>.
+  Moreover, <span class='mathjax-block'>\[ x^n - y^n = (x - y) \left
+  ( \sum _{k=1}^n x^{n-k} y^{k-1} \right ) \]</span> holds and
+  <span class='mathjax-inline'>\(\sum _{k=1}^n x^{n-k} y^{k-1} \equiv
+  \sum _{k=1}^n x^{n-1} \not \equiv 0 \pmod {p}\)</span>. In other
+  words, <span class='mathjax-inline'>\(\nu _p (x^n - y^n) = \nu _p
+  (x - y) + \nu _p (n)\)</span>.</p><!-- l. 133 -->
+
+  <p class='noindent'>Similarly, consider the base case when
+  <span class='mathjax-inline'>\(\nu _p (n) = 1\)</span>. Let
+  <span class='mathjax-inline'>\(n = kp\)</span> where <span class=
+  'mathjax-inline'>\(p \nmid k\)</span> and consider the following
+  equations. <span class='mathjax-block'>\[ x^{kp} - y^{kp} = \left (
+  x^p - y^p \right ) \left ( \sum _{i=1}^k x^{pk - ip} y^{ip - p}
+  \right ) \]</span> Notice that because <span class=
+  'mathjax-block'>\[ \sum _{i=1}^k x^{pk - ip} y^{ip - p} \equiv \sum
+  _{i=1}^k x^{pk - p} \equiv k x^{pk - p} \not \equiv 0 \pmod {p}
+  \]</span> holds, <span class='mathjax-inline'>\(\nu _p (x^n - y^n)
+  = \nu _p (x^p - y^p)\)</span>. Continuing, <span class=
+  'mathjax-block'>\[ x^p - y^p = (x - y) \left ( \sum _{k=1}^p
+  x^{p-k} y^{k-1} \right ) \]</span> and <span class=
+  'mathjax-inline'>\(\sum _{k=1}^p x^{p-k} y^{k-1} \equiv p x^{p-1}
+  \equiv 0 \pmod {p}\)</span>. Substituting <span class=
+  'mathjax-inline'>\(y = x + pt\)</span> to the expression
+  constructed by definition, <span class='mathjax-block'>\[ x^{p-k}
+  y^{k-1} = x^{p-k} (x + pt)^{k-1} + x^{p-k} \left ( x^{k-1} + (k-1)
+  x^{k-2} pt + \alpha \right ) \]</span> where <span class=
+  'mathjax-inline'>\(p^2 \mid \alpha \)</span>. Therefore, the
+  following congruences hold. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} \sum _{k=1}^p x^{p-k}
+  y^{k-1} &amp;\equiv \sum _{k=1}^p x^{p-k} x^{k-1} + x^{p-k} (k-1)
+  x^{k-2} pt \\ &amp;\equiv \sum _{k=1}^p x^{p-1} + x^{p-2} (k-1) pt
+  \\ &amp;\equiv p x^{p-1} + \frac {p(p-1)}{2} x^{p-2} pt \equiv p
+  x^{p-1} \\ &amp;\not \equiv 0 \pmod {p^2} \end{align*}</span></p>
+  <!-- l. 170 -->
+
+  <p class='noindent'>In other words, <span class=
+  'mathjax-inline'>\(\nu _p (x^p - y^p) = \nu _p (x - y) + 1 = \nu _p
+  (x - y) + \nu _p (n)\)</span> and the base case holds.</p>
+  <!-- l. 173 -->
+
+  <p class='noindent'>Continuing, it suffices to show that if the
+  equation holds for <span class='mathjax-inline'>\(\nu _p (n) =
+  a\)</span>, then it also holds for <span class=
+  'mathjax-inline'>\(\nu _p (n) = a + 1\)</span>. Let <span class=
+  'mathjax-inline'>\(n = p^a b\)</span> where <span class=
+  'mathjax-inline'>\(p \nmid b\)</span>, and consider the following
+  equations. <span class='mathjax-env mathjax-align*'>\begin{align*}
+  \nu _p \left ( x^{p^{a+1} b} + y^{p^{a+1} b} \right ) &amp;= \nu _p
+  \left ( \left ( x^{pb} \right )^{p^a} + \left ( y^{pb} \right
+  )^{p^a} \right ) \\ &amp;= \nu _p \left ( x^{pb} - y^{pb} \right )
+  + a \\ &amp;= \nu _p (x - y) + \nu _p (pb) + a = \nu _p (x - y) + a
+  + 1 \\ &amp;= \nu _p (x - y) + \nu _p (n) \end{align*}</span></p>
+  <!-- l. 187 -->
+
+  <p class='noindent'>Therefore by induction, the first case
+  holds.</p><!-- l. 189 -->
+
+  <p class='noindent'>To prove the second case, consider the
+  following equations with <span class='mathjax-inline'>\(n = 2^a
+  b\)</span> where <span class='mathjax-inline'>\(2 \nmid b\)</span>.
+  <span class='mathjax-env mathjax-align*'>\begin{align*} \nu _2
+  \left ( x^n - y^n \right ) &amp;= \nu _2 \left ( \left ( x^{2^a}
+  \right )^b - \left ( y^{2^a} \right )^b \right ) \\ &amp;= \nu _2
+  \left ( \left ( x^{2^a} - y^{2^a} \right ) \left ( \sum _{k=1}^b
+  \left ( x^{2^a} \right )^{b-k} \left ( y^{2^a} \right )^{k-1}
+  \right ) \right ) \\ &amp;= \nu _2 \left ( x^{2^a} - y^{2^a} \right
+  ) \end{align*}</span></p><!-- l. 205 -->
+
+  <p class='noindent'>Moreover, because <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} x^{2^a} - y^{2^a}
+  &amp;= \prod _{k=1}^a \left ( x^{2^{a-k}} + y^{2^{a-k}} \right )
+  \cdot (x - y) \\ &amp;= \prod _{k=1}^{a-1} \left ( x^{2^{a-k}} +
+  y^{2^{a-k}} \right ) \cdot (x + y) (x - y) \end{align*}</span></p>
+  <!-- l. 213 -->
+
+  <p class='noindent'>holds and <span class=
+  'mathjax-inline'>\(x^{2^k} + y^{2^k} \equiv 2 \pmod {4}\)</span>
+  for <span class='mathjax-inline'>\(k &gt; 1\)</span>, it is evident
+  that <span class='mathjax-block'>\[ \nu _p \left ( x^{2^a} -
+  y^{2^a} \right ) = \nu _p (x - y) + \nu _p (x + y) + a - 1
+  \]</span> holds and the second case holds.</p><!-- l. 221 -->
+
+  <p class='noindent'>Finally, the last case can be simply proven
+  with the following equation. <span class='mathjax-block'>\[ x^n -
+  y^n = (x - y) \left ( \sum _{k=1}^n x^{n-k} y^{k-1} \right )
+  \]</span> Notice that because <span class='mathjax-inline'>\(\sum
+  _{k=1}^n x^{n-k} y^{k-1} \equiv \sum _{k=1}^n x^{n-1} \equiv n
+  x^{n-1} \not \equiv 0 \pmod {p}\)</span>, <span class=
+  'mathjax-inline'>\(\nu _2 (x^n - y^n) = \nu _2 (x -
+  y)\)</span>.</p>
+</div><!-- l. 232 -->
+
+<p class='noindent'>This proof was quite long, but absolutely worth
+it! Before we move on to a more advanced usage, here is a simple
+example. <span class='mathjax-block'>\[ \nu _3 \left ( 4^3 + 5^3
+\right ) = \nu _3 \left ( 4^3 - (-5)^3 \right ) = \nu _3 (4 + 5) +
+\nu _3 (3) = 2 + 1 = 3 \]</span> To check this, notice that
+<span class='mathjax-inline'>\(\nu _3 (4^3 + 5^3) = \nu _3 (64 + 125)
+= \nu _3 (189) = 3\)</span>. Continuing, here is another problem.</p>
+
+<div class='tcolorbox probstyle' id='tcolobox-3'>
+  <div class='tcolorbox-title'>
+    <!-- l. 246 -->
+
+    <p class='noindent'>Exercise&nbsp;1.1.3:&nbsp;Enoch’s Problem</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 245 -->
+
+    <p class='noindent'>Find the greatest integer <span class=
+    'mathjax-inline'>\(a\)</span> such that <span class=
+    'mathjax-inline'>\(2^a \mid 7^{2026} - 1\)</span>.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-3'>
+  <!-- l. 248 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 248 -->
+
+  <p class='noindent'>Note that it suffices to find <span class=
+  'mathjax-inline'>\(v_2 (7^{2026} - 1)\)</span>. Using LTE, we can
+  see that <span class='mathjax-inline'>\(v_2 (7^2 - 1) + v_2 (2026)
+  - 1 = 4 + 1 - 1 = 4\)</span>. Therefore, the greatest integer
+  <span class='mathjax-inline'>\(a\)</span> is <span class=
+  'mathjax-inline'>\(4\)</span>.</p>
+</div><!-- l. 253 -->
+
+<p class='noindent'>With this idea in mind, let’s take a look at how
+LTE can be used to solve more complicated problems.</p>
 
   </div>
 

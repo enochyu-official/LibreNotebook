@@ -1,0 +1,34 @@
+{{ define "main" }}
+<section id="changelog-container">
+  <h1>Changelog</h1>
+  <table id="changelog">
+    <thead>
+      <tr>
+        <th>Version</th>
+        <th>Date</th>
+        <th>Commit</th>
+        <th>Author</th>
+        <th>Message</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{ range hugo.Data.changelog }}
+        <tr>
+          {{ $date := time.AsTime .date }}
+          {{ $versionYear := sub (mod $date.Year 100) 25 }}
+          <td>
+            v{{ printf "%d.%02d.%02d" $versionYear $date.Month $date.Day }}
+          </td>
+          <td>{{ .date }}</td>
+          <td>
+            <a href="https://github.com/enochyu-official/LibreNotebook/commit/{{ .hash }}">{{ .commit }}</a>
+          </td>
+          <td>{{ .author }}</td>
+          <td>{{ .message }}</td>
+        </tr>
+      {{ end }}
+    </tbody>
+  </table>
+</section>
+{{ end }}
+

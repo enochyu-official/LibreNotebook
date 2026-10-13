@@ -41,6 +41,8 @@ for dir in tex/*; do
         make4ht -u -B "$TMP_DIR" -f html5+tidy "$fileName".tex "mathjax"
         perl -0777 -pi -e "s#src\s*=\s*'([^']+\.svg)'#src='/svg/\$1'#g" \
           "$TMP_DIR/$fileName".html
+        perl -pi -e 's/\\(?:displaybreak|linebreak|relax)//g' \
+          "$TMP_DIR/$fileName.html"
         tidy -indent -wrap 70 -utf8 -m \
              --show-body-only yes --force-output yes \
           "$TMP_DIR/$fileName".html
@@ -56,5 +58,11 @@ done
 cd "$HOME/projects/LibreNotebook/LibreNotebook/"
 mv temp/*.svg "$OUT_DIR"/static/svg/
 rm -r temp/
+
+cd "$HOME/projects/LibreNotebook/"
+git log --date=short --pretty=format:'%H%x1f%h%x1f%ad%x1f%an%x1f%s' |
+jq -Rn '[inputs | split("\u001f") |
+  {hash: .[0], commit: .[1], date: .[2], author: .[3], message: .[4]}]
+' > librenotebook.enochyu.com/data/changelog.json
 
 

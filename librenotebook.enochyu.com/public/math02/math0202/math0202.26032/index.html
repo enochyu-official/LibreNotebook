@@ -20,7 +20,7 @@
 
 
 
-<link rel="stylesheet" href="/css/main.min.32f9c956334352260f239399447c2f21424dd3d37846059a7f2b126567c55f90.css" integrity="sha256-MvnJVjNDUiYPI5OZRHwvIUJN09N4RgWafysSZWfFX5A=">
+<link rel="stylesheet" href="/css/main.min.5824b6c267fbd9815fcc1f3e8e046e17e96ef7aca5c4d769ebd602298dc8310d.css" integrity="sha256-WCS2wmf72YFfzB8&#43;jgRuF&#43;lu96ylxNdp69YCKY3IMQ0=">
 
 
   
@@ -1124,26 +1124,25 @@ a_{14} \\ a_{21} &amp; a_{22} &amp; a_{23} &amp; a_{24} \\ a_{31}
 a_{43} &amp; a_{44} \end {bNiceArray} \begin
 {bNiceArray}{ccc}[margin] b_{11} &amp; b_{12} &amp; b_{13} \\ b_{21}
 &amp; b_{22} &amp; b_{23} \\ \hline b_{31} &amp; b_{32} &amp; b_{33}
-\\ b_{41} &amp; b_{42} &amp; b_{43} \end {bNiceArray} \\
-&amp;= \begin {bmatrix} a_{11} &amp; a_{12} \\ a_{21}
-&amp; a_{22} \\ a_{31} &amp; a_{32} \\ a_{41} &amp; a_{42} \end
-{bmatrix} \begin {bmatrix} b_{11} &amp; b_{12} &amp; b_{13} \\ b_{21}
-&amp; b_{22} &amp; b_{23} \end {bmatrix} + \begin {bmatrix} a_{13}
-&amp; a_{14} \\ a_{23} &amp; a_{24} \\ a_{33} &amp; a_{34} \\ a_{43}
-&amp; a_{44} \end {bmatrix} \begin {bmatrix} b_{31} &amp; b_{32}
-&amp; b_{33} \\ b_{41} &amp; b_{42} &amp; b_{43} \end {bmatrix} \\
-&amp;= \begin {bmatrix} \scriptscriptstyle a_{11}b_{11} +
-a_{12}b_{21} &amp; \scriptscriptstyle a_{11}b_{12} + a_{12}b_{22}
-&amp; \scriptscriptstyle a_{11}b_{13} + a_{12}b_{23} \\
-\scriptscriptstyle a_{21}b_{11} + a_{22}b_{21} &amp;
-\scriptscriptstyle a_{21}b_{12} + a_{22}b_{22} &amp;
-\scriptscriptstyle a_{21}b_{13} + a_{22}b_{23} \\ \scriptscriptstyle
-a_{31}b_{11} + a_{32}b_{21} &amp; \scriptscriptstyle a_{31}b_{12} +
-a_{32}b_{22} &amp; \scriptscriptstyle a_{31}b_{13} + a_{32}b_{23} \\
-\scriptscriptstyle a_{41}b_{11} + a_{42}b_{21} &amp;
-\scriptscriptstyle a_{41}b_{12} + a_{42}b_{22} &amp;
-\scriptscriptstyle a_{41}b_{13} + a_{42}b_{23} \end {bmatrix} \\
-&amp;\qquad \qquad \qquad \qquad + \begin {bmatrix}
+\\ b_{41} &amp; b_{42} &amp; b_{43} \end {bNiceArray} \\ &amp;=
+\begin {bmatrix} a_{11} &amp; a_{12} \\ a_{21} &amp; a_{22} \\ a_{31}
+&amp; a_{32} \\ a_{41} &amp; a_{42} \end {bmatrix} \begin {bmatrix}
+b_{11} &amp; b_{12} &amp; b_{13} \\ b_{21} &amp; b_{22} &amp; b_{23}
+\end {bmatrix} + \begin {bmatrix} a_{13} &amp; a_{14} \\ a_{23} &amp;
+a_{24} \\ a_{33} &amp; a_{34} \\ a_{43} &amp; a_{44} \end {bmatrix}
+\begin {bmatrix} b_{31} &amp; b_{32} &amp; b_{33} \\ b_{41} &amp;
+b_{42} &amp; b_{43} \end {bmatrix} \\ &amp;= \begin {bmatrix}
+\scriptscriptstyle a_{11}b_{11} + a_{12}b_{21} &amp;
+\scriptscriptstyle a_{11}b_{12} + a_{12}b_{22} &amp;
+\scriptscriptstyle a_{11}b_{13} + a_{12}b_{23} \\ \scriptscriptstyle
+a_{21}b_{11} + a_{22}b_{21} &amp; \scriptscriptstyle a_{21}b_{12} +
+a_{22}b_{22} &amp; \scriptscriptstyle a_{21}b_{13} + a_{22}b_{23} \\
+\scriptscriptstyle a_{31}b_{11} + a_{32}b_{21} &amp;
+\scriptscriptstyle a_{31}b_{12} + a_{32}b_{22} &amp;
+\scriptscriptstyle a_{31}b_{13} + a_{32}b_{23} \\ \scriptscriptstyle
+a_{41}b_{11} + a_{42}b_{21} &amp; \scriptscriptstyle a_{41}b_{12} +
+a_{42}b_{22} &amp; \scriptscriptstyle a_{41}b_{13} + a_{42}b_{23}
+\end {bmatrix} \\ &amp;\qquad \qquad \qquad \qquad + \begin {bmatrix}
 \scriptscriptstyle a_{13}b_{31} + a_{14}b_{41} &amp;
 \scriptscriptstyle a_{13}b_{32} + a_{14}b_{42} &amp;
 \scriptscriptstyle a_{13}b_{33} + a_{14}b_{43} \\ \scriptscriptstyle
@@ -1392,8 +1391,8 @@ matrices in mind, we can discuss a theorem from such matrices.</p>
   b_{kj} \right ] = \left [ \sum _{k = 1}^{j-1} a_{ik} b_{kj} + \sum
   _{k = j}^{n} a_{ik} b_{kj} \right ] \]</span> From the expression,
   it suffices to show that <span class='mathjax-inline'>\(\sum _{k =
-  1}^{j-1} a_{ik} b_{kj} + \sum _{k = j}^{n} a_{ik} b_{kj} 
-  = 0\)</span> for <span class='mathjax-inline'>\(i &lt; j\)</span>.
+  1}^{j-1} a_{ik} b_{kj} + \sum _{k = j}^{n} a_{ik} b_{kj} =
+  0\)</span> for <span class='mathjax-inline'>\(i &lt; j\)</span>.
   Notice that by definition, <span class='mathjax-inline'>\(b_{kj} =
   0\)</span> for all <span class='mathjax-inline'>\(k = 1\)</span> to
   <span class='mathjax-inline'>\(k = j-1\)</span>. Similarly,
