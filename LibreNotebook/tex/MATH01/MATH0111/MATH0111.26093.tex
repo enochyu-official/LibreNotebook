@@ -88,8 +88,177 @@ and this is true because $\lfloor a + b \rfloor \geq \lfloor a \rfloor
 + \lfloor b \rfloor$. With this notation and concept in mind,
 lets get into LTE Lemma!
 
+\begin{theorem}
+{Lifting the Exponent Lemma}
+{Lifting the Exponent Lemma}
+Let $p$ be a prime number and $x, y$ be integers such that
+$p \mid x - y$, $p \nmid x$, and $p \nmid y$. Then, the respective
+equations hold for the three cases.
+\begin{enumerate}
+\item[I.] $\mathbf{p > 2}$
+\[
+\nu_p (x^n - y^n) = \nu_p (x - y) + \nu_p (n)
+\]
+
+\item[II.] \textbf{$\mathbf{p = 2}$ and $\mathbf{2 \mid n}$}
+\[
+\nu_2 (x^n - y^n) = \nu_2 (x^2 - y^2) + \nu_2 (n) - 1
+\]
+
+\item[III.] \textbf{$\mathbf{p = 2}$ and $\mathbf{2 \nmid n}$}
+\vspace{-0.8\baselineskip}
+\[
+\nu_2 (x^n - y^n) = \nu_2 (x - y)
+\]
+\end{enumerate}
+\end{theorem}
+
+Before we prove this, an interesting extension that we can notice
+for odd $n$ and $p > 2$ is that $\nu_p (x^n + y^n) = \nu_p (x + y) +
+\nu_p (n)$. This can be obtained by substituting $-y$ for $y$.
+
+\begin{proof}
+To prove the lemma, first separate $p$ into two cases where $p > 2$
+and $p = 2$. The first case $p > 2$ can be proven with induction.
+
+First, consider the case when $\nu_p (n) = 0$. Notice that because
+$x - y \equiv 0 \pmod{p}$, $x \equiv y \pmod{p}$. Moreover,
+\[
+x^n - y^n = (x - y) \left( \sum_{k=1}^n x^{n-k} y^{k-1} \right)
+\]
+holds and $\sum_{k=1}^n x^{n-k} y^{k-1} \equiv \sum_{k=1}^n x^{n-1}
+\not\equiv 0 \pmod{p}$. In other words, $\nu_p (x^n - y^n) =
+\nu_p (x - y) + \nu_p (n)$.
+
+Similarly, consider the base case when $\nu_p (n) = 1$. Let $n = kp$
+where $p \nmid k$ and consider the following equations.
+\[
+x^{kp} - y^{kp}
+= \left( x^p - y^p \right)
+    \left( \sum_{i=1}^k x^{pk - ip} y^{ip - p} \right)
+\]
+Notice that because
+\[
+\sum_{i=1}^k x^{pk - ip} y^{ip - p}
+\equiv \sum_{i=1}^k x^{pk - p}
+\equiv k x^{pk - p}
+\not\equiv 0 \pmod{p}
+\]
+holds, $\nu_p (x^n - y^n) = \nu_p (x^p - y^p)$. Continuing,
+\[
+x^p - y^p
+= (x - y) \left( \sum_{k=1}^p x^{p-k} y^{k-1} \right)
+\]
+and $\sum_{k=1}^p x^{p-k} y^{k-1} \equiv p x^{p-1} \equiv 0 \pmod{p}$.
+Substituting $y = x + pt$ to the expression constructed by definition,
+\[
+x^{p-k} y^{k-1}
+= x^{p-k} (x + pt)^{k-1} + x^{p-k} \left(
+    x^{k-1} + (k-1) x^{k-2} pt + \alpha
+\right)
+\]
+where $p^2 \mid \alpha$. Therefore, the following congruences hold.
+\begin{align*}
+    \sum_{k=1}^p x^{p-k} y^{k-1}
+    &\equiv \sum_{k=1}^p x^{p-k} x^{k-1} + x^{p-k} (k-1) x^{k-2} pt \\
+    \displaybreak
+    &\equiv \sum_{k=1}^p x^{p-1} + x^{p-2} (k-1) pt \\
+    &\equiv p x^{p-1} + \frac{p(p-1)}{2} x^{p-2} pt
+    \equiv p x^{p-1} \\
+    &\not\equiv 0 \pmod{p^2}
+\end{align*}
+In other words, $\nu_p (x^p - y^p) = \nu_p (x - y) + 1 = \nu_p (x - y)
++ \nu_p (n)$ and the base case holds.
+
+Continuing, it suffices to show that if the equation holds for
+$\nu_p (n) = a$, then it also holds for $\nu_p (n) = a + 1$.
+Let $n = p^a b$ where $p \nmid b$, and consider the following
+equations.
+\begin{align*}
+    \nu_p \left( x^{p^{a+1} b} + y^{p^{a+1} b} \right)
+    &= \nu_p \left(
+        \left( x^{pb} \right)^{p^a} + \left( y^{pb} \right)^{p^a}
+    \right) \\
+    &= \nu_p \left( x^{pb} - y^{pb} \right) + a \\
+    &= \nu_p (x - y) + \nu_p (pb) + a
+    = \nu_p (x - y) + a + 1 \\
+    &= \nu_p (x - y) + \nu_p (n)
+\end{align*}
+Therefore by induction, the first case holds.
+
+To prove the second case, consider the following equations with
+$n = 2^a b$ where $2 \nmid b$.
+\begin{align*}
+    \nu_2 \left( x^n - y^n \right)
+    &= \nu_2 \left(
+        \left( x^{2^a} \right)^b - \left( y^{2^a} \right)^b
+    \right) \\
+    &= \nu_2 \left(
+        \left( x^{2^a} - y^{2^a} \right) \left(
+            \sum_{k=1}^b
+                \left( x^{2^a} \right)^{b-k}
+                \left( y^{2^a} \right)^{k-1}
+        \right)
+    \right) \\
+    &= \nu_2 \left( x^{2^a} - y^{2^a} \right)
+\end{align*}
+Moreover, because
+\begin{align*}
+    x^{2^a} - y^{2^a}
+    &= \prod_{k=1}^a \left( x^{2^{a-k}} + y^{2^{a-k}} \right)
+        \cdot (x - y) \\
+    &= \prod_{k=1}^{a-1} \left( x^{2^{a-k}} + y^{2^{a-k}} \right)
+        \cdot (x + y) (x - y)
+\end{align*}
+holds and $x^{2^k} + y^{2^k} \equiv 2 \pmod{4}$ for $k > 1$,
+it is evident that
+\[
+\nu_p \left( x^{2^a} - y^{2^a} \right)
+= \nu_p (x - y) + \nu_p (x + y) + a - 1
+\]
+holds and the second case holds.
+
+Finally, the last case can be simply proven with the following
+equation.
+\[
+x^n - y^n
+= (x - y) \left( \sum_{k=1}^n x^{n-k} y^{k-1} \right)
+\]
+Notice that because $\sum_{k=1}^n x^{n-k} y^{k-1} \equiv
+\sum_{k=1}^n x^{n-1} \equiv n x^{n-1} \not\equiv 0 \pmod{p}$,
+$\nu_2 (x^n - y^n) = \nu_2 (x - y)$.
+\end{proof}
+
+This proof was quite long, but absolutely worth it! Before we
+move on to a more advanced usage, here is a simple example.
+\[
+\nu_3 \left( 4^3 + 5^3 \right)
+= \nu_3 \left( 4^3 - (-5)^3 \right)
+= \nu_3 (4 + 5) + \nu_3 (3)
+= 2 + 1
+= 3
+\]
+To check this, notice that $\nu_3 (4^3 + 5^3) = \nu_3 (64 + 125)
+= \nu_3 (189) = 3$. Continuing, here is another problem.
+
+\begin{problem}{Enoch's Problem}{}
+Find the greatest integer $a$ such that $2^a \mid 7^{2026} - 1$.
+\end{problem}
+\begin{solution}
+Note that it suffices to find $v_2 (7^{2026} - 1)$. Using LTE,
+we can see that $v_2 (7^2 - 1) + v_2 (2026) - 1 = 4 + 1 - 1 = 4$.
+Therefore, the greatest integer $a$ is $4$.
+\end{solution}
+
+With this idea in mind, let's take a look at how LTE can be used
+to solve more complicated problems.
+
+
 
 
 \end{document}
 
 
+1996 Ireland Problem 8
+Given a prime $p$ and $a, n \in \mathbb{N}$, show that if
+$2^p + 3^p = a^n$, then $n = 1$.
