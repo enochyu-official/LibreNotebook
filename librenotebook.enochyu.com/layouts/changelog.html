@@ -1,30 +1,37 @@
 {{ define "main" }}
 <section id="changelog-container">
-  <h1>Changelog</h1>
+  <h1>Changelog
+    <small><small><small id="changelog-h1-link">
+          (<a href="/">Go Home</a>)
+    </small></small></small>
+  </h1>
   <table id="changelog">
     <thead>
       <tr>
+        <th class="changelog-no">No.</th>
         <th>Version</th>
         <th>Date</th>
         <th>Commit</th>
-        <th>Author</th>
+        <th>Author(s)</th>
         <th>Message</th>
       </tr>
     </thead>
     <tbody>
-      {{ range hugo.Data.changelog }}
+      {{ $total := len hugo.Data.changelog }}
+      {{ range $i, $var := hugo.Data.changelog }}
         <tr>
-          {{ $date := time.AsTime .date }}
-          {{ $versionYear := sub (mod $date.Year 100) 25 }}
-          <td>
-            v{{ printf "%d.%02d.%02d" $versionYear $date.Month $date.Day }}
+          <td class="changelog-no">{{ sub $total $i }}.</td>
+          <td class="changelog-ver">
+            {{ $date := time.AsTime $var.date }}
+            {{ $major := sub (mod $date.Year 100) 25 }}
+            v{{ printf "%d.%02d.%02d" $major $date.Month $date.Day }}
           </td>
-          <td>{{ .date }}</td>
+          <td>{{ $var.date }}</td>
           <td>
             <a href="https://github.com/enochyu-official/LibreNotebook/commit/{{ .hash }}">{{ .commit }}</a>
           </td>
-          <td>{{ .author }}</td>
-          <td>{{ .message }}</td>
+          <td>{{ $var.author }}</td>
+          <td>{{ $var.message }}</td>
         </tr>
       {{ end }}
     </tbody>
