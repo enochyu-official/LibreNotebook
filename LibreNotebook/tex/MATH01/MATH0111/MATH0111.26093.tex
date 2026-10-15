@@ -251,10 +251,35 @@ Therefore, the greatest integer $a$ is $4$.
 \end{solution}
 
 With this idea in mind, let's take a look at how LTE can be used
-to solve more complicated problems.
+to solve a more complicated problem.
 
+\begin{problem}{}{}
+For all positive integers $k$, show that $2$ is a primitive root
+modulo $5^k$.
+\end{problem}
+\begin{solution}
+First, recall that $2$ is a primitive root mod $5^k$ if
+$\min(2) = \phi(5^k)$ for $2^n \equiv 1 \pmod{5^k}$. Notice that
+for $2^n$ to be congruent to $1$ mod $5$, $n$ must be a multiple
+of $4$ since cycles $2, -1, -2, 1$. Therefore, let $n = 4N$.
 
+Rewriting the congruence, $16^N - 1 \equiv 0 \pmod{5^k}$ and
+the following inequality holds.
+\[
+\nu_5 \left( 16^N - 1 \right)
+= \nu_5 \left( a \cdot 5^k \right)
+\geq k
+\]
+Using LTE, it is evident that $\nu_5 \left( 16^N - 1 \right) =
+\nu_5 (16 - 1) + \nu_5 (N) \geq k$ and $\nu_5 (N) \geq k - 1$.
+Therefore, $N \geq 5^{k-1}$ and $n \geq 4 \cdot 5^{k-1} = \phi(5^k)$
+holds and $2$ is a primitive root mod $5^k$.
+\end{solution}
 
+This is much simpler than induction, and is it for this section!
+I think LTE is one of those very powerful technique that often
+breaks the problem just by applying it. In the next section,
+we will discuss about combinatoric approach to NT problems.
 
 \end{document}
 
