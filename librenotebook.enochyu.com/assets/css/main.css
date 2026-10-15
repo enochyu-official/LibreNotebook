@@ -257,7 +257,7 @@ p, h1, h2, h3, h4, a, span, ul, th, td, div {
 
 
 #changelog-container {
-  width: 70vw;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -265,17 +265,36 @@ p, h1, h2, h3, h4, a, span, ul, th, td, div {
   margin: 0 auto;
   overflow-x: auto;
 }
+#changelog-container table {
+  width: 100%;
+}
 #changelog-container h1 {
   color: var(--accent-color1);
   font-size: 2.5rem;
+}
+#changelog-h1-link {
+  color: black;
+}
+#changelog-h1-link a {
+  color: Blue;
+  text-decoration: none;
+}
+#changelog-h1-link a:hover {
+  text-decoration: underline;
 }
 #changelog {
   border-collapse: collapse;
   text-align: left;
 }
 #changelog th, #changelog td {
-  padding: 0.1rem 0.6rem;
+  padding: 0.1rem 0.5rem;
   border-bottom: 0.5px solid #ddd;
+}
+.changelog-no {
+  text-align: right;
+}
+.changelog-ver {
+  color: var(--accent-color1);
 }
 #changelog tbody tr:nth-child(even) {
   background: #F5F5F5;
