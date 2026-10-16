@@ -349,7 +349,7 @@ practice problem.</p>
   _{j=2}^n \frac {2j - 3}{3^j} - \frac {1}{9} + \frac {2n -
   1}{3^{n+1}} \right ) \\ &amp;= \sum _{k=2}^n \frac {2}{3^k} + \frac
   {1}{9} - \frac {2n - 1}{3^{n+1}} \end{align*}</span></p>
-  <!-- l. 262 -->
+  <!-- l. 263 -->
 
   <p class='noindent'>Therefore, <span class='mathjax-inline'>\(S =
   \sum _{k=2}^n \frac {1}{3^{k-1}} + \frac {1}{6} - \frac {2n - 1}{2
@@ -363,21 +363,21 @@ practice problem.</p>
   - \frac {1}{6} + \frac {2n - 1}{2 \cdot 3^n} + \frac {2}{3} \\
   &amp;= \frac {1}{2 \cdot 3^{n-1}} + \frac {2n - 1}{2 \cdot 3^n} =
   \frac {1}{2 \cdot 3^{n-1}} + \frac {n}{3^n} - \frac {1}{2 \cdot
-  3^n} \end{align*}</span></p><!-- l. 278 -->
+  3^n} \end{align*}</span></p><!-- l. 279 -->
 
   <p class='noindent'>Therefore, <span class='mathjax-inline'>\(a_n =
   n + 1\)</span>.</p>
-</div><!-- l. 281 -->
+</div><!-- l. 282 -->
 
 <p class='noindent'>Continuing from this case, here is the next one.
 From this case the problems could get more complicated, but I don’t
 think they are necessarily harder because they build from the four
-cases that we discussed so far.</p><!-- l. 287 -->
+cases that we discussed so far.</p><!-- l. 288 -->
 
 <p class='noindent'><span style='color:#B80000;'><span class=
 'pplb8t-x-x-144'>V.</span> <span class='mathjax-inline'>\(\mathbf
 {a_n = \frac {p a_{n-1}}{q a_{n-1} + r}}\)</span></span></p>
-<!-- l. 289 -->
+<!-- l. 290 -->
 
 <p class='noindent'>This type of problem is relatively simple. To
 solve them, we can first take the reciprocal of both sides to obtain
@@ -386,11 +386,11 @@ a more simple problem. <span class='mathjax-block'>\[ \frac {1}{a_n}
 a_{n-1}} \]</span> Now substituting <span class=
 'mathjax-inline'>\(b_n = \frac {1}{a_n}\)</span>, we obtain Case III!
 The next case is a little more complex, but is also quite common.</p>
-<!-- l. 301 -->
+<!-- l. 302 -->
 
 <p class='noindent'><span style='color:#B80000;'><span class=
 'pplb8t-x-x-144'>VI.</span> <span class='mathjax-inline'>\(\mathbf {p
-a_{n+1} + q a_n + r a_{n-1} = 0}\)</span></span></p><!-- l. 303 -->
+a_{n+1} + q a_n + r a_{n-1} = 0}\)</span></span></p><!-- l. 304 -->
 
 <p class='noindent'>For this case, we can separate the cases into two
 cases. If the problem maker was kind, we could sometimes get
@@ -399,7 +399,7 @@ we can simply substitute <span class='mathjax-inline'>\(q = -p -
 r\)</span> to obtain the following equation. <span class=
 'mathjax-block'>\[ p (a_{n+1} - a_n) = r (a_n - a_{n-1}) \]</span>
 Letting <span class='mathjax-inline'>\(b_n = a_n - a_{n-1}\)</span>,
-it is now trivial.</p><!-- l. 312 -->
+it is now trivial.</p><!-- l. 313 -->
 
 <p class='noindent'>If the problem is not nice enough, which is the
 most likely case, we will get <span class='mathjax-inline'>\(p + q +
@@ -414,14 +414,14 @@ holds with Vieta’s formula. <span class='mathjax-block'>\[ a_{n+1} -
 (\alpha + \beta ) a_n + \alpha \beta a_{n-1} = 0 \]</span> From here,
 we can again split the equation into two cases depending on the
 values of <span class='mathjax-inline'>\(\alpha \)</span> and
-<span class='mathjax-inline'>\(\beta \)</span>.</p><!-- l. 324 -->
+<span class='mathjax-inline'>\(\beta \)</span>.</p><!-- l. 325 -->
 
 <p class='noindent'>The first case is when <span class=
 'mathjax-inline'>\(\alpha \neq \beta \)</span>. Rearranging the
 equation, we obtain the two distinct equations. <span class=
 'mathjax-env mathjax-align*'>\begin{align*} a_{n+1} - \alpha a_n
 &amp;= \beta (a_n - \alpha a_{n-1}) \\ a_{n+1} - \beta a_n &amp;=
-\alpha (a_n - \beta a_{n-1}) \end{align*}</span></p><!-- l. 330 -->
+\alpha (a_n - \beta a_{n-1}) \end{align*}</span></p><!-- l. 331 -->
 
 <p class='noindent'>Because the equations from a geometric sequence,
 we can telescope to obtain the following. <span class=
@@ -429,7 +429,7 @@ we can telescope to obtain the following. <span class=
 &amp;= \beta ^{n-1} (a_2 - \alpha a_1) \\ a_n - \beta a_{n-1} &amp;=
 \alpha ^{n-1} (a_2 - \beta a_1) \\ \therefore a_{n-1} = \frac
 {1}{\beta - \alpha } ( \beta ^{n-1} &amp;(a_2 - \alpha a_1) - \alpha
-^{n-1} (a_2 - \beta a_1) ) \end{align*}</span></p><!-- l. 341 -->
+^{n-1} (a_2 - \beta a_1) ) \end{align*}</span></p><!-- l. 342 -->
 
 <p class='noindent'>From here it is not difficult to notice that
 <span class='mathjax-inline'>\(a_n = \frac {1}{\beta - \alpha }
@@ -437,7 +437,7 @@ we can telescope to obtain the following. <span class=
 and it won’t be too difficult to find <span class=
 'mathjax-inline'>\(a_1\)</span> and <span class=
 'mathjax-inline'>\(a_2\)</span> because they are usually given by the
-problem.</p><!-- l. 346 -->
+problem.</p><!-- l. 347 -->
 
 <p class='noindent'>The second case is when <span class=
 'mathjax-inline'>\(\alpha = \beta \)</span>. This case is actually
@@ -445,7 +445,7 @@ nicer because we can simply substitute the values to obtain the
 following. <span class='mathjax-env mathjax-align*'>\begin{align*}
 a_{n+1} - 2\alpha a_n + \alpha ^2 a_{n-1} &amp;= 0 \\ a_{n+1} -
 \alpha a_n &amp;= \alpha (a_n - \alpha a_{n-1})
-\end{align*}</span></p><!-- l. 353 -->
+\end{align*}</span></p><!-- l. 354 -->
 
 <p class='noindent'>Again, because this is a geometric sequence, we
 can telescope to obtain the following equation. <span class=
@@ -457,22 +457,310 @@ again and obtain the following. <span class=
 ^{n+1}} - \frac {a_n}{\alpha ^n} &amp;= \frac {a_2 - \alpha
 a_1}{\alpha ^2} \\ \therefore \frac {a_n}{\alpha ^n} &amp;= \frac
 {a_2 - \alpha a_1}{\alpha ^2} \cdot (n - 1) + \frac {a_1}{\alpha }
-\end{align*}</span></p><!-- l. 368 -->
+\end{align*}</span></p><!-- l. 369 -->
 
 <p class='noindent'>Therefore, <span class='mathjax-inline'>\(a_n =
 \alpha ^{n-2} (n-1) (a_2 - \alpha a_1) + \alpha ^{n-1}
-a_1\)</span>.</p><!-- l. 371 -->
+a_1\)</span>.</p>
 
-<p class='noindent'>This is it for this case. Honestly, I don’t think
-its worth memorizing the equation from this point but having the idea
-to split the middle term and telescoping would be enough! There are
-few more cases left, and let’s continue with Case VII.</p>
-<!-- l. 378 -->
+<div class='mdframed' id='mdframed-7'>
+  <!-- l. 373 -->
+
+  <p class='noindent'>The extended version of this would be when we
+  have more than three variables like the following. <span class=
+  'mathjax-block'>\[ p_0 a_n + p_1 a_{n-1} + \cdots + p_{k} a_{n-k} =
+  0 \]</span> In this case, assume that <span class=
+  'mathjax-inline'>\(a_n = r^n\)</span> and solve the <span class=
+  'pplb8t-x-x-109'>characteristic equation</span>. If the roots
+  <span class='mathjax-inline'>\(r_1, \cdots , r_k\)</span> are all
+  distinct, the solution would be <span class='mathjax-inline'>\(a_n
+  = C_1 r_1^n + C_2 r_2^n + \cdots C_k r_k^n\)</span>. If any of the
+  roots repeat, make them distinct by multiplying <span class=
+  'mathjax-inline'>\(n\)</span>. For example, if <span class=
+  'mathjax-inline'>\(r_i\)</span> repeats three times, we can make
+  the roots into <span class='mathjax-inline'>\(k\)</span> distinct
+  ones by having the <span class='mathjax-inline'>\(k-3\)</span>
+  roots and <span class='mathjax-inline'>\(r_i, n r_i, n^2
+  r_i\)</span>. The coefficients <span class=
+  'mathjax-inline'>\(C_i\)</span> should be easy to find by
+  substitution because initial conditions are most likely evident
+  from the problem.</p>
+</div><!-- l. 389 -->
+
+<p class='noindent'>There are few more cases left, and let’s continue
+with Case VII.</p><!-- l. 393 -->
 
 <p class='noindent'><span style='color:#B80000;'><span class=
 'pplb8t-x-x-144'>VII.</span> <span class='mathjax-inline'>\(\mathbf
 {a_n = p a_{n-1} + q b_{n-1}, b_n = r a_{n-1} + s
-b_{n-1}}\)</span></span></p><!-- l. 380 -->
+b_{n-1}}\)</span></span></p><!-- l. 395 -->
 
 <p class='noindent'>This is the case when we are introduced two
-independent variables.</p>
+independent variables. Intuitively, we should eliminate one variable
+to turn the equations into more simple forms discussed earlier and
+substitute back into one of the equations to obtain the other. Here
+is an example.</p>
+
+<div class='tcolorbox probstyle' id='tcolobox-5'>
+  <div class='tcolorbox-title'>
+    <!-- l. 403 -->
+
+    <p class='noindent'>Exercise&nbsp;0.1.5:&nbsp;Enoch’s Problem</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 401 -->
+
+    <p class='noindent'>Given <span class='mathjax-inline'>\(a_n =
+    8a_{n-1} + 7b_{n-1}\)</span> and <span class=
+    'mathjax-inline'>\(b_n = 2a_{n-1} + 3b_{n-1}\)</span> with
+    <span class='mathjax-inline'>\(a_1 = 5\)</span> and <span class=
+    'mathjax-inline'>\(b_1 = 4\)</span>, find <span class=
+    'mathjax-inline'>\(a_n\)</span> and <span class=
+    'mathjax-inline'>\(b_n\)</span> in terms of <span class=
+    'mathjax-inline'>\(n\)</span>.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-8'>
+  <!-- l. 405 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 405 -->
+
+  <p class='noindent'>For this problem, we could technically use
+  linear algebra, but I think that kinda ruins the fun and elegance
+  of the solution, so let’s not use matrices. Instead, we could try
+  eliminating <span class='mathjax-inline'>\(b_n\)</span>. Consider
+  the following equations. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} 7b_n &amp;= a_{n+1} -
+  8a_n \\ 7b_n &amp;= 14 a_{n-1} + 21 b_{n-1} = 14 a_{n-1} + 3a_n -
+  24a_{n-1} \\ \therefore a_{n+1} - 8a_n &amp;= 14 a_{n-1} + 3a_n -
+  24a_{n-1} \end{align*}</span></p><!-- l. 416 -->
+
+  <p class='noindent'>Rewriting the equation, we obtain <span class=
+  'mathjax-inline'>\(a_{n+1} - 11a_n + 10 a_{n-1} = 0\)</span>. This
+  is the previous case, but simpler! Let <span class=
+  'mathjax-inline'>\(S_n = a_{n+1} - a_n\)</span>. Substituting, we
+  obtain <span class='mathjax-inline'>\(S_n = 10 S_{n-1}\)</span> and
+  telescoping gives <span class='mathjax-inline'>\(S_n = 10^{n-1}
+  S_1\)</span>. Moreover, because <span class='mathjax-inline'>\(S_1
+  = a_2 - a_1 = 40 + 28 - 5 = 63\)</span>, <span class=
+  'mathjax-inline'>\(a_{n+1} - a_n = 63 \cdot 10^{n-1}\)</span>.
+  Telescoping again, we obtain <span class='mathjax-block'>\[ a_n -
+  a_1 = 63 \sum _{k=2}^n 10^{n-2} = 63 \cdot \left ( \frac {10^{n-1}
+  - 1}{10 - 1} \right ) = 7 (10^{n-1} - 1) \]</span> and <span class=
+  'mathjax-inline'>\(a_n = 7 \cdot 10^{n-1} - 2\)</span>.
+  Substituting to the first equation, <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} 7b_{n-1} &amp;= a_n -
+  8a_{n-1} = 7 \cdot 10^{n-1} - 2 - 56 \cdot 10^{n-2} + 16 \\ &amp;=
+  14 \cdot 10^{n-2} + 14 \end{align*}</span></p><!-- l. 435 -->
+
+  <p class='noindent'>holds and <span class='mathjax-inline'>\(b_n =
+  2 \cdot 10^{n-1} + 2\)</span>.</p>
+</div><!-- l. 438 -->
+
+<p class='noindent'>This case was easier than the others! Continuing,
+here is Case VIII.</p><!-- l. 441 -->
+
+<p class='noindent'><span style='color:#B80000;'><span class=
+'pplb8t-x-x-144'>VIII.</span> <span class='mathjax-inline'>\(\mathbf
+{a_n = \frac {p a_{n-1} + q}{r a_{n-1} + s}}\)</span></span></p>
+<!-- l. 443 -->
+
+<p class='noindent'>This is another case where we are introduced a
+fraction. But unlike Case V, you can notice that finding the
+reciprocal of both sides does not solve the problem. For this case,
+clever substitution and introducing a new sequence is the key to a
+solution. Here is an example to demonstrate it.</p>
+
+<div class='tcolorbox probstyle' id='tcolobox-6'>
+  <div class='tcolorbox-title'>
+    <!-- l. 452 -->
+
+    <p class='noindent'>Exercise&nbsp;0.1.6:&nbsp;WinnersKMO</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 450 -->
+
+    <p class='noindent'>Given <span class=
+    'mathjax-inline'>\(a_1\)</span> and <span class=
+    'mathjax-inline'>\(a_n = \frac {a_{n-1} + 2}{2a_{n-1} +
+    1}\)</span>, find <span class='mathjax-inline'>\(a_n\)</span>
+    [<span class='pplb8t-x-x-109'>MATH01-5</span>].</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-9'>
+  <!-- l. 454 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 454 -->
+
+  <p class='noindent'>To solve this problem, let’s first simplify the
+  numerator. <span class='mathjax-env mathjax-align*'>\begin{align*}
+  a_n &amp;= \frac { \frac {1}{2} (2a_{n-1} + 1) + \frac {3}{2}
+  }{2a_{n-1} + 1} = \frac {1}{2} + \frac {\frac {3}{2}}{2a_{n-1} + 1}
+  \\ 2a_n - 1 &amp;= \frac {3}{2a_{n-1} + 1} \end{align*}</span></p>
+  <!-- l. 461 -->
+
+  <p class='noindent'>Let <span class='mathjax-inline'>\(b_n = 2a_n +
+  1\)</span>. Substituting, we obtain <span class=
+  'mathjax-inline'>\(b_n - 2 = \frac {3}{b_{n-1}}\)</span>. Here is
+  when we introduce new terms <span class=
+  'mathjax-inline'>\(c_n\)</span>. Let <span class=
+  'mathjax-inline'>\(b_n = \frac {c_{n+1}}{c_n}\)</span> where
+  <span class='mathjax-inline'>\(c_1 = 1\)</span> and <span class=
+  'mathjax-inline'>\(c_2 = 5\)</span>. Substituting, <span class=
+  'mathjax-block'>\[ \frac {c_{n+1}}{c_n} - 2 = \frac {3c_{n-1}}{c_n}
+  \]</span> and we obtain <span class='mathjax-inline'>\(c_{n+1} -
+  2c_n - 3c_{n-1} = 0\)</span>, and this is Case VI.</p>
+  <!-- l. 470 -->
+
+  <p class='noindent'>This case is not too good but not too bad
+  because solving the characteristic equation is clean. Solving
+  <span class='mathjax-inline'>\(x^2 - 2x - 3 = 0\)</span>, we get
+  <span class='mathjax-inline'>\(x = 3\)</span> and <span class=
+  'mathjax-inline'>\(x = -1\)</span>. Therefore, <span class=
+  'mathjax-inline'>\(c_n = A3^n + B(-1)^n\)</span>. Because
+  <span class='mathjax-inline'>\(c_1 = 3A - B\)</span>, <span class=
+  'mathjax-inline'>\(c_2 = 9A + B\)</span>, and <span class=
+  'mathjax-inline'>\(b_1 = 5\)</span>, we can see that <span class=
+  'mathjax-inline'>\(\frac {9A + B}{3A - B} = 5\)</span> and
+  <span class='mathjax-inline'>\(6B = 6A\)</span>. Because
+  <span class='mathjax-inline'>\(c_1 = 1\)</span>, <span class=
+  'mathjax-inline'>\(A = B = \frac {1}{2}\)</span> and <span class=
+  'mathjax-inline'>\(c_n = \frac {3^n + (-1)^n}{2}\)</span>. Now we
+  are done!</p><!-- l. 478 -->
+
+  <p class='noindent'>Substituting back to <span class=
+  'mathjax-inline'>\(b_n\)</span>, we obtain <span class=
+  'mathjax-block'>\[ b_n = \frac { \frac {3^{n+1} + (-1)^{n+1}}{2} }{
+  \frac {3^n + (-1)^n}{2} } = \frac {3^{n+1} + (-1)^{n+1}}{3^n +
+  (-1)^n} \]</span> and substituting it back to <span class=
+  'mathjax-inline'>\(a_n\)</span> gives us the following.
+  <span class='mathjax-block'>\[ a_n = \frac {b_n - 1}{2} = \frac {
+  \frac {3^{n+1} + (-1)^{n+1}}{3^n + (-1)^n} - 1 }{2} = \frac { \frac
+  {3^{n+1} + (-1)^{n+1} - 3^n - (-1)^n}{3^n + (-1)^n} }{2} \]</span>
+  Therefore <span class='mathjax-inline'>\(a_n = \frac {3^n -
+  (-1)^n}{3^n + (-1)^n}\)</span>.</p>
+</div><!-- l. 494 -->
+
+<p class='noindent'>Continuing with this case, here is the final case
+for this note!</p><!-- l. 496 -->
+
+<p class='noindent'><span style='color:#B80000;'><span class=
+'pplb8t-x-x-144'>IX. Trigonometry in Recursion</span></span></p>
+<!-- l. 498 -->
+
+<p class='noindent'>I personally think this case is the hardest to
+see and apply because for some reason I just can’t remember
+trigonometric properties properly. But fortunately, I think just some
+basic relations like double angle, half angle, and sine and cosine
+relationship are enough. However, the problem is that I think it is
+very difficult to see when to use trig for recursion. Here is an
+example from WinnersKMO [<span class=
+'pplb8t-x-x-109'>MATH01-5</span>] that I enjoyed.</p>
+
+<div class='tcolorbox probstyle' id='tcolobox-7'>
+  <div class='tcolorbox-title'>
+    <!-- l. 509 -->
+
+    <p class='noindent'>Exercise&nbsp;0.1.7:&nbsp;WinnersKMO</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 507 -->
+
+    <p class='noindent'>Given <span class='mathjax-inline'>\(a_1 &gt;
+    0\)</span> and <span class='mathjax-inline'>\(a_n = \sqrt {2 +
+    a_{n-1}}\)</span>, find <span class=
+    'mathjax-inline'>\(a_n\)</span> [<span class=
+    'pplb8t-x-x-109'>MATH01-5</span>].</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-10'>
+  <!-- l. 511 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 511 -->
+
+  <p class='noindent'>One interesting thing that we can notice from
+  this question unlike the other problems is that we don’t have our
+  initial value set. To be honest, I don’t think there is a better
+  way to understand the solution presented here than memorizing
+  patterns, so here we go.</p><!-- l. 516 -->
+
+  <p class='noindent'>First, recall that <span class=
+  'mathjax-inline'>\(\cos ^2 \frac {\theta }{2} = \frac {1 + \cos
+  \theta }{2} = \frac {2 + 2\cos \theta }{4}\)</span>. Rearranging,
+  we can see that the given equation resembles with the rearrangement
+  <span class='mathjax-inline'>\(2\cos \theta = \sqrt {2 + 2\cos
+  2\theta }\)</span>. Following the pattern, let <span class=
+  'mathjax-inline'>\(a_n = 2\cos \theta _n\)</span> where
+  <span class='mathjax-inline'>\(\theta _n = \frac {1}{2} \theta
+  _{n-1}\)</span>. Telescoping, we see that <span class=
+  'mathjax-inline'>\(\theta _n = \frac {1}{2^{n-1}} \theta
+  _1\)</span> and <span class='mathjax-inline'>\(a_n = 2 \cos \frac
+  {\theta _1}{2^{n-1}}\)</span>. Substituting <span class=
+  'mathjax-inline'>\(a_1 = 2\cos \theta _1\)</span>, we obtain the
+  following equation for <span class='mathjax-inline'>\(a_1 \leq
+  2\)</span>. <span class='mathjax-block'>\[ a_n = 2\cos \left (
+  \frac { \cos ^{-1} \left ( \frac {a_1}{2} \right ) }{2^{n-1}}
+  \right ) \]</span> Now that we have observed the case when
+  <span class='mathjax-inline'>\(0 &lt; a_1 \leq 2\)</span>, we now
+  need to consider <span class='mathjax-inline'>\(a_1 &gt;
+  2\)</span>.</p><!-- l. 532 -->
+
+  <p class='noindent'>For <span class='mathjax-inline'>\(a_1 &gt;
+  2\)</span>, let <span class='mathjax-inline'>\(a_1 = \frac {2}{\sin
+  2\alpha }\)</span>. Recall that <span class='mathjax-inline'>\(\sin
+  2\alpha = 2\sin \alpha \cos \alpha \)</span>. Substituting, we get
+  the following equations. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} a_2 &amp;= \sqrt {2 +
+  \frac {2}{\sin 2\alpha }} = \sqrt {2 + \frac {1}{\sin \alpha \cos
+  \alpha }} = \frac {\sin \alpha + \cos \alpha }{\sqrt {\sin \alpha
+  \cos \alpha }} \\ a_3 &amp;= \sqrt {2 + \frac {\sin \alpha + \cos
+  \alpha }{\sqrt {\sin \alpha \cos \alpha }} } = \frac { \sqrt {\sin
+  \alpha } + \sqrt {\cos \alpha } }{(\sin \alpha \cos \alpha )^\frac
+  {1}{4}} \end{align*}</span></p><!-- l. 548 -->
+
+  <p class='noindent'>Repeating, we can see that <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} a_n &amp;= \frac {
+  (\sin \alpha )^\frac {1}{2^{n-2}} + (\cos \alpha )^\frac
+  {1}{2^{n-2}} }{ (\sin \alpha \cos \alpha )^\frac {1}{2^{n-1}} } =
+  \frac { (\sin \alpha )^p + (\cos \alpha )^p }{ (\sin \alpha \cos
+  \alpha )^\frac {p}{2} } \\ &amp;= (\tan \alpha )^\frac {p}{2} +
+  (\cot \alpha )^\frac {p}{2} = (\tan \alpha )^\frac {1}{2^{n-1}} +
+  (\cot \alpha )^\frac {1}{2^{n-1}} \end{align*}</span></p>
+  <!-- l. 562 -->
+
+  <p class='noindent'>where <span class='mathjax-inline'>\(p = \frac
+  {1}{2^{n-2}}\)</span>. Moreover, because <span class=
+  'mathjax-inline'>\(\tan \alpha = \frac {\sin 2\alpha }{1 + \cos
+  2\alpha }\)</span>, the following equations hold. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} (\tan \alpha )^\frac
+  {1}{2^{n-1}} &amp;= \left ( \frac {\sin 2\alpha }{1 + \cos 2\alpha
+  } \right )^\frac {1}{2^{n-1}} = \left ( \frac { \frac {2}{a_1} }{ 1
+  + \sqrt {1 - \frac {4}{a_1^2}} } \right )^\frac {1}{2^{n-1}} \\
+  &amp;= \left ( \frac {2}{a_1 + \sqrt {a_1^2 - 4}} \right )^\frac
+  {1}{2^{n-1}} = \left ( \frac {a_1 - \sqrt {a_1^2 - 4}}{2} \right
+  )^\frac {1}{2^{n-1}} \\ (\cot \alpha )^\frac {1}{2^{n-1}} &amp;=
+  \left ( \frac {1}{ \frac {2}{a_1 + \sqrt {a_1^2 - 4}} } \right
+  )^\frac {1}{2^{n-1}} = \left ( \frac {a_1 + \sqrt {a_1^2 - 4}}{2}
+  \right )^\frac {1}{2^{n-1}} \end{align*}</span></p><!-- l. 586 -->
+
+  <p class='noindent'>Therefore, <span class='mathjax-inline'>\(a_n =
+  \left ( \frac {a_1 - \sqrt {a_1^2 - 4}}{2} \right )^\frac
+  {1}{2^{n-1}} + \left ( \frac {a_1 + \sqrt {a_1^2 - 4}}{2} \right
+  )^\frac {1}{2^{n-1}}\)</span>.</p>
+</div><!-- l. 591 -->
+
+<p class='noindent'>This problem had lots of trigonometric
+properties! Although this section was quite long I think they all
+follow general pattern of telescoping, using characteristic
+equations, and using clever substitution to make the problems easier.
+This is it for this section, and we will discuss about symmetric and
+cyclic sums in the next section.</p>
