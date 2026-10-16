@@ -229,5 +229,18 @@ pre.lstinputlisting{ font-family: monospace,monospace; white-space: pre-wrap; te
 #tcolobox-4 .tcolorbox-content{color: #000000; background-color: #FDF6F6; border: 1px solid #660000;}
 #tcolobox-4 > div{ padding-top:8.5358px; padding-bottom:8.5358px; padding-left:14.22635px; padding-right:14.22635px; }
 #mdframed-6{border:2.0pt solid #B80000; background-color: #FFFFFF; color:#000000;}
+#mdframed-7{border:2.0pt solid #B80000; background-color: #FFFFF7; color:#B80000;}
+#tcolobox-5 .tcolorbox-title{color: #FFFFFF; background-color: #660000;}
+#tcolobox-5 .tcolorbox-content{color: #000000; background-color: #FDF6F6; border: 1px solid #660000;}
+#tcolobox-5 > div{ padding-top:8.5358px; padding-bottom:8.5358px; padding-left:14.22635px; padding-right:14.22635px; }
+#mdframed-8{border:2.0pt solid #B80000; background-color: #FFFFFF; color:#000000;}
+#tcolobox-6 .tcolorbox-title{color: #FFFFFF; background-color: #660000;}
+#tcolobox-6 .tcolorbox-content{color: #000000; background-color: #FDF6F6; border: 1px solid #660000;}
+#tcolobox-6 > div{ padding-top:8.5358px; padding-bottom:8.5358px; padding-left:14.22635px; padding-right:14.22635px; }
+#mdframed-9{border:2.0pt solid #B80000; background-color: #FFFFFF; color:#000000;}
+#tcolobox-7 .tcolorbox-title{color: #FFFFFF; background-color: #660000;}
+#tcolobox-7 .tcolorbox-content{color: #000000; background-color: #FDF6F6; border: 1px solid #660000;}
+#tcolobox-7 > div{ padding-top:8.5358px; padding-bottom:8.5358px; padding-left:14.22635px; padding-right:14.22635px; }
+#mdframed-10{border:2.0pt solid #B80000; background-color: #FFFFFF; color:#000000;}
 /* end css.sty */
 

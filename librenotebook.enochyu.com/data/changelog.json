@@ -1,5 +1,47 @@
 [
   {
+    "hash": "ca260a7f2c00ff35b51ce7bf33ebc0612007644b",
+    "commit": "ca260a7",
+    "date": "2026-10-16",
+    "author": "Enoch Yu",
+    "message": "feat(MATH01): Complete recursion and abel"
+  },
+  {
+    "hash": "832d6c9b9027c5c5fda9bd80f8c459e7d1268af2",
+    "commit": "832d6c9",
+    "date": "2026-10-16",
+    "author": "Enoch Yu",
+    "message": "feat(math01): Add more recursion cases"
+  },
+  {
+    "hash": "63e9825ead10e253cbce6e57177d75b0ce035df0",
+    "commit": "63e9825",
+    "date": "2026-10-15",
+    "author": "Enoch Yu",
+    "message": "Merge pull request #2 from enochyu-official/web"
+  },
+  {
+    "hash": "e9904294c54d0a4e0e83b5df7e95350cb5bb5fdf",
+    "commit": "e990429",
+    "date": "2026-10-14",
+    "author": "Enoch Yu",
+    "message": "feat(web): Change changelog design"
+  },
+  {
+    "hash": "a24b14f665df3caf09e6c3721a16b0e4f038330a",
+    "commit": "a24b14f",
+    "date": "2026-10-14",
+    "author": "Enoch Yu",
+    "message": "Merge pull request #1 from enochyu-official/web"
+  },
+  {
+    "hash": "7ef375a1dae04467a3d8053c153daf032cac3ff0",
+    "commit": "7ef375a",
+    "date": "2026-10-14",
+    "author": "Enoch Yu",
+    "message": "Testing: Auto Deployment"
+  },
+  {
     "hash": "3acb1b98d53310c03c577ed76a6ba3f914e21a77",
     "commit": "3acb1b9",
     "date": "2026-10-14",

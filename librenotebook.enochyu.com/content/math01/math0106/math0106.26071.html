@@ -6,22 +6,37 @@
 
 <h2 class='chapterHead' id='a-sequence-and-series'><span class=
 'titlemark'>Note&nbsp;1</span><br>
-<a id='x1-10001'></a>[A] Sequence and Series</h2>
+<a id='x1-10001'></a>[A] Sequence and Series</h2><!-- l. 7 -->
 
-<h3 class='sectionHead' id='telescoping-sums'><span class=
-'titlemark'>1.1</span> <a id='x1-20001.1'></a>Telescoping Sums</h3>
-<!-- l. 10 -->
+<p class='noindent'>Sequence and series are one of the common topics
+in algebraic combinatory and even just algebra problems. In this
+note, we review some of the foundational topics and intuition on
+sequence and series, then we discuss more advanced topics from
+recursion and different type of sums.</p>
 
-<p class='noindent'>We discussed telescoping briefly in the notes for
-inequality. In this part of the note, let’s discuss how telescoping
-is used in sequence and series. As a quick refresher, let’s solve a
-practice problem.</p>
+<h3 class='sectionHead' id='prerequisites'><span class=
+'titlemark'>1.1</span> <a id='x1-20001.1'></a>Prerequisites</h3>
+<!-- l. 15 -->
+
+<p class='noindent'>Problems involving sequence and series appeared a
+lot in competition style problems. Let’s review some of the topics
+and gain some intuition on olympiad style sequence and series with
+Abel transformation.</p>
+
+<h4 class='subsectionHead' id='telescoping'><span class=
+'titlemark'>1.1.1</span> <a id='x1-30001.1.1'></a>Telescoping</h4>
+<!-- l. 22 -->
+
+<p class='noindent'>Telescoping is an essential skill that we learn
+when we first get started with competition math. Because this content
+itself is not too difficult, let’s finish our review with an example
+problem.</p>
 
 <div class='tcolorbox probstyle' id='tcolobox-1'>
-  <a id='x1-2002x1.1'></a>
+  <a id='x1-3002x1.1.1'></a>
 
   <div class='tcolorbox-title'>
-    <!-- l. 24 -->
+    <!-- l. 36 -->
 
     <p class='noindent'>Exercise&nbsp;1.1.1:&nbsp;USAMTS Year 11
     Round 4 Problem 3 (<span class='mathjax-inline'>\( \bullet \circ
@@ -29,7 +44,7 @@ practice problem.</p>
   </div>
 
   <div class='tcolorbox-content'>
-    <!-- l. 17 -->
+    <!-- l. 29 -->
 
     <p class='noindent'>Find <span class=
     'mathjax-inline'>\(S\)</span> defined as the following.
@@ -41,10 +56,10 @@ practice problem.</p>
 </div>
 
 <div class='mdframed' id='mdframed-1'>
-  <!-- l. 26 -->
+  <!-- l. 38 -->
 
   <p class='noindent'><span class=
-  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 26 -->
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 38 -->
 
   <p class='noindent'>First, let’s rewrite the sum <span class=
   'mathjax-inline'>\(S\)</span> using the sum notation. <span class=
@@ -58,7 +73,7 @@ practice problem.</p>
   + \frac {1}{n} + \frac {1}{n + 1} \right )^2 \\ &amp;= 1 + \frac
   {1}{n^2} + \frac {1}{(n + 1)^2} + 2 \left ( \frac {1}{n} + \frac
   {1}{n + 1} + \frac {1}{n(n + 1)} \right ) \end{align*}</span></p>
-  <!-- l. 42 -->
+  <!-- l. 54 -->
 
   <p class='noindent'>Notice that because <span class=
   'mathjax-inline'>\(\frac {1}{n} - \frac {1}{n+1} = \frac
@@ -72,7 +87,7 @@ practice problem.</p>
   1 + \frac {1}{n^2} + \frac {1}{(n + 1)^2} + 2 \left ( \frac {1}{n}
   - \frac {1}{n + 1} - \frac {1}{n(n + 1)} \right ) \\ &amp;= 1 +
   \frac {1}{n^2} + \frac {1}{(n + 1)^2} \end{align*}</span></p>
-  <!-- l. 53 -->
+  <!-- l. 65 -->
 
   <p class='noindent'>Substituting the equation to the series, we
   obtain the following equations. <span class=
@@ -82,8 +97,102 @@ practice problem.</p>
   1 \right )^2} \\ &amp;= \sum _{i=1}^{1999} \left ( \frac {1}{i} -
   \frac {1}{i + 1} + 1 \right ) = 1999 + \frac {1}{1} - \frac
   {1}{2000} \\ &amp;= \frac {2000^2 - 1}{2000} = \frac
-  {3999999}{2000} \end{align*}</span></p><!-- l. 68 -->
+  {3999999}{2000} \end{align*}</span></p><!-- l. 80 -->
 
   <p class='noindent'>Thus, <span class='mathjax-inline'>\(S = \frac
   {3999999}{2000}\)</span>.</p>
+</div><!-- l. 83 -->
+
+<p class='noindent'>I think telescoping when paired with inequalities
+like Cauchy and products becomes much powerful! Continuing, let’s
+discuss Abel’s transformation.</p>
+
+<h4 class='subsectionHead' id='abel-transformation'><span class=
+'titlemark'>1.1.2</span> <a id='x1-40001.1.2'></a>Abel
+Transformation</h4><!-- l. 89 -->
+
+<p class='noindent'>There are many different names of this, and when
+you search “Abel Transformation” you would probably get different
+summation concerning integration by parts. But let’s stick with this
+term because I think it is quite popular.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-2'>
+  <a id='x1-4002x1.1.2'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 102 -->
+
+    <p class='noindent'>Definition&nbsp;1.1.2:&nbsp;Abel
+    Transformation</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 95 -->
+
+    <p class='noindent'>Given reals <span class=
+    'mathjax-inline'>\(a_i\)</span> and <span class=
+    'mathjax-inline'>\(b_i\)</span>, the following equation holds
+    where <span class='mathjax-inline'>\(a_{n+1} = 0\)</span>.
+    <span class='mathjax-block'>\[ \sum _{i=1}^n a_i b_i = \sum
+    _{i=1}^n (a_i - a_{i+1}) \left ( \sum _{k=1}^i b_k \right )
+    \]</span></p>
+  </div>
+</div><!-- l. 104 -->
+
+<p class='noindent'>This transformation is quite unique. To derive
+this, simply expand the right-hand side. Then magically, every
+residual terms telescope. To see how this can be applied in real
+life, here is an example problem.</p>
+
+<div class='tcolorbox probstyle' id='tcolobox-3'>
+  <div class='tcolorbox-title'>
+    <!-- l. 114 -->
+
+    <p class='noindent'>Exercise&nbsp;1.1.3:&nbsp;Classic Problem</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 110 -->
+
+    <p class='noindent'>If <span class='mathjax-inline'>\((a_1,
+    \ldots , a_n) \succ (b_1, \ldots , b_n)\)</span> with
+    <span class='mathjax-inline'>\(a_i \geq a_j \geq 0\)</span> and
+    <span class='mathjax-inline'>\(b_i \geq b_j \geq 0\)</span> for
+    <span class='mathjax-inline'>\(i &gt; j\)</span>, show that
+    <span class='mathjax-inline'>\(\sum _{i=1}^n a_i^k \geq \sum
+    _{i=1}^n b_i^k\)</span> for all positive integer <span class=
+    'mathjax-inline'>\(k\)</span>.</p>
+  </div>
 </div>
+
+<div class='mdframed' id='mdframed-2'>
+  <!-- l. 116 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 116 -->
+
+  <p class='noindent'>We could use Karamata to prove this, but that
+  would ruin all the fun! For this problem, notice that we need to
+  show that <span class='mathjax-inline'>\(\sum _{i=1}^n (a_i^k -
+  b_i^k) \geq 0\)</span>. Because the following equation <span class=
+  'mathjax-block'>\[ a_i^k - b_i^k = (a_i - b_i) \left ( a_i^{k-1} +
+  a_i^{k-2} b_i + \cdots + b_i^{k-1} \right ) \]</span> holds, let
+  <span class='mathjax-inline'>\(x_i = a_i^{k-1} + a_i^{k-2} b_i +
+  \cdots + b_i^{k-1}\)</span> and <span class='mathjax-inline'>\(y_i
+  = a_i - b_i\)</span>. Rewriting <span class='mathjax-inline'>\(\sum
+  _{i=1}^n (a_i^k - b_i^k)\)</span>, it suffices to show that
+  <span class='mathjax-inline'>\(\sum _{i=1}^n x_i y_i \geq
+  0\)</span>. By Abel transform, we obtain following the equation.
+  <span class='mathjax-block'>\[ \sum _{i=1}^n x_i y_i = \sum
+  _{i=1}^n (x_i - x_{i+1}) (y_1 + \cdots + y_i) \]</span> Notice that
+  <span class='mathjax-inline'>\(x_i - x_{i+1} \geq 0\)</span> since
+  <span class='mathjax-inline'>\(a_i \geq a_j \geq 0\)</span> and
+  <span class='mathjax-inline'>\(b_i \geq b_j \geq 0\)</span> for
+  <span class='mathjax-inline'>\(i &gt; j\)</span>. Moreover, because
+  <span class='mathjax-inline'>\((a_1, \ldots , a_n) \succ (b_1,
+  \ldots , b_n)\)</span>, <span class='mathjax-inline'>\(y_1 + \cdots
+  + y_i &gt; 0\)</span>. Therefore, the inequality holds.</p>
+</div><!-- l. 139 -->
+
+<p class='noindent'>This is it for this section! In the next section,
+we will discuss recurrence relation in depth.</p>
