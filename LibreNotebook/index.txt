@@ -28,7 +28,7 @@ MATH0107       | [C] Combinatorics
 MATH0108       | [N] Diophantine Equations
 MATH0109       | Prerequisites
 MATH0110       | [N] Modular Arithmetic
-MATH0111       | [N] Miscellaneous Goodies
+MATH0111       | Miscellaneous Goodies
 MATH0100       | Solutions
 
 MATH0201       | Vectors and Vector Spaces
@@ -134,8 +134,8 @@ Section III. Sections
 === | MATH0301.26069 | Basic Terms and Intuitions
 === | MATH0301.26070 | Vectors
 
-0.7 | MATH0106.26071 | Telescoping Sums
-0.0 | MATH0106.26072 | Recurrence Relation
+=== | MATH0106.26071 | Prerequisites
+=== | MATH0106.26072 | Recurrence Relation
 0.0 | MATH0106.26073 | Symmetric and Cyclic Sums
 0.1 | MATH0106.26074 | Practice Problems
 0.0 | MATH0107.26075 | Foundations
@@ -159,6 +159,7 @@ Section III. Sections
 === | MATH0302.26091 | Vector-Valued Functions and Calculus
 === | MATH0302.26092 | Parameterizations of Curves
 === | MATH0111.26093 | p-adic Valuation & LTE Lemma
+0.1 | MATH0111.26094 | Practice Problems
 ----------------------------------------------------------------------
 
 END OF INDEX

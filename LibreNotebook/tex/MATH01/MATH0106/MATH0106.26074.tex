@@ -15,3 +15,14 @@ $x_i = \frac{i}{101}$.
 \end{document}
 
 
+x1,...,xn
+y1 >= ... >= yn >= 0
+x1...xk >= y1...yk
+Show: y1 + ... + yn <= x1 + ... + xn
+
+AMGM to x1/y1 + ... + xk/yk >= k
+x1 + ... + xk = y1 * x1/y1 + ... + yk * xk/yk
+Abel to
+    sum 1,n,k (yk - yk+1) (x1/y1 + ... + xk/yk)
+    >= k(yk - yk+1) = y1 + ... + yk
+qed

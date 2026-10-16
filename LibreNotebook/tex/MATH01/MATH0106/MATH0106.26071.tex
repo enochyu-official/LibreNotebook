@@ -4,12 +4,24 @@
 
 \chapter{[A] Sequence and Series}
 
+Sequence and series are one of the common topics in algebraic
+combinatory and even just algebra problems. In this note, we review
+some of the foundational topics and intuition on sequence and series,
+then we discuss more advanced topics from recursion and different
+type of sums.
 
-\section{Telescoping Sums}
+\section{Prerequisites}
 
-We discussed telescoping briefly in the notes for inequality. In this
-part of the note, let's discuss how telescoping is used in sequence
-and series. As a quick refresher, let's solve a practice problem.
+Problems involving sequence and series appeared a lot in competition
+style problems. Let's review some of the topics and gain some
+intuition on olympiad style sequence and series with Abel
+transformation.
+
+\subsection{Telescoping}
+
+Telescoping is an essential skill that we learn when we first get
+started with competition math. Because this content itself is
+not too difficult, let's finish our review with an example problem.
 
 \begin{problem}
 {USAMTS Year 11 Round 4 Problem 3 \easy}
@@ -68,7 +80,64 @@ equations.
 Thus, $S = \frac{3999999}{2000}$.
 \end{solution}
 
+I think telescoping when paired with inequalities like Cauchy
+and products becomes much powerful! Continuing, let's discuss
+Abel's transformation.
 
+\subsection{Abel Transformation}
+
+There are many different names of this, and when you search ``Abel
+Transformation'' you would probably get different summation concerning
+integration by parts. But let's stick with this term because I think
+it is quite popular.
+
+\begin{definition}{Abel Transformation}{Abel Transformation}
+Given reals $a_i$ and $b_i$, the following equation holds where
+$a_{n+1} = 0$.
+\vspace{-0.6\baselineskip}
+\[
+\sum_{i=1}^n a_i b_i
+= \sum_{i=1}^n (a_i - a_{i+1}) \left( \sum_{k=1}^i b_k \right)
+\]
+\end{definition}
+
+This transformation is quite unique. To derive this, simply
+expand the right-hand side. Then magically, every residual terms
+telescope. To see how this can be applied in real life,
+here is an example problem.
+
+\begin{problem}{Classic Problem}{}
+If $(a_1, \ldots, a_n) \succ (b_1, \ldots, b_n)$ with
+$a_i \geq a_j \geq 0$ and $b_i \geq b_j \geq 0$ for $i > j$,
+show that $\sum_{i=1}^n a_i^k \geq \sum_{i=1}^n b_i^k$ for all
+positive integer $k$.
+\end{problem}
+\begin{solution}
+We could use Karamata to prove this, but that would ruin all the fun!
+For this problem, notice that we need to show that $\sum_{i=1}^n
+(a_i^k - b_i^k) \geq 0$. Because the following equation
+\[
+a_i^k - b_i^k
+= (a_i - b_i) \left(
+    a_i^{k-1} + a_i^{k-2} b_i + \cdots + b_i^{k-1}
+\right)
+\]
+holds, let $x_i = a_i^{k-1} + a_i^{k-2} b_i + \cdots + b_i^{k-1}$
+and $y_i = a_i - b_i$. Rewriting $\sum_{i=1}^n (a_i^k - b_i^k)$,
+it suffices to show that $\sum_{i=1}^n x_i y_i \geq 0$. By Abel
+transform, we obtain following the equation.
+\[
+\sum_{i=1}^n x_i y_i
+= \sum_{i=1}^n (x_i - x_{i+1}) (y_1 + \cdots + y_i)
+\]
+Notice that $x_i - x_{i+1} \geq 0$ since $a_i \geq a_j \geq 0$ and
+$b_i \geq b_j \geq 0$ for $i > j$. Moreover, because
+$(a_1, \ldots, a_n) \succ (b_1, \ldots, b_n)$, $y_1 + \cdots + y_i
+> 0$. Therefore, the inequality holds.
+\end{solution}
+
+This is it for this section! In the next section, we will discuss
+recurrence relation in depth.
 
 \end{document}
 

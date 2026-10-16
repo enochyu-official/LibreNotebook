@@ -249,6 +249,7 @@ equations for index-shifting.
 \begin{align*}
     S &= \sum_{k=2}^n \frac{2k - 1}{3^k} \\
     \frac{S}{3}
+    \displaybreak
     &= \sum_{k=2}^n \frac{2k - 1}{3^{k+1}}
     = \sum_{j=3}^{n+1} \frac{2j - 3}{3^j} \\
     \frac{2}{3} S
@@ -368,9 +369,23 @@ again and obtain the following.
 Therefore, $a_n = \alpha^{n-2} (n-1) (a_2 - \alpha a_1) +
 \alpha^{n-1} a_1$.
 
-This is it for this case. Honestly, I don't think its worth
-memorizing the equation from this point but having the idea
-to split the middle term and telescoping would be enough!
+\begin{important}
+The extended version of this would be when we have more than three
+variables like the following.
+\[
+p_0 a_n + p_1 a_{n-1} + \cdots + p_{k} a_{n-k} = 0
+\]
+In this case, assume that $a_n = r^n$ and solve the
+\textbf{characteristic equation}. If the roots $r_1, \cdots, r_k$
+are all distinct, the solution would be $a_n = C_1 r_1^n +
+C_2 r_2^n + \cdots C_k r_k^n$. If any of the roots repeat,
+make them distinct by multiplying $n$. For example, if $r_i$
+repeats three times, we can make the roots into $k$ distinct ones
+by having the $k-3$ roots and $r_i, n r_i, n^2 r_i$. The coefficients
+$C_i$ should be easy to find by substitution because initial
+conditions are most likely evident from the problem.
+\end{important}
+
 There are few more cases left, and let's continue with Case VII.
 
 {\Large\textcolor{BrickRed}
@@ -476,12 +491,109 @@ a_n
 Therefore $a_n = \frac{3^n - (-1)^n}{3^n + (-1)^n}$.
 \end{solution}
 
-Continuing with this case, we have another quite tough case.
+Continuing with this case, here is the final case for this note!
 
 {\Large\textcolor{BrickRed}{\textbf{IX. Trigonometry in Recursion}}}
 
+I personally think this case is the hardest to see and apply because
+for some reason I just can't remember trigonometric properties
+properly. But fortunately, I think just some basic relations like
+double angle, half angle, and sine and cosine relationship are enough.
+However, the problem is that I think it is very difficult to see
+when to use trig for recursion. Here is an example from WinnersKMO
+\cite{MATH01-5} that I enjoyed.
 
+\begin{problem}{WinnersKMO}{}
+Given $a_1 > 0$ and $a_n = \sqrt{2 + a_{n-1}}$, find $a_n$
+\cite{MATH01-5}.
+\end{problem}
+\begin{solution}
+One interesting thing that we can notice from this question unlike the
+other problems is that we don't have our initial value set.
+To be honest, I don't think there is a better way to understand the
+solution presented here than memorizing patterns, so here we go.
 
+First, recall that $\cos^2 \frac{\theta}{2} = \frac{1 + \cos\theta}{2}
+= \frac{2 + 2\cos\theta}{4}$. Rearranging, we can see that the given
+equation resembles with the rearrangement $2\cos\theta =
+\sqrt{2 + 2\cos2\theta}$. Following the pattern, let
+$a_n = 2\cos\theta_n$ where $\theta_n = \frac{1}{2} \theta_{n-1}$.
+Telescoping, we see that $\theta_n = \frac{1}{2^{n-1}} \theta_1$
+and $a_n = 2 \cos\frac{\theta_1}{2^{n-1}}$. Substituting $a_1 =
+2\cos\theta_1$, we obtain the following equation for $a_1 \leq 2$.
+\[
+a_n = 2\cos\left(
+    \frac{ \cos^{-1} \left( \frac{a_1}{2} \right) }{2^{n-1}}
+\right)
+\]
+Now that we have observed the case when $0 < a_1 \leq 2$, we now need
+to consider $a_1 > 2$.
+
+For $a_1 > 2$, let $a_1 = \frac{2}{\sin2\alpha}$. Recall that
+$\sin2\alpha = 2\sin\alpha\cos\alpha$. Substituting, we get the
+following equations.
+\begin{align*}
+    a_2
+    &= \sqrt{2 + \frac{2}{\sin2\alpha}}
+    = \sqrt{2 + \frac{1}{\sin\alpha\cos\alpha}}
+    = \frac{\sin\alpha + \cos\alpha}{\sqrt{\sin\alpha\cos\alpha}} \\
+    a_3
+    &= \sqrt{2 +
+        \frac{\sin\alpha + \cos\alpha}{\sqrt{\sin\alpha\cos\alpha}}
+    }
+    = \frac{
+        \sqrt{\sin\alpha} + \sqrt{\cos\alpha}
+    }{(\sin\alpha\cos\alpha)^\frac{1}{4}}
+\end{align*}
+Repeating, we can see that
+\begin{align*}
+    a_n
+    &= \frac{
+        (\sin\alpha)^\frac{1}{2^{n-2}} +
+        (\cos\alpha)^\frac{1}{2^{n-2}}
+    }{ (\sin\alpha\cos\alpha)^\frac{1}{2^{n-1}} }
+    = \frac{
+        (\sin\alpha)^p +
+        (\cos\alpha)^p
+    }{ (\sin\alpha\cos\alpha)^\frac{p}{2} } \\
+    &= (\tan\alpha)^\frac{p}{2} + (\cot\alpha)^\frac{p}{2}
+    = (\tan\alpha)^\frac{1}{2^{n-1}} + (\cot\alpha)^\frac{1}{2^{n-1}}
+\end{align*}
+where $p = \frac{1}{2^{n-2}}$. Moreover, because $\tan\alpha =
+\frac{\sin2\alpha}{1 + \cos2\alpha}$, the following equations hold.
+\begin{align*}
+    (\tan\alpha)^\frac{1}{2^{n-1}}
+    &= \left(
+        \frac{\sin2\alpha}{1 + \cos2\alpha}
+    \right)^\frac{1}{2^{n-1}}
+    = \left(
+        \frac{ \frac{2}{a_1} }{ 1 + \sqrt{1 - \frac{4}{a_1^2}} }
+    \right)^\frac{1}{2^{n-1}} \\
+    &= \left(
+        \frac{2}{a_1 + \sqrt{a_1^2 - 4}}
+    \right)^\frac{1}{2^{n-1}}
+    = \left(
+        \frac{a_1 - \sqrt{a_1^2 - 4}}{2}
+    \right)^\frac{1}{2^{n-1}} \\
+    (\cot\alpha)^\frac{1}{2^{n-1}}
+    &= \left(
+        \frac{1}{ \frac{2}{a_1 + \sqrt{a_1^2 - 4}} }
+    \right)^\frac{1}{2^{n-1}}
+    = \left(
+        \frac{a_1 + \sqrt{a_1^2 - 4}}{2}
+    \right)^\frac{1}{2^{n-1}}
+\end{align*}
+Therefore, $a_n = \left( \frac{a_1 - \sqrt{a_1^2 - 4}}{2}
+\right)^\frac{1}{2^{n-1}} + \left( \frac{a_1 + \sqrt{a_1^2 - 4}}{2}
+\right)^\frac{1}{2^{n-1}}$.
+\end{solution}
+
+This problem had lots of trigonometric properties! Although this
+section was quite long I think they all follow general pattern of
+telescoping, using characteristic equations, and using clever
+substitution to make the problems easier. This is it for this
+section, and we will discuss about symmetric and cyclic sums in
+the next section.
 
 \end{document}
 
