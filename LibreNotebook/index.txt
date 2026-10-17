@@ -160,6 +160,7 @@ Section III. Sections
 === | MATH0302.26092 | Parameterizations of Curves
 === | MATH0111.26093 | p-adic Valuation & LTE Lemma
 0.1 | MATH0111.26094 | Practice Problems
+0.1 | MATH0111.26095 | Proving and Problem Solving Tips
 ----------------------------------------------------------------------
 
 END OF INDEX

@@ -1,0 +1,86 @@
+\documentclass[../../../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Proving and Problem Solving Tips}
+
+Throughout studying and solving olympiad style problems, I noticed
+and came up with some patterns and tips that I think could be
+helpful. I am not a olympiad coach or anything, but maybe I could
+share some of my thoughts and topics that I heard that quite
+surprised me.
+
+\subsection{Proving Inequalities}
+
+Inequality is definitely one of my favorite section, and I think
+there are many components that makes a solution elegant. Particularly,
+I think solutions that makes inequality feel natural are very
+elegant. Here is what I mean. Instead of trying to ``solve the
+inequality'' by making the best out of the conditions, I think
+``proving the inequality'' in a natural way is more elegant.
+Say we have a constant on the right-hand side and we want to prove it.
+Some ``bad proof'' could include brute forcing and trying to figure
+out the meaning of the inequality just by looking at the constant.
+
+It is, however, very important to deduce hints from the constants
+because they could reveal something very important like 2025 KMO
+Problem 6, which is included in Section \ref{MATH0101.26005}.
+However that problem is also elegant in a way that it naturally uses
+the condition to prove the inequality without brute forcing.
+In short, I think solutions are elegant when we could deduce like
+this is true and that is true, then this gives the constant.
+Here is an example to manifest my point.
+
+\begin{problem}{1997 KMO Problem 4 \easy}{1997 KMO Problem 4}
+Given positive $a, b, c$ such that $a + b + c = abc$, show that
+$\sum_\text{cyc} \frac{1}{\sqrt{1 + a^2}} \leq \frac{3}{2}$.
+\end{problem}
+\begin{solution}
+I particularly like this problem because there are few ways of
+solving this, but the standard and famous solution deduces the
+constant from the left-hand side.
+
+Consider the following equation for $\triangle{ABC}$.
+\[
+\tan C
+= \tan{180^\circ - (A + B)}
+= -\tan(A + B)
+= - \frac{\tan A + \tan B}{1 - \tan A \tan B}
+\]
+In other words, $\tan A + \tan B + \tan C = \tan A \tan B \tan C$.
+Without loss of generality, let $0^\circ < A, B < 90^\circ$.
+Notice that because $c$ depends on $a$ and $b$ and $\tan A$ and
+$\tan B$ spans positive reals, we can let $a = \tan A$, $b = \tan B$,
+and $c = \tan C$. Moreover, we could notice that $C \in
+(0^\circ, 90^\circ)$ since $c > 0$.
+
+Continuing, consider the following inequality by Jensen.
+\[
+\sum_\text{cyc} \frac{1}{\sqrt{1 + \tan^2 A}}
+= 3 \sum_\text{cyc} \frac{\cos A}{3}
+\leq 3 \cos \left( \frac{A + B + C}{3} \right)
+= \frac{3}{2}
+\]
+Therefore, the inequality holds.
+\end{solution}
+
+I think what makes this problem particularly elegant is the fact
+that we could transform the given conditions to different forms
+and we could use that to find the constant. Meaning, we could have
+derived this problem from scratch without even looking at the
+right-hand side.
+
+\subsection{Solving FE and Geometry Problems}
+
+Guess, draw well, then prove
+
+
+\subsection{Proving Techniques}
+
+Induction
+    Base case, use base to go from a to a+1
+
+
+\end{document}
+
+

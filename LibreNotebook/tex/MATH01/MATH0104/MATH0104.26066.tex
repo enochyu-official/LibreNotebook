@@ -3,7 +3,75 @@
 \begin{document}
 
 \section{Additional Topics}
-Involution, monotonicity, bounding arguments
+Involution, monotonicity
+
+
+Some interesting problems gives bound for the function for us to
+use bounding argument.
+
+\begin{important}
+The key to these kind of problems is to perform certain operations on
+the function and show that it contradicts with the given criteria.
+\end{important}
+
+Here is an interesting problem from the document
+\textit{169 Functional Equations} by Moubinool the showcase the
+bounding through a specific criteria given by the problem.
+
+\begin{problem}
+Find all functions $f: \mathbb{R} \to \mathbb{R}$ such that
+$\{ \frac{f(x)}{x} \mid x \in \mathbb{R} \text{ and } x \neq 0 \}$
+is a finite set and $f(x - 1 - f(x)) = f(x) - x - 1$ for all real $x$.
+\end{problem}
+\begin{solution}
+For this problem, because the terms inside $f$ in the left-hand
+side and the terms in the right-hand side are similar, let's try
+and make them equal like the following.
+\[
+f(x - 1 - f(x)) = -(x - 1 - f(x)) - 2
+\]
+Let $\alpha = x - 1 - f(x)$ and we get $f(\alpha) = -\alpha - 2$.
+But there is a problem here. The number of terms for $\frac{f(x)}{x}$
+is bounded, but we have infinitely many $\frac{-\alpha - 2}{\alpha}$.
+This tells us that $\alpha$ is finite for the condition to be
+satisfied.
+
+Further observing the problem, let's substitute $\alpha$ for $x$.
+We obtain
+\begin{align*}
+    f(\alpha - 1 - f(\alpha))
+    &= -(\alpha - 1 - f(\alpha)) - 2 \\
+    f(\alpha - 1 + \alpha + 2) &= -\alpha - 1 - \alpha - 2
+\end{align*}
+and $f(2\alpha + 1) = -(2\alpha + 1) - 2$. This shows that
+$2\alpha + 1$ is also an element of a finite set, say $A$,
+that contains $\alpha$.
+
+Continuing, we can try and substitute $2\alpha + 1$ for $x$.
+We obtain $f(2\alpha + 1 - 1 + 2\alpha + 1 + 2) = -(2\alpha + 1) - 2
+- 2\alpha - 1 - 1$ and $f(4\alpha + 3) = -(4\alpha + 3) - 2$.
+This shows that $4\alpha + 3 \in A$. From the patterns, we could
+hypothesize that $2^n \alpha + 2^n - 1 \in A$. To show this,
+it suffices to show that if $2^{n-1} \alpha + 2^{n-1} - 1 \in A$,
+then $2^n \alpha + 2^n - 1 \in A$. Consider the following equations
+that we get for substituting $x = 2^{n-1} \alpha + 2^{n-1} - 1$.
+\begin{align*}
+    &\quad\ f \left(
+        2^{n-1} \alpha + 2^{n-1} - 1 - 1
+            + \left( 2^{n-1} \alpha + 2^{n-1} - 1) + 2 \right)
+    \right) \\
+    &= -\left( 2^{n-1} \alpha + 2^{n-1} - 1 \right) - 2
+        - \left( 2^{n-1} \alpha + 2^{n-1} - 1 \right) - 1 \\
+    &\qquad\quad
+    f \left( 2^n \alpha + 2^n - 1 \right)
+    = -\left( 2^n \alpha + 2^n - 1 \right) - 2
+\end{align*}
+Indeed by induction, $2^n \alpha + 2^n - 1 \in A$ for all positive
+integers $n$. In other words, $\alpha = -1$ is the only possible
+case and $\alpha = x - 1 - f(x) = -1$. Therefore, $f(x) = x$ is the
+only solution.
+\end{solution}
+
 
 \end{document}
 
