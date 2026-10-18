@@ -2,67 +2,6 @@
 
 \begin{document}
 
-\chapter{[G] Projective Geometry}
-
-Projective geometry, unlike euclidean geometry, relies on the
-relationship between objects and their projections. Many foundational
-concepts including parallelism and transformation significantly
-differs too. Before we get into some important theorems and topics,
-lets discuss some of its foundational properties to get the gut
-feeling for future topics.
-
-First, consider the two, not necessarily similar, triangles and
-a point $P$.
-
-\begin{figure}[H]
-\centering
-\begin{tikzpicture}[scale=0.12]
-    \coordinate (A) at (5, 15);
-    \coordinate (B) at (0, 10);
-    \coordinate (C) at (15, 15);
-    \coordinate (A') at (8.81, 6.384);
-    \coordinate (B') at (0, 0);
-    \coordinate (C') at (21.585, 10.024);
-    \coordinate (P) at (-0.018, 26.349);
-    \coordinate (G) at (-36.326, -26.326);
-    \coordinate (I) at (39.052, 15);
-    \coordinate (H) at (76.3, 35.433);
-
-    \draw[thick] (A) -- (B) -- (C) -- (A);
-    \draw[thick] (A') -- (B') -- (C') -- (A');
-
-    \draw[thick, dotted] (P) -- (A');
-    \draw[thick, dotted] (P) -- (B');
-    \draw[thick, dotted] (P) -- (C');
-
-    \fill[black] (A) -- (B) -- (C);
-    \fill[yellow, opacity=0.3] (P) -- (B) -- (C);
-    \fill[gray, opacity=0.3] (A') -- (B') -- (C');
-
-    \foreach \n in {A, B, C, A', B', C', P}
-    \node at (\n)[circle,fill,inner sep=1pt]{};
-
-    \node[above] at (A) {\footnotesize $A$};
-    \node[above left] at (B) {\footnotesize $B$};
-    \node[above right] at (C) {\footnotesize $C$};
-    \node[above] at (A') {\footnotesize $A'$};
-    \node[below left] at (B') {\footnotesize $B'$};
-    \node[right] at (C') {\footnotesize $C'$};
-    \node[above right] at (P) {\footnotesize $P$};
-\end{tikzpicture}
-\caption{}
-\label{fig:Desargues Theorem Figure 1}
-\end{figure}
-
-From the diagram above, we can think of it as having a light source
-$P$ that shines $\triangle{ABC}$. There, we get our outcome
-$\triangle{A'B'C'}$, and we say that $A', B', C'$ are corresponding
-points of $A, B, C$ respectively. Similarly, we could state that
-$\overline{A'B'}, \overline{B'C'}, \overline{C'A'}$ are corresponding
-sides of $\overline{AB}, \overline{BC}, \overline{CA}$ respectively.
-With this projection in mind, let's discuss some fundamental theorems
-in projective geometry.
-
 \section{Fundamental Theorems}
 
 There are many foundational topics and theorems to discuss.
@@ -471,4 +410,5 @@ $\overline{I_3 I_4}$, and $\overline{BC}$ concurs.
 
 
 \end{document}
+
 

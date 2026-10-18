@@ -161,6 +161,7 @@ Section III. Sections
 === | MATH0111.26093 | p-adic Valuation & LTE Lemma
 0.1 | MATH0111.26094 | Practice Problems
 0.1 | MATH0111.26095 | Proving and Problem Solving Tips
+0.1 | MATH0102.26096 | Foundations
 ----------------------------------------------------------------------
 
 END OF INDEX

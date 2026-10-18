@@ -1,0 +1,329 @@
+\documentclass[../../../main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{[G] Projective Geometry}
+
+Projective geometry, unlike euclidean geometry, relies on the
+relationship between objects and their projections. One way I like to
+think about it is the study of shades. Many foundational concepts
+including parallelism and transformation significantly differs.
+Before we get into some important theorems and topics,
+lets discuss some of its foundational properties to get the gut
+feeling for future topics.
+
+First, consider the two, not necessarily similar, triangles and
+a point $P$.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=0.12]
+    \coordinate (A) at (5, 15);
+    \coordinate (B) at (0, 10);
+    \coordinate (C) at (15, 15);
+    \coordinate (A') at (8.81, 6.384);
+    \coordinate (B') at (0, 0);
+    \coordinate (C') at (21.585, 10.024);
+    \coordinate (P) at (-0.018, 26.349);
+    \coordinate (G) at (-36.326, -26.326);
+    \coordinate (I) at (39.052, 15);
+    \coordinate (H) at (76.3, 35.433);
+
+    \draw[thick] (A) -- (B) -- (C) -- (A);
+    \draw[thick] (A') -- (B') -- (C') -- (A');
+
+    \draw[thick, dotted] (P) -- (A');
+    \draw[thick, dotted] (P) -- (B');
+    \draw[thick, dotted] (P) -- (C');
+
+    \fill[black] (A) -- (B) -- (C);
+    \fill[yellow, opacity=0.3] (P) -- (B) -- (C);
+    \fill[gray, opacity=0.3] (A') -- (B') -- (C');
+
+    \foreach \n in {A, B, C, A', B', C', P}
+    \node at (\n)[circle,fill,inner sep=1pt]{};
+
+    \node[above] at (A) {\footnotesize $A$};
+    \node[above left] at (B) {\footnotesize $B$};
+    \node[above right] at (C) {\footnotesize $C$};
+    \node[above] at (A') {\footnotesize $A'$};
+    \node[below left] at (B') {\footnotesize $B'$};
+    \node[right] at (C') {\footnotesize $C'$};
+    \node[above right] at (P) {\footnotesize $P$};
+\end{tikzpicture}
+\caption{}
+\label{fig:Desargues Theorem Figure 1}
+\end{figure}
+
+From the diagram above, we can think of it as having a light source
+$P$ that shines $\triangle{ABC}$. There, we get our outcome
+$\triangle{A'B'C'}$, and we say that $A', B', C'$ are corresponding
+points of $A, B, C$ respectively. Similarly, we could state that
+$\overline{A'B'}, \overline{B'C'}, \overline{C'A'}$ are corresponding
+sides of $\overline{AB}, \overline{BC}, \overline{CA}$ respectively.
+
+\subsection{Cross Ratio}
+
+Cross ratio is a very important topic that lays foundations to many
+contents that we are going to discuss from now so it is very important
+to fully understand them! First, consider the following diagram
+with four collinear points $A, B, C, D$.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=1.5]
+    \coordinate (A) at (0, 0);
+    \coordinate (B) at (1, 0);
+    \coordinate (C) at (2, 0);
+    \coordinate (D) at (3, 0);
+
+    \draw[thick] (A) -- (B);
+    \draw[thick] (B) -- (C);
+    \draw[thick] (C) -- (D);
+
+    \draw[fill=BrickRed] (A) circle (0.05);
+    \draw[fill=BrickRed] (B) circle (0.05);
+    \draw[fill=BrickRed] (C) circle (0.05);
+    \draw[fill=BrickRed] (D) circle (0.05);
+
+    \node[below] at (A) {\footnotesize $A$};
+    \node[below] at (B) {\footnotesize $B$};
+    \node[below] at (C) {\footnotesize $C$};
+    \node[below] at (D) {\footnotesize $D$};
+
+    \node[below] at ($(A)!0.5!(B)$) {\footnotesize $x$};
+    \node[below] at ($(B)!0.5!(C)$) {\footnotesize $y$};
+    \node[below] at ($(C)!0.5!(D)$) {\footnotesize $z$};
+\end{tikzpicture}
+\end{figure}
+
+From the diagram above, we could define a new term.
+
+\begin{important}
+The \textbf{cross- ratio} of $A, B, C, D$ is defined as the following.
+\[
+(A, B; C, D) = \frac{(x + y) (y + z)}{y (x + y + z)}
+\]
+\end{important}
+
+This is very important because if we project these points with
+respect to another line by a point say $P$, then the cross ratio
+of the resulting points is the same as the original value.
+Consider the following diagram for an illustration.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=0.8]
+    \coordinate (P) at (4.5, 6);
+    \coordinate (A) at (3, 4);
+    \coordinate (B) at (4,4);
+    \coordinate (C) at (5.5,4);
+    \coordinate (D) at (6.75,4);
+    \coordinate (A') at (0, 0);
+    \coordinate (B') at (3.176470588235294,0.7058823529411765);
+    \coordinate (C') at (6.75,1.5);
+    \coordinate (D') at (9, 2);
+    \coordinate (A'') at (2.051470588235294,8.176470588235293);
+    \coordinate (B'') at (3.659090909090909,7.681818181818182);
+    \coordinate (C'') at (4.830357142857143,7.321428571428571);
+    \coordinate (D'') at (5.3671875,7.15625);
+
+    \draw[thick] (A) -- (D);
+    \draw[thick] (A') -- (D');
+    \draw[thick] (A'') -- (D'');
+    
+    \draw[thick, dotted] (P) -- (A');
+    \draw[thick, dotted] (P) -- (A'');
+    \draw[thick, dotted] (P) -- (B');
+    \draw[thick, dotted] (P) -- (B'');
+    \draw[thick, dotted] (P) -- (C');
+    \draw[thick, dotted] (P) -- (C'');
+    \draw[thick, dotted] (P) -- (D');
+    \draw[thick, dotted] (P) -- (D'');
+
+    \draw[fill=black] (A) circle (0.05);
+    \draw[fill=black] (B) circle (0.05);
+    \draw[fill=black] (C) circle (0.05);
+    \draw[fill=black] (D) circle (0.05);
+    \draw[fill=BrickRed] (A') circle (0.05);
+    \draw[fill=BrickRed] (B') circle (0.05);
+    \draw[fill=BrickRed] (C') circle (0.05);
+    \draw[fill=BrickRed] (D') circle (0.05);
+    \draw[fill=RoyalPurple] (A'') circle (0.05);
+    \draw[fill=RoyalPurple] (B'') circle (0.05);
+    \draw[fill=RoyalPurple] (C'') circle (0.05);
+    \draw[fill=RoyalPurple] (D'') circle (0.05);
+
+    \node[left] at (A) {\footnotesize $A$};
+    \node[below] at (B) {\footnotesize $B$};
+    \node[below] at (C) {\footnotesize $C$};
+    \node[right] at (D) {\footnotesize $D$};
+    \node[below] at (A') {\footnotesize $A'$};
+    \node[below] at (B') {\footnotesize $B'$};
+    \node[below] at (C') {\footnotesize $C'$};
+    \node[below] at (D') {\footnotesize $D'$};
+    \node[left] at (A'') {\footnotesize $A''$};
+    \node[above] at (B'') {\footnotesize $B''$};
+    \node[above] at (C'') {\footnotesize $C''$};
+    \node[right] at (D'') {\footnotesize $D''$};
+
+    \node[below] at ($(A)!0.5!(B)$) {\footnotesize $x$};
+    \node[below] at ($(B)!0.5!(C)$) {\footnotesize $y$};
+    \node[below] at ($(C)!0.5!(D)$) {\footnotesize $z$};
+    \node[below] at ($(A')!0.5!(B')$) {\footnotesize $x'$};
+    \node[below] at ($(B')!0.5!(C')$) {\footnotesize $y'$};
+    \node[below] at ($(C')!0.5!(D')$) {\footnotesize $z'$};
+    \node[above] at ($(A'')!0.5!(B'')$) {\footnotesize $x''$};
+    \node[above] at ($(B'')!0.5!(C'')$) {\footnotesize $y''$};
+    \node[above] at ($(C'')!0.35!(D'')$) {\footnotesize $z''$};
+
+    \pic[draw,"$\alpha$",angle radius=3mm,angle eccentricity=1.6]
+        {angle=A--P--B};
+    \pic[draw,"$\beta$",angle radius=4mm,angle eccentricity=1.6]
+        {angle=B--P--C};
+    \pic[draw,"$\gamma$",angle radius=5mm,angle eccentricity=1.6]
+        {angle=C--P--D};
+\end{tikzpicture}
+\end{figure}
+
+In this diagram, we can see that the following equation holds.
+\[
+(A, B; C, D) = (A', B'; C', D') = (A'', B''; C'', D'')
+\]
+To prove this, let's use length area ratio. Consider the following
+equations.
+\begin{align*}
+    (A, B; C, D)
+    &= \frac{(x + y)(y + z)}{y (x + y + z)}
+    = \frac{ [\triangle{PAC}] \cdot [\triangle{PBD}] }
+        { [\triangle{PBC}] \cdot [\triangle{PAD}] } \\
+    &= \frac{
+        PA \cdot PC \cdot \sin(\alpha + \beta) \cdot
+        PB \cdot PD \cdot \sin(\beta + \gamma)
+    }{
+        PB \cdot PC \cdot \sin\beta \cdot
+        PA \cdot PD \cdot \sin(\alpha + \beta + \gamma)
+    } \\
+    &= \frac{ \sin(\alpha + \beta) \cdot \sin(\beta + \gamma) }
+        { \sin\beta \cdot \sin(\alpha + \beta + \gamma) } \\
+    &= \frac{ [\triangle{PA'C'}] \cdot [\triangle{PB'D'}] }
+        { [\triangle{PB'C'}] \cdot [\triangle{PA'D'}] }
+    = (A', B'; C', D')
+\end{align*}
+The same argument applies for the top one, or you could just think
+of it as the rotated version.
+
+Continuing with this, we can implement this idea to four points
+on a circle. I think this is one of the foundational topic that
+could act as the breakthrough.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=0.8]
+    \coordinate (P) at (0,3);
+    \coordinate (A) at (-2.4484583429038547,-1.7335085067759288);
+    \coordinate (B) at (-0.7901879601928523,-2.8940634042063174);
+    \coordinate (C) at (1.3678086197709374,-2.6700373742103913);
+    \coordinate (D) at (2.3685924325386085,-1.841132773191776);
+    \coordinate (A') at (-3.620825519969496,-4);
+    \coordinate (B') at (-0.9384554155631452,-4);
+    \coordinate (C') at (1.6886414862000672,-4);
+    \coordinate (D') at (3.4248486469085027,-4);
+
+    \draw (0, 0) circle (3);
+    \draw[thick] (A) -- (B) -- (C) -- (D) -- cycle;
+    \draw[thick] (A') -- (D');
+    
+    \draw[thick, dotted] (P) -- (A');
+    \draw[thick, dotted] (P) -- (B');
+    \draw[thick, dotted] (P) -- (C');
+    \draw[thick, dotted] (P) -- (D');
+
+    \draw[fill=black] (A) circle (0.05);
+    \draw[fill=black] (B) circle (0.05);
+    \draw[fill=black] (C) circle (0.05);
+    \draw[fill=black] (D) circle (0.05);
+    \draw[fill=BrickRed] (A') circle (0.05);
+    \draw[fill=BrickRed] (B') circle (0.05);
+    \draw[fill=BrickRed] (C') circle (0.05);
+    \draw[fill=BrickRed] (D') circle (0.05);
+
+    \node[above] at (P) {\footnotesize $P$};
+    \node[left] at (A) {\footnotesize $A$};
+    \node[below] at (B) {\footnotesize $B$};
+    \node[below] at (C) {\footnotesize $C$};
+    \node[right] at (D) {\footnotesize $D$};
+    \node[below] at (A') {\footnotesize $A'$};
+    \node[below] at (B') {\footnotesize $B'$};
+    \node[below] at (C') {\footnotesize $C'$};
+    \node[below] at (D') {\footnotesize $D'$};
+
+    \node[below] at ($(A)!0.5!(B)$) {\footnotesize $x$};
+    \node[below] at ($(B)!0.5!(C)$) {\footnotesize $y$};
+    \node[below] at ($(C)!0.5!(D)$) {\footnotesize $z$};
+    \node[below] at ($(A')!0.5!(B')$) {\footnotesize $x'$};
+    \node[below] at ($(B')!0.5!(C')$) {\footnotesize $y'$};
+    \node[below] at ($(C')!0.5!(D')$) {\footnotesize $z'$};
+
+    \pic[draw,"$\alpha$",angle radius=6mm,angle eccentricity=1.6]
+        {angle=A--P--B};
+    \pic[draw,"$\beta$",angle radius=7mm,angle eccentricity=1.6]
+        {angle=B--P--C};
+    \pic[draw,"$\gamma$",angle radius=8mm,angle eccentricity=1.6]
+        {angle=C--P--D};
+\end{tikzpicture}
+\end{figure}
+
+From this diagram, we will use the Law of Sines to show that
+$(A, B; C, D) \linebreak = (A', B'; C', D')$. First, notice that
+$(A', B'; C', D') = \frac{
+    \sin(\alpha + \beta) \cdot \sin(\beta + \gamma)
+}{ \sin\beta \cdot \sin(\alpha + \beta + \gamma) }$ from our previous
+observation. Moreover, the following equations hold.
+\begin{align*}
+    \frac{
+        \sin(\alpha + \beta) \cdot \sin(\beta + \gamma)
+    }{ \sin\beta \cdot \sin(\alpha + \beta + \gamma) }
+    &= 
+    \frac{
+        \frac{\sin(\alpha + \beta)}{AC} \cdot
+        \frac{\sin(\beta + \gamma)}{BD}
+    }{
+        \frac{\sin\beta}{BC} \cdot
+        \frac{\sin(\alpha + \beta + \gamma)}{AD}
+    }
+    \cdot \frac{AC \cdot BD}{BC \cdot AD} \\
+    &= \frac{
+        \frac{\sin\angle{PDA}}{PA} \cdot
+        \frac{\sin\angle{PAD}}{PD}
+    }{
+        \frac{\sin\alpha}{AB} \cdot
+        \frac{\sin\angle{PAD}}{PD}
+    }
+    \cdot \frac{AC \cdot BD}{BC \cdot AD} \\
+    &= \frac{ \frac{\sin\angle{PDA}}{PA} }{ \frac{\sin\alpha}{AB} }
+        \cdot \frac{AC \cdot BD}{BC \cdot AD} \\
+    &= \frac{AC \cdot BD}{BC \cdot AD} = (A, B; C, D)
+\end{align*}
+Therefore, the cross ratio is consistent if $A, B, C, D$ lies on a
+circle any they are projected to a line from another point on the
+circle. Continuing, we can define a new term.
+
+\begin{definition}
+A \textbf{harmonic quadrilateral} $ABCD$ is a cyclic quadrilateral
+such that $(A, B; C, D) = -1$.
+\end{definition}
+
+Another way of understanding harmonic quadrilateral is a cyclic
+quadrilateral with same product of the lengths of opposite edges
+are equal. It is pretty obvious using Ptolemy and the definition
+of cross ratio.
+
+
+
+With this projection in mind, let's discuss some fundamental theorems
+in projective geometry.
+
+\end{document}
+
+
