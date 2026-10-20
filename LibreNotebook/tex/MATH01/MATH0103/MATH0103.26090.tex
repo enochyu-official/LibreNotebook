@@ -222,6 +222,126 @@ applies to the other angles.
 Points $H$ and $O$ are isogonal conjugates.
 \end{important}
 
+Before we wrap up this section, let's discuss about a special case
+called symmedian.
+
+\begin{definition}{}{}
+The \textbf{symmedian} from a vertex of a triangle is the
+isogonal line of the line that passes through the vertex and
+the midpoint of its opposite side.
+\end{definition}
+
+Consider the following the digram.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=0.8]
+    \coordinate (A) at (6,5);
+    \coordinate (B) at (0,0);
+    \coordinate (C) at (8,0);
+    \coordinate (D) at (2.360655737704918,1.9672131147540983);
+    \coordinate (E) at (3.201820175399282,2.6681834794994015);
+    \coordinate (F) at (7.448275862068965,1.3793103448275863);
+    \coordinate (G) at (7.644869849422821,0.8878253764429483);
+    \coordinate (K) at (5.42530640831545,0);
+    \coordinate (M) at (4,0);
+
+    \draw[thick] (A) -- (B) -- (C) -- cycle;
+    \draw[thick] (A) -- (K);
+    \draw[thick] (A) -- (M);
+
+    \node[above right] at (A) {\footnotesize $A$};
+    \node[left] at (B) {\footnotesize $B$};
+    \node[right] at (C) {\footnotesize $C$};
+    \draw[fill=black] (K) circle (0.05)
+        node[below] {\footnotesize $K$};
+    \draw[fill=black] (M) circle (0.05)
+        node[below] {\footnotesize $M$};
+
+    \pic[draw, angle radius=8mm, angle eccentricity=1.4]
+        {angle=B--A--M};
+    \pic[draw, angle radius=8mm, angle eccentricity=1.4]
+        {angle=K--A--C};
+\end{tikzpicture}
+\end{figure}
+
+Here, $M$ is the midpoint of side $BC$ and $AK$ is the symmedian
+from $A$. With this definition, we can construct the following
+theorem.
+
+\begin{theorem}{}{Symmedian and Lengths}
+Given a triangle $ABC$ with midpoint $M$ of side $BC$, $AK$ is the
+symmedian if and only if $\frac{CK}{BK} = \frac{AC^2}{AB^2}$.
+\end{theorem}
+\begin{proof}
+First, consider the following diagram where $D, E$ are points on $AB$
+drawn perpendicularly from $M$ and $K$ and $F, G$ are point on $AC$
+drawn perpendicularly from $M$ and $K$.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=0.8]
+    \coordinate (A) at (6,5);
+    \coordinate (B) at (0,0);
+    \coordinate (C) at (8,0);
+    \coordinate (D) at (2.360655737704918,1.9672131147540983);
+    \coordinate (E) at (3.201820175399282,2.6681834794994015);
+    \coordinate (F) at (7.448275862068965,1.3793103448275863);
+    \coordinate (G) at (7.644869849422821,0.8878253764429483);
+    \coordinate (K) at (5.42530640831545,0);
+    \coordinate (M) at (4,0);
+
+    \draw[thick] (A) -- (B) -- (C) -- cycle;
+    \draw[thick] (A) -- (K);
+    \draw[thick] (A) -- (M);
+    \draw[thick, BrickRed, dotted] (M) -- (D);
+    \draw[thick, BrickRed, dotted] (D) -- (F);
+    \draw[thick, BrickRed, dotted] (F) -- (M);
+    \draw[thick, RoyalPurple, dotted] (K) -- (E);
+    \draw[thick, RoyalPurple, dotted] (E) -- (G);
+    \draw[thick, RoyalPurple, dotted] (G) -- (K);
+
+    \node[above right] at (A) {\footnotesize $A$};
+    \node[left] at (B) {\footnotesize $B$};
+    \node[right] at (C) {\footnotesize $C$};
+    \draw[fill=BrickRed] (D) circle (0.05)
+        node[above left] {\footnotesize $D$};
+    \draw[fill=BrickRed] (E) circle (0.05)
+        node[above left] {\footnotesize $E$};
+    \draw[fill=RoyalPurple] (F) circle (0.05)
+        node[above right] {\footnotesize $F$};
+    \draw[fill=RoyalPurple] (G) circle (0.05)
+        node[right] {\footnotesize $G$};
+    \draw[fill=black] (K) circle (0.05)
+        node[below] {\footnotesize $K$};
+    \draw[fill=black] (M) circle (0.05)
+        node[below] {\footnotesize $M$};
+
+    \pic[draw, angle radius=8mm, angle eccentricity=1.4]
+        {angle=B--A--M};
+    \pic[draw, angle radius=8mm, angle eccentricity=1.4]
+        {angle=K--A--C};
+
+    \pic[draw, angle radius=1.5mm] {right angle=K--E--B};
+    \pic[draw, angle radius=1.5mm] {right angle=M--D--B};
+    \pic[draw, angle radius=1.5mm] {right angle=M--F--C};
+    \pic[draw, angle radius=1.5mm] {right angle=K--G--C};
+\end{tikzpicture}
+\end{figure}
+
+Notice that because $\square{ADMF}$ and $\square{AEKG}$ are cyclic,
+$\angle{DMF} = \angle{EKG}$. Moreover by construction, because
+$AK$ is the symmedian from $A$, $\angle{DFM} = \angle{KEG}$.
+Therefore, $\triangle{DMF} \sim \triangle{GKE}$ and $\frac{GK}{KE}
+= \frac{DM}{MF}$.
+
+Continuing, notice that because $\frac{1}{2} MD \cdot AB =
+\frac{1}{2} MF \cdot AC$, $\frac{MD}{MG} = \frac{AC}{AB}$. In other
+words, $\frac{GK}{KE} = \frac{AC}{AB}$ and $\frac{[\triangle{AKC}]}
+{[\triangle{ABK}]} = \frac{AC^2}{AB^2}$. Moreover, because the
+entire process is reversible, the theorem holds.
+\end{proof}
+
 The concept of isogonal conjugate appears surprisingly a lot when
 we discuss more advanced topics like harmonic range and spiral
 similarity. This is it for this section! Let's discuss homothety
