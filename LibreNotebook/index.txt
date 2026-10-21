@@ -140,7 +140,7 @@ Section III. Sections
 0.1 | MATH0106.26074 | Practice Problems
 0.0 | MATH0107.26075 | Foundations
 === | MATH0108.26076 | Primitive Pythagorean Triples
-0.8 | MATH0108.26077 | Infinite Descent
+=== | MATH0108.26077 | Infinite Descent
 0.0 | MATH0108.26078 | Pell's Equations
 0.0 | MATH0108.26079 | Practice Problems
 === | MATH0301.26080 | Geometry in 3-Space
