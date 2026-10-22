@@ -1,0 +1,249 @@
+<!-- l. 5 -->
+
+<p class='noindent'></p><!-- l. 5 -->
+
+<p class='noindent'>rojective Geometry]</p>
+
+<h2 class='chapterHead' id='g-projective-geometry'><span class=
+'titlemark'>Note&nbsp;1</span><br />
+<a id='x1-10001'></a>[G] Projective Geometry</h2><!-- l. 7 -->
+
+<p class='noindent'>Projective geometry, unlike euclidean geometry,
+relies on the relationship between objects and their projections. One
+way I like to think about it is the study of shades. There are
+important topics that cannot be solved without prior knowledge, so
+let’s dive into it!</p>
+
+<h3 class='sectionHead' id='foundations'><span class=
+'titlemark'>1.1</span> <a id='x1-20001.1'></a>Foundations</h3>
+<!-- l. 14 -->
+
+<p class='noindent'>Before we get into some important theorems and
+topics, lets discuss some of its foundational properties to get the
+gut feeling for future topics.</p>
+
+<div class='minipage'>
+  <!-- l. 21 -->
+
+  <p class='noindent' id='_'><img alt='[Picture]' src=
+  '/svg/MATH0102.260960x.svg' /> <a id=
+  'x1-2001r1'></a></p><span class='id'><span class=
+  'pplb8t-'>Figure&nbsp;1.1:</span></span> 
+  <!-- tex4ht:label?: x122001r1  -->
+</div>
+
+<div class='minipage'>
+  First, consider the two, not necessarily similar, triangles and a
+  point <span class='mathjax-inline'>\(P\)</span>. From the diagram
+  on the left, we can think of it as having a light source
+  <span class='mathjax-inline'>\(P\)</span> that shines <span class=
+  'mathjax-inline'>\(\triangle {ABC}\)</span>. There, we get our
+  outcome <span class='mathjax-inline'>\(\triangle {A'B'C'}\)</span>,
+  and we say that <span class='mathjax-inline'>\(A', B', C'\)</span>
+  are corresponding points of <span class='mathjax-inline'>\(A, B,
+  C\)</span> respectively. Similarly, we could state that
+  <span class='mathjax-inline'>\(\overline {A'B'}, \overline {B'C'},
+  \overline {C'A'}\)</span> are
+</div><!-- l. 70 -->
+
+<p class='noindent'>corresponding sides of <span class=
+'mathjax-inline'>\(\overline {AB}, \overline {BC}, \overline
+{CA}\)</span> respectively.</p>
+
+<h4 class='subsectionHead' id='cross-ratio'><span class=
+'titlemark'>1.1.1</span> <a id='x1-30001.1.1'></a>Cross Ratio</h4>
+<!-- l. 75 -->
+
+<p class='noindent'>Cross ratio is a very important topic that lays
+foundations to many contents that we are going to discuss from now so
+it is very important to fully understand them! First, consider the
+following diagram with four collinear points <span class=
+'mathjax-inline'>\(A, B, C, D\)</span>.</p><!-- l. 82 -->
+
+<p class='noindent'><img alt='[Picture]' src=
+'/svg/MATH0102.260961x.svg' /></p><!-- l. 108 -->
+
+<p class='noindent'>From the diagram above, we could define a new
+term.</p>
+
+<div class='mdframed' id='mdframed-1'>
+  <!-- l. 111 -->
+
+  <p class='noindent'>The <span class=
+  'pplb8t-x-x-109'>cross-ratio</span> of <span class=
+  'mathjax-inline'>\(A, B, C, D\)</span> is defined as the following.
+  <span class='mathjax-block'>\[ (A, B; C, D) = \frac {(x + y) (y +
+  z)}{y (x + y + z)} \]</span></p>
+</div><!-- l. 117 -->
+
+<p class='noindent'>This is very important because if we project
+these points with respect to another line by a point say <span class=
+'mathjax-inline'>\(P\)</span>, then the cross ratio of the resulting
+points is the same as the original value. Consider the following
+diagram for an illustration.</p><!-- l. 124 -->
+
+<p class='noindent'><img alt='[Picture]' src=
+'/svg/MATH0102.260962x.svg' /></p><!-- l. 197 -->
+
+<p class='noindent'>In this diagram, we can see that the following
+equation holds. <span class='mathjax-block'>\[ (A, B; C, D) = (A',
+B'; C', D') = (A'', B''; C'', D'') \]</span> To prove this, let’s use
+length area ratio. Consider the following equations. <span class=
+'mathjax-env mathjax-align*'>\begin{align*} (A, B; C, D) &amp;= \frac
+{(x + y)(y + z)}{y (x + y + z)} = \frac { [\triangle {PAC}] \cdot
+[\triangle {PBD}] } { [\triangle {PBC}] \cdot [\triangle {PAD}] } \\
+&amp;= \frac { PA \cdot PC \cdot \sin (\alpha + \beta ) \cdot PB
+\cdot PD \cdot \sin (\beta + \gamma ) }{ PB \cdot PC \cdot \sin \beta
+\cdot PA \cdot PD \cdot \sin (\alpha + \beta + \gamma ) } \\ &amp;=
+\frac { \sin (\alpha + \beta ) \cdot \sin (\beta + \gamma ) } { \sin
+\beta \cdot \sin (\alpha + \beta + \gamma ) } \\ &amp;= \frac {
+[\triangle {PA'C'}] \cdot [\triangle {PB'D'}] } { [\triangle {PB'C'}]
+\cdot [\triangle {PA'D'}] } = (A', B'; C', D')
+\end{align*}</span></p><!-- l. 221 -->
+
+<p class='noindent'>The same argument applies for the top one, or you
+could just think of it as the rotated version.</p><!-- l. 224 -->
+
+<p class='noindent'>Continuing with this, we can implement this idea
+to four points on a circle. I think this is one of the foundational
+topic that could act as the breakthrough.</p><!-- l. 230 -->
+
+<p class='noindent'><img alt='[Picture]' src=
+'/svg/MATH0102.260963x.svg' /></p><!-- l. 285 -->
+
+<p class='noindent'>From this diagram, we will use the Law of Sines
+to show that <span class='mathjax-inline'>\((A, B; C, D) = (A', B';
+C', D')\)</span>. First, notice that <span class=
+'mathjax-inline'>\((A', B'; C', D') = \frac { \sin (\alpha + \beta )
+\cdot \sin (\beta + \gamma ) }{ \sin \beta \cdot \sin (\alpha + \beta
++ \gamma ) }\)</span> from our previous observation. Moreover, the
+following equations hold. <span class=
+'mathjax-env mathjax-align*'>\begin{align*} \frac { \sin (\alpha +
+\beta ) \cdot \sin (\beta + \gamma ) }{ \sin \beta \cdot \sin (\alpha
++ \beta + \gamma ) } &amp;= \frac { \frac {\sin (\alpha + \beta
+)}{AC} \cdot \frac {\sin (\beta + \gamma )}{BD} }{ \frac {\sin \beta
+}{BC} \cdot \frac {\sin (\alpha + \beta + \gamma )}{AD} } \cdot \frac
+{AC \cdot BD}{BC \cdot AD} \\ &amp;= \frac { \frac {\sin \angle
+{PDA}}{PA} \cdot \frac {\sin \angle {PAD}}{PD} }{ \frac {\sin \alpha
+}{AB} \cdot \frac {\sin \angle {PAD}}{PD} } \cdot \frac {AC \cdot
+BD}{BC \cdot AD} \\ &amp;= \frac { \frac {\sin \angle {PDA}}{PA} }{
+\frac {\sin \alpha }{AB} } \cdot \frac {AC \cdot BD}{BC \cdot AD} \\
+&amp;= \frac {AC \cdot BD}{BC \cdot AD} = (A, B; C, D)
+\end{align*}</span></p><!-- l. 316 -->
+
+<p class='noindent'>Therefore, the cross ratio is consistent if
+<span class='mathjax-inline'>\(A, B, C, D\)</span> lies on a circle
+any they are projected to a line from another point on the circle.
+Continuing, we can define a new term.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-1'>
+  <div class='tcolorbox-title'>
+    <!-- l. 323 -->
+
+    <p class='noindent'>Definition&nbsp;1.1.1</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 321 -->
+
+    <p class='noindent'>A <span class='pplb8t-x-x-109'>harmonic
+    quadrilateral</span> <span class='mathjax-inline'>\(ABCD\)</span>
+    is a cyclic quadrilateral such that <span class=
+    'mathjax-inline'>\((A, B; C, D) = -1\)</span>.</p>
+  </div>
+</div><!-- l. 325 -->
+
+<p class='noindent'>Another way of understanding harmonic
+quadrilateral is a cyclic quadrilateral with same product of the
+lengths of opposite edges are equal. It is pretty obvious using
+Ptolemy and the definition of cross ratio.</p><!-- l. 330 -->
+
+<p class='noindent'>Next one is even more interesting. It is about
+projection of of a cyclic quadrilateral on to the inscribing
+circle.</p>
+
+<div class='mdframed' id='mdframed-2'>
+  <!-- l. 334 -->
+
+  <p class='noindent'>In the diagram below, <span class=
+  'mathjax-inline'>\((A, B; C, D) = (A', B'; C', D')\)</span>.</p>
+</div><!-- l. 339 -->
+
+<p class='noindent'><img alt='[Picture]' src=
+'/svg/MATH0102.260964x.svg' /></p><!-- l. 385 -->
+
+<p class='noindent'>To prove this, we can use similar triangles.
+First, through simple angle chasing, it is evident that the following
+triangles are similar through AA similarity. <span class=
+'mathjax-env mathjax-align*'>\begin{align*} \triangle {PAC} &amp;\sim
+\triangle {PC'A'} \\ \triangle {PDB} &amp;\sim \triangle {PB'D'} \\
+\triangle {PAD} &amp;\sim \triangle {PD'A'} \\ \triangle {PB'C'}
+&amp;\sim \triangle {PCB} \end{align*}</span></p><!-- l. 394 -->
+
+<p class='noindent'>Using the length ratio of the similar triangles,
+we obtain following equations. <span class=
+'mathjax-env mathjax-align*'>\begin{align*} \frac {AC}{A'C'} &amp;=
+\frac {PA}{PC'} = \frac {PC}{PA'} \\ \frac {BD}{B'D'} &amp;= \frac
+{PD}{PB'} = \frac {PB}{PD'} \\ \frac {A'D'}{AD} &amp;= \frac
+{PD'}{PA} = \frac {PA'}{PD} \\ \frac {B'C'}{BC} &amp;= \frac
+{PB'}{PC} = \frac {PC'}{PB} \end{align*}</span></p><!-- l. 402 -->
+
+<p class='noindent'>Multiplying the equations, <span class=
+'mathjax-env mathjax-align*'>\begin{align*} &amp;\quad \ \frac
+{AC}{A'C'} \cdot \frac {BD}{B'D'} \cdot \frac {A'D'}{AD} \cdot \frac
+{B'C'}{BC} \\ &amp;= \sqrt { \frac {PA}{PC'} \cdot \frac {PC}{PA'}
+\cdot \frac {PD}{PB'} \cdot \frac {PB}{PD'} \cdot \frac {PD'}{PA}
+\cdot \frac {PA'}{PD} \cdot \frac {PB'}{PC} \cdot \frac {PC'}{PB} } =
+1 \end{align*}</span></p><!-- l. 414 -->
+
+<p class='noindent'>is obtained with <span class=
+'mathjax-inline'>\(\frac {AC \cdot BD}{AD \cdot BC} = \frac {A'C'
+\cdot B'D'}{A'D' \cdot B'C'}\)</span>, and <span class=
+'mathjax-inline'>\((A, B; C, D) = (A', B'; C', D')\)</span>.</p>
+<!-- l. 418 -->
+
+<p class='noindent'>Before we wrap-up this section, consider the
+following theorem. This theorem comes especially handy when you have
+to draw a symmedian because many olympiads don’t allow
+protractor.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-2'>
+  <div class='tcolorbox-title'>
+    <!-- l. 425 -->
+
+    <p class='noindent'>Theorem&nbsp;1.1.2</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 423 -->
+
+    <p class='noindent'>Given a harmonic quadrilateral <span class=
+    'mathjax-inline'>\(ABCD\)</span>, <span class=
+    'mathjax-inline'>\(BD\)</span> is the symmedian from <span class=
+    'mathjax-inline'>\(B\)</span> of <span class=
+    'mathjax-inline'>\(\triangle {ABC}\)</span>.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-3'>
+  <!-- l. 427 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 427 -->
+
+  <p class='noindent'>First, notice that by Theorem <span class=
+  'pplb8t-x-x-109'>??</span>, it suffices to show that <span class=
+  'mathjax-inline'>\(\frac {AK}{CK} = \frac {BA^2}{BC^2}\)</span>.
+  Consider the following equations. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} \frac {AK}{CK} &amp;=
+  \frac {[\triangle {ABD}}{[\triangle {BCD}]} = \frac { \frac {1}{2}
+  AB \cdot AD \cdot \sin \angle {BAD} }{ \frac {1}{2} BC \cdot CD
+  \cdot \sin \angle {BCD} } \\ &amp;= \frac {AB \cdot AD}{BC \cdot
+  CD} = \frac {AB}{BC} \cdot \frac {AB}{BC} = \frac {BA^2}{BC^2}
+  \end{align*}</span></p><!-- l. 442 -->
+
+  <p class='noindent'>Therefore, the theorem holds.</p>
+</div><!-- l. 445 -->
+
+<p class='noindent'>With these concepts in mind, let’s discuss some
+fundamental theorems in projective geometry.</p>

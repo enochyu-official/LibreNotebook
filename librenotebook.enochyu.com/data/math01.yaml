@@ -66,6 +66,8 @@
 
 - title: '[G] Projective Geometry'
   items:
+    - title: Foundations
+      url: /math01/math0102/math0102.26096/
     - title: Fundamental Theorems
       url: /math01/math0102/math0102.26023/
 

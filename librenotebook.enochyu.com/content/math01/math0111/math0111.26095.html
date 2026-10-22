@@ -1,0 +1,111 @@
+<h3 class='sectionHead' id='proving-and-problem-solving-tips'>
+<span class='titlemark'>0.1</span> <a id='x1-10000.1'></a>Proving and
+Problem Solving Tips</h3><!-- l. 7 -->
+
+<p class='noindent'>Throughout studying and solving olympiad style
+problems, I noticed and came up with some patterns and tips that I
+think could be helpful. I am not a olympiad coach or anything, but
+maybe I could share some of my thoughts and topics that I heard that
+quite surprised me.</p>
+
+<h4 class='subsectionHead' id='proving-inequalities'><span class=
+'titlemark'>0.1.1</span> <a id='x1-20000.1.1'></a>Proving
+Inequalities</h4><!-- l. 15 -->
+
+<p class='noindent'>Inequality is definitely one of my favorite
+section, and I think there are many components that makes a solution
+elegant. Particularly, I think solutions that makes inequality feel
+natural are very elegant. Here is what I mean. Instead of trying to
+“solve the inequality” by making the best out of the conditions, I
+think “proving the inequality” in a natural way is more elegant. Say
+we have a constant on the right-hand side and we want to prove it.
+Some “bad proof” could include brute forcing and trying to figure out
+the meaning of the inequality just by looking at the constant.</p>
+<!-- l. 25 -->
+
+<p class='noindent'>It is, however, very important to deduce hints
+from the constants because they could reveal something very important
+like 2025 KMO Problem 6, which is included in Section <span class=
+'pplb8t-x-x-109'>??</span>. However that problem is also elegant in a
+way that it naturally uses the condition to prove the inequality
+without brute forcing. In short, I think solutions are elegant when
+we could deduce like this is true and that is true, then this gives
+the constant. Here is an example to manifest my point.</p>
+
+<div class='tcolorbox probstyle' id='tcolobox-1'>
+  <a id='x1-2002x0.1.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 37 -->
+
+    <p class='noindent'>Exercise&nbsp;0.1.1:&nbsp;1997 KMO Problem 4
+    (<span class='mathjax-inline'>\( \bullet \circ \circ
+    \)</span>)</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 35 -->
+
+    <p class='noindent'>Given positive <span class=
+    'mathjax-inline'>\(a, b, c\)</span> such that <span class=
+    'mathjax-inline'>\(a + b + c = abc\)</span>, show that
+    <span class='mathjax-inline'>\(\sum _\text {cyc} \frac {1}{\sqrt
+    {1 + a^2}} \leq \frac {3}{2}\)</span>.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-1'>
+  <!-- l. 39 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 39 -->
+
+  <p class='noindent'>I particularly like this problem because there
+  are few ways of solving this, but the standard and famous solution
+  deduces the constant from the left-hand side.</p><!-- l. 43 -->
+
+  <p class='noindent'>Consider the following equation for
+  <span class='mathjax-inline'>\(\triangle {ABC}\)</span>.
+  <span class='mathjax-block'>\[ \tan C = \tan {180^\circ - (A + B)}
+  = -\tan (A + B) = - \frac {\tan A + \tan B}{1 - \tan A \tan B}
+  \]</span> In other words, <span class='mathjax-inline'>\(\tan A +
+  \tan B + \tan C = \tan A \tan B \tan C\)</span>. Without loss of
+  generality, let <span class='mathjax-inline'>\(0^\circ &lt; A, B
+  &lt; 90^\circ \)</span>. Notice that because <span class=
+  'mathjax-inline'>\(c\)</span> depends on <span class=
+  'mathjax-inline'>\(a\)</span> and <span class=
+  'mathjax-inline'>\(b\)</span> and <span class=
+  'mathjax-inline'>\(\tan A\)</span> and <span class=
+  'mathjax-inline'>\(\tan B\)</span> spans positive reals, we can let
+  <span class='mathjax-inline'>\(a = \tan A\)</span>, <span class=
+  'mathjax-inline'>\(b = \tan B\)</span>, and <span class=
+  'mathjax-inline'>\(c = \tan C\)</span>. Moreover, we could notice
+  that <span class='mathjax-inline'>\(C \in (0^\circ , 90^\circ
+  )\)</span> since <span class='mathjax-inline'>\(c &gt;
+  0\)</span>.</p><!-- l. 57 -->
+
+  <p class='noindent'>Continuing, consider the following inequality
+  by Jensen. <span class='mathjax-block'>\[ \sum _\text {cyc} \frac
+  {1}{\sqrt {1 + \tan ^2 A}} = 3 \sum _\text {cyc} \frac {\cos A}{3}
+  \leq 3 \cos \left ( \frac {A + B + C}{3} \right ) = \frac {3}{2}
+  \]</span> Therefore, the inequality holds.</p>
+</div><!-- l. 67 -->
+
+<p class='noindent'>I think what makes this problem particularly
+elegant is the fact that we could transform the given conditions to
+different forms and we could use that to find the constant. Meaning,
+we could have derived this problem from scratch without even looking
+at the right-hand side.</p>
+
+<h4 class='subsectionHead' id='solving-fe-and-geometry-problems'>
+<span class='titlemark'>0.1.2</span> <a id='x1-30000.1.2'></a>Solving
+FE and Geometry Problems</h4><!-- l. 75 -->
+
+<p class='noindent'>Guess, draw well, then prove</p>
+
+<h4 class='subsectionHead' id='proving-techniques'><span class=
+'titlemark'>0.1.3</span> <a id='x1-40000.1.3'></a>Proving
+Techniques</h4><!-- l. 80 -->
+
+<p class='noindent'>Induction Base case, use base to go from a to
+a+1</p>
