@@ -31,14 +31,29 @@ as we learn it in middle and high school. AM-GM inequality stands
 for Arithmetic Mean-Geometric Mean inequality and literally compares
 those two means.
 
-\begin{definition}{AM-GM Inequality}{AM-GM Inequality}
+\begin{theorem}{AM-GM Inequality}{AM-GM Inequality}
 For $a_k \geq 0$, the following inequality holds with equality if
 and only if $a_1 = a_2 = \dots = a_n$.
 \[
 \frac{ \sum_{i=1}^n a_i }{n} \geq
 \sqrt[n]{ \prod_{i=1}^n a_i }
 \]
-\end{definition}
+\end{theorem}
+\begin{proof}
+Given a sequence $a_1, \ldots, a_n$, let $A$ and $G$ be the arithmetic
+and geometric means respectively. First, consider the function
+$y = e^x$. Because $y' = e^x$ and $y'' = e^x > 0$, it is evident that
+$x + 1$ is the tangent line of $y = e^x$ at $x = 0$ and
+$e^x \geq x + 1$. Substituting $x = \frac{a_i}{G} - 1$ and multiplying
+all inequalities gives the following.
+\[
+e^{ \frac{\sum_{i=1}^n a_i}{G} - n }
+\geq \frac{ \prod_{i=1}^n a_i }{G^n}
+\]
+Therefore, $e^{ \frac{An}{G} - n} \geq \frac{G^n}{G^n}$
+and $\frac{An}{G} \geq n$. Therefore, $A \geq G$. Moreover,
+the equality holds if the terms are all equal to each other.
+\end{proof}
 
 You might be more familiar with $a + b \geq 2 \sqrt{ab}$, but the
 inequality above is the generalized version.
@@ -378,9 +393,7 @@ Show that the following inequality holds for all $a, b, c > 0$.
 (a^3 + 2)(b^3 + 2)(c^3 + 2) \geq (a + b + c)^3
 \]
 \end{problem}
-
 (\href{https://youtu.be/FUtgo54gq7I}{Video Solution})
-
 \begin{solution}
 The key to this problem is changing the left-hand side to apply
 Hölder's Inequality. Consider the following inequality by Hölder.
@@ -393,15 +406,92 @@ Thus, cubing both sides leads to the desired result.
 \end{solution}
 
 Continuing from Cauchy-Schwarz inequality and its variation, another
-fundamental inequality of different type is rearrangement inequality.
+fundamental inequality of different type is Jensen's inequality.
+
+\subsection{Jensen's Inequality}
+
+The next inequality Jensen's inequality is arguably one of the most
+powerful inequalities in olympiad. It used to be one of the niche
+inequality in Korea, but I think every elementary and middle school
+students preparing for KMO knows this now. Anyhow, here is the
+statement.
+
+\begin{theorem}{Jensen's Inequality}{Jensen's Inequality}
+Given a convex function $f$ and $\lambda_1, \ldots, \lambda_n \geq 0$
+such that $\sum_{i=1}^n \lambda_i = 1$, the following inequality
+holds.
+\[
+f \left( \sum_{i=1}^n \lambda_i x_i \right)
+\leq \sum_{i=1}^n \lambda_i f(x_i)
+\]
+If $f$ is concave, i.e. $f''(x) < 0$, then the inequality is flipped.
+\[
+f \left( \sum_{i=1}^n \lambda_i x_i \right)
+\geq \sum_{i=1}^n \lambda_i f(x_i)
+\]
+\end{theorem}
+\begin{proof}
+First, notice that it suffices to show the case for convex $f$.
+The proof can be done by induction from $n = 2$. If $n = 1$,
+$\lambda = 1$ and the inequality holds.
+
+First, notice that if $n = 2$, then $\lambda_1 f(x_1) + \lambda_2
+f(x_2)$ represents a point that lies on the segment that passes
+through $f(x_1)$ and $f(x_2)$. Similarly, $f(\lambda_1 x_1 +
+\lambda_2 x_2)$ represents a point on the graph of $f$ where the
+$x$ coordinate is the same as the other point that lies on the
+segment that passes through $f(x_1)$ and $f(x_2)$. Because $f$ is
+convex, the inequality holds.
+
+Continuing, it suffices to show that the inequality holds for when
+$n = k + 1$ if it holds for $n = k$. Consider the following equations.
+\begin{align*}
+    \sum_{i=1}^{k+1} \lambda_i f(x_i)
+    &= \sum_{i=1}^k \lambda_i f(x_i) + \lambda_{k+1} f(x_k + 1) \\
+    &= (1 - \lambda_{k+1}) \sum_{i=1}^k
+        \frac{\lambda_i}{1 - \lambda_{k+1}} f(x_i)
+        + \lambda_{k+1} f(x_k + 1) \\
+    &\geq (1 - \lambda_{k+1}) f \left(
+        \sum_{i=1}^k \frac{\lambda_i x_i}{1 - \lambda_{k+1}}
+    \right) + \lambda_{k+1} f(x_k + 1)
+\end{align*}
+Moreover, because the inequality holds for $n = 2$, the form above
+can be written as
+\[
+(1 - \lambda_{k+1}) f \left(
+    \sum_{i=1}^k \frac{\lambda_i x_i}{1 - \lambda_{k+1}}
+\right) + \lambda_{k+1} f(x_k + 1)
+\geq f \left( \sum_{i=1}^{k+1} \lambda_i x_i \right)
+\]
+and the inequality holds.
+\end{proof}
+
+This proof is the classic reuse the base case to show the induction!
+Here is an interesting connection between AMGM and Jensen.
+
+\begin{problem}{}{}
+Show AMGM inequality from Jensen's inequality.
+\end{problem}
+\begin{solution}
+To derive AMGM from Jensen, consider the function $f(x) = \ln x$.
+Notice that because $f''(x) = -x^{-2} < 0$, the following equation
+holds by Jensen's inequality.
+\[
+\ln \left( \sum_{i=1}^n \frac{a_i}{n} \right)
+\geq \sum_{i=1}^n \frac{\ln(a_i)}{n}
+= \ln \left( \prod_{i=1}^n a_i^\frac{1}{n} \right)
+\]
+In other words, $\sum_{i=1}^n \frac{a_i}{n} \geq \left(
+\prod_{i=1}^n a_i \right)^\frac{1}{n}$ and AMGM inequality holds.
+\end{solution}
+
+
 
 \subsection{Rearrangement Inequality}
 
 Let's start with definition.
 
-\begin{definition}
-{Rearrangement Inequality}
-{Rearrangement Inequality}
+\begin{definition}{Rearrangement Inequality}{Rearrangement Inequality}
 Let $a_i$ and $b_i$ be real numbers such that $a_1 \geq a_2 \geq
 \cdots \geq a_n$ and $b_1 \geq b_2 \geq \cdots \geq b_n$. Moreover,
 let $b_{\sigma(i)}$ be the $i^\text{th}$ term of the permutations of
@@ -416,9 +506,7 @@ The equality holds if at least one sequence is constant.
 
 With the definition, we can obtain a special consequence.
 
-\begin{corollary}
-{Chebyshev's Inequality}
-{Chebyshev's Inequality}
+\begin{corollary}{Chebyshev's Inequality}{Chebyshev's Inequality}
 For real numbers $a_1 \geq a_2 \geq \cdots \geq a_n$ and $b_1 \geq b_2
 \geq \cdots \geq b_n$,
 \[
