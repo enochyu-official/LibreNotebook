@@ -1,5 +1,75 @@
 [
   {
+    "hash": "133a5493343beeca0042688027dcd792cc094ff1",
+    "commit": "133a549",
+    "date": "2026-10-22",
+    "author": "Enoch Yu",
+    "message": "Merge remote-tracking branch 'origin/main' into web"
+  },
+  {
+    "hash": "928232eea9374675840ef5daec4d882f925621bd",
+    "commit": "928232e",
+    "date": "2026-10-22",
+    "author": "Enoch Yu",
+    "message": "feat(MATH01): Jensen's Inequality"
+  },
+  {
+    "hash": "47712d7567513200e10e6fee7769b3e944250e1a",
+    "commit": "47712d7",
+    "date": "2026-10-21",
+    "author": "Enoch Yu",
+    "message": "feat(MATH01): Complete infinite descent"
+  },
+  {
+    "hash": "90e280f93bff018c0ddef17f8b1188433dfd3051",
+    "commit": "90e280f",
+    "date": "2026-10-20",
+    "author": "Enoch Yu",
+    "message": "feat(MATH01): Add harmonic quad and symmedian"
+  },
+  {
+    "hash": "3233b036b960af668d4889e0a899a200229d6acc",
+    "commit": "3233b03",
+    "date": "2026-10-19",
+    "author": "Enoch Yu",
+    "message": "fix(MATH01): Forgot {}{}"
+  },
+  {
+    "hash": "3adc3de3eebf7850bc092e0d9f0013521fbc27e1",
+    "commit": "3adc3de",
+    "date": "2026-10-18",
+    "author": "Enoch Yu",
+    "message": "feat(MATH01): Add cross ratio"
+  },
+  {
+    "hash": "8b9a24e653813ea28691eee01db12ee282413237",
+    "commit": "8b9a24e",
+    "date": "2026-10-17",
+    "author": "Enoch Yu",
+    "message": "feat(web): Add entry for 26095"
+  },
+  {
+    "hash": "1cf2ff3791b1586ca590ff915a2230eec688f85f",
+    "commit": "1cf2ff3",
+    "date": "2026-10-17",
+    "author": "Enoch Yu",
+    "message": "feat(MATH01): Add FE and inequality problems"
+  },
+  {
+    "hash": "a8ded9abb3faf46f0b9f790f2a9f43f11355dc11",
+    "commit": "a8ded9a",
+    "date": "2026-10-16",
+    "author": "Enoch Yu",
+    "message": "Merge pull request #3 from enochyu-official/web"
+  },
+  {
+    "hash": "d3636ef47133a4016371b723919186373c663498",
+    "commit": "d3636ef",
+    "date": "2026-10-16",
+    "author": "Enoch Yu",
+    "message": "feat(web): Add new notes"
+  },
+  {
     "hash": "ca260a7f2c00ff35b51ce7bf33ebc0612007644b",
     "commit": "ca260a7",
     "date": "2026-10-16",

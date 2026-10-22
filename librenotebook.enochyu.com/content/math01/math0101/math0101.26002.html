@@ -41,14 +41,13 @@ of this inequality as we learn it in middle and high school. AM-GM
 inequality stands for Arithmetic Mean-Geometric Mean inequality and
 literally compares those two means.</p>
 
-<div class='tcolorbox defstyle' id='tcolobox-1'>
+<div class='tcolorbox theostyle' id='tcolobox-1'>
   <a id='x1-3002x1.1.1'></a>
 
   <div class='tcolorbox-title'>
     <!-- l. 41 -->
 
-    <p class='noindent'>Definition&nbsp;1.1.1:&nbsp;AM-GM
-    Inequality</p>
+    <p class='noindent'>Theorem&nbsp;1.1.1:&nbsp;AM-GM Inequality</p>
   </div>
 
   <div class='tcolorbox-content'>
@@ -61,30 +60,59 @@ literally compares those two means.</p>
     _{i=1}^n a_i }{n} \geq \sqrt [n]{ \prod _{i=1}^n a_i }
     \]</span></p>
   </div>
-</div><!-- l. 43 -->
+</div>
+
+<div class='mdframed' id='mdframed-1'>
+  <!-- l. 43 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 43 -->
+
+  <p class='noindent'>Given a sequence <span class=
+  'mathjax-inline'>\(a_1, \ldots , a_n\)</span>, let <span class=
+  'mathjax-inline'>\(A\)</span> and <span class=
+  'mathjax-inline'>\(G\)</span> be the arithmetic and geometric means
+  respectively. First, consider the function <span class=
+  'mathjax-inline'>\(y = e^x\)</span>. Because <span class=
+  'mathjax-inline'>\(y' = e^x\)</span> and <span class=
+  'mathjax-inline'>\(y'' = e^x &gt; 0\)</span>, it is evident that
+  <span class='mathjax-inline'>\(x + 1\)</span> is the tangent line
+  of <span class='mathjax-inline'>\(y = e^x\)</span> at <span class=
+  'mathjax-inline'>\(x = 0\)</span> and <span class=
+  'mathjax-inline'>\(e^x \geq x + 1\)</span>. Substituting
+  <span class='mathjax-inline'>\(x = \frac {a_i}{G} - 1\)</span> and
+  multiplying all inequalities gives the following. <span class=
+  'mathjax-block'>\[ e^{ \frac {\sum _{i=1}^n a_i}{G} - n } \geq
+  \frac { \prod _{i=1}^n a_i }{G^n} \]</span> Therefore, <span class=
+  'mathjax-inline'>\(e^{ \frac {An}{G} - n} \geq \frac
+  {G^n}{G^n}\)</span> and <span class='mathjax-inline'>\(\frac
+  {An}{G} \geq n\)</span>. Therefore, <span class=
+  'mathjax-inline'>\(A \geq G\)</span>. Moreover, the equality holds
+  if the terms are all equal to each other.</p>
+</div><!-- l. 58 -->
 
 <p class='noindent'>You might be more familiar with <span class=
 'mathjax-inline'>\(a + b \geq 2 \sqrt {ab}\)</span>, but the
 inequality above is the generalized version.</p>
 
-<div class='mdframed' id='mdframed-1'>
-  <!-- l. 47 -->
+<div class='mdframed' id='mdframed-2'>
+  <!-- l. 62 -->
 
   <p class='noindent'>In the context of olympiads, AMGM is used the
   most for cancellation and investigating the minimum.</p>
-</div><!-- l. 51 -->
+</div><!-- l. 66 -->
 
 <p class='noindent'>Let’s take a look at very simple example.</p>
 
 <div class='tcolorbox probstyle' id='tcolobox-2'>
   <div class='tcolorbox-title'>
-    <!-- l. 58 -->
+    <!-- l. 73 -->
 
     <p class='noindent'>Exercise&nbsp;1.1.2</p>
   </div>
 
   <div class='tcolorbox-content'>
-    <!-- l. 54 -->
+    <!-- l. 69 -->
 
     <p class='noindent'>Prove the following inequality for
     <span class='mathjax-inline'>\(a, b, c, d \geq 0\)</span>.
@@ -93,11 +121,11 @@ inequality above is the generalized version.</p>
   </div>
 </div>
 
-<div class='mdframed' id='mdframed-2'>
-  <!-- l. 60 -->
+<div class='mdframed' id='mdframed-3'>
+  <!-- l. 75 -->
 
   <p class='noindent'><span class=
-  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 60 -->
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 75 -->
 
   <p class='noindent'>Because <span class='mathjax-inline'>\(a, b, c,
   d\)</span> are non-negative, we could utilize AM-GM inequality. By
@@ -105,14 +133,14 @@ inequality above is the generalized version.</p>
   'mathjax-env mathjax-align*'>\begin{align*} a + b &amp;\geq 2 \sqrt
   {ab} \\ b + c &amp;\geq 2 \sqrt {bc} \\ c + d &amp;\geq 2 \sqrt
   {cd} \\ d + a &amp;\geq 2 \sqrt {da} \end{align*}</span></p>
-  <!-- l. 69 -->
+  <!-- l. 84 -->
 
   <p class='noindent'>Multiplying the inequalities, <span class=
   'mathjax-block'>\[ (a + b)(b + c)(c + d)(d + a) \geq 2 \sqrt {ab}
   \cdot 2 \sqrt {bc} \cdot 2 \sqrt {cd} \cdot 2 \sqrt {da} = 16abcd
   \]</span> hold and <span class='mathjax-inline'>\((a + b)(b + c)(c
   + d)(d + a) \geq 16abcd\)</span>.</p>
-</div><!-- l. 78 -->
+</div><!-- l. 93 -->
 
 <p class='noindent'>When we discuss arithmetic and geometric mean, we
 normally include weighted means, so let’s do the same for
@@ -122,14 +150,14 @@ inequality.</p>
   <a id='x1-3005x1.1.1'></a>
 
   <div class='tcolorbox-title'>
-    <!-- l. 91 -->
+    <!-- l. 106 -->
 
     <p class='noindent'>Definition&nbsp;1.1.3:&nbsp;Weighted AM-GM
     Inequality</p>
   </div>
 
   <div class='tcolorbox-content'>
-    <!-- l. 84 -->
+    <!-- l. 99 -->
 
     <p class='noindent'>For weights <span class=
     'mathjax-inline'>\(w_1, w_2, \dots , w_n \geq 0\)</span> such
@@ -140,7 +168,7 @@ inequality.</p>
     only if <span class='mathjax-inline'>\(a_1 = a_2 = \dots =
     a_n\)</span>.</p>
   </div>
-</div><!-- l. 93 -->
+</div><!-- l. 108 -->
 
 <p class='noindent'>From the definition, we can notice that the
 original inequality is obtained with <span class=
@@ -151,7 +179,7 @@ Here is a problem on weighted AM-GM inequality.</p>
   <a id='x1-3007x1.1.1'></a>
 
   <div class='tcolorbox-title'>
-    <!-- l. 104 -->
+    <!-- l. 119 -->
 
     <p class='noindent'>Exercise&nbsp;1.1.4:&nbsp;2020 IMO Problem 2
     (<span class='mathjax-inline'>\( \bullet \bullet \circ
@@ -159,7 +187,7 @@ Here is a problem on weighted AM-GM inequality.</p>
   </div>
 
   <div class='tcolorbox-content'>
-    <!-- l. 98 -->
+    <!-- l. 113 -->
 
     <p class='noindent'>Show that for <span class=
     'mathjax-inline'>\(a, b, c, d \in \mathbb {R}\)</span> such that
@@ -168,16 +196,16 @@ Here is a problem on weighted AM-GM inequality.</p>
     1\)</span>, <span class='mathjax-block'>\[ (a + 2b + 3c + 4d) a^a
     b^b c^c d^d &lt; 1 \]</span> holds.</p>
   </div>
-</div><!-- l. 106 -->
+</div><!-- l. 121 -->
 
 <p class='noindent'>(<a href='https://youtu.be/Vz9BC5q7zdc'>Video
 Solution</a>)</p>
 
-<div class='mdframed' id='mdframed-3'>
-  <!-- l. 109 -->
+<div class='mdframed' id='mdframed-4'>
+  <!-- l. 124 -->
 
   <p class='noindent'><span class=
-  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 109 -->
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 124 -->
 
   <p class='noindent'>First, consider the following weighted AM-GM
   inequality for <span class='mathjax-inline'>\(a, b, c, d\)</span>
@@ -186,7 +214,7 @@ Solution</a>)</p>
   'mathjax-env mathjax-align*'>\begin{align*} \frac {a \cdot a + b
   \cdot b + c \cdot c + d \cdot d} {a + b + c + d} &amp;\geq \sqrt [a
   + b + c + d]{a^a b^b c^c d^d} \\ a^2 + b^2 + c^2 + d^2 &amp;\geq
-  a^a b^b c^c d^d \end{align*}</span></p><!-- l. 118 -->
+  a^a b^b c^c d^d \end{align*}</span></p><!-- l. 133 -->
 
   <p class='noindent'>Therefore, it suffices to show that the
   following inequality holds. <span class='mathjax-block'>\[ (a + 2b
@@ -198,7 +226,7 @@ Solution</a>)</p>
   2a \geq b + d) \\ c^2 (a + 2b + 3c + 4d) &amp;&lt; c^2 (3a + 3b + c
   + 3d) \quad (\because 2a + b \geq 2c + d) \\ d^2 (a + 2b + 3c + 4d)
   &amp;&lt; d^2 (3a + 3b + 3c + d) \quad (\because 2a + b \geq 3d)
-  \end{align*}</span></p><!-- l. 133 -->
+  \end{align*}</span></p><!-- l. 148 -->
 
   <p class='noindent'>Integrating, <span class=
   'mathjax-env mathjax-align*'>\begin{align*} &amp;(a + 2b + 3c +
@@ -206,10 +234,10 @@ Solution</a>)</p>
   3c + 3d) + b^2 (3a + b + 3c + 3d) \\ &amp;\qquad \qquad \qquad +
   c^2 (3a + 3b + c + 3d) + d^2 (3a + 3b + 3c + d) \\ &amp;\qquad
   \qquad &lt; (a + b + c + d)^3 = 1 \end{align*}</span></p>
-  <!-- l. 142 -->
+  <!-- l. 157 -->
 
   <p class='noindent'>and the inequality holds.</p>
-</div><!-- l. 145 -->
+</div><!-- l. 160 -->
 
 <p class='noindent'>With the ideas of weighted AMGM in mind, we can
 further generalize our results for different means just as we have
@@ -217,7 +245,7 @@ generalized the means.</p>
 
 <h4 class='subsectionHead' id='power-mean-inequality'><span class=
 'titlemark'>1.1.2</span> <a id='x1-40001.1.2'></a>Power Mean
-Inequality</h4><!-- l. 150 -->
+Inequality</h4><!-- l. 165 -->
 
 <p class='noindent'>Power Mean inequality, also known as QM-AM-GM-HM
 inequality, compares the four major means with generalization of
@@ -229,14 +257,14 @@ inequality as <span class='mathjax-inline'>\(M_2 \geq M_1 \geq M_0
   <a id='x1-4002x1.1.2'></a>
 
   <div class='tcolorbox-title'>
-    <!-- l. 164 -->
+    <!-- l. 179 -->
 
     <p class='noindent'>Definition&nbsp;1.1.5:&nbsp;Power Mean
     Inequality</p>
   </div>
 
   <div class='tcolorbox-content'>
-    <!-- l. 156 -->
+    <!-- l. 171 -->
 
     <p class='noindent'>For positive real numbers <span class=
     'mathjax-inline'>\(a_i\)</span>, the inequality <span class=
@@ -246,7 +274,7 @@ inequality as <span class='mathjax-inline'>\(M_2 \geq M_1 \geq M_0
     with equality if and only if <span class='mathjax-inline'>\(a_1 =
     \cdots = a_n\)</span>.</p>
   </div>
-</div><!-- l. 166 -->
+</div><!-- l. 181 -->
 
 <p class='noindent'>With the definition in mind, we can naturally
 apply the same definition for weighted power means.</p>
@@ -255,14 +283,14 @@ apply the same definition for weighted power means.</p>
   <a id='x1-4004x1.1.2'></a>
 
   <div class='tcolorbox-title'>
-    <!-- l. 180 -->
+    <!-- l. 195 -->
 
     <p class='noindent'>Definition&nbsp;1.1.6:&nbsp;Weighted Power
     Mean Inequality</p>
   </div>
 
   <div class='tcolorbox-content'>
-    <!-- l. 172 -->
+    <!-- l. 187 -->
 
     <p class='noindent'>For positive real numbers <span class=
     'mathjax-inline'>\(a_i\)</span>, the inequality <span class=
@@ -272,7 +300,7 @@ apply the same definition for weighted power means.</p>
     {w_i}{a_i} } \]</span> holds with equality if and only if
     <span class='mathjax-inline'>\(a_1 = \cdots = a_n\)</span>.</p>
   </div>
-</div><!-- l. 182 -->
+</div><!-- l. 197 -->
 
 <p class='noindent'>Continuing from AMGM and its variations, let’s
 discuss arguably the second most famous inequality in middle and high
@@ -280,7 +308,7 @@ schools: Cauchy-Schwarz Inequality.</p>
 
 <h4 class='subsectionHead' id='cauchyschwarz-inequality'><span class=
 'titlemark'>1.1.3</span> <a id='x1-50001.1.3'></a>Cauchy-Schwarz
-Inequality</h4><!-- l. 188 -->
+Inequality</h4><!-- l. 203 -->
 
 <p class='noindent'>As always, let’s get started with the
 definition.</p>
@@ -289,14 +317,14 @@ definition.</p>
   <a id='x1-5002x1.1.3'></a>
 
   <div class='tcolorbox-title'>
-    <!-- l. 201 -->
+    <!-- l. 216 -->
 
     <p class='noindent'>Definition&nbsp;1.1.7:&nbsp;Cauchy-Schwarz
     Inequality</p>
   </div>
 
   <div class='tcolorbox-content'>
-    <!-- l. 193 -->
+    <!-- l. 208 -->
 
     <p class='noindent'>For all real numbers <span class=
     'mathjax-inline'>\(a_i\)</span> and <span class=
@@ -309,12 +337,12 @@ definition.</p>
     'mathjax-inline'>\(k &gt; 0\)</span> and <span class=
     'mathjax-inline'>\(a_ib_i \neq 0\)</span>.</p>
   </div>
-</div><!-- l. 203 -->
+</div><!-- l. 218 -->
 
 <p class='noindent'>When <span class='mathjax-inline'>\(n =
 2\)</span> we get the form <span class='mathjax-inline'>\((a^2 +
 b^2)(x^2 + y^2) \geq (ax + by)^2\)</span> that we initially
-learn.</p><!-- l. 206 -->
+learn.</p><!-- l. 221 -->
 
 <p class='noindent'>Now there are few standard proofs for Cauchy
 inequality, and I personally learned the method using determinants,
@@ -324,11 +352,11 @@ determinants. Here is a <a href='https://youtu.be/OLUunhebpSg'>video
 explaining two different proofs</a> if you prefer videos instead of
 text below.</p>
 
-<div class='mdframed' id='mdframed-4'>
-  <!-- l. 215 -->
+<div class='mdframed' id='mdframed-5'>
+  <!-- l. 230 -->
 
   <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
-  <!-- l. 215 -->
+  <!-- l. 230 -->
 
   <p class='noindent'>Let <span class='mathjax-inline'>\(\sum
   _{i=1}^n a_i^2 = A^2\)</span> and <span class=
@@ -353,7 +381,7 @@ text below.</p>
   {b_i}{B}\)</span> for all integer <span class='mathjax-inline'>\(i
   \in [1, n]\)</span> and <span class='mathjax-inline'>\(\frac
   {a_i}{b_i}\)</span> is constant.</p>
-</div><!-- l. 236 -->
+</div><!-- l. 251 -->
 
 <p class='noindent'>I like this proof because we can expand Cauchy
 inequality as the following. <span class='mathjax-block'>\[ \left (
@@ -375,7 +403,7 @@ _{i=1}^n z_i y_i z_i \right )^3 \leq 1\)</span>. Using AMGM,
 \right )^3 \leq \sum _{i=1}^n \left ( \frac {x^3 + y^3 + z^3}{3}
 \right ) = 1 \]</span> holds and our new version of Cauchy inequality
 holds. With this method, we can continue generalizing for
-<span class='mathjax-inline'>\(n &gt; 3\)</span>.</p><!-- l. 263 -->
+<span class='mathjax-inline'>\(n &gt; 3\)</span>.</p><!-- l. 278 -->
 
 <p class='noindent'>Continuing, we can obtain an interesting direct
 consequence. The lemma below known as Titu’s lemma, T2 Lemma,
@@ -386,13 +414,13 @@ the greatest mathematician Titu Andreescu.</p>
   <a id='x1-5004x1.1.3'></a>
 
   <div class='tcolorbox-title'>
-    <!-- l. 275 -->
+    <!-- l. 290 -->
 
     <p class='noindent'>Corollary&nbsp;1.1.8:&nbsp;Titu’s Lemma</p>
   </div>
 
   <div class='tcolorbox-content'>
-    <!-- l. 269 -->
+    <!-- l. 284 -->
 
     <p class='noindent'>For positive real numbers <span class=
     'mathjax-inline'>\(a_i\)</span> and <span class=
@@ -402,11 +430,11 @@ the greatest mathematician Titu Andreescu.</p>
   </div>
 </div>
 
-<div class='mdframed' id='mdframed-5'>
-  <!-- l. 277 -->
+<div class='mdframed' id='mdframed-6'>
+  <!-- l. 292 -->
 
   <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
-  <!-- l. 277 -->
+  <!-- l. 292 -->
 
   <p class='noindent'>Substituting <span class='mathjax-inline'>\(x_i
   = \frac {a_i}{\sqrt {b_i}}\)</span> and <span class=
@@ -418,7 +446,7 @@ the greatest mathematician Titu Andreescu.</p>
   \left ( \frac {a_i}{\sqrt {b_i}} \right )^2 \right ) \left ( \sum
   _{i=1}^n \left ( \sqrt {b_i} \right )^2 \right ) &amp;\geq \left (
   \sum _{i=1}^n \frac {a_i}{\sqrt {b_i}} \cdot \sqrt {b_i} \right )^2
-  \end{align*}</span></p><!-- l. 296 -->
+  \end{align*}</span></p><!-- l. 311 -->
 
   <p class='noindent'>Recasting, <span class=
   'mathjax-env mathjax-align*'>\begin{align*} \left ( \sum _{i=1}^n
@@ -426,10 +454,10 @@ the greatest mathematician Titu Andreescu.</p>
   &amp;\geq \left ( \sum _{i=1}^n a_i \right )^2 \\ \sum _{i=1}^n
   \frac {a_i^2}{b_i} &amp;\geq \frac { \left ( \sum _{i=1}^n a_i
   \right )^2 }{ \sum _{i=1}^n b_i } \end{align*}</span></p>
-  <!-- l. 306 -->
+  <!-- l. 321 -->
 
   <p class='noindent'>are obtained and the lemma holds.</p>
-</div><!-- l. 309 -->
+</div><!-- l. 324 -->
 
 <p class='noindent'>This lemma comes especially handy if an
 inequality involves fractions with square numbers. Now that we
@@ -438,7 +466,7 @@ consider its generalization.</p>
 
 <h4 class='subsectionHead' id='holders-inequality'><span class=
 'titlemark'>1.1.4</span> <a id='x1-60001.1.4'></a>Hölder’s
-Inequality</h4><!-- l. 316 -->
+Inequality</h4><!-- l. 331 -->
 
 <p class='noindent'>Cauchy-Schwarz inequality is actually a special
 case of Hölder’s inequality. Both inequalities can be used in
@@ -449,14 +477,14 @@ the definition of Hölder’s inequality.</p>
   <a id='x1-6002x1.1.4'></a>
 
   <div class='tcolorbox-title'>
-    <!-- l. 335 -->
+    <!-- l. 350 -->
 
     <p class='noindent'>Definition&nbsp;1.1.9:&nbsp;Hölder’s
     Inequality</p>
   </div>
 
   <div class='tcolorbox-content'>
-    <!-- l. 322 -->
+    <!-- l. 337 -->
 
     <p class='noindent'>Let <span class='mathjax-inline'>\(a_i, b_i,
     \ldots , z_i &gt; 0\)</span> and <span class=
@@ -468,19 +496,19 @@ the definition of Hölder’s inequality.</p>
     \right )^{\lambda _b} \cdots \left ( \sum _{i=1}^n z_i \right
     )^{\lambda _z} \geq \sum _{i=1}^n a_i^{\lambda _a} b_i^{\lambda
     _b} \cdots z_i^{\lambda _z} \end{align*}</span></p>
-    <!-- l. 333 -->
+    <!-- l. 348 -->
 
     <p class='noindent'>holds with equality if <span class=
     'mathjax-inline'>\(a_1 : a_2 : \dots : a_n \equiv b_1 : b_2 :
     \dots : b_n \equiv \dots \equiv z_1 : z_2 : \dots :
     z_n\)</span>.</p>
   </div>
-</div><!-- l. 337 -->
+</div><!-- l. 352 -->
 
 <p class='noindent'>Indeed, Cauchy inequality does resemble Hölder’s
 Inequality! To derive Cauchy inequality from Hölder’s, it suffices to
 show that a specific case of Hölder’s inequality will lead to Cauchy
-inequality.</p><!-- l. 342 -->
+inequality.</p><!-- l. 357 -->
 
 <p class='noindent'>Let <span class='mathjax-inline'>\(\lambda _a =
 \lambda _b = \frac {1}{2}\)</span>. Substituting, the following
@@ -492,7 +520,7 @@ inequalities hold. <span class=
 {1}{2}} \cdot c_i^0 \cdots z_i^0 \\ \left ( \sum _{i=1}^n a_i \right
 )^\frac {1}{2} \left ( \sum _{i=1}^n b_i \right )^\frac {1}{2}
 &amp;\geq \sum _{i=1}^n a_i^\frac {1}{2} b_i^\frac {1}{2}
-\end{align*}</span></p><!-- l. 358 -->
+\end{align*}</span></p><!-- l. 373 -->
 
 <p class='noindent'>Let <span class='mathjax-inline'>\(\alpha _i =
 \sqrt {a_i}\)</span> and <span class='mathjax-inline'>\(\beta _i =
@@ -507,29 +535,28 @@ classic problem on Hölder’s Inequality</p>
 
 <div class='tcolorbox probstyle' id='tcolobox-10'>
   <div class='tcolorbox-title'>
-    <!-- l. 380 -->
+    <!-- l. 395 -->
 
     <p class='noindent'>Exercise&nbsp;1.1.10</p>
   </div>
 
   <div class='tcolorbox-content'>
-    <!-- l. 376 -->
+    <!-- l. 391 -->
 
     <p class='noindent'>Show that the following inequality holds for
     all <span class='mathjax-inline'>\(a, b, c &gt; 0\)</span>.
     <span class='mathjax-block'>\[ (a^3 + 2)(b^3 + 2)(c^3 + 2) \geq
     (a + b + c)^3 \]</span></p>
   </div>
-</div><!-- l. 382 -->
+</div>
 
-<p class='noindent'>(<a href='https://youtu.be/FUtgo54gq7I'>Video
-Solution</a>)</p>
+<p>(<a href='https://youtu.be/FUtgo54gq7I'>Video Solution</a>)</p>
 
-<div class='mdframed' id='mdframed-6'>
-  <!-- l. 385 -->
+<div class='mdframed' id='mdframed-7'>
+  <!-- l. 398 -->
 
   <p class='noindent'><span class=
-  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 385 -->
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 398 -->
 
   <p class='noindent'>The key to this problem is changing the
   left-hand side to apply Hölder’s Inequality. Consider the following
@@ -537,30 +564,155 @@ Solution</a>)</p>
   1)^\frac {1}{3} (1 + b^3 + 1)^\frac {1}{3} (1 + 1 + c^3)^\frac
   {1}{3} \geq a + b + c \]</span> Thus, cubing both sides leads to
   the desired result.</p>
-</div><!-- l. 395 -->
+</div><!-- l. 408 -->
 
 <p class='noindent'>Continuing from Cauchy-Schwarz inequality and its
 variation, another fundamental inequality of different type is
-rearrangement inequality.</p>
+Jensen’s inequality.</p>
 
-<h4 class='subsectionHead' id='rearrangement-inequality'><span class=
-'titlemark'>1.1.5</span> <a id='x1-70001.1.5'></a>Rearrangement
-Inequality</h4><!-- l. 400 -->
+<h4 class='subsectionHead' id='jensens-inequality'><span class=
+'titlemark'>1.1.5</span> <a id='x1-70001.1.5'></a>Jensen’s
+Inequality</h4><!-- l. 413 -->
 
-<p class='noindent'>Let’s start with definition.</p>
+<p class='noindent'>The next inequality Jensen’s inequality is
+arguably one of the most powerful inequalities in olympiad. It used
+to be one of the niche inequality in Korea, but I think every
+elementary and middle school students preparing for KMO knows this
+now. Anyhow, here is the statement.</p>
 
-<div class='tcolorbox defstyle' id='tcolobox-11'>
+<div class='tcolorbox theostyle' id='tcolobox-11'>
   <a id='x1-7002x1.1.5'></a>
 
   <div class='tcolorbox-title'>
-    <!-- l. 415 -->
+    <!-- l. 432 -->
 
-    <p class='noindent'>Definition&nbsp;1.1.11:&nbsp;Rearrangement
+    <p class='noindent'>Theorem&nbsp;1.1.11:&nbsp;Jensen’s
     Inequality</p>
   </div>
 
   <div class='tcolorbox-content'>
-    <!-- l. 405 -->
+    <!-- l. 420 -->
+
+    <p class='noindent'>Given a convex function <span class=
+    'mathjax-inline'>\(f\)</span> and <span class=
+    'mathjax-inline'>\(\lambda _1, \ldots , \lambda _n \geq
+    0\)</span> such that <span class='mathjax-inline'>\(\sum _{i=1}^n
+    \lambda _i = 1\)</span>, the following inequality holds.
+    <span class='mathjax-block'>\[ f \left ( \sum _{i=1}^n \lambda _i
+    x_i \right ) \leq \sum _{i=1}^n \lambda _i f(x_i) \]</span> If
+    <span class='mathjax-inline'>\(f\)</span> is concave, i.e.
+    <span class='mathjax-inline'>\(f''(x) &lt; 0\)</span>, then the
+    inequality is flipped. <span class='mathjax-block'>\[ f \left (
+    \sum _{i=1}^n \lambda _i x_i \right ) \geq \sum _{i=1}^n \lambda
+    _i f(x_i) \]</span></p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-8'>
+  <!-- l. 434 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 434 -->
+
+  <p class='noindent'>First, notice that it suffices to show the case
+  for convex <span class='mathjax-inline'>\(f\)</span>. The proof can
+  be done by induction from <span class='mathjax-inline'>\(n =
+  2\)</span>. If <span class='mathjax-inline'>\(n = 1\)</span>,
+  <span class='mathjax-inline'>\(\lambda = 1\)</span> and the
+  inequality holds.</p><!-- l. 438 -->
+
+  <p class='noindent'>First, notice that if <span class=
+  'mathjax-inline'>\(n = 2\)</span>, then <span class=
+  'mathjax-inline'>\(\lambda _1 f(x_1) + \lambda _2 f(x_2)\)</span>
+  represents a point that lies on the segment that passes through
+  <span class='mathjax-inline'>\(f(x_1)\)</span> and <span class=
+  'mathjax-inline'>\(f(x_2)\)</span>. Similarly, <span class=
+  'mathjax-inline'>\(f(\lambda _1 x_1 + \lambda _2 x_2)\)</span>
+  represents a point on the graph of <span class=
+  'mathjax-inline'>\(f\)</span> where the <span class=
+  'mathjax-inline'>\(x\)</span> coordinate is the same as the other
+  point that lies on the segment that passes through <span class=
+  'mathjax-inline'>\(f(x_1)\)</span> and <span class=
+  'mathjax-inline'>\(f(x_2)\)</span>. Because <span class=
+  'mathjax-inline'>\(f\)</span> is convex, the inequality holds.</p>
+  <!-- l. 446 -->
+
+  <p class='noindent'>Continuing, it suffices to show that the
+  inequality holds for when <span class='mathjax-inline'>\(n = k +
+  1\)</span> if it holds for <span class='mathjax-inline'>\(n =
+  k\)</span>. Consider the following equations. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} \sum _{i=1}^{k+1}
+  \lambda _i f(x_i) &amp;= \sum _{i=1}^k \lambda _i f(x_i) + \lambda
+  _{k+1} f(x_k + 1) \\ &amp;= (1 - \lambda _{k+1}) \sum _{i=1}^k
+  \frac {\lambda _i}{1 - \lambda _{k+1}} f(x_i) + \lambda _{k+1}
+  f(x_k + 1) \\ &amp;\geq (1 - \lambda _{k+1}) f \left ( \sum
+  _{i=1}^k \frac {\lambda _i x_i}{1 - \lambda _{k+1}} \right ) +
+  \lambda _{k+1} f(x_k + 1) \end{align*}</span></p><!-- l. 458 -->
+
+  <p class='noindent'>Moreover, because the inequality holds for
+  <span class='mathjax-inline'>\(n = 2\)</span>, the form above can
+  be written as <span class='mathjax-block'>\[ (1 - \lambda _{k+1}) f
+  \left ( \sum _{i=1}^k \frac {\lambda _i x_i}{1 - \lambda _{k+1}}
+  \right ) + \lambda _{k+1} f(x_k + 1) \geq f \left ( \sum
+  _{i=1}^{k+1} \lambda _i x_i \right ) \]</span> and the inequality
+  holds.</p>
+</div><!-- l. 469 -->
+
+<p class='noindent'>This proof is the classic reuse the base case to
+show the induction! Here is an interesting connection between AMGM
+and Jensen.</p>
+
+<div class='tcolorbox probstyle' id='tcolobox-12'>
+  <div class='tcolorbox-title'>
+    <!-- l. 474 -->
+
+    <p class='noindent'>Exercise&nbsp;1.1.12</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 473 -->
+
+    <p class='noindent'>Show AMGM inequality from Jensen’s
+    inequality.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-9'>
+  <!-- l. 476 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 476 -->
+
+  <p class='noindent'>To derive AMGM from Jensen, consider the
+  function <span class='mathjax-inline'>\(f(x) = \ln x\)</span>.
+  Notice that because <span class='mathjax-inline'>\(f''(x) = -x^{-2}
+  &lt; 0\)</span>, the following equation holds by Jensen’s
+  inequality. <span class='mathjax-block'>\[ \ln \left ( \sum
+  _{i=1}^n \frac {a_i}{n} \right ) \geq \sum _{i=1}^n \frac {\ln
+  (a_i)}{n} = \ln \left ( \prod _{i=1}^n a_i^\frac {1}{n} \right )
+  \]</span> In other words, <span class='mathjax-inline'>\(\sum
+  _{i=1}^n \frac {a_i}{n} \geq \left ( \prod _{i=1}^n a_i \right
+  )^\frac {1}{n}\)</span> and AMGM inequality holds.</p>
+</div>
+
+<h4 class='subsectionHead' id='rearrangement-inequality'><span class=
+'titlemark'>1.1.6</span> <a id='x1-80001.1.6'></a>Rearrangement
+Inequality</h4><!-- l. 492 -->
+
+<p class='noindent'>Let’s start with definition.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-13'>
+  <a id='x1-8002x1.1.6'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 505 -->
+
+    <p class='noindent'>Definition&nbsp;1.1.13:&nbsp;Rearrangement
+    Inequality</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 495 -->
 
     <p class='noindent'>Let <span class=
     'mathjax-inline'>\(a_i\)</span> and <span class=
@@ -576,23 +728,23 @@ Inequality</h4><!-- l. 400 -->
     b_{\sigma (i)} \geq \sum _{i=1}^n a_i b_{n-i+1} \]</span> The
     equality holds if at least one sequence is constant.</p>
   </div>
-</div><!-- l. 417 -->
+</div><!-- l. 507 -->
 
 <p class='noindent'>With the definition, we can obtain a special
 consequence.</p>
 
-<div class='tcolorbox corstyle' id='tcolobox-12'>
-  <a id='x1-7004x1.1.5'></a>
+<div class='tcolorbox corstyle' id='tcolobox-14'>
+  <a id='x1-8004x1.1.6'></a>
 
   <div class='tcolorbox-title'>
-    <!-- l. 431 -->
+    <!-- l. 519 -->
 
-    <p class='noindent'>Corollary&nbsp;1.1.12:&nbsp;Chebyshev’s
+    <p class='noindent'>Corollary&nbsp;1.1.14:&nbsp;Chebyshev’s
     Inequality</p>
   </div>
 
   <div class='tcolorbox-content'>
-    <!-- l. 422 -->
+    <!-- l. 510 -->
 
     <p class='noindent'>For real numbers <span class=
     'mathjax-inline'>\(a_1 \geq a_2 \geq \cdots \geq a_n\)</span> and
@@ -605,11 +757,11 @@ consequence.</p>
   </div>
 </div>
 
-<div class='mdframed' id='mdframed-7'>
-  <!-- l. 433 -->
+<div class='mdframed' id='mdframed-10'>
+  <!-- l. 521 -->
 
   <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
-  <!-- l. 433 -->
+  <!-- l. 521 -->
 
   <p class='noindent'>Consider the following cases where <span class=
   'mathjax-inline'>\(b_1 \geq b_2 \geq \cdots \geq b_n\)</span> are
@@ -620,7 +772,7 @@ consequence.</p>
   + \cdots + a_n b_1 \geq \sum _{i=1}^n a_i b_{n-i+1} \\ &amp;\qquad
   \qquad \qquad \vdots \\ \sum _{i=1}^n a_i b_i &amp;\geq a_1 b_n +
   a_2 b_1 + \cdots + a_n b_{n-1} \geq \sum _{i=1}^n a_i b_{n-i+1} \\
-  \end{align*}</span></p><!-- l. 447 -->
+  \end{align*}</span></p><!-- l. 535 -->
 
   <p class='noindent'>Adding the inequalities, <span class=
   'mathjax-block'>\[ n \left ( \sum _{i=1}^n a_i b_i \right ) \geq

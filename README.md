@@ -23,8 +23,7 @@ For anyone interested in the topics in the notes, I hope
 
 The most recent [PDF draft](https://archive.enochyu.com/LibreNotebook.pdf)
 is available for downloads, and there is also a web version hosted at
-[librenotebook.enochyu.com](https://librenotebook.enochyu.com/),
-which is updated weekly.
+[librenotebook.enochyu.com](https://librenotebook.enochyu.com/).
 
 ## Contributing
 

@@ -137,7 +137,7 @@ to solve problems.</p>
 
 <div class='tcolorbox probstyle' id='tcolobox-4'>
   <div class='tcolorbox-title'>
-    <!-- l. 85 -->
+    <!-- l. 88 -->
 
     <p class='noindent'>Exercise&nbsp;0.1.4</p>
   </div>
@@ -145,21 +145,95 @@ to solve problems.</p>
   <div class='tcolorbox-content'>
     <!-- l. 84 -->
 
-    <p class='noindent'>INFINTE DSCENT AND PYTA</p>
+    <p class='noindent'>Show that there are no integer triples
+    <span class='mathjax-inline'>\((x, y, z)\)</span> where
+    <span class='mathjax-inline'>\(x \neq 0\)</span> that satisfies
+    <span class='mathjax-inline'>\(2x^4 + 2x^2y^2 + y^4 =
+    z^2\)</span>.</p><!-- l. 87 -->
+
+    <p class='noindent'><span class='mathjax-inline'>\(\sim
+    \)</span><a href=
+    'https://math.stackexchange.com/questions/4892263/diophantine-equation-2x4-2x2-y2-y4-z2'>Mathematics
+    Stack Exchange</a></p>
   </div>
-</div><!-- l. 87 -->
+</div>
+
+<div class='mdframed' id='mdframed-2'>
+  <!-- l. 90 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 90 -->
+
+  <p class='noindent'>First, let <span class='mathjax-inline'>\((x,
+  y) = d\)</span>. Notice that dividing both sides by <span class=
+  'mathjax-inline'>\(d^4\)</span> gives <span class=
+  'mathjax-inline'>\(\frac {z}{d^2} \in \mathbb {Z}\)</span> and
+  <span class='mathjax-inline'>\(d^2 \mid z\)</span>. Therefore, let
+  <span class='mathjax-inline'>\(a = \frac {x}{d}\)</span>,
+  <span class='mathjax-inline'>\(b = \frac {y}{d}\)</span>, and
+  <span class='mathjax-inline'>\(c = \frac {z}{d^2}\)</span> with
+  minimum <span class='mathjax-inline'>\(a + b\)</span> by
+  well-ordering principle. Substituting to the original equation
+  divided by <span class='mathjax-inline'>\(d^2\)</span>,
+  <span class='mathjax-inline'>\(2a^4 + 2a^2b^2 + b^4 = c^2\)</span>
+  and <span class='mathjax-inline'>\((a^2 + b^2)^2 + (a^2)^2 =
+  c^2\)</span>. Continuing, <span class='mathjax-inline'>\(m\)</span>
+  and <span class='mathjax-inline'>\(n\)</span> can be used to
+  satisfy the Pythagorean triple.</p><!-- l. 98 -->
+
+  <p class='noindent'>Notice that if <span class=
+  'mathjax-inline'>\(a^2 = m^2 - n^2\)</span>, then <span class=
+  'mathjax-inline'>\(a^2 + b^2 = 2mn\)</span>. However, <span class=
+  'mathjax-inline'>\(a^2 + b^2 \equiv 2 \pmod {4}\)</span> or
+  <span class='mathjax-inline'>\(a^2 + b^2 \equiv 1 \pmod
+  {4}\)</span> since <span class='mathjax-inline'>\((a, b) =
+  1\)</span>. In other words, <span class='mathjax-inline'>\(a^2 =
+  2mn\)</span>, <span class='mathjax-inline'>\(a^2 + b^2 = m^2 -
+  n^2\)</span> and <span class='mathjax-inline'>\(c = m^2 +
+  n^2\)</span> where <span class='mathjax-inline'>\((m, n) =
+  1\)</span>.</p><!-- l. 103 -->
+
+  <p class='noindent'>Continuing, notice that <span class=
+  'mathjax-inline'>\(m^2 = a^2 + b^2 + n^2 \equiv n^2 + 1 \pmod
+  {4}\)</span>. If <span class='mathjax-inline'>\(2 \mid m\)</span>,
+  then <span class='mathjax-inline'>\(m^2 \equiv 2 \pmod
+  {4}\)</span>, which is not possible. Therefore, <span class=
+  'mathjax-inline'>\(2 \mid n\)</span>. Let <span class=
+  'mathjax-inline'>\(n = 2p^2\)</span> and <span class=
+  'mathjax-inline'>\(m = q^2\)</span>.</p><!-- l. 107 -->
+
+  <p class='noindent'>Note that <span class='mathjax-inline'>\(b^2 =
+  m^2 - n^2 - a^2 = (m - n)^2 - 2n^2\)</span> and <span class=
+  'mathjax-inline'>\(2n^2 = (m - n)^2 - b^2 = 8p^4\)</span>.
+  Continuing, let <span class='mathjax-inline'>\(p = rs\)</span>
+  where <span class='mathjax-inline'>\(s \leq r\)</span>.
+  Rearranging, <span class='mathjax-inline'>\(8p^4 = (q^2 - 2p^2 +
+  b^2) (q^2 - 2p^2 - b^2)\)</span> and <span class=
+  'mathjax-inline'>\(2q^2 - 4p^2 = 2r^4 + 4s^2\)</span> or
+  <span class='mathjax-inline'>\(2q^2 - 4p^2 = 4r^4 + 2s^2\)</span>.
+  Thus, <span class='mathjax-inline'>\(q^2 - 2r^2s^2 = r^4 +
+  2s^4\)</span> and <span class='mathjax-inline'>\(q^2 = 2s^4 +
+  2r^2s^2 + r^4\)</span> or <span class='mathjax-inline'>\(q^2 = 2r^4
+  + 2r^2s^2 + s^4\)</span>. Notice that this is the same as the
+  original equation where <span class='mathjax-inline'>\((x, y, z) =
+  (s, r, q)\)</span> or <span class='mathjax-inline'>\((x, y, z) =
+  (r, s, q)\)</span>. Moreover, because <span class=
+  'mathjax-inline'>\(s + r \leq 2p &lt; 2pq = a &lt; a + b\)</span>,
+  there exists no integer triples <span class='mathjax-inline'>\((x,
+  y, z)\)</span> that satisfies the equation.</p>
+</div><!-- l. 119 -->
 
 <p class='noindent'>Infinite descent have wide range of applications,
 and we can extend its application with Vieta’s formulas.</p>
 
 <h4 class='subsectionHead' id='vieta-jumping'><span class=
 'titlemark'>0.1.1</span> <a id='x1-20000.1.1'></a>Vieta Jumping</h4>
-<!-- l. 92 -->
+<!-- l. 124 -->
 
 <p class='noindent'>Vieta jumping is a technique that has been
 formally introduced with the famous problem 1988 IMO Problem 6. Now
 it is a very standard and common technique, but back then, it was one
-of the revolutionary technique.</p><!-- l. 97 -->
+of the revolutionary technique.</p><!-- l. 129 -->
 
 <p class='noindent'>The basic idea is to write a given equation as a
 quadratic equation with respect to a specific variable, then use the
@@ -176,14 +250,14 @@ is!</p>
   <a id='x1-2002x0.1.1'></a>
 
   <div class='tcolorbox-title'>
-    <!-- l. 112 -->
+    <!-- l. 144 -->
 
     <p class='noindent'>Exercise&nbsp;0.1.5:&nbsp;1988 IMO Problem
     6</p>
   </div>
 
   <div class='tcolorbox-content'>
-    <!-- l. 109 -->
+    <!-- l. 141 -->
 
     <p class='noindent'>Show that for positive integers <span class=
     'mathjax-inline'>\(a\)</span> and <span class=
@@ -195,11 +269,11 @@ is!</p>
 
 <p>(<a href='https://youtu.be/rU1e7ttQmh4'>Video Solution</a>)</p>
 
-<div class='mdframed' id='mdframed-2'>
-  <!-- l. 115 -->
+<div class='mdframed' id='mdframed-3'>
+  <!-- l. 147 -->
 
   <p class='noindent'><span class=
-  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 115 -->
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 147 -->
 
   <p class='noindent'>Let <span class='mathjax-inline'>\(\frac {a^2 +
   b^2}{ab + 1} = k\)</span> for some integer <span class=
@@ -221,7 +295,7 @@ is!</p>
   b\)</span>. Therefore, it suffices to show that <span class=
   'mathjax-inline'>\(a' + b &lt; a + b\)</span> and that <span class=
   'mathjax-inline'>\(a'\)</span> is a positive integer.</p>
-  <!-- l. 134 -->
+  <!-- l. 166 -->
 
   <p class='noindent'>First, consider the following inequality for
   showing that <span class='mathjax-inline'>\(a' + b &lt; a +
@@ -248,7 +322,7 @@ is!</p>
   integer for positive integers <span class=
   'mathjax-inline'>\(a\)</span> and <span class=
   'mathjax-inline'>\(b\)</span>.</p>
-</div><!-- l. 160 -->
+</div><!-- l. 192 -->
 
 <p class='noindent'>As you can see from the method above, this is
 pretty simple when we know what Vieta jumping is! Honestly I am not a
@@ -256,7 +330,7 @@ huge fan of the term Vieta jumping because it is infinite descent
 plus Vieta’s formulas, but I think the term Vieta jumping made it
 more intuitive to be used in other type of problems because other
 problems can also require jumping from one root to the another using
-Vieta’s formulas.</p><!-- l. 168 -->
+Vieta’s formulas.</p><!-- l. 200 -->
 
 <p class='noindent'>This is it for this section! Infinite descent is
 vary popular specially in Diophantine equations, and whenever you see
