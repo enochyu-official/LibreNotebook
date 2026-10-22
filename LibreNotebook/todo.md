@@ -5,6 +5,27 @@
 * Figure out links for paperback
 
 ## MATH01
+* Show that AC perp BD iff AB^2 - AD^2 = CB^2 - CD^2
+* Fermat point
+  * Given that P is a fermat's point in a triangle ABC with all angles
+    less than 120, show OA + OB + OC \geq PA + PB + PC. (O in ABC)
+* Napoleon Theorem
+* Miqquel's Pentagon Theorem
+* Simson
+* Pole and polar la hire
+* Transformation (parallel, movement, reflection, spiral)
+* Homothety,
+* Harmonic Range 조화점열
+* 육점공선
+* Pascal, Pappus, Stewart
+* nine point
+* 닮음의 중심부터 논증기하  주제들..
+
+* Prerequisites
+  * Apollonius Theorem
+  * Ceva, menelaus,
+  * Ptolemy
+
 * MATH0101.26002
   * Second problem for AM-GM Inequality
   * Add more examples
@@ -12,8 +33,6 @@
   * Jensen's and Karamata's Inequality
   * Schur’s Inequality (Convexity Arguments)
   * Examples
-* MATH0101.26004
-* MATH0101.26005
 * MATH0105
   * Lagrange Interpolation
   * Descartes’ Rule of Signs
@@ -21,17 +40,10 @@
     * Factorization over $\mathbb{R}$ and $\mathbb{C}$
   * Special Polynomials
     * Chebyshev Polynomials
-  * LTE (Lifting The Exponent Lemma)
   * Root-Bounding Techniques
 
 * Qudratic Residue
-* LTE
 * (a^m - 1, a^n - 1) = a^{(m, n) - 1}
-
-## MATH03
-* MATH0302.26092
-  * Add more examples
-
 
 ## CS01
 * CS0101.26007
