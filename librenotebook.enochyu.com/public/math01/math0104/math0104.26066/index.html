@@ -26,7 +26,7 @@
   
     
       
-      <link rel="stylesheet" href="/css/make4ht/math0104.26066.min.e3a1141b12c582406a4fbe235484541090a72319e5ede11159ce171fc8d46aea.css" integrity="sha256-46EUGxLFgkBqT74jVIRUEJCnIxnl7eERWc4XH8jUauo=">
+      <link rel="stylesheet" href="/css/make4ht/math0104.26066.min.5519b3cfea070d1396dc655af41c5e9e9b2c3da7533afff7a6b1605c4167c2a1.css" integrity="sha256-VRmzz&#43;oHDROW3GVa9BxenpssPadTOv/3prFgXEFnwqE=">
     
   
 
@@ -206,6 +206,10 @@
         <ul class="panel">
           
             <li>
+              <a href="/math01/math0102/math0102.26096/">Foundations</a>
+            </li>
+          
+            <li>
               <a href="/math01/math0102/math0102.26023/">Fundamental Theorems</a>
             </li>
           
@@ -263,6 +267,10 @@
           
             <li>
               <a href="/math01/math0111/math0111.26093/">$p$-adic Valuation &amp; LTE Lemma</a>
+            </li>
+          
+            <li>
+              <a href="/math01/math0111/math0111.26095/">Proving and Problem Solving Tips</a>
             </li>
           
             <li>
@@ -717,7 +725,110 @@
 'titlemark'>0.1</span> <a id='x1-10000.1'></a>Additional Topics</h3>
 <!-- l. 6 -->
 
-<p class='noindent'>Involution, monotonicity, bounding arguments</p>
+<p class='noindent'>Involution, monotonicity</p><!-- l. 9 -->
+
+<p class='noindent'>Some interesting problems gives bound for the
+function for us to use bounding argument.</p>
+
+<div class='mdframed' id='mdframed-1'>
+  <!-- l. 13 -->
+
+  <p class='noindent'>The key to these kind of problems is to perform
+  certain operations on the function and show that it contradicts
+  with the given criteria.</p>
+</div><!-- l. 17 -->
+
+<p class='noindent'>Here is an interesting problem from the document
+<span class='pplri8t-x-x-109'>169 Functional Equations</span> by
+Moubinool the showcase the bounding through a specific criteria given
+by the problem.</p>
+
+<div class='tcolorbox probstyle' id='tcolobox-1'>
+  <div class='tcolorbox-title'>
+    <!-- l. 26 -->
+
+    <p class='noindent'>Exercise&nbsp;0.1.1</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 22 -->
+
+    <p class='noindent'>Find all functions <span class=
+    'mathjax-inline'>\(f: \mathbb {R} \to \mathbb {R}\)</span> such
+    that <span class='mathjax-inline'>\(\left \{ \frac {f(x)}{x} \mid
+    x \in \mathbb {R} \text { and } x \neq 0 \right \}\)</span> is a
+    finite set and <span class='mathjax-inline'>\(f(x - 1 - f(x)) =
+    f(x) - x - 1\)</span> for all real <span class=
+    'mathjax-inline'>\(x\)</span>.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-2'>
+  <!-- l. 28 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 28 -->
+
+  <p class='noindent'>For this problem, because the terms inside
+  <span class='mathjax-inline'>\(f\)</span> in the left-hand side and
+  the terms in the right-hand side are similar, let’s try and make
+  them equal like the following. <span class='mathjax-block'>\[ f(x -
+  1 - f(x)) = -(x - 1 - f(x)) - 2 \]</span> Let <span class=
+  'mathjax-inline'>\(\alpha = x - 1 - f(x)\)</span> and we get
+  <span class='mathjax-inline'>\(f(\alpha ) = -\alpha - 2\)</span>.
+  But there is a problem here. The number of terms for <span class=
+  'mathjax-inline'>\(\frac {f(x)}{x}\)</span> is bounded, but we have
+  infinitely many <span class='mathjax-inline'>\(\frac {-\alpha -
+  2}{\alpha }\)</span>. This tells us that <span class=
+  'mathjax-inline'>\(\alpha \)</span> is finite for the condition to
+  be satisfied.</p><!-- l. 40 -->
+
+  <p class='noindent'>Further observing the problem, let’s substitute
+  <span class='mathjax-inline'>\(\alpha \)</span> for <span class=
+  'mathjax-inline'>\(x\)</span>. We obtain <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} f(\alpha - 1 - f(\alpha
+  )) &amp;= -(\alpha - 1 - f(\alpha )) - 2 \\ f(\alpha - 1 + \alpha +
+  2) &amp;= -\alpha - 1 - \alpha - 2 \end{align*}</span></p>
+  <!-- l. 47 -->
+
+  <p class='noindent'>and <span class='mathjax-inline'>\(f(2\alpha +
+  1) = -(2\alpha + 1) - 2\)</span>. This shows that <span class=
+  'mathjax-inline'>\(2\alpha + 1\)</span> is also an element of a
+  finite set, say <span class='mathjax-inline'>\(A\)</span>, that
+  contains <span class='mathjax-inline'>\(\alpha \)</span>.</p>
+  <!-- l. 51 -->
+
+  <p class='noindent'>Continuing, we can try and substitute
+  <span class='mathjax-inline'>\(2\alpha + 1\)</span> for
+  <span class='mathjax-inline'>\(x\)</span>. We obtain <span class=
+  'mathjax-inline'>\(f(2\alpha + 1 - 1 + 2\alpha + 1 + 2) = -(2\alpha
+  + 1) - 2 - 2\alpha - 1 - 1\)</span> and <span class=
+  'mathjax-inline'>\(f(4\alpha + 3) = -(4\alpha + 3) - 2\)</span>.
+  This shows that <span class='mathjax-inline'>\(4\alpha + 3 \in
+  A\)</span>. From the patterns, we could hypothesize that
+  <span class='mathjax-inline'>\(2^n \alpha + 2^n - 1 \in A\)</span>.
+  To show this, it suffices to show that if <span class=
+  'mathjax-inline'>\(2^{n-1} \alpha + 2^{n-1} - 1 \in A\)</span>,
+  then <span class='mathjax-inline'>\(2^n \alpha + 2^n - 1 \in
+  A\)</span>. Consider the following equations that we get for
+  substituting <span class='mathjax-inline'>\(x = 2^{n-1} \alpha +
+  2^{n-1} - 1\)</span>. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} &amp;\quad \ f \left (
+  2^{n-1} \alpha + 2^{n-1} - 1 - 1 + \left ( 2^{n-1} \alpha + 2^{n-1}
+  - 1) + 2 \right ) \right ) \\ &amp;= -\left ( 2^{n-1} \alpha +
+  2^{n-1} - 1 \right ) - 2 - \left ( 2^{n-1} \alpha + 2^{n-1} - 1
+  \right ) - 1 \\ &amp;\qquad \quad f \left ( 2^n \alpha + 2^n - 1
+  \right ) = -\left ( 2^n \alpha + 2^n - 1 \right ) - 2
+  \end{align*}</span></p><!-- l. 70 -->
+
+  <p class='noindent'>Indeed by induction, <span class=
+  'mathjax-inline'>\(2^n \alpha + 2^n - 1 \in A\)</span> for all
+  positive integers <span class='mathjax-inline'>\(n\)</span>. In
+  other words, <span class='mathjax-inline'>\(\alpha = -1\)</span> is
+  the only possible case and <span class='mathjax-inline'>\(\alpha =
+  x - 1 - f(x) = -1\)</span>. Therefore, <span class=
+  'mathjax-inline'>\(f(x) = x\)</span> is the only solution.</p>
+</div>
 
   </div>
 

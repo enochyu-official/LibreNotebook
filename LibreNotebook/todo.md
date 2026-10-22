@@ -30,7 +30,6 @@
   * Second problem for AM-GM Inequality
   * Add more examples
 * MATH0101.26003
-  * Jensen's and Karamata's Inequality
   * Schur’s Inequality (Convexity Arguments)
   * Examples
 * MATH0105
