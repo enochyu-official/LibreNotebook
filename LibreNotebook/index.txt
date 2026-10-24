@@ -148,7 +148,7 @@ Section III. Sections
 === | MATH0109.26081 | Definitions and Notations
 === | MATH0109.26082 | Number Theory
 0.4 | MATH0103.26083 | Points and Circles of a Triangle
-0.1 | MATH0103.26084 | Homothety
+=== | MATH0103.26084 | Homothety
 0.0 | MATH0110.26085 | Primitive Root Modulo $n$
 === | MATH0301.26086 | Cylindrical and Spherical Coordinates
 === | MATH0109.26087 | Algebra
@@ -163,6 +163,7 @@ Section III. Sections
 0.1 | MATH0111.26095 | Proving and Problem Solving Tips
 === | MATH0102.26096 | Foundations
 === | MATH0103.26097 | Six Collinear Points
+0.0 | MATH0302.26098 | Curvature
 ----------------------------------------------------------------------
 
 END OF INDEX
