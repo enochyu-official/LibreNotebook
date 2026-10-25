@@ -6,11 +6,253 @@
 
 There are many foundational topics and theorems to discuss.
 Before we get into more advanced topics, let's discuss key theorems
-like Desargues' Theorem and Pascal's Theorem.
+like Pascal's theorem and Desargues' theorem.
+
+\subsection{Pascal's Theorem}
+
+Let's first get started with Pascal's theorem! Surprisingly,
+Pascal's theorem is considered a topic in projective geometry even if
+it holds in Euclidean plane for some case because parallel pairs
+deal with point at infinity. Here is the statement.
+
+\begin{theorem}{Pascal's Theorem}{Pascal's Theorem}
+Given six points $A, B, C, D, E, F$ on a conic section,
+if $X = AB \cap DE$, $Y = CD \cap FA$, and $Z = EF \cap BC$,
+then $X, Y, Z$ are collinear, whose line is known as
+\textbf{Pascal line}.
+\end{theorem}
+
+We stated here as conic section, but we can just consider it as a
+circle because majority of the problems deal with circle. Also,
+one tip for memorizing the definition of $X, Y, Z$ is the following.
+\[
+\begin{NiceArray}{cc|cc|cc}
+    A & B & C & D & E & F \\
+    D & E & F & A & B & C
+\end{NiceArray}
+\]
+Sometimes it is easy to mess up like $AD \cap BE$, but remembering
+$AB$ helped for me. Also, there are few different diagrams when you
+search Pascal's theorem depending on the orientation of the hexagon,
+but here is the famous and clean diagram.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=0.6]
+    \coordinate (A) at (-3,4);
+    \coordinate (B) at (-4,-3);
+    \coordinate (C) at (4,3);
+    \coordinate (D) at (3,-4);
+    \coordinate (E) at (-5,0);
+    \coordinate (F) at (4,-3);
+    \coordinate (X) at (-3.666666666666666,-0.6666666666666669);
+    \coordinate (Y) at (-1.5384615384615385,-1.1538461538461537);
+    \coordinate (Z) at (3.25,-2.25);
+    \coordinate (P) at (7,-6);
+    \coordinate (Q) at (-2,-1.5);
+    \coordinate (R) at (0.5714285714285721,0.428571428571429);
+
+    \draw[thick] (0, 0) circle (5);
+
+    \draw[thick] (A) -- (B) -- (C) -- (D) -- (E) -- (F);
+    \draw[dashed]
+        (-6,-0.13253012048192805) -- (5.5,-2.7650602409638547);
+
+    \draw[fill=black] (A) circle (0.08)
+        node[above left] {\footnotesize $A$};
+    \draw[fill=black] (B) circle (0.08)
+        node[below left] {\footnotesize $B$};
+    \draw[fill=black] (C) circle (0.08)
+        node[above right] {\footnotesize $C$};
+    \draw[fill=black] (D) circle (0.08)
+        node[below] {\footnotesize $D$};
+    \draw[fill=black] (E) circle (0.08)
+        node[left] {\footnotesize $E$};
+    \draw[fill=black] (F) circle (0.08)
+        node[below right] {\footnotesize $F$};
+    \draw[fill=BrickRed] (X) circle (0.08)
+        node[below left] {\footnotesize $X$};
+    \draw[fill=BrickRed] (Y) circle (0.08)
+        node[below] {\footnotesize $Y$};
+    \draw[fill=BrickRed] (Z) circle (0.08)
+        node[right] {\footnotesize $Z$};
+\end{tikzpicture}
+\end{figure}
+
+There are many different ways to prove this theorem, and I think the
+most popular method is using Menelaus. However, there are also many
+different interesting ways of proving this, so let's prove Pascal's
+theorem using two different ways.
+
+\begin{proof}
+The first proof involves using Menelaus three times. First,
+consider the new points $P, Q, R$.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=0.6]
+    \coordinate (A) at (-3,4);
+    \coordinate (B) at (-4,-3);
+    \coordinate (C) at (4,3);
+    \coordinate (D) at (3,-4);
+    \coordinate (E) at (-5,0);
+    \coordinate (F) at (4,-3);
+    \coordinate (X) at (-3.666666666666666,-0.6666666666666669);
+    \coordinate (Y) at (-1.5384615384615385,-1.1538461538461537);
+    \coordinate (Z) at (3.25,-2.25);
+    \coordinate (P) at (7,-6);
+    \coordinate (Q) at (-2,-1.5);
+    \coordinate (R) at (0.5714285714285721,0.428571428571429);
+
+    \draw[thick] (0, 0) circle (5);
+
+    \draw[thick] (A) -- (B) -- (C) -- (D) -- (E) -- (F);
+    \draw[dashed]
+        (-6,-0.13253012048192805) -- (5.5,-2.7650602409638547);
+    \draw[dashed] (E) -- (P) -- (A);
+    \fill[BrickRed, opacity=0.35] (P) -- (Q) -- (R) -- cycle;
+
+    \draw[fill=black] (A) circle (0.08)
+        node[above left] {\footnotesize $A$};
+    \draw[fill=black] (B) circle (0.08)
+        node[below left] {\footnotesize $B$};
+    \draw[fill=black] (C) circle (0.08)
+        node[above right] {\footnotesize $C$};
+    \draw[fill=black] (D) circle (0.08)
+        node[below] {\footnotesize $D$};
+    \draw[fill=black] (E) circle (0.08)
+        node[left] {\footnotesize $E$};
+    \draw[fill=black] (F) circle (0.08)
+        node[below right] {\footnotesize $F$};
+    \draw[fill=BrickRed] (X) circle (0.08)
+        node[below left] {\footnotesize $X$};
+    \draw[fill=BrickRed] (Y) circle (0.08)
+        node[below] {\footnotesize $Y$};
+    \draw[fill=BrickRed] (Z) circle (0.08)
+        node[right] {\footnotesize $Z$};
+    \draw[fill=black] (P) circle (0.08)
+        node[right] {\footnotesize $P$};
+    \draw[fill=black] (Q) circle (0.08)
+        node[below] {\footnotesize $Q$};
+    \draw[fill=black] (R) circle (0.08)
+        node[left] {\footnotesize $R$};
+\end{tikzpicture}
+\end{figure}
+
+From the triangle $PQR$, the following equations can be obtained with
+Menelaus' theorem.
+\begin{align*}
+    \frac{PA}{AR} \cdot \frac{RB}{BQ} \cdot \frac{QX}{XP} &= 1 \\
+    \frac{PZ}{ZR} \cdot \frac{RC}{CQ} \cdot \frac{QD}{DP} &= 1 \\
+    \frac{EQ}{PE} \cdot \frac{YR}{QY} \cdot \frac{FP}{RF} &= 1
+\end{align*}
+Moreover by Power of a Point theorem, the following equations hold.
+\begin{align*}
+    PD \cdot PE &= PF \cdot PA \\
+    BQ \cdot QC &= EQ \cdot QD \\
+    BR \cdot RC &= AR \cdot RF
+\end{align*}
+Multiplying the equations,
+\[
+\frac{QX}{XP} \cdot \frac{PZ}{ZR} \cdot \frac{YR}{QY} = 1
+\]
+is obtained and $X, Y, Z$ are collinear by Menelaus' theorem.
+\end{proof}
+
+The next one is less popular, but also an interesting proof.
+
+\begin{proof}
+First, consider the following annotated diagram.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=0.6]
+    \coordinate (A) at (-3,4);
+    \coordinate (B) at (-4,-3);
+    \coordinate (C) at (4,3);
+    \coordinate (D) at (3,-4);
+    \coordinate (E) at (-5,0);
+    \coordinate (F) at (4,-3);
+    \coordinate (X) at (-3.666666666666666,-0.6666666666666669);
+    \coordinate (Y) at (-1.5384615384615385,-1.1538461538461537);
+    \coordinate (Z) at (3.25,-2.25);
+    \coordinate (P) at (-1.0769230769230766,2.076923076923078);
+    \coordinate (Q) at (3.0769230769230775,-3.4615384615384612);
+
+    \draw[thick] (0, 0) circle (5);
+    \draw[thick, BrickRed]
+        (1.9230769230769231,0) circle (3.6487819155788994);
+
+    \draw[thick] (A) -- (B) -- (C) -- (D) -- (E) -- (F);
+    \draw[dashed]
+        (-6,-0.13253012048192805) -- (5.5,-2.7650602409638547);
+    \draw[thick] (A) -- (D);
+    \draw[thick] (P) -- (Y);
+    \draw[thick] (P) -- (Q);
+    \draw[thick] (F) -- (P);
+    \draw[thick] (A) -- (P);
+
+    \fill[BrickRed, opacity=0.35] (A) -- (X) -- (D) -- cycle;
+    \fill[RoyalPurple, opacity=0.35] (P) -- (Y) -- (Q) -- cycle;
+
+    \draw[fill=black] (A) circle (0.08)
+        node[above left] {\footnotesize $A$};
+    \draw[fill=black] (B) circle (0.08)
+        node[below left] {\footnotesize $B$};
+    \draw[fill=black] (C) circle (0.08)
+        node[above right] {\footnotesize $C$};
+    \draw[fill=black] (D) circle (0.08)
+        node[below] {\footnotesize $D$};
+    \draw[fill=black] (E) circle (0.08)
+        node[left] {\footnotesize $E$};
+    \draw[fill=black] (F) circle (0.08)
+        node[below right] {\footnotesize $F$};
+    \draw[fill=BrickRed] (X) circle (0.08)
+        node[below left] {\footnotesize $X$};
+    \draw[fill=BrickRed] (Y) circle (0.08)
+        node[below] {\footnotesize $Y$};
+    \draw[fill=BrickRed] (Z) circle (0.08)
+        node[right] {\footnotesize $Z$};
+    \draw[fill=black] (P) circle (0.08)
+        node[right] {\footnotesize $P$};
+    \draw[fill=black] (Q) circle (0.08)
+        node[below right] {\footnotesize $Q$};
+
+    \pic[draw,"$\circ$", angle radius=8mm, angle eccentricity=1.4]
+        {angle=X--A--D};
+    \pic[draw,"$\circ$", angle radius=8mm, angle eccentricity=1.4]
+        {angle=Y--P--Q};
+    \pic[draw,"$\bullet$", angle radius=8mm, angle eccentricity=1.4]
+        {angle=A--D--X};
+    \pic[draw,"$\bullet$", angle radius=8mm, angle eccentricity=1.4]
+        {angle=P--Q--Y};
+    \pic[draw,"$\times$", angle radius=12mm, angle eccentricity=1.4]
+        {angle=D--A--F};
+    \pic[draw,"$\times$", angle radius=12mm, angle eccentricity=1.4]
+        {angle=Q--P--F};
+\end{tikzpicture}
+\end{figure}
+
+First, notice that $\angle{FPQ} = \angle{DCF} = \angle{DAF}$.
+Therefore, $AD \parallel PQ$. Similarly, $\angle{XAD} = \angle{BCD}
+= \angle{YPQ}$ and $\angle{ADX} \angle{AFE} = \angle{PTQ}$. Therefore,
+$\triangle{AXD} \sim \triangle{PYQ}$. Moreover, because $Z$ is the
+center of homothety, $X, Y, Z$ lie on the same line.
+\end{proof}
+
+Pascal's theorem is arguably one of more popular and foundational
+theorem in olympiad geometry. With the idea in mind, here is a
+practice problem.
+
+\begin{problem}{}{}
+PASCAL PROBLEM
+\end{problem}
+
+
 
 \subsection{Desargues' Theorem}
 
-Let's first get started with Desargues' Theorem!
+Continuing from Pascal's theorem, here is Desargues' theorem.
 
 \begin{theorem}{Desargues' Theorem}{Desargues' Theorem}
 Two triangles are axially perspective if and only if they are

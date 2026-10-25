@@ -16,7 +16,8 @@
 * Transformation (parallel, movement, reflection, spiral)
 * Homothety,
 * Harmonic Range 조화점열
-* Pascal, Pappus, Stewart
+* Pappus, Stewart
+  * Pascal Problem
 * nine point
 * 닮음의 중심부터 논증기하  주제들..
 
