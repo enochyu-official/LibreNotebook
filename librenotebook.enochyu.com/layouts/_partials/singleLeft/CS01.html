@@ -1,0 +1,30 @@
+<h3>&sect;&hairsp;4: Machine Learning</h3>
+<ul>
+  <li><a style="
+          display: block;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+         "
+         href="/cs01/cs0100/cs0100.26006">
+    What is AI and Why Should We Learn It?</a></li>
+
+  {{ with hugo.Data.cs01 }}
+    {{ range . }}
+    <li>
+      <button class="accordion">{{ .title }}</button>
+      <ul class="panel">
+        {{ range .items }}
+          <li>
+            <a href="{{ .url }}">{{ .title }}</a>
+          </li>
+        {{ end }}
+      </ul>
+    </li>
+    {{ end }}
+  {{ end }}
+
+  <li><a href="/cs01/cs0107/cs0107.26022">
+      Further Resources</a></li>
+</ul>
+
