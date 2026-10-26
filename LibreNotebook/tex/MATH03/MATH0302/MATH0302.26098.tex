@@ -6,6 +6,182 @@
 
 Before we get into curvature, we need to discuss some important
 topics and notation that will be used throughout the notes.
+As always, let's get started with definition.
+
+\begin{definition}{}{}
+Given a vector-valued function $\mathbf{r}$ of a smooth curve $C$,
+the \textbf{unit tangent vector} to $C$ is defined as the following.
+\[
+\mathbf{T}(t) = \frac{\mathbf{r}'(t)}{\| \mathbf{r}'(t) \|}
+\]
+\end{definition}
+
+As the name suggests, $\| \mathbf{T}(T) \| =
+\frac{\| \mathbf{r}'(t) \|}{\| \mathbf{r}'(t) \|} = 1$. Also, it is
+worth noting that the unit tangent vector at a point of all smooth
+parametrizations of a curve are the same because the tangent vectors
+are normalized. Continuing, we can define another term.
+
+\begin{definition}{}{}
+Given a smooth parametrization $\mathbf{r}$ of a curve and the unit
+tangent vector $\mathbf{T}(t)$, the \textbf{unit normal vector} to
+the curve at $t$ is defined as the following.
+\[
+\mathbf{N}(t) = \frac{\mathbf{T}'(t)}{\| \mathbf{T}'(t) \|}
+\]
+\end{definition}
+
+Notice that because $\mathbf{T}'(t) \equiv 0$ if a curve is a
+straight line, $\mathbf{N}(t)$ is not defined. Moreover, notice that
+because $\mathbf{T}(t) \cdot \mathbf{T}(t) = 1$ and $2\mathbf{T}'(t)
+\cdot \mathbf{T}(t) = 0$, $\mathbf{N}(t)$ is orthogonal to
+$\mathbf{T}(t)$ as the name suggests! However, there are different
+ways for $\mathbf{N}$ to be orthogonal to $\mathbf{T}$ geometrically.
+For instance, in 2-space, we have two directions and we have
+infinitely many possibilities in 3-space. To clarify the direction
+in which $\mathbf{N}$ is orthogonal in 2-space, consider the
+following theorem.
+
+\begin{theorem}{}{Orthogonal Direction T and N}
+Given a smooth curve $C$ in 2-space, the unit normal vector at a point
+on the curve is towards the concave side.
+\end{theorem}
+\begin{proof}
+Notice that to show that $\mathbf{N}(t)$ point towards the concave
+side of the curve, it suffices to show that the curve bends towards
+the direction of $\mathbf{T}'(t)$. Let $\theta(t)$ be the angle
+of $\mathbf{T}$ from the positive $x$-axis. Notice that because
+$\mathbf{T}$ is a unit vector, $\mathbf{T}$ can be written as
+$\mathbf{T} = (\cos\theta(t), \sin\theta(t))$.
+
+Continuing, $\mathbf{T}'(t) = \theta'(t)(-\sin\theta(t),
+\cos\theta(t))$, which can be obtained by rotating $\mathbf{T}$ by
+$90^\circ$ and multiplying by $\theta'(t)$. Note that if $\theta'(t)
+> 0$, then it is pointing towards the left, or towards the concave
+side, of the curve. Similarly, if $\theta'(t)$, then $\mathbf{T}'(t)$
+is pointing towards the left, or towards the concave side, of the
+curve. Because the normal vector is not defined when $\theta'(t) = 0$,
+the theorem holds.
+\end{proof}
+
+Before we get into curvature, here is one last definition.
+
+\begin{definition}{}{}
+Given a smooth curve in 3-space, the \textbf{binormal vector} to
+the curve at $t$ is defined as $\mathbf{B}(t) = \mathbf{T}(t) \times
+\mathbf{N}(t)$.
+\end{definition}
+
+From the definition, we can infer that $\mathbf{B}$ is orthogonal
+to both unit tangent vector and unit normal vector, and is also a
+unit vector. The coordinate system using $\mathbf{N}$, $\mathbf{T}$,
+and $\mathbf{B}$ is known as \textbf{Frenet frame} or
+\textbf{TNB-frame}.
+
+\begin{important}
+One more thing that we can notice from the definition is that
+$\mathbf{B}(t)$ can be written as the following at $t$ and $s$
+if the parametrization is $\mathbf{r}(s)$.
+\begin{align*}
+    \mathbf{B}(t)
+    &= \frac{\mathbf{r}'(t) \times \mathbf{r}''(t)}
+        {\| \mathbf{r}'(t) \times \mathbf{r}''(t) \|} \\
+    \mathbf{B}(s)
+    &= \frac{\mathbf{r}'(s) \times \mathbf{r}''(s)}
+        {\| \mathbf{r}'(s) \times \mathbf{r}''(s) \|}
+    = \frac{\mathbf{r}'(s) \times \mathbf{r}''(s)}
+        {\| \mathbf{r}''(s) \|}
+\end{align*}
+\end{important}
+
+Because the derivation is fairly straightforward with definition
+and $\mathbf{r}' \times \mathbf{r}' = 0$, let's skip the proof.
+Now let's discuss about curvature!
+
+Just for the sake of intuition, consider a circle and a square root
+function. From those two, the circle has larger curvature because
+it curves more, and we can represent that by the rate of changes in
+the direction of the tangent vector. Here is more rigorous definition.
+
+\begin{definition}{}{}
+Given an arc length parametrization of a curve, the \textbf{curvature}
+of the curve at $s$ is defined as $\kappa(s) = \| \mathbf{T}'(s) \|$.
+\end{definition}
+
+In other words, curvature is the rate of change of the tangent vector
+with respect to its arc length. Notice that $\kappa(s)$ is a function
+in terms of $s$.
+
+\begin{important}
+If the parametrization is not arc-length, then we write it as
+$\kappa(t = t_0)$ for clarity and the following equation holds.
+\vspace{-0.6\baselineskip}
+\[
+\kappa(t = t_0)
+= \frac{\| \mathbf{T_1}' (t_0) \|}{\| \mathbf{r_1}' (t_0) \|}
+\]
+\end{important}
+
+To see why this is true, consider the arc-length parametrization
+$\mathbf{r_2}(s) = \mathbf{r_1}(g(s))$. Similarly, let $\mathbf{T_1}$
+and $\mathbf{T_2}$ be the respective unit tangent vectors.
+Then, the following equations hold.
+\begin{align*}
+    \kappa(t = t_0)
+    &= \kappa(s = s_0)
+    = \| \mathbf{T_2}'(s_0) \|
+    = \| \mathbf{T_1}'(g(s_0)) \cdot g'(s_0) \| \\
+    &= \frac{\| \mathbf{T_1}'(g(s_0)) \cdot g'(s_0) \|}
+        {\| \mathbf{r_2}'(s_0) \|}
+    = \frac{\mathbf{T_1}'(g(s_0))}{\mathbf{r_1}'(g(s_0))}
+\end{align*}
+Therefore, the equation holds.
+
+Continuing, here is another interesting theorem. This is quite
+important because many times curvature is defined and used with this
+theorem, or formula, below.
+
+\begin{theorem}{}{Curvature Formula}
+Let $\mathbf{r}(t)$ be a smooth parametrization of a curve in 3-space.
+If $\mathbf{r}''(t_0)$ is defined, then the following equation holds.
+\[
+\kappa(t = t_0)
+= \frac{ \| \mathbf{r}'(t_0) \times \mathbf{r}''(t_0) \| }
+    {\| \mathbf{r}'(t_0) \|^3}
+\]
+\end{theorem}
+\begin{proof}
+Define $\mathbf{r_1}(s) = \mathbf{r}(g(s))$ where $g$ is an arc length
+change. Then, it suffices to show that $\| \mathbf{r_1}''(s_0) \| =
+\frac{ \| \mathbf{r}'(t_0) \times \mathbf{r}''(t_0) \| }
+{\| \mathbf{r}'(t_0) \|^3}$.
+
+Notice that by construction, the following equations hold.
+\begin{align*}
+    \mathbf{r_1}'(s)
+    &= \mathbf{r}'(g(s)) g'(s) \\
+    \mathbf{r_1}''(s)
+    &= \mathbf{r}''(g(s)) g'(s)^2 + \mathbf{r}'(g(s)) g''(s)
+\end{align*}
+Therefore, the following equations hold.
+\begin{align*}
+    \frac{ \| \mathbf{r}'(t_0) \times \mathbf{r}''(t_0) \| }
+        {\| \mathbf{r}'(t_0) \|^3}
+    &= \frac{ \| \mathbf{r}'(g(s_0)) \times \mathbf{r}''(g(s_0)) \| }
+        {\| \mathbf{r}'(g(s_0)) \|^3} \\
+    &= \frac{
+        \| \mathbf{r}'(g(s_0)) \times \mathbf{r}''(g(s_0)) \|
+        | g'(s_0) |^3
+    }{\| \mathbf{r}'(g(s_0)) g'(s_0) \|^3} \\
+    &= \| \mathbf{r_1}'(s_0) \times \mathbf{r_1}''(s_0) \| \\
+    &= \| \mathbf{r_1}''(s_0) \|
+\end{align*}
+Therefore, the equation holds.
+\end{proof}
+
+Notice that if $\mathbf{r}(t) = \langle x(t), y(t), 0 \rangle$,
+then this theorem also holds for 2-space.
+
 
 
 \end{document}
