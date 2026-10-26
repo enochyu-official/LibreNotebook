@@ -1,0 +1,296 @@
+<h3 class='sectionHead' id='curvature'><span class=
+'titlemark'>0.1</span> <a id='x1-10000.1'></a>Curvature</h3>
+<!-- l. 7 -->
+
+<p class='noindent'>Before we get into curvature, we need to discuss
+some important topics and notation that will be used throughout the
+notes. As always, let’s get started with definition.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-1'>
+  <div class='tcolorbox-title'>
+    <!-- l. 17 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.1</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 12 -->
+
+    <p class='noindent'>Given a vector-valued function <span class=
+    'mathjax-inline'>\(\mathbf {r}\)</span> of a smooth curve
+    <span class='mathjax-inline'>\(C\)</span>, the <span class=
+    'pplb8t-x-x-109'>unit tangent vector</span> to <span class=
+    'mathjax-inline'>\(C\)</span> is defined as the following.
+    <span class='mathjax-block'>\[ \mathbf {T}(t) = \frac {\mathbf
+    {r}'(t)}{\| \mathbf {r}'(t) \|} \]</span></p>
+  </div>
+</div><!-- l. 19 -->
+
+<p class='noindent'>As the name suggests, <span class=
+'mathjax-inline'>\(\| \mathbf {T}(T) \| = \frac {\| \mathbf {r}'(t)
+\|}{\| \mathbf {r}'(t) \|} = 1\)</span>. Also, it is worth noting
+that the unit tangent vector at a point of all smooth
+parametrizations of a curve are the same because the tangent vectors
+are normalized. Continuing, we can define another term.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-2'>
+  <div class='tcolorbox-title'>
+    <!-- l. 32 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.2</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 26 -->
+
+    <p class='noindent'>Given a smooth parametrization <span class=
+    'mathjax-inline'>\(\mathbf {r}\)</span> of a curve and the unit
+    tangent vector <span class='mathjax-inline'>\(\mathbf
+    {T}(t)\)</span>, the <span class='pplb8t-x-x-109'>unit normal
+    vector</span> to the curve at <span class=
+    'mathjax-inline'>\(t\)</span> is defined as the following.
+    <span class='mathjax-block'>\[ \mathbf {N}(t) = \frac {\mathbf
+    {T}'(t)}{\| \mathbf {T}'(t) \|} \]</span></p>
+  </div>
+</div><!-- l. 34 -->
+
+<p class='noindent'>Notice that because <span class=
+'mathjax-inline'>\(\mathbf {T}'(t) \equiv 0\)</span> if a curve is a
+straight line, <span class='mathjax-inline'>\(\mathbf {N}(t)\)</span>
+is not defined. Moreover, notice that because <span class=
+'mathjax-inline'>\(\mathbf {T}(t) \cdot \mathbf {T}(t) = 1\)</span>
+and <span class='mathjax-inline'>\(2\mathbf {T}'(t) \cdot \mathbf
+{T}(t) = 0\)</span>, <span class='mathjax-inline'>\(\mathbf
+{N}(t)\)</span> is orthogonal to <span class=
+'mathjax-inline'>\(\mathbf {T}(t)\)</span> as the name suggests!
+However, there are different ways for <span class=
+'mathjax-inline'>\(\mathbf {N}\)</span> to be orthogonal to
+<span class='mathjax-inline'>\(\mathbf {T}\)</span> geometrically.
+For instance, in 2-space, we have two directions and we have
+infinitely many possibilities in 3-space. To clarify the direction in
+which <span class='mathjax-inline'>\(\mathbf {N}\)</span> is
+orthogonal in 2-space, consider the following theorem.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-3'>
+  <a id='x1-1004x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 48 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.3</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 46 -->
+
+    <p class='noindent'>Given a smooth curve <span class=
+    'mathjax-inline'>\(C\)</span> in 2-space, the unit normal vector
+    at a point on the curve is towards the concave side.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-1'>
+  <!-- l. 50 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 50 -->
+
+  <p class='noindent'>Notice that to show that <span class=
+  'mathjax-inline'>\(\mathbf {N}(t)\)</span> point towards the
+  concave side of the curve, it suffices to show that the curve bends
+  towards the direction of <span class='mathjax-inline'>\(\mathbf
+  {T}'(t)\)</span>. Let <span class='mathjax-inline'>\(\theta
+  (t)\)</span> be the angle of <span class='mathjax-inline'>\(\mathbf
+  {T}\)</span> from the positive <span class=
+  'mathjax-inline'>\(x\)</span>-axis. Notice that because
+  <span class='mathjax-inline'>\(\mathbf {T}\)</span> is a unit
+  vector, <span class='mathjax-inline'>\(\mathbf {T}\)</span> can be
+  written as <span class='mathjax-inline'>\(\mathbf {T} = (\cos
+  \theta (t), \sin \theta (t))\)</span>.</p><!-- l. 57 -->
+
+  <p class='noindent'>Continuing, <span class=
+  'mathjax-inline'>\(\mathbf {T}'(t) = \theta '(t)(-\sin \theta (t),
+  \cos \theta (t))\)</span>, which can be obtained by rotating
+  <span class='mathjax-inline'>\(\mathbf {T}\)</span> by <span class=
+  'mathjax-inline'>\(90^\circ \)</span> and multiplying by
+  <span class='mathjax-inline'>\(\theta '(t)\)</span>. Note that if
+  <span class='mathjax-inline'>\(\theta '(t) &gt; 0\)</span>, then it
+  is pointing towards the left, or towards the concave side, of the
+  curve. Similarly, if <span class='mathjax-inline'>\(\theta
+  '(t)\)</span>, then <span class='mathjax-inline'>\(\mathbf
+  {T}'(t)\)</span> is pointing towards the left, or towards the
+  concave side, of the curve. Because the normal vector is not
+  defined when <span class='mathjax-inline'>\(\theta '(t) =
+  0\)</span>, the theorem holds.</p>
+</div><!-- l. 67 -->
+
+<p class='noindent'>Before we get into curvature, here is one last
+definition.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-4'>
+  <div class='tcolorbox-title'>
+    <!-- l. 73 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.4</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 70 -->
+
+    <p class='noindent'>Given a smooth curve in 3-space, the
+    <span class='pplb8t-x-x-109'>binormal vector</span> to the curve
+    at <span class='mathjax-inline'>\(t\)</span> is defined as
+    <span class='mathjax-inline'>\(\mathbf {B}(t) = \mathbf {T}(t)
+    \times \mathbf {N}(t)\)</span>.</p>
+  </div>
+</div><!-- l. 75 -->
+
+<p class='noindent'>From the definition, we can infer that
+<span class='mathjax-inline'>\(\mathbf {B}\)</span> is orthogonal to
+both unit tangent vector and unit normal vector, and is also a unit
+vector. The coordinate system using <span class=
+'mathjax-inline'>\(\mathbf {N}\)</span>, <span class=
+'mathjax-inline'>\(\mathbf {T}\)</span>, and <span class=
+'mathjax-inline'>\(\mathbf {B}\)</span> is known as <span class=
+'pplb8t-x-x-109'>Frenet frame</span> or <span class=
+'pplb8t-x-x-109'>TNB-frame</span>.</p>
+
+<div class='mdframed' id='mdframed-2'>
+  <!-- l. 82 -->
+
+  <p class='noindent'>One more thing that we can notice from the
+  definition is that <span class='mathjax-inline'>\(\mathbf
+  {B}(t)\)</span> can be written as the following at <span class=
+  'mathjax-inline'>\(t\)</span> and <span class=
+  'mathjax-inline'>\(s\)</span> if the parametrization is
+  <span class='mathjax-inline'>\(\mathbf {r}(s)\)</span>.
+  <span class='mathjax-env mathjax-align*'>\begin{align*} \mathbf
+  {B}(t) &amp;= \frac {\mathbf {r}'(t) \times \mathbf {r}''(t)} {\|
+  \mathbf {r}'(t) \times \mathbf {r}''(t) \|} \\ \mathbf {B}(s)
+  &amp;= \frac {\mathbf {r}'(s) \times \mathbf {r}''(s)} {\| \mathbf
+  {r}'(s) \times \mathbf {r}''(s) \|} = \frac {\mathbf {r}'(s) \times
+  \mathbf {r}''(s)} {\| \mathbf {r}''(s) \|} \end{align*}</span></p>
+</div><!-- l. 97 -->
+
+<p class='noindent'>Because the derivation is fairly straightforward
+with definition and <span class='mathjax-inline'>\(\mathbf {r}'
+\times \mathbf {r}' = 0\)</span>, let’s skip the proof. Now let’s
+discuss about curvature!</p><!-- l. 101 -->
+
+<p class='noindent'>Just for the sake of intuition, consider a circle
+and a square root function. From those two, the circle has larger
+curvature because it curves more, and we can represent that by the
+rate of changes in the direction of the tangent vector. Here is more
+rigorous definition.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-5'>
+  <div class='tcolorbox-title'>
+    <!-- l. 109 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.5</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 107 -->
+
+    <p class='noindent'>Given an arc length parametrization of a
+    curve, the <span class='pplb8t-x-x-109'>curvature</span> of the
+    curve at <span class='mathjax-inline'>\(s\)</span> is defined as
+    <span class='mathjax-inline'>\(\kappa (s) = \| \mathbf {T}'(s)
+    \|\)</span>.</p>
+  </div>
+</div><!-- l. 111 -->
+
+<p class='noindent'>In other words, curvature is the rate of change
+of the tangent vector with respect to its arc length. Notice that
+<span class='mathjax-inline'>\(\kappa (s)\)</span> is a function in
+terms of <span class='mathjax-inline'>\(s\)</span>.</p>
+
+<div class='mdframed' id='mdframed-3'>
+  <!-- l. 116 -->
+
+  <p class='noindent'>If the parametrization is not arc-length, then
+  we write it as <span class='mathjax-inline'>\(\kappa (t =
+  t_0)\)</span> for clarity and the following equation holds.
+  <span class='mathjax-block'>\[ \kappa (t = t_0) = \frac {\| \mathbf
+  {T_1}' (t_0) \|}{\| \mathbf {r_1}' (t_0) \|} \]</span></p>
+</div><!-- l. 125 -->
+
+<p class='noindent'>To see why this is true, consider the arc-length
+parametrization <span class='mathjax-inline'>\(\mathbf {r_2}(s) =
+\mathbf {r_1}(g(s))\)</span>. Similarly, let <span class=
+'mathjax-inline'>\(\mathbf {T_1}\)</span> and <span class=
+'mathjax-inline'>\(\mathbf {T_2}\)</span> be the respective unit
+tangent vectors. Then, the following equations hold. <span class=
+'mathjax-env mathjax-align*'>\begin{align*} \kappa (t = t_0) &amp;=
+\kappa (s = s_0) = \| \mathbf {T_2}'(s_0) \| = \| \mathbf
+{T_1}'(g(s_0)) \cdot g'(s_0) \| \\ &amp;= \frac {\| \mathbf
+{T_1}'(g(s_0)) \cdot g'(s_0) \|} {\| \mathbf {r_2}'(s_0) \|} = \frac
+{\mathbf {T_1}'(g(s_0))}{\mathbf {r_1}'(g(s_0))}
+\end{align*}</span></p><!-- l. 138 -->
+
+<p class='noindent'>Therefore, the equation holds.</p><!-- l. 140 -->
+
+<p class='noindent'>Continuing, here is another interesting theorem.
+This is quite important because many times curvature is defined and
+used with this theorem, or formula, below.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-6'>
+  <a id='x1-1008x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 152 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.6</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 145 -->
+
+    <p class='noindent'>Let <span class='mathjax-inline'>\(\mathbf
+    {r}(t)\)</span> be a smooth parametrization of a curve in
+    3-space. If <span class='mathjax-inline'>\(\mathbf
+    {r}''(t_0)\)</span> is defined, then the following equation
+    holds. <span class='mathjax-block'>\[ \kappa (t = t_0) = \frac {
+    \| \mathbf {r}'(t_0) \times \mathbf {r}''(t_0) \| } {\| \mathbf
+    {r}'(t_0) \|^3} \]</span></p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-4'>
+  <!-- l. 154 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 154 -->
+
+  <p class='noindent'>Define <span class='mathjax-inline'>\(\mathbf
+  {r_1}(s) = \mathbf {r}(g(s))\)</span> where <span class=
+  'mathjax-inline'>\(g\)</span> is an arc length change. Then, it
+  suffices to show that <span class='mathjax-inline'>\(\| \mathbf
+  {r_1}''(s_0) \| = \frac { \| \mathbf {r}'(t_0) \times \mathbf
+  {r}''(t_0) \| } {\| \mathbf {r}'(t_0) \|^3}\)</span>.</p>
+  <!-- l. 159 -->
+
+  <p class='noindent'>Notice that by construction, the following
+  equations hold. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} \mathbf {r_1}'(s)
+  &amp;= \mathbf {r}'(g(s)) g'(s) \\ \mathbf {r_1}''(s) &amp;=
+  \mathbf {r}''(g(s)) g'(s)^2 + \mathbf {r}'(g(s)) g''(s)
+  \end{align*}</span></p><!-- l. 166 -->
+
+  <p class='noindent'>Therefore, the following equations hold.
+  <span class='mathjax-env mathjax-align*'>\begin{align*} \frac { \|
+  \mathbf {r}'(t_0) \times \mathbf {r}''(t_0) \| } {\| \mathbf
+  {r}'(t_0) \|^3} &amp;= \frac { \| \mathbf {r}'(g(s_0)) \times
+  \mathbf {r}''(g(s_0)) \| } {\| \mathbf {r}'(g(s_0)) \|^3} \\ &amp;=
+  \frac { \| \mathbf {r}'(g(s_0)) \times \mathbf {r}''(g(s_0)) \| |
+  g'(s_0) |^3 }{\| \mathbf {r}'(g(s_0)) g'(s_0) \|^3} \\ &amp;= \|
+  \mathbf {r_1}'(s_0) \times \mathbf {r_1}''(s_0) \| \\ &amp;= \|
+  \mathbf {r_1}''(s_0) \| \end{align*}</span></p><!-- l. 179 -->
+
+  <p class='noindent'>Therefore, the equation holds.</p>
+</div><!-- l. 182 -->
+
+<p class='noindent'>Notice that if <span class=
+'mathjax-inline'>\(\mathbf {r}(t) = \langle x(t), y(t), 0 \rangle
+\)</span>, then this theorem also holds for 2-space.</p>

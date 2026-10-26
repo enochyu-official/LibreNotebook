@@ -171,7 +171,9 @@ td.gather {text-align:center; }
 table.gather {width:100%;}
 div.gather-star {text-align:center;}
 .textls{letter-spacing:0.05rem;}
+.columnbreak {break-before: column; -webkit-column-break-before: always; }
 .rotatebox{display: inline-block;}
+div.colorbox {width: fit-content; padding: 0.2em;}
 dl.enumerate-enumitem{display:grid; grid-template-columns: min-content 1fr; align-items: top; row-gap:0ch;}
 dt.enumerate-enumitem{text-align: right;}
 dd.enumerate-enumitem{margin-left:1ch;}
@@ -208,7 +210,7 @@ dd.thebibliography {margin-left: 5em;}
 dt.thebibliography {float:left; clear:left; margin-right:1em;}
 .tcolorbox{margin-top:0.5em;margin-bottom: 0.5em;}
 .tcolorbox .lowerbox{margin-top:0pt;}
-div.verbatiminput {font-family: monospace,monospace; white-space: nowrap; }
+div.verbatiminput {font-family: monospace,monospace; white-space: pre-wrap; }
 .mdframed{margin-top:1em;margin-bottom:1em;}
 code.lstinline{font-family:monospace,monospace;}
 pre.listings{font-family: monospace,monospace; white-space: pre-wrap; margin-top:0.5em; margin-bottom:0.5em; }

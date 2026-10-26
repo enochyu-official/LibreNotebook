@@ -1,34 +1,165 @@
 <h3 class='sectionHead' id='homothety'><span class=
 'titlemark'>0.1</span> <a id='x1-10000.1'></a>Homothety</h3>
+<!-- l. 7 -->
 
-<div class='tcolorbox theostyle' id='tcolobox-1'>
-  <a id='x1-1002x0.1'></a>
+<p class='noindent'>Homothety is a type of linear transformation that
+concerns dilation. Although it is a projective transformation, we
+consider this as a topic in Euclidean geometry. In this section, we
+are going to review important topics and properties in homothety.</p>
 
+<div class='tcolorbox defstyle' id='tcolobox-1'>
   <div class='tcolorbox-title'>
-    <!-- l. 10 -->
+    <!-- l. 16 -->
 
-    <p class='noindent'>Theorem&nbsp;0.1.1:&nbsp;Monge’s Theorem</p>
+    <p class='noindent'>Definition&nbsp;0.1.1</p>
   </div>
 
   <div class='tcolorbox-content'>
-    <!-- l. 8 -->
+    <!-- l. 13 -->
+
+    <p class='noindent'><span class='pplb8t-x-x-109'>Homothety</span>
+    is a linear dilation of a point <span class=
+    'mathjax-inline'>\(A\)</span> from a point <span class=
+    'mathjax-inline'>\(P\)</span> with factor <span class=
+    'mathjax-inline'>\(k\)</span> such that <span class=
+    'mathjax-inline'>\(k\vec {AP} = \vec {A'P}\)</span> where
+    <span class='mathjax-inline'>\(A'\)</span> is the <span class=
+    'pplb8t-x-x-109'>image</span> of <span class=
+    'mathjax-inline'>\(A\)</span>.</p>
+  </div>
+</div><!-- l. 18 -->
+
+<p class='noindent'>For a more visual explanation, consider the
+following diagrams that are both homothetic to center <span class=
+'mathjax-inline'>\(P\)</span>.</p>
+
+<div class='minipage'>
+  <!-- l. 24 -->
+
+  <p class='noindent'><img alt='[Picture]' src=
+  '/svg/MATH0103.260840x.svg' /></p>
+</div>
+
+<div class='minipage'>
+  <!-- l. 63 -->
+
+  <p class='noindent'><img alt='[Picture]' src=
+  '/svg/MATH0103.260841x.svg' /></p>
+</div><!-- l. 125 -->
+
+<p class='noindent'>As you can see from the diagram above, the
+homothetic center, a point, and its image are collinear. Also, a
+figure and its image is also similar.</p>
+
+<div class='mdframed' id='mdframed-1'>
+  <!-- l. 130 -->
+
+  <p class='noindent'>This can come especially handy when we have to
+  prove collinearity of three points because if a triangle is an
+  image of the other triangle, then the homothetic center and the
+  circumcenters of the triangles are collinear.</p>
+</div><!-- l. 136 -->
+
+<p class='noindent'>I will skip the proof since it is quite
+straightforward using similar triangles. Here is an example problem
+using the collinearity of the three points.</p>
+
+<div class='tcolorbox probstyle' id='tcolobox-2'>
+  <a id='x1-1003x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 147 -->
+
+    <p class='noindent'>Exercise&nbsp;0.1.2:&nbsp;2013 KMO Problem
+    1</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 141 -->
+
+    <p class='noindent'>Given a triangle <span class=
+    'mathjax-inline'>\(ABC\)</span>, let <span class=
+    'mathjax-inline'>\(P\)</span> be a point on the side <span class=
+    'mathjax-inline'>\(BC\)</span> and define points <span class=
+    'mathjax-inline'>\(Q\)</span> and <span class=
+    'mathjax-inline'>\(R\)</span> as the intersections of the lines
+    parallel to <span class='mathjax-inline'>\(AC\)</span> and
+    <span class='mathjax-inline'>\(AB\)</span> that passes through
+    <span class='mathjax-inline'>\(P\)</span> with <span class=
+    'mathjax-inline'>\(AB\)</span> and <span class=
+    'mathjax-inline'>\(AC\)</span> respectively. Let <span class=
+    'mathjax-inline'>\(O, O_1, O_2\)</span> be the circumcenters of
+    triangles <span class='mathjax-inline'>\(ABC, BPR, PCQ\)</span>
+    respectively. If <span class='mathjax-inline'>\(K \neq P\)</span>
+    is the intersection of the circumcircles of <span class=
+    'mathjax-inline'>\(\triangle {BPR}\)</span> and <span class=
+    'mathjax-inline'>\(\triangle {PCQ}\)</span>, show that
+    <span class='mathjax-inline'>\(OO_1 = KO_2\)</span>.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-2'>
+  <!-- l. 149 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 149 -->
+
+  <p class='noindent'>First, consider the following diagram.</p>
+  <!-- l. 152 -->
+
+  <p class='noindent'><img alt='[Picture]' src=
+  '/svg/MATH0103.260842x.svg' /></p><!-- l. 198 -->
+
+  <p class='noindent'>First, notice that because <span class=
+  'mathjax-inline'>\(KO_2 = PO_2\)</span>, it suffices to show that
+  quadrilateral <span class='mathjax-inline'>\(OO_1PO_2\)</span> is a
+  parallelogram. Let <span class='mathjax-inline'>\(\angle {BAC} =
+  \alpha \)</span>. Notice that <span class='mathjax-inline'>\(\angle
+  {BO_1P} = \angle {PO_2C} = \angle {BOC} = 2\alpha \)</span>.
+  Therefore, it suffices to show that <span class=
+  'mathjax-inline'>\(B, O_1, O\)</span> and <span class=
+  'mathjax-inline'>\(C, O_2, O\)</span> are collinear. By
+  construction, <span class='mathjax-inline'>\(\triangle
+  {BRP}\)</span> and <span class='mathjax-inline'>\(\triangle
+  {BAC}\)</span> and <span class='mathjax-inline'>\(\triangle
+  {CQP}\)</span> and <span class='mathjax-inline'>\(\triangle
+  {CAB}\)</span> are homothetic from <span class=
+  'mathjax-inline'>\(B\)</span> and <span class=
+  'mathjax-inline'>\(C\)</span> respectively. Thus, <span class=
+  'mathjax-inline'>\(OO_1 = KO_2\)</span>.</p>
+</div><!-- l. 207 -->
+
+<p class='noindent'>With this basic idea in mind, let’s discuss an
+important theorem.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-3'>
+  <a id='x1-1005x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 212 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.3:&nbsp;Monge’s Theorem</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 210 -->
 
     <p class='noindent'>The pairwise external similitude centers of
     three distinct circles are collinear.</p>
   </div>
 </div>
 
-<div class='mdframed' id='mdframed-1'>
-  <!-- l. 12 -->
+<div class='mdframed' id='mdframed-3'>
+  <!-- l. 214 -->
 
   <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
-  <!-- l. 12 -->
+  <!-- l. 214 -->
 
   <p class='noindent'>First, consider the following diagram.</p>
-  <!-- l. 15 -->
+  <!-- l. 217 -->
 
   <p class='noindent'><img alt='[Picture]' src=
-  '/svg/MATH0103.260840x.svg' /></p><!-- l. 61 -->
+  '/svg/MATH0103.260843x.svg' /></p><!-- l. 263 -->
 
   <p class='noindent'>From the diagram above, it is evident that
   <span class='mathjax-inline'>\(X,Y,Z\)</span> are collinear if and
@@ -44,4 +175,9 @@
   {R_1}{R_3}\)</span>. Because <span class='mathjax-inline'>\(\frac
   {R_2}{R_1} \cdot \frac {R_3}{R_2} \cdot \frac {R_1}{R_3} =
   1\)</span>, the theorem holds.</p>
-</div>
+</div><!-- l. 277 -->
+
+<p class='noindent'>Homothety in my opinion very popular and powerful
+tool because it gives the best conditions like parallel sides and
+similarity. This is it for this section, and we will discuss more on
+different points and circles of a triangle in the next section.</p>

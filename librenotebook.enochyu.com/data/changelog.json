@@ -1,5 +1,75 @@
 [
   {
+    "hash": "8100ed1015e4dd1dde668951bbc9364b42e1e1e4",
+    "commit": "8100ed1",
+    "date": "2026-10-26",
+    "author": "Enoch Yu",
+    "message": "feat(web): TOC for single"
+  },
+  {
+    "hash": "dae0dbc9d7d7a8f9cd67848a85ed741ad5ff5f57",
+    "commit": "dae0dbc",
+    "date": "2026-10-26",
+    "author": "Enoch Yu",
+    "message": "feat(MATH03): Curvature"
+  },
+  {
+    "hash": "48b5d9ff2850a5c1fa9589aad529253997e4a55f",
+    "commit": "48b5d9f",
+    "date": "2026-10-25",
+    "author": "Enoch Yu",
+    "message": "feat(MATH01): Pascal"
+  },
+  {
+    "hash": "c8b45898ec861883efd2d7d5c878750ada93d675",
+    "commit": "c8b4589",
+    "date": "2026-10-24",
+    "author": "Enoch Yu",
+    "message": "feat(MATH01): Homothety"
+  },
+  {
+    "hash": "84bc947fe64ee45d3b8e968ebb87f3ddf755a196",
+    "commit": "84bc947",
+    "date": "2026-10-23",
+    "author": "Enoch Yu",
+    "message": "feat(MATH01): Six collinear points"
+  },
+  {
+    "hash": "5f1a5495e5305831f186af1dba58005c3c8202a3",
+    "commit": "5f1a549",
+    "date": "2026-10-22",
+    "author": "Enoch Yu",
+    "message": "Merge pull request #5 from enochyu-official/web"
+  },
+  {
+    "hash": "e84a81372491efb0a2880a78b8b1e1be1008fc50",
+    "commit": "e84a813",
+    "date": "2026-10-22",
+    "author": "Enoch Yu",
+    "message": "Merge remote-tracking branch 'origin/main' into web"
+  },
+  {
+    "hash": "89abb8ebf3e18fa92ecbc988791e9bac411c0092",
+    "commit": "89abb8e",
+    "date": "2026-10-22",
+    "author": "Enoch Yu",
+    "message": "feat(web): Update public"
+  },
+  {
+    "hash": "57f3996a7c460e82977c166e79a34db41e3d7837",
+    "commit": "57f3996",
+    "date": "2026-10-22",
+    "author": "Enoch Yu",
+    "message": "Merge pull request #4 from enochyu-official/web"
+  },
+  {
+    "hash": "2481a1fe541669ddba9d1441a40ca9476304ae1c",
+    "commit": "2481a1f",
+    "date": "2026-10-22",
+    "author": "Enoch Yu",
+    "message": "feat(web): Add new notes"
+  },
+  {
     "hash": "133a5493343beeca0042688027dcd792cc094ff1",
     "commit": "133a549",
     "date": "2026-10-22",
