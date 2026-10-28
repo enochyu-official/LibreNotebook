@@ -180,9 +180,159 @@ Therefore, the equation holds.
 \end{proof}
 
 Notice that if $\mathbf{r}(t) = \langle x(t), y(t), 0 \rangle$,
-then this theorem also holds for 2-space.
+then this theorem also holds for 2-space. Let's take a look at an
+example for computing curvature at a points of a curve.
 
+\begin{problem}{}{}
+Find the curvature of the helix $\mathbf{r}(t) = \langle a \cos t,
+a \sin t, bt \rangle$ at $t$ given that $a > 0$.
+\end{problem}
+\begin{solution}
+First, recall that $\kappa(t_0) = \frac{ \| \mathbf{r}'(t_0) \times
+\mathbf{r}''(t_0) \| }{\| \mathbf{r}'(t_0) \|^3}$. Moreover,
+the following equations hold.
+\begin{align*}
+    \mathbf{r}'(t) &= \langle -a \sin t, a \cos t, b \rangle \\
+    \mathbf{r}''(t) &= \langle -a \cos t, -a \sin t, b \rangle \\
+    \mathbf{r}'(t) \times \mathbf{r}''(t)
+    &= \langle ab \sin t, - ab \cos t, a^2 \rangle
+\end{align*}
+Therefore, $\| \mathbf{r}'(t) \times \mathbf{r}''(t) \| =
+a \sqrt{a^2 + b^2}$ and $\| \mathbf{r}'(t) \| = \sqrt{a^2 + b^2}$.
+In other words, $\kappa(t_0) = \frac{a}{a^2 + b^2}$.
+\end{solution}
 
+In this case, we could see that the curvature is constant because it
+is a circular helix. The similar idea apply for 2-space.
+
+\begin{problem}{}{}
+Given a circle $\mathbf{r}(t) = \langle a \cos t, a \sin t \rangle$
+with $a > 0$, find the curvature at each point on the circle.
+\end{problem}
+\begin{solution}
+First, notice that
+\begin{align*}
+    \mathbf{r}'(t) &= \langle -a \sin t, a \cos t, 0 \rangle \\
+    \mathbf{r}''(t) &= \langle -a \cos t, -a \sin t, 0 \rangle
+\end{align*}
+holds. Therefore, $\kappa(t) = \frac{a^2}{(a^2 \sin^2 t +
+a^2 \cos^2 t)^\frac{3}{2}} = \frac{1}{a}$.
+\end{solution}
+
+Again, the curvature is constant! Another interesting property of
+circle is that its curvature at each point is the reciprocal of its
+radius. Continuing with this observation, we can establish the
+following definitions.
+
+\begin{definition}{}{}
+Given a point $P$ on a curve $C$ with curvature $\kappa_0$,
+there exists a unique circle $\omega$ that is tangent to the line
+that is tangent to $C$ at $P$ and is on the concave side of $C$.
+Such circle is known as \textbf{osculating circle} to $C$ at $P$
+where the radius $\frac{1}{\kappa_0}$ and its center are known as
+the \textbf{radius of curvature} and the \textbf{center of curvature}
+of $C$ at $P$.
+\end{definition}
+
+From the definition and construction, we can notice that the
+osculating circle can be used to best approximate the curve at $P$.
+
+Another interesting property that we can notice from curvature for an
+arc-length parametrization in 2-space is its relationship with the
+angle that the unit tangent vector makes with the positive $x$-axis.
+Notice that $\mathbf{T}(\theta) = \langle \cos\theta, \sin\theta
+\rangle$. More $\mathbf{T}(s) = \mathbf{T}(\theta(s)) = \langle
+\cos\theta(s), \sin\theta(s) \rangle$. Because $\| \frac{d\mathbf{T}}
+{d\theta} = 1$, $\kappa(s) = \| \frac{d\mathbf{T}}{ds} \| =
+\| \frac{d\mathbf{T}}{d\theta} \cdot \frac{d\theta}{ds} \| =
+| \frac{d\theta}{ds} |$.
+
+\begin{important}
+Therefore, $\kappa(s) = | \frac{d\theta}{ds} |$ if $\theta$ is the
+angle that the unit tangent vector makes with the positive $x$-axis
+given an arc-length parameterization of a curve.
+\end{important}
+
+Before we wrap up this note, here are some interesting connections
+we can make with curvature and physics.
+
+First, notice that $\mathbf{v}(t) = \frac{ds}{dt} \mathbf{T}(t)$
+given an arc-length parameterization. Therefore, the following
+equations hold.
+\begin{align*}
+    \mathbf{a}(t)
+    &= \frac{d^2s}{dt^2} \mathbf{T}(t)
+        + \frac{ds}{dt} \mathbf{T}'(t)
+    = \frac{d^2s}{dt^2} \mathbf{T}(t)
+        + \| \mathbf{r}'(t) \| \mathbf{T}'(t) \\
+    &= \frac{d^2s}{dt^2} \mathbf{T}(t)
+        + \| \mathbf{r}'(t) \| \mathbf{T}'(t)
+    = \frac{d^2s}{dt^2} \mathbf{T}(t)
+        + \frac{ \| \mathbf{T}'(t) \| }{ \| \mathbf{r}'(t) \| }
+            \cdot \| \mathbf{r}'(t) \|^2
+            \cdot \frac{\mathbf{T}'(t)}{ \| \mathbf{T}'(t) \| } \\
+    &= \frac{d^2s}{dt^2} \mathbf{T}(t)
+        + \kappa(t) \| \mathbf{r}'(t) \|^2 \mathbf{N}(t)
+\end{align*}
+Therefore, we can conclude the following.
+
+\begin{important}
+Given an arc-length parametrization of position of a particle,
+its acceleration at $t$ can be represented as the following.
+\[
+\mathbf{a}(t)
+= \frac{d^2s}{dt^2} \mathbf{T}(t)
+    + \kappa(t) \| \frac{ds}{dt} \|^2 \mathbf{N}(t)
+\]
+\end{important}
+
+We can also notice that this equation is consistent with centripetal
+force and acceleration in linear path! Continuing from this equation,
+we can establish the following definition.
+
+\begin{definition}{}{}
+Let $a_T(t) = \frac{d^2s}{dt^2}$ and $a_N(t) = \kappa(t)
+\| \frac{ds}{dt} \|^2$. Then $\mathbf{a}(t) = a_T \mathbf{T} +
+a_N \mathbf{N}$. The terms $a_T$ and $a_N$ are known as the
+\textbf{tangential component of acceleration} and the
+\textbf{normal component of acceleration}. Moreover, $a_T \mathbf{T}$
+and $a_N \mathbf{N}$ are known as the \textbf{tangential vector
+component of acceleration} and the \textbf{normal vector component of
+acceleration} respectively.
+\end{definition}
+
+Continuing from this notation and definition, we can notice the
+following.
+
+\begin{important}
+Given a smooth parametrization of the position of a particle,
+the following equations hold.
+\begin{align*}
+    a_T &= \frac{\mathbf{v} \cdot \mathbf{a}}{\| \mathbf{v} \|} \\
+    a_N &= \frac{\mathbf{v} \times \mathbf{a}}{\| \mathbf{v} \|} \\
+    \kappa
+    &= \frac{\mathbf{v} \times \mathbf{a}}{\| \mathbf{v} \|^3} \\
+    \| \mathbf{a} \|^2 &= a_T^2 + a_N^2
+\end{align*}
+\end{important}
+
+The derivation of these equations are fairly straightforward, so let's
+skip the proof. Finally, consider the following equations for
+projectile motion.
+\begin{align*}
+    \mathbf{a} &= -g \mathbf{j} \\
+    \mathbf{v} &= -gt \mathbf{j} + \mathbf{v_0} \\
+    \mathbf{r}
+    &= \left( -\frac{gt^2}{2} + \mathbf{s_0} \right) \mathbf{j}
+        + t\mathbf{v_0}
+\end{align*}
+Substituting $\mathbf{v_0} = \langle x, y \rangle$, we can see that
+the following equation holds.
+\[
+y = \left( -\frac{g}{2a^2} \right) x^2 + \frac{b}{a} x + \mathbf{s_0}
+\]
+Indeed projectile motions are parabolas, and this is it for this note!
+In the next note, we will discuss about multivariable functions.
 
 \end{document}
 
