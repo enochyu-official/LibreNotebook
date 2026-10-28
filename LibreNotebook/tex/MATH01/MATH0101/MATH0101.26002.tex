@@ -90,6 +90,29 @@ Multiplying the inequalities,
 hold and $(a + b)(b + c)(c + d)(d + a) \geq 16abcd$.
 \end{solution}
 
+Here is another example for AMGM.
+
+\begin{problem}{2010 KMO Problem 5 \easy}{2010 KMO Problem 5}
+Given positive reals $x, y, z$ such that $x + y + z = 1$, show that
+the following inequality holds.
+\[
+\sqrt{\frac{x}{1 - x}} +
+\sqrt{\frac{y}{1 - y}} +
+\sqrt{\frac{z}{1 - z}}
+> 2
+\]
+\end{problem}
+\begin{solution}
+First, consider AMGM with $t$ and $1 - t$ where $0 < t < 1$.
+$\frac{1}{2} \geq \sqrt{t(1 - t)}$ and the equality holds if and
+only if $t = \frac{1}{2}$. Rearranging the inequality, $\frac{1}
+{\sqrt{t(1 - t)}} \geq 2$ and $\sqrt{\frac{t}{1 - t}} \geq 2t$.
+Substituting $x, y, z$, $\sqrt{\frac{x}{1 - x}} +
+\sqrt{\frac{y}{1 - y}} + \sqrt{\frac{z}{1 - z}} \geq 2$ is obtained.
+However, because $x = y = z = \frac{1}{2}$ cannot hold, the inequality
+is strict.
+\end{solution}
+
 When we discuss arithmetic and geometric mean, we normally
 include weighted means, so let's do the same for inequality.
 
@@ -125,7 +148,8 @@ First, consider the following weighted AM-GM inequality for
 $a, b, c, \linebreak d$ with weights $a, b, c, d$ respectively.
 \begin{align*}
     \frac{a \cdot a + b \cdot b + c \cdot c + d \cdot d}
-        {a + b + c + d} 
+        {a + b + c + d}
+    \displaybreak
     &\geq \sqrt[a + b + c + d]{a^a b^b c^c d^d} \\
     a^2 + b^2 + c^2 + d^2
     &\geq a^a b^b c^c d^d

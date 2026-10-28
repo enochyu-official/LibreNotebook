@@ -27,7 +27,6 @@
   * Ptolemy
 
 * MATH0101.26002
-  * Second problem for AM-GM Inequality
   * Add more examples
 * MATH0101.26003
   * Schur’s Inequality (Convexity Arguments)
