@@ -1,0 +1,69 @@
+\documentclass[../../../main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{Multivariable Functions and Continuity}
+
+Finally, we are going to discuss about multivariable calculus!
+Before we get too excited, we need to discuss some of the fundamental
+topics on multivariable functions and their limits, continuity, and
+differentiability. In this note, we are going to discuss fundamental
+and necessary topics before investigating more into other calculus
+topics.
+
+\section{Multivariable Functions and Sets}
+
+As always, let's get started with definitions and common notations.
+Consider the following notation.
+\[
+\mathbb{R}^n
+\coloneqq \{ (x_1, x_2, \ldots, x_n) \mid x_i \in \mathbb{R} \}
+\]
+As you can notice from the equation, $\mathbb{R}^n$ represents an
+$n$-tuple composed of real numbers. Some examples include
+$\mathbb{R}^2$ and $\mathbb{R}^3$, which represents the coordinates in
+2-space and 3-space respectively.
+
+\begin{important}
+Given this notation, we could naturally define a multivariable
+function $f(x_1, x_2, \ldots, x_n)$ as a function that maps
+the elements of $D \subset \mathbb{R}^n$ to a single real number.
+Here, the domain $D$ is represented as $\dom(f)$ and the range
+is denoted as $\ran(f)$.
+\end{important}
+
+If the domain is not explicitly stated for a function, we could just
+assume it to be the largest subset of $\mathbb{R}^n$ such that the
+function $f$ is defined.
+
+An interesting question to consider is how do you graph functions like
+$f(x, y)$. The answer to this question is pretty straightforward given
+that the graph of $f(x)$ is defined as $\{ (x, y) \mid y = f(x) \}$.
+For $f(x, y)$, we could simply extend it as $\{ (x, y, z) \mid
+z = f(x, y) \}$. For functions with more variables, it is impossible,
+or very difficult, to visually graph them, but there is a strategy
+to get a glimpse on their appearance. To get to the strategy,
+consider the following definitions.
+
+\begin{definition}{}{}
+Given a function $f(x, y)$, the \textbf{level curve} of $f$ of height
+$k$ is defined as the set $\{ (x, y) \mid f(x, y) = k \}$.
+The collection of different level curve of $f$ is known as a
+\textbf{contour plot}, or \textbf{contour map} of $f$.
+\end{definition}
+
+Recall that when we wanted to see how paraboloids look like,
+we drew many traces of the surface. This is exactly what it is!
+With the same idea, we can get a glimpse of how a complex functions
+in 3-space look like. Similarly, we could do the same for functions
+in $4$-space. Although it is almost impossible and very difficult,
+we can use this method to approximate its appearance.
+
+Continuing from the discussion on multivariable functions, let's now
+turn our attention to their domains.
+
+
+
+\end{document}
+
+
