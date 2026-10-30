@@ -165,7 +165,8 @@ Section III. Sections
 === | MATH0102.26096 | Foundations
 === | MATH0103.26097 | Six Collinear Points
 === | MATH0302.26098 | Curvature
-0.0 | MATH0303.26099 | Multivariable Functions and Sets
+=== | MATH0303.26099 | Multivariable Functions and Sets
+0.0 | MATH0303.26100 | Limits and Continuity
 ----------------------------------------------------------------------
 
 END OF INDEX

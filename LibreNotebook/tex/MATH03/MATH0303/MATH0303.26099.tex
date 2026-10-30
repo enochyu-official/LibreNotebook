@@ -60,9 +60,63 @@ in $4$-space. Although it is almost impossible and very difficult,
 we can use this method to approximate its appearance.
 
 Continuing from the discussion on multivariable functions, let's now
-turn our attention to their domains.
+turn our attention to their domains. As always, let's get started with
+definitions.
 
+\begin{definition}{}{}
+Given a point $P$ in 2-space or 3-space, the \textbf{open ball} or
+radius $r$ centered at $P$ is defined as the set of all points that
+lie inside the ball and denoted as $B_r(P)$.
+\[
+B_r (x_0, y_0)
+= \left\{
+    (x, y) \mid \sqrt{(x - x_0)^2 + (y - y_0)^2} < r
+\right\}
+\]
+Given $D$, a subset of $\mathbb{R}^2$ or $\mathbb{R}^3$, a point $P$
+is an \textbf{interior point} of $D$ and \textbf{boundary point} of
+$D$ if there exists $r > 0$ such that $B_r(P) \subset D$ and if
+$B_r(P)$ contains all points in and not in $D$ for all $r > 0$
+respectively.
+\end{definition}
 
+An intuitive way of understanding this considering $D$ as an area
+and the interior points are points inside that shaded area and the
+boundary points are the points that are on the boundary of $D$.
+Continuing, we can continue with the following definitions.
+
+\begin{definition}{}{}
+The \textbf{interior} of a set $D$ in 2-space or 3-space is the set of
+all interior points and the \textbf{boundary} of $D$ is the set of all
+boundary points of $D$. An \textbf{open set} is a set that does not
+contain its boundary points and a \textbf{closed set} is a set that
+contains all its boundary points.
+\end{definition}
+
+Some interesting fact that we can notice from these definitions is
+that a set $D$ in $2$-space or $3$-space is open and closed at the
+same time if and only if $D = \mathbb{R}^2$, $D = \mathbb{R}^3$,
+or $D = \emptyset$. This is because the three sets have empty boundary
+and it follows the definition of open and closed set. Such sets that
+are both open and closed are known as \textbf{clopen set} (really love
+the name!). Continuing with this definition, we could also define the
+following.
+
+\begin{definition}{}{}
+A set $D$ in $2$-space or $3$-space is \textbf{bounded} if for some
+point $P$ and $r > 0$, $D \subset B_r(P)$. Contrastingly, a set is
+\textbf{unbounded} if there is no such choice of $P$ and $r$.
+Moreover, a point $P$ is an \textbf{accumulation point} of $D$
+if for all $r > 0$, there exists a point $Q \neq P$ such that
+$Q \in D$ and $Q \in B_r(P)$.
+\end{definition}
+
+There were lots of definitions! I think it was very interesting
+to learn different ideas on sets because understanding the concepts,
+or definitions, in sets really widens the understanding of what it
+means to get arbitrarily close to a number and what limits are.
+This is it for this section, and in the next section, we will discuss
+more on limits and continuity of multivariable functions.
 
 \end{document}
 
