@@ -4,7 +4,135 @@
 
 \section{Limits and Continuity}
 
-Not as formal as Real Analysis
+Before we get into limits and continuity of multivariable functions,
+let's firsts review what limits are for single variable functions.
+Please note that the contents here will not be as ``formal'' or
+rigorous as taught in Real Analysis courses, but maybe I could
+include them in the future! First, recall the following definition
+of limit for a single variable function.
+
+\begin{definition}{}{}
+Given a function $f(x)$, the \textbf{limit} of $f(x)$ as $x$
+approaches $a$ denoted as $\lim_{x \to a} f(x) = L$ is defined
+as the following:
+\vspace{0.8\baselineskip}
+\begin{center}
+\begin{minipage}{0.7\textwidth}
+Given any $\epsilon > 0$, there exists $\delta > 0$ such that
+if $0 < | x - a | < \delta$, then $| f(x) - L | < \epsilon$.
+\end{minipage}
+\end{center}
+\end{definition}
+
+An intuitive way of understanding this epsilon-delta definition of
+limit would be finding a value that the bound of $f(x)$ gets
+arbitrarily close to as the distance between the bound for $x$ gets
+arbitrarily close to zero. Now for $2$-space, you are probably
+familiar with a graph involving a shaded rectangle. For $3$-space,
+it is similar, be we can think of it as a circle. Our bound is no
+longer the width of the rectangle, but the radius of the circle
+surrounding the point. Consider the following definition for
+functions in $3$-space, or functions with two variables.
+
+\begin{definition}{}{}
+Given a function $f(x, y)$, the limit of $f(x, y)$ as $(x, y)$
+approaches $(x_0, y_0)$ denoted as $\lim_{(x, y) \to (x_0, y_0)}
+f(x, y) = L$ is defined as the following:
+\vspace{0.6\baselineskip}
+\begin{center}
+\begin{minipage}{0.8\textwidth}
+Given any $\epsilon > 0$, there exists $\delta > 0$ such that
+for all $(x, y) \in \dom(f)$, if $0 < \sqrt{(x - x_0)^2 + (y - y_0)^2}
+< \delta$, then $| f(x, y) - L | < \epsilon$.
+\end{minipage}
+\end{center}
+\end{definition}
+
+Considering that $|x - a|$ is the distance between $x$ and $a$,
+I hope the expression $\sqrt{(x - x_0)^2 + (y - y_0)^2}$ is a
+natural extension because it represents the distance between
+$(x, y)$ and $(x_0, y_0)$. Let's take at an example.
+
+\begin{problem}{}{}
+Show that $\lim_{(x, y) \to (0, 0)} \frac{x + y}{x^2 + 1} = 0$.
+\end{problem}
+\begin{solution}
+Given $\epsilon > 0$, choose $\delta = \frac{\epsilon}{\sqrt{2}}$.
+Then, the following equations hold by AM-GM inequality.
+\[
+\left| \frac{x + y}{x^2 + 1} - 0 \right|
+\leq | x + y |
+\leq \sqrt{2x^2 + 2y^2}
+< \sqrt{2} \delta
+= \epsilon
+\]
+Therefore, $0 < \sqrt{(x - x_0)^2 + (y - y_0)^2} < \delta$,
+then $| f(x, y) - 0 | < \epsilon$.
+\end{solution}
+
+Similarly, we can replace the points in $2$-space to $3$-space to
+generalize for function with three variables. Another way of thinking
+about limits for multivariable functions are through different curves.
+
+\begin{definition}{}{}
+Given a function $f(x, y)$ and a smooth curve $C$ in $2$-space with
+$x(t) = x$ and $y(t) = y$ and $(x_0, y_0) = (x(t_0), y(t_0))$,
+then the following equation hold.
+\[
+\lim_{(x, y) \underset{\to}{C} (x_0, y_0)} f(x, y)
+= \lim_{t \to t_0} f(x(t), y(t))
+\]
+\end{definition}
+
+This is now easier because $\lim_{t \to t_0} f(x(t), y(t))$ is now a
+single variable limit. Here is an example continuing with our previous
+one.
+
+\begin{problem}{}{}
+Compute $\lim_{(x, y) \to (0, 0)} \frac{x + y}{x^2 + 1}$ along the
+path $y = x$.
+\end{problem}
+\begin{solution}
+Notice that $y = x$ can be represented as $x(t) = t$ and $y(t) = t$.
+Therefore, the limit can be rewritten as $\lim_{t \to 0}
+\frac{t + t}{t^2 + 1} = 0$. Therefore, the limit along the path
+$y = x$ is zero.
+\end{solution}
+
+However an important thing to note is that we have infinitely many
+different ways to represent a limit along different curves because
+there are infinitely different curves. This can cause a problem.
+What if the limits return different values from one to another?
+
+\begin{important}
+Finding limits along a curve does not represent the function's limit
+and cannot be used to prove the limit.
+\end{important}
+
+This is important because it shows that we can use this method to
+disprove the existence of limit, but not find limit. Here is an
+example.
+
+\begin{problem}{}{}
+Find, if any, the value of $\lim_{(x, y) \to (0, 0)}
+\frac{3y}{x^2 + y}$.
+\end{problem}
+\begin{solution}
+First, consider the limit along a curve $y = kx^2$ for any $k$.
+Notice that the limit can be represented as $\lim_{t \to 0}
+\frac{3kx^2}{x^2 + kx^2} = \frac{3k}{1 + k}$. Because
+$\frac{3k}{1 + k}$ depends on the value of $k$ and is not constant,
+the limit does not exist.
+\end{solution}
+
+One final thing before we wrap up our discussions about limit is that
+the properties of sum, different, product, and quotient applies the
+same for the generalized limits and limits along different curves
+just as the limit for single variable function!
+
+
+
+
 
 
 \end{document}
