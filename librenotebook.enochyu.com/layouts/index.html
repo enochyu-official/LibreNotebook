@@ -24,8 +24,8 @@
 
       <h3><span class="bold">Author:</span> Enoch Yu</h3>
       <h3><span class="bold">License:</span> CC-BY-SA-4.0</h3>
-      <h3><span class="bold">Version:</span> v1.10.26</h3>
-      <h3><span class="bold">Last Updated:</span> 26 October 2026
+      <h3><span class="bold">Version:</span> v1.10.31</h3>
+      <h3><span class="bold">Last Updated:</span> 31 October 2026
       (<a class="bold" href="/changelog">Changelog</a>)</h3>
     </div>
     <hr>
@@ -42,6 +42,23 @@
         <div class="index-stat-num" id="view-count">...</div>
         <div>Visits</div>
       </div>
+
+      <div>
+        {{ with partialCached "githubstars.html" . }}
+        <div class="index-stat-num">{{ .stargazers_count }}</div>
+        <div>GitHub Stars</div>
+        {{ end }}
+      </div>
+
+      <div>
+        {{ with .Site.Params.social.github }}
+        <a href="{{ . }}" target="_blank" rel="noopener"
+           aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        {{ end }}
+      </div>
+
       <div>
         {{ $total := 0 }}
         {{ range slice
@@ -58,27 +75,22 @@
         <div class="index-stat-num">{{ $total }}</div>
         <div>Notes</div>
       </div>
+
       <div>
-        {{ with partialCached "githubstars.html" . }}
-        <div class="index-stat-num">{{ .stargazers_count }}</div>
-        <div>GitHub Stars</div>
+        <div class="index-stat-num">
+          {{ len (readDir "static/svg") }}
+        </div>
+        <div>Figures</div>
+      </div>
+
+      <div>
+        {{ with .Site.Params.social.youtube }}
+        <a href="{{ . }}" target="_blank" rel="noopener"
+           aria-label="YouTube">
+          <i class="fab fa-youtube"></i>
+        </a>
         {{ end }}
       </div>
-    </div>
-
-    <div class="index-stat">
-      {{ with .Site.Params.social.youtube }}
-      <a href="{{ . }}" target="_blank" rel="noopener"
-         aria-label="YouTube">
-        <i class="fab fa-youtube"></i>
-      </a>
-      {{ end }}
-      {{ with .Site.Params.social.github }}
-      <a href="{{ . }}" target="_blank" rel="noopener"
-         aria-label="GitHub">
-        <i class="fab fa-github"></i>
-      </a>
-      {{ end }}
     </div>
     <hr><hr>
   </div>
