@@ -1,0 +1,215 @@
+<!-- l. 5 -->
+
+<p class='noindent'></p>
+
+<h2 class='chapterHead' id='multivariable-functions-and-continuity'>
+<span class='titlemark'>Note&nbsp;1</span><br>
+<a id='x1-10001'></a>Multivariable Functions and Continuity</h2>
+<!-- l. 7 -->
+
+<p class='noindent'>Finally, we are going to discuss about
+multivariable calculus! Before we get too excited, we need to discuss
+some of the fundamental topics on multivariable functions and their
+limits, continuity, and differentiability. In this note, we are going
+to discuss fundamental and necessary topics before investigating more
+into other calculus topics.</p>
+
+<h3 class='sectionHead' id='multivariable-functions-and-sets'>
+<span class='titlemark'>1.1</span> <a id=
+'x1-20001.1'></a>Multivariable Functions and Sets</h3><!-- l. 16 -->
+
+<p class='noindent'>As always, let’s get started with definitions and
+common notations. Consider the following notation. <span class=
+'mathjax-block'>\[ \mathbb {R}^n \coloneqq \{ (x_1, x_2, \ldots ,
+x_n) \mid x_i \in \mathbb {R} \} \]</span> As you can notice from the
+equation, <span class='mathjax-inline'>\(\mathbb {R}^n\)</span>
+represents an <span class='mathjax-inline'>\(n\)</span>-tuple
+composed of real numbers. Some examples include <span class=
+'mathjax-inline'>\(\mathbb {R}^2\)</span> and <span class=
+'mathjax-inline'>\(\mathbb {R}^3\)</span>, which represents the
+coordinates in 2-space and 3-space respectively.</p>
+
+<div class='mdframed' id='mdframed-1'>
+  <!-- l. 28 -->
+
+  <p class='noindent'>Given this notation, we could naturally define
+  a multivariable function <span class='mathjax-inline'>\(f(x_1, x_2,
+  \ldots , x_n)\)</span> as a function that maps the elements of
+  <span class='mathjax-inline'>\(D \subset \mathbb {R}^n\)</span> to
+  a single real number. Here, the domain <span class=
+  'mathjax-inline'>\(D\)</span> is represented as <span class=
+  'mathjax-inline'>\(\dom (f)\)</span> and the range is denoted as
+  <span class='mathjax-inline'>\(\ran (f)\)</span>.</p>
+</div><!-- l. 35 -->
+
+<p class='noindent'>If the domain is not explicitly stated for a
+function, we could just assume it to be the largest subset of
+<span class='mathjax-inline'>\(\mathbb {R}^n\)</span> such that the
+function <span class='mathjax-inline'>\(f\)</span> is defined.</p>
+<!-- l. 39 -->
+
+<p class='noindent'>An interesting question to consider is how do you
+graph functions like <span class='mathjax-inline'>\(f(x, y)\)</span>.
+The answer to this question is pretty straightforward given that the
+graph of <span class='mathjax-inline'>\(f(x)\)</span> is defined as
+<span class='mathjax-inline'>\(\{ (x, y) \mid y = f(x) \}\)</span>.
+For <span class='mathjax-inline'>\(f(x, y)\)</span>, we could simply
+extend it as <span class='mathjax-inline'>\(\{ (x, y, z) \mid z =
+f(x, y) \}\)</span>. For functions with more variables, it is
+impossible, or very difficult, to visually graph them, but there is a
+strategy to get a glimpse on their appearance. To get to the
+strategy, consider the following definitions.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-1'>
+  <div class='tcolorbox-title'>
+    <!-- l. 53 -->
+
+    <p class='noindent'>Definition&nbsp;1.1.1</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 49 -->
+
+    <p class='noindent'>Given a function <span class=
+    'mathjax-inline'>\(f(x, y)\)</span>, the <span class=
+    'pplb8t-x-x-109'>level curve</span> of <span class=
+    'mathjax-inline'>\(f\)</span> of height <span class=
+    'mathjax-inline'>\(k\)</span> is defined as the set <span class=
+    'mathjax-inline'>\(\{ (x, y) \mid f(x, y) = k \}\)</span>. The
+    collection of different level curve of <span class=
+    'mathjax-inline'>\(f\)</span> is known as a <span class=
+    'pplb8t-x-x-109'>contour plot</span>, or <span class=
+    'pplb8t-x-x-109'>contour map</span> of <span class=
+    'mathjax-inline'>\(f\)</span>.</p>
+  </div>
+</div><!-- l. 55 -->
+
+<p class='noindent'>Recall that when we wanted to see how paraboloids
+look like, we drew many traces of the surface. This is exactly what
+it is! With the same idea, we can get a glimpse of how a complex
+functions in 3-space look like. Similarly, we could do the same for
+functions in <span class='mathjax-inline'>\(4\)</span>-space.
+Although it is almost impossible and very difficult, we can use this
+method to approximate its appearance.</p><!-- l. 62 -->
+
+<p class='noindent'>Continuing from the discussion on multivariable
+functions, let’s now turn our attention to their domains. As always,
+let’s get started with definitions.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-2'>
+  <div class='tcolorbox-title'>
+    <!-- l. 81 -->
+
+    <p class='noindent'>Definition&nbsp;1.1.2</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 67 -->
+
+    <p class='noindent'>Given a point <span class=
+    'mathjax-inline'>\(P\)</span> in 2-space or 3-space, the
+    <span class='pplb8t-x-x-109'>open ball</span> or radius
+    <span class='mathjax-inline'>\(r\)</span> centered at
+    <span class='mathjax-inline'>\(P\)</span> is defined as the set
+    of all points that lie inside the ball and denoted as
+    <span class='mathjax-inline'>\(B_r(P)\)</span>. <span class=
+    'mathjax-block'>\[ B_r (x_0, y_0) = \left \{ (x, y) \mid \sqrt
+    {(x - x_0)^2 + (y - y_0)^2} &lt; r \right \} \]</span> Given
+    <span class='mathjax-inline'>\(D\)</span>, a subset of
+    <span class='mathjax-inline'>\(\mathbb {R}^2\)</span> or
+    <span class='mathjax-inline'>\(\mathbb {R}^3\)</span>, a point
+    <span class='mathjax-inline'>\(P\)</span> is an <span class=
+    'pplb8t-x-x-109'>interior point</span> of <span class=
+    'mathjax-inline'>\(D\)</span> and <span class=
+    'pplb8t-x-x-109'>boundary point</span> of <span class=
+    'mathjax-inline'>\(D\)</span> if there exists <span class=
+    'mathjax-inline'>\(r &gt; 0\)</span> such that <span class=
+    'mathjax-inline'>\(B_r(P) \subset D\)</span> and if <span class=
+    'mathjax-inline'>\(B_r(P)\)</span> contains all points in and not
+    in <span class='mathjax-inline'>\(D\)</span> for all <span class=
+    'mathjax-inline'>\(r &gt; 0\)</span> respectively.</p>
+  </div>
+</div><!-- l. 83 -->
+
+<p class='noindent'>An intuitive way of understanding this
+considering <span class='mathjax-inline'>\(D\)</span> as an area and
+the interior points are points inside that shaded area and the
+boundary points are the points that are on the boundary of
+<span class='mathjax-inline'>\(D\)</span>. Continuing, we can
+continue with the following definitions.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-3'>
+  <div class='tcolorbox-title'>
+    <!-- l. 94 -->
+
+    <p class='noindent'>Definition&nbsp;1.1.3</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 89 -->
+
+    <p class='noindent'>The <span class=
+    'pplb8t-x-x-109'>interior</span> of a set <span class=
+    'mathjax-inline'>\(D\)</span> in 2-space or 3-space is the set of
+    all interior points and the <span class=
+    'pplb8t-x-x-109'>boundary</span> of <span class=
+    'mathjax-inline'>\(D\)</span> is the set of all boundary points
+    of <span class='mathjax-inline'>\(D\)</span>. An <span class=
+    'pplb8t-x-x-109'>open set</span> is a set that does not contain
+    its boundary points and a <span class='pplb8t-x-x-109'>closed
+    set</span> is a set that contains all its boundary points.</p>
+  </div>
+</div><!-- l. 96 -->
+
+<p class='noindent'>Some interesting fact that we can notice from
+these definitions is that a set <span class=
+'mathjax-inline'>\(D\)</span> in <span class=
+'mathjax-inline'>\(2\)</span>-space or <span class=
+'mathjax-inline'>\(3\)</span>-space is open and closed at the same
+time if and only if <span class='mathjax-inline'>\(D = \mathbb
+{R}^2\)</span>, <span class='mathjax-inline'>\(D = \mathbb
+{R}^3\)</span>, or <span class='mathjax-inline'>\(D = \emptyset
+\)</span>. This is because the three sets have empty boundary and it
+follows the definition of open and closed set. Such sets that are
+both open and closed are known as <span class='pplb8t-x-x-109'>clopen
+set</span> (really love the name!). Continuing with this definition,
+we could also define the following.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-4'>
+  <div class='tcolorbox-title'>
+    <!-- l. 112 -->
+
+    <p class='noindent'>Definition&nbsp;1.1.4</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 106 -->
+
+    <p class='noindent'>A set <span class=
+    'mathjax-inline'>\(D\)</span> in <span class=
+    'mathjax-inline'>\(2\)</span>-space or <span class=
+    'mathjax-inline'>\(3\)</span>-space is <span class=
+    'pplb8t-x-x-109'>bounded</span> if for some point <span class=
+    'mathjax-inline'>\(P\)</span> and <span class=
+    'mathjax-inline'>\(r &gt; 0\)</span>, <span class=
+    'mathjax-inline'>\(D \subset B_r(P)\)</span>. Contrastingly, a
+    set is <span class='pplb8t-x-x-109'>unbounded</span> if there is
+    no such choice of <span class='mathjax-inline'>\(P\)</span> and
+    <span class='mathjax-inline'>\(r\)</span>. Moreover, a point
+    <span class='mathjax-inline'>\(P\)</span> is an <span class=
+    'pplb8t-x-x-109'>accumulation point</span> of <span class=
+    'mathjax-inline'>\(D\)</span> if for all <span class=
+    'mathjax-inline'>\(r &gt; 0\)</span>, there exists a point
+    <span class='mathjax-inline'>\(Q \neq P\)</span> such that
+    <span class='mathjax-inline'>\(Q \in D\)</span> and <span class=
+    'mathjax-inline'>\(Q \in B_r(P)\)</span>.</p>
+  </div>
+</div><!-- l. 114 -->
+
+<p class='noindent'>There were lots of definitions! I think it was
+very interesting to learn different ideas on sets because
+understanding the concepts, or definitions, in sets really widens the
+understanding of what it means to get arbitrarily close to a number
+and what limits are. This is it for this section, and in the next
+section, we will discuss more on limits and continuity of
+multivariable functions.</p>

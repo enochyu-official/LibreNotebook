@@ -26,7 +26,7 @@
   
     
       
-      <link rel="stylesheet" href="/css/make4ht/math0302.26098.min.ef4c0d096955280cab99561bcff0ff62a48870ec6cf8d2f507e2c59b3599200d.css" integrity="sha256-70wNCWlVKAyrmVYbz/D/YqSIcOxs&#43;NL1B&#43;LFmzWZIA0=">
+      <link rel="stylesheet" href="/css/make4ht/math0302.26098.min.66e51261012c35419216cdb19b33c4b3ce60c4819b5aa6ddd94e1b32e6fafc19.css" integrity="sha256-ZuUSYQEsNUGSFs2xmzPEs85gxIGbWqbd2U4bMub6/Bk=">
     
   
 
@@ -102,6 +102,21 @@
         
           <li>
             <a href="/math03/math0302/math0302.26098/">Curvature</a>
+          </li>
+        
+      </ul>
+    </li>
+    
+    <li>
+      <button class="accordion">Multivariable Functions and Continuity</button>
+      <ul class="panel">
+        
+          <li>
+            <a href="/math03/math0303/math0303.26099/">Multivariable Functions and Sets</a>
+          </li>
+        
+          <li>
+            <a href="/math03/math0303/math0303.26100/">Limits and Continuity</a>
           </li>
         
       </ul>
@@ -413,7 +428,248 @@ used with this theorem, or formula, below.</p>
 
 <p class='noindent'>Notice that if <span class=
 'mathjax-inline'>\(\mathbf {r}(t) = \langle x(t), y(t), 0 \rangle
-\)</span>, then this theorem also holds for 2-space.</p>
+\)</span>, then this theorem also holds for 2-space. Let’s take a
+look at an example for computing curvature at a points of a
+curve.</p>
+
+<div class='tcolorbox probstyle' id='tcolobox-7'>
+  <div class='tcolorbox-title'>
+    <!-- l. 189 -->
+
+    <p class='noindent'>Exercise&nbsp;0.1.7</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 187 -->
+
+    <p class='noindent'>Find the curvature of the helix <span class=
+    'mathjax-inline'>\(\mathbf {r}(t) = \langle a \cos t, a \sin t,
+    bt \rangle \)</span> at <span class='mathjax-inline'>\(t\)</span>
+    given that <span class='mathjax-inline'>\(a &gt; 0\)</span>.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-5'>
+  <!-- l. 191 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 191 -->
+
+  <p class='noindent'>First, recall that <span class=
+  'mathjax-inline'>\(\kappa (t_0) = \frac { \| \mathbf {r}'(t_0)
+  \times \mathbf {r}''(t_0) \| }{\| \mathbf {r}'(t_0) \|^3}\)</span>.
+  Moreover, the following equations hold. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} \mathbf {r}'(t) &amp;=
+  \langle -a \sin t, a \cos t, b \rangle \\ \mathbf {r}''(t) &amp;=
+  \langle -a \cos t, -a \sin t, b \rangle \\ \mathbf {r}'(t) \times
+  \mathbf {r}''(t) &amp;= \langle ab \sin t, - ab \cos t, a^2 \rangle
+  \end{align*}</span></p><!-- l. 200 -->
+
+  <p class='noindent'>Therefore, <span class='mathjax-inline'>\(\|
+  \mathbf {r}'(t) \times \mathbf {r}''(t) \| = a \sqrt {a^2 +
+  b^2}\)</span> and <span class='mathjax-inline'>\(\| \mathbf {r}'(t)
+  \| = \sqrt {a^2 + b^2}\)</span>. In other words, <span class=
+  'mathjax-inline'>\(\kappa (t_0) = \frac {a}{a^2 +
+  b^2}\)</span>.</p>
+</div><!-- l. 205 -->
+
+<p class='noindent'>In this case, we could see that the curvature is
+constant because it is a circular helix. The similar idea apply for
+2-space.</p>
+
+<div class='tcolorbox probstyle' id='tcolobox-8'>
+  <div class='tcolorbox-title'>
+    <!-- l. 211 -->
+
+    <p class='noindent'>Exercise&nbsp;0.1.8</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 209 -->
+
+    <p class='noindent'>Given a circle <span class=
+    'mathjax-inline'>\(\mathbf {r}(t) = \langle a \cos t, a \sin t
+    \rangle \)</span> with <span class='mathjax-inline'>\(a &gt;
+    0\)</span>, find the curvature at each point on the circle.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-6'>
+  <!-- l. 213 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 213 -->
+
+  <p class='noindent'>First, notice that <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} \mathbf {r}'(t) &amp;=
+  \langle -a \sin t, a \cos t, 0 \rangle \\ \mathbf {r}''(t) &amp;=
+  \langle -a \cos t, -a \sin t, 0 \rangle \end{align*}</span></p>
+  <!-- l. 218 -->
+
+  <p class='noindent'>holds. Therefore, <span class=
+  'mathjax-inline'>\(\kappa (t) = \frac {a^2}{(a^2 \sin ^2 t + a^2
+  \cos ^2 t)^\frac {3}{2}} = \frac {1}{a}\)</span>.</p>
+</div><!-- l. 222 -->
+
+<p class='noindent'>Again, the curvature is constant! Another
+interesting property of circle is that its curvature at each point is
+the reciprocal of its radius. Continuing with this observation, we
+can establish the following definitions.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-9'>
+  <div class='tcolorbox-title'>
+    <!-- l. 235 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.9</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 228 -->
+
+    <p class='noindent'>Given a point <span class=
+    'mathjax-inline'>\(P\)</span> on a curve <span class=
+    'mathjax-inline'>\(C\)</span> with curvature <span class=
+    'mathjax-inline'>\(\kappa _0\)</span>, there exists a unique
+    circle <span class='mathjax-inline'>\(\omega \)</span> that is
+    tangent to the line that is tangent to <span class=
+    'mathjax-inline'>\(C\)</span> at <span class=
+    'mathjax-inline'>\(P\)</span> and is on the concave side of
+    <span class='mathjax-inline'>\(C\)</span>. Such circle is known
+    as <span class='pplb8t-x-x-109'>osculating circle</span> to
+    <span class='mathjax-inline'>\(C\)</span> at <span class=
+    'mathjax-inline'>\(P\)</span> where the radius <span class=
+    'mathjax-inline'>\(\frac {1}{\kappa _0}\)</span> and its center
+    are known as the <span class='pplb8t-x-x-109'>radius of
+    curvature</span> and the <span class='pplb8t-x-x-109'>center of
+    curvature</span> of <span class='mathjax-inline'>\(C\)</span> at
+    <span class='mathjax-inline'>\(P\)</span>.</p>
+  </div>
+</div><!-- l. 237 -->
+
+<p class='noindent'>From the definition and construction, we can
+notice that the osculating circle can be used to best approximate the
+curve at <span class='mathjax-inline'>\(P\)</span>.</p>
+<!-- l. 240 -->
+
+<p class='noindent'>Another interesting property that we can notice
+from curvature for an arc-length parametrization in 2-space is its
+relationship with the angle that the unit tangent vector makes with
+the positive <span class='mathjax-inline'>\(x\)</span>-axis. Notice
+that <span class='mathjax-inline'>\(\mathbf {T}(\theta ) = \langle
+\cos \theta , \sin \theta \rangle \)</span>. More <span class=
+'mathjax-inline'>\(\mathbf {T}(s) = \mathbf {T}(\theta (s)) = \langle
+\cos \theta (s), \sin \theta (s) \rangle \)</span>. Because
+<span class='mathjax-inline'>\(\| \frac {d\mathbf {T}} {d\theta } =
+1\)</span>, <span class='mathjax-inline'>\(\kappa (s) = \| \frac
+{d\mathbf {T}}{ds} \| = \| \frac {d\mathbf {T}}{d\theta } \cdot \frac
+{d\theta }{ds} \| = | \frac {d\theta }{ds} |\)</span>.</p>
+
+<div class='mdframed' id='mdframed-7'>
+  <!-- l. 251 -->
+
+  <p class='noindent'>Therefore, <span class=
+  'mathjax-inline'>\(\kappa (s) = | \frac {d\theta }{ds} |\)</span>
+  if <span class='mathjax-inline'>\(\theta \)</span> is the angle
+  that the unit tangent vector makes with the positive <span class=
+  'mathjax-inline'>\(x\)</span>-axis given an arc-length
+  parameterization of a curve.</p>
+</div><!-- l. 256 -->
+
+<p class='noindent'>Before we wrap up this note, here are some
+interesting connections we can make with curvature and physics.</p>
+<!-- l. 259 -->
+
+<p class='noindent'>First, notice that <span class=
+'mathjax-inline'>\(\mathbf {v}(t) = \frac {ds}{dt} \mathbf
+{T}(t)\)</span> given an arc-length parameterization. Therefore, the
+following equations hold. <span class=
+'mathjax-env mathjax-align*'>\begin{align*} \mathbf {a}(t) &amp;=
+\frac {d^2s}{dt^2} \mathbf {T}(t) + \frac {ds}{dt} \mathbf {T}'(t) =
+\frac {d^2s}{dt^2} \mathbf {T}(t) + \| \mathbf {r}'(t) \| \mathbf
+{T}'(t) \\ &amp;= \frac {d^2s}{dt^2} \mathbf {T}(t) + \| \mathbf
+{r}'(t) \| \mathbf {T}'(t) = \frac {d^2s}{dt^2} \mathbf {T}(t) +
+\frac { \| \mathbf {T}'(t) \| }{ \| \mathbf {r}'(t) \| } \cdot \|
+\mathbf {r}'(t) \|^2 \cdot \frac {\mathbf {T}'(t)}{ \| \mathbf
+{T}'(t) \| } \\ &amp;= \frac {d^2s}{dt^2} \mathbf {T}(t) + \kappa (t)
+\| \mathbf {r}'(t) \|^2 \mathbf {N}(t) \end{align*}</span></p>
+<!-- l. 277 -->
+
+<p class='noindent'>Therefore, we can conclude the following.</p>
+
+<div class='mdframed' id='mdframed-8'>
+  <!-- l. 280 -->
+
+  <p class='noindent'>Given an arc-length parametrization of position
+  of a particle, its acceleration at <span class=
+  'mathjax-inline'>\(t\)</span> can be represented as the following.
+  <span class='mathjax-block'>\[ \mathbf {a}(t) = \frac {d^2s}{dt^2}
+  \mathbf {T}(t) + \kappa (t) \| \frac {ds}{dt} \|^2 \mathbf {N}(t)
+  \]</span></p>
+</div><!-- l. 289 -->
+
+<p class='noindent'>We can also notice that this equation is
+consistent with centripetal force and acceleration in linear path!
+Continuing from this equation, we can establish the following
+definition.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-10'>
+  <div class='tcolorbox-title'>
+    <!-- l. 302 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.10</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 294 -->
+
+    <p class='noindent'>Let <span class='mathjax-inline'>\(a_T(t) =
+    \frac {d^2s}{dt^2}\)</span> and <span class=
+    'mathjax-inline'>\(a_N(t) = \kappa (t) \| \frac {ds}{dt}
+    \|^2\)</span>. Then <span class='mathjax-inline'>\(\mathbf {a}(t)
+    = a_T \mathbf {T} + a_N \mathbf {N}\)</span>. The terms
+    <span class='mathjax-inline'>\(a_T\)</span> and <span class=
+    'mathjax-inline'>\(a_N\)</span> are known as the <span class=
+    'pplb8t-x-x-109'>tangential component of acceleration</span> and
+    the <span class='pplb8t-x-x-109'>normal component of
+    acceleration</span>. Moreover, <span class='mathjax-inline'>\(a_T
+    \mathbf {T}\)</span> and <span class='mathjax-inline'>\(a_N
+    \mathbf {N}\)</span> are known as the <span class=
+    'pplb8t-x-x-109'>tangential vector component of
+    acceleration</span> and the <span class='pplb8t-x-x-109'>normal
+    vector component of acceleration</span> respectively.</p>
+  </div>
+</div><!-- l. 304 -->
+
+<p class='noindent'>Continuing from this notation and definition, we
+can notice the following.</p>
+
+<div class='mdframed' id='mdframed-9'>
+  <!-- l. 308 -->
+
+  <p class='noindent'>Given a smooth parametrization of the position
+  of a particle, the following equations hold. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} a_T &amp;= \frac
+  {\mathbf {v} \cdot \mathbf {a}}{\| \mathbf {v} \|} \\ a_N &amp;=
+  \frac {\mathbf {v} \times \mathbf {a}}{\| \mathbf {v} \|} \\ \kappa
+  &amp;= \frac {\mathbf {v} \times \mathbf {a}}{\| \mathbf {v} \|^3}
+  \\ \| \mathbf {a} \|^2 &amp;= a_T^2 + a_N^2 \end{align*}</span></p>
+</div><!-- l. 319 -->
+
+<p class='noindent'>The derivation of these equations are fairly
+straightforward, so let’s skip the proof. Finally, consider the
+following equations for projectile motion. <span class=
+'mathjax-env mathjax-align*'>\begin{align*} \mathbf {a} &amp;= -g
+\mathbf {j} \\ \mathbf {v} &amp;= -gt \mathbf {j} + \mathbf {v_0} \\
+\mathbf {r} &amp;= \left ( -\frac {gt^2}{2} + \mathbf {s_0} \right )
+\mathbf {j} + t\mathbf {v_0} \end{align*}</span></p><!-- l. 329 -->
+
+<p class='noindent'>Substituting <span class=
+'mathjax-inline'>\(\mathbf {v_0} = \langle x, y \rangle \)</span>, we
+can see that the following equation holds. <span class=
+'mathjax-block'>\[ y = \left ( -\frac {g}{2a^2} \right ) x^2 + \frac
+{b}{a} x + \mathbf {s_0} \]</span> Indeed projectile motions are
+parabolas, and this is it for this note! In the next note, we will
+discuss about multivariable functions.</p>
 
   </div>
 

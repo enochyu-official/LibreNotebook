@@ -1,5 +1,75 @@
 [
   {
+    "hash": "71299c01fc6ee11850b8da83cafc0dfe7f06a725",
+    "commit": "71299c0",
+    "date": "2026-10-31",
+    "author": "Enoch Yu",
+    "message": "feat(MATH03): Limits"
+  },
+  {
+    "hash": "d0552ebb0c20fa356fbcff7169463e4b37d46ac4",
+    "commit": "d0552eb",
+    "date": "2026-10-31",
+    "author": "Enoch Yu",
+    "message": "feat(MATH03): Sets"
+  },
+  {
+    "hash": "c11d8f2d1af413e5c4757989b8d83e97b37786be",
+    "commit": "c11d8f2",
+    "date": "2026-10-29",
+    "author": "Enoch Yu",
+    "message": "feat(MATH03): Multivariable Functions"
+  },
+  {
+    "hash": "d7e91978d25f8c2b761b1a8325871af57f732e6e",
+    "commit": "d7e9197",
+    "date": "2026-10-28",
+    "author": "Enoch Yu",
+    "message": "feat(MATH03): Complete Curvature"
+  },
+  {
+    "hash": "2734f8fcce5365fe85df13a1cd9d3f4bdecf1306",
+    "commit": "2734f8f",
+    "date": "2026-10-28",
+    "author": "Enoch Yu",
+    "message": "feat(MATH01): Add AMGM Problem"
+  },
+  {
+    "hash": "631bc07e3b122b617f546c14a3ee98827fbe96a7",
+    "commit": "631bc07",
+    "date": "2026-10-26",
+    "author": "Enoch Yu",
+    "message": "Merge pull request #7 from enochyu-official/web"
+  },
+  {
+    "hash": "38eea6db4b2fd5dc597fc7af571835d6af743061",
+    "commit": "38eea6d",
+    "date": "2026-10-26",
+    "author": "Enoch Yu",
+    "message": "fix(web): Wrong data update public"
+  },
+  {
+    "hash": "079e268fbc86c38937b5f8095850708b8edb8a31",
+    "commit": "079e268",
+    "date": "2026-10-26",
+    "author": "Enoch Yu",
+    "message": "fix(web): Wrong data"
+  },
+  {
+    "hash": "ba7f87ae8e7954023068a234009f7d0aefa90079",
+    "commit": "ba7f87a",
+    "date": "2026-10-26",
+    "author": "Enoch Yu",
+    "message": "Merge pull request #6 from enochyu-official/web"
+  },
+  {
+    "hash": "c5d24036e532b99c7186bf0089a0779743b0a42c",
+    "commit": "c5d2403",
+    "date": "2026-10-26",
+    "author": "Enoch Yu",
+    "message": "feat(web): Update to v1.10.26"
+  },
+  {
     "hash": "8100ed1015e4dd1dde668951bbc9364b42e1e1e4",
     "commit": "8100ed1",
     "date": "2026-10-26",
