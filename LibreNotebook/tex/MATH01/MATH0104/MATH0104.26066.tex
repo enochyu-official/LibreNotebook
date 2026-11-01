@@ -73,6 +73,63 @@ case and $\alpha = x - 1 - f(x) = -1$. Therefore, $f(x) = x$ is the
 only solution.
 \end{solution}
 
+Some interesting problems don't give us the options for classic
+discoveries.
+
+\begin{important}
+In such problems, it is very important to not underestimate the
+condition $f: \mathbb{R} \to \mathbb{R}$.
+\end{important}
+
+Here is an example problem where $f: \mathbb{R} \to \mathbb{R}$ acts
+as a breakthrough of the solution.
+
+\begin{problem}{2014 KMO Problem 2 \medium}{2014 KMO Problem 2}
+Find all functions $f: \mathbb{R} \to \mathbb{R}$ such that the
+following equation holds for all $x, y \in \mathbb{R}$.
+\[
+f(xf(x) + f(x)f(y) + y - 1) = f(xf(x) + xy) + y - 1
+\]
+\end{problem}
+\begin{solution}
+This problem is very interesting because just by looking at the
+equation, it is evident that $f(x) = x$ works. However, it is quite
+difficult to find anything else other than that, so proving the
+uniqueness of the solution is the main part of this problem.
+
+First, substitute $x = 0$ to the equation. Then, we can see that
+the following equation holds.
+\[
+f(f(0)f(y) + y - 1) = f(0) + y - 1
+\]
+Now how is this supposed to be useful? At glance, it isn't. There are
+limited information that we can learn from this equation. However,
+if you look very closely at the equation, we can see that $f(0)$ is
+defined since $f: \mathbb{R} \to \mathbb{R}$ and $y - 1$ can be
+any real number. Meaning, $f$ is surjective!
+
+From here, we are pretty much done. Because $f$ is surjective,
+we can choose some $a$ such that $f(a) = 0$. Substituting $x = a$,
+we obtain $f(y - 1) = f(ay) + y - 1$. Therefore, it is natural for
+us to consider the case when $ay = y - 1$, which is
+$y = \frac{1}{1 - a}$. However, we have to be careful here because
+we are implying that $a \neq 1$.
+
+Assume for the contradiction that $a = 1$ is unique value such that
+$f(a) = 0$. Substituting $x = y = 1$, we obtain $f(0) = 0$ and
+$a = 1$ is not unique if $f(1) = 0$. In other words, we can choose
+some $a \neq 1$ such that $ay = y - 1$, which will give us $y - 1
+= \frac{a}{1 - a} = 0$. Solving the equation, $a = 0$ and $f(0) = 0$.
+
+Substituting $x = 0$ back to the equation, we get $f(y - 1) = y - 1$
+and $f(x) = x$ is the unique answer.
+\end{solution}
+
+Unlike other problems, this one requires some effort to find that
+$f(0) = 0$. In this problem $f: \mathbb{R} \to \mathbb{R}$ was an
+important information for concluding that $f$ is surjective.
+
+
 
 \end{document}
 
