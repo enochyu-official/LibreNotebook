@@ -1,5 +1,26 @@
 [
   {
+    "hash": "2392a864781c61a47991ea5b36dc2b9efec856b5",
+    "commit": "2392a86",
+    "date": "2026-11-05",
+    "author": "Enoch Yu",
+    "message": "feat: Add cover"
+  },
+  {
+    "hash": "8dda295045918eef9a26a004921da9951a02c34e",
+    "commit": "8dda295",
+    "date": "2026-11-05",
+    "author": "Enoch Yu",
+    "message": "Merge pull request #9 from enochyu-official/web"
+  },
+  {
+    "hash": "ae7371f71f2c81f5bfeda38d61e09899478e9c90",
+    "commit": "ae7371f",
+    "date": "2026-11-05",
+    "author": "Enoch Yu",
+    "message": "feat: Add cover, update links, update copyright notice"
+  },
+  {
     "hash": "6040eba52931dd906fc41a8c44947751a833c5fd",
     "commit": "6040eba",
     "date": "2026-11-04",
