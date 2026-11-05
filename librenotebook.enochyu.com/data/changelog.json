@@ -1,5 +1,40 @@
 [
   {
+    "hash": "6040eba52931dd906fc41a8c44947751a833c5fd",
+    "commit": "6040eba",
+    "date": "2026-11-04",
+    "author": "Enoch Yu",
+    "message": "feat(MATH01): Add Video Solution Link"
+  },
+  {
+    "hash": "39490a983852b71dc5d532716736aa0580c3c427",
+    "commit": "39490a9",
+    "date": "2026-11-02",
+    "author": "Enoch Yu",
+    "message": "feat: Solve CS0202.26058-02"
+  },
+  {
+    "hash": "406b2c70c09cbe538cca4b3111c406e531336dce",
+    "commit": "406b2c7",
+    "date": "2026-11-01",
+    "author": "Enoch Yu",
+    "message": "feat: Add FE problem and change path for CS02"
+  },
+  {
+    "hash": "5cc14faa49b39361f681e9542f6763f10dad3b65",
+    "commit": "5cc14fa",
+    "date": "2026-10-31",
+    "author": "Enoch Yu",
+    "message": "Merge pull request #8 from enochyu-official/web"
+  },
+  {
+    "hash": "69b360c219450ec4a33e4e20b74f042e0aa74009",
+    "commit": "69b360c",
+    "date": "2026-10-31",
+    "author": "Enoch Yu",
+    "message": "feat(web): Update to v1.10.31"
+  },
+  {
     "hash": "71299c01fc6ee11850b8da83cafc0dfe7f06a725",
     "commit": "71299c0",
     "date": "2026-10-31",
