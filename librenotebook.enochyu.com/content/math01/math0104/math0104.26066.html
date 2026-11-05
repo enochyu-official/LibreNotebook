@@ -105,4 +105,109 @@ by the problem.</p>
   the only possible case and <span class='mathjax-inline'>\(\alpha =
   x - 1 - f(x) = -1\)</span>. Therefore, <span class=
   'mathjax-inline'>\(f(x) = x\)</span> is the only solution.</p>
+</div><!-- l. 76 -->
+
+<p class='noindent'>Some interesting problems don’t give us the
+options for classic discoveries.</p>
+
+<div class='mdframed' id='mdframed-3'>
+  <!-- l. 80 -->
+
+  <p class='noindent'>In such problems, it is very important to not
+  underestimate the condition <span class='mathjax-inline'>\(f:
+  \mathbb {R} \to \mathbb {R}\)</span>.</p>
+</div><!-- l. 84 -->
+
+<p class='noindent'>Here is an example problem where <span class=
+'mathjax-inline'>\(f: \mathbb {R} \to \mathbb {R}\)</span> acts as a
+breakthrough of the solution.</p>
+
+<div class='tcolorbox probstyle' id='tcolobox-2'>
+  <a id='x1-1003x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 94 -->
+
+    <p class='noindent'>Exercise&nbsp;0.1.2:&nbsp;2014 KMO Problem 2
+    (<span class='mathjax-inline'>\( \bullet \bullet \circ
+    \)</span>)</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 88 -->
+
+    <p class='noindent'>Find all functions <span class=
+    'mathjax-inline'>\(f: \mathbb {R} \to \mathbb {R}\)</span> such
+    that the following equation holds for all <span class=
+    'mathjax-inline'>\(x, y \in \mathbb {R}\)</span>. <span class=
+    'mathjax-block'>\[ f(xf(x) + f(x)f(y) + y - 1) = f(xf(x) + xy) +
+    y - 1 \]</span></p>
+  </div>
 </div>
+
+<p>(<a href='https://youtu.be/OXDSWs-f9NA'>Video Solution</a>)</p>
+
+<div class='mdframed' id='mdframed-4'>
+  <!-- l. 97 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 97 -->
+
+  <p class='noindent'>This problem is very interesting because just
+  by looking at the equation, it is evident that <span class=
+  'mathjax-inline'>\(f(x) = x\)</span> works. However, it is quite
+  difficult to find anything else other than that, so proving the
+  uniqueness of the solution is the main part of this problem.</p>
+  <!-- l. 102 -->
+
+  <p class='noindent'>First, substitute <span class=
+  'mathjax-inline'>\(x = 0\)</span> to the equation. Then, we can see
+  that the following equation holds. <span class='mathjax-block'>\[
+  f(f(0)f(y) + y - 1) = f(0) + y - 1 \]</span> Now how is this
+  supposed to be useful? At glance, it isn’t. There are limited
+  information that we can learn from this equation. However, if you
+  look very closely at the equation, we can see that <span class=
+  'mathjax-inline'>\(f(0)\)</span> is defined since <span class=
+  'mathjax-inline'>\(f: \mathbb {R} \to \mathbb {R}\)</span> and
+  <span class='mathjax-inline'>\(y - 1\)</span> can be any real
+  number. Meaning, <span class='mathjax-inline'>\(f\)</span> is
+  surjective!</p><!-- l. 113 -->
+
+  <p class='noindent'>From here, we are pretty much done. Because
+  <span class='mathjax-inline'>\(f\)</span> is surjective, we can
+  choose some <span class='mathjax-inline'>\(a\)</span> such that
+  <span class='mathjax-inline'>\(f(a) = 0\)</span>. Substituting
+  <span class='mathjax-inline'>\(x = a\)</span>, we obtain
+  <span class='mathjax-inline'>\(f(y - 1) = f(ay) + y - 1\)</span>.
+  Therefore, it is natural for us to consider the case when
+  <span class='mathjax-inline'>\(ay = y - 1\)</span>, which is
+  <span class='mathjax-inline'>\(y = \frac {1}{1 - a}\)</span>.
+  However, we have to be careful here because we are implying that
+  <span class='mathjax-inline'>\(a \neq 1\)</span>.</p>
+  <!-- l. 120 -->
+
+  <p class='noindent'>Assume for the contradiction that <span class=
+  'mathjax-inline'>\(a = 1\)</span> is unique value such that
+  <span class='mathjax-inline'>\(f(a) = 0\)</span>. Substituting
+  <span class='mathjax-inline'>\(x = y = 1\)</span>, we obtain
+  <span class='mathjax-inline'>\(f(0) = 0\)</span> and <span class=
+  'mathjax-inline'>\(a = 1\)</span> is not unique if <span class=
+  'mathjax-inline'>\(f(1) = 0\)</span>. In other words, we can choose
+  some <span class='mathjax-inline'>\(a \neq 1\)</span> such that
+  <span class='mathjax-inline'>\(ay = y - 1\)</span>, which will give
+  us <span class='mathjax-inline'>\(y - 1 = \frac {a}{1 - a} =
+  0\)</span>. Solving the equation, <span class='mathjax-inline'>\(a
+  = 0\)</span> and <span class='mathjax-inline'>\(f(0) =
+  0\)</span>.</p><!-- l. 126 -->
+
+  <p class='noindent'>Substituting <span class='mathjax-inline'>\(x =
+  0\)</span> back to the equation, we get <span class=
+  'mathjax-inline'>\(f(y - 1) = y - 1\)</span> and <span class=
+  'mathjax-inline'>\(f(x) = x\)</span> is the unique answer.</p>
+</div><!-- l. 130 -->
+
+<p class='noindent'>Unlike other problems, this one requires some
+effort to find that <span class='mathjax-inline'>\(f(0) = 0\)</span>.
+In this problem <span class='mathjax-inline'>\(f: \mathbb {R} \to
+\mathbb {R}\)</span> was an important information for concluding that
+<span class='mathjax-inline'>\(f\)</span> is surjective.</p>

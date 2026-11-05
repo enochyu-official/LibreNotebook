@@ -58,6 +58,13 @@ p, h1, h2, h3, h4, a, span, ul, th, td, div {
   margin-top: 1.8rem;
   margin-bottom: 1.2rem;
 }
+.footer a {
+  text-decoration: none;
+  color: blue;
+}
+.footer a:hover {
+  text-decoration: underline;
+}
 
 .bold {
   font-weight: bold;

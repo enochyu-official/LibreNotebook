@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="LibreNotebook/cover.png" alt="LibreNotebook Cover" width="300" />
+</p>
+
 # LibreNotebook
 
 *[LibreNotebook](https://librenotebook.enochyu.com/)*
@@ -19,19 +23,19 @@ the knowledge and skills that I received from public resources.
 For anyone interested in the topics in the notes, I hope
 *LibreNotebook* serve as a useful resource.
 
-## Access
+### Access
 
 The most recent [PDF draft](https://archive.enochyu.com/LibreNotebook.pdf)
 is available for downloads, and there is also a web version hosted at
 [librenotebook.enochyu.com](https://librenotebook.enochyu.com/).
 
-## Contributing
+### Contributing
 
 Contributions are very appreciated! Please read
 [CONTRIBUTING.md](https://github.com/enochyu-official/LibreNotebook/blob/main/CONTRIBUTING.md)
 for more information.
 
-## License
+### License
 
 This book is licensed under the
 [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
