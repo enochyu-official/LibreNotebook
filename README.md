@@ -1,6 +1,4 @@
-<p align="center">
-  <img src="LibreNotebook/cover.png" alt="LibreNotebook Cover" width="300" />
-</p>
+<img src="LibreNotebook/cover.png" alt="LibreNotebook Cover" width="200" />
 
 # LibreNotebook
 

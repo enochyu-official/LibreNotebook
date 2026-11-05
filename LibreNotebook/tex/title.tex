@@ -2,6 +2,17 @@
 
 \begin{document}
 
+% Cover
+\begingroup
+\pdfximage width \paperwidth {../cover.png}
+\setbox0=\hbox{\pdfrefximage\pdflastximage}
+\pdfpagewidth=\wd0
+\pdfpageheight=\ht0
+\pdfhorigin=0pt
+\pdfvorigin=0pt
+\shipout\box0
+\endgroup
+
 % Half-Title Page
 \begin{titlepage}
     \thispagestyle{empty}
