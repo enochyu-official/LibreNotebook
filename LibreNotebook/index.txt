@@ -39,7 +39,7 @@ MATH0205       | Solutions
 
 MATH0301       | Vectors and Geometry
 MATH0302       | Vector-Valued Functions and Parametrization
-MATH0303       | Multivariable Functions and Continuity
+MATH0303       | Multivariable Functions and Derivatives
 
 CS0101         | Fundamental Math for Machine Learning
 CS0102         | Python Basics for Machine Learning
@@ -166,7 +166,9 @@ Section III. Sections
 === | MATH0103.26097 | Six Collinear Points
 === | MATH0302.26098 | Curvature
 === | MATH0303.26099 | Multivariable Functions and Sets
-0.0 | MATH0303.26100 | Limits and Continuity
+=== | MATH0303.26100 | Limits and Continuity
+
+0.0 | MATH0303.26101 | Partial Derivatives
 ----------------------------------------------------------------------
 
 END OF INDEX

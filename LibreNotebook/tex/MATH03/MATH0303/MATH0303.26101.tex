@@ -1,0 +1,206 @@
+\documentclass[../../../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Partial Derivatives}
+
+Finally! We are discussing about derivatives for multivariable
+functions. The derivatives are actually more complicated than
+single-variable functions, and in this note we will discuss about
+partial derivatives, not directional derivatives, of multivariable
+functions.
+
+First, recall that single-variable function $f$, its derivative is
+defined as the following.
+\[
+f'(x) = \lim_{h \to 0} \frac{f(x + h) - f(x)}{h}
+\]
+Geometrically interpreting this, it can be considered as the slope
+of the tangent line at the point. Another way of interpreting that
+was instantaneous rate of change that the point.
+
+For multivariable functions, it should be similar. But how do we
+determine which tangent line to use? If we think about it, it is
+actually not very easy to determine because there are many tangent
+lines at a specific point. Also, if we think of it as instantaneous
+rate of change, the direction of the change can give different values.
+This is where directional derivatives comes in, but in this section,
+we will be discussing about a more simple derivative that we can
+think of from multivariable functions.
+
+For functions with two variables, we don't really have to care about
+direction if we slice a function and consider the derivative based
+on that slicing line. That slicing line can be a line parallel to
+$x$ or $y$ axis. If we consider them as special derivatives,
+we can define partial derivatives as the following.
+
+\begin{definition}{}{}
+Given a function $f(x, y)$, its \textbf{partial derivative with
+respect to $\mathbf{x}$} at point $(x_0, y_0)$ is defined as the
+following.
+\[
+f_x (x_0, y_0)
+= \lim_{h \to 0} \frac{f(x_0 + h, y_0) - f(x_0, y_0)}{h}
+\]
+\end{definition}
+
+Similarly for partial derivative with respect to $y$, we can write
+it as $f_y (x_0, y_0) = \lim_{h \to 0} \frac{f(x_0, y_0 + h) -
+f(x_0, y_0)}{h}$. This is much easier because by slicing and thinking
+only about that slice, it becomes ordinary derivative of a
+single-variable function. Another way of thinking partial derivatives
+is we are simply putting the other variable as a constant and finding
+the derivative with the remaining single-variable function.
+Here is an example.
+
+\begin{problem}{}{}
+Given $f(x, y) = x^2 + 2x + y^2$, Find $f_x$ and $f_y$ at $(1, 2)$.
+\end{problem}
+\begin{solution}
+Consider the following equation for $f_x(1, 2)$.
+\begin{align*}
+    f_x (1, 2)
+    &= \lim_{h \to 0} \frac{f(1 + h, 2) - f(1, 2)}{h} \\
+    &= \lim_{h \to 0} \frac{h^2 + 2h + 1 + 2h + 2 + 4 - 7}{h} \\
+    &= \lim_{h \to 0} \frac{h^2 + 4h}{h}
+    = \lim_{h \to 0} h + 4
+    = 4
+\end{align*}
+Therefore, $f_x(1, 2) = 4$.
+
+For $f_y(1, 2)$ let's take a different approach. Considering $x$
+as a constant and finding the derivative with respect to $y$,
+we get $f_y = 2y$. Therefore, $f_y(1, 2) = 4$.
+\end{solution}
+
+Before moving on to higher order partial derivatives, here is
+another very popular way of writing partial derivatives.
+\[
+f_x = \frac{\partial f}{\partial x}
+\quad\text{and}\quad
+f_y = \frac{\partial f}{\partial y}
+\]
+Now how do we take higher order partial derivative of $f$?
+
+First, notice that $f_x$ and $f_y$ are the first-order partial
+derivatives of $f$. Using this, we can find the second order.
+\begin{align*}
+    f_x &\rightarrow (f_x)_x,\ (f_x)_y \\
+    f_y &\rightarrow (f_y)_x,\ (f_y)_y
+\end{align*}
+Note that we usually suppress the parenthesis and just simply write
+$f_{xx}, f_{xy}, f_{yx}, f_{yy}$. Using these, we can also find the
+third-order partial derivatives of $f$.
+\begin{align*}
+    f_{xx} &\rightarrow f_{xxx},\ f_{xxy} \\
+    f_{xy} &\rightarrow f_{xyx},\ f_{xyy} \\
+    f_{yx} &\rightarrow f_{yxx},\ f_{yxy} \\
+    f_{yy} &\rightarrow f_{yyx},\ f_{yyy}
+\end{align*}
+As long as the resulting partial derivatives are differentiable,
+we can continue this process! Notice that if we use the other
+notation, then the order in which write the partial derivatives
+are flipped. Here is what I mean.
+\[
+f_{xyy}
+= \frac{\partial}{\partial y} \left(
+    \frac{\partial}{\partial y} \left(
+        \frac{\partial f}{\partial x}
+    \right)
+\right)
+= \frac{\partial^3 f}{\partial y\, \partial y\, \partial x}
+\]
+With the notation involving the partial symbol, we read it from
+right to left. Here is an example.
+
+\begin{problem}{}{}
+Given $f(x, y) = x^2y^3 + 2x + 3y^2$, compute $f_{xyy}$.
+\end{problem}
+\begin{solution}
+First, notice that we need to find the partial derivative of $f$
+with respect to $x$.
+\[
+\frac{\partial f}{\partial x}
+= 2xy^3 + 2
+\]
+Continuing, we can find the following.
+\[
+\frac{\partial^2}{\partial y^2} (2xy^3 + 2)
+= \frac{\partial}{\partial y} 6xy^2
+= 12xy
+\]
+Therefore, $\frac{\partial^3 f}{\partial y^2 \partial x} = 12xy$.
+\end{solution}
+
+Continuing, we can consider a very important theorem.
+
+\begin{theorem}{Clairaut's Theorem}{Clairaut's Theorem}
+For a function $f$ of two variables, if $f_{xy}$ and $f_{yx}$ are
+continuous on an open set $A$, then $f_{xy} = f_{yx}$ for all points
+in $A$.
+\end{theorem}
+\begin{proof}
+The proof can be done by applying MVT two times for two different
+cases. First, define $\Delta h = [f(a + h, b + h) - f(a + h, b)]
+- [f(a, b + h) - f(a, b)]$.
+
+For the first case, define $g(x) = f(x, b + h) - f(x, b)$.
+By construction, it is evident that $g$ is a single-variable function
+and $\Delta h = g(a + h) - g(a)$. By MVT, there exists $c \in
+(a, a + h)$ such that $g'(c) = \frac{g(a + h) - g(a)}{a + h - a}$,
+or $h g'(c) = g(a + h) - g(a)$. In other words, $\Delta h = hg'(c)$
+for some constant $h$ and $c$. Continuing, notice that $g'(c)
+= f_x f(c, b + h) - f_x f(c, b)$ by definition. Using MVT again,
+there exists $d \in (b, b + h)$ such that $h f_{xy} (c, d) = g'(c)$
+since $c$ is a constant. In other words, $\Delta h$ can be written
+as $h^2 f_{xy}$ and the following equation holds.
+\[
+\lim_{h \to 0} \frac{\Delta h}{h^2}
+= \lim_{(c, d) \to (a, b)} f_{xy} (c, d)
+= f_{xy} (a, b)
+\]
+For the second case, let $g(y) = f(a + h, y) - f(a, y)$. Notice that
+$\Delta h = [f(a + h, b + h) - f(a, b + h)] - [f(a + h, b) - f(a, b)]
+= g(b + h) - g(b)$. Similarly by MVT, there exists $c \in (b, b + h)$
+such that $h g'(c) = g(b + h) - g(b) = \Delta h$. Moreover, because
+$g'(c) = f_y (a + h, c) - f_y (a, c)$, we MVT can be used again to
+show that there exists $d \in (a, a + h)$ such that $h f_{yx} (d, c) =
+g'(c)$. Therefore, $\Delta h$ can be rewritten as $h^2 f_{yx} (d, c)$,
+and the following equation holds.
+\[
+\lim_{h \to 0} \frac{\Delta h}{h^2}
+= \lim_{(d, c) \to (a, b)} f_{yx} (d, c)
+= f_{yx} (a, b)
+\]
+Therefore, $f_{xy} (a, b) = f_{yx} (a, b)$ for all points $(a, b)$
+in $\dom(f)$ and the theorem holds.
+\end{proof}
+
+In fact, this theorem is not limited to functions of two variables
+at all! We can simply let $g(x_i, x_j) = f(x_1, \ldots, x_i, \ldots,
+x_j, \ldots, x_n)$ and notice that $g_{x_i x_j} = f_{x_i x_j}$ and
+$g_{x_j x_i} = f_{x_j x_i}$. Because $g_{x_i x_j} = g_{x_j x_i}$,
+$f_{x_i x_j} = f_{x_j x_i}$ for function $f$ of $n$ variables where
+$n > 2$.
+
+Notice that this theorem implies that we can switch the order of
+writing $x,y$ for higher order partial derivatives. Meaning,
+all it matters is the number of $x$ and $y$ in the subscript,
+not their orders when taking higher order partials.
+
+\begin{important}
+Finally, for a function $f$ of $n$ variables, our discussion can
+be generalized as the following.
+\[
+f_{x_i} (x_1, \ldots, x_n)
+= \lim_{h \to 0} \frac{
+    f(x_1, \ldots, x_i + h, \ldots, x_n - f(x_1, \ldots, x_n)
+}{h}
+\]
+\end{important}
+
+
+
+\end{document}
+
+

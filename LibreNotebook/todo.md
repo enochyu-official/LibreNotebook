@@ -65,7 +65,6 @@
 * CS0106.26021
 
 ## CS02
-* FINISH SOLVING CS0202.26058-03
 * Fast I/O
 * Search
   * Linear Search

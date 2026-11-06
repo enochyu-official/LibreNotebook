@@ -130,10 +130,63 @@ the properties of sum, different, product, and quotient applies the
 same for the generalized limits and limits along different curves
 just as the limit for single variable function!
 
+\subsection{Continuity}
 
+First before we get into continuity of a multivariable function,
+recall that a function $f$ is continuous at $x_0 \in \dom(f)$ if the
+following equation holds.
+\[
+\lim_{x \to x_0} f(x) = f(x_0)
+\]
+I think in many calculus courses they separate this into three
+criteria so we need to first show that $\lim_{x \to x_0} f(x)$
+and $f(x_0)$ exists, but the equation above should imply that.
+For some reason, I learned it like that in both AP Calculus AB and
+AP Calculus BC, but let's use this brief definition of continuity.
 
+Similarly, we can define continuity for multivariable functions.
 
+\begin{definition}{}{}
+Given a function $f(x, y)$ where $(x_0, y_0) \in \dom(f)$, $f$ is
+\textbf{continuous} at $(x_0, y_0)$ if the following equation holds.
+\vspace{-0.5\baselineskip}
+\[
+\lim_{(x, y) \to (x_0, y_0)} f(x, y) = f(x_0, y_0)
+\]
+Given a set $A$, if $f$ is continuous at every points in $A$,
+then $f$ is \textbf{continuous on $\mathbf{A}$}. Similarly,
+if $f$ is continuous on its domain, then $f$ is \textbf{continuous}.
+\end{definition}
 
+An example would be given a function $f(x, y) = x^2 + 2y$,
+$f$ is continuous at $(0, 0)$. We technically can use, and should use,
+epsilon-delta for more rigorous proof, but we know that this is
+true because $f$ is a polynomial and it is continuous at every points.
+
+\begin{important}
+Given the properties of limits for functions with two variables $f_1$
+and $f_2$, if $f_1$ and $f_2$ are continuous at $(x_0, y_0)$,
+then $f_1 \pm f_2$, $f_1 \cdot f_2$, and $\frac{f_1}{f_2}$
+(where $f_2(x_0, y_0) \neq 0$) are all continuous at $(x_0, y_0)$.
+\end{important}
+
+This somewhat self-evident fact can become very useful because we
+don't need to compute limits every time. Here is an example.
+
+\begin{problem}{}{}
+Show that $f(x, y) = xy^2 \cos(\sin(xy))$ is continuous at $(1, \pi)$.
+\end{problem}
+\begin{solution}
+This problem can look very painful, but its actually not! Notice that
+because $x$ and $y$ are continuous, $xy^2$ and $xy$ are continuous.
+Moreover because $\sin(xy)$ is also a continuous function,
+$\cos(\sin(xy))$ is continuous. Therefore, $f$ is continuous at
+$(1, \pi)$.
+\end{solution}
+
+This is it for limits and continuity on multivariable functions!
+In the next section we will discuss more about finding derivative,
+specifically partial derivatives, of multivariable functions.
 
 \end{document}
 
