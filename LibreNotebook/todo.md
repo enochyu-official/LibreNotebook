@@ -4,8 +4,7 @@
 * Figure out mdframed + tcolorbox with lstlisting break CS02
 * Figure out links for paperback
 
-## MATH01
-* Show that AC perp BD iff AB^2 - AD^2 = CB^2 - CD^2
+## MATH01 
 * Fermat point
   * Given that P is a fermat's point in a triangle ABC with all angles
     less than 120, show OA + OB + OC \geq PA + PB + PC. (O in ABC)
@@ -14,17 +13,11 @@
 * Simson
 * Pole and polar la hire
 * Transformation (parallel, movement, reflection, spiral)
-* Homothety,
 * Harmonic Range 조화점열
 * Pappus, Stewart
   * Pascal Problem
 * nine point
 * 닮음의 중심부터 논증기하  주제들..
-
-* Prerequisites
-  * Apollonius Theorem
-  * Ceva, menelaus,
-  * Ptolemy
 
 * MATH0101.26002
   * Add more examples

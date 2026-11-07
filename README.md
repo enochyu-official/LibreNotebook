@@ -3,11 +3,11 @@
 # LibreNotebook
 
 *[LibreNotebook](https://librenotebook.enochyu.com/)*
-is Enoch Yu's giant and free notebook.
+is Enoch Yu's giant open source notebook.
 
 ## About
 
-*LibreNotebook* is a personal notebook that I write as
+*LibreNotebook* is a open source notebook that I write as
 I explore different topics of my interest. I personally learn
 the best when I explain the contents, so I naturally write
 my notes as if I am explaining the topics to other people.

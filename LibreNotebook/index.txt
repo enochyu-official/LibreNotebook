@@ -154,7 +154,7 @@ Section III. Sections
 === | MATH0301.26086 | Cylindrical and Spherical Coordinates
 === | MATH0109.26087 | Algebra
 === | MISC0101.26088 | Bibliography
-0.1 | MATH0109.26089 | Geometry
+=== | MATH0109.26089 | Geometry
 === | MATH0103.26090 | Isogonal Conjugate
 
 === | MATH0302.26091 | Vector-Valued Functions and Calculus
