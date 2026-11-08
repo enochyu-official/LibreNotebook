@@ -59,7 +59,7 @@ MISC0101       | Bibliography
 Section III. Sections
 ----------------------------------------------------------------------
 === | MATH0100.26001 | INIT
-0.5 | MATH0101.26002 | Fundamental Inequalities
+=== | MATH0101.26002 | Fundamental Inequalities
 0.3 | MATH0101.26003 | Advanced Inequalities
 0.3 | MATH0101.26004 | Techniques and Patterns
 0.8 | MATH0101.26005 | Practice Problems

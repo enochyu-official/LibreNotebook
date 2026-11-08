@@ -19,8 +19,6 @@
 * nine point
 * 닮음의 중심부터 논증기하  주제들..
 
-* MATH0101.26002
-  * Add more examples
 * MATH0101.26003
   * Schur’s Inequality (Convexity Arguments)
   * Examples

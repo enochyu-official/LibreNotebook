@@ -24,8 +24,6 @@ by tweaking known inequalities and doing some clever substitutions.
 In this section, let's discuss some fundamental must-know inequalities
 as an introduction to olympiad inequalities.
 
-\subsection{AM-GM Inequality}
-
 I assume most of you know or at least have heard of this inequality
 as we learn it in middle and high school. AM-GM inequality stands
 for Arithmetic Mean-Geometric Mean inequality and literally compares
@@ -34,6 +32,7 @@ those two means.
 \begin{theorem}{AM-GM Inequality}{AM-GM Inequality}
 For $a_k \geq 0$, the following inequality holds with equality if
 and only if $a_1 = a_2 = \dots = a_n$.
+\vspace{-0.8\baselineskip}
 \[
 \frac{ \sum_{i=1}^n a_i }{n} \geq
 \sqrt[n]{ \prod_{i=1}^n a_i }
@@ -140,16 +139,13 @@ $a \geq b \geq c \geq d > 0$ and $a + b + c + d = 1$,
 \]
 holds.
 \end{problem}
-
 (\href{https://youtu.be/Vz9BC5q7zdc}{Video Solution})
-
 \begin{solution}
 First, consider the following weighted AM-GM inequality for
 $a, b, c, \linebreak d$ with weights $a, b, c, d$ respectively.
 \begin{align*}
     \frac{a \cdot a + b \cdot b + c \cdot c + d \cdot d}
         {a + b + c + d}
-    \displaybreak
     &\geq \sqrt[a + b + c + d]{a^a b^b c^c d^d} \\
     a^2 + b^2 + c^2 + d^2
     &\geq a^a b^b c^c d^d
@@ -172,7 +168,6 @@ Consider inequalities below.
 Integrating,
 \begin{align*}
     &(a + 2b + 3c + 4d)(a^2 + b^2 + c^2 + d^2) \\
-    \displaybreak
     &\qquad\qquad< a^2 (a + 3b + 3c + 3d) + b^2 (3a + b + 3c + 3d) \\
     &\qquad\qquad\qquad + c^2 (3a + 3b + c + 3d) +
         d^2 (3a + 3b + 3c + d) \\
@@ -183,8 +178,6 @@ and the inequality holds.
 
 With the ideas of weighted AMGM in mind, we can further generalize
 our results for different means just as we have generalized the means.
-
-\subsection{Power Mean Inequality}
 
 Power Mean inequality, also known as QM-AM-GM-HM inequality,
 compares the four major means with generalization of AMGM.
@@ -221,8 +214,6 @@ holds with equality if and only if $a_1 = \cdots = a_n$.
 Continuing from AMGM and its variations, let's discuss arguably the
 second most famous inequality in middle and high schools:
 Cauchy-Schwarz Inequality.
-
-\subsection{Cauchy-Schwarz Inequality}
 
 As always, let's get started with the definition.
 
@@ -350,8 +341,6 @@ fractions with square numbers. Now that we discussed a direct
 consequence of Cauchy-Schwarz inequality, we can consider its
 generalization.
 
-\subsection{Hölder's Inequality}
-
 Cauchy-Schwarz inequality is actually a special case of Hölder's
 inequality. Both inequalities can be used in multiple ways such as
 eliminating radicals and fractions. Below is the definition of
@@ -361,6 +350,7 @@ Hölder's inequality.
 Let $a_i, b_i, \ldots, z_i > 0$ and $\lambda_a, \lambda_b, \ldots,
 \lambda_z \geq 0$ such that $\lambda_a + \lambda_b + \dots +
 \lambda_z = 1$. Then,
+\vspace{-0.5\baselineskip}
 \begin{align*}
 \left( \sum_{i=1}^n a_i \right)^{\lambda_a}
 \left( \sum_{i=1}^n b_i \right)^{\lambda_b} \cdots
@@ -395,24 +385,20 @@ the following inequalities hold.
     \sum_{i=1}^n a_i^\frac{1}{2} b_i^\frac{1}{2}
 \end{align*}
 Let $\alpha_i = \sqrt{a_i}$ and $\beta_i = \sqrt{b_i}$. Substituting,
-\[
-\left( \sum_{i=1}^n \alpha_i^2 \right)^\frac{1}{2}
-\left( \sum_{i=1}^n \beta_i^2 \right)^\frac{1}{2}
-\geq
-\sum_{i=1}^n \alpha_i \beta_i
-\]
-and
-\[
-\left( \sum_{i=1}^n \alpha_i^2 \right)
-\left( \sum_{i=1}^n \beta_i^2 \right)
-\geq
-\left( \sum_{i=1}^n \alpha_i \beta_i \right)^2
-\]
+\begin{align*}
+    \left( \sum_{i=1}^n \alpha_i^2 \right)^\frac{1}{2}
+        \left( \sum_{i=1}^n \beta_i^2 \right)^\frac{1}{2}
+    &\geq \sum_{i=1}^n \alpha_i \beta_i \\
+    \left( \sum_{i=1}^n \alpha_i^2 \right)
+        \left( \sum_{i=1}^n \beta_i^2 \right)
+    &\geq \left( \sum_{i=1}^n \alpha_i \beta_i \right)^2
+\end{align*}
 are obtained. This is Cauchy-Schwarz inequality! Below is a very
 classic problem on Hölder's Inequality
 
 \begin{problem}{}{}
 Show that the following inequality holds for all $a, b, c > 0$.
+\vspace{-0.8\baselineskip}
 \[
 (a^3 + 2)(b^3 + 2)(c^3 + 2) \geq (a + b + c)^3
 \]
@@ -431,8 +417,6 @@ Thus, cubing both sides leads to the desired result.
 
 Continuing from Cauchy-Schwarz inequality and its variation, another
 fundamental inequality of different type is Jensen's inequality.
-
-\subsection{Jensen's Inequality}
 
 The next inequality Jensen's inequality is arguably one of the most
 powerful inequalities in olympiad. It used to be one of the niche
@@ -509,11 +493,7 @@ In other words, $\sum_{i=1}^n \frac{a_i}{n} \geq \left(
 \prod_{i=1}^n a_i \right)^\frac{1}{n}$ and AMGM inequality holds.
 \end{solution}
 
-
-
-\subsection{Rearrangement Inequality}
-
-Let's start with definition.
+Before we wrap up, here are two more inequalities!
 
 \begin{definition}{Rearrangement Inequality}{Rearrangement Inequality}
 Let $a_i$ and $b_i$ be real numbers such that $a_1 \geq a_2 \geq
@@ -546,6 +526,7 @@ Consider the following cases where $b_1 \geq b_2 \geq \cdots \geq b_n$
 are cycled through in the rearrangement inequality.
 \begin{align*}
     \sum_{i=1}^n a_i b_i
+    \displaybreak
     &\geq a_1 b_1 + a_2 b_2 + \cdots + a_n b_n
     \geq \sum_{i=1}^n a_i b_{n-i+1} \\
     \sum_{i=1}^n a_i b_i
@@ -566,5 +547,11 @@ n \left( \sum_{i=1}^n a_i b_i \right)
 and the corollary holds.
 \end{proof}
 
+This is it for this section! There were lots of inequalities,
+but we have much more than these. In the next section, we will
+discuss more advanced inequalities that are not used compared to
+the inequalities here, but can act as the breakthrough.
+
 \end{document}
+
 
