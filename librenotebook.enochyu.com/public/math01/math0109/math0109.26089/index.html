@@ -26,7 +26,7 @@
   
     
       
-      <link rel="stylesheet" href="/css/make4ht/math0109.26089.min.d9f58056b87a084104247853bcf59302af590502e63583170c215a8c0393b9fd.css" integrity="sha256-2fWAVrh6CEEEJHhTvPWTAq9ZBQLmNYMXDCFajAOTuf0=">
+      <link rel="stylesheet" href="/css/make4ht/math0109.26089.min.0824f8028b899d2f1bdb439c5c3b47fcbbbb071ad34ded1c004fd322d07209f0.css" integrity="sha256-CCT4AouJnS8b20OcXDtH/Lu7BxrTTe0cAE/TItByCfA=">
     
   
 
@@ -310,31 +310,211 @@
   <div class="single-content">
     <h3 class='sectionHead' id='geometry'><span class=
 'titlemark'>0.1</span> <a id='x1-10000.1'></a>Geometry</h3>
+<!-- l. 7 -->
+
+<p class='noindent'>Unlike other fields in math olympiad, I think
+geometry is the section that really need strong foundations with
+fundamental topics. Assuming that we are aware of basic topics like
+similar triangles, angle relationship between a tangent line and the
+inscribed triangle, the relationship between arc length and angle in
+a circle, and more foundational topics related to circles and points
+in triangles, let’s discuss some of the theorems that are necessary
+to understand future topics.</p><!-- l. 16 -->
+
+<p class='noindent'>Also please note that this section is quite terse
+with less explanations and proofs. The latter section will prove the
+theorems because we need to memorize the proofs to actually use them
+in the exam, but the theorems mentioned here are considered common
+knowledge and generally not required to prove them. But please don’t
+quote me on this because it depends on the exams and countries. Also
+because I assume we are already familiar with the many of the topics
+here, let’s quickly go through them!</p>
 
 <div class='tcolorbox theostyle' id='tcolobox-1'>
   <a id='x1-1002x0.1'></a>
 
   <div class='tcolorbox-title'>
-    <!-- l. 14 -->
+    <!-- l. 31 -->
 
     <p class='noindent'>Theorem&nbsp;0.1.1:&nbsp;Menelaus’
     Theorem</p>
   </div>
 
   <div class='tcolorbox-content'>
-    <!-- l. 8 -->
+    <!-- l. 26 -->
 
-    <p class='noindent'>Assume for <span class=
-    'mathjax-inline'>\(\triangle {ABC}\)</span>, <span class=
-    'mathjax-inline'>\(X, Y, Z\)</span> are defined as <span class=
-    'mathjax-inline'>\(X \in \overline {AB}\)</span>, <span class=
-    'mathjax-inline'>\(Y \in \overline {BC}\)</span>, and
-    <span class='mathjax-inline'>\(Z \in \overline {CA}\)</span>.
-    Then, the following equation of cross-ratio holds. <span class=
-    'mathjax-block'>\[ \frac {XA}{XB} \cdot \frac {YB}{YC} \cdot
-    \frac {ZC}{ZA} = -1 \]</span></p>
+    <p class='noindent'>Given a triangle <span class=
+    'mathjax-inline'>\(ABC\)</span>, let the transversal line
+    <span class='mathjax-inline'>\(XY\)</span> cut the triangle and
+    intersect <span class='mathjax-inline'>\(AC\)</span> at
+    <span class='mathjax-inline'>\(Z\)</span>. The, the following
+    equation holds. <span class='mathjax-block'>\[ \frac {BY}{YC}
+    \cdot \frac {CZ}{ZA} \cdot \frac {AX}{XB} = 1 \]</span></p>
   </div>
-</div>
+</div><!-- l. 33 -->
+
+<p class='noindent'>Here is a diagram that manifests the theorem.</p>
+<!-- l. 37 -->
+
+<p class='noindent'><img alt='[Picture]' src=
+'/svg/MATH0109.260890x.svg' /></p><!-- l. 63 -->
+
+<p class='noindent'>The equation can be quite hard to memorize as is,
+but when you think of it as starting from <span class=
+'mathjax-inline'>\(B\)</span> and going around triangle <span class=
+'mathjax-inline'>\(ABC\)</span> counterclockwise, it is very easy to
+memorize. Indeed, this theorem holds as long as you cycle through a
+constant direction from any points. We can also see that the
+following equations hold. <span class=
+'mathjax-env mathjax-align*'>\begin{align*} \frac {CY}{YB} \cdot
+\frac {BX}{XA} \cdot \frac {AZ}{ZC} &amp;= 1 \\ \frac {AZ}{ZC} \cdot
+\frac {CY}{YB} \cdot \frac {BX}{XA} &amp;= 1 \end{align*}</span></p>
+<!-- l. 72 -->
+
+<p class='noindent'>Menelaus is very important and it will be used
+quite a lot to prove important theorems like Pascal and Desargues, so
+its worth becoming more familiar with it! Also, the transversal line
+does not need to intersect triangle <span class=
+'mathjax-inline'>\(ABC\)</span>.</p><!-- l. 77 -->
+
+<p class='noindent'>Continuing, here is Ceva’s Theorem.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-2'>
+  <a id='x1-1004x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 86 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.2:&nbsp;Ceva’s Theorem</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 80 -->
+
+    <p class='noindent'>Given a triangle <span class=
+    'mathjax-inline'>\(ABC\)</span>, let <span class=
+    'mathjax-inline'>\(X, Y, Z\)</span> be points on lines
+    <span class='mathjax-inline'>\(BC, CA, AB\)</span> respectively.
+    The lines <span class='mathjax-inline'>\(AX, BY, CZ\)</span> are
+    concurrent at <span class='mathjax-inline'>\(P\)</span> if and
+    only if the following equation holds. <span class=
+    'mathjax-block'>\[ \frac {AZ}{ZB} \cdot \frac {BX}{XC} \cdot
+    \frac {CY}{YA} = 1 \]</span></p>
+  </div>
+</div><!-- l. 88 -->
+
+<p class='noindent'>Here is the diagram that illustrates this
+theorem.</p><!-- l. 92 -->
+
+<p class='noindent'><img alt='[Picture]' src=
+'/svg/MATH0109.260891x.svg' /></p><!-- l. 123 -->
+
+<p class='noindent'>Here, the lines <span class=
+'mathjax-inline'>\(AX, BY, CZ\)</span> are also known as cevians.
+Because this is also a very popular theorem and I assume we are
+somewhat familiar with this theorem, let’s move on to a slightly less
+popular form of this theorem.</p><!-- l. 128 -->
+
+<p class='noindent'>Continuing with Ceva’s standard form, there is
+also angle version. This is very popular in Korea and we have a
+special name for it as well, but for some reason, I don’t think this
+is very well known internationally. Some sources call this as
+Trigonometric Form of Ceva’s Theorem, but let’s call it as Angle Form
+of Ceva’s Theorem because that’s easier to pronounce.</p>
+
+<div class='tcolorbox corstyle' id='tcolobox-3'>
+  <a id='x1-1006x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 147 -->
+
+    <p class='noindent'>Corollary&nbsp;0.1.3:&nbsp;Angle Form of
+    Ceva’s Theorem</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 138 -->
+
+    <p class='noindent'>Given a triangle <span class=
+    'mathjax-inline'>\(ABC\)</span>, let <span class=
+    'mathjax-inline'>\(X, Y, Z\)</span> be points on lines
+    <span class='mathjax-inline'>\(BC, CA, AB\)</span> respectively.
+    The lines <span class='mathjax-inline'>\(AX, BY, CZ\)</span> are
+    concurrent at <span class='mathjax-inline'>\(P\)</span> if and
+    only if the following equation holds. <span class=
+    'mathjax-block'>\[ \frac {\sin (\angle {BAX})}{\sin (\angle
+    {CAX})} \cdot \frac {\sin (\angle {CBY})}{\sin (\angle {ABY})}
+    \cdot \frac {\sin (\angle {ACZ})}{\sin (\angle {BCZ})} = 1
+    \]</span></p>
+  </div>
+</div><!-- l. 149 -->
+
+<p class='noindent'>This corollary powered with trigonometric
+identities can become very powerful. Future notes includes some of
+its applications in different topics like isogonal conjugate.
+Generally I think we do need to show this corollary during exams, but
+I think it is pretty self evident considering area of the triangles.
+Next up we have Ptolemy’s Theorem!</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-4'>
+  <a id='x1-1008x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 161 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.4:&nbsp;Ptolemy’s
+    Theorem</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 157 -->
+
+    <p class='noindent'>Given a cyclic quadrilateral <span class=
+    'mathjax-inline'>\(ABCD\)</span>, the following equation holds.
+    <span class='mathjax-block'>\[ AC \cdot BD = AB \cdot DC + BC
+    \cdot DA \]</span></p>
+  </div>
+</div><!-- l. 163 -->
+
+<p class='noindent'>I personally have not seen many application of
+Ptolemy’s Theorem for KMO, but I think it appears quite often in
+KJMO. This is pretty much it for the theorem and I think because most
+of us are aware of this theorem, let’s review our final theorem.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-5'>
+  <a id='x1-1010x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 174 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.5:&nbsp;Apollonius’
+    Theorem</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 169 -->
+
+    <p class='noindent'>Given a triangle <span class=
+    'mathjax-inline'>\(ABC\)</span> with midpoint <span class=
+    'mathjax-inline'>\(M\)</span> of <span class=
+    'mathjax-inline'>\(BC\)</span>, the following equation holds.
+    <span class='mathjax-block'>\[ AB^2 + AC^2 = 2(BM^2 + AM^2)
+    \]</span></p>
+  </div>
+</div><!-- l. 176 -->
+
+<p class='noindent'>This has a special name, but it is just Stewart’s
+theorem applied to a midpoint <span class=
+'mathjax-inline'>\(M\)</span>.</p><!-- l. 179 -->
+
+<p class='noindent'>This is it for this section! Here I listed some
+of the foundational topics that we must know before proceeding to
+latter notes, and although there wasn’t rigorous explanation with
+examples for each theorem, I hope it was a good reminder of some of
+the topics! As mentioned previously, olympiad geometry requires lots
+of background knowledge to solve problems, and these are only the
+surface of them. But before we move on to more exciting topics, let’s
+review some of the topics form Number Theory as well.</p>
 
   </div>
 
@@ -349,7 +529,7 @@
     </li>
     <li>
       <span class="bold">Source:</span>
-      <a href="https://github.com/enochyu-official/LibreNotebook">GitHub</a>
+      <a href="https://github.com/enochness/LibreNotebook">GitHub</a>
     </li>
   </ul>
 
@@ -375,11 +555,11 @@
   </h3>
   <ul class="single-right-contribute">
     <li>
-      <a href="https://www.youtube.com/@enochyu_official">
+      <a href="https://www.youtube.com/@enochness">
         <i class="fab fa-youtube"></i> YouTube</a>
     </li>
     <li>
-      <a href="https://github.com/enochyu-official/LibreNotebook">
+      <a href="https://github.com/enochness/LibreNotebook">
         <i class="fab fa-github"></i> GitHub</a>
     </li>
   </ul>

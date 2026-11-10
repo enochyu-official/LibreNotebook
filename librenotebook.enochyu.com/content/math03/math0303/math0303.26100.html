@@ -259,3 +259,122 @@ limit. Here is an example.</p>
 about limit is that the properties of sum, different, product, and
 quotient applies the same for the generalized limits and limits along
 different curves just as the limit for single variable function!</p>
+
+<h4 class='subsectionHead' id='continuity'><span class=
+'titlemark'>0.1.1</span> <a id='x1-20000.1.1'></a>Continuity</h4>
+<!-- l. 135 -->
+
+<p class='noindent'>First before we get into continuity of a
+multivariable function, recall that a function <span class=
+'mathjax-inline'>\(f\)</span> is continuous at <span class=
+'mathjax-inline'>\(x_0 \in \dom (f)\)</span> if the following
+equation holds. <span class='mathjax-block'>\[ \lim _{x \to x_0} f(x)
+= f(x_0) \]</span> I think in many calculus courses they separate
+this into three criteria so we need to first show that <span class=
+'mathjax-inline'>\(\lim _{x \to x_0} f(x)\)</span> and <span class=
+'mathjax-inline'>\(f(x_0)\)</span> exists, but the equation above
+should imply that. For some reason, I learned it like that in both AP
+Calculus AB and AP Calculus BC, but let’s use this brief definition
+of continuity.</p><!-- l. 147 -->
+
+<p class='noindent'>Similarly, we can define continuity for
+multivariable functions.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-7'>
+  <div class='tcolorbox-title'>
+    <!-- l. 159 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.7</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 150 -->
+
+    <p class='noindent'>Given a function <span class=
+    'mathjax-inline'>\(f(x, y)\)</span> where <span class=
+    'mathjax-inline'>\((x_0, y_0) \in \dom (f)\)</span>, <span class=
+    'mathjax-inline'>\(f\)</span> is <span class=
+    'pplb8t-x-x-109'>continuous</span> at <span class=
+    'mathjax-inline'>\((x_0, y_0)\)</span> if the following equation
+    holds. <span class='mathjax-block'>\[ \lim _{(x, y) \to (x_0,
+    y_0)} f(x, y) = f(x_0, y_0) \]</span> Given a set <span class=
+    'mathjax-inline'>\(A\)</span>, if <span class=
+    'mathjax-inline'>\(f\)</span> is continuous at every points in
+    <span class='mathjax-inline'>\(A\)</span>,then <span class=
+    'mathjax-inline'>\(f\)</span> is <span class=
+    'pplb8t-x-x-109'>continuous on</span> <span class=
+    'mathjax-inline'>\(\mathbf {A}\)</span>. Similarly, if
+    <span class='mathjax-inline'>\(f\)</span> is continuous on its
+    domain, then <span class='mathjax-inline'>\(f\)</span> is
+    <span class='pplb8t-x-x-109'>continuous</span>.</p>
+  </div>
+</div><!-- l. 161 -->
+
+<p class='noindent'>An example would be given a function <span class=
+'mathjax-inline'>\(f(x, y) = x^2 + 2y\)</span>, <span class=
+'mathjax-inline'>\(f\)</span> is continuous at <span class=
+'mathjax-inline'>\((0, 0)\)</span>. We technically can use, and
+should use, epsilon-delta for more rigorous proof, but we know that
+this is true because <span class='mathjax-inline'>\(f\)</span> is a
+polynomial and it is continuous at every points.</p>
+
+<div class='mdframed' id='mdframed-5'>
+  <!-- l. 167 -->
+
+  <p class='noindent'>Given the properties of limits for functions
+  with two variables <span class='mathjax-inline'>\(f_1\)</span> and
+  <span class='mathjax-inline'>\(f_2\)</span>, if <span class=
+  'mathjax-inline'>\(f_1\)</span> and <span class=
+  'mathjax-inline'>\(f_2\)</span> are continuous at <span class=
+  'mathjax-inline'>\((x_0, y_0)\)</span>, then <span class=
+  'mathjax-inline'>\(f_1 \pm f_2\)</span>, <span class=
+  'mathjax-inline'>\(f_1 \cdot f_2\)</span>, and <span class=
+  'mathjax-inline'>\(\frac {f_1}{f_2}\)</span> (where <span class=
+  'mathjax-inline'>\(f_2(x_0, y_0) \neq 0\)</span>) are all
+  continuous at <span class='mathjax-inline'>\((x_0,
+  y_0)\)</span>.</p>
+</div><!-- l. 173 -->
+
+<p class='noindent'>This somewhat self-evident fact can become very
+useful because we don’t need to compute limits every time. Here is an
+example.</p>
+
+<div class='tcolorbox probstyle' id='tcolobox-8'>
+  <div class='tcolorbox-title'>
+    <!-- l. 178 -->
+
+    <p class='noindent'>Exercise&nbsp;0.1.8</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 177 -->
+
+    <p class='noindent'>Show that <span class='mathjax-inline'>\(f(x,
+    y) = xy^2 \cos (\sin (xy))\)</span> is continuous at <span class=
+    'mathjax-inline'>\((1, \pi )\)</span>.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-6'>
+  <!-- l. 180 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 180 -->
+
+  <p class='noindent'>This problem can look very painful, but its
+  actually not! Notice that because <span class=
+  'mathjax-inline'>\(x\)</span> and <span class=
+  'mathjax-inline'>\(y\)</span> are continuous, <span class=
+  'mathjax-inline'>\(xy^2\)</span> and <span class=
+  'mathjax-inline'>\(xy\)</span> are continuous. Moreover because
+  <span class='mathjax-inline'>\(\sin (xy)\)</span> is also a
+  continuous function, <span class='mathjax-inline'>\(\cos (\sin
+  (xy))\)</span> is continuous. Therefore, <span class=
+  'mathjax-inline'>\(f\)</span> is continuous at <span class=
+  'mathjax-inline'>\((1, \pi )\)</span>.</p>
+</div><!-- l. 187 -->
+
+<p class='noindent'>This is it for limits and continuity on
+multivariable functions! In the next section we will discuss more
+about finding derivative, specifically partial derivatives, of
+multivariable functions.</p>

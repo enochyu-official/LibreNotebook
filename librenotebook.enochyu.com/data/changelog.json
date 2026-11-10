@@ -1,5 +1,47 @@
 [
   {
+    "hash": "dc087fc25a97723332a88e88d716237eae6733e4",
+    "commit": "dc087fc",
+    "date": "2026-11-11",
+    "author": "Enoch Yu",
+    "message": "fix: broken links"
+  },
+  {
+    "hash": "0903a5ca9738854585998d9658b2087f6fe058c7",
+    "commit": "0903a5c",
+    "date": "2026-11-08",
+    "author": "Enoch Yu",
+    "message": "feat(CS02): Add Practice Problems and Solutions"
+  },
+  {
+    "hash": "d9f5c7b4bfff17f1a22076f9cc7ece1669936e0b",
+    "commit": "d9f5c7b",
+    "date": "2026-11-07",
+    "author": "Enoch Yu",
+    "message": "feat(MATH01): Complete Geometry Prerequisites"
+  },
+  {
+    "hash": "3f36951069152337940664b7937cd0820caea67e",
+    "commit": "3f36951",
+    "date": "2026-11-06",
+    "author": "Enoch Yu",
+    "message": "feat(MATH03): Continuity and Partial Derivatives"
+  },
+  {
+    "hash": "8bd9459e4875ad0caa2256122472ac702a85ede5",
+    "commit": "8bd9459",
+    "date": "2026-11-05",
+    "author": "Enoch Yu",
+    "message": "Merge pull request #10 from enochyu-official/web"
+  },
+  {
+    "hash": "900c07557b761c8d079604f81a3ca9dd528dfb98",
+    "commit": "900c075",
+    "date": "2026-11-05",
+    "author": "Enoch Yu",
+    "message": "fix: LibreNotebook version"
+  },
+  {
     "hash": "2392a864781c61a47991ea5b36dc2b9efec856b5",
     "commit": "2392a86",
     "date": "2026-11-05",
