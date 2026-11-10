@@ -1,0 +1,294 @@
+<h3 class='sectionHead' id='partial-derivatives'><span class=
+'titlemark'>0.1</span> <a id='x1-10000.1'></a>Partial
+Derivatives</h3><!-- l. 7 -->
+
+<p class='noindent'>Finally! We are discussing about derivatives for
+multivariable functions. The derivatives are actually more
+complicated than single-variable functions, and in this note we will
+discuss about partial derivatives, not directional derivatives, of
+multivariable functions.</p><!-- l. 13 -->
+
+<p class='noindent'>First, recall that single-variable function
+<span class='mathjax-inline'>\(f\)</span>, its derivative is defined
+as the following. <span class='mathjax-block'>\[ f'(x) = \lim _{h \to
+0} \frac {f(x + h) - f(x)}{h} \]</span> Geometrically interpreting
+this, it can be considered as the slope of the tangent line at the
+point. Another way of interpreting that was instantaneous rate of
+change that the point.</p><!-- l. 22 -->
+
+<p class='noindent'>For multivariable functions, it should be
+similar. But how do we determine which tangent line to use? If we
+think about it, it is actually not very easy to determine because
+there are many tangent lines at a specific point. Also, if we think
+of it as instantaneous rate of change, the direction of the change
+can give different values. This is where directional derivatives
+comes in, but in this section, we will be discussing about a more
+simple derivative that we can think of from multivariable
+functions.</p><!-- l. 31 -->
+
+<p class='noindent'>For functions with two variables, we don’t really
+have to care about direction if we slice a function and consider the
+derivative based on that slicing line. That slicing line can be a
+line parallel to <span class='mathjax-inline'>\(x\)</span> or
+<span class='mathjax-inline'>\(y\)</span> axis. If we consider them
+as special derivatives, we can define partial derivatives as the
+following.</p>
+
+<div class='tcolorbox defstyle' id='tcolobox-1'>
+  <div class='tcolorbox-title'>
+    <!-- l. 45 -->
+
+    <p class='noindent'>Definition&nbsp;0.1.1</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 38 -->
+
+    <p class='noindent'>Given a function <span class=
+    'mathjax-inline'>\(f(x, y)\)</span>, its <span class=
+    'pplb8t-x-x-109'>partial derivative with respect to</span>
+    <span class='mathjax-inline'>\(\mathbf {x}\)</span> at point
+    <span class='mathjax-inline'>\((x_0, y_0)\)</span> is defined as
+    the following. <span class='mathjax-block'>\[ f_x (x_0, y_0) =
+    \lim _{h \to 0} \frac {f(x_0 + h, y_0) - f(x_0, y_0)}{h}
+    \]</span></p>
+  </div>
+</div><!-- l. 47 -->
+
+<p class='noindent'>Similarly for partial derivative with respect to
+<span class='mathjax-inline'>\(y\)</span>, we can write it as
+<span class='mathjax-inline'>\(f_y (x_0, y_0) = \lim _{h \to 0} \frac
+{f(x_0, y_0 + h) - f(x_0, y_0)}{h}\)</span>. This is much easier
+because by slicing and thinking only about that slice, it becomes
+ordinary derivative of a single-variable function. Another way of
+thinking partial derivatives is we are simply putting the other
+variable as a constant and finding the derivative with the remaining
+single-variable function. Here is an example.</p>
+
+<div class='tcolorbox probstyle' id='tcolobox-2'>
+  <div class='tcolorbox-title'>
+    <!-- l. 58 -->
+
+    <p class='noindent'>Exercise&nbsp;0.1.2</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 57 -->
+
+    <p class='noindent'>Given <span class='mathjax-inline'>\(f(x, y)
+    = x^2 + 2x + y^2\)</span>, Find <span class=
+    'mathjax-inline'>\(f_x\)</span> and <span class=
+    'mathjax-inline'>\(f_y\)</span> at <span class=
+    'mathjax-inline'>\((1, 2)\)</span>.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-1'>
+  <!-- l. 60 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 60 -->
+
+  <p class='noindent'>Consider the following equation for
+  <span class='mathjax-inline'>\(f_x(1, 2)\)</span>. <span class=
+  'mathjax-env mathjax-align*'>\begin{align*} f_x (1, 2) &amp;= \lim
+  _{h \to 0} \frac {f(1 + h, 2) - f(1, 2)}{h} \\ &amp;= \lim _{h \to
+  0} \frac {h^2 + 2h + 1 + 2h + 2 + 4 - 7}{h} \\ &amp;= \lim _{h \to
+  0} \frac {h^2 + 4h}{h} = \lim _{h \to 0} h + 4 = 4
+  \end{align*}</span></p><!-- l. 69 -->
+
+  <p class='noindent'>Therefore, <span class=
+  'mathjax-inline'>\(f_x(1, 2) = 4\)</span>.</p><!-- l. 71 -->
+
+  <p class='noindent'>For <span class='mathjax-inline'>\(f_y(1,
+  2)\)</span> let’s take a different approach. Considering
+  <span class='mathjax-inline'>\(x\)</span> as a constant and finding
+  the derivative with respect to <span class=
+  'mathjax-inline'>\(y\)</span>, we get <span class=
+  'mathjax-inline'>\(f_y = 2y\)</span>. Therefore, <span class=
+  'mathjax-inline'>\(f_y(1, 2) = 4\)</span>.</p>
+</div><!-- l. 76 -->
+
+<p class='noindent'>Before moving on to higher order partial
+derivatives, here is another very popular way of writing partial
+derivatives. <span class='mathjax-block'>\[ f_x = \frac {\partial
+f}{\partial x} \quad \text {and}\quad f_y = \frac {\partial
+f}{\partial y} \]</span> Now how do we take higher order partial
+derivative of <span class='mathjax-inline'>\(f\)</span>?</p>
+<!-- l. 85 -->
+
+<p class='noindent'>First, notice that <span class=
+'mathjax-inline'>\(f_x\)</span> and <span class=
+'mathjax-inline'>\(f_y\)</span> are the first-order partial
+derivatives of <span class='mathjax-inline'>\(f\)</span>. Using this,
+we can find the second order. <span class=
+'mathjax-env mathjax-align*'>\begin{align*} f_x &amp;\rightarrow
+(f_x)_x,\ (f_x)_y \\ f_y &amp;\rightarrow (f_y)_x,\ (f_y)_y
+\end{align*}</span></p><!-- l. 91 -->
+
+<p class='noindent'>Note that we usually suppress the parenthesis and
+just simply write <span class='mathjax-inline'>\(f_{xx}, f_{xy},
+f_{yx}, f_{yy}\)</span>. Using these, we can also find the
+third-order partial derivatives of <span class=
+'mathjax-inline'>\(f\)</span>. <span class=
+'mathjax-env mathjax-align*'>\begin{align*} f_{xx} &amp;\rightarrow
+f_{xxx},\ f_{xxy} \\ f_{xy} &amp;\rightarrow f_{xyx},\ f_{xyy} \\
+f_{yx} &amp;\rightarrow f_{yxx},\ f_{yxy} \\ f_{yy} &amp;\rightarrow
+f_{yyx},\ f_{yyy} \end{align*}</span></p><!-- l. 100 -->
+
+<p class='noindent'>As long as the resulting partial derivatives are
+differentiable, we can continue this process! Notice that if we use
+the other notation, then the order in which write the partial
+derivatives are flipped. Here is what I mean. <span class=
+'mathjax-block'>\[ f_{xyy} = \frac {\partial }{\partial y} \left (
+\frac {\partial }{\partial y} \left ( \frac {\partial f}{\partial x}
+\right ) \right ) = \frac {\partial ^3 f}{\partial y\, \partial y\,
+\partial x} \]</span> With the notation involving the partial symbol,
+we read it from right to left. Here is an example.</p>
+
+<div class='tcolorbox probstyle' id='tcolobox-3'>
+  <div class='tcolorbox-title'>
+    <!-- l. 118 -->
+
+    <p class='noindent'>Exercise&nbsp;0.1.3</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 117 -->
+
+    <p class='noindent'>Given <span class='mathjax-inline'>\(f(x, y)
+    = x^2y^3 + 2x + 3y^2\)</span>, compute <span class=
+    'mathjax-inline'>\(f_{xyy}\)</span>.</p>
+  </div>
+</div>
+
+<div class='mdframed' id='mdframed-2'>
+  <!-- l. 120 -->
+
+  <p class='noindent'><span class=
+  'pplb8t-x-x-109'>Solution.</span></p><!-- l. 120 -->
+
+  <p class='noindent'>First, notice that we need to find the partial
+  derivative of <span class='mathjax-inline'>\(f\)</span> with
+  respect to <span class='mathjax-inline'>\(x\)</span>. <span class=
+  'mathjax-block'>\[ \frac {\partial f}{\partial x} = 2xy^3 + 2
+  \]</span> Continuing, we can find the following. <span class=
+  'mathjax-block'>\[ \frac {\partial ^2}{\partial y^2} (2xy^3 + 2) =
+  \frac {\partial }{\partial y} 6xy^2 = 12xy \]</span> Therefore,
+  <span class='mathjax-inline'>\(\frac {\partial ^3 f}{\partial y^2
+  \partial x} = 12xy\)</span>.</p>
+</div><!-- l. 135 -->
+
+<p class='noindent'>Continuing, we can consider a very important
+theorem.</p>
+
+<div class='tcolorbox theostyle' id='tcolobox-4'>
+  <a id='x1-1005x0.1'></a>
+
+  <div class='tcolorbox-title'>
+    <!-- l. 141 -->
+
+    <p class='noindent'>Theorem&nbsp;0.1.4:&nbsp;Clairaut’s
+    Theorem</p>
+  </div>
+
+  <div class='tcolorbox-content'>
+    <!-- l. 138 -->
+
+    <p class='noindent'>For a function <span class=
+    'mathjax-inline'>\(f\)</span> of two variables, if <span class=
+    'mathjax-inline'>\(f_{xy}\)</span> and <span class=
+    'mathjax-inline'>\(f_{yx}\)</span> are continuous on an open set
+    <span class='mathjax-inline'>\(A\)</span>, then <span class=
+    'mathjax-inline'>\(f_{xy} = f_{yx}\)</span> for all points in
+    <span class='mathjax-inline'>\(A\)</span>.</p>
+  </div>
+</div>
+
+<p>(<a href='https://youtu.be/7vO3xPjTP_4'>Video Proof</a>)</p>
+
+<div class='mdframed' id='mdframed-3'>
+  <!-- l. 144 -->
+
+  <p class='noindent'><span class='pplri8t-x-x-109'>Proof.</span></p>
+  <!-- l. 144 -->
+
+  <p class='noindent'>The proof can be done by applying MVT two times
+  for two different cases. First, define <span class=
+  'mathjax-inline'>\(\Delta h = [f(a + h, b + h) - f(a + h, b)] -
+  [f(a, b + h) - f(a, b)]\)</span>.</p><!-- l. 148 -->
+
+  <p class='noindent'>For the first case, define <span class=
+  'mathjax-inline'>\(g(x) = f(x, b + h) - f(x, b)\)</span>. By
+  construction, it is evident that <span class=
+  'mathjax-inline'>\(g\)</span> is a single-variable function and
+  <span class='mathjax-inline'>\(\Delta h = g(a + h) - g(a)\)</span>.
+  By MVT, there exists <span class='mathjax-inline'>\(c \in (a, a +
+  h)\)</span> such that <span class='mathjax-inline'>\(g'(c) = \frac
+  {g(a + h) - g(a)}{a + h - a}\)</span>, or <span class=
+  'mathjax-inline'>\(h g'(c) = g(a + h) - g(a)\)</span>. In other
+  words, <span class='mathjax-inline'>\(\Delta h = hg'(c)\)</span>
+  for some constant <span class='mathjax-inline'>\(h\)</span> and
+  <span class='mathjax-inline'>\(c\)</span>. Continuing, notice that
+  <span class='mathjax-inline'>\(g'(c) = f_x f(c, b + h) - f_x f(c,
+  b)\)</span> by definition. Using MVT again, there exists
+  <span class='mathjax-inline'>\(d \in (b, b + h)\)</span> such that
+  <span class='mathjax-inline'>\(h f_{xy} (c, d) = g'(c)\)</span>
+  since <span class='mathjax-inline'>\(c\)</span> is a constant. In
+  other words, <span class='mathjax-inline'>\(\Delta h\)</span> can
+  be written as <span class='mathjax-inline'>\(h^2 f_{xy}\)</span>
+  and the following equation holds. <span class='mathjax-block'>\[
+  \lim _{h \to 0} \frac {\Delta h}{h^2} = \lim _{(c, d) \to (a, b)}
+  f_{xy} (c, d) = f_{xy} (a, b) \]</span> For the second case, let
+  <span class='mathjax-inline'>\(g(y) = f(a + h, y) - f(a,
+  y)\)</span>. Notice that <span class='mathjax-inline'>\(\Delta h =
+  [f(a + h, b + h) - f(a, b + h)] - [f(a + h, b) - f(a, b)] = g(b +
+  h) - g(b)\)</span>. Similarly by MVT, there exists <span class=
+  'mathjax-inline'>\(c \in (b, b + h)\)</span> such that <span class=
+  'mathjax-inline'>\(h g'(c) = g(b + h) - g(b) = \Delta h\)</span>.
+  Moreover, because <span class='mathjax-inline'>\(g'(c) = f_y (a +
+  h, c) - f_y (a, c)\)</span>, we MVT can be used again to show that
+  there exists <span class='mathjax-inline'>\(d \in (a, a +
+  h)\)</span> such that <span class='mathjax-inline'>\(h f_{yx} (d,
+  c) = g'(c)\)</span>. Therefore, <span class=
+  'mathjax-inline'>\(\Delta h\)</span> can be rewritten as
+  <span class='mathjax-inline'>\(h^2 f_{yx} (d, c)\)</span>, and the
+  following equation holds. <span class='mathjax-block'>\[ \lim _{h
+  \to 0} \frac {\Delta h}{h^2} = \lim _{(d, c) \to (a, b)} f_{yx} (d,
+  c) = f_{yx} (a, b) \]</span> Therefore, <span class=
+  'mathjax-inline'>\(f_{xy} (a, b) = f_{yx} (a, b)\)</span> for all
+  points <span class='mathjax-inline'>\((a, b)\)</span> in
+  <span class='mathjax-inline'>\(\dom (f)\)</span> and the theorem
+  holds.</p>
+</div><!-- l. 180 -->
+
+<p class='noindent'>In fact, this theorem is not limited to functions
+of two variables at all! We can simply let <span class=
+'mathjax-inline'>\(g(x_i, x_j) = f(x_1, \ldots , x_i, \ldots , x_j,
+\ldots , x_n)\)</span> and notice that <span class=
+'mathjax-inline'>\(g_{x_i x_j} = f_{x_i x_j}\)</span> and
+<span class='mathjax-inline'>\(g_{x_j x_i} = f_{x_j x_i}\)</span>.
+Because <span class='mathjax-inline'>\(g_{x_i x_j} = g_{x_j
+x_i}\)</span>, <span class='mathjax-inline'>\(f_{x_i x_j} = f_{x_j
+x_i}\)</span> for function <span class='mathjax-inline'>\(f\)</span>
+of <span class='mathjax-inline'>\(n\)</span> variables where
+<span class='mathjax-inline'>\(n &gt; 2\)</span>.</p><!-- l. 187 -->
+
+<p class='noindent'>Notice that this theorem implies that we can
+switch the order of writing <span class=
+'mathjax-inline'>\(x,y\)</span> for higher order partial derivatives.
+Meaning, all it matters is the number of <span class=
+'mathjax-inline'>\(x\)</span> and <span class=
+'mathjax-inline'>\(y\)</span> in the subscript, not their orders when
+taking higher order partials.</p>
+
+<div class='mdframed' id='mdframed-4'>
+  <!-- l. 193 -->
+
+  <p class='noindent'>Finally, for a function <span class=
+  'mathjax-inline'>\(f\)</span> of <span class=
+  'mathjax-inline'>\(n\)</span> variables, our discussion can be
+  generalized as the following. <span class='mathjax-block'>\[
+  f_{x_i} (x_1, \ldots , x_n) = \lim _{h \to 0} \frac { f(x_1, \ldots
+  , x_i + h, \ldots , x_n - f(x_1, \ldots , x_n) }{h} \]</span></p>
+</div>
