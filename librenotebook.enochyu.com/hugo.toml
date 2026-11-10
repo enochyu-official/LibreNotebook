@@ -10,8 +10,8 @@ author = "Enoch Yu"
   favicon = "/favicon/favicon.ico"
   [params.social]
     website = "https://enochyu.com/"
-    youtube = "https://www.youtube.com/@enochyu_official"
-    github = "https://github.com/enochyu-official"
+    youtube = "https://www.youtube.com/@enochness"
+    github = "https://github.com/enochness"
     blog = "https://blog.enochyu.com/"
     archive = "https://archive.enochyu.com/"
 

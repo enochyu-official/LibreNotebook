@@ -30,7 +30,7 @@ is available for downloads, and there is also a web version hosted at
 ### Contributing
 
 Contributions are very appreciated! Please read
-[CONTRIBUTING.md](https://github.com/enochyu-official/LibreNotebook/blob/main/CONTRIBUTING.md)
+[CONTRIBUTING.md](https://github.com/enochness/LibreNotebook/blob/main/CONTRIBUTING.md)
 for more information.
 
 ### License
