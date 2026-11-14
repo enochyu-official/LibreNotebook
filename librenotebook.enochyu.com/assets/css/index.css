@@ -94,6 +94,9 @@
 #index-meta {
   flex: 1;
 }
+#index-meta a:hover {
+  text-decoration: underline;
+}
 #index-cover {
   width: 120px;
   object-fit: cover;

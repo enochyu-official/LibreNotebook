@@ -10,5 +10,5 @@ out
 .hugo_build.lock
 .wrangler/
 node_modules/
-
+librenotebook.enochyu.com/public/
 
