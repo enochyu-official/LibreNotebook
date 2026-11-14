@@ -2,15 +2,11 @@
 
 cp build/main.pdf LibreNotebook.pdf
 cp LibreNotebook.pdf \
-  ~/projects/archive/archive.enochyu.com/static/LibreNotebook.pdf
+  ~/projects/archive/website/static/LibreNotebook.pdf
 
-cd ~/projects/archive/archive.enochyu.com
+cd ~/projects/archive/website
 
-rm -r public
-hugo
-
-git switch web
 git add .
-git commit -S -m "feat(web): Update LibreNotebook"
-git push origin web
+git commit -S -m "feat: Update LibreNotebook"
+git push origin main
 
